@@ -11,6 +11,8 @@ extern void sequence_TRIVIA_TYPE1();
 
 extern void sequence_TRIVIA_TYPE2();
 
+extern void sequence_TRIVIA_QUESTION();
+
 
 
 

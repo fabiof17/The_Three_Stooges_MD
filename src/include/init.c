@@ -50,6 +50,7 @@
 #include "tables_BACKGROUNDS.h"
 #include "tables_DOLLAR.h"
 #include "tables_INTRO.h"
+#include "tables_QUESTIONS.h"
 #include "tables_ROULETTE.h"
 #include "tables_TRIVIA.h"
 
@@ -147,6 +148,8 @@ void init_VARIABLES()
 
     G_STREET_TYPE               = STREET_TYPE_0;
 
+    G_TRIVIA_TYPE               = 0;
+
 
     G_HAND_SPEED                = 25;
     G_FINGER_NUMBER             = 4;
@@ -159,6 +162,9 @@ void init_VARIABLES()
 
 
     G_POS_Y_CAMERA              = 0;
+
+
+    G_QUESTION_LOCKED           = FALSE;
 
     
 
@@ -1314,7 +1320,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES  = SPR_addSprite(&tiles_SPR_STOOGES_WALK,   -96,  0, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        sprite_STOOGES  = SPR_addSprite(&tiles_SPR_STOOGES_WALK,   -96,  133, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
         sprite_ICE_CUBE = SPR_addSprite(&tiles_SPR_ICE_CUBE,       149, 23, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
         sprite_SCISSOR  = SPR_addSprite(&tiles_SPR_SCISSOR,        128,  0, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
@@ -1540,14 +1546,17 @@ void init_SCENE()
     // TRIVIA //
     else if(G_SCENE_TYPE == SCENE_TRIVIA_SELECT)
     {
-        // RANDOMLY SELECT BETWEEN : //
-        // TRIVIA TYPE 1  (14) //
-        // TRIVIA TYPE 2  (15) //
-        // TRIVIA TYPE 3  (16) //
-        u8 trivia_TYPE  = random_NUMBER(14 , 16);
+        if(G_QUESTION_LOCKED == FALSE)
+        {
+            // RANDOMLY SELECT BETWEEN : //
+            // TRIVIA TYPE 1  (14) //
+            // TRIVIA TYPE 2  (15) //
+            // TRIVIA TYPE 3  (16) //
+            u8 trivia_TYPE  = random_NUMBER(14 , 15);
 
-        // LOAD TRIVIA TYPE SCENE //
-        G_SCENE_TYPE    = trivia_TYPE;
+            // LOAD TRIVIA TYPE SCENE //
+            G_TRIVIA_TYPE    = trivia_TYPE;
+        }
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
@@ -1559,7 +1568,7 @@ void init_SCENE()
         void (*ptr_INIT_TRIVIA)(void);
 
         // SETTING POINTER ON TRIVIA INIT FUNCTION //
-        ptr_INIT_TRIVIA = TABLE_INIT_MINIGAME_TRIVIA[G_SCENE_TYPE - 14];
+        ptr_INIT_TRIVIA = TABLE_INIT_MINIGAME_TRIVIA[G_TRIVIA_TYPE - 14];
 
         // RUNNING STREET INIT FUNCTION //
         (*ptr_INIT_TRIVIA)();
@@ -1577,7 +1586,7 @@ void init_SCENE()
         SPR_setPosition(sprite_ARROW , -48 , -48);
 
         // STOOGES SPRITES OFF SCREEN //
-        SPR_setPosition(sprite_STOOGES , -96 , -64);
+        //SPR_setPosition(sprite_STOOGES , -96 , -64);
 
         SPR_update();
         SYS_doVBlankProcess();
@@ -1610,6 +1619,9 @@ void init_SCENE()
 
         G_POS_Y_CAMERA = 0;
 
+        VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+        VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
+
 
 
 
@@ -1639,6 +1651,8 @@ void init_SCENE()
         G_COUNTER_ROULETTE      = 0;
         G_CURRENT_TURN          = 9;
 
+        G_QUESTION_LOCKED       = FALSE;
+
         G_PHASE_SEQUENCE        = ROULETTE_PHASE_READY;
         
 
@@ -1663,6 +1677,116 @@ void init_SCENE()
         XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));
 
     }  
+
+    // TRIVIA CONTRACT
+    else if(G_SCENE_TYPE == SCENE_TRIVIA_QUESTION)
+    {
+        // CLEAN VRAM //
+        u16 i = 0;
+
+        for(i=16 ; i<1440 ; i++)
+        {
+            VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+        }
+
+
+
+
+        VDP_setPlaneSize(64,32,TRUE);
+        
+        SPR_init();
+        
+        VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                         BG                                           //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                   LOADING BG TILES                                   //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+        // BG_B //
+        VDP_loadTileSet(image_TRIVIA_QUESTION_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_TRIVIA_QUESTION_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_TRIVIA_QUESTION_BG_B.tileset->numTile;
+        SYS_doVBlankProcess();
+
+        // BG_B //
+        VDP_loadTileSet(image_TRIVIA_QUESTION_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+        VDP_setTileMapEx(BG_A, image_TRIVIA_QUESTION_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+        G_ADR_VRAM_QUESTION = G_ADR_VRAM_BG_A + image_TRIVIA_QUESTION_BG_A.tileset->numTile; 
+        SYS_doVBlankProcess();
+
+        // LOAD QUESTION TILESET //
+        VDP_loadTileSet(TABLE_QUESTIONS[G_SELECTED_QUESTION].ptr_IMAGE_QUESTION->tileset, G_ADR_VRAM_QUESTION, CPU);
+
+        // DISPLAY QUESTION //
+        VDP_setTileMapEx(BG_B, TABLE_QUESTIONS[G_SELECTED_QUESTION].ptr_IMAGE_QUESTION->tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_QUESTION), 6, 13, 0, 0, 29, 3, CPU);
+
+        // DISPLAY ANSWERS //
+        VDP_setTileMapEx(BG_B, TABLE_QUESTIONS[G_SELECTED_QUESTION].ptr_IMAGE_QUESTION->tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_QUESTION), 6, 18, 0, 4, 29, 3, CPU);
+
+
+        G_POS_Y_CAMERA = 0;
+
+        VDP_setVerticalScroll(BG_B , G_POS_Y_CAMERA);
+        VDP_setVerticalScroll(BG_A , G_POS_Y_CAMERA);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       PALETTES                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        memcpy( &palette_64[0]  , image_TRIVIA_QUESTION_BG_B.palette->data      , 16 * 2 );
+        memcpy( &palette_64[16] , image_TRIVIA_QUESTION_BG_A.palette->data      , 16 * 2 );
+        memcpy( &palette_64[32] , palette_BLACK.data                            , 16 * 2 );
+        memcpy( &palette_64[48] , palette_BLACK.data                            , 16 * 2 );
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       VARIABLES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_1             = 0;
+        G_INDEX_1               = 0;
+        G_INDEX_2               = 0;
+        G_INDEX_3               = 0;
+        
+
+        G_SCENE                 = SCENE_FADE_IN;
+        G_SCENE_TYPE            = SCENE_TRIVIA_QUESTION;
+        G_SCENE_NEXT            = SCENE_TRIVIA_QUESTION;
+
+        G_SCENE_LOADED          = TRUE;
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         AUDIO                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+    }
 
     // REWARD //
     else if(G_SCENE_TYPE == SCENE_REWARD)
@@ -1896,6 +2020,10 @@ void init_SCENE()
 
         // GENERATE NEXT POSITION IN HIGHSTREET //
         G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+
+
+
+        SPR_setPosition(sprite_STOOGES,-96,0);
 
 
 

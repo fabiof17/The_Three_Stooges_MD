@@ -304,8 +304,8 @@ int main(bool hardReset)
                 // TRIVIA MINIGAME TYPE 2 //
                 else if(G_SCENE == SCENE_TRIVIA_MINIGAME_TYPE2)
                 {
-                    //JOY_setEventHandler(trivia_Callback);
-                    //joypad_TRIVIA();
+                    JOY_setEventHandler(trivia_Callback);
+                    joypad_TRIVIA();
 
                     sequence_TRIVIA_TYPE2();
                     
@@ -313,10 +313,10 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
-                // TRIVIA MINIGAME TYPE 1 //
-                else if(G_SCENE == SCENE_TRIVIA_MINIGAME_TYPE3)
+                // TRIVIA CONTRACT
+                else if(G_SCENE == SCENE_TRIVIA_QUESTION)
                 {
-                    //sequence_TRIVIA_TYPE1();
+                    sequence_TRIVIA_QUESTION();
                     
                     SPR_update();
                     SYS_doVBlankProcess();

@@ -8,7 +8,7 @@ extern const struct_WALK_STOOGES_      TABLE_ANIM_STOOGES_WALKIN_TRIVIA_TYPE1[29
 
 extern const struct_WALK_STOOGES_      TABLE_ANIM_STOOGES_WALKIN_TRIVIA_TYPE2[29];
 
-extern void (*TABLE_INIT_MINIGAME_TRIVIA[4])(void);
+extern void (*TABLE_INIT_MINIGAME_TRIVIA[2])(void);
 
 
 

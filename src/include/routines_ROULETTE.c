@@ -38,6 +38,9 @@ void fadeOut_ROULETTE()
     // RELEASE ALL SPRITES //
     SPR_reset();
 
+    // RANDOM QUESTION //
+    G_SELECTED_QUESTION = random_NUMBER(0,6);
+
     G_PHASE_SEQUENCE = 0;
 
     // DEFINE NEXT MINIGAME //

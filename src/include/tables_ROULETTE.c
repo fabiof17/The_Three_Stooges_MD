@@ -60,7 +60,7 @@ const u8        TABLE_MINIGAMES[10]     =       {
 
 
 const u8        TABLE_HIGHSTREET[122]   =   {
-                                                ICON_BOXING,//ICON_BOXING
+                                                ICON_TRIVIA,//ICON_BOXING
                                                 ICON_SLAP,
                                                 ICON_QUESTION,
                                                 ICON_SWATTER,
@@ -241,7 +241,7 @@ const u8        TABLE_HAND_MOVE[30][10]     =   {
 
 
 const u8                TABLE_ANIM_STOOGE_ROULETTE[10]  =   {
-                                                                18,
+                                                                17,
                                                                 17,
                                                                 18,
                                                                 17,

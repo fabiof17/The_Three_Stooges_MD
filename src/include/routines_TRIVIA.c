@@ -533,12 +533,33 @@ void sequence_TRIVIA_TYPE2()
             }
         }
 
-        else if(G_COUNTER_1 == 510)
+        if(G_COUNTER_1 == 711)
         {
             G_COUNTER_1 = 0;
             G_INDEX_3   = 0;
 
             G_PHASE_SEQUENCE = TRIVIA_PHASE_TURN_BACK;
+
+            // FADE OUT : 40 FRAMES //
+            PAL_fadeOutAll(40,FALSE);
+
+            // RESET SCROLLING //
+            VDP_setVerticalScroll(BG_B , 0);
+            VDP_setVerticalScroll(BG_A , 0);
+
+            // CLEAR PLANES //
+            VDP_clearPlane(BG_B,TRUE);
+            VDP_clearPlane(BG_A,TRUE);
+
+            // RELEASE ALL SPRITES //
+            SPR_reset();
+
+            // DEFINE NEXT MINIGAME //
+            G_SCENE         = SCENE_FADE_IN;
+            G_SCENE_TYPE    = SCENE_TRIVIA_QUESTION;
+            G_SCENE_NEXT    = SCENE_TRIVIA_QUESTION;
+
+            G_SCENE_LOADED  = FALSE;
 
             return;
         }
@@ -549,7 +570,9 @@ void sequence_TRIVIA_TYPE2()
     // STOOGES TURN BACK //
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_TURN_BACK)
     {
-        //
+        G_QUESTION_LOCKED = FALSE;
+
+        G_PHASE_SEQUENCE = TRIVIA_PHASE_ANIM_ANSWERS;
     }
 
     // ANIM ANSWERS //
@@ -689,6 +712,45 @@ void sequence_TRIVIA_TYPE2()
         
         G_COUNTER_1 += 1;
     }
+}
+
+
+void sequence_TRIVIA_QUESTION()
+{
+    if(G_COUNTER_1 == 60)
+    {
+        G_COUNTER_1 = 0;
+        G_INDEX_3   = 0;
+
+        // FADE OUT : 40 FRAMES //
+        PAL_fadeOutAll(40,FALSE);
+
+        // RESET SCROLLING //
+        VDP_setVerticalScroll(BG_B , 0);
+        VDP_setVerticalScroll(BG_A , 0);
+
+        // CLEAR PLANES //
+        VDP_clearPlane(BG_B,TRUE);
+        VDP_clearPlane(BG_A,TRUE);
+
+        // RELEASE ALL SPRITES //
+        SPR_reset();
+
+        G_PHASE_SEQUENCE = TRIVIA_PHASE_TURN_BACK;
+
+        G_QUESTION_LOCKED = TRUE;
+
+        // DEFINE NEXT MINIGAME //
+        G_SCENE         = SCENE_FADE_IN;
+        G_SCENE_TYPE    = SCENE_TRIVIA_SELECT;
+        G_SCENE_NEXT    = SCENE_TRIVIA_SELECT;
+
+        G_SCENE_LOADED  = FALSE;
+
+        return;
+    }
+    
+    G_COUNTER_1 += 1;
 }
 
 

@@ -69,9 +69,11 @@
 #define SCENE_TRIVIA_MINIGAME_TYPE1     14
 #define SCENE_TRIVIA_MINIGAME_TYPE2     15
 #define SCENE_TRIVIA_MINIGAME_TYPE3     16
+#define SCENE_TRIVIA_QUESTION           17
 
-#define SCENE_REWARD_QUESTION_MARK      17
 #define SCENE_REWARD                    18
+#define SCENE_REWARD_QUESTION_MARK      19
+
 
 #define SCENE_CONTRACT_WAITERS          20
 
@@ -338,6 +340,10 @@ extern u16 G_ADR_VRAM_DIALOG;
 extern u16 G_ADR_VRAM_QUESTION;
 
 extern bool G_STATUS_MISSION;
+
+extern bool G_QUESTION_LOCKED;
+
+extern u8 G_TRIVIA_TYPE;
 
 
 

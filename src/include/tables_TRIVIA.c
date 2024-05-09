@@ -164,6 +164,7 @@ void init_TRIVIA_MINIGAME_TYPE1()
     // RANDOM QUESTION //
     G_SELECTED_QUESTION = random_NUMBER(0,6);
 
+    // LOAD QUESTION TILESET //
     VDP_loadTileSet(TABLE_QUESTIONS[G_SELECTED_QUESTION].ptr_IMAGE_QUESTION->tileset, G_ADR_VRAM_QUESTION, CPU);
     G_ADR_VRAM_HUB = G_ADR_VRAM_QUESTION + TABLE_QUESTIONS[G_SELECTED_QUESTION].ptr_IMAGE_QUESTION->tileset->numTile;
 
@@ -206,6 +207,9 @@ void init_TRIVIA_MINIGAME_TYPE1()
     sprite_ANSWER_A = SPR_addSprite(&tiles_SPR_ANSWER_A,  -48, -48, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
     sprite_ANSWER_B = SPR_addSprite(&tiles_SPR_ANSWER_B,  -48, -48, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
     sprite_ANSWER_C = SPR_addSprite(&tiles_SPR_ANSWER_C,  -48, -48, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+
+    // STOOGES SPRITES //
+    SPR_setPosition(sprite_STOOGES , -96 , -64);
 
     SPR_update();
 
@@ -317,9 +321,6 @@ void init_TRIVIA_MINIGAME_TYPE2()
     VDP_loadTileSet(image_TRIVIA_TYPE1_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
     G_ADR_VRAM_QUESTION = G_ADR_VRAM_DIALOG + image_TRIVIA_TYPE1_DIALOG.tileset->numTile;
 
-    // RANDOM QUESTION //
-    G_SELECTED_QUESTION = random_NUMBER(0,6);
-
     VDP_loadTileSet(TABLE_QUESTIONS[G_SELECTED_QUESTION].ptr_IMAGE_QUESTION->tileset, G_ADR_VRAM_QUESTION, CPU);
     G_ADR_VRAM_HUB = G_ADR_VRAM_QUESTION + TABLE_QUESTIONS[G_SELECTED_QUESTION].ptr_IMAGE_QUESTION->tileset->numTile;
 
@@ -341,15 +342,26 @@ void init_TRIVIA_MINIGAME_TYPE2()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    // GENERATE NEXT POSITION IN HIGHSTREET //
-    G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+    // IF WE ALREADY SAW THE QUESTION SCREEN //
+    if(G_PHASE_SEQUENCE == TRIVIA_PHASE_TURN_BACK)
+    {
+        // GENERATE NEXT POSITION IN HIGHSTREET //
+        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+    }
 
     init_HUB();
 
-    // ??????????????????????
+    // IF WE ALREADY SAW THE QUESTION SCREEN //
     if(G_PHASE_SEQUENCE == TRIVIA_PHASE_TURN_BACK)
+    {      
+        // SET THE STOOGES TO LOOK THROUGH THE FENCE //
+        SPR_setPosition(sprite_STOOGES,114,133);
+        SPR_setFrame(sprite_STOOGES,35);
+    }
+
+    else
     {
-        SPR_setFrame(sprite_STOOGES,0);
+        SPR_setPosition(sprite_STOOGES , -96 , -64);
     }
 
 
@@ -365,9 +377,9 @@ void init_TRIVIA_MINIGAME_TYPE2()
     sprite_ARROW_DIALOG = SPR_addSprite(&tiles_SPR_DIALOG1,  -40, -40, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
 
     // ANSWER SPRITES //
-    sprite_ANSWER_A = SPR_addSprite(&tiles_SPR_ANSWER_A,  -48, -48, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
-    sprite_ANSWER_B = SPR_addSprite(&tiles_SPR_ANSWER_B,  -48, -48, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
-    sprite_ANSWER_C = SPR_addSprite(&tiles_SPR_ANSWER_C,  -48, -48, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+    sprite_ANSWER_A = SPR_addSprite(&tiles_SPR_ANSWER_A,  -48, -48, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+    sprite_ANSWER_B = SPR_addSprite(&tiles_SPR_ANSWER_B,  -48, -48, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+    sprite_ANSWER_C = SPR_addSprite(&tiles_SPR_ANSWER_C,  -48, -48, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
 
     SPR_update();
 
@@ -399,7 +411,7 @@ void init_TRIVIA_MINIGAME_TYPE2()
 
     G_REWARD                = 500;
 
-    //G_PHASE_SEQUENCE        = TRIVIA_PHASE_WALKIN;
+    //G_QUESTION_LOCKED       = TRUE;
 
     G_STREET_TYPE           = STREET_TYPE_TRIVIA_2;
   
@@ -412,168 +424,14 @@ void init_TRIVIA_MINIGAME_TYPE2()
 }
 
 
-void init_TRIVIA_MINIGAME_TYPE4()
-{
-    // CLEAN VRAM //
-    u16 i = 0;
-
-    for(i=16 ; i<1440 ; i++)
-    {
-        VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
-    }
-
-
-
-
-    VDP_setPlaneSize(64,32,TRUE);
-    
-    SPR_initEx(200);
-    
-    VDP_setHilightShadow(FALSE);
-
-
-
-
-    //**************************************************************************************//
-    //                                                                                      //
-    //                                         BG                                           //
-    //                                                                                      //
-    //**************************************************************************************//
-
-    VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, CPU);
-
-
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                   LOADING BG TILES                                   //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
-    G_ADR_VRAM_BG_B = TILE_USER_INDEX;
-
-    // BG_B //
-    VDP_loadTileSet(image_TRIVIA_MINIGAME_TYPE1_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
-    VDP_setTileMapEx(BG_B, image_TRIVIA_MINIGAME_TYPE1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
-    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_TRIVIA_MINIGAME_TYPE1_BG_B.tileset->numTile;
-    SYS_doVBlankProcess();
-
-    // BG_B //
-    VDP_loadTileSet(image_TRIVIA_MINIGAME_TYPE1_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
-    VDP_setTileMapEx(BG_A, image_TRIVIA_MINIGAME_TYPE1_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
-    SYS_doVBlankProcess();
-
-
-
-
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                      PRINT TEXT                                      //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
-    // REWARD AMOUNT //
-    /*if(G_REWARD < 10)
-    {
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_REWARD), 26 , 9 , 0, 0, 1, 1, CPU);
-    }
-
-    else if(G_REWARD < 100)
-    {
-        u8 number1 = G_REWARD / 10;
-        u8 number2 = G_REWARD - (number1*10);
-
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 26 , 9 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 27 , 9 , 0, 0, 1, 1, CPU);
-    }
-
-    else if(G_REWARD < 1000)
-    {
-        u8 number1 = G_REWARD / 100;
-        u8 number2 = (G_REWARD - (number1*100)) / 10;
-        u8 number3 = G_REWARD - (number1*100) - (number2*10);
-
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 26 , 9 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 27 , 9 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number3), 28 , 9 , 0, 0, 1, 1, CPU);
-    }
-
-    else
-    {
-        u8 number1 = G_REWARD / 1000;
-        u8 number2 = (G_REWARD - (number1*1000)) / 100;
-        u8 number3 = (G_REWARD - (number1*1000) - (number2*100)) / 10;
-        u8 number4 = G_REWARD - (number1*1000) - (number2*100) - (number3*10);
-
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 26 , 9 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 27 , 9 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number3), 28 , 9 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number4), 29 , 9 , 0, 0, 1, 1, CPU);
-    }*/
-
-
-
-    VDP_setVerticalScroll(BG_B , 0);
-    VDP_setVerticalScroll(BG_A , 0);
 
 
 
 
 
-
-
-
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                       PALETTES                                       //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
-    memcpy( &palette_64[0]  , image_TRIVIA_MINIGAME_TYPE1_BG_B.palette->data      , 16 * 2 );
-    memcpy( &palette_64[16] , image_TRIVIA_MINIGAME_TYPE1_BG_A.palette->data      , 16 * 2 );
-    memcpy( &palette_64[32] , palette_BLACK.data                            , 16 * 2 );
-    memcpy( &palette_64[48] , palette_BLACK.data                            , 16 * 2 );
-
-
-
-
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                       VARIABLES                                      //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
-    G_COUNTER_1             = 0;
-    G_INDEX_1               = 0;
-    G_INDEX_2               = 0;
-    G_INDEX_3               = 0;
-    
-
-    G_SCENE                 = SCENE_FADE_IN;
-    G_SCENE_TYPE            = SCENE_TRIVIA_MINIGAME_TYPE2;
-    G_SCENE_NEXT            = SCENE_TRIVIA_MINIGAME_TYPE2;
-
-    G_SCENE_LOADED          = TRUE;
-
-
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                         AUDIO                                        //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-    
-}
-
-
-
-
-
-
-
-void (*TABLE_INIT_MINIGAME_TRIVIA[4])(void)     =   {
-                                                        init_TRIVIA_MINIGAME_TYPE1,
+void (*TABLE_INIT_MINIGAME_TRIVIA[2])(void)     =   {
                                                         init_TRIVIA_MINIGAME_TYPE2,
-                                                        init_TRIVIA_MINIGAME_TYPE1,
-                                                        init_TRIVIA_MINIGAME_TYPE1
+                                                        init_TRIVIA_MINIGAME_TYPE2
                                                     };
 
 
