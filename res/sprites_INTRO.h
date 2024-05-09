@@ -1,0 +1,26 @@
+#ifndef _RES_SPRITES_INTRO_H_
+#define _RES_SPRITES_INTRO_H_
+
+extern const SpriteDefinition tiles_SPR_0_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_1_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_2_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_3_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_4_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_5_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_6_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_7_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_8_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_9_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_10_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_11_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_12_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_13_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_DEFENDER_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_OF_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_THE_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_CROWN_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_BANKER_PART1;
+extern const SpriteDefinition tiles_SPR_BANKER_PART2;
+extern const SpriteDefinition tiles_SPR_TEST;
+
+#endif // _RES_SPRITES_INTRO_H_

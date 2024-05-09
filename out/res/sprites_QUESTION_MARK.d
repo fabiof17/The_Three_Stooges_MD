@@ -1,0 +1,4 @@
+out/res/sprites_QUESTION_MARK.o: res/sprites_QUESTION_MARK.res \
+E:/RECALBOX/07_DEV/07_THREE\ STOOGES/04_CODE/01_SGDK/THREE_STOOGES/res/sprites/question_mark/tiles_SPR_SCISSOR.png \
+E:/RECALBOX/07_DEV/07_THREE\ STOOGES/04_CODE/01_SGDK/THREE_STOOGES/res/sprites/question_mark/tiles_SPR_ICE_CUBE.png \
+E:/RECALBOX/07_DEV/07_THREE\ STOOGES/04_CODE/01_SGDK/THREE_STOOGES/res/sprites/question_mark/tiles_SPR_ICE_CUBE_SHADOW.png

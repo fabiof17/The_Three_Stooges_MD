@@ -1,0 +1,21 @@
+#ifndef _RES_MAPS_INTRO_H_
+#define _RES_MAPS_INTRO_H_
+
+extern const Image image_INTRO_SCREEN_1_BG_B;
+extern const Image image_INTRO_SCREEN_2_BG_B;
+extern const Image image_INTRO_SCREEN_2_BG_A;
+extern const Image image_INTRO_SCREEN_2_BG_A1;
+extern const Image image_INTRO_SCREEN_2_BG_A2;
+extern const Image image_INTRO_SCREEN_2_BG_A3;
+extern const Image image_INTRO_SCREEN_3_BG_B;
+extern const Image image_INTRO_SCREEN_3_BG_A;
+extern const Image image_INTRO_SCREEN_7_BG_B;
+extern const Image image_INTRO_SCREEN_7_BG_A;
+extern const Image image_GRANDMA_INTRO_BG_B_STEP0;
+extern const Image image_GRANDMA_INTRO_BG_B_STEP1;
+extern const Image image_GRANDMA_INTRO_BG_B_STEP2;
+extern const Image image_GRANDMA_INTRO_BG_A_STEP0;
+extern const Image image_GRANDMA_INTRO_BG_A_STEP1;
+extern const Image image_GRANDMA_INTRO_BG_A_STEP2;
+
+#endif // _RES_MAPS_INTRO_H_
