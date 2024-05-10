@@ -842,8 +842,8 @@ void init_SCENE()
         // GENERATE NEXT POSITION IN HIGHSTREET //
         G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
-        // 1 DAY SPENT //
-        //G_DAY += 1;
+        //G_COUNTER_ROULETTE      = 0;
+        //G_CURRENT_TURN          = 9;
 
         init_HUB();
 
@@ -897,6 +897,10 @@ void init_SCENE()
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
+
+
+        G_COUNTER_ROULETTE      = 0;
+        G_CURRENT_TURN          = 9;
 
 
         G_PHASE_SEQUENCE        = BANKER_PHASE_WALKIN;
@@ -1357,6 +1361,10 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
+        //G_COUNTER_ROULETTE      = 0;
+        //G_CURRENT_TURN          = 9;
+
+
         G_REWARD                = 250;
 
 
@@ -1450,6 +1458,9 @@ void init_SCENE()
         // GENERATE NEXT POSITION IN HIGHSTREET //
         G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
+        //G_COUNTER_ROULETTE      = 0;
+        //G_CURRENT_TURN          = 9;
+
         // 1 DAY SPENT //
         G_DAY += 1;
 
@@ -1524,7 +1535,8 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
-        //G_STREET_TYPE           = STREET_TYPE_SLAP;
+        G_COUNTER_ROULETTE      = 0;
+        G_CURRENT_TURN          = 9;
        
 
         G_SCENE                 = SCENE_FADE_IN;
@@ -1585,11 +1597,25 @@ void init_SCENE()
         // ARROW SPRITE OFF SCREEN //
         SPR_setPosition(sprite_ARROW , -48 , -48);
 
-        // STOOGES SPRITES OFF SCREEN //
-        //SPR_setPosition(sprite_STOOGES , -96 , -64);
-
         SPR_update();
         SYS_doVBlankProcess();
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       VARIABLES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_1             = 0;
+        G_INDEX_1               = 0;
+        G_INDEX_2               = 0;
+        G_INDEX_3               = 0;
+
+
+        //G_COUNTER_ROULETTE      = 0;
+        //G_CURRENT_TURN          = 9;
+
+        G_REWARD                = 500;
     }
 
     // WAITERS //

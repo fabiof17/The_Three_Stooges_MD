@@ -41,6 +41,9 @@ void fadeOut_ROULETTE()
     // RANDOM QUESTION //
     G_SELECTED_QUESTION = random_NUMBER(0,6);
 
+    G_COUNTER_ROULETTE      = 0;
+    G_CURRENT_TURN          = 9;
+
     G_PHASE_SEQUENCE = 0;
 
     // DEFINE NEXT MINIGAME //

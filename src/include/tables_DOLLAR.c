@@ -144,7 +144,6 @@ void init_DOLLAR_TYPE1()
 
     
     G_ADR_VRAM_HUB = G_ADR_VRAM_DIALOG + image_DOLLAR_DIALOG.tileset->numTile + TABLE_DOLLAR_REWARD_IMAGE[generated_number]->tileset->numTile;
-    //SYS_doVBlankProcess();
 
 
     G_POS_Y_CAMERA = 224;
@@ -170,6 +169,10 @@ void init_DOLLAR_TYPE1()
 
     memcpy( &palette_64[0]  , image_DOLLAR_1_BG_B.palette->data         , 16 * 2 );
     memcpy( &palette_64[16] , palette_SPR_BANKER_PART2_INTRO.data       , 16 * 2 );
+
+
+    //G_COUNTER_ROULETTE      = 0;
+    //G_CURRENT_TURN          = 9;
 
 }
 
@@ -265,6 +268,10 @@ void init_DOLLAR_TYPE2()
     memcpy( &palette_64[0]  , image_DOLLAR_2_BG_B.palette->data         , 16 * 2 );
     memcpy( &palette_64[16] , palette_SPR_BANKER_PART2_INTRO.data       , 16 * 2 );
 
+
+    //G_COUNTER_ROULETTE      = 0;
+    //G_CURRENT_TURN          = 9;
+
 }
 
 
@@ -332,7 +339,7 @@ void init_DOLLAR_TYPE3()
 
     
     G_ADR_VRAM_HUB = G_ADR_VRAM_DIALOG + image_DOLLAR_DIALOG.tileset->numTile + TABLE_DOLLAR_REWARD_IMAGE[generated_number]->tileset->numTile;
-    //SYS_doVBlankProcess();
+
 
 
     G_POS_Y_CAMERA = 224;
@@ -358,6 +365,10 @@ void init_DOLLAR_TYPE3()
 
     memcpy( &palette_64[0]  , image_DOLLAR_3_BG_B.palette->data         , 16 * 2 );
     memcpy( &palette_64[16] , palette_SPR_BANKER_PART2_INTRO.data       , 16 * 2 );
+
+
+    //G_COUNTER_ROULETTE      = 0;
+    //G_CURRENT_TURN          = 9;
 
 }
 

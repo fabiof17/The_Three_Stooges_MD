@@ -717,7 +717,7 @@ void sequence_TRIVIA_TYPE2()
 
 void sequence_TRIVIA_QUESTION()
 {
-    if(G_COUNTER_1 == 60)
+    if(G_COUNTER_1 == 360)
     {
         G_COUNTER_1 = 0;
         G_INDEX_3   = 0;

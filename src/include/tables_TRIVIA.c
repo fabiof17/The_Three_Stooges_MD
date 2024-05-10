@@ -162,7 +162,7 @@ void init_TRIVIA_MINIGAME_TYPE1()
     G_ADR_VRAM_QUESTION = G_ADR_VRAM_DIALOG + image_TRIVIA_TYPE1_DIALOG.tileset->numTile;
 
     // RANDOM QUESTION //
-    G_SELECTED_QUESTION = random_NUMBER(0,6);
+    //G_SELECTED_QUESTION = random_NUMBER(0,6);
 
     // LOAD QUESTION TILESET //
     VDP_loadTileSet(TABLE_QUESTIONS[G_SELECTED_QUESTION].ptr_IMAGE_QUESTION->tileset, G_ADR_VRAM_QUESTION, CPU);
@@ -234,13 +234,9 @@ void init_TRIVIA_MINIGAME_TYPE1()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_COUNTER_1             = 0;
-    G_INDEX_1               = 0;
-    G_INDEX_2               = 0;
-    G_INDEX_3               = 0;
-
-    G_REWARD                = 500;
-
+    //G_COUNTER_ROULETTE      = 0;
+    //G_CURRENT_TURN          = 9;
+    
     G_PHASE_SEQUENCE        = TRIVIA_PHASE_WALKIN;
 
     G_STREET_TYPE           = STREET_TYPE_TRIVIA_1;
@@ -321,6 +317,7 @@ void init_TRIVIA_MINIGAME_TYPE2()
     VDP_loadTileSet(image_TRIVIA_TYPE1_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
     G_ADR_VRAM_QUESTION = G_ADR_VRAM_DIALOG + image_TRIVIA_TYPE1_DIALOG.tileset->numTile;
 
+    // LOAD QUESTION TILESET //
     VDP_loadTileSet(TABLE_QUESTIONS[G_SELECTED_QUESTION].ptr_IMAGE_QUESTION->tileset, G_ADR_VRAM_QUESTION, CPU);
     G_ADR_VRAM_HUB = G_ADR_VRAM_QUESTION + TABLE_QUESTIONS[G_SELECTED_QUESTION].ptr_IMAGE_QUESTION->tileset->numTile;
 
@@ -404,14 +401,8 @@ void init_TRIVIA_MINIGAME_TYPE2()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_COUNTER_1             = 0;
-    G_INDEX_1               = 0;
-    G_INDEX_2               = 0;
-    G_INDEX_3               = 0;
-
-    G_REWARD                = 500;
-
-    //G_QUESTION_LOCKED       = TRUE;
+    //G_COUNTER_ROULETTE      = 0;
+    //G_CURRENT_TURN          = 9;
 
     G_STREET_TYPE           = STREET_TYPE_TRIVIA_2;
   
@@ -430,7 +421,7 @@ void init_TRIVIA_MINIGAME_TYPE2()
 
 
 void (*TABLE_INIT_MINIGAME_TRIVIA[2])(void)     =   {
-                                                        init_TRIVIA_MINIGAME_TYPE2,
+                                                        init_TRIVIA_MINIGAME_TYPE1,
                                                         init_TRIVIA_MINIGAME_TYPE2
                                                     };
 

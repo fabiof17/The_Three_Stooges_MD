@@ -13,7 +13,7 @@
 
 
 const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
-                                                                { &image_QUESTION_0 , 0 }, // THE STTOGES DRESSED UP AS BALLET DANCERS ON WHAT SHOW ?
+                                                                { &image_QUESTION_0 , 0 }, // THE STOOGES DRESSED UP AS BALLET DANCERS ON WHAT SHOW ?
                                                                 { &image_QUESTION_1 , 2 }, // IN THE YEAR 1935, HOW MANY SHORTS DID THE STOOGES MAKE ?
                                                                 { &image_QUESTION_2 , 2 }, // HOW MANY FILMS DID THE STOOGES DO WITH TED HEALY ?
                                                                 { &image_QUESTION_3 , 1 }, // WHICH STOOGES PERFORMED IN A MUSICAL ACT ?
