@@ -33,7 +33,12 @@
 
 void init_STREET_BEGINNIG()
 {
-    // CLEAN VRAM //
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      CLEAN VRAM                                      //
+    //                                                                                      //
+    //**************************************************************************************//
+
     u16 i = 0;
 
     for(i=16 ; i<1440 ; i++)
@@ -43,6 +48,12 @@ void init_STREET_BEGINNIG()
 
 
 
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
     
@@ -55,7 +66,7 @@ void init_STREET_BEGINNIG()
 
     //**************************************************************************************//
     //                                                                                      //
-    //                                        FONT                                          //
+    //                                   ROULETTE FONT                                      //
     //                                                                                      //
     //**************************************************************************************//
 
@@ -70,27 +81,39 @@ void init_STREET_BEGINNIG()
     //                                                                                      //
     //**************************************************************************************//
 
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                   LOADING BG TILES                                   //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
     G_ADR_VRAM_BG_B = TILE_USER_INDEX;
 
-    // BG_B //
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     VDP_loadTileSet(image_STREET_0_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_STREET_0_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_STREET_0_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 28, 0, 0, 40, 28, CPU);
-    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_STREET_0_BG_B.tileset->numTile;
-    SYS_doVBlankProcess();
+    
 
-    // BG_A //
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_A                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_STREET_0_BG_B.tileset->numTile;
     VDP_loadTileSet(image_STREET_0_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
     VDP_setTileMapEx(BG_A, image_STREET_0_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_A, image_STREET_0_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 28, 0, 0, 40, 28, CPU);
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
     G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_STREET_0_BG_A.tileset->numTile;
-    SYS_doVBlankProcess();
    
 
 
@@ -123,7 +146,12 @@ void init_STREET_BEGINNIG()
 
 void init_STREET_TRIVIA_TYPE1()
 {
-    // CLEAN VRAM //
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      CLEAN VRAM                                      //
+    //                                                                                      //
+    //**************************************************************************************//
+
     u16 i = 0;
 
     for(i=16 ; i<1440 ; i++)
@@ -133,6 +161,12 @@ void init_STREET_TRIVIA_TYPE1()
 
 
 
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
     
@@ -145,7 +179,7 @@ void init_STREET_TRIVIA_TYPE1()
 
     //**************************************************************************************//
     //                                                                                      //
-    //                                         BG                                           //
+    //                                   ROULETTE FONT                                      //
     //                                                                                      //
     //**************************************************************************************//
 
@@ -160,30 +194,41 @@ void init_STREET_TRIVIA_TYPE1()
     //                                                                                      //
     //**************************************************************************************//
 
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                   LOADING BG TILES                                   //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
     G_ADR_VRAM_BG_B = TILE_USER_INDEX;
 
-    // BG_B //
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     VDP_loadTileSet(image_TRIVIA_TYPE1_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_TRIVIA_TYPE1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_TRIVIA_TYPE1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
-    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_TRIVIA_TYPE1_BG_B.tileset->numTile;
     
+    
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_A                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
 
-    // BG_B //
+    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_TRIVIA_TYPE1_BG_B.tileset->numTile;
     VDP_loadTileSet(image_TRIVIA_TYPE1_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
     VDP_setTileMapEx(BG_A, image_TRIVIA_TYPE1_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_A, image_TRIVIA_TYPE1_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  28, 0, 0, 40, 28, CPU);
-    G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_TRIVIA_TYPE1_BG_A.tileset->numTile;
-
-
-    G_POS_Y_CAMERA = 0;
     
+    
+    
+    
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_TRIVIA_TYPE1_BG_A.tileset->numTile;
+  
 
 
 
@@ -211,7 +256,12 @@ void init_STREET_TRIVIA_TYPE1()
 
 void init_STREET_TRIVIA_TYPE2()
 {
-    // CLEAN VRAM //
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      CLEAN VRAM                                      //
+    //                                                                                      //
+    //**************************************************************************************//
+
     u16 i = 0;
 
     for(i=16 ; i<1440 ; i++)
@@ -221,6 +271,12 @@ void init_STREET_TRIVIA_TYPE2()
 
 
 
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
     
@@ -233,7 +289,7 @@ void init_STREET_TRIVIA_TYPE2()
 
     //**************************************************************************************//
     //                                                                                      //
-    //                                         BG                                           //
+    //                                   ROULETTE FONT                                      //
     //                                                                                      //
     //**************************************************************************************//
 
@@ -248,43 +304,55 @@ void init_STREET_TRIVIA_TYPE2()
     //                                                                                      //
     //**************************************************************************************//
 
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                   LOADING BG TILES                                   //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
     G_ADR_VRAM_BG_B = TILE_USER_INDEX;
 
-    // BG_B //
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     VDP_loadTileSet(image_TRIVIA_TYPE2_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_TRIVIA_TYPE2_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_TRIVIA_TYPE2_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
-    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_TRIVIA_TYPE2_BG_B.tileset->numTile;
+    
 
-    // BG_A //
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_A                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_TRIVIA_TYPE2_BG_B.tileset->numTile;
     VDP_loadTileSet(image_TRIVIA_TYPE2_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
     VDP_setTileMapEx(BG_A, image_TRIVIA_TYPE2_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_A, image_TRIVIA_TYPE2_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  28, 0, 0, 40, 28, CPU);   
+ 
+    
+    
+    
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_TRIVIA_TYPE2_BG_A.tileset->numTile;
     
 
-    VDP_setVerticalScroll(BG_B,224);
-    VDP_setVerticalScroll(BG_A,224);
-
-
-    SYS_doVBlankProcess();
-
-
 
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
-    //                                       INIT HUB                                       //
+    //                                SETUP PLANES POSITION                                 //
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    //init_HUB();
+    //G_POS_Y_CAMERA = 224;
+
+
+    //VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+    //VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
 
 
 
@@ -327,89 +395,99 @@ void init_STREET_TRIVIA_TYPE2()
 
 void init_STREET_QUESTION_MARK()
 {
-        // CLEAN VRAM //
-        u16 i = 0;
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      CLEAN VRAM                                      //
+    //                                                                                      //
+    //**************************************************************************************//
 
-        for(i=16 ; i<1440 ; i++)
-        {
-            VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
-        }
+    u16 i = 0;
 
-
-
-
-        VDP_setPlaneSize(64,64,TRUE);
-        
-        SPR_init();
-        
-        VDP_setHilightShadow(FALSE);
+    for(i=16 ; i<1440 ; i++)
+    {
+        VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+    }
 
 
 
 
-        //**************************************************************************************//
-        //                                                                                      //
-        //                                         BG                                           //
-        //                                                                                      //
-        //**************************************************************************************//
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
 
-        VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, CPU);
-
-
-
-
-        //**************************************************************************************//
-        //                                                                                      //
-        //                                         BG                                           //
-        //                                                                                      //
-        //**************************************************************************************//
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                   LOADING BG TILES                                   //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        G_ADR_VRAM_BG_B = TILE_USER_INDEX;
-
-        // BG_B //
-        VDP_loadTileSet(image_QUESTION_MARK_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
-        VDP_setTileMapEx(BG_B, image_QUESTION_MARK_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0,  0,  0,  0, 40, 28, CPU);
-        VDP_setTileMapEx(BG_B, image_QUESTION_MARK_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0, 28,  0,  0, 40, 28, CPU);
-        G_ADR_VRAM_HUB = G_ADR_VRAM_BG_B + image_QUESTION_MARK_BG_B.tileset->numTile;
-        SYS_doVBlankProcess();
-
-        // AS THERE'S NO BG_A ON THIS SCREEN //
-        // WE CLEAR IT FOR SAFETY //
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, 0),  0,  0,  0,  0, 40, 28, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, 0),  0, 28,  0,  0, 40, 28, CPU);
+    VDP_setPlaneSize(64,64,TRUE);
+    
+    SPR_init();
+    
+    VDP_setHilightShadow(FALSE);
 
 
 
 
-        //**************************************************************************************//
-        //                                                                                      //
-        //                                      SPRITES                                         //
-        //                                                                                      //
-        //**************************************************************************************// 
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                   ROULETTE FONT                                      //
+    //                                                                                      //
+    //**************************************************************************************//
 
-        //
-
-
-        SPR_update();
+    VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, CPU);
 
 
 
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                       PALETTES                                       //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                         BG                                           //
+    //                                                                                      //
+    //**************************************************************************************//
 
-        memcpy( &palette_64[0]  , image_QUESTION_MARK_BG_B.palette->data    , 16 * 2 );
-        memcpy( &palette_64[16] , palette_BLACK.data                        , 16 * 2 );
+    G_ADR_VRAM_BG_B = TILE_USER_INDEX;
 
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    VDP_loadTileSet(image_QUESTION_MARK_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+    VDP_setTileMapEx(BG_B, image_QUESTION_MARK_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0,  0,  0,  0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_B, image_QUESTION_MARK_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0, 28,  0,  0, 40, 28, CPU);
+    
+    
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_A                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+    // AS THERE'S NO BG_A ON THIS SCREEN //
+    // WE CLEAR IT FOR SAFETY //
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, 0),  0,  0,  0,  0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, 0),  0, 28,  0,  0, 40, 28, CPU);
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_ADR_VRAM_HUB = G_ADR_VRAM_BG_B + image_QUESTION_MARK_BG_B.tileset->numTile;
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       PALETTES                                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    memcpy( &palette_64[0]  , image_QUESTION_MARK_BG_B.palette->data    , 16 * 2 );
+    memcpy( &palette_64[16] , palette_BLACK.data                        , 16 * 2 );
 }
 
 

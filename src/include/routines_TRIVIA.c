@@ -154,7 +154,7 @@ void joypad_TRIVIA()
     u16 value=JOY_readJoypad(JOY_1);
 
     // FUEL DEPOT //
-    if(G_PHASE_SEQUENCE != TRIVIA_PHASE_WALKIN && G_PHASE_SEQUENCE != TRIVIA_PHASE_RESULT)
+    if(G_PHASE_SEQUENCE != TRIVIA_PHASE_WALKIN && G_PHASE_SEQUENCE != TRIVIA_PHASE_TURN_BACK && G_PHASE_SEQUENCE != TRIVIA_PHASE_RESULT)
     {
         //******************************************//
         //                                          //
@@ -538,7 +538,7 @@ void sequence_TRIVIA_TYPE2()
             G_COUNTER_1 = 0;
             G_INDEX_3   = 0;
 
-            G_PHASE_SEQUENCE = TRIVIA_PHASE_TURN_BACK;
+            //G_PHASE_SEQUENCE = TRIVIA_PHASE_TURN_BACK;
 
             // FADE OUT : 40 FRAMES //
             PAL_fadeOutAll(40,FALSE);
@@ -570,9 +570,47 @@ void sequence_TRIVIA_TYPE2()
     // STOOGES TURN BACK //
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_TURN_BACK)
     {
-        G_QUESTION_LOCKED = FALSE;
+        //
+        
+        if(G_COUNTER_1 == 0)
+        {
+            SPR_setFrame(sprite_STOOGES,20);
+        }
 
-        G_PHASE_SEQUENCE = TRIVIA_PHASE_ANIM_ANSWERS;
+        else if(G_COUNTER_1 == 12)
+        {
+            SPR_setFrame(sprite_STOOGES,21);
+        }
+
+        else if(G_COUNTER_1 == 33)
+        {
+            SPR_setFrame(sprite_STOOGES,22);
+            SPR_setPosition(sprite_ANSWER_A,90,100);
+        }
+
+        else if(G_COUNTER_1 == 49)
+        {
+            SPR_setFrame(sprite_STOOGES,23);
+            SPR_setPosition(sprite_ANSWER_C,186,100);
+        }
+
+        else if(G_COUNTER_1 == 62)
+        {
+            SPR_setPosition(sprite_ANSWER_B,138,90);
+        }
+
+        else if(G_COUNTER_1 == 107)
+        {
+            G_COUNTER_1 = 0;
+            
+            G_QUESTION_LOCKED = FALSE;
+
+            G_PHASE_SEQUENCE = TRIVIA_PHASE_ANIM_ANSWERS;
+
+            return;
+        }
+
+        G_COUNTER_1 += 1;
     }
 
     // ANIM ANSWERS //
@@ -715,13 +753,12 @@ void sequence_TRIVIA_TYPE2()
 }
 
 
+
+
 void sequence_TRIVIA_QUESTION()
 {
     if(G_COUNTER_1 == 360)
     {
-        G_COUNTER_1 = 0;
-        G_INDEX_3   = 0;
-
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);
 
@@ -735,6 +772,9 @@ void sequence_TRIVIA_QUESTION()
 
         // RELEASE ALL SPRITES //
         SPR_reset();
+
+        G_COUNTER_1 = 0;
+        G_INDEX_3   = 0;
 
         G_PHASE_SEQUENCE = TRIVIA_PHASE_TURN_BACK;
 

@@ -16,5 +16,5 @@ out/src/include/tables_TRIVIA.o: src/include/tables_TRIVIA.c \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
  src/include/outils.h res/palettes.h src/include/structures.h \
  src/include/variables.h res/maps_BACKGROUNDS.h res/maps_GLOBAL.h \
- res/maps_TRIVIA.h src/include/routines_ROULETTE.h res/sprites_TRIVIA.h \
- src/include/tables_QUESTIONS.h
+ res/maps_TRIVIA.h src/include/routines_ROULETTE.h res/sprites_GLOBAL.h \
+ res/sprites_TRIVIA.h src/include/tables_QUESTIONS.h

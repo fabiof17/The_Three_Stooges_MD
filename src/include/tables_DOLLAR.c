@@ -82,7 +82,12 @@ const Image                     *TABLE_DOLLAR_REWARD_IMAGE[4]   =   {
 
 void init_DOLLAR_TYPE1()
 {
-    // CLEAN VRAM //
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      CLEAN VRAM                                      //
+    //                                                                                      //
+    //**************************************************************************************//
+
     u16 i = 0;
 
     for(i=16 ; i<1440 ; i++)
@@ -92,6 +97,12 @@ void init_DOLLAR_TYPE1()
 
 
 
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
     
@@ -104,7 +115,7 @@ void init_DOLLAR_TYPE1()
 
     //**************************************************************************************//
     //                                                                                      //
-    //                                         BG                                           //
+    //                                   ROULETTE FONT                                      //
     //                                                                                      //
     //**************************************************************************************//
 
@@ -119,43 +130,61 @@ void init_DOLLAR_TYPE1()
     //                                                                                      //
     //**************************************************************************************//
 
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                   LOADING BG TILES                                   //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
     G_ADR_VRAM_BG_B = TILE_USER_INDEX;
 
-    // BG_B //
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     VDP_loadTileSet(image_DOLLAR_1_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
+    
+    
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                        DIALOG                                        //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//    
+    
     G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_B + image_DOLLAR_1_BG_B.tileset->numTile;
-
-
     VDP_loadTileSet(image_DOLLAR_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
 
 
-    // RANDOM REWARD BETWEEN 100 AND 300 //
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                          RANDOM REWARD BETWEEN 100 AND 300                           //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     u8 generated_number = random_NUMBER(0,3);
     G_REWARD = TABLE_DOLLAR_REWARD[generated_number];
     VDP_loadTileSet(TABLE_DOLLAR_REWARD_IMAGE[generated_number]->tileset, G_ADR_VRAM_DIALOG + image_DOLLAR_DIALOG.tileset->numTile, CPU);
-
     
+    
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     G_ADR_VRAM_HUB = G_ADR_VRAM_DIALOG + image_DOLLAR_DIALOG.tileset->numTile + TABLE_DOLLAR_REWARD_IMAGE[generated_number]->tileset->numTile;
 
 
-    G_POS_Y_CAMERA = 224;
 
 
-    VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
-    VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                         GENERATE NEXT POSITION IN HIGHSTREET                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
 
-
-
-
-    // GENERATE NEXT POSITION IN HIGHSTREET //
     G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
@@ -169,17 +198,17 @@ void init_DOLLAR_TYPE1()
 
     memcpy( &palette_64[0]  , image_DOLLAR_1_BG_B.palette->data         , 16 * 2 );
     memcpy( &palette_64[16] , palette_SPR_BANKER_PART2_INTRO.data       , 16 * 2 );
-
-
-    //G_COUNTER_ROULETTE      = 0;
-    //G_CURRENT_TURN          = 9;
-
 }
 
 
 void init_DOLLAR_TYPE2()
 {
-    // CLEAN VRAM //
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      CLEAN VRAM                                      //
+    //                                                                                      //
+    //**************************************************************************************//^
+
     u16 i = 0;
 
     for(i=16 ; i<1440 ; i++)
@@ -189,6 +218,12 @@ void init_DOLLAR_TYPE2()
 
 
 
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
     
@@ -201,7 +236,7 @@ void init_DOLLAR_TYPE2()
 
     //**************************************************************************************//
     //                                                                                      //
-    //                                         BG                                           //
+    //                                   ROULETTE FONT                                      //
     //                                                                                      //
     //**************************************************************************************//
 
@@ -216,44 +251,61 @@ void init_DOLLAR_TYPE2()
     //                                                                                      //
     //**************************************************************************************//
 
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                   LOADING BG TILES                                   //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
     G_ADR_VRAM_BG_B = TILE_USER_INDEX;
 
-    // BG_B //
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     VDP_loadTileSet(image_DOLLAR_2_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_DOLLAR_2_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_DOLLAR_2_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                        DIALOG                                        //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//    
+
     G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_B + image_DOLLAR_2_BG_B.tileset->numTile;
-
-
     VDP_loadTileSet(image_DOLLAR_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
 
 
-    // RANDOM REWARD BETWEEN 100 AND 300 //
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                          RANDOM REWARD BETWEEN 100 AND 300                           //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     u8 generated_number = random_NUMBER(0,3);
     G_REWARD = TABLE_DOLLAR_REWARD[generated_number];
     VDP_loadTileSet(TABLE_DOLLAR_REWARD_IMAGE[generated_number]->tileset, G_ADR_VRAM_DIALOG + image_DOLLAR_DIALOG.tileset->numTile, CPU);
 
-    
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     G_ADR_VRAM_HUB = G_ADR_VRAM_DIALOG + image_DOLLAR_DIALOG.tileset->numTile + TABLE_DOLLAR_REWARD_IMAGE[generated_number]->tileset->numTile;
-    //SYS_doVBlankProcess();
-
-
-    G_POS_Y_CAMERA = 224;
-
-
-    VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
-    VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
 
 
 
 
-    // GENERATE NEXT POSITION IN HIGHSTREET //
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                         GENERATE NEXT POSITION IN HIGHSTREET                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
@@ -267,17 +319,17 @@ void init_DOLLAR_TYPE2()
 
     memcpy( &palette_64[0]  , image_DOLLAR_2_BG_B.palette->data         , 16 * 2 );
     memcpy( &palette_64[16] , palette_SPR_BANKER_PART2_INTRO.data       , 16 * 2 );
-
-
-    //G_COUNTER_ROULETTE      = 0;
-    //G_CURRENT_TURN          = 9;
-
 }
 
 
 void init_DOLLAR_TYPE3()
 {
-    // CLEAN VRAM //
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      CLEAN VRAM                                      //
+    //                                                                                      //
+    //**************************************************************************************//
+
     u16 i = 0;
 
     for(i=16 ; i<1440 ; i++)
@@ -287,6 +339,12 @@ void init_DOLLAR_TYPE3()
 
 
 
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
     
@@ -299,7 +357,7 @@ void init_DOLLAR_TYPE3()
 
     //**************************************************************************************//
     //                                                                                      //
-    //                                         BG                                           //
+    //                                   ROULETTE FONT                                      //
     //                                                                                      //
     //**************************************************************************************//
 
@@ -314,44 +372,61 @@ void init_DOLLAR_TYPE3()
     //                                                                                      //
     //**************************************************************************************//
 
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                   LOADING BG TILES                                   //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
     G_ADR_VRAM_BG_B = TILE_USER_INDEX;
 
-    // BG_B //
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     VDP_loadTileSet(image_DOLLAR_3_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_DOLLAR_3_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_DOLLAR_3_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
+    
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                        DIALOG                                        //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//    
+
     G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_B + image_DOLLAR_3_BG_B.tileset->numTile;
-
-
     VDP_loadTileSet(image_DOLLAR_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
 
 
-    // RANDOM REWARD BETWEEN 100 AND 300 //
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                          RANDOM REWARD BETWEEN 100 AND 300                           //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     u8 generated_number = random_NUMBER(0,3);
     G_REWARD = TABLE_DOLLAR_REWARD[generated_number];
     VDP_loadTileSet(TABLE_DOLLAR_REWARD_IMAGE[generated_number]->tileset, G_ADR_VRAM_DIALOG + image_DOLLAR_DIALOG.tileset->numTile, CPU);
 
-    
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     G_ADR_VRAM_HUB = G_ADR_VRAM_DIALOG + image_DOLLAR_DIALOG.tileset->numTile + TABLE_DOLLAR_REWARD_IMAGE[generated_number]->tileset->numTile;
 
 
 
-    G_POS_Y_CAMERA = 224;
 
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                         GENERATE NEXT POSITION IN HIGHSTREET                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
 
-    VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
-    VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
-
-
-
-
-    // GENERATE NEXT POSITION IN HIGHSTREET //
     G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
@@ -365,11 +440,6 @@ void init_DOLLAR_TYPE3()
 
     memcpy( &palette_64[0]  , image_DOLLAR_3_BG_B.palette->data         , 16 * 2 );
     memcpy( &palette_64[16] , palette_SPR_BANKER_PART2_INTRO.data       , 16 * 2 );
-
-
-    //G_COUNTER_ROULETTE      = 0;
-    //G_CURRENT_TURN          = 9;
-
 }
 
 

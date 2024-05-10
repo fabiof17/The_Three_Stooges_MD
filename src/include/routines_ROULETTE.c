@@ -241,8 +241,8 @@ void init_HUB()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  117, 133, TILE_ATTR(PAL3, FALSE, FALSE, FALSE)); // -95 , 142
-    SPR_setFrame(sprite_STOOGES,17);
+    //sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  117, 133, TILE_ATTR(PAL3, FALSE, FALSE, FALSE)); // -95 , 142
+    //SPR_setFrame(sprite_STOOGES,17);
 
 
     SPR_update();
