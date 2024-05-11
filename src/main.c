@@ -15,7 +15,6 @@
 #include "include/routines_INTRO.h"
 #include "include/routines_QUESTION_MARK.h"
 #include "include/routines_REWARD.h"
-#include "include/routines_REWARD_QUESTION_MARK.h"
 #include "include/routines_ROULETTE.h"
 #include "include/routines_TRIVIA.h"
 
@@ -331,10 +330,10 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
-                // REWARD QUESTION MARK //
-                else if(G_SCENE == SCENE_REWARD_QUESTION_MARK)
+                // CONTRACT QUESTION MARK //
+                else if(G_SCENE == SCENE_CONTRACT_QUESTION_MARK)
                 {                    
-                    sequence_REWARD_QUESTION_MARK();
+                    sequence_CONTRACT_QUESTION_MARK();
                     
                     SPR_update();
                     SYS_doVBlankProcess();

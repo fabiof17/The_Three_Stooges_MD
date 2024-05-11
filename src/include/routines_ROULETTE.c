@@ -39,7 +39,7 @@ void fadeOut_ROULETTE()
     SPR_reset();
 
     // RANDOM QUESTION //
-    G_SELECTED_QUESTION = random_NUMBER(0,6);
+    G_SELECTED_QUESTION = random_NUMBER(0,9);
 
     G_COUNTER_ROULETTE      = 0;
     G_CURRENT_TURN          = 9;
@@ -67,16 +67,16 @@ void init_HUB()
 
     // DRAW HUB //
     VDP_loadTileSet(image_ROULETTE_HUB.tileset, G_ADR_VRAM_HUB, CPU);
-    VDP_setTileMapEx(BG_B, image_ROULETTE_HUB.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, G_ADR_VRAM_HUB), 1, 3, 0, 0, 38, 10, CPU);
+    VDP_setTileMapEx(BG_B, image_ROULETTE_HUB.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, G_ADR_VRAM_HUB), 1, 3, 0, 0, 38, 10, CPU);
     SYS_doVBlankProcess();
 
     // DRAW SLABS //
     VDP_loadTileSet(image_ROULETTE_SLAB.tileset, G_ADR_VRAM_HUB + image_ROULETTE_HUB.tileset->numTile, CPU);
-    VDP_setTileMapEx(BG_B, image_ROULETTE_SLAB.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_HUB + image_ROULETTE_HUB.tileset->numTile), 2, 4, 0, 0, 36, 6, CPU);
+    VDP_setTileMapEx(BG_B, image_ROULETTE_SLAB.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_HUB + image_ROULETTE_HUB.tileset->numTile), 2, 4, 0, 0, 36, 6, CPU);
     SYS_doVBlankProcess();
 
     // CLEAR BG_A AT HUB LOCATION //
-    VDP_setTileMapEx(BG_A, image_ROULETTE_FILL.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, 0), 1,  3, 0, 0, 38, 10, CPU);
+    VDP_setTileMapEx(BG_A, image_ROULETTE_FILL.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, 0), 1,  3, 0, 0, 38, 10, CPU);
     SYS_doVBlankProcess();
 
 
@@ -108,7 +108,7 @@ void init_HUB()
     for(i=0 ; i<6 ; i++)
     {
         VDP_loadTileSet(TABLE_ICONS[TABLE_GENERATED_ICONS[i]]->tileset, G_ADR_VRAM_ICONS[i], CPU);
-        VDP_setTileMapEx(BG_A, TABLE_ICONS[TABLE_GENERATED_ICONS[i]]->tilemap, TILE_ATTR_FULL(TABLE_ICONS_PALETTE_[TABLE_GENERATED_ICONS[i]], FALSE, FALSE, FALSE, G_ADR_VRAM_ICONS[i]), 2 + (i*6), 4, 0, 0, 6, 6, CPU);
+        VDP_setTileMapEx(BG_A, TABLE_ICONS[TABLE_GENERATED_ICONS[i]]->tilemap, TILE_ATTR_FULL(TABLE_ICONS_PALETTE_[TABLE_GENERATED_ICONS[i]], TRUE, FALSE, FALSE, G_ADR_VRAM_ICONS[i]), 2 + (i*6), 4, 0, 0, 6, 6, CPU);
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
@@ -120,7 +120,7 @@ void init_HUB()
         // BANKER ICON NEEDS A SPRITE TO BE FULLY DISPLAYED //
         if(TABLE_GENERATED_ICONS[i] == ICON_BANKER)
         {
-            sprite_ICON_BANKER = SPR_addSprite(&tiles_SPR_ICON_BANKER,  16 + (i*48), 32 - G_POS_Y_CAMERA, TILE_ATTR(PAL3, FALSE, FALSE, FALSE)); // -95 , 142
+            sprite_ICON_BANKER = SPR_addSprite(&tiles_SPR_ICON_BANKER,  16 + (i*48), 32 - G_POS_Y_CAMERA, TILE_ATTR(PAL3, TRUE, FALSE, FALSE)); // -95 , 142
         }
 
         if(i < 5)
@@ -137,42 +137,42 @@ void init_HUB()
     //--------------------------------------------------------------------------------------//
 
     // DAY //
-    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 36), 4 , 11 , 0, 0, 1, 1, CPU);
-    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 33), 5 , 11 , 0, 0, 1, 1, CPU);
-    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 57), 6 , 11 , 0, 0, 1, 1, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 36), 4 , 11 , 0, 0, 1, 1, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 33), 5 , 11 , 0, 0, 1, 1, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 57), 6 , 11 , 0, 0, 1, 1, CPU);
 
     // PRINT DAY NUMBER //
     if(G_DAY < 10)
     {
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_DAY), 8 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_DAY), 8 , 11 , 0, 0, 1, 1, CPU);
     }
     else
     {
         u8 number1 = G_DAY / 10;
         u8 number2 = G_DAY - (number1*10);
 
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 8 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 9 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 8 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 9 , 11 , 0, 0, 1, 1, CPU);
 
     }
     
 
     // READY? //
-    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 50), 18 , 11 , 0, 0, 1, 1, CPU);
-    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 37), 19 , 11 , 0, 0, 1, 1, CPU);
-    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 33), 20 , 11 , 0, 0, 1, 1, CPU);
-    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 36), 21 , 11 , 0, 0, 1, 1, CPU);
-    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 57), 22 , 11 , 0, 0, 1, 1, CPU);
-    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 31), 23 , 11 , 0, 0, 1, 1, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 50), 18 , 11 , 0, 0, 1, 1, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 37), 19 , 11 , 0, 0, 1, 1, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 33), 20 , 11 , 0, 0, 1, 1, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 36), 21 , 11 , 0, 0, 1, 1, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 57), 22 , 11 , 0, 0, 1, 1, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 31), 23 , 11 , 0, 0, 1, 1, CPU);
 
 
     // DOLLAR SYMBOL //
-    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 4), 31 , 11 , 0, 0, 1, 1, CPU);
+    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 4), 31 , 11 , 0, 0, 1, 1, CPU);
 
     // MONEY AMOUNT //
     if(G_MONEY < 10)
     {
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_MONEY), 32 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_MONEY), 32 , 11 , 0, 0, 1, 1, CPU);
     }
 
     else if(G_MONEY < 100)
@@ -180,8 +180,8 @@ void init_HUB()
         u8 number1 = G_MONEY / 10;
         u8 number2 = G_MONEY - (number1*10);
 
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 32 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 33 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 32 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 33 , 11 , 0, 0, 1, 1, CPU);
     }
 
     else if(G_MONEY < 1000)
@@ -190,9 +190,9 @@ void init_HUB()
         u8 number2 = (G_MONEY - (number1*100)) / 10;
         u8 number3 = G_MONEY - (number1*100) - (number2*10);
 
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 32 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 33 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number3), 34 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 32 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 33 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number3), 34 , 11 , 0, 0, 1, 1, CPU);
     }
 
     else
@@ -202,10 +202,10 @@ void init_HUB()
         u8 number3 = (G_MONEY - (number1*1000) - (number2*100)) / 10;
         u8 number4 = G_MONEY - (number1*1000) - (number2*100) - (number3*10);
 
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 32 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 33 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number3), 34 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number4), 35 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 32 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 33 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number3), 34 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number4), 35 , 11 , 0, 0, 1, 1, CPU);
     }
 
 
@@ -221,7 +221,7 @@ void init_HUB()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    sprite_HAND_ROULETTE = SPR_addSprite(&tiles_SPR_HAND,  -48, 56, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+    sprite_HAND_ROULETTE = SPR_addSprite(&tiles_SPR_HAND,  -48, 56, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
     SPR_setAnim(sprite_HAND_ROULETTE , G_FINGER_NUMBER - 1);
     SPR_setZ(sprite_HAND_ROULETTE  ,0);
 
@@ -232,17 +232,7 @@ void init_HUB()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    sprite_ARROW = SPR_addSprite(&tiles_SPR_ARROW,  125, 104, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-
-
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                    STOOGES SPRITE                                    //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
-    //sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  117, 133, TILE_ATTR(PAL3, FALSE, FALSE, FALSE)); // -95 , 142
-    //SPR_setFrame(sprite_STOOGES,17);
+    sprite_ARROW = SPR_addSprite(&tiles_SPR_ARROW,  125, 104, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
 
 
     SPR_update();
@@ -331,7 +321,7 @@ inline static void wait_PLAYER_CHOICE()
             SPR_setPosition( sprite_HAND_ROULETTE , 16 + (pos_X_HAND * 48) , 48 );
 
             // DISPLAY TURN NUMBER //
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_CURRENT_TURN), 21 , 11 , 0, 0, 1, 1, CPU);
+            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_CURRENT_TURN), 21 , 11 , 0, 0, 1, 1, CPU);
 
             // PLAY HAND SOUND //
             XGM_startPlayPCM(SOUND_HAND,15,SOUND_PCM_CH4);
@@ -427,10 +417,10 @@ void sequence_ROULETTE()
         else if(G_COUNTER_ROULETTE == 95)
         {
             // CLEAR READY? //
-            VDP_setTileMapEx(BG_A, image_ROULETTE_FILL.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, 0), 18, 11, 0, 0, 6, 1, DMA);
+            VDP_setTileMapEx(BG_A, image_ROULETTE_FILL.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, 0), 18, 11, 0, 0, 6, 1, DMA);
 
             // DISPLAY TURN NUMBER //
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_CURRENT_TURN), 21 , 11 , 0, 0, 1, 1, CPU);
+            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_CURRENT_TURN), 21 , 11 , 0, 0, 1, 1, CPU);
 
             // REINIT COUNTER //
             G_COUNTER_ROULETTE = 0;

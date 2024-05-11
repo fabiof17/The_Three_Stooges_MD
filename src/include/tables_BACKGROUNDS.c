@@ -21,6 +21,7 @@
 
 
 
+#include "sprites_QUESTION_MARK.h"
 #include "sprites_TRIVIA.h"
 
 
@@ -476,6 +477,25 @@ void init_STREET_QUESTION_MARK()
     //--------------------------------------------------------------------------------------//
 
     G_ADR_VRAM_HUB = G_ADR_VRAM_BG_B + image_QUESTION_MARK_BG_B.tileset->numTile;
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      SPRITES                                         //
+    //                                                                                      //
+    //**************************************************************************************// 
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                   ICE CUBE SPRITES                                   //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    //sprite_ICE_CUBE         = SPR_addSprite(&tiles_SPR_ICE_CUBE,        149,  23, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+    sprite_SCISSOR          = SPR_addSprite(&tiles_SPR_SCISSOR,         128,   0, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+    //sprite_ICE_CUBE_SHADOW  = SPR_addSprite(&tiles_SPR_ICE_CUBE_SHADOW, 143,  31, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
 
 
 

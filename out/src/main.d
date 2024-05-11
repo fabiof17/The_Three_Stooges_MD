@@ -17,6 +17,5 @@ out/src/main.o: src/main.c C:/sgdk/inc/genesis.h C:/sgdk/inc/types.h \
  src/include/variables.h src/include/routines_BANK.h \
  src/include/routines_DOLLAR.h src/include/routines_INTRO.h \
  src/include/routines_QUESTION_MARK.h src/include/routines_REWARD.h \
- src/include/routines_REWARD_QUESTION_MARK.h \
  src/include/routines_ROULETTE.h src/include/routines_TRIVIA.h \
  src/include/tables_INTRO.h

@@ -5,6 +5,8 @@
 
 
 
+extern void sequence_CONTRACT_QUESTION_MARK();
+
 extern void sequence_QUESTION_MARK();
 
 

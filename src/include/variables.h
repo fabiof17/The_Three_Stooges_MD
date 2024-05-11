@@ -63,7 +63,6 @@
 #define SCENE_WAITERS                   9
 #define SCENE_CRACKERS                  10
 #define SCENE_SAFE                      11
-
 #define SCENE_ROULETTE                  12
 #define SCENE_BOXING_MINIGAME           13
 #define SCENE_TRIVIA_MINIGAME_TYPE1     14
@@ -71,11 +70,12 @@
 #define SCENE_TRIVIA_MINIGAME_TYPE3     16
 #define SCENE_TRIVIA_QUESTION           17
 
-#define SCENE_REWARD                    18
-#define SCENE_REWARD_QUESTION_MARK      19
+
+#define SCENE_CONTRACT_QUESTION_MARK    18
+#define SCENE_REWARD                    19
 
 
-#define SCENE_CONTRACT_WAITERS          20
+#define SCENE_CONTRACT_WAITERS          21
 
 
 
@@ -105,18 +105,6 @@
 
 #define BANKER_PHASE_WALKIN             0
 #define BANKER_PHASE_APPEAR             1
-
-
-
-
-//-----------------------------------------------------------------------------//
-//                                                                             //
-//                               QUESTION MARK                                 //
-//                                                                             //
-//-----------------------------------------------------------------------------//
-
-#define QUESTION_MARK_PHASE_WALKIN      0
-
 
 
 
