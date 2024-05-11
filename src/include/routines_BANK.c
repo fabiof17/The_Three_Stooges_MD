@@ -2,14 +2,20 @@
 
 
 
-#include "palettes.h"
+//#include "palettes.h"
 #include "structures.h"
 #include "variables.h"
 
 
 
+
 #include "maps_BANK.h"
 #include "maps_GLOBAL.h"
+
+
+
+
+#include "routines_ROULETTE.h"
 
 
 
@@ -137,17 +143,12 @@ void sequence_BANK()
             
         }
 
-        // SHOW HUB //
+        // DISPLAY HUB //
         else if(G_COUNTER_1 == 960)
-        {
-            G_POS_Y_CAMERA = 0;
-            
-            // SHOW HUB //
-            VDP_setVerticalScrollVSync(BG_B,G_POS_Y_CAMERA);
-            VDP_setVerticalScrollVSync(BG_A,G_POS_Y_CAMERA);
-            
-            // SHOW ARROW //
-            SPR_setPosition(sprite_ARROW , 125 , 104);
+        {           
+            // DISPLAY HUB //
+            display_HUB();
+
 
             G_COUNTER_1             = 0;
             G_INDEX_1               = 0;

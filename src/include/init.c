@@ -774,7 +774,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,64,TRUE);
         
-        SPR_initEx(350);
+        SPR_init();
         
         VDP_setHilightShadow(FALSE);
 
@@ -2039,16 +2039,6 @@ void init_SCENE()
 
         VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
         VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
-
-
-
-
-        // GENERATE NEXT POSITION IN HIGHSTREET //
-        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
-
-
-
-        SPR_setPosition(sprite_STOOGES,-96,0);
 
 
 

@@ -14,6 +14,10 @@
 
 
 
+#include "routines_ROULETTE.h"
+
+
+
 #include "tables_GLOBAL.h"
 #include "tables_QUESTIONS.h"
 #include "tables_TRIVIA.h"
@@ -443,7 +447,7 @@ void sequence_TRIVIA_TYPE1()
                 SPR_reset();
 
                 // GENERATE NEW HAND MOVE SEQUENCE //
-                generate_RANDOM_HAND_MOVE();
+                //generate_RANDOM_HAND_MOVE();
 
                 G_PHASE_SEQUENCE = 0;
 
@@ -477,22 +481,11 @@ void sequence_TRIVIA_TYPE1()
                 }
                 
                 
-                G_POS_Y_CAMERA = 0;
-                VDP_setVerticalScrollVSync(BG_B,G_POS_Y_CAMERA);
-                VDP_setVerticalScrollVSync(BG_A,G_POS_Y_CAMERA);
+                display_HUB();
 
-                // BANKER ICON SPRITE //
-                // IF BAN KER ICON SPRITE EXISTS //
-                if(sprite_ICON_BANKER != NULL)
-                {
-                    s16 pos_X_BANKER = SPR_getPositionX(sprite_ICON_BANKER);
-                    s16 pos_Y_BANKER = SPR_getPositionY(sprite_ICON_BANKER);
-
-                    SPR_setPosition(sprite_ICON_BANKER , pos_X_BANKER , pos_Y_BANKER + 224);
-                }
 
                 // GENERATE NEW HAND MOVE SEQUENCE //
-                generate_RANDOM_HAND_MOVE();
+                //generate_RANDOM_HAND_MOVE();
 
                 G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
                 
@@ -689,7 +682,7 @@ void sequence_TRIVIA_TYPE2()
                 SPR_reset();
 
                 // GENERATE NEW HAND MOVE SEQUENCE //
-                generate_RANDOM_HAND_MOVE();
+                //generate_RANDOM_HAND_MOVE();
 
                 G_PHASE_SEQUENCE = 0;
 
@@ -722,23 +715,11 @@ void sequence_TRIVIA_TYPE2()
 
                 }
                 
-                
-                G_POS_Y_CAMERA = 0;
-                VDP_setVerticalScrollVSync(BG_B,G_POS_Y_CAMERA);
-                VDP_setVerticalScrollVSync(BG_A,G_POS_Y_CAMERA);
-
-                // BANKER ICON SPRITE //
-                // IF BAN KER ICON SPRITE EXISTS //
-                if(sprite_ICON_BANKER != NULL)
-                {
-                    s16 pos_X_BANKER = SPR_getPositionX(sprite_ICON_BANKER);
-                    s16 pos_Y_BANKER = SPR_getPositionY(sprite_ICON_BANKER);
-
-                    SPR_setPosition(sprite_ICON_BANKER , pos_X_BANKER , pos_Y_BANKER + 224);
-                }
+                // DISPLAY HUB //
+                display_HUB();
 
                 // GENERATE NEW HAND MOVE SEQUENCE //
-                generate_RANDOM_HAND_MOVE();
+                //generate_RANDOM_HAND_MOVE();
 
                 G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
                 

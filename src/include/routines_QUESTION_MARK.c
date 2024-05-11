@@ -78,11 +78,20 @@ void sequence_QUESTION_MARK()
             G_INDEX_3 += 1;
         }
     }
+
+
+    if(G_COUNTER_1 == 622)
+    {
+        SPR_setFrame(sprite_SCISSOR,1);
+
+        SPR_setPosition(sprite_ICE_CUBE,150,23);
+        SPR_setPosition(sprite_ICE_CUBE_SHADOW,144,31);
+    }
     
     
 
     // GO TO REWARD SCREEN //
-    if(G_COUNTER_1 == 160)
+    else if(G_COUNTER_1 == 750)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);
@@ -97,9 +106,6 @@ void sequence_QUESTION_MARK()
 
         // RELEASE ALL SPRITES //
         SPR_reset();
-
-        // GENERATE NEW HAND MOVE SEQUENCE //
-        generate_RANDOM_HAND_MOVE();
 
         G_COUNTER_1 = 0;
         G_INDEX_3 = 0;

@@ -2,6 +2,7 @@
 
 
 
+#include "outils.h"
 #include "palettes.h"
 #include "structures.h"
 #include "variables.h"
@@ -489,13 +490,13 @@ void init_STREET_QUESTION_MARK()
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
-    //                                   ICE CUBE SPRITES                                   //
+    //                                    SCISSOR SPRITE                                    //
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    //sprite_ICE_CUBE         = SPR_addSprite(&tiles_SPR_ICE_CUBE,        149,  23, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
-    sprite_SCISSOR          = SPR_addSprite(&tiles_SPR_SCISSOR,         128,   0, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
-    //sprite_ICE_CUBE_SHADOW  = SPR_addSprite(&tiles_SPR_ICE_CUBE_SHADOW, 143,  31, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+    sprite_SCISSOR = SPR_addSprite(&tiles_SPR_SCISSOR, 128, 0, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+    SPR_setFrame(sprite_SCISSOR,1);
+    SPR_setDepth(sprite_SCISSOR,10);
 
 
 

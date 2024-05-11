@@ -8,6 +8,8 @@ extern void fadeOut_ROULETTE();
 
 extern void init_HUB();
 
+extern void display_HUB();
+
 extern void sequence_ROULETTE();
 
 

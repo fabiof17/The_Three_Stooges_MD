@@ -38,6 +38,9 @@ void fadeOut_ROULETTE()
     // RELEASE ALL SPRITES //
     SPR_reset();
 
+    // GENERATE NEW HAND MOVE SEQUENCE //
+    generate_RANDOM_HAND_MOVE();
+
     // RANDOM QUESTION //
     G_SELECTED_QUESTION = random_NUMBER(0,9);
 
@@ -262,6 +265,28 @@ void init_HUB()
     //--------------------------------------------------------------------------------------//
 
     XGM_setPCM(SOUND_HAND, PCM_HAND, sizeof(PCM_HAND));
+}
+
+
+void display_HUB()
+{
+    G_POS_Y_CAMERA = 0;
+    
+    VDP_setVerticalScrollVSync(BG_B,G_POS_Y_CAMERA);
+    VDP_setVerticalScrollVSync(BG_A,G_POS_Y_CAMERA);
+
+    // BANKER ICON SPRITE //
+    // IF BANKER ICON SPRITE EXISTS //
+    if(sprite_ICON_BANKER != NULL)
+    {
+        s16 pos_X_BANKER = SPR_getPositionX(sprite_ICON_BANKER);
+        s16 pos_Y_BANKER = SPR_getPositionY(sprite_ICON_BANKER);
+
+        SPR_setPosition(sprite_ICON_BANKER , pos_X_BANKER , pos_Y_BANKER + 224);
+    }
+
+    // SHOW ARROW //
+    SPR_setPosition(sprite_ARROW , 125 , 104);
 }
 
 

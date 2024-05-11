@@ -13,6 +13,7 @@ out/src/include/routines_BANK.o: src/include/routines_BANK.c \
  C:/sgdk/inc/z80_ctrl.h C:/sgdk/inc/ym2612.h C:/sgdk/inc/psg.h \
  C:/sgdk/inc/joy.h C:/sgdk/inc/timer.h C:/sgdk/inc/task.h \
  C:/sgdk/inc/task_cst.h C:/sgdk/inc/ext/flash-save/flash.h \
- C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h res/palettes.h \
+ C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
  src/include/structures.h src/include/variables.h res/maps_BANK.h \
- res/maps_GLOBAL.h src/include/tables_BANK.h
+ res/maps_GLOBAL.h src/include/routines_ROULETTE.h \
+ src/include/tables_BANK.h

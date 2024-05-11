@@ -15,8 +15,12 @@
 
 
 
-#include "tables_DOLLAR.h"
+#include "routines_ROULETTE.h"
 
+
+
+
+#include "tables_DOLLAR.h"
 
 
 
@@ -80,22 +84,11 @@ void sequence_DOLLAR()
     {
             G_POS_Y_CAMERA = 0;
             
-            // SHOW HUB //
-            VDP_setVerticalScrollVSync(BG_B,G_POS_Y_CAMERA);
-            VDP_setVerticalScrollVSync(BG_A,G_POS_Y_CAMERA);
-            
-            // SHOW ARROW //
-            SPR_setPosition(sprite_ARROW , 125 , 104);
-
-            // SHOW BANKER ICON IF EXISTS //
-            if(sprite_ICON_BANKER != NULL)
-            {
-                s16 pos_x_icon_banker = SPR_getPositionX(sprite_ICON_BANKER);
-                SPR_setPosition(sprite_ICON_BANKER , pos_x_icon_banker , 32 );
-            }
+            // DISPLAY HUB //
+            display_HUB();
 
             // GENERATE NEW HAND MOVE SEQUENCE //
-            generate_RANDOM_HAND_MOVE();
+            //generate_RANDOM_HAND_MOVE();
 
 
             G_COUNTER_1             = 0;
