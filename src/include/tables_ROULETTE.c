@@ -141,6 +141,7 @@ const u8        TABLE_HIGHSTREET[122]   =   {
                                                 ICON_QUESTION,
                                                 ICON_SWATTER,
                                                 ICON_DOLLAR,
+                                                // 80
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
@@ -150,6 +151,7 @@ const u8        TABLE_HIGHSTREET[122]   =   {
                                                 ICON_BANKER,
                                                 ICON_DOCTORS,
                                                 ICON_SWATTER,
+                                                // 90
                                                 ICON_BOXING,
                                                 ICON_DOLLAR,
                                                 ICON_DOLLAR,
@@ -159,6 +161,7 @@ const u8        TABLE_HIGHSTREET[122]   =   {
                                                 ICON_DOLLAR,
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
+                                                // 100
                                                 ICON_SWATTER,
                                                 ICON_SWATTER,
                                                 ICON_SWATTER,
