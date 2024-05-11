@@ -58,6 +58,24 @@ void fadeOut_ROULETTE()
 }
 
 
+void print_DAY()
+{
+    // PRINT DAY NUMBER //
+    if(G_DAY < 10)
+    {
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_DAY), 8 , 11 , 0, 0, 1, 1, CPU);
+    }
+    else
+    {
+        u8 number1 = G_DAY / 10;
+        u8 number2 = G_DAY - (number1*10);
+
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 8 , 11 , 0, 0, 1, 1, CPU);
+        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 9 , 11 , 0, 0, 1, 1, CPU);
+
+    }
+}
+
 
 
 void init_HUB()
@@ -145,19 +163,7 @@ void init_HUB()
     VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 57), 6 , 11 , 0, 0, 1, 1, CPU);
 
     // PRINT DAY NUMBER //
-    if(G_DAY < 10)
-    {
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_DAY), 8 , 11 , 0, 0, 1, 1, CPU);
-    }
-    else
-    {
-        u8 number1 = G_DAY / 10;
-        u8 number2 = G_DAY - (number1*10);
-
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 8 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 9 , 11 , 0, 0, 1, 1, CPU);
-
-    }
+    print_DAY();
     
 
     // READY? //
@@ -486,6 +492,12 @@ void sequence_ROULETTE()
 
                 // PLAY SWATTER SOUND //
                 XGM_startPlayPCM(SOUND_SWATTER,15,SOUND_PCM_CH4);
+
+                // 1 DAY LOST //
+                G_DAY += 1;
+
+                // PRINT DAY NUMBER //
+                print_DAY();
 
             }
 
