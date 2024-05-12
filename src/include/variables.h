@@ -70,12 +70,16 @@
 #define SCENE_TRIVIA_MINIGAME_TYPE3     16
 #define SCENE_TRIVIA_QUESTION           17
 
+#define SCENE_BOXING_SCREEN_TYPE1       18
+#define SCENE_BOXING_SCREEN_TYPE2       19
+#define SCENE_BOXING_SCREEN_TYPE3       20
 
-#define SCENE_CONTRACT_QUESTION_MARK    18
-#define SCENE_REWARD                    19
+
+#define SCENE_CONTRACT_QUESTION_MARK    27
+#define SCENE_REWARD                    28
 
 
-#define SCENE_CONTRACT_WAITERS          21
+#define SCENE_CONTRACT_WAITERS          29
 
 
 
@@ -193,8 +197,8 @@
 #define SOUND_HAND                      81
 #define SOUND_WALKOUT                   82
 #define SOUND_SWATTER                   83
-
-
+#define SOUND_HEAD_SHOCK                84
+#define SOUND_JOY_CRY                   85
 
 
 
@@ -424,7 +428,7 @@ extern Sprite *sprite_DOLLAR_BAG;
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_HAND_ROULETTE;
-extern Sprite *sprite_ARROW;
+extern Sprite *sprite_ARROW_HUB;
 
 extern Sprite *sprite_ICON_BANKER;
 

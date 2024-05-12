@@ -14,7 +14,7 @@ IMAGE image_QUESTION_6              "map/trivia/questions/tiles_QUESTION_6.png" 
 IMAGE image_QUESTION_7              "map/trivia/questions/tiles_QUESTION_7.png"                 NONE ALL
 IMAGE image_QUESTION_8              "map/trivia/questions/tiles_QUESTION_8.png"                 NONE ALL
 IMAGE image_QUESTION_9              "map/trivia/questions/tiles_QUESTION_9.png"                 NONE ALL
-//IMAGE image_QUESTION_10             "map/trivia/questions/tiles_QUESTION_10.png"                NONE ALL
+IMAGE image_QUESTION_10             "map/trivia/questions/tiles_QUESTION_10.png"                NONE ALL
 
 
 

@@ -49,7 +49,14 @@ void sequence_DOLLAR()
     }
 
 
-    if(G_COUNTER_1 == 382)
+    if(G_COUNTER_1 == 146)
+    {
+        // PLAY SWATTER SOUND //
+        XGM_startPlayPCM(SOUND_HEAD_SHOCK,15,SOUND_PCM_CH4);
+    }
+
+
+    else if(G_COUNTER_1 == 382)
     {
         // DISPLAY DIALOG //
         VDP_setTileMapEx(BG_A, image_DOLLAR_DIALOG.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 12, 34, 0, 0, 16, 7, DMA_QUEUE);
@@ -80,7 +87,14 @@ void sequence_DOLLAR()
     }
 
 
-    else if(G_COUNTER_1 == 700)
+    else if(G_COUNTER_1 == 560)
+    {
+        // PLAY SWATTER SOUND //
+        XGM_startPlayPCM(SOUND_JOY_CRY,15,SOUND_PCM_CH4);
+    }
+
+
+    else if(G_COUNTER_1 == 760)
     {
             G_POS_Y_CAMERA = 0;
             

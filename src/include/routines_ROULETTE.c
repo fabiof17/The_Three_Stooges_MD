@@ -42,7 +42,7 @@ void fadeOut_ROULETTE()
     generate_RANDOM_HAND_MOVE();
 
     // RANDOM QUESTION //
-    G_SELECTED_QUESTION = random_NUMBER(0,9);
+    G_SELECTED_QUESTION = random_NUMBER(0,10);
 
     G_COUNTER_ROULETTE      = 0;
     G_CURRENT_TURN          = 9;
@@ -241,7 +241,7 @@ void init_HUB()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    sprite_ARROW = SPR_addSprite(&tiles_SPR_ARROW,  125, 104, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+    sprite_ARROW_HUB = SPR_addSprite(&tiles_SPR_ARROW,  125, 104, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
 
 
     SPR_update();
@@ -292,7 +292,7 @@ void display_HUB()
     }
 
     // SHOW ARROW //
-    SPR_setPosition(sprite_ARROW , 125 , 104);
+    SPR_setPosition(sprite_ARROW_HUB , 125 , 104);
 }
 
 
@@ -302,10 +302,10 @@ inline static void clear_HUB()
     VDP_setVerticalScrollVSync(BG_A , 224);
 
     SPR_releaseSprite(sprite_HAND_ROULETTE);
-    SPR_releaseSprite(sprite_ARROW);
+    SPR_releaseSprite(sprite_ARROW_HUB);
 
-    sprite_HAND_ROULETTE     = NULL;
-    sprite_ARROW    = NULL;
+    sprite_HAND_ROULETTE    = NULL;
+    sprite_ARROW_HUB        = NULL;
 
     if(sprite_ICON_BANKER != NULL)
     {
@@ -439,7 +439,7 @@ void sequence_ROULETTE()
     {
         if(G_COUNTER_ROULETTE == 0)
         {
-            SPR_setPosition(sprite_ARROW , 125 , 104 );
+            SPR_setPosition(sprite_ARROW_HUB , 125 , 104 );
 
             SPR_setFrame(sprite_STOOGES , 18);
         }

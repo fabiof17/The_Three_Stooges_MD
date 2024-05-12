@@ -16,14 +16,6 @@ typedef struct
 {
     u16 num_FRAME;
     u8 index_SPRITE_FRAME;
-
-} struct_WALK_STOOGES_old_;
-
-
-typedef struct
-{
-    u16 num_FRAME;
-    u8 index_SPRITE_FRAME;
     s16 pos_X;
 
 } struct_WALK_STOOGES_;
@@ -35,6 +27,25 @@ typedef struct
     const u8 answer;
 
 } struct_QUESTION_;
+
+
+typedef struct
+{
+    u16 num_FRAME;
+    s16 pos_X;
+    s16 pos_Y;
+
+} struct_ICE_CUBE_;
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -10,6 +10,7 @@
 
 
 #include "maps_BACKGROUNDS.h"
+#include "maps_BOXING.h"
 #include "maps_GLOBAL.h"
 #include "maps_QUESTION_MARK.h"
 #include "maps_TRIVIA.h"

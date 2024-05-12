@@ -75,7 +75,9 @@
         "tables_backgrounds.h": "c",
         "tables_questions.h": "c",
         "routines_trivia.h": "c",
-        "routines_reward_question_mark.h": "c"
+        "routines_reward_question_mark.h": "c",
+        "tables_boxing.h": "c",
+        "routines_dollar.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "C_Cpp.default.compilerPath": ""

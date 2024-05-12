@@ -6,5 +6,7 @@ extern const u8 PCM_RIRE_INTRO[26624];
 extern const u8 PCM_HAND[1024];
 extern const u8 PCM_WALKOUT[11776];
 extern const u8 PCM_SWATTER[5120];
+extern const u8 PCM_HEAD_SHOCK[5376];
+extern const u8 PCM_JOY_CRY[10240];
 
 #endif // _RES_SOUND_H_

@@ -229,7 +229,7 @@ Sprite *sprite_DOLLAR_BAG;
 //-----------------------------------------------------------------------------// 
 
 Sprite *sprite_HAND_ROULETTE;
-Sprite *sprite_ARROW;
+Sprite *sprite_ARROW_HUB;
 
 Sprite *sprite_ICON_BANKER;
 

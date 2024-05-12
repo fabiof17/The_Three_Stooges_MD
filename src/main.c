@@ -11,6 +11,7 @@
 
 
 #include "include/routines_BANK.h"
+#include "include/routines_BOXING.h"
 #include "include/routines_DOLLAR.h"
 #include "include/routines_INTRO.h"
 #include "include/routines_QUESTION_MARK.h"
@@ -210,7 +211,7 @@ int main(bool hardReset)
 
         else if(G_REEL == REEL_GAME)
         {
-            // LOADING INTRO SCREEN //
+            // LOADING GAME SCREEN //
             if(G_SCENE_LOADED == FALSE)
             {
                 init_SCENE();
@@ -219,7 +220,7 @@ int main(bool hardReset)
                 G_SCENE_LOADED = TRUE;
             }
 
-            // PLAYING INTRO SCREEN //
+            // PLAYING GAME SCREEN //
             else
             {
                 // BANK //
@@ -234,7 +235,7 @@ int main(bool hardReset)
                 // BOXING //
                 else if(G_SCENE == SCENE_BOXING)
                 {                    
-                    //sequence_BOXING();
+                    sequence_BOXING();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -243,7 +244,7 @@ int main(bool hardReset)
                 // DOCTORS //
                 else if(G_SCENE == SCENE_DOCTORS)
                 {                    
-                    //sequence_DOLLAR();
+                    //sequence_BOXING();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -312,11 +313,18 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
-                // TRIVIA CONTRACT
+                // TRIVIA QUESTION //
                 else if(G_SCENE == SCENE_TRIVIA_QUESTION)
                 {
                     sequence_TRIVIA_QUESTION();
                     
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                // BOXING SCREEN 0 //
+                else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE1)
+                {
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
