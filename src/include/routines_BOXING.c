@@ -80,6 +80,46 @@ void sequence_BOXING()
 
 
 
+void sequence_BOXING_SCREEN_TYPE_1()
+{
+    if(G_COUNTER_1 == 240)
+    {
+        // FADE OUT : 40 FRAMES //
+        PAL_fadeOutAll(40,FALSE);
+
+        // RESET SCROLLING //
+        VDP_setVerticalScroll(BG_B , 0);
+        VDP_setVerticalScroll(BG_A , 0);
+
+        // CLEAR PLANES //
+        VDP_clearPlane(BG_B,TRUE);
+        VDP_clearPlane(BG_A,TRUE);
+
+        // RELEASE ALL SPRITES //
+        SPR_reset();
+
+        G_COUNTER_1 = 0;
+
+        // DEFINE NEXT MINIGAME //
+        G_SCENE         = SCENE_FADE_IN;
+        G_SCENE_TYPE    = SCENE_BOXING_SCREEN_TYPE2; //SCENE_BOXING_SCREEN_TYPE1
+        G_SCENE_NEXT    = SCENE_BOXING_SCREEN_TYPE2;
+
+        G_SCENE_LOADED  = FALSE;
+
+        return;
+    }
+    
+    G_COUNTER_1 += 1;
+}
+
+
+/*void sequence_BOXING_SCREEN_TYPE_1()
+{
+    //
+}*/
+
+
 
 
 

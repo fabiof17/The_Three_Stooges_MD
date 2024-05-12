@@ -322,9 +322,20 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
-                // BOXING SCREEN 0 //
+                // BOXING SCREEN TYPE 1 //
                 else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE1)
                 {
+                    sequence_BOXING_SCREEN_TYPE_1();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                // BOXING SCREEN TYPE 2 //
+                else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE2)
+                {
+                    //sequence_BOXING_SCREEN_TYPE_2();
+                    
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
