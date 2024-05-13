@@ -4,6 +4,7 @@
 
 
 
+#include "palettes.h"
 #include "structures.h"
 #include "variables.h"
 
@@ -50,3 +51,12 @@ const struct_WALK_STOOGES_              TABLE_ANIM_STOOGES_BOXING[26]       =   
                                                                                     {  162 , 12 ,  95 },
                                                                                     {  168 , 16 , 114 }
                                                                                 };
+
+
+const Palette           *TABLE_BOXING_CYCLE[5]      =   {                                                        
+                                                            &palette_BOXING_SCREEN_2_1,
+                                                            &palette_BOXING_SCREEN_2_2,
+                                                            &palette_BOXING_SCREEN_2_3,
+                                                            &palette_BOXING_SCREEN_2_4,
+                                                            &palette_BOXING_SCREEN_2_0
+                                                        };

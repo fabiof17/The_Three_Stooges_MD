@@ -193,7 +193,7 @@
 //-----------------------------------------------------------------------------//
 
 #define SOUND_INTRO_SCREEN1             74
-#define SOUND_RIRE_INTRO                80
+#define SOUND_BANKER_LAUGH                80
 #define SOUND_HAND                      81
 #define SOUND_WALKOUT                   82
 #define SOUND_SWATTER                   83

@@ -334,7 +334,16 @@ int main(bool hardReset)
                 // BOXING SCREEN TYPE 2 //
                 else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE2)
                 {
-                    //sequence_BOXING_SCREEN_TYPE_2();
+                    sequence_BOXING_SCREEN_TYPE_2();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                // BOXING SCREEN TYPE 3 //
+                else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE3)
+                {
+                    //sequence_BOXING_SCREEN_TYPE_3();
                     
                     SPR_update();
                     SYS_doVBlankProcess();

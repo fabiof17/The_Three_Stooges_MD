@@ -593,7 +593,7 @@ void anim_INTRO_SCREEN_7_0()
     // TRIGGER EVIL LAUGH // 
     else if(G_COUNTER_1 == 345)
     {
-        XGM_startPlayPCM(SOUND_RIRE_INTRO,15,SOUND_PCM_CH4);
+        XGM_startPlayPCM(SOUND_BANKER_LAUGH,15,SOUND_PCM_CH4);
     }
 
 

@@ -87,13 +87,10 @@ void sequence_REWARD()
         
         }
     }
-
-    //VDP_drawInt(G_STREET_TYPE,2,0,0);
     
     PAL_setPalette( PAL0 , TABLE_REWARD_CYCLE[G_INDEX_1]->data , DMA);
 
     G_COUNTER_1 += 1;
-
 }
 
 
