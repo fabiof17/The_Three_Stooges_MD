@@ -77,18 +77,28 @@ void sequence_SLAP()
 
         else if(G_COUNTER_1 == 1774)
         {
+            // DISPLAY SLAP HUB //
             VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, 0), 12, 32, 0, 0, 16, 9, DMA_QUEUE);
             VDP_setTileMapEx(BG_B, image_SLAP_HUB.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 9, 34, 0, 0, 22, 8, DMA_QUEUE);
 
+            // DIALOG ARROW SPRITE OFF SCREEN //
             SPR_setPosition(sprite_ARROW_DIALOG,-24,-32);
+
+            // DISPLAY SLAP HUB SPRITES //
             SPR_setPosition(sprite_HAND_SLAP,152,71);
             SPR_setPosition(sprite_METER_SLAP,-6,55);
 
-
+            // RELEASE STOOGES SPRITE //
             SPR_releaseSprite(sprite_STOOGES);
             sprite_STOOGES = NULL;
 
-            sprite_MOE = SPR_addSprite(&tiles_SPR_MOE_SLAP,  131, 133, TILE_ATTR(PAL3, TRUE, FALSE, FALSE)); // 152 71
+            // CREATE SPRITES FOR MOE, LARRY, CURLY //
+            sprite_MOE   = SPR_addSprite(&tiles_SPR_MOE_SLAP,    131, 133, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+            sprite_LARRY = SPR_addSprite(&tiles_SPR_LARRY_SLAP,   99, 129, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+            sprite_CURLY = SPR_addSprite(&tiles_SPR_CURLY_SLAP,  164, 127, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+
+            //SPR_setAnimAndFrame(sprite_MOE,1,3);
+            //SPR_setAnimAndFrame(sprite_LARRY,1,0);
 
 
             memcpy( &palette_64[16] , image_SLAP_HUB.palette->data     , 16 * 2 );

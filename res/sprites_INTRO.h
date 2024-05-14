@@ -19,6 +19,7 @@ extern const SpriteDefinition tiles_SPR_DEFENDER_SH_INTRO_SCREEN_1;
 extern const SpriteDefinition tiles_SPR_OF_SH_INTRO_SCREEN_1;
 extern const SpriteDefinition tiles_SPR_THE_SH_INTRO_SCREEN_1;
 extern const SpriteDefinition tiles_SPR_CROWN_SH_INTRO_SCREEN_1;
+extern const SpriteDefinition tiles_SPR_RADAR;
 extern const SpriteDefinition tiles_SPR_BANKER_PART1;
 extern const SpriteDefinition tiles_SPR_BANKER_PART2;
 extern const SpriteDefinition tiles_SPR_TEST;

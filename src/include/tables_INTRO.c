@@ -414,20 +414,113 @@ void anim_INTRO_SCREEN_1()
 
 void anim_INTRO_SCREEN_2()
 {
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                            RADAR AND SCRATCHES ANIMATION                             //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    if(G_INDEX_1 == 0)
+    {
+        SPR_setFrame(sprite_RADAR,0);
+        SPR_setPosition(sprite_RADAR,160,16);
+    }
+
+    else if(G_INDEX_1 == 4)
+    {
+        SPR_setFrame(sprite_RADAR,1);
+    }
+
+    else if(G_INDEX_1 == 9)
+    {
+        SPR_setFrame(sprite_RADAR,2);
+    }
+
+    else if(G_INDEX_1 == 15)
+    {
+        SPR_setFrame(sprite_RADAR,3);
+        SPR_setPosition(sprite_RADAR,160,112);
+    }
+
+    else if(G_INDEX_1 == 18)
+    {
+        SPR_setFrame(sprite_RADAR,4);
+    }
+
+    else if(G_INDEX_1 == 24)
+    {
+        SPR_setFrame(sprite_RADAR,5);
+    }
+
+    else if(G_INDEX_1 == 28)
+    {
+        SPR_setHFlip(sprite_RADAR,TRUE);
+        SPR_setPosition(sprite_RADAR,0,112);
+    }
+
+    else if(G_INDEX_1 == 34)
+    {
+        SPR_setFrame(sprite_RADAR,4);
+    }
+
+    else if(G_INDEX_1 == 39)
+    {
+        SPR_setFrame(sprite_RADAR,3);
+    }
+
+    else if(G_INDEX_1 == 44)
+    {
+        SPR_setFrame(sprite_RADAR,2);
+        SPR_setPosition(sprite_RADAR,0,16);
+    }
+
+    else if(G_INDEX_1 == 48)
+    {
+        SPR_setFrame(sprite_RADAR,1);
+    }
+
+    else if(G_INDEX_1 == 54)
+    {
+        SPR_setFrame(sprite_RADAR,0);
+    }
+
+    else if(G_INDEX_1 == 59)
+    {
+        SPR_setFrame(sprite_RADAR,6);
+        SPR_setPosition(sprite_RADAR,158,16);
+        SPR_setHFlip(sprite_RADAR,FALSE);
+    }
+
+    else if(G_INDEX_1 == 64)
+    {
+        G_INDEX_1 = 0;
+    }
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                  NUMBERS ANIMATION                                   //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     // DISPLAY NUMBER 4 //
     if(G_COUNTER_1 == 64)
     {
         VDP_loadTileSet(image_INTRO_SCREEN_2_BG_A2.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile, DMA_QUEUE);
-        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, DMA_QUEUE);
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A2.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, DMA_QUEUE);
     }
     
+    // DISPLAY NUMBER 3 //
     else if(G_COUNTER_1 == 130)
     {
         VDP_loadTileSet(image_INTRO_SCREEN_2_BG_A3.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile, DMA_QUEUE);
-        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, DMA_QUEUE);
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A3.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, DMA_QUEUE);
     }    
     
-    else if(G_COUNTER_1 == 315)
+
+
+
+    else if(G_COUNTER_1 == 194)
     {
         // COUNTERS RESET //
         G_COUNTER_1             = 0;
@@ -441,6 +534,8 @@ void anim_INTRO_SCREEN_2()
         return;
     }
 
+
+    G_INDEX_1 += 1;
 
     G_COUNTER_1 += 1;
 }

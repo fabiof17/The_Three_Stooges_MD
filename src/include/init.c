@@ -103,6 +103,10 @@ void init_VARIABLES()
     G_REEL = REEL_GAME; // REEL_INTRO | REEL_GAME
 
 
+    //--------------------------------------------------------------------------------------//
+    //                                         DEBUG                                        //
+    //--------------------------------------------------------------------------------------//
+
     if(G_REEL == REEL_INTRO)
     {
         G_SCENE = SCENE_FADE_IN;
@@ -411,7 +415,7 @@ void init_INTRO()
         //--------------------------------------------------------------------------------------//
 
         VDP_loadTileSet(image_INTRO_SCREEN_2_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
-        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
         SYS_doVBlankProcess();
 
 
@@ -424,9 +428,26 @@ void init_INTRO()
         //--------------------------------------------------------------------------------------//
 
         VDP_loadTileSet(image_INTRO_SCREEN_2_BG_A1.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile, CPU);
-        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A1.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, CPU);
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A1.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, CPU);
         SYS_doVBlankProcess();
         
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      SPRITES                                         //
+        //                                                                                      //
+        //**************************************************************************************// 
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                     RADAR SPRITE                                     //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_RADAR = SPR_addSprite(&tiles_SPR_RADAR,  160, 16, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+
 
 
 

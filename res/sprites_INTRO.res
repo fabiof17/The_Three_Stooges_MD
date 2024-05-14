@@ -32,6 +32,14 @@ SPRITE tiles_SPR_CROWN_SH_INTRO_SCREEN_1        "sprites/intro/tiles_SPR_CROWN_S
 
 
 
+//----------------------------------------------------------------------------------//
+//                                      SCREEN 2                                    //
+//----------------------------------------------------------------------------------//
+
+SPRITE tiles_SPR_RADAR              "sprites/intro/tiles_SPR_RADAR.png"             20   12  NONE
+
+
+
 
 //----------------------------------------------------------------------------------//
 //                                      SCREEN 7                                    //
@@ -41,7 +49,7 @@ SPRITE tiles_SPR_BANKER_PART1       "sprites/intro/tiles_SPR_BANKER_PART1.png"  
 SPRITE tiles_SPR_BANKER_PART2       "sprites/intro/tiles_SPR_BANKER_PART2.png"      6   8  NONE 0 NONE TILE MEDIUM
 
 //SPRITE tiles_SPR_TEST             "sprites/intro/tiles_SPR_BULLE_TEST2.png"       12  10  NONE 0 NONE TILE MEDIUM
-SPRITE tiles_SPR_TEST               "sprites/intro/tiles_SPR_BULLE_TEST.png"       14  10  NONE 0 NONE TILE MEDIUM
+SPRITE tiles_SPR_TEST               "sprites/intro/tiles_SPR_BULLE_TEST.png"        14  10  NONE 0 NONE TILE MEDIUM
 
 
 
