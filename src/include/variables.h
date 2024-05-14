@@ -130,6 +130,18 @@
 
 //-----------------------------------------------------------------------------//
 //                                                                             //
+//                                    SLAP                                     //
+//                                                                             //
+//-----------------------------------------------------------------------------//
+
+#define SLAP_PHASE_WALKIN               0
+#define SLAP_PHASE_MINIGAME             1
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
 //                                  ICON TYPES                                 //
 //                                                                             //
 //-----------------------------------------------------------------------------// 
@@ -193,7 +205,7 @@
 //-----------------------------------------------------------------------------//
 
 #define SOUND_INTRO_SCREEN1             74
-#define SOUND_BANKER_LAUGH                80
+#define SOUND_BANKER_LAUGH              80
 #define SOUND_HAND                      81
 #define SOUND_WALKOUT                   82
 #define SOUND_SWATTER                   83
@@ -378,10 +390,6 @@ extern Sprite *sprite_SH_INTRO_SCREEN_1[14];
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_STOOGES;
-
-extern Sprite *sprite_LARRY;
-extern Sprite *sprite_CURLY;
-
 extern Sprite *sprite_BANKER[2];
 
 
@@ -447,6 +455,11 @@ extern Sprite *sprite_ICON_BANKER;
 
 extern Sprite *sprite_HAND_SLAP;
 extern Sprite *sprite_METER_SLAP;
+
+
+extern Sprite *sprite_MOE;
+extern Sprite *sprite_LARRY;
+extern Sprite *sprite_CURLY;
 
 
 

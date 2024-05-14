@@ -17,6 +17,7 @@
 #include "include/routines_QUESTION_MARK.h"
 #include "include/routines_REWARD.h"
 #include "include/routines_ROULETTE.h"
+#include "include/routines_SLAP.h"
 #include "include/routines_TRIVIA.h"
 
 
@@ -211,7 +212,7 @@ int main(bool hardReset)
 
         else if(G_REEL == REEL_GAME)
         {
-            // LOADING GAME SCREEN //
+            // LOADING GAME SEQUENCE //
             if(G_SCENE_LOADED == FALSE)
             {
                 init_SCENE();
@@ -220,7 +221,7 @@ int main(bool hardReset)
                 G_SCENE_LOADED = TRUE;
             }
 
-            // PLAYING GAME SCREEN //
+            // PLAYING GAME SEQUENCE //
             else
             {
                 // BANK //
@@ -271,7 +272,7 @@ int main(bool hardReset)
                 // SLAP //
                 else if(G_SCENE == SCENE_SLAP)
                 {                    
-                    //sequence_SLAP();
+                    sequence_SLAP();
                     
                     SPR_update();
                     SYS_doVBlankProcess();

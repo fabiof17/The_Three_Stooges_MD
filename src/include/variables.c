@@ -179,9 +179,6 @@ Sprite *sprite_SH_INTRO_SCREEN_1[14];
 
 Sprite *sprite_STOOGES;
 
-Sprite *sprite_LARRY;
-Sprite *sprite_CURLY;
-
 Sprite *sprite_BANKER[2];
 
 
@@ -248,6 +245,11 @@ Sprite *sprite_ICON_BANKER;
 
 Sprite *sprite_HAND_SLAP;
 Sprite *sprite_METER_SLAP;
+
+Sprite *sprite_MOE;
+Sprite *sprite_LARRY;
+Sprite *sprite_CURLY;
+
 
 
 

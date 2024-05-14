@@ -20,6 +20,7 @@
 #include "maps_QUESTION_MARK.h"
 #include "maps_REWARD.h"
 #include "maps_ROULETTE.h"
+#include "maps_SLAP.h"
 #include "maps_TRIVIA.h"
 
 
@@ -38,6 +39,7 @@
 
 
 #include "sprites_BANK.h"
+#include "sprites_BOXING.h"
 #include "sprites_DOLLAR.h"
 #include "sprites_GLOBAL.h"
 #include "sprites_INTRO.h"
@@ -110,7 +112,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_BOXING_SCREEN_TYPE1;
+        G_SCENE_TYPE = SCENE_ROULETTE;
     }
 
 
@@ -1624,8 +1626,13 @@ void init_SCENE()
 
         // SLAP HUB //
         VDP_loadTileSet(image_SLAP_HUB.tileset, G_ADR_VRAM_BG_A, CPU);
-        VDP_setTileMapEx(BG_B, image_SLAP_HUB.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 9, 34, 0, 0, 22, 8, CPU);
-        G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_SLAP_HUB.tileset->numTile;
+        //VDP_setTileMapEx(BG_B, image_SLAP_HUB.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 9, 34, 0, 0, 22, 8, CPU);
+
+        G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_SLAP_HUB.tileset->numTile;
+        VDP_loadTileSet(image_SLAP_DIALOG_2.tileset, G_ADR_VRAM_DIALOG, CPU);
+
+
+        G_ADR_VRAM_HUB = G_ADR_VRAM_DIALOG + image_SLAP_DIALOG_2.tileset->numTile;
         SYS_doVBlankProcess();
 
 
@@ -1667,29 +1674,43 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_HAND_SLAP = SPR_addSprite(&tiles_SPR_HAND_SLAP,  153, 71, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        sprite_HAND_SLAP = SPR_addSprite(&tiles_SPR_HAND_SLAP,  -32, -32, TILE_ATTR(PAL3, TRUE, FALSE, FALSE)); // 152 71
 
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                  SLAP HAND SPRITES                                   //
+        //                                     METER SPRITE                                     //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_METER_SLAP = SPR_addSprite(&tiles_SPR_METER_SLAP,  -6, 55, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+        sprite_METER_SLAP = SPR_addSprite(&tiles_SPR_METER_SLAP,  0, -16, TILE_ATTR(PAL1, FALSE, FALSE, FALSE)); // -6 55
 
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                    STOOGES SPRITES                                   //
+        //                             HUB ARROW SPRITE OFF SCREEN                              //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        // ARROW SPRITE OFF SCREEN //
         SPR_setPosition(sprite_ARROW_HUB , -48 , -48);
 
-        // STOOGES SPRITES OFF SCREEN //
-        SPR_setPosition(sprite_STOOGES , -96 , -64);
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                            DIALOG ARROW SPRITE OFF SCREEN                            //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_ARROW_DIALOG = SPR_addSprite(&tiles_SPR_BANK_ARROW,   -24, -32, TILE_ATTR(PAL1, TRUE, FALSE, FALSE));
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                              STOOGES SPRITES OFF SCREEN                              //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  -96, -64, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
 
 
         SPR_update();
@@ -1704,7 +1725,7 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
 		memcpy( &palette_64[0]  , image_DOLLAR_1_BG_B.palette->data     , 16 * 2 );
-		memcpy( &palette_64[16] , image_SLAP_HUB.palette->data          , 16 * 2 );
+		memcpy( &palette_64[16] , image_SLAP_DIALOG_2.palette->data     , 16 * 2 );
 
 
 
@@ -1723,6 +1744,12 @@ void init_SCENE()
 
         G_COUNTER_ROULETTE      = 0;
         G_CURRENT_TURN          = 9;
+
+
+        G_STREET_TYPE           = STREET_DOLLAR_TYPE_1;
+
+
+        G_PHASE_SEQUENCE        = SLAP_PHASE_WALKIN;
        
 
         G_SCENE                 = SCENE_FADE_IN;
@@ -1917,7 +1944,7 @@ void init_SCENE()
 
         //XGM_setPCM(MUSIC_ROULETTE, PCM_MUSIC_ROULETTE, sizeof(PCM_MUSIC_ROULETTE));
         
-        XGM_setPCM(SOUND_WALKOUT, PCM_WALKOUT, sizeof(PCM_WALKOUT));
+        XGM_setPCM(SOUND_WALKOUT, PCM_ICONS, sizeof(PCM_ICONS));
         XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));
     }  
 
