@@ -15,6 +15,11 @@
 
 
 
+#include "sprites_SLAP.h"
+
+
+
+
 #include "tables_SLAP.h"
 
 
@@ -70,16 +75,34 @@ void sequence_SLAP()
             SPR_setPosition(sprite_ARROW_DIALOG,160,104);
         }
 
-        else if(G_COUNTER_1 == 1024)
+        else if(G_COUNTER_1 == 1774)
         {
             VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, 0), 12, 32, 0, 0, 16, 9, DMA_QUEUE);
             VDP_setTileMapEx(BG_B, image_SLAP_HUB.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 9, 34, 0, 0, 22, 8, DMA_QUEUE);
 
             SPR_setPosition(sprite_ARROW_DIALOG,-24,-32);
             SPR_setPosition(sprite_HAND_SLAP,152,71);
+            SPR_setPosition(sprite_METER_SLAP,-6,55);
+
+
+            SPR_releaseSprite(sprite_STOOGES);
+            sprite_STOOGES = NULL;
+
+            sprite_MOE = SPR_addSprite(&tiles_SPR_MOE_SLAP,  131, 133, TILE_ATTR(PAL3, TRUE, FALSE, FALSE)); // 152 71
+
 
             memcpy( &palette_64[16] , image_SLAP_HUB.palette->data     , 16 * 2 );
             PAL_setPalette(PAL1,image_SLAP_HUB.palette->data,DMA_QUEUE);
+
+
+
+
+            G_PHASE_SEQUENCE = SLAP_PHASE_MINIGAME;
+
+            G_COUNTER_1 = 0;
+            G_INDEX_3 = 0;
+
+            return;
         }
 
 

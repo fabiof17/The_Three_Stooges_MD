@@ -15,4 +15,5 @@ out/src/include/routines_SLAP.o: src/include/routines_SLAP.c \
  C:/sgdk/inc/task_cst.h C:/sgdk/inc/ext/flash-save/flash.h \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
  src/include/outils.h src/include/structures.h src/include/variables.h \
- res/maps_SLAP.h res/maps_GLOBAL.h src/include/tables_SLAP.h
+ res/maps_SLAP.h res/maps_GLOBAL.h res/sprites_SLAP.h \
+ src/include/tables_SLAP.h
