@@ -143,12 +143,12 @@
 #define RIGHT                           1
 
 
-#define SLAP_MOE_STATE_IDLE             0
-#define SLAP_MOE_STATE_DOWN             1
-#define SLAP_MOE_STATE_FRONT            2
-#define SLAP_MOE_STATE_FRONT_UP         3
-#define SLAP_MOE_STATE_UP               4
-#define SLAP_MOE_STATE_BACK             5
+#define SLAP_MOE_STATE_UP               5
+#define SLAP_MOE_STATE_FRONT_UP         4
+#define SLAP_MOE_STATE_FRONT            3
+#define SLAP_MOE_STATE_IDLE             2
+#define SLAP_MOE_STATE_BACK             1
+#define SLAP_MOE_STATE_DOWN             0
 
 
 
