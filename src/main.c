@@ -272,6 +272,8 @@ int main(bool hardReset)
                 // SLAP //
                 else if(G_SCENE == SCENE_SLAP)
                 {                    
+                    joypad_SLAP();
+                    
                     sequence_SLAP();
                     
                     SPR_update();

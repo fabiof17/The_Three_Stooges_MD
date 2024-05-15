@@ -1767,6 +1767,9 @@ void init_SCENE()
         G_CURRENT_TURN          = 9;
 
 
+        G_AXIS                  = LEFT;
+
+
         G_STREET_TYPE           = STREET_DOLLAR_TYPE_1;
 
 

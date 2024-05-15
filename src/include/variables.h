@@ -135,7 +135,20 @@
 //-----------------------------------------------------------------------------//
 
 #define SLAP_PHASE_WALKIN               0
-#define SLAP_PHASE_MINIGAME             1
+#define SLAP_PHASE_ATTACK               1
+#define SLAP_PHASE_RESULT_ATTACK        2
+
+
+#define LEFT                            0
+#define RIGHT                           1
+
+
+#define SLAP_MOE_STATE_IDLE             0
+#define SLAP_MOE_STATE_DOWN             1
+#define SLAP_MOE_STATE_FRONT            2
+#define SLAP_MOE_STATE_FRONT_UP         3
+#define SLAP_MOE_STATE_UP               4
+#define SLAP_MOE_STATE_BACK             5
 
 
 
@@ -270,6 +283,9 @@ extern u8 G_HIGHSTREET_POSITION;
 
 
 extern s16 G_POS_Y_CAMERA;
+
+
+extern bool G_AXIS;
 
 
 

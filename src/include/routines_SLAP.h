@@ -5,6 +5,8 @@
 
 
 
+extern void joypad_SLAP();
+
 extern void sequence_SLAP();
 
 

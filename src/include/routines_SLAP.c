@@ -25,6 +25,49 @@
 
 
 
+void joypad_SLAP()
+{
+    u16 value=JOY_readJoypad(JOY_1);
+
+    
+    if(G_PHASE_SEQUENCE == SLAP_PHASE_ATTACK)
+    {
+        if((value & BUTTON_DIR) == SLAP_MOE_STATE_IDLE)
+        {
+            SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_IDLE);
+
+            if(G_AXIS == LEFT)
+            {
+                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_IDLE);
+            }
+        }  
+
+ 
+        else if(value & BUTTON_UP)
+        {
+            SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_UP);
+
+            if(G_AXIS == LEFT)
+            {
+                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_UP);
+            }
+        }
+
+
+        else if(value & BUTTON_LEFT)
+        {
+            SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_FRONT);
+
+            if(G_AXIS == LEFT)
+            {
+                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_FRONT);
+            }
+        }
+    }
+}
+
+
+
 void sequence_SLAP()
 {
     if(G_PHASE_SEQUENCE == SLAP_PHASE_WALKIN)
@@ -70,7 +113,7 @@ void sequence_SLAP()
         else if(G_COUNTER_1 == 724)
         {
             VDP_loadTileSet(image_SLAP_DIALOG_2.tileset, G_ADR_VRAM_DIALOG, DMA_QUEUE);
-            VDP_setTileMapEx(BG_A, image_SLAP_DIALOG_2.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 12, 32, 0, 0, 16, 9, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_SLAP_DIALOG_2.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 11, 32, 0, 0, 18, 9, DMA_QUEUE);
 
             SPR_setPosition(sprite_ARROW_DIALOG,160,104);
         }
@@ -78,7 +121,7 @@ void sequence_SLAP()
         else if(G_COUNTER_1 == 1774)
         {
             // DISPLAY SLAP HUB //
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, 0), 12, 32, 0, 0, 16, 9, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, 0), 11, 32, 0, 0, 18, 9, DMA_QUEUE);
             VDP_setTileMapEx(BG_B, image_SLAP_HUB.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 9, 34, 0, 0, 22, 8, DMA_QUEUE);
 
             // DIALOG ARROW SPRITE OFF SCREEN //
@@ -107,7 +150,7 @@ void sequence_SLAP()
 
 
 
-            G_PHASE_SEQUENCE = SLAP_PHASE_MINIGAME;
+            G_PHASE_SEQUENCE = SLAP_PHASE_ATTACK;
 
             G_COUNTER_1 = 0;
             G_INDEX_3 = 0;
@@ -121,11 +164,17 @@ void sequence_SLAP()
         G_COUNTER_1 += 1;
     }
 
-    else if(G_PHASE_SEQUENCE == SLAP_PHASE_MINIGAME)
+
+    else if(G_PHASE_SEQUENCE == SLAP_PHASE_ATTACK)
+    {
+        // WAIT JOYPAD INPUT //
+    }
+
+
+    else if(G_PHASE_SEQUENCE == SLAP_PHASE_RESULT_ATTACK)
     {
         //
     }
-
 }
 
 
