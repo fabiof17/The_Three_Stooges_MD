@@ -40,6 +40,11 @@ void joypad_SLAP()
             {
                 SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_IDLE);
             }
+
+            else if(G_AXIS == RIGHT)
+            {
+                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_MOE_STATE_IDLE);
+            }
         }  
 
  
@@ -51,16 +56,42 @@ void joypad_SLAP()
             {
                 SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_UP);
             }
+
+            else if(G_AXIS == RIGHT)
+            {
+                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_MOE_STATE_UP);
+            }
         }
 
 
         else if(value & BUTTON_LEFT)
         {
-            SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_FRONT);
-
             if(G_AXIS == LEFT)
             {
+                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_FRONT);
                 SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_FRONT);
+            }
+
+            else if(G_AXIS == RIGHT)
+            {
+                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_BACK);
+                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_MOE_STATE_IDLE);
+            }
+        }
+
+
+        else if(value & BUTTON_RIGHT)
+        {
+            if(G_AXIS == LEFT)
+            {
+                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_BACK);
+                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_IDLE);
+            }
+
+            else if(G_AXIS == RIGHT)
+            {
+                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_FRONT);
+                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_MOE_STATE_FRONT);
             }
         }
     }

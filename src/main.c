@@ -273,6 +273,7 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_SLAP)
                 {                    
                     joypad_SLAP();
+                    JOY_setEventHandler(slap_Callback);
                     
                     sequence_SLAP();
                     
