@@ -1800,7 +1800,8 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        
+        XGM_setPCM(SOUND_WALKOUT, PCM_ICONS, sizeof(PCM_ICONS));
+        XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));        
     }
 
     // TRIVIA //
