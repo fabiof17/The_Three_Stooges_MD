@@ -15,6 +15,11 @@
 
 
 
+#include "routines_ROULETTE.h"
+
+
+
+
 #include "sprites_SLAP.h"
 
 
@@ -32,70 +37,253 @@ void joypad_SLAP()
     
     if(G_PHASE_SEQUENCE == SLAP_PHASE_ATTACK)
     {
-        if((value & BUTTON_DIR) == SLAP_MOE_STATE_IDLE)
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                       NO JOYPAD INPUT                        //
+        //                                                              //
+        //--------------------------------------------------------------//
+
+        if((value & BUTTON_DIR) == 0)
         {
-            SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_IDLE);
+            SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_IDLE);
 
             if(G_AXIS == LEFT)
             {
-                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_IDLE);
+                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_IDLE);
             }
 
             else if(G_AXIS == RIGHT)
             {
-                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_MOE_STATE_IDLE);
+                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_IDLE);
             }
+
+            G_PREVIOUS_STATE = G_CURRENT_STATE;
+            G_CURRENT_STATE = SLAP_STATE_IDLE;
         }  
 
  
+
+
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                          BUTTON UP                           //
+        //                                                              //
+        //--------------------------------------------------------------//
+
         else if(value & BUTTON_UP)
         {
-            SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_UP);
-
-            if(G_AXIS == LEFT)
+            if(value & BUTTON_LEFT)
             {
-                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_UP);
+                if(G_AXIS == LEFT)
+                {
+                    SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_FRONT_UP);
+                    SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_FRONT_UP);
+
+                    G_PREVIOUS_STATE = G_CURRENT_STATE;
+                    G_CURRENT_STATE = SLAP_STATE_FRONT_UP;
+                }
+
+                else
+                {
+                    SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_BACK_UP);
+                    SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_BACK_UP);
+
+                    G_PREVIOUS_STATE = G_CURRENT_STATE;
+                    G_CURRENT_STATE = SLAP_STATE_BACK_UP;
+                }
             }
 
-            else if(G_AXIS == RIGHT)
+
+            else if(value & BUTTON_RIGHT)
             {
-                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_MOE_STATE_UP);
+                if(G_AXIS == RIGHT)
+                {
+                    SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_FRONT_UP);
+                    SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_FRONT_UP);
+
+                    G_PREVIOUS_STATE = G_CURRENT_STATE;
+                    G_CURRENT_STATE = SLAP_STATE_FRONT_UP;
+                }
+
+                else
+                {
+                    SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_BACK_UP);
+                    SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_BACK_UP);
+
+                    G_PREVIOUS_STATE = G_CURRENT_STATE;
+                    G_CURRENT_STATE = SLAP_STATE_BACK_UP;
+                }
+            }
+
+
+            else
+            {
+                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_UP);
+
+                if(G_AXIS == LEFT)
+                {
+                    SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_UP);
+                }
+
+                else
+                {
+                    SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_UP);
+                }
+
+                G_PREVIOUS_STATE = G_CURRENT_STATE;
+                G_CURRENT_STATE = SLAP_STATE_UP;
             }
         }
 
+
+
+
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                         BUTTON DOWN                          //
+        //                                                              //
+        //--------------------------------------------------------------//
+
+        else if(value & BUTTON_DOWN)
+        {
+            if(value & BUTTON_LEFT)
+            {
+                if(G_AXIS == LEFT)
+                {
+                    SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_FRONT_DOWN);
+                    SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_FRONT_DOWN);
+
+                    G_PREVIOUS_STATE = G_CURRENT_STATE;
+                    G_CURRENT_STATE = SLAP_STATE_FRONT_DOWN;
+                }
+            }
+
+
+            else if(value & BUTTON_RIGHT)
+            {
+                if(G_AXIS == RIGHT)
+                {
+                    SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_FRONT_DOWN);
+                    SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_FRONT_DOWN);
+
+                    G_PREVIOUS_STATE = G_CURRENT_STATE;
+                    G_CURRENT_STATE = SLAP_STATE_FRONT_DOWN;
+                }
+            }
+
+
+            else
+            {
+                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_DOWN);
+
+                G_PREVIOUS_STATE = G_CURRENT_STATE;
+                G_CURRENT_STATE = SLAP_STATE_DOWN;
+
+                if(G_AXIS == LEFT)
+                {
+                    SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_DOWN);
+                }
+
+                else if(G_AXIS == RIGHT)
+                {
+                    SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_DOWN);
+                }
+            }
+        }
+
+
+
+
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                         BUTTON LEFT                          //
+        //                                                              //
+        //--------------------------------------------------------------//
 
         else if(value & BUTTON_LEFT)
         {
             if(G_AXIS == LEFT)
             {
-                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_FRONT);
-                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_FRONT);
+                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_FRONT);
+                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_FRONT);
+
+                G_PREVIOUS_STATE = G_CURRENT_STATE;
+                G_CURRENT_STATE = SLAP_STATE_FRONT;
             }
 
             else if(G_AXIS == RIGHT)
             {
-                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_BACK);
-                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_MOE_STATE_IDLE);
+                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_BACK);
+                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_BACK);
+
+                G_PREVIOUS_STATE = G_CURRENT_STATE;
+                G_CURRENT_STATE = SLAP_STATE_BACK;
             }
         }
 
+
+
+
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                         BUTTON RIGHT                         //
+        //                                                              //
+        //--------------------------------------------------------------//
 
         else if(value & BUTTON_RIGHT)
         {
             if(G_AXIS == LEFT)
             {
-                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_BACK);
-                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_MOE_STATE_IDLE);
+                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_BACK);
+                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_BACK);
+
+                G_PREVIOUS_STATE = G_CURRENT_STATE;
+                G_CURRENT_STATE = SLAP_STATE_BACK;
             }
 
             else if(G_AXIS == RIGHT)
             {
-                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_MOE_STATE_FRONT);
-                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_MOE_STATE_FRONT);
+                SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_FRONT);
+                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_FRONT);
+
+                G_PREVIOUS_STATE = G_CURRENT_STATE;
+                G_CURRENT_STATE = SLAP_STATE_FRONT;
             }
         }
     }
 }
+
+
+inline static void counter_SLAP()
+{
+    if(G_COUNTER_SLAP == 17)
+    {
+        G_COUNTER_SLAP = 0;
+
+        if(G_INDEX_2 > 0)
+        {
+            G_INDEX_2 -= 1;
+
+            SPR_setAnim(sprite_COUNTER_SLAP,G_INDEX_2);
+
+            return;
+        }
+
+        else
+        {
+            SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_IDLE);
+            SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_IDLE);
+            SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_IDLE);
+            
+            G_PHASE_SEQUENCE = SLAP_PHASE_OVER;
+
+            return;
+        }
+    }
+
+    G_COUNTER_SLAP += 1;
+}
+
 
 
 
@@ -159,17 +347,25 @@ void sequence_SLAP()
             SPR_setPosition(sprite_ARROW_DIALOG,-24,-32);
 
             // DISPLAY SLAP HUB SPRITES //
+            SPR_setPosition(sprite_COUNTER_SLAP,88,91);
+
             SPR_setPosition(sprite_HAND_SLAP,152,71);
-            SPR_setPosition(sprite_METER_SLAP,-6,55);
+
+            G_POS_X_METER_SLAP = -6;
+            SPR_setPosition(sprite_METER_SLAP,G_POS_X_METER_SLAP,55);
 
             // RELEASE STOOGES SPRITE //
-            SPR_releaseSprite(sprite_STOOGES);
-            sprite_STOOGES = NULL;
+            SPR_setPosition(sprite_STOOGES,-96,0);
 
             // CREATE SPRITES FOR MOE, LARRY, CURLY //
             sprite_MOE   = SPR_addSprite(&tiles_SPR_MOE_SLAP,    131, 133, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+            SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_IDLE);
+
             sprite_LARRY = SPR_addSprite(&tiles_SPR_LARRY_SLAP,   99, 129, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+            SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_IDLE);
+
             sprite_CURLY = SPR_addSprite(&tiles_SPR_CURLY_SLAP,  164, 127, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+            SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_IDLE);
 
             //SPR_setAnimAndFrame(sprite_MOE,1,3);
             //SPR_setAnimAndFrame(sprite_LARRY,1,0);
@@ -198,13 +394,88 @@ void sequence_SLAP()
 
     else if(G_PHASE_SEQUENCE == SLAP_PHASE_ATTACK)
     {
-        // WAIT JOYPAD INPUT //
+        counter_SLAP();
     }
 
 
     else if(G_PHASE_SEQUENCE == SLAP_PHASE_RESULT_ATTACK)
     {
-        //
+        counter_SLAP();
+        
+        if(G_COUNTER_1 == 10)
+        {
+            SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_IDLE);
+            SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_IDLE);
+            SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_IDLE);
+
+            G_COUNTER_1 = 0;
+
+            G_PHASE_SEQUENCE = SLAP_PHASE_PAUSE;
+
+            return;
+        }
+        
+        G_COUNTER_1 += 1;
+    }
+
+
+    else if(G_PHASE_SEQUENCE == SLAP_PHASE_PAUSE)
+    {        
+        counter_SLAP();
+        
+        if(G_COUNTER_1 == 10)
+        {
+            G_COUNTER_1 = 0;
+
+            G_PHASE_SEQUENCE = SLAP_PHASE_ATTACK;
+
+            return;
+        }
+        
+        G_COUNTER_1 += 1;
+    }
+
+
+    else if(G_PHASE_SEQUENCE == SLAP_PHASE_OVER)
+    {        
+        if(G_COUNTER_1 == 240)
+        {
+            // DISPLAY HUB //
+            display_HUB();
+
+            SPR_setFrame(sprite_STOOGES,17);
+            SPR_setPosition(sprite_STOOGES,117,133);
+
+
+            SPR_releaseSprite(sprite_MOE);
+            SPR_releaseSprite(sprite_LARRY);
+            SPR_releaseSprite(sprite_CURLY);
+
+
+            SPR_releaseSprite(sprite_COUNTER_SLAP);
+            SPR_releaseSprite(sprite_HAND_SLAP);
+            SPR_releaseSprite(sprite_METER_SLAP);
+            SPR_releaseSprite(sprite_ARROW_DIALOG);
+
+            
+            G_COUNTER_1             = 0;
+            G_INDEX_1               = 0;
+            G_INDEX_2               = 0;
+            G_INDEX_3               = 0;
+
+
+            G_COUNTER_ROULETTE      = 0;
+            G_CURRENT_TURN          = 9;
+
+
+            G_SCENE = SCENE_ROULETTE;
+
+            G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
+
+            return;
+        }
+        
+        G_COUNTER_1 += 1;
     }
 }
 

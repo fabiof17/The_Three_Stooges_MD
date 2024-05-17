@@ -138,9 +138,18 @@ u8 G_TRIVIA_TYPE;
 
 
 
+//**************************************************************************************//
+//                                                                                      //
+//                                         SLAP                                         //
+//                                                                                      //
+//**************************************************************************************//
 
+s8 G_CURRENT_STATE;
+s8 G_PREVIOUS_STATE;
 
+s16 G_POS_X_METER_SLAP;
 
+u8 G_COUNTER_SLAP;
 
 
 
@@ -267,6 +276,8 @@ Sprite *sprite_METER_SLAP;
 Sprite *sprite_MOE;
 Sprite *sprite_LARRY;
 Sprite *sprite_CURLY;
+
+Sprite *sprite_COUNTER_SLAP;
 
 
 

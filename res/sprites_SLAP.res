@@ -10,7 +10,7 @@ SPRITE tiles_SPR_LARRY_SLAP         "sprites/slap/tiles_SPR_LARRY_SLAP.png"     
 SPRITE tiles_SPR_CURLY_SLAP         "sprites/slap/tiles_SPR_CURLY_SLAP.png"             7   8  NONE 0
 
 
-
+SPRITE tiles_SPR_SLAP_COUNTER       "sprites/slap/tiles_SPR_SLAP_COUNTER.png"           3   1  NONE 0
 
 
 

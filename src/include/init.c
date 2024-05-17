@@ -116,7 +116,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_ROULETTE;
+        G_SCENE_TYPE = SCENE_SLAP;
     }
 
 
@@ -1672,9 +1672,6 @@ void init_SCENE()
         // GENERATE NEXT POSITION IN HIGHSTREET //
         G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
-        //G_COUNTER_ROULETTE      = 0;
-        //G_CURRENT_TURN          = 9;
-
         // 1 DAY SPENT //
         G_DAY += 1;
 
@@ -1688,6 +1685,17 @@ void init_SCENE()
         //                                      SPRITES                                         //
         //                                                                                      //
         //**************************************************************************************// 
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        COUNTER                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_SLAP = 96;
+        sprite_COUNTER_SLAP = SPR_addSprite(&tiles_SPR_SLAP_COUNTER,  -24, -8, TILE_ATTR(PAL0, TRUE, FALSE, FALSE)); // 88 90
+        SPR_setAnim(sprite_COUNTER_SLAP,G_COUNTER_SLAP);
+
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
@@ -1759,15 +1767,18 @@ void init_SCENE()
 
         G_COUNTER_1             = 0;
         G_INDEX_1               = 0;
-        G_INDEX_2               = 0;
+        G_INDEX_2               = 96;
         G_INDEX_3               = 0;
 
 
         G_COUNTER_ROULETTE      = 0;
         G_CURRENT_TURN          = 9;
+        G_COUNTER_SLAP          = 0;
 
 
         G_AXIS                  = LEFT;
+        G_CURRENT_STATE         = SLAP_STATE_IDLE;
+        G_PREVIOUS_STATE        = SLAP_STATE_IDLE;
 
 
         G_STREET_TYPE           = STREET_DOLLAR_TYPE_1;

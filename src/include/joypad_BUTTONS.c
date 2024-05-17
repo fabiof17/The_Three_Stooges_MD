@@ -8,8 +8,9 @@
 
 
 
-#include "tables_ROULETTE.h"
 #include "tables_QUESTIONS.h"
+#include "tables_ROULETTE.h"
+#include "tables_SLAP.h"
 
 
 
@@ -39,6 +40,8 @@ void roulette_Callback(u16 joy, u16 changed, u16 state)
         }
     }
 }
+
+
 
 
 void trivia_Callback(u16 joy, u16 changed, u16 state)
@@ -126,6 +129,8 @@ void trivia_Callback(u16 joy, u16 changed, u16 state)
 }
 
 
+
+
 void slap_Callback(u16 joy, u16 changed, u16 state)
 {
     u16 value=JOY_readJoypad(JOY_1);
@@ -137,24 +142,67 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
             // BOUTON B //
             if( changed & state & BUTTON_B )
             {
-                //
+                // IF MOE ATTACKS (NOT IN IDLE STATE) //
+                if(G_CURRENT_STATE != SLAP_STATE_IDLE)
+                {
+                    SPR_setAnimAndFrame(sprite_MOE, 1, G_CURRENT_STATE);
+                    
+                    // COMPUTE THE PROBABILITY OF SUCCESS //
+                    u8 hit_probability = abs(G_CURRENT_STATE - G_PREVIOUS_STATE);
+
+                    // GENERATE RANDOM NUMBER //
+                    u8 hit_number = random_NUMBER(0,19);
+
+                    // GET HIT RESULT //
+                    bool result = TABLE_PROBABILITY_SLAP_ATTACK[hit_probability][hit_number];
+
+                    // MISS //
+                    if(result == 0)
+                    {
+                        G_POS_X_METER_SLAP += 4;
+                    }
+
+                    else
+                    {
+                        G_POS_X_METER_SLAP -= 4;
+                    }
+
+                    SPR_setPosition(sprite_METER_SLAP , G_POS_X_METER_SLAP , 55);
+
+                    //VDP_drawIntEx_BG_B(G_CURRENT_STATE,1,0,28,PAL1);
+                    //VDP_drawIntEx_BG_B(1+result,1,0,30,PAL1);
+
+                    if(G_AXIS == LEFT)
+                    {
+                        SPR_setAnimAndFrame(sprite_LARRY, 1 + result, G_CURRENT_STATE);
+                    }
+
+                    else if(G_AXIS == RIGHT)
+                    {
+                        SPR_setAnimAndFrame(sprite_CURLY, 1 + result, G_CURRENT_STATE);
+                    }
+
+                    G_PHASE_SEQUENCE = SLAP_PHASE_RESULT_ATTACK;
+                }
             }
 
             // BOUTON C //
-            if( changed & state & BUTTON_C )
+            else if( changed & state & BUTTON_C )
             {
-                if((value & BUTTON_DIR) == SLAP_MOE_STATE_IDLE)
+                if((value & BUTTON_DIR) == 0)
                 {
                     if(G_AXIS == LEFT)
                     {
                         G_AXIS = RIGHT;
                         SPR_setHFlip(sprite_MOE,G_AXIS);
+                        SPR_setPosition(sprite_MOE,132,133);
                     }
 
                     else
                     {
                         G_AXIS = LEFT;
                         SPR_setHFlip(sprite_MOE,G_AXIS);
+                        SPR_setPosition(sprite_MOE,131,133);
                     }
                 }
             }

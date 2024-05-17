@@ -137,18 +137,22 @@
 #define SLAP_PHASE_WALKIN               0
 #define SLAP_PHASE_ATTACK               1
 #define SLAP_PHASE_RESULT_ATTACK        2
+#define SLAP_PHASE_PAUSE                3
+#define SLAP_PHASE_OVER                 4
 
 
 #define LEFT                            0
 #define RIGHT                           1
 
 
-#define SLAP_MOE_STATE_UP               5
-#define SLAP_MOE_STATE_FRONT_UP         4
-#define SLAP_MOE_STATE_FRONT            3
-#define SLAP_MOE_STATE_IDLE             2
-#define SLAP_MOE_STATE_BACK             1
-#define SLAP_MOE_STATE_DOWN             0
+#define SLAP_STATE_BACK_UP              7
+#define SLAP_STATE_UP                   6
+#define SLAP_STATE_FRONT_UP             5
+#define SLAP_STATE_FRONT                4
+#define SLAP_STATE_IDLE                 3
+#define SLAP_STATE_FRONT_DOWN           2
+#define SLAP_STATE_BACK                 1
+#define SLAP_STATE_DOWN                 0
 
 
 
@@ -368,6 +372,18 @@ extern u8 G_TRIVIA_TYPE;
 
 
 
+//**************************************************************************************//
+//                                                                                      //
+//                                         SLAP                                         //
+//                                                                                      //
+//**************************************************************************************//
+
+extern s8 G_CURRENT_STATE;
+extern s8 G_PREVIOUS_STATE;
+
+extern s16 G_POS_X_METER_SLAP;
+
+extern u8 G_COUNTER_SLAP;
 
 
 
@@ -490,6 +506,8 @@ extern Sprite *sprite_METER_SLAP;
 extern Sprite *sprite_MOE;
 extern Sprite *sprite_LARRY;
 extern Sprite *sprite_CURLY;
+
+extern Sprite *sprite_COUNTER_SLAP;
 
 
 
