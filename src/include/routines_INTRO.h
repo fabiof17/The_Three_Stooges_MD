@@ -12,6 +12,10 @@ extern void fadeOut_INTRO_SCREEN_3();
 
 extern void fadeOut_INTRO_SCREEN_4();
 
+extern void fadeOut_INTRO_SCREEN_5();
+
+extern void fadeOut_INTRO_SCREEN_6();
+
 extern void fadeOut_INTRO_SCREEN_7();
 
 

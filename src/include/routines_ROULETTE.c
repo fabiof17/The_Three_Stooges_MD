@@ -453,6 +453,10 @@ void sequence_ROULETTE()
             // DISPLAY TURN NUMBER //
             VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_CURRENT_TURN), 21 , 11 , 0, 0, 1, 1, CPU);
 
+            // DISPLAY HAND //
+            s16 pos_X_HAND = TABLE_GENERATED_HAND_POSITION[G_CURRENT_TURN];
+            SPR_setPosition( sprite_HAND_ROULETTE , 16 + (pos_X_HAND * 48) , 48 );
+
             // REINIT COUNTER //
             G_COUNTER_ROULETTE = 0;
             

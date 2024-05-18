@@ -24,9 +24,8 @@ void fadeOut_INTRO_SCREEN_1()
     SPR_reset();
 
 
-    G_SCENE_TYPE        = SCENE_INTRO_SCREEN_2;
-
     G_SCENE             = SCENE_FADE_IN;
+    G_SCENE_TYPE        = SCENE_INTRO_SCREEN_2;
     G_SCENE_NEXT        = SCENE_INTRO_SCREEN_2;
 
     G_SCENE_LOADED      = FALSE;
@@ -46,9 +45,8 @@ void fadeOut_INTRO_SCREEN_2()
     SPR_reset();
 
 
-    G_SCENE_TYPE        = SCENE_INTRO_SCREEN_3;
-
     G_SCENE             = SCENE_FADE_IN;
+    G_SCENE_TYPE        = SCENE_INTRO_SCREEN_3;
     G_SCENE_NEXT        = SCENE_INTRO_SCREEN_3;
 
     G_SCENE_LOADED      = FALSE;
@@ -71,15 +69,9 @@ void fadeOut_INTRO_SCREEN_3()
     SPR_reset();
 
 
-    G_SCENE_TYPE        = SCENE_INTRO_SCREEN_7;
-
     G_SCENE             = SCENE_FADE_IN;
-    G_SCENE_NEXT        = SCENE_INTRO_SCREEN_7;
-
-    /*G_SCENE_TYPE        = SCENE_INTRO_SCREEN_4;
-
-    G_SCENE             = SCENE_FADE_IN;
-    G_SCENE_NEXT        = SCENE_INTRO_SCREEN_4;*/
+    G_SCENE_TYPE        = SCENE_INTRO_SCREEN_4;
+    G_SCENE_NEXT        = SCENE_INTRO_SCREEN_4;
 
     G_SCENE_LOADED      = FALSE;
 }
@@ -87,7 +79,73 @@ void fadeOut_INTRO_SCREEN_3()
 
 void fadeOut_INTRO_SCREEN_4()
 {
-    //
+    // FADE OUT : 1 FRAME //
+    PAL_fadeOutAll(10,FALSE);
+
+    // RESET BG_A POSITION //
+    VDP_setVerticalScrollVSync(BG_A , 0);
+
+    // CLEAR PLANES //
+    VDP_clearPlane(BG_B,TRUE);
+    VDP_clearPlane(BG_A,TRUE);
+
+    // RELEASE ALL SPRITES //
+    SPR_reset();
+
+
+    G_SCENE             = SCENE_FADE_IN;
+    G_SCENE_TYPE        = SCENE_INTRO_SCREEN_5;
+    G_SCENE_NEXT        = SCENE_INTRO_SCREEN_5;
+
+    G_SCENE_LOADED      = FALSE;
+}
+
+
+void fadeOut_INTRO_SCREEN_5()
+{
+    // FADE OUT : 1 FRAME //
+    PAL_fadeOutAll(10,FALSE);
+
+    // RESET BG_A POSITION //
+    VDP_setVerticalScrollVSync(BG_A , 0);
+
+    // CLEAR PLANES //
+    VDP_clearPlane(BG_B,TRUE);
+    VDP_clearPlane(BG_A,TRUE);
+
+    // RELEASE ALL SPRITES //
+    SPR_reset();
+
+
+    G_SCENE             = SCENE_FADE_IN;
+    G_SCENE_TYPE        = SCENE_INTRO_SCREEN_6;
+    G_SCENE_NEXT        = SCENE_INTRO_SCREEN_6;
+
+    G_SCENE_LOADED      = FALSE;
+}
+
+
+void fadeOut_INTRO_SCREEN_6()
+{
+    // FADE OUT : 1 FRAME //
+    PAL_fadeOutAll(10,FALSE);
+
+    // RESET BG_A POSITION //
+    VDP_setVerticalScrollVSync(BG_A , 0);
+
+    // CLEAR PLANES //
+    VDP_clearPlane(BG_B,TRUE);
+    VDP_clearPlane(BG_A,TRUE);
+
+    // RELEASE ALL SPRITES //
+    SPR_reset();
+
+
+    G_SCENE             = SCENE_FADE_IN;
+    G_SCENE_TYPE        = SCENE_INTRO_SCREEN_7;
+    G_SCENE_NEXT        = SCENE_INTRO_SCREEN_7;
+
+    G_SCENE_LOADED      = FALSE;
 }
 
 

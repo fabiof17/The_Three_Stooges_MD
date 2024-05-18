@@ -90,6 +90,8 @@ int main(bool hardReset)
                 // INTRO SCREEN 4 //
                 else if(G_SCENE == SCENE_INTRO_SCREEN_4)
                 {
+                    anim_INTRO_SCREEN_4();
+                    
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -97,6 +99,8 @@ int main(bool hardReset)
                 // INTRO SCREEN 5 //
                 else if(G_SCENE == SCENE_INTRO_SCREEN_5)
                 {
+                    //anim_INTRO_SCREEN_5();
+                    
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -104,6 +108,8 @@ int main(bool hardReset)
                 // INTRO SCREEN 6 //
                 else if(G_SCENE == SCENE_INTRO_SCREEN_6)
                 {
+                    //anim_INTRO_SCREEN_6();
+                    
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -137,17 +143,17 @@ int main(bool hardReset)
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_4)
                     {
-                        //
+                        PAL_fadeInAll(palette_64, 10, FALSE);
                     }
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_5)
                     {
-                        //
+                        PAL_fadeInAll(palette_64, 10, FALSE);
                     }
                     
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_6)
                     {
-                        //
+                        PAL_fadeInAll(palette_64, 10, FALSE);
                     }
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_7)
@@ -180,17 +186,17 @@ int main(bool hardReset)
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_4)
                     {
-                        //
+                        fadeOut_INTRO_SCREEN_4();
                     }
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_5)
                     {
-                        //
+                        fadeOut_INTRO_SCREEN_5();
                     }
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_6)
                     {
-                        //
+                        fadeOut_INTRO_SCREEN_6();
                     }
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_7)

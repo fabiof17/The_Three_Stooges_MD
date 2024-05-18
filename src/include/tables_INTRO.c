@@ -185,7 +185,71 @@ const struct_WALK_STOOGES_              TABLE_ANIM_STOOGES_SCREEN_3[26]     =   
 
 //--------------------------------------------------------------------------------------//
 //                                                                                      //
-//                                       SCREEN 5                                       //
+//                                     SCREENS 4-5-6                                    //
+//                                                                                      //
+//--------------------------------------------------------------------------------------//
+
+const struct_WALK_STOOGES_              TABLE_ANIM_STOOGES_SCREEN_4[48]     =   {
+                                                                                    {    5 ,  0 , -87 },
+                                                                                    {   13 ,  1 , -79 },
+                                                                                    {   21 ,  2 , -73 },
+                                                                                    {   30 ,  3 , -65 },
+                                                                                    {   38 ,  4 , -57 },
+                                                                                    {   47 ,  5 , -49 },
+                                                                                    {   55 ,  6 , -40 },
+                                                                                    {   63 ,  7 , -31 },
+                                                                                    {   72 ,  0 , -23 },
+                                                                                    {   81 ,  1 , -17 },
+                                                                                    {   89 ,  2 ,  -9 },
+                                                                                    {   97 ,  3 ,  -1 },
+                                                                                    {  105 ,  4 ,  7  },
+                                                                                    {  114 ,  5 ,  17 },
+                                                                                    {  122 ,  6 ,  23 },
+                                                                                    {  131 ,  7 ,  32 },
+
+                                                                                    {  140 ,  0 ,  40 },
+                                                                                    {  149 ,  1 ,  46 },
+                                                                                    {  157 ,  2 ,  54 },
+                                                                                    {  165 ,  3 ,  62 },
+                                                                                    {  172 ,  4 ,  70 },
+                                                                                    {  181 ,  5 ,  80 },
+                                                                                    {  189 ,  6 ,  86 },
+                                                                                    {  198 ,  7 ,  95 },
+                                                                                    
+                                                                                    {  207 ,  0 , 103 },
+                                                                                    {  216 ,  1 , 109 },
+                                                                                    {  224 ,  2 , 117 },
+                                                                                    {  232 ,  3 , 125 },
+                                                                                    {  239 ,  4 , 133 },
+                                                                                    {  248 ,  5 , 143 },
+                                                                                    {  256 ,  6 , 149 },
+                                                                                    {  265 ,  7 , 158 },
+
+                                                                                    {  274 ,  0 , 166 },
+                                                                                    {  283 ,  1 , 172 },
+                                                                                    {  291 ,  2 , 180 },
+                                                                                    {  299 ,  3 , 188 },
+                                                                                    {  306 ,  4 , 196 },
+                                                                                    {  315 ,  5 , 206 },
+                                                                                    {  323 ,  6 , 212 },
+                                                                                    {  332 ,  7 , 221 },
+
+                                                                                    {  341 ,  0 , 229 },
+                                                                                    {  350 ,  1 , 235 },
+                                                                                    {  358 ,  2 , 243 },
+                                                                                    {  366 ,  3 , 251 },
+                                                                                    {  373 ,  4 , 259 },
+                                                                                    {  382 ,  5 , 269 },
+                                                                                    {  390 ,  6 , 275 },
+                                                                                    {  399 ,  7 , 284 }
+                                                                                };
+
+
+
+
+//--------------------------------------------------------------------------------------//
+//                                                                                      //
+//                                       SCREEN 7                                       //
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
 
@@ -230,7 +294,7 @@ const struct_ANIM_GRANDMA_      TABLE_ANIM_GRANDMA_SCREEN_7_2[13]       =   {
                                                                             };
 
 
-const struct_WALK_STOOGES_          TABLE_ANIM_STOOGES_SCREEN_7_2[21]   =   {
+const struct_WALK_STOOGES_      TABLE_ANIM_STOOGES_SCREEN_7_2[21]       =   {
                                                                                     {  237 ,  1 , -87 },
                                                                                     {  245 ,  2 , -81 },
                                                                                     {  252 ,  3 , -73 },
@@ -294,7 +358,7 @@ const struct_ANIM_GRANDMA_      TABLE_ANIM_GRANDMA_SCREEN_7_3[33]       =   {
                                                                             };
 
 
-const struct_WALK_STOOGES_          TABLE_ANIM_STOOGES_SCREEN_7_3[35]   =   {
+const struct_WALK_STOOGES_      TABLE_ANIM_STOOGES_SCREEN_7_3[35]       =   {
                                                                                 { 1867 ,  2 ,  47 },
                                                                                 { 1873 ,  3 ,  55 },
                                                                                 { 1882 ,  4 ,  63 },
@@ -622,6 +686,45 @@ void (*TABLE_ANIM_INTRO_3[2])(void)         =       {
                                                         anim_INTRO_SCREEN_3_1
                                                     };
 
+
+
+
+// SCREEN 4 ANIMATION //
+void anim_INTRO_SCREEN_4()
+{
+    // STOOGES ANIMATION //
+    // SETUP POINTER TO STOOGES ANIMATION TABLE //
+    const struct_WALK_STOOGES_ *ptr_ANIM_STOOGES = &TABLE_ANIM_STOOGES_SCREEN_4[G_INDEX_3];
+
+    if(G_COUNTER_1 == ptr_ANIM_STOOGES->num_FRAME)
+    {
+        // CHANGING SPRITE ANIMATION FRAME //
+        SPR_setFrame( sprite_STOOGES , ptr_ANIM_STOOGES->index_SPRITE_FRAME );
+
+        // RETRIEVE X POSITION FROM TABLE //
+        SPR_setPosition( sprite_STOOGES , ptr_ANIM_STOOGES->pos_X , 142 );
+
+
+        // UPDATE INDEX IN STOOGES ANIMATION TABLE //
+        // UP TO 47 (LAST INDEX IN ARRAY OF 48 ENTRIES) //
+        if(G_INDEX_3 < 47)
+        {
+            G_INDEX_3 += 1;
+        }
+    }
+
+
+    if(G_COUNTER_1 == 675)
+    {
+        // REINIT COUNTER //
+        G_COUNTER_1 = 0;
+        
+
+        return;
+    }
+
+    G_COUNTER_1 += 1;
+}
 
 
 

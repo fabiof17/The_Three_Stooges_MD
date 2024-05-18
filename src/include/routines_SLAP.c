@@ -257,7 +257,7 @@ void joypad_SLAP()
 
 inline static void counter_SLAP()
 {
-    if(G_COUNTER_SLAP == 17)
+    if(G_COUNTER_SLAP == 20)
     {
         G_COUNTER_SLAP = 0;
 
@@ -403,7 +403,7 @@ void sequence_SLAP()
     {
         counter_SLAP();
         
-        if(G_COUNTER_1 == 10)
+        if(G_COUNTER_1 == 30)
         {
             SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_IDLE);
             SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_IDLE);
