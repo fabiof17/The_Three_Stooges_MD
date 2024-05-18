@@ -57,6 +57,16 @@ IMAGE image_INTRO_SCREEN_5_BG_A             "map/intro/tiles_INTRO_SCREEN_5_BG_A
 
 
 //----------------------------------------------------------------------------------//
+//                                      SCREEN 6                                    //
+//----------------------------------------------------------------------------------//
+
+IMAGE image_INTRO_SCREEN_6_BG_B             "map/intro/tiles_INTRO_SCREEN_6_BG_B.png"       BEST ALL
+IMAGE image_INTRO_SCREEN_6_BG_A             "map/intro/tiles_INTRO_SCREEN_6_BG_A.png"       BEST ALL
+
+
+
+
+//----------------------------------------------------------------------------------//
 //                                      SCREEN 7                                    //
 //----------------------------------------------------------------------------------//
 

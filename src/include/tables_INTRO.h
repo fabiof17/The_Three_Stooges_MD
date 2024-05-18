@@ -7,7 +7,7 @@ extern void anim_INTRO_SCREEN_1();
 
 extern void anim_INTRO_SCREEN_2();
 
-extern void anim_INTRO_SCREEN_4();
+extern void anim_INTRO_SCREEN_4_5_6();
 
 extern void (*TABLE_ANIM_INTRO_3[2])(void);
 

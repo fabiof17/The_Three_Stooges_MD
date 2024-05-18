@@ -80,10 +80,7 @@ void fadeOut_INTRO_SCREEN_3()
 void fadeOut_INTRO_SCREEN_4()
 {
     // FADE OUT : 1 FRAME //
-    PAL_fadeOutAll(10,FALSE);
-
-    // RESET BG_A POSITION //
-    VDP_setVerticalScrollVSync(BG_A , 0);
+    PAL_fadeOutAll(5,FALSE);
 
     // CLEAR PLANES //
     VDP_clearPlane(BG_B,TRUE);
@@ -104,10 +101,7 @@ void fadeOut_INTRO_SCREEN_4()
 void fadeOut_INTRO_SCREEN_5()
 {
     // FADE OUT : 1 FRAME //
-    PAL_fadeOutAll(10,FALSE);
-
-    // RESET BG_A POSITION //
-    VDP_setVerticalScrollVSync(BG_A , 0);
+    PAL_fadeOutAll(5,FALSE);
 
     // CLEAR PLANES //
     VDP_clearPlane(BG_B,TRUE);
@@ -128,10 +122,7 @@ void fadeOut_INTRO_SCREEN_5()
 void fadeOut_INTRO_SCREEN_6()
 {
     // FADE OUT : 1 FRAME //
-    PAL_fadeOutAll(10,FALSE);
-
-    // RESET BG_A POSITION //
-    VDP_setVerticalScrollVSync(BG_A , 0);
+    PAL_fadeOutAll(5,FALSE);
 
     // CLEAR PLANES //
     VDP_clearPlane(BG_B,TRUE);

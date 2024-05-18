@@ -110,7 +110,7 @@ void init_VARIABLES()
     if(G_REEL == REEL_INTRO)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_INTRO_SCREEN_4;
+        G_SCENE_TYPE = SCENE_INTRO_SCREEN_1;
     }
 
     else if(G_REEL == REEL_GAME)
@@ -882,8 +882,8 @@ void init_INTRO()
        
 
         G_SCENE                 = SCENE_FADE_IN;
-        G_SCENE_TYPE            = SCENE_INTRO_SCREEN_4;
-        G_SCENE_NEXT            = SCENE_INTRO_SCREEN_4;
+        G_SCENE_TYPE            = SCENE_INTRO_SCREEN_5;
+        G_SCENE_NEXT            = SCENE_INTRO_SCREEN_5;
 
         G_SCENE_LOADED          = TRUE;
 
@@ -898,7 +898,138 @@ void init_INTRO()
     // INTRO SCREEN 6 //
     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_6)
     {
-        //
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+        
+        u16 i = 0;
+
+        for(i=16 ; i<1440 ; i++)
+        {
+            VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+        }
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_setPlaneSize(64,32,FALSE);
+        
+        SPR_initEx(100);
+        
+        VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                         BG                                           //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_INTRO_SCREEN_6_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_6_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+        
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_INTRO_SCREEN_6_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_INTRO_SCREEN_6_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_6_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_POS_Y_CAMERA = 0;
+
+        VDP_setVerticalScroll(BG_B , 0);
+        VDP_setVerticalScroll(BG_A , 0);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      SPRITES                                         //
+        //                                                                                      //
+        //**************************************************************************************// 
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                    STOOGES SPRITES                                   //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, 0, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+
+        SPR_update();
+        SYS_doVBlankProcess();
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       PALETTES                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+		memcpy( &palette_64[0]  , image_INTRO_SCREEN_6_BG_B.palette->data   , 16 * 2 );
+		memcpy( &palette_64[16] , image_INTRO_SCREEN_6_BG_A.palette->data   , 16 * 2 );
+		memcpy( &palette_64[32] , palette_BLACK.data                        , 16 * 2 );
+		memcpy( &palette_64[48] , palette_SPR_STOOGES.data                  , 16 * 2 );
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       VARIABLES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_1             = 0;
+        G_INDEX_1               = 0;
+        G_INDEX_2               = 0;
+        G_INDEX_3               = 0;
+       
+
+        G_SCENE                 = SCENE_FADE_IN;
+        G_SCENE_TYPE            = SCENE_INTRO_SCREEN_6;
+        G_SCENE_NEXT            = SCENE_INTRO_SCREEN_6;
+
+        G_SCENE_LOADED          = TRUE;
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         AUDIO                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
     }
 
     // INTRO SCREEN 5 //

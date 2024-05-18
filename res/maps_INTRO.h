@@ -13,6 +13,8 @@ extern const Image image_INTRO_SCREEN_4_BG_B;
 extern const Image image_INTRO_SCREEN_4_BG_A;
 extern const Image image_INTRO_SCREEN_5_BG_B;
 extern const Image image_INTRO_SCREEN_5_BG_A;
+extern const Image image_INTRO_SCREEN_6_BG_B;
+extern const Image image_INTRO_SCREEN_6_BG_A;
 extern const Image image_INTRO_SCREEN_7_BG_B;
 extern const Image image_INTRO_SCREEN_7_BG_A;
 extern const Image image_GRANDMA_INTRO_BG_B_STEP0;

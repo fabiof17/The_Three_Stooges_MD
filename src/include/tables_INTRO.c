@@ -189,7 +189,7 @@ const struct_WALK_STOOGES_              TABLE_ANIM_STOOGES_SCREEN_3[26]     =   
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
 
-const struct_WALK_STOOGES_              TABLE_ANIM_STOOGES_SCREEN_4[48]     =   {
+const struct_WALK_STOOGES_              TABLE_ANIM_STOOGES_SCREEN_4[52]     =   {
                                                                                     {    5 ,  0 , -87 },
                                                                                     {   13 ,  1 , -79 },
                                                                                     {   21 ,  2 , -73 },
@@ -241,7 +241,12 @@ const struct_WALK_STOOGES_              TABLE_ANIM_STOOGES_SCREEN_4[48]     =   
                                                                                     {  373 ,  4 , 259 },
                                                                                     {  382 ,  5 , 269 },
                                                                                     {  390 ,  6 , 275 },
-                                                                                    {  399 ,  7 , 284 }
+                                                                                    {  399 ,  7 , 284 },
+
+                                                                                    {  408 ,  0 , 292 },
+                                                                                    {  417 ,  1 , 298 },
+                                                                                    {  425 ,  2 , 306 },
+                                                                                    {  433 ,  3 , 314 }
                                                                                 };
 
 
@@ -689,8 +694,8 @@ void (*TABLE_ANIM_INTRO_3[2])(void)         =       {
 
 
 
-// SCREEN 4 ANIMATION //
-void anim_INTRO_SCREEN_4()
+// SCREENS 4-5-6 ANIMATION //
+void anim_INTRO_SCREEN_4_5_6()
 {
     // STOOGES ANIMATION //
     // SETUP POINTER TO STOOGES ANIMATION TABLE //
@@ -706,25 +711,31 @@ void anim_INTRO_SCREEN_4()
 
 
         // UPDATE INDEX IN STOOGES ANIMATION TABLE //
-        // UP TO 47 (LAST INDEX IN ARRAY OF 48 ENTRIES) //
-        if(G_INDEX_3 < 47)
+        // UP TO 51 (LAST INDEX IN ARRAY OF 52 ENTRIES) //
+        if(G_INDEX_3 < 51)
         {
             G_INDEX_3 += 1;
         }
     }
 
 
-    if(G_COUNTER_1 == 675)
+    if(G_COUNTER_1 == 440)
     {
-        // REINIT COUNTER //
-        G_COUNTER_1 = 0;
+        // COUNTERS RESET //
+        G_COUNTER_1             = 0;
+        G_INDEX_1               = 0;
+        G_INDEX_2               = 0;
+        G_INDEX_3               = 0;
         
+        // GO TO FADE OUT SEQUENCE //
+        G_SCENE     = SCENE_FADE_OUT;
 
         return;
     }
 
     G_COUNTER_1 += 1;
 }
+
 
 
 
