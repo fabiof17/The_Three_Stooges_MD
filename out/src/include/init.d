@@ -15,13 +15,14 @@ out/src/include/init.o: src/include/init.c C:/sgdk/inc/genesis.h \
  C:/sgdk/inc/ext/flash-save/flash.h C:/sgdk/inc/types.h \
  C:/sgdk/inc/ext/flash-save/saveman.h src/include/outils.h \
  src/include/variables.h res/palettes.h res/maps_BACKGROUNDS.h \
- res/maps_BANK.h res/maps_BOXING.h res/maps_CONTRACT.h res/maps_DOLLAR.h \
- res/maps_GLOBAL.h res/maps_INTRO.h res/maps_QUESTION_MARK.h \
- res/maps_REWARD.h res/maps_ROULETTE.h res/maps_SLAP.h res/maps_TRIVIA.h \
- src/include/routines_QUESTION_MARK.h src/include/routines_ROULETTE.h \
- res/music.h res/sound.h res/sprites_BANK.h res/sprites_BOXING.h \
- res/sprites_DOLLAR.h res/sprites_GLOBAL.h res/sprites_INTRO.h \
- res/sprites_QUESTION_MARK.h res/sprites_ROULETTE.h res/sprites_SLAP.h \
+ res/maps_BANK.h res/maps_BOXING.h res/maps_CONTRACT.h res/maps_DOCTORS.h \
+ res/maps_DOLLAR.h res/maps_GLOBAL.h res/maps_INTRO.h \
+ res/maps_QUESTION_MARK.h res/maps_REWARD.h res/maps_ROULETTE.h \
+ res/maps_SLAP.h res/maps_TRIVIA.h src/include/routines_QUESTION_MARK.h \
+ src/include/routines_ROULETTE.h res/music.h res/sound.h \
+ res/sprites_BANK.h res/sprites_BOXING.h res/sprites_DOLLAR.h \
+ res/sprites_GLOBAL.h res/sprites_INTRO.h res/sprites_QUESTION_MARK.h \
+ res/sprites_ROULETTE.h res/sprites_SLAP.h \
  src/include/tables_BACKGROUNDS.h src/include/tables_DOLLAR.h \
  src/include/structures.h src/include/tables_INTRO.h \
  src/include/tables_QUESTIONS.h src/include/tables_ROULETTE.h \

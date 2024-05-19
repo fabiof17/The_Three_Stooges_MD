@@ -4,7 +4,7 @@
 //                                                                                  //
 //**********************************************************************************//
 
-IMAGE image_TILES_BASE_SGDK         "map/global/tiles_BASE_SGDK.png"            NONE ALL
+IMAGE image_TILES_BASE_SGDK         "map/global/tiles_BASE_SGDK.png"            NONE NONE
 IMAGE image_FONT                    "map/global/tiles_FONT.png"                 NONE NONE
 IMAGE image_FONT_ROULETTE           "map/global/tiles_FONT_ROULETTE.png"        NONE NONE
 

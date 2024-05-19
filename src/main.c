@@ -143,17 +143,17 @@ int main(bool hardReset)
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_4)
                     {
-                        PAL_fadeInAll(palette_64, 5, FALSE);
+                        PAL_fadeInAll(palette_64, 30, FALSE);
                     }
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_5)
                     {
-                        PAL_fadeInAll(palette_64, 5, FALSE);
+                        PAL_fadeInAll(palette_64, 30, FALSE);
                     }
                     
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_6)
                     {
-                        PAL_fadeInAll(palette_64, 5, FALSE);
+                        PAL_fadeInAll(palette_64, 30, FALSE);
                     }
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_7)

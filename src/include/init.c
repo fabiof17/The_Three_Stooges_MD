@@ -14,6 +14,7 @@
 #include "maps_BANK.h"
 #include "maps_BOXING.h"
 #include "maps_CONTRACT.h"
+#include "maps_DOCTORS.h"
 #include "maps_DOLLAR.h"
 #include "maps_GLOBAL.h"
 #include "maps_INTRO.h"
@@ -227,6 +228,12 @@ void init_INTRO()
     // INTRO SCREEN 1 //
     if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_1)
     {
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
         VDP_setPlaneSize(64,32,FALSE);
         
         SPR_initEx(460);
@@ -242,18 +249,17 @@ void init_INTRO()
         //                                                                                      //
         //**************************************************************************************//
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                  LOADING BG_B TILES                                  //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
         G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
 
         VDP_loadTileSet(image_INTRO_SCREEN_1_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
         VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
         G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_INTRO_SCREEN_1_BG_B.tileset->numTile;
-        SYS_doVBlankProcess();
 
 
 
@@ -366,7 +372,12 @@ void init_INTRO()
     // INTRO SCREEN 2 //
     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_2)
     {
-        // CLEAN VRAM //
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
         u16 i = 0;
 
         for(i=16 ; i<1440 ; i++)
@@ -376,6 +387,12 @@ void init_INTRO()
 
 
 
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
 
         VDP_setPlaneSize(64,32,TRUE);
         
@@ -394,7 +411,7 @@ void init_INTRO()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                  LOADING BG_B TILES                                  //
+        //                                         BG_B                                         //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
@@ -402,21 +419,19 @@ void init_INTRO()
 
         VDP_loadTileSet(image_INTRO_SCREEN_2_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
         VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_2_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+        
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
         G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_INTRO_SCREEN_2_BG_B.tileset->numTile;
-        SYS_doVBlankProcess();
-
-
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                  LOADING BG_A TILES                                  //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
         VDP_loadTileSet(image_INTRO_SCREEN_2_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
-        SYS_doVBlankProcess();
 
 
 
@@ -429,7 +444,6 @@ void init_INTRO()
 
         VDP_loadTileSet(image_INTRO_SCREEN_2_BG_A1.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile, CPU);
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A1.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, CPU);
-        SYS_doVBlankProcess();
         
 
 
@@ -514,6 +528,12 @@ void init_INTRO()
 
 
 
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
         VDP_setPlaneSize(64,32,FALSE);
         
         SPR_init();
@@ -529,19 +549,17 @@ void init_INTRO()
         //                                                                                      //
         //**************************************************************************************//
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                  LOADING BG_B TILES                                  //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
         G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
 
         VDP_loadTileSet(image_INTRO_SCREEN_3_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
         VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_3_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
-        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_INTRO_SCREEN_3_BG_B.tileset->numTile;
-        SYS_doVBlankProcess();
-
+        
 
 
 
@@ -551,11 +569,22 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_INTRO_SCREEN_3_BG_B.tileset->numTile;
         VDP_loadTileSet(image_INTRO_SCREEN_3_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_3_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 40, 11, 0, 0, 13, 8, CPU);
-        SYS_doVBlankProcess();
 
-        VDP_setVerticalScrollVSync(BG_A , -4);
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_POS_Y_CAMERA = -4;
+
+        VDP_setVerticalScroll(BG_A ,G_POS_Y_CAMERA);
 
 
 
@@ -710,7 +739,7 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, 0, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
         SPR_update();
         SYS_doVBlankProcess();
@@ -847,7 +876,7 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, 0, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
 
         SPR_update();
         SYS_doVBlankProcess();
@@ -984,7 +1013,7 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, 0, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
 
         SPR_update();
         SYS_doVBlankProcess();
@@ -1035,6 +1064,12 @@ void init_INTRO()
     // INTRO SCREEN 5 //
     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_7)
     {
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
         VDP_setPlaneSize(64,32,FALSE);
         
         SPR_initEx(228);
@@ -1050,17 +1085,16 @@ void init_INTRO()
         //                                                                                      //
         //**************************************************************************************//
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                  LOADING BG_B TILES                                  //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
         G_ADR_VRAM_BG_B = 0;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
 
         VDP_loadTileSet(image_INTRO_SCREEN_7_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
         VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_7_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
-        SYS_doVBlankProcess();
 
 
         //--------------------------------------------------------------------------------------//
@@ -1071,17 +1105,17 @@ void init_INTRO()
 
         VDP_loadTileSet(image_GRANDMA_INTRO_BG_B_STEP0.tileset, G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile, CPU);
         VDP_setTileMapEx(BG_B, image_GRANDMA_INTRO_BG_B_STEP0.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile), 6, 14, 0, 0, 5, 6, CPU);
+        
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
         G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile + image_GRANDMA_INTRO_BG_B_STEP0.tileset->numTile;
-
-
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                  LOADING BG_A TILES                                  //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
         VDP_loadTileSet(image_INTRO_SCREEN_7_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
 
@@ -1548,8 +1582,12 @@ void init_SCENE()
     // DOCTORS //
     else if(G_SCENE_TYPE == SCENE_DOCTORS)
     {
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
 
-        // CLEAN VRAM //
         u16 i = 0;
 
         for(i=16 ; i<1440 ; i++)
@@ -1559,6 +1597,12 @@ void init_SCENE()
 
 
 
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
 
         VDP_setPlaneSize(64,32,TRUE);
         
@@ -1586,29 +1630,42 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                   LOADING BG TILES                                   //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
         G_ADR_VRAM_BG_B = TILE_USER_INDEX;
 
-        // BG_B //
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
         VDP_loadTileSet(image_STREET_DOCTORS_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
         VDP_setTileMapEx(BG_B, image_STREET_DOCTORS_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+        
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
         G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_STREET_DOCTORS_BG_B.tileset->numTile;
-        SYS_doVBlankProcess();
-
-
         VDP_loadTileSet(image_STREET_DOCTORS_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
         VDP_setTileMapEx(BG_A, image_STREET_DOCTORS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
-        SYS_doVBlankProcess();
 
 
-        VDP_setVerticalScroll(BG_B,0);
-        VDP_setVerticalScroll(BG_A,0);
 
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_POS_Y_CAMERA = 0;
+
+
+        VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+        VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
 
 
 
@@ -1621,10 +1678,11 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                    STOOGES SPRITES                                   //
+        //                              STOOGES SPRITES OFF SCREEN                              //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  -96, -64, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
 
 
@@ -1927,7 +1985,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, 133, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
 
 
@@ -1991,7 +2049,12 @@ void init_SCENE()
     // SLAP //
     else if(G_SCENE_TYPE == SCENE_SLAP)
     {
-        // CLEAN VRAM //
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
         u16 i = 0;
 
         for(i=16 ; i<1440 ; i++)
@@ -2001,6 +2064,12 @@ void init_SCENE()
 
 
 
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
 
         VDP_setPlaneSize(64,64,TRUE);
         
@@ -2013,7 +2082,7 @@ void init_SCENE()
 
         //**************************************************************************************//
         //                                                                                      //
-        //                                        FONT                                          //
+        //                                   ROULETTE FONT                                      //
         //                                                                                      //
         //**************************************************************************************//
 
@@ -2028,35 +2097,63 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                   LOADING BG TILES                                   //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
         G_ADR_VRAM_BG_B = TILE_USER_INDEX;
 
-        // BG_B //
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
         VDP_loadTileSet(image_DOLLAR_1_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
         VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
         VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
-        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_DOLLAR_1_BG_B.tileset->numTile;
-        SYS_doVBlankProcess();
 
-        // SLAP HUB //
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_DOLLAR_1_BG_B.tileset->numTile;
         VDP_loadTileSet(image_SLAP_HUB.tileset, G_ADR_VRAM_BG_A, CPU);
-        //VDP_setTileMapEx(BG_B, image_SLAP_HUB.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 9, 34, 0, 0, 22, 8, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        DIALOG                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
 
         G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_SLAP_HUB.tileset->numTile;
         VDP_loadTileSet(image_SLAP_DIALOG_2.tileset, G_ADR_VRAM_DIALOG, CPU);
 
 
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
         G_ADR_VRAM_HUB = G_ADR_VRAM_DIALOG + image_SLAP_DIALOG_2.tileset->numTile;
-        SYS_doVBlankProcess();
 
 
-        VDP_setVerticalScroll(BG_B,224);
-        VDP_setVerticalScroll(BG_A,224);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_POS_Y_CAMERA = 224;
+
+
+        VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+        VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
 
 
 
@@ -2843,7 +2940,12 @@ void init_SCENE()
     // CONTRACT QUESTION MARK //
     else if(G_SCENE_TYPE == SCENE_CONTRACT_QUESTION_MARK)
     {
-        // CLEAN VRAM //
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
         u16 i = 0;
 
         for(i=16 ; i<1440 ; i++)
@@ -2853,6 +2955,12 @@ void init_SCENE()
 
 
 
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
 
         VDP_setPlaneSize(64,32,TRUE);
         
@@ -2869,23 +2977,28 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                   LOADING BG TILES                                   //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
         G_ADR_VRAM_BG_B = TILE_USER_INDEX;
 
-        // BG_B //
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
         VDP_loadTileSet(image_CONTRACT_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
         VDP_setTileMapEx(BG_B, image_CONTRACT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
-        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CONTRACT_BG_B.tileset->numTile;
+        
 
-        // BG_A //
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CONTRACT_BG_B.tileset->numTile;
         VDP_loadTileSet(image_CONTRACT_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
         VDP_setTileMapEx(BG_A, image_CONTRACT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
-        //SYS_doVBlankProcess();
+
 
         // TEXT //
         VDP_loadTileSet(image_TEXT_REWARD_QUESTION_MARK.tileset, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile, CPU);
@@ -2941,7 +3054,12 @@ void init_SCENE()
     // REWARD //
     else if(G_SCENE_TYPE == SCENE_REWARD)
     {
-        // CLEAN VRAM //
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
         u16 i = 0;
 
         for(i=16 ; i<1440 ; i++)
@@ -2951,6 +3069,12 @@ void init_SCENE()
 
 
 
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
 
         VDP_setPlaneSize(64,32,TRUE);
         
@@ -3040,7 +3164,16 @@ void init_SCENE()
 
 
 
-        VDP_setVerticalScroll(BG_A , -4);
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_POS_Y_CAMERA = -4;
+
+
+        VDP_setVerticalScroll(BG_A ,G_POS_Y_CAMERA);
  
 
 
