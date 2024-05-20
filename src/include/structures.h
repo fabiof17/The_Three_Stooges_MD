@@ -38,7 +38,20 @@ typedef struct
 } struct_ICE_CUBE_;
 
 
+typedef struct
+{
+    Sprite *spr_CAR;
+    u8 car_AXIS;
 
+    s16 pos_X;
+    
+    u8 index_WRITE_POSITION;
+    u8 index_READ_POSITION;
+
+    s16 TABLE_POSITION[17];
+    u8  TABLE_AXIS[17];
+
+} struct_CAR_;
 
 
 

@@ -68,11 +68,39 @@ PALETTE palette_REWARD_2                    "palettes/palette_REWARD_2.png"
 //                        BOXING                      //
 //----------------------------------------------------//
 
-PALETTE palette_BOXING_SCREEN_2_0                    "palettes/palette_BOXING_SCREEN_2_0.png"
-PALETTE palette_BOXING_SCREEN_2_1                    "palettes/palette_BOXING_SCREEN_2_1.png"
-PALETTE palette_BOXING_SCREEN_2_2                    "palettes/palette_BOXING_SCREEN_2_2.png"
-PALETTE palette_BOXING_SCREEN_2_3                    "palettes/palette_BOXING_SCREEN_2_3.png"
-PALETTE palette_BOXING_SCREEN_2_4                    "palettes/palette_BOXING_SCREEN_2_4.png"
+PALETTE palette_BOXING_SCREEN_2_0           "palettes/palette_BOXING_SCREEN_2_0.png"
+PALETTE palette_BOXING_SCREEN_2_1           "palettes/palette_BOXING_SCREEN_2_1.png"
+PALETTE palette_BOXING_SCREEN_2_2           "palettes/palette_BOXING_SCREEN_2_2.png"
+PALETTE palette_BOXING_SCREEN_2_3           "palettes/palette_BOXING_SCREEN_2_3.png"
+PALETTE palette_BOXING_SCREEN_2_4           "palettes/palette_BOXING_SCREEN_2_4.png"
+
+
+
+
+//----------------------------------------------------//
+//                        DOCTORS                     //
+//----------------------------------------------------//
+
+PALETTE palette_SPR_CAR                     "palettes/palette_SPR_CAR.png"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

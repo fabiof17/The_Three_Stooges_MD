@@ -530,7 +530,7 @@ void init_STREET_QUESTION_MARK()
 
 
 
-void (*TABLE_INIT_STREET_BEGINNING[17])(void)   =   {
+void (*TABLE_INIT_STREET_ROULETTE[17])(void)   =   {
                                                         init_STREET_BEGINNIG,
                                                         NULL,
                                                         NULL,

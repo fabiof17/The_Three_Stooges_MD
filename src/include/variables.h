@@ -3,7 +3,7 @@
 
 
 
-
+#include "structures.h"
 
 
 
@@ -73,6 +73,8 @@
 #define SCENE_BOXING_SCREEN_TYPE1       18
 #define SCENE_BOXING_SCREEN_TYPE2       19
 #define SCENE_BOXING_SCREEN_TYPE3       20
+
+#define SCENE_DOCTORS_MINIGAME          21
 
 
 #define SCENE_CONTRACT_QUESTION_MARK    27
@@ -153,6 +155,19 @@
 #define SLAP_STATE_FRONT_DOWN           2
 #define SLAP_STATE_BACK                 1
 #define SLAP_STATE_DOWN                 0
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
+//                                    SLAP                                     //
+//                                                                             //
+//-----------------------------------------------------------------------------//
+
+#define AXIS_CENTER                     0
+#define AXIS_RIGHT                      1
+#define AXIS_LEFT                       2
 
 
 
@@ -384,6 +399,17 @@ extern s8 G_PREVIOUS_STATE;
 extern s16 G_POS_X_METER_SLAP;
 
 extern u8 G_COUNTER_SLAP;
+
+
+
+
+//**************************************************************************************//
+//                                                                                      //
+//                                   DOCTORS MINIGAME                                   //
+//                                                                                      //
+//**************************************************************************************//
+
+extern struct_CAR_ list_CARS[3];
 
 
 

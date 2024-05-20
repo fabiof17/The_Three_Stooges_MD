@@ -12,6 +12,7 @@
 
 #include "include/routines_BANK.h"
 #include "include/routines_BOXING.h"
+#include "include/routines_DOCTORS_MINIGAME.h"
 #include "include/routines_DOLLAR.h"
 #include "include/routines_INTRO.h"
 #include "include/routines_QUESTION_MARK.h"
@@ -354,6 +355,15 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE3)
                 {
                     //sequence_BOXING_SCREEN_TYPE_3();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                // DOCTORS MINIGAME //
+                else if(G_SCENE == SCENE_DOCTORS_MINIGAME)
+                {
+                    joypad_DOCTORS_MINIGAME();
                     
                     SPR_update();
                     SYS_doVBlankProcess();

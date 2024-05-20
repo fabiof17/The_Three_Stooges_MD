@@ -14,8 +14,9 @@ out/src/main.o: src/main.c C:/sgdk/inc/genesis.h C:/sgdk/inc/types.h \
  C:/sgdk/inc/task_cst.h C:/sgdk/inc/ext/flash-save/flash.h \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
  src/include/outils.h src/include/joypad_BUTTONS.h src/include/init.h \
- src/include/variables.h src/include/routines_BANK.h \
- src/include/routines_BOXING.h src/include/routines_DOLLAR.h \
+ src/include/variables.h src/include/structures.h \
+ src/include/routines_BANK.h src/include/routines_BOXING.h \
+ src/include/routines_DOCTORS_MINIGAME.h src/include/routines_DOLLAR.h \
  src/include/routines_INTRO.h src/include/routines_QUESTION_MARK.h \
  src/include/routines_REWARD.h src/include/routines_ROULETTE.h \
  src/include/routines_SLAP.h src/include/routines_TRIVIA.h \
