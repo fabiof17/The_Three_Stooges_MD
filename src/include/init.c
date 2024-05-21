@@ -119,7 +119,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_DOCTORS;
+        G_SCENE_TYPE = SCENE_ROULETTE;
     }
 
 

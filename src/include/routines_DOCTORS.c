@@ -9,8 +9,7 @@
 
 
 
-#include "maps_BOXING.h"
-#include "maps_GLOBAL.h"
+
 
 
 
@@ -22,7 +21,7 @@
 
 void sequence_CONTRACT_DOCTORS()
 {
-    if(G_COUNTER_1 == 360)
+    if(G_COUNTER_1 == 600)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);

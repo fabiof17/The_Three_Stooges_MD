@@ -21,7 +21,7 @@
 
 void sequence_CONTRACT_QUESTION_MARK()
 {
-    if(G_COUNTER_1 == 360)
+    if(G_COUNTER_1 == 600)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);

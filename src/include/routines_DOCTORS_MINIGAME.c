@@ -233,10 +233,10 @@ inline static void counter_DOCTORS()
 
 void sequence_DOCTORS_MINIGAME()
 {
-    counter_DOCTORS();
-    
     if(G_PHASE_SEQUENCE == DOCTORS_PHASE_RACING)
     {
+        counter_DOCTORS();
+        
         G_POS_Y_CAMERA += G_CAR_SPEED;
 
         if(G_POS_Y_CAMERA == 16766 || G_POS_Y_CAMERA == 16768)
@@ -246,7 +246,7 @@ void sequence_DOCTORS_MINIGAME()
         
         else if(G_POS_Y_CAMERA > 16808)
         {
-            G_POS_Y_CAMERA = 0;
+            G_POS_Y_CAMERA = 16808;
 
             G_PHASE_SEQUENCE = DOCTORS_PHASE_RACING_OVER;
         }
