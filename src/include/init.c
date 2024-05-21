@@ -3002,11 +3002,22 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        VDP_setPlaneSize(64,32,TRUE);
+        VDP_setPlaneSize(64,64,TRUE);
         
         SPR_init();
         
         VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                   NUMBERS TILESET                                    //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_loadTileSet(image_DOCTORS_NUMBERS.tileset, TILE_FONT_INDEX, CPU);
 
 
 
@@ -3021,12 +3032,32 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                         BG_B                                         //
+        //                                         BG_B1                                        //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_loadTileSet(image_DOCTORS_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
-        VDP_setTileMapEx(BG_B, image_DOCTORS_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+        VDP_loadTileSet(image_DOCTORS_BG_B1.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_DOCTORS_BG_B1.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0,  0,  0, 40, 64, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B1                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_DOCTORS_BG_B2.tileset, G_ADR_VRAM_BG_B + image_DOCTORS_BG_B1.tileset->numTile, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_DOCTORS_BG_B1.tileset->numTile + image_DOCTORS_BG_B2.tileset->numTile;
+        VDP_loadTileSet(image_DOCTORS_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+        VDP_setTileMapEx(BG_A, image_DOCTORS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 25,  0,  0, 40, 3, CPU);
 
 
 
@@ -3039,17 +3070,11 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                              STOOGES SPRITES OFF SCREEN                              //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
         //                                       MOE'S CAR                                      //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_CARS[0].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_MOE,  140, 99, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+        list_CARS[0].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_MOE,  140, 99, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
         list_CARS[0].car_AXIS = AXIS_CENTER;
         list_CARS[0].pos_X    = 140;
 
@@ -3060,7 +3085,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_CARS[1].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_CURLY,  140, 139, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+        list_CARS[1].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_CURLY,  140, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
         list_CARS[1].car_AXIS = AXIS_CENTER;
         list_CARS[1].pos_X    = 140;
 
@@ -3080,7 +3105,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_CARS[2].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_LARRY,  140, 179, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+        list_CARS[2].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_LARRY,  140, 179, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
         list_CARS[2].car_AXIS = AXIS_CENTER;
         list_CARS[2].pos_X    = 140;
 
@@ -3098,12 +3123,26 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_POS_Y_CAMERA = 0;
+
+        VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
         //                                       PALETTES                                       //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        memcpy( &palette_64[0]  , image_DOCTORS_BG_B.palette->data      , 16 * 2 );
-        memcpy( &palette_64[16] , palette_SPR_CAR.data                  , 16 * 2 );
+        memcpy( &palette_64[0]  , image_DOCTORS_BG_B1.palette->data     , 16 * 2 );
+        memcpy( &palette_64[16] , image_DOCTORS_BG_A.palette->data      , 16 * 2 );
+        memcpy( &palette_64[32] , palette_SPR_CAR.data                  , 16 * 2 );
 
         SPR_update();
 
@@ -3122,7 +3161,7 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
-        //G_PHASE_SEQUENCE        = BANKER_PHASE_WALKIN;
+        G_CAR_SPEED             = 2;
        
 
         G_SCENE                 = SCENE_FADE_IN;

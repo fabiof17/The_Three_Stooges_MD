@@ -364,6 +364,8 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_DOCTORS_MINIGAME)
                 {
                     joypad_DOCTORS_MINIGAME();
+
+                    sequence_DOCTORS_MINIGAME();
                     
                     SPR_update();
                     SYS_doVBlankProcess();

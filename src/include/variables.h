@@ -411,6 +411,8 @@ extern u8 G_COUNTER_SLAP;
 
 extern struct_CAR_ list_CARS[3];
 
+extern u8 G_CAR_SPEED;
+
 
 
 

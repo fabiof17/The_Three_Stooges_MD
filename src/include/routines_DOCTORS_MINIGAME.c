@@ -9,6 +9,10 @@
 
 
 
+#include "maps_DOCTORS.h"
+
+
+
 
 void joypad_DOCTORS_MINIGAME()
 {
@@ -23,6 +27,8 @@ void joypad_DOCTORS_MINIGAME()
 
     if((value & BUTTON_DIR) == 0)
     {
+        G_CAR_SPEED = 2;
+        
         list_CARS[0].car_AXIS = AXIS_CENTER;
 
         SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
@@ -83,6 +89,41 @@ void joypad_DOCTORS_MINIGAME()
             SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
         }
     }
+
+
+    //--------------------------------------------------------------//
+    //                                                              //
+    //                         BUTTON DOWN                          //
+    //                                                              //
+    //--------------------------------------------------------------//
+
+    else if(value & BUTTON_DOWN)
+    {
+        G_CAR_SPEED = 2;
+        
+        list_CARS[0].car_AXIS = AXIS_CENTER;
+
+        SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+    }
+
+
+    //--------------------------------------------------------------//
+    //                                                              //
+    //                          BUTTON UP                           //
+    //                                                              //
+    //--------------------------------------------------------------//
+
+    else if(value & BUTTON_UP)
+    {
+        G_CAR_SPEED = 4;
+        
+        list_CARS[0].car_AXIS = AXIS_CENTER;
+
+        SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+    }
+
+
+
 
 
 
@@ -165,7 +206,19 @@ void joypad_DOCTORS_MINIGAME()
 
 void sequence_DOCTORS_MINIGAME()
 {
-    //
+    G_POS_Y_CAMERA += G_CAR_SPEED;
+
+    if(G_POS_Y_CAMERA == 16766 || G_POS_Y_CAMERA == 16768)
+    {
+        VDP_setTileMapEx(BG_B, image_DOCTORS_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_DOCTORS_BG_B1.tileset->numTile), 0, 11, 0, 0, 40, 5, DMA_QUEUE);
+    }
+    
+    else if(G_POS_Y_CAMERA > 16808)
+    {
+        G_POS_Y_CAMERA = 16808;
+    }
+    
+    VDP_setVerticalScrollVSync(BG_B , -G_POS_Y_CAMERA);
 }
 
 
