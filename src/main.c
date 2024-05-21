@@ -12,6 +12,7 @@
 
 #include "include/routines_BANK.h"
 #include "include/routines_BOXING.h"
+#include "include/routines_DOCTORS.h"
 #include "include/routines_DOCTORS_MINIGAME.h"
 #include "include/routines_DOLLAR.h"
 #include "include/routines_INTRO.h"
@@ -252,7 +253,7 @@ int main(bool hardReset)
                 // DOCTORS //
                 else if(G_SCENE == SCENE_DOCTORS)
                 {                    
-                    //sequence_BOXING();
+                    sequence_DOCTORS();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -384,6 +385,15 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_CONTRACT_QUESTION_MARK)
                 {                    
                     sequence_CONTRACT_QUESTION_MARK();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                // CONTRACT DOCTORS //
+                else if(G_SCENE == SCENE_CONTRACT_DOCTORS)
+                {                    
+                    sequence_CONTRACT_DOCTORS();
                     
                     SPR_update();
                     SYS_doVBlankProcess();

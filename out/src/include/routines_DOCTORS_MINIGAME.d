@@ -15,4 +15,5 @@ out/src/include/routines_DOCTORS_MINIGAME.o: \
  C:/sgdk/inc/timer.h C:/sgdk/inc/task.h C:/sgdk/inc/task_cst.h \
  C:/sgdk/inc/ext/flash-save/flash.h C:/sgdk/inc/types.h \
  C:/sgdk/inc/ext/flash-save/saveman.h src/include/outils.h \
- src/include/structures.h src/include/variables.h res/maps_DOCTORS.h
+ src/include/structures.h src/include/variables.h res/maps_DOCTORS.h \
+ res/maps_GLOBAL.h

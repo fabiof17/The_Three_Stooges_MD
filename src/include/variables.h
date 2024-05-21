@@ -78,10 +78,11 @@
 
 
 #define SCENE_CONTRACT_QUESTION_MARK    27
-#define SCENE_REWARD                    28
+#define SCENE_CONTRACT_DOCTORS          28
+#define SCENE_REWARD                    29
 
 
-#define SCENE_CONTRACT_WAITERS          29
+#define SCENE_CONTRACT_WAITERS          30
 
 
 
@@ -168,6 +169,19 @@
 #define AXIS_CENTER                     0
 #define AXIS_RIGHT                      1
 #define AXIS_LEFT                       2
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
+//                                  DOCTORS                                    //
+//                                                                             //
+//-----------------------------------------------------------------------------//
+
+#define DOCTORS_PHASE_RACING            0
+#define DOCTORS_PHASE_TIME_OVER         1
+#define DOCTORS_PHASE_RACING_OVER       2
 
 
 
@@ -410,6 +424,10 @@ extern u8 G_COUNTER_SLAP;
 //**************************************************************************************//
 
 extern struct_CAR_ list_CARS[3];
+
+extern u8 G_HIT_NUMBER;
+
+extern u8 G_COUNTER_DOCTORS;
 
 extern u8 G_CAR_SPEED;
 

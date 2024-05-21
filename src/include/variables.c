@@ -167,6 +167,10 @@ u8 G_COUNTER_SLAP;
 
 struct_CAR_ list_CARS[3];
 
+u8 G_HIT_NUMBER;
+
+u8 G_COUNTER_DOCTORS;
+
 u8 G_CAR_SPEED;
 
 
