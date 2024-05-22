@@ -82,7 +82,7 @@ void sequence_DOCTORS()
     }
 
 
-    if(G_COUNTER_1 == 200)
+    if(G_COUNTER_1 == 360)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);

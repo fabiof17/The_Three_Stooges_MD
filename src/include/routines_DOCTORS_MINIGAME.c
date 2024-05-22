@@ -212,13 +212,13 @@ inline static void counter_DOCTORS()
 
             if(G_COUNTER_DOCTORS > 9)
             {
-                VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_DOCTORS , 2 , 8 , 26 , PAL1);
+                VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_DOCTORS , 2 , 8 , 26 , PAL0);
             }
 
             else
             {
-                VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_DOCTORS , 1 , 9 , 26 , PAL1);
-                VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, 6), 8, 26,  0,  0, 1, 1, CPU);
+                VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_DOCTORS , 1 , 9 , 26 , PAL0);
+                VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, 6), 8, 26,  0,  0, 1, 1, CPU);
             }
         }
 
@@ -239,7 +239,7 @@ void sequence_DOCTORS_MINIGAME()
         
         G_POS_Y_CAMERA += G_CAR_SPEED;
 
-        if(G_POS_Y_CAMERA == 16766 || G_POS_Y_CAMERA == 16768)
+        if(G_POS_Y_CAMERA > 16765 && G_POS_Y_CAMERA < 16769)
         {
             VDP_setTileMapEx(BG_B, image_DOCTORS_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_DOCTORS_BG_B1.tileset->numTile), 0, 11, 0, 0, 40, 5, DMA_QUEUE);
         }
