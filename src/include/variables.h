@@ -431,6 +431,12 @@ extern u8 G_COUNTER_DOCTORS;
 
 extern u8 G_CAR_SPEED;
 
+extern u16 G_INDEX_SPAWN_PATIENT;
+
+extern struct_NURSE_ nurse;
+
+extern struct_PATIENT_ patient;
+
 
 
 

@@ -119,7 +119,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_ROULETTE;
+        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME;
     }
 
 
@@ -3101,13 +3101,51 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                       MOE'S CAR                                      //
+        //                                         NURSE                                        //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_CARS[0].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_MOE,  140, 99, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_CARS[0].car_AXIS = AXIS_CENTER;
-        list_CARS[0].pos_X    = 140;
+        nurse.spr_NURSE             = SPR_addSprite(&tiles_SPR_NURSE,  50, 10, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        nurse.nurse_AXIS            = AXIS_RIGHT;
+        nurse.pos_X                 = 50;
+        nurse.counter_SPRITE_FRAME  = 0;
+        nurse.index_SPRITE_FRAME    = 0;
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        PATIENT                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        patient.spr_PATIENT             = NULL;
+        patient.patient_STATE           = 0;
+        patient.counter_SPRITE_FRAME    = 0;
+        patient.index_SPRITE_FRAME      = 0;
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                      LARRY'S CAR                                     //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        list_CARS[2].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_LARRY,  140, 183, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_CARS[2].car_AXIS = AXIS_CENTER;
+        list_CARS[2].pos_X    = 140;
+
+        list_CARS[2].index_READ_POSITION   = 0;
+        list_CARS[2].index_WRITE_POSITION  = 16;
+
+        for(i=0 ; i<17 ; i++)
+        {
+            list_CARS[2].TABLE_POSITION[i] = 140;
+            list_CARS[2].TABLE_AXIS[i]     = AXIS_CENTER;
+        }
 
 
         //--------------------------------------------------------------------------------------//
@@ -3116,7 +3154,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_CARS[1].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_CURLY,  140, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_CARS[1].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_CURLY,  140, 141, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
         list_CARS[1].car_AXIS = AXIS_CENTER;
         list_CARS[1].pos_X    = 140;
 
@@ -3132,22 +3170,17 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                      LARRY'S CAR                                     //
+        //                                       MOE'S CAR                                      //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_CARS[2].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_LARRY,  140, 179, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_CARS[2].car_AXIS = AXIS_CENTER;
-        list_CARS[2].pos_X    = 140;
+        list_CARS[0].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_MOE,  140, 99, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_CARS[0].car_AXIS = AXIS_CENTER;
+        list_CARS[0].pos_X    = 140;
 
-        list_CARS[2].index_READ_POSITION   = 0;
-        list_CARS[2].index_WRITE_POSITION  = 16;
 
-        for(i=0 ; i<17 ; i++)
-        {
-            list_CARS[2].TABLE_POSITION[i] = 140;
-            list_CARS[2].TABLE_AXIS[i]     = AXIS_CENTER;
-        }
+
+
 
 
 
@@ -3174,6 +3207,7 @@ void init_SCENE()
         memcpy( &palette_64[0]  , image_DOCTORS_BG_B1.palette->data     , 16 * 2 );
         memcpy( &palette_64[16] , palette_BLACK.data                    , 16 * 2 );
         memcpy( &palette_64[32] , palette_SPR_CAR.data                  , 16 * 2 );
+        memcpy( &palette_64[48] , palette_SPR_NURSE.data                , 16 * 2 );
 
         SPR_update();
 
@@ -3193,6 +3227,8 @@ void init_SCENE()
 
 
         G_CAR_SPEED             = 2;
+
+        G_INDEX_SPAWN_PATIENT   = 0;
 
         G_HIT_NUMBER            = 0;
 

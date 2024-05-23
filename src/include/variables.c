@@ -173,6 +173,12 @@ u8 G_COUNTER_DOCTORS;
 
 u8 G_CAR_SPEED;
 
+u16 G_INDEX_SPAWN_PATIENT;
+
+struct_NURSE_ nurse;
+
+struct_PATIENT_ patient;
+
 
 
 

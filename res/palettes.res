@@ -82,6 +82,7 @@ PALETTE palette_BOXING_SCREEN_2_4           "palettes/palette_BOXING_SCREEN_2_4.
 //----------------------------------------------------//
 
 PALETTE palette_SPR_CAR                     "palettes/palette_SPR_CAR.png"
+PALETTE palette_SPR_NURSE                   "palettes/palette_SPR_NURSE.png"
 
 
 
