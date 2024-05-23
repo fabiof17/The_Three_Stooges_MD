@@ -54,6 +54,7 @@
 
 
 #include "tables_BACKGROUNDS.h"
+#include "tables_DOCTORS.h"
 #include "tables_DOLLAR.h"
 #include "tables_INTRO.h"
 #include "tables_QUESTIONS.h"
@@ -3227,8 +3228,6 @@ void init_SCENE()
 
 
         G_CAR_SPEED             = 2;
-
-        G_INDEX_SPAWN_PATIENT   = 0;
 
         G_HIT_NUMBER            = 0;
 

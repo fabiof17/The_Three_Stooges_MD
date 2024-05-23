@@ -82,10 +82,27 @@ typedef struct
 
 typedef struct
 {
+    const SpriteDefinition *tiles_PATIENT_TYPE;
+
+    u8 width_PATIENT;
+    u8 height_PATIENT;
+
+    const u8 *ptr_VELOCITY;
+
+} struct_PATIENT_TYPE_;
+
+
+
+
+typedef struct
+{
     Sprite *spr_PATIENT;
-    SpriteDefinition *tiles_PATIENT;
+    const SpriteDefinition *tiles_PATIENT;
 
     bool patient_STATE;
+
+    u8 width_PATIENT;
+    u8 height_PATIENT;
     
     s16 pos_X;
     s16 pos_Y;
@@ -95,7 +112,7 @@ typedef struct
 
     u16 spawn_FRAME;
 
-    u8 *ptr_VELOCITY;
+    const u8 *ptr_VELOCITY;
 
 } struct_PATIENT_;
 

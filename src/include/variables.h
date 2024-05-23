@@ -183,6 +183,9 @@
 #define DOCTORS_PHASE_TIME_OVER         1
 #define DOCTORS_PHASE_RACING_OVER       2
 
+#define PATIENT_NOT_HIT                 0
+#define PATIENT_HIT                     1
+
 
 
 
@@ -431,7 +434,7 @@ extern u8 G_COUNTER_DOCTORS;
 
 extern u8 G_CAR_SPEED;
 
-extern u16 G_INDEX_SPAWN_PATIENT;
+//extern u16 G_INDEX_SPAWN_PATIENT;
 
 extern struct_NURSE_ nurse;
 

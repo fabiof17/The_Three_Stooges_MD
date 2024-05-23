@@ -6,6 +6,8 @@
 
 extern const u8                             TABLE_NURSE_VELOCITY[4];
 
+extern const struct_PATIENT_TYPE_           TABLE_PATIENT_TYPE[4];
+
 extern const struct_PATIENT_                TABLE_PATIENTS[10];
 
 

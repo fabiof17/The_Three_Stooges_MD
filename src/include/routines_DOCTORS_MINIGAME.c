@@ -347,54 +347,79 @@ inline static void spawn_PATIENT()
     {
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                          IF CAMERA FALLS WITHIN SPAWN RANGE                          //
+        //                               GENERATE RANDOM PATIENT                                //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        if(G_POS_Y_CAMERA >= TABLE_PATIENTS[G_INDEX_SPAWN_PATIENT].spawn_FRAME && G_POS_Y_CAMERA <= TABLE_PATIENTS[G_INDEX_SPAWN_PATIENT].spawn_FRAME + 4)
-        {
-            patient.pos_X                = TABLE_PATIENTS[G_INDEX_SPAWN_PATIENT].pos_X;
-            patient.pos_Y                = TABLE_PATIENTS[G_INDEX_SPAWN_PATIENT].pos_Y;
+        u8 random_patient_type = random_NUMBER(0,1);
 
-            patient.counter_SPRITE_FRAME = 0;
-            patient.index_SPRITE_FRAME   = 0;
 
-            patient.patient_STATE        = 0;
+        patient.pos_X                = 48;
+        patient.pos_Y                = TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT * -1;
 
-            patient.ptr_VELOCITY         = &TABLE_PATIENTS[G_INDEX_SPAWN_PATIENT].ptr_VELOCITY[0];
-            
-            patient.spr_PATIENT          = SPR_addSprite(TABLE_PATIENTS[G_INDEX_SPAWN_PATIENT].tiles_PATIENT , patient.pos_X , patient.pos_Y , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-        }
+        patient.counter_SPRITE_FRAME = 0;
+        patient.index_SPRITE_FRAME   = 0;
+
+        patient.patient_STATE        = PATIENT_NOT_HIT;
+
+        patient.ptr_VELOCITY         = &TABLE_PATIENT_TYPE[random_patient_type].ptr_VELOCITY[0];
+        
+        patient.spr_PATIENT          = SPR_addSprite(TABLE_PATIENT_TYPE[random_patient_type].tiles_PATIENT_TYPE , patient.pos_X , patient.pos_Y , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
     }
 }
+
+
 
 
 inline static void anim_PATIENT()
 {
     if(patient.spr_PATIENT != NULL)
     {
-        patient.pos_Y += G_CAR_SPEED;
-        
-
-        patient.counter_SPRITE_FRAME += 1;
-
-
-        if(patient.counter_SPRITE_FRAME == 16)
+        if(patient.pos_Y >= 224)
         {
-            patient.counter_SPRITE_FRAME = 0;
+            SPR_releaseSprite(patient.spr_PATIENT);
+            patient.spr_PATIENT = NULL;
 
-            patient.index_SPRITE_FRAME += 1;
+            //G_INDEX_SPAWN_PATIENT += 1;
+            
+            return;
+        }
+
+        else
+        {
+            // MOVE PATIENT ACCORDING TO SCROLLING //
+            patient.pos_Y += G_CAR_SPEED;
+            
+            // INCREASE COUNTER BY 1 //
+            patient.counter_SPRITE_FRAME += 1;
 
 
-            if(patient.index_SPRITE_FRAME == 3)
+            // CHANGE SPRITE FRAME //
+            if(patient.counter_SPRITE_FRAME == 16)
             {
-                patient.index_SPRITE_FRAME = 0;
+                // REINIT SPRITE FRAME COUNTER //
+                patient.counter_SPRITE_FRAME = 0;
+
+                patient.index_SPRITE_FRAME += 1;
+
+                // REINIT SPRITE FRAME INDEX //
+                if(patient.index_SPRITE_FRAME == 3)
+                {
+                    patient.index_SPRITE_FRAME = 0;
+                }
+
+                SPR_setAnimAndFrame(patient.spr_PATIENT , patient.patient_STATE , patient.index_SPRITE_FRAME);
+                
+
+                // PATIENT WALKS IF NOT HIT //
+                if(patient.patient_STATE == PATIENT_NOT_HIT)
+                {
+                    patient.pos_Y -= patient.ptr_VELOCITY[patient.index_SPRITE_FRAME];
+                }              
             }
 
-            SPR_setFrame(patient.spr_PATIENT , patient.index_SPRITE_FRAME);
-            
-            patient.pos_Y -= patient.ptr_VELOCITY[patient.index_SPRITE_FRAME];
 
+            // CHANGE PATIENT POSITION //
             SPR_setPosition(patient.spr_PATIENT , patient.pos_X , patient.pos_Y);
         }
     }
@@ -439,17 +464,6 @@ void sequence_DOCTORS_MINIGAME()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                         NURSE                                        //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        anim_NURSE();
-
-
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
         //                                        PATIENT                                       //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
@@ -461,9 +475,26 @@ void sequence_DOCTORS_MINIGAME()
 
 
 
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         NURSE                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
 
+        anim_NURSE();
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        COUNTER                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
 
         counter_DOCTORS();
+
+        //VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,3,0,20,PAL2);
     }
 
 

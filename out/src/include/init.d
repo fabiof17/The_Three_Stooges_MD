@@ -24,6 +24,6 @@ out/src/include/init.o: src/include/init.c C:/sgdk/inc/genesis.h \
  res/sprites_DOCTORS.h res/sprites_DOLLAR.h res/sprites_GLOBAL.h \
  res/sprites_INTRO.h res/sprites_QUESTION_MARK.h res/sprites_ROULETTE.h \
  res/sprites_SLAP.h src/include/tables_BACKGROUNDS.h \
- src/include/tables_DOLLAR.h src/include/tables_INTRO.h \
- src/include/tables_QUESTIONS.h src/include/tables_ROULETTE.h \
- src/include/tables_TRIVIA.h
+ src/include/tables_DOCTORS.h src/include/tables_DOLLAR.h \
+ src/include/tables_INTRO.h src/include/tables_QUESTIONS.h \
+ src/include/tables_ROULETTE.h src/include/tables_TRIVIA.h
