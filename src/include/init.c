@@ -120,7 +120,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME;
+        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_DOCTORS_MINIGAME
     }
 
 
@@ -131,6 +131,8 @@ void init_VARIABLES()
     //                                      GENERAL                                         //
     //                                                                                      //
     //**************************************************************************************// 
+
+    setRandomSeed(1024);
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
@@ -3006,7 +3008,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,64,TRUE);
         
-        SPR_init();
+        SPR_initEx(520);
         
         VDP_setHilightShadow(FALSE);
 
@@ -3122,9 +3124,9 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         patient.spr_PATIENT             = NULL;
-        patient.patient_STATE           = 0;
-        patient.counter_SPRITE_FRAME    = 0;
-        patient.index_SPRITE_FRAME      = 0;
+        //patient.patient_STATE           = 0;
+        //patient.counter_SPRITE_FRAME    = 0;
+        //patient.index_SPRITE_FRAME      = 0;
 
 
 
@@ -3232,6 +3234,10 @@ void init_SCENE()
         G_HIT_NUMBER            = 0;
 
         G_COUNTER_DOCTORS       = 99;
+
+        G_PREVIOUS_PATIENT_TYPE = 100;
+
+        G_RANDOM_OK             = FALSE;
 
 
         G_PHASE_SEQUENCE        = DOCTORS_PHASE_RACING;

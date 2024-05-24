@@ -434,7 +434,9 @@ extern u8 G_COUNTER_DOCTORS;
 
 extern u8 G_CAR_SPEED;
 
-//extern u16 G_INDEX_SPAWN_PATIENT;
+extern u8 G_PREVIOUS_PATIENT_TYPE;
+
+extern bool G_RANDOM_OK;
 
 extern struct_NURSE_ nurse;
 

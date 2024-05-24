@@ -56,11 +56,41 @@ const u8                            TABLE_VELOCITY_WHEELCHAIR[3]    =   {
 
 
 
+//--------------------------------------------------------------------------------------//
+//                                                                                      //
+//                       STRETCHER 1 VELOCITY FOR EACH SPRITE FRAME                     //
+//                                                                                      //
+//--------------------------------------------------------------------------------------//
+const u8                            TABLE_VELOCITY_STRETCHER_1[8]   =   {
+                                                                            6,//6
+                                                                            9,//9
+                                                                            4,//4
+                                                                            12,//12
+                                                                            7,//7
+                                                                            10,//10
+                                                                            3,//3
+                                                                            13//13
+                                                                        };
 
 
 
-const u16                           TABLE_PATIENT_SPAWN_POSITION[4] =   {
-                                                                            51
+
+
+
+
+
+const u16                           TABLE_PATIENT_SPAWN_POSITION[11] =   {
+                                                                            48,
+                                                                            64,
+                                                                            80,
+                                                                            96,
+                                                                            112,
+                                                                            128,
+                                                                            144,
+                                                                            160,
+                                                                            176,
+                                                                            192,
+                                                                            208
                                                                         };
 
 
@@ -77,10 +107,13 @@ const u16                           TABLE_PATIENT_SPAWN_POSITION[4] =   {
 //--------------------------------------------------------------------------------------//
 const struct_PATIENT_TYPE_          TABLE_PATIENT_TYPE[4]           =   {
                                                                             // CRUTCHES //
-                                                                            { &tiles_SPR_CRUTCHES   , 48 , 40 , &TABLE_VELOCITY_CRUTCHES[0]   },
+                                                                            { &tiles_SPR_CRUTCHES    , 48 ,  40 , 3 ,  4 , 14 , &TABLE_VELOCITY_CRUTCHES[0]    },
                                                                             
                                                                             // WHEELCHAIR //
-                                                                            { &tiles_SPR_WHEELCHAIR , 48 , 56 , &TABLE_VELOCITY_WHEELCHAIR[0] }
+                                                                            { &tiles_SPR_WHEELCHAIR  , 48 ,  56 , 3 ,  8 ,  8 , &TABLE_VELOCITY_WHEELCHAIR[0]  },
+
+                                                                            // STRETCHER 1 //
+                                                                            { &tiles_SPR_STRETCHER_1 , 48 , 112 , 8 ,  4 ,  6 , &TABLE_VELOCITY_STRETCHER_1[0] }
                                                                         };
 
 
@@ -89,10 +122,12 @@ const struct_PATIENT_TYPE_          TABLE_PATIENT_TYPE[4]           =   {
 
 
 
-/*
-const struct_PATIENT_               TABLE_PATIENTS[10]          =   {
-                                                                        { NULL , &tiles_SPR_CRUTCHES   , 0 ,  88 , -40 , 0 , 0 , 150 , &TABLE_VELOCITY_CRUTCHES[0]   },
-                                                                        { NULL , &tiles_SPR_WHEELCHAIR , 0 , 162 , -40 , 0 , 0 , 800 , &TABLE_VELOCITY_WHEELCHAIR[0] },
-                                                                        { NULL , NULL , NULL , NULL , NULL , NULL , NULL , NULL , NULL }
-                                                                    };
-*/
+
+
+
+
+
+
+
+
+

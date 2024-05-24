@@ -10,6 +10,8 @@ extern const struct_PATIENT_TYPE_           TABLE_PATIENT_TYPE[4];
 
 extern const struct_PATIENT_                TABLE_PATIENTS[10];
 
+extern const u16                            TABLE_PATIENT_SPAWN_POSITION[11];
+
 
 
 

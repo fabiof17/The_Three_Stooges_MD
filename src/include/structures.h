@@ -87,6 +87,10 @@ typedef struct
     u8 width_PATIENT;
     u8 height_PATIENT;
 
+    u8 number_STEPS;
+    u8 number_STEPS_HIT;
+    u8 speed_STEPS;
+
     const u8 *ptr_VELOCITY;
 
 } struct_PATIENT_TYPE_;
@@ -103,6 +107,10 @@ typedef struct
 
     u8 width_PATIENT;
     u8 height_PATIENT;
+
+    u8 number_STEPS;
+    u8 number_STEPS_HIT;
+    u8 speed_STEPS;
     
     s16 pos_X;
     s16 pos_Y;
