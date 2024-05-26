@@ -33,7 +33,7 @@ const u8                            TABLE_NURSE_VELOCITY[4]         =   {
 //                        CRUTCHES VELOCITY FOR EACH SPRITE FRAME                       //
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
-const u8                            TABLE_VELOCITY_CRUTCHES[3]      =   {
+const s8                            TABLE_VELOCITY_CRUTCHES[3]      =   {
                                                                             14,
                                                                             16,
                                                                             17
@@ -47,7 +47,7 @@ const u8                            TABLE_VELOCITY_CRUTCHES[3]      =   {
 //                       WHEELCHAIR VELOCITY FOR EACH SPRITE FRAME                      //
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
-const u8                            TABLE_VELOCITY_WHEELCHAIR[3]    =   {
+const s8                            TABLE_VELOCITY_WHEELCHAIR[3]    =   {
                                                                             8,
                                                                             9,
                                                                             5
@@ -61,15 +61,34 @@ const u8                            TABLE_VELOCITY_WHEELCHAIR[3]    =   {
 //                       STRETCHER 1 VELOCITY FOR EACH SPRITE FRAME                     //
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
-const u8                            TABLE_VELOCITY_STRETCHER_1[8]   =   {
-                                                                            6,//6
-                                                                            9,//9
-                                                                            4,//4
-                                                                            12,//12
-                                                                            7,//7
-                                                                            10,//10
-                                                                            3,//3
-                                                                            13//13
+const s8                            TABLE_VELOCITY_STRETCHER_1[8]   =   {
+                                                                            6,
+                                                                            9,
+                                                                            4,
+                                                                            12,
+                                                                            7,
+                                                                            10,
+                                                                            3,
+                                                                            13
+                                                                        };
+
+
+
+
+//--------------------------------------------------------------------------------------//
+//                                                                                      //
+//                       STRETCHER 2 VELOCITY FOR EACH SPRITE FRAME                     //
+//                                                                                      //
+//--------------------------------------------------------------------------------------//
+const s8                            TABLE_VELOCITY_STRETCHER_2[8]   =   {
+                                                                              0,
+                                                                            -12,
+                                                                            -12,
+                                                                              0,
+                                                                              0,
+                                                                            -12,
+                                                                            -12,
+                                                                              0
                                                                         };
 
 
@@ -78,6 +97,12 @@ const u8                            TABLE_VELOCITY_STRETCHER_1[8]   =   {
 
 
 
+
+//--------------------------------------------------------------------------------------//
+//                                                                                      //
+//                              ALL POSSIBLE SPAWN POSITIONS                            //
+//                                                                                      //
+//--------------------------------------------------------------------------------------//
 
 const u16                           TABLE_PATIENT_SPAWN_POSITION[11] =   {
                                                                             48,
@@ -113,7 +138,10 @@ const struct_PATIENT_TYPE_          TABLE_PATIENT_TYPE[4]           =   {
                                                                             { &tiles_SPR_WHEELCHAIR  , 48 ,  56 , 3 ,  8 ,  8 , &TABLE_VELOCITY_WHEELCHAIR[0]  },
 
                                                                             // STRETCHER 1 //
-                                                                            { &tiles_SPR_STRETCHER_1 , 48 , 112 , 8 ,  4 ,  6 , &TABLE_VELOCITY_STRETCHER_1[0] }
+                                                                            { &tiles_SPR_STRETCHER_1 , 48 , 112 , 8 ,  4 ,  6 , &TABLE_VELOCITY_STRETCHER_1[0] },
+
+                                                                            // STRETCHER 2 //
+                                                                            { &tiles_SPR_STRETCHER_2 , 48 , 112 , 8 ,  4 ,  4 , &TABLE_VELOCITY_STRETCHER_2[0] }
                                                                         };
 
 

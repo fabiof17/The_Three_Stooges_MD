@@ -357,7 +357,7 @@ inline static void spawn_PATIENT()
 
         while(G_RANDOM_OK == FALSE)
         {
-            u8 new_patient_type = random_NUMBER(0,2);
+            u8 new_patient_type = random_NUMBER(0,3);
 
             // WE MAKE SURE NEW PATIENT IS DIFFERENT FROM THE PREVIOUS ONE //
             if(new_patient_type != G_PREVIOUS_PATIENT_TYPE)
@@ -377,7 +377,7 @@ inline static void spawn_PATIENT()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        patient.pos_Y                = TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT * -1;
+        patient.pos_Y                = (TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT * -1) -64;
 
         patient.counter_SPRITE_FRAME = 0;
         patient.index_SPRITE_FRAME   = 0;

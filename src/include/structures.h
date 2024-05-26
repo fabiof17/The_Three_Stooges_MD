@@ -91,7 +91,7 @@ typedef struct
     u8 number_STEPS_HIT;
     u8 speed_STEPS;
 
-    const u8 *ptr_VELOCITY;
+    const s8 *ptr_VELOCITY;
 
 } struct_PATIENT_TYPE_;
 
@@ -120,7 +120,7 @@ typedef struct
 
     u16 spawn_FRAME;
 
-    const u8 *ptr_VELOCITY;
+    const s8 *ptr_VELOCITY;
 
 } struct_PATIENT_;
 
