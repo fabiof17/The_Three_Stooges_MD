@@ -3091,7 +3091,18 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_drawIntEx_BG_A_QUEUE(99 , 2 , 8 , 26 , PAL0);
+        VDP_drawIntEx_BG_A_CPU(99 , 2 , 8 , 26 , PAL0);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                    PRINT REWARD                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_drawIntEx_BG_A_CPU(0 , 1 , 3 , 26 , PAL0);
 
 
 
@@ -3128,9 +3139,6 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         patient.spr_PATIENT             = NULL;
-        //patient.patient_STATE           = 0;
-        //patient.counter_SPRITE_FRAME    = 0;
-        //patient.index_SPRITE_FRAME      = 0;
 
 
 
@@ -3141,9 +3149,11 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_CARS[2].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_LARRY,  140, 183, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_CARS[2].axis_CAR = AXIS_CENTER;
         list_CARS[2].pos_X    = 140;
+        list_CARS[2].pos_Y    = 183;
+
+        list_CARS[2].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_LARRY,  list_CARS[2].pos_X, list_CARS[2].pos_Y, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_CARS[2].axis_CAR = AXIS_CENTER;
 
         list_CARS[2].index_READ_POSITION   = 0;
         list_CARS[2].index_WRITE_POSITION  = 16;
@@ -3161,9 +3171,11 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_CARS[1].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_CURLY,  140, 141, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_CARS[1].axis_CAR = AXIS_CENTER;
         list_CARS[1].pos_X    = 140;
+        list_CARS[1].pos_Y    = 141;
+
+        list_CARS[1].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_CURLY,  list_CARS[1].pos_X, list_CARS[1].pos_Y, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_CARS[1].axis_CAR = AXIS_CENTER;
 
         list_CARS[1].index_READ_POSITION   = 0;
         list_CARS[1].index_WRITE_POSITION  = 8;
@@ -3181,9 +3193,11 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_CARS[0].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_MOE,  140, 99, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_CARS[0].axis_CAR = AXIS_CENTER;
         list_CARS[0].pos_X    = 140;
+        list_CARS[0].pos_Y    = 99;
+
+        list_CARS[0].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_MOE,  list_CARS[0].pos_X, list_CARS[0].pos_Y, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_CARS[0].axis_CAR = AXIS_CENTER;
 
 
 
@@ -3243,6 +3257,9 @@ void init_SCENE()
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
+
+
+        G_REWARD                = 0;
 
 
         G_CAR_SPEED             = 2;

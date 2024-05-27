@@ -211,7 +211,7 @@ void joypad_DOCTORS_MINIGAME()
 
 
 
-inline static void counter_DOCTORS()
+inline static void counter_TIME_DOCTORS()
 {
     if(G_COUNTER_1 == 72)
     {
@@ -239,6 +239,24 @@ inline static void counter_DOCTORS()
     G_COUNTER_1 += 1;
 }
 
+
+inline static void counter_REWARD_DOCTORS()
+{
+    if(G_REWARD < 100)
+    {
+        VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 2 , 3 , 26 , PAL0);
+    }
+
+    else if(G_REWARD < 1000)
+    {
+        VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 3 , 3 , 26 , PAL0);
+    }    
+
+    else
+    {
+        VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 4 , 3 , 26 , PAL0);
+    }  
+}
 
 
 
@@ -407,9 +425,52 @@ inline static void spawn_ITEM()
 
 inline static void anim_ITEM()
 {
-    //
-    
     u8 i;
+    u8 j;
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                               COLLISION CHECK WITH CARS                              //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    for(i=0 ; i<2 ; i++)
+    {
+        if(list_ITEM[i].spr_ITEM != NULL)
+        {
+            for(j=0 ; j<3 ; j++)
+            {
+                if(list_ITEM[i].pos_X >= (list_CARS[j].pos_X + 8))
+                {
+                    if(list_ITEM[i].pos_X <= (list_CARS[j].pos_X + 40 ))
+                    {
+                        if(list_ITEM[i].pos_Y >= list_CARS[j].pos_Y)
+                        {
+                            if(list_ITEM[i].pos_Y <= (list_CARS[j].pos_Y + 40))
+                            {
+                                G_REWARD += list_ITEM[i].reward_ITEM;
+
+                                counter_REWARD_DOCTORS();
+                                
+                                SPR_releaseSprite(list_ITEM[i].spr_ITEM);
+                                list_ITEM[i].spr_ITEM = NULL;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }    
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                             POSITION AND FRAME ANIMATIONS                            //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
 
     for(i=0 ; i<2 ; i++)
     {
@@ -726,7 +787,7 @@ void sequence_DOCTORS_MINIGAME()
         {
             G_POS_Y_CAMERA = 16808;
 
-            G_PHASE_SEQUENCE = DOCTORS_PHASE_RACING_OVER;
+            G_PHASE_SEQUENCE = DOCTORS_PHASE_EXIT;
         }
         
         VDP_setVerticalScrollVSync(BG_B , -G_POS_Y_CAMERA);
@@ -742,9 +803,6 @@ void sequence_DOCTORS_MINIGAME()
 
         anim_NURSE();
 
-        anim_ITEM();
-        spawn_ITEM();
-
 
 
 
@@ -756,13 +814,19 @@ void sequence_DOCTORS_MINIGAME()
 
         anim_PATIENT();
 
+        anim_ITEM();
+
 
         if(G_POS_Y_CAMERA < 16000)
         {
             spawn_PATIENT();
         }
         
-
+        if(G_POS_Y_CAMERA < 16380)
+        {
+            //anim_ITEM();
+            spawn_ITEM();
+        }
 
 
         //--------------------------------------------------------------------------------------//
@@ -771,13 +835,13 @@ void sequence_DOCTORS_MINIGAME()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        counter_DOCTORS();
+        counter_TIME_DOCTORS();
 
         //VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,3,0,20,PAL2);
     }
 
 
-    else if(G_PHASE_SEQUENCE == DOCTORS_PHASE_RACING_OVER)
+    else if(G_PHASE_SEQUENCE == DOCTORS_PHASE_EXIT)
     {
         //
     }

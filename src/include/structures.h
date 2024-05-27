@@ -53,6 +53,7 @@ typedef struct
     u8 axis_CAR;
 
     s16 pos_X;
+    s16 pos_Y;
     
     u8 index_WRITE_POSITION;
     u8 index_READ_POSITION;

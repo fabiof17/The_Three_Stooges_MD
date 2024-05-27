@@ -180,8 +180,10 @@
 //-----------------------------------------------------------------------------//
 
 #define DOCTORS_PHASE_RACING            0
+
 #define DOCTORS_PHASE_TIME_OVER         1
-#define DOCTORS_PHASE_RACING_OVER       2
+#define DOCTORS_PHASE_PRE_EXIT          2
+#define DOCTORS_PHASE_EXIT              3
 
 #define PATIENT_NOT_HIT                 0
 #define PATIENT_HIT                     1
