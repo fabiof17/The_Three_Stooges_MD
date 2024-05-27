@@ -37,7 +37,7 @@ void joypad_DOCTORS_MINIGAME()
         {
             //G_CAR_SPEED = 2;
             
-            list_CARS[0].car_AXIS = AXIS_CENTER;
+            list_CARS[0].axis_CAR = AXIS_CENTER;
 
             SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
         }
@@ -53,7 +53,7 @@ void joypad_DOCTORS_MINIGAME()
         {
             if(list_CARS[0].pos_X > 40)
             {
-                list_CARS[0].car_AXIS = AXIS_LEFT;
+                list_CARS[0].axis_CAR = AXIS_LEFT;
 
                 list_CARS[0].pos_X -= 2;
 
@@ -64,7 +64,7 @@ void joypad_DOCTORS_MINIGAME()
 
             else
             {
-                list_CARS[0].car_AXIS = AXIS_CENTER;
+                list_CARS[0].axis_CAR = AXIS_CENTER;
 
                 SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
             }
@@ -81,7 +81,7 @@ void joypad_DOCTORS_MINIGAME()
         {
             if(list_CARS[0].pos_X < 224)
             {
-                list_CARS[0].car_AXIS = AXIS_RIGHT;
+                list_CARS[0].axis_CAR = AXIS_RIGHT;
 
                 list_CARS[0].pos_X += 2;
 
@@ -92,7 +92,7 @@ void joypad_DOCTORS_MINIGAME()
 
             else
             {
-                list_CARS[0].car_AXIS = AXIS_CENTER;
+                list_CARS[0].axis_CAR = AXIS_CENTER;
 
                 SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
             }
@@ -109,7 +109,7 @@ void joypad_DOCTORS_MINIGAME()
         {
             G_CAR_SPEED = 2;
             
-            list_CARS[0].car_AXIS = AXIS_CENTER;
+            list_CARS[0].axis_CAR = AXIS_CENTER;
 
             SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
         }
@@ -125,7 +125,7 @@ void joypad_DOCTORS_MINIGAME()
         {
             G_CAR_SPEED = 4;
             
-            list_CARS[0].car_AXIS = AXIS_CENTER;
+            list_CARS[0].axis_CAR = AXIS_CENTER;
 
             SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
         }
@@ -158,7 +158,7 @@ void joypad_DOCTORS_MINIGAME()
 
 
         list_CARS[1].TABLE_POSITION[list_CARS[1].index_WRITE_POSITION] = list_CARS[0].pos_X;
-        list_CARS[1].TABLE_AXIS[list_CARS[1].index_WRITE_POSITION] = list_CARS[0].car_AXIS;
+        list_CARS[1].TABLE_AXIS[list_CARS[1].index_WRITE_POSITION] = list_CARS[0].axis_CAR;
 
 
         list_CARS[1].index_WRITE_POSITION += 1;
@@ -192,7 +192,7 @@ void joypad_DOCTORS_MINIGAME()
 
 
         list_CARS[2].TABLE_POSITION[list_CARS[2].index_WRITE_POSITION] = list_CARS[0].pos_X;
-        list_CARS[2].TABLE_AXIS[list_CARS[2].index_WRITE_POSITION] = list_CARS[0].car_AXIS;
+        list_CARS[2].TABLE_AXIS[list_CARS[2].index_WRITE_POSITION] = list_CARS[0].axis_CAR;
 
 
         list_CARS[2].index_WRITE_POSITION += 1;
@@ -203,6 +203,10 @@ void joypad_DOCTORS_MINIGAME()
         }
     }
 }
+
+
+
+
 
 
 
@@ -238,9 +242,13 @@ inline static void counter_DOCTORS()
 
 
 
+
+
+
+
 inline static void anim_NURSE()
 {
-    if(nurse.nurse_AXIS == AXIS_RIGHT)
+    if(nurse.axis_NURSE == AXIS_RIGHT)
     {
         nurse.counter_SPRITE_FRAME += 1;
         
@@ -275,7 +283,7 @@ inline static void anim_NURSE()
             {
                 nurse.pos_X = 227;
 
-                nurse.nurse_AXIS = AXIS_LEFT;
+                nurse.axis_NURSE = AXIS_LEFT;
             }
 
             else
@@ -289,7 +297,7 @@ inline static void anim_NURSE()
     }
 
 
-    else if(nurse.nurse_AXIS == AXIS_LEFT)
+    else if(nurse.axis_NURSE == AXIS_LEFT)
     {
         nurse.counter_SPRITE_FRAME += 1;
         
@@ -324,7 +332,7 @@ inline static void anim_NURSE()
             {
                 nurse.pos_X = 44;
 
-                nurse.nurse_AXIS = AXIS_RIGHT;
+                nurse.axis_NURSE = AXIS_RIGHT;
             }
 
             else
@@ -337,6 +345,156 @@ inline static void anim_NURSE()
         }
     }
 }
+
+
+
+
+inline static void spawn_ITEM()
+{
+    if(nurse.counter_ITEM == 36)
+    {
+        nurse.counter_ITEM = 0;
+
+        u8 i;
+
+        for(i=0 ; i<2 ; i++)
+        {
+            if(list_ITEM[i].spr_ITEM == NULL)
+            {
+                list_ITEM[i].reward_ITEM = TABLE_ITEM_TYPE[nurse.index_ITEM].reward_ITEM;
+
+                if(nurse.axis_NURSE == AXIS_RIGHT)
+                {
+                    list_ITEM[i].axis_ITEM = AXIS_LEFT;
+
+                    list_ITEM[i].pos_X = nurse.pos_X - 24;
+                }
+
+                else if(nurse.axis_NURSE == AXIS_LEFT)
+                {
+                    list_ITEM[i].axis_ITEM = AXIS_RIGHT;
+
+                    list_ITEM[i].pos_X = nurse.pos_X  + 40;
+                }
+
+
+                list_ITEM[i].pos_Y = 32;
+
+                list_ITEM[i].counter_FRAME = 0;
+                list_ITEM[i].index_FRAME = 0;
+
+                list_ITEM[i].spr_ITEM = SPR_addSprite(TABLE_ITEM_TYPE[nurse.index_ITEM].tiles_ITEM , list_ITEM[i].pos_X , list_ITEM[i].pos_Y , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+                SPR_setAnimAndFrame(list_ITEM[i].spr_ITEM , list_ITEM[i].axis_ITEM - 1 , 0);
+
+
+                nurse.index_ITEM += 1;
+
+                if(nurse.index_ITEM == 3)
+                {
+                    nurse.index_ITEM = 0;
+                }
+
+
+                return;
+            }
+        }
+    }
+
+    nurse.counter_ITEM += 1;
+}
+
+
+inline static void anim_ITEM()
+{
+    //
+    
+    u8 i;
+
+    for(i=0 ; i<2 ; i++)
+    {
+        if(list_ITEM[i].spr_ITEM != NULL)
+        {
+            if(list_ITEM[i].pos_Y < 224)
+            {
+                if(list_ITEM[i].axis_ITEM == AXIS_LEFT)
+                {
+                    if(list_ITEM[i].pos_X - 3 > 44)
+                    {
+                        list_ITEM[i].pos_X -= 3;
+                    }
+
+                    else
+                    {
+                        list_ITEM[i].pos_X = 44;
+
+                        list_ITEM[i].axis_ITEM = AXIS_RIGHT;
+
+                        SPR_setAnimAndFrame(list_ITEM[i].spr_ITEM , list_ITEM[i].axis_ITEM - 1 , list_ITEM[i].index_FRAME);
+                    }
+                }
+
+            
+                else if(list_ITEM[i].axis_ITEM == AXIS_RIGHT)
+                {
+                    if(list_ITEM[i].pos_X + 3 < 256)
+                    {
+                        list_ITEM[i].pos_X += 3;
+                    }
+
+                    else
+                    {
+                        list_ITEM[i].pos_X = 256;
+
+                        list_ITEM[i].axis_ITEM = AXIS_LEFT;
+
+                        SPR_setAnimAndFrame(list_ITEM[i].spr_ITEM , list_ITEM[i].axis_ITEM - 1 , list_ITEM[i].index_FRAME);
+                    }
+                }
+
+                list_ITEM[i].pos_Y += 3;
+
+                SPR_setPosition(list_ITEM[i].spr_ITEM , list_ITEM[i].pos_X , list_ITEM[i].pos_Y );
+
+
+
+                list_ITEM[i].counter_FRAME += 1;
+
+                if(list_ITEM[i].counter_FRAME == 4)
+                {
+                    list_ITEM[i].counter_FRAME = 0;
+
+                    list_ITEM[i].index_FRAME += 1;
+
+                    if(list_ITEM[i].index_FRAME == 8)
+                    {
+                        list_ITEM[i].index_FRAME = 0;
+                    }
+                }
+
+                SPR_setFrame(list_ITEM[i].spr_ITEM , list_ITEM[i].index_FRAME);
+            }
+
+
+
+
+            else
+            {
+                SPR_releaseSprite(list_ITEM[i].spr_ITEM);
+                list_ITEM[i].spr_ITEM = NULL;
+            }
+
+            //return;
+            
+        }
+
+        
+    }
+}
+
+
+
+
 
 
 
@@ -582,6 +740,9 @@ void sequence_DOCTORS_MINIGAME()
         //--------------------------------------------------------------------------------------//
 
         anim_NURSE();
+
+        anim_ITEM();
+        spawn_ITEM();
 
 
 

@@ -3109,10 +3109,14 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         nurse.spr_NURSE             = SPR_addSprite(&tiles_SPR_NURSE,  50, 10, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-        nurse.nurse_AXIS            = AXIS_RIGHT;
+        nurse.axis_NURSE            = AXIS_RIGHT;
         nurse.pos_X                 = 50;
+
         nurse.counter_SPRITE_FRAME  = 0;
         nurse.index_SPRITE_FRAME    = 0;
+        
+        nurse.counter_ITEM          = 0;
+        nurse.index_ITEM            = 0;
 
 
 
@@ -3138,7 +3142,7 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         list_CARS[2].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_LARRY,  140, 183, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_CARS[2].car_AXIS = AXIS_CENTER;
+        list_CARS[2].axis_CAR = AXIS_CENTER;
         list_CARS[2].pos_X    = 140;
 
         list_CARS[2].index_READ_POSITION   = 0;
@@ -3158,7 +3162,7 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         list_CARS[1].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_CURLY,  140, 141, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_CARS[1].car_AXIS = AXIS_CENTER;
+        list_CARS[1].axis_CAR = AXIS_CENTER;
         list_CARS[1].pos_X    = 140;
 
         list_CARS[1].index_READ_POSITION   = 0;
@@ -3178,8 +3182,20 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         list_CARS[0].spr_CAR  = SPR_addSprite(&tiles_SPR_CAR_MOE,  140, 99, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_CARS[0].car_AXIS = AXIS_CENTER;
+        list_CARS[0].axis_CAR = AXIS_CENTER;
         list_CARS[0].pos_X    = 140;
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                      NURSE ITEMS                                     //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        list_ITEM[0].spr_ITEM  = NULL;
+        list_ITEM[1].spr_ITEM  = NULL;
 
 
 

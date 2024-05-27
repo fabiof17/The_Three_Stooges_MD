@@ -181,6 +181,8 @@ struct_NURSE_ nurse;
 
 struct_PATIENT_ patient;
 
+struct_ITEM_ list_ITEM[2];
+
 
 
 

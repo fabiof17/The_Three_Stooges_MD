@@ -50,7 +50,7 @@ typedef struct
 typedef struct
 {
     Sprite *spr_CAR;
-    u8 car_AXIS;
+    u8 axis_CAR;
 
     s16 pos_X;
     
@@ -68,12 +68,15 @@ typedef struct
 typedef struct
 {
     Sprite *spr_NURSE;
-    u8 nurse_AXIS;
+    u8 axis_NURSE;
 
     s16 pos_X;
     
     u8 counter_SPRITE_FRAME;
     u8 index_SPRITE_FRAME;
+
+    u8 counter_ITEM;
+    u8 index_ITEM;
 
 } struct_NURSE_;
 
@@ -126,6 +129,35 @@ typedef struct
 
 
 
+
+typedef struct
+{    
+    const SpriteDefinition *tiles_ITEM;
+
+    u8 reward_ITEM;
+
+} struct_ITEM_TYPE_;
+
+
+
+
+typedef struct
+{
+    Sprite *spr_ITEM;
+    
+    const SpriteDefinition *tiles_ITEM;
+
+    u8 axis_ITEM;
+
+    u8 reward_ITEM;
+
+    u8 counter_FRAME;
+    u8 index_FRAME;
+
+    s16 pos_X;
+    s16 pos_Y;
+
+} struct_ITEM_;
 
 
 

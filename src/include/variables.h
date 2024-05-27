@@ -442,6 +442,8 @@ extern struct_NURSE_ nurse;
 
 extern struct_PATIENT_ patient;
 
+extern struct_ITEM_ list_ITEM[2];
+
 
 
 
