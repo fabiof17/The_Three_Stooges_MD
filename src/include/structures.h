@@ -72,6 +72,7 @@ typedef struct
     u8 axis_NURSE;
 
     s16 pos_X;
+    s16 pos_Y;
     
     u8 counter_SPRITE_FRAME;
     u8 index_SPRITE_FRAME;

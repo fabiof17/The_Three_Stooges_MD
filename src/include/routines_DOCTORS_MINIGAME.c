@@ -417,13 +417,16 @@ inline static void spawn_ITEM()
                 return;
             }
         }
+
+        return;
     }
 
     nurse.counter_ITEM += 1;
 }
 
 
-inline static void anim_ITEM()
+
+inline static void collisions_ITEMS()
 {
     u8 i;
     u8 j;
@@ -455,15 +458,24 @@ inline static void anim_ITEM()
                                 
                                 SPR_releaseSprite(list_ITEM[i].spr_ITEM);
                                 list_ITEM[i].spr_ITEM = NULL;
+
+                                return;
                             }
                         }
                     }
                 }
             }
         }
-    }    
+    } 
+}
 
 
+
+inline static void anim_ITEM()
+{
+    //collisions_ITEMS();
+    
+    u8 i;
 
 
     //--------------------------------------------------------------------------------------//
@@ -490,8 +502,6 @@ inline static void anim_ITEM()
                         list_ITEM[i].pos_X = 44;
 
                         list_ITEM[i].axis_ITEM = AXIS_RIGHT;
-
-                        SPR_setAnimAndFrame(list_ITEM[i].spr_ITEM , list_ITEM[i].axis_ITEM - 1 , list_ITEM[i].index_FRAME);
                     }
                 }
 
@@ -508,12 +518,10 @@ inline static void anim_ITEM()
                         list_ITEM[i].pos_X = 256;
 
                         list_ITEM[i].axis_ITEM = AXIS_LEFT;
-
-                        SPR_setAnimAndFrame(list_ITEM[i].spr_ITEM , list_ITEM[i].axis_ITEM - 1 , list_ITEM[i].index_FRAME);
                     }
                 }
 
-                list_ITEM[i].pos_Y += 1;
+                list_ITEM[i].pos_Y += 3;
                 list_ITEM[i].pos_Y += G_CAR_SPEED;
 
                 SPR_setPosition(list_ITEM[i].spr_ITEM , list_ITEM[i].pos_X , list_ITEM[i].pos_Y );
@@ -534,7 +542,7 @@ inline static void anim_ITEM()
                     }
                 }
 
-                SPR_setFrame(list_ITEM[i].spr_ITEM , list_ITEM[i].index_FRAME);
+                SPR_setAnimAndFrame(list_ITEM[i].spr_ITEM , list_ITEM[i].axis_ITEM - 1 , list_ITEM[i].index_FRAME);
             }
 
 
@@ -544,13 +552,8 @@ inline static void anim_ITEM()
             {
                 SPR_releaseSprite(list_ITEM[i].spr_ITEM);
                 list_ITEM[i].spr_ITEM = NULL;
-            }
-
-            //return;
-            
+            }            
         }
-
-        
     }
 }
 
@@ -777,18 +780,13 @@ void sequence_DOCTORS_MINIGAME()
         
         G_POS_Y_CAMERA += G_CAR_SPEED;
 
-
-        if(G_POS_Y_CAMERA > 16765 && G_POS_Y_CAMERA < 16769)
+        if(G_POS_Y_CAMERA >= 16556)
         {
-            VDP_setTileMapEx(BG_B, image_DOCTORS_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_DOCTORS_BG_B1.tileset->numTile), 0, 11, 0, 0, 40, 5, DMA_QUEUE);
-        }
-        
-        else if(G_POS_Y_CAMERA > 16808)
-        {
-            G_POS_Y_CAMERA = 16808;
-
             G_PHASE_SEQUENCE = DOCTORS_PHASE_EXIT;
         }
+
+
+
         
         VDP_setVerticalScrollVSync(BG_B , -G_POS_Y_CAMERA);
 
@@ -824,7 +822,6 @@ void sequence_DOCTORS_MINIGAME()
         
         if(G_POS_Y_CAMERA < 16380)
         {
-            //anim_ITEM();
             spawn_ITEM();
         }
 
@@ -837,13 +834,225 @@ void sequence_DOCTORS_MINIGAME()
 
         counter_TIME_DOCTORS();
 
-        //VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,3,0,20,PAL2);
+        VDP_drawIntEx_BG_A_QUEUE(list_ITEM[0].pos_Y,3,0,0,PAL2);
+        VDP_drawIntEx_BG_A_QUEUE(list_ITEM[1].pos_Y,3,0,2,PAL2);
     }
 
 
     else if(G_PHASE_SEQUENCE == DOCTORS_PHASE_EXIT)
     {
-        //
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                        RECENTER NURSE                        //
+        //                                                              //
+        //--------------------------------------------------------------//
+
+        if(G_POS_Y_CAMERA >= 16808)
+        {
+            if(list_CARS[0].pos_Y > -48)
+            {
+                list_CARS[0].pos_Y -= G_CAR_SPEED;
+            }
+
+            if(list_CARS[1].pos_Y > -48)
+            {
+                list_CARS[1].pos_Y -= G_CAR_SPEED;
+            }
+
+            if(list_CARS[2].pos_Y > -48)
+            {
+                list_CARS[2].pos_Y -= G_CAR_SPEED;
+            }
+
+            if(nurse.pos_Y > -64)
+            {
+                nurse.pos_Y -= G_CAR_SPEED;
+            }
+        }
+
+
+        if(nurse.pos_X < 136)
+        {
+            if((136 - nurse.pos_X) > 4)
+            {
+                nurse.pos_X += 2;
+            }
+
+            else
+            {
+                nurse.pos_X = 136;
+            }
+        }
+
+        else if(nurse.pos_X > 136)
+        {
+            if((nurse.pos_X - 136) > 4)
+            {
+                nurse.pos_X -= 2;
+            }
+
+            else
+            {
+                nurse.pos_X = 136;
+            }
+        }
+
+        SPR_setPosition(nurse.spr_NURSE , nurse.pos_X , nurse.pos_Y);
+        
+
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                      UPDATE NURSE FRAME                      //
+        //                                                              //
+        //--------------------------------------------------------------//
+
+        nurse.counter_SPRITE_FRAME += 1;
+        
+        if(nurse.counter_SPRITE_FRAME == 7)
+        {
+            
+            nurse.index_SPRITE_FRAME += 1;
+
+            // REINIT FRAME INDEX //
+            if(nurse.index_SPRITE_FRAME == 4)
+            {
+                nurse.index_SPRITE_FRAME = 0;
+            }
+
+            // SET NURSE FRAME //
+            SPR_setFrame(nurse.spr_NURSE , nurse.index_SPRITE_FRAME);
+
+            // REINIT FRAME COUNTER //
+            nurse.counter_SPRITE_FRAME = 0;       
+        }
+
+
+
+
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                       UPDATE MOE'S CAR                       //
+        //                                                              //
+        //--------------------------------------------------------------//
+
+        if(list_CARS[0].pos_X < 136)
+        {
+            list_CARS[0].axis_CAR = AXIS_RIGHT;
+
+            list_CARS[0].pos_X += 2;
+
+            SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , list_CARS[0].pos_Y);
+
+            SPR_setFrame(list_CARS[0].spr_CAR , AXIS_RIGHT);
+        }
+
+        else if(list_CARS[0].pos_X > 136)
+        {
+            list_CARS[0].axis_CAR = AXIS_LEFT;
+            
+            list_CARS[0].pos_X -= 2;
+
+            SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , list_CARS[0].pos_Y);
+
+            SPR_setFrame(list_CARS[0].spr_CAR , AXIS_LEFT);
+        }
+
+        else if(list_CARS[0].pos_X == 136)
+        {
+            list_CARS[0].axis_CAR = AXIS_CENTER;
+
+            SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , list_CARS[0].pos_Y);
+
+            SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+        }
+
+
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                      UPDATE CURLY'S CAR                      //
+        //                                                              //
+        //--------------------------------------------------------------//
+
+        SPR_setPosition(list_CARS[1].spr_CAR , list_CARS[1].TABLE_POSITION[list_CARS[1].index_READ_POSITION] , list_CARS[1].pos_Y);
+        SPR_setFrame(list_CARS[1].spr_CAR , list_CARS[1].TABLE_AXIS[list_CARS[1].index_READ_POSITION]);
+
+
+        list_CARS[1].index_READ_POSITION += 1;
+
+        if(list_CARS[1].index_READ_POSITION > 16)
+        {
+            list_CARS[1].index_READ_POSITION = 0;
+        }
+
+
+
+
+        list_CARS[1].TABLE_POSITION[list_CARS[1].index_WRITE_POSITION] = list_CARS[0].pos_X;
+        list_CARS[1].TABLE_AXIS[list_CARS[1].index_WRITE_POSITION] = list_CARS[0].axis_CAR;
+
+
+        list_CARS[1].index_WRITE_POSITION += 1;
+
+        if(list_CARS[1].index_WRITE_POSITION > 16)
+        {
+            list_CARS[1].index_WRITE_POSITION = 0;
+        }
+
+
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                      UPDATE LARRY'S CAR                      //
+        //                                                              //
+        //--------------------------------------------------------------//
+
+        SPR_setPosition(list_CARS[2].spr_CAR , list_CARS[2].TABLE_POSITION[list_CARS[2].index_READ_POSITION] , list_CARS[2].pos_Y);
+        SPR_setFrame(list_CARS[2].spr_CAR , list_CARS[1].TABLE_AXIS[list_CARS[2].index_READ_POSITION]);
+
+
+        list_CARS[2].index_READ_POSITION += 1;
+
+        if(list_CARS[2].index_READ_POSITION > 16)
+        {
+            list_CARS[2].index_READ_POSITION = 0;
+        }
+
+
+
+
+        list_CARS[2].TABLE_POSITION[list_CARS[2].index_WRITE_POSITION] = list_CARS[0].pos_X;
+        list_CARS[2].TABLE_AXIS[list_CARS[2].index_WRITE_POSITION] = list_CARS[0].axis_CAR;
+
+
+        list_CARS[2].index_WRITE_POSITION += 1;
+
+        if(list_CARS[2].index_WRITE_POSITION > 16)
+        {
+            list_CARS[2].index_WRITE_POSITION = 0;
+        }
+
+
+
+
+        //--------------------------------------------------------------//
+        //                                                              //
+        //                           SCROLLING                          //
+        //                                                              //
+        //--------------------------------------------------------------//
+        
+        G_POS_Y_CAMERA += G_CAR_SPEED;
+        
+
+        if(G_POS_Y_CAMERA > 16765 && G_POS_Y_CAMERA < 16769)
+        {
+            VDP_setTileMapEx(BG_B, image_DOCTORS_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_DOCTORS_BG_B1.tileset->numTile), 0, 11, 0, 0, 40, 5, DMA_QUEUE);
+        }
+        
+        if(G_POS_Y_CAMERA < 16813)
+        {
+            VDP_setVerticalScrollVSync(BG_B , -G_POS_Y_CAMERA);
+        }
+
+        VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,5,0,0,PAL2);
     }
 }
 

@@ -3119,9 +3119,11 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
+        nurse.pos_X                 = 50;
+        nurse.pos_Y                 = 10;
+
         nurse.spr_NURSE             = SPR_addSprite(&tiles_SPR_NURSE,  50, 10, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         nurse.axis_NURSE            = AXIS_RIGHT;
-        nurse.pos_X                 = 50;
 
         nurse.counter_SPRITE_FRAME  = 0;
         nurse.index_SPRITE_FRAME    = 0;
