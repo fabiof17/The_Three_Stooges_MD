@@ -363,14 +363,14 @@ inline static void spawn_ITEM()
             {
                 list_ITEM[i].reward_ITEM = TABLE_ITEM_TYPE[nurse.index_ITEM].reward_ITEM;
 
-                if(nurse.axis_NURSE == AXIS_RIGHT)
+                if(nurse.pos_X > 160)
                 {
                     list_ITEM[i].axis_ITEM = AXIS_LEFT;
 
                     list_ITEM[i].pos_X = nurse.pos_X - 24;
                 }
 
-                else if(nurse.axis_NURSE == AXIS_LEFT)
+                else
                 {
                     list_ITEM[i].axis_ITEM = AXIS_RIGHT;
 
@@ -452,7 +452,8 @@ inline static void anim_ITEM()
                     }
                 }
 
-                list_ITEM[i].pos_Y += 3;
+                list_ITEM[i].pos_Y += 1;
+                list_ITEM[i].pos_Y += G_CAR_SPEED;
 
                 SPR_setPosition(list_ITEM[i].spr_ITEM , list_ITEM[i].pos_X , list_ITEM[i].pos_Y );
 
@@ -466,7 +467,7 @@ inline static void anim_ITEM()
 
                     list_ITEM[i].index_FRAME += 1;
 
-                    if(list_ITEM[i].index_FRAME == 8)
+                    if(list_ITEM[i].index_FRAME == 16)
                     {
                         list_ITEM[i].index_FRAME = 0;
                     }

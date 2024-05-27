@@ -35,8 +35,8 @@ const u8                            TABLE_NURSE_VELOCITY[4]         =   {
 //--------------------------------------------------------------------------------------//
 const struct_ITEM_TYPE_                  TABLE_ITEM_TYPE[3]           =   {
                                                                             { &tiles_SPR_ITEM_1 ,  5 },
-                                                                            { &tiles_SPR_ITEM_1 , 10 },
-                                                                            { &tiles_SPR_ITEM_1 , 15 }
+                                                                            { &tiles_SPR_ITEM_2 , 10 },
+                                                                            { &tiles_SPR_ITEM_3 , 15 }
                                                                         };
 
 
