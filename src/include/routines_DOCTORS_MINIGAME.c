@@ -644,8 +644,6 @@ inline static void spawn_PATIENT()
                     patient.pos_X = new_pos_X;
 
                     G_RANDOM_OK = TRUE;
-
-                    //VDP_drawIntEx_BG_A_QUEUE(new_pos_X,3,0,20,PAL2);
                 }
                 
             }
@@ -661,8 +659,6 @@ inline static void spawn_PATIENT()
                     patient.pos_X = new_pos_X;
 
                     G_RANDOM_OK = TRUE;
-
-                    //VDP_drawIntEx_BG_A_QUEUE(new_pos_X,3,0,20,PAL2);
                 }
             }
         }
@@ -838,12 +834,9 @@ void sequence_DOCTORS_MINIGAME()
 
         counter_TIME_DOCTORS();
 
-        VDP_drawIntEx_BG_A_QUEUE(list_CARS[0].pos_X,3,0,0,PAL2);
-        VDP_drawIntEx_BG_A_QUEUE(list_CARS[1].pos_X,3,0,1,PAL2);
-        VDP_drawIntEx_BG_A_QUEUE(list_CARS[2].pos_X,3,0,2,PAL2);
-
-        //VDP_drawIntEx_BG_A_QUEUE(list_ITEM[0].pos_Y,3,0,0,PAL2);
-        //VDP_drawIntEx_BG_A_QUEUE(list_ITEM[1].pos_Y,3,0,2,PAL2);
+        //VDP_drawIntEx_BG_A_QUEUE(list_CARS[0].pos_X,3,0,0,PAL2);
+        //VDP_drawIntEx_BG_A_QUEUE(list_CARS[1].pos_X,3,0,1,PAL2);
+        //VDP_drawIntEx_BG_A_QUEUE(list_CARS[2].pos_X,3,0,2,PAL2);
     }
 
 
@@ -1060,8 +1053,59 @@ void sequence_DOCTORS_MINIGAME()
             VDP_setVerticalScrollVSync(BG_B , -G_POS_Y_CAMERA);
         }
 
-        //VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,5,0,0,PAL2);
+        if(G_POS_Y_CAMERA >= 17240)
+        {
+            G_COUNTER_1 = 0;
+
+            // 15 DOLLARS REWARD PER REMAINING SECOND //
+            G_REWARD += (G_COUNTER_DOCTORS * 15);
+            
+            G_PHASE_SEQUENCE = DOCTORS_PHASE_GAME_OVER;
+        }
+
+
+
+        VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,5,0,0,PAL2);
     }
+
+
+    else if(G_PHASE_SEQUENCE == DOCTORS_PHASE_GAME_OVER)
+    {
+        G_COUNTER_1 += 1;
+
+        //VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_1,3,0,2,PAL2);
+
+        if(G_COUNTER_1 == 120)
+        {
+            // FADE OUT : 40 FRAMES //
+            PAL_fadeOutAll(40,FALSE);
+
+            // RESET SCROLLING //
+            VDP_setVerticalScroll(BG_B , 0);
+            VDP_setVerticalScroll(BG_A , 0);
+
+            // CLEAR PLANES //
+            VDP_clearPlane(BG_B,TRUE);
+            VDP_clearPlane(BG_A,TRUE);
+
+            // RELEASE ALL SPRITES //
+            SPR_reset();
+
+            G_COUNTER_1 = 0;
+
+            G_PHASE_SEQUENCE = 0;
+
+            // DEFINE NEXT MINIGAME //
+            G_SCENE         = SCENE_FADE_IN;
+            G_SCENE_TYPE    = SCENE_REWARD;
+            G_SCENE_NEXT    = SCENE_REWARD;
+
+            G_SCENE_LOADED  = FALSE;
+
+            return;
+        }
+    }
+
 }
 
 

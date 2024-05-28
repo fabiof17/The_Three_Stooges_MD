@@ -16,6 +16,7 @@ out/src/include/tables_BACKGROUNDS.o: src/include/tables_BACKGROUNDS.c \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
  src/include/outils.h res/palettes.h src/include/structures.h \
  src/include/variables.h res/maps_BACKGROUNDS.h res/maps_BOXING.h \
- res/maps_GLOBAL.h res/maps_QUESTION_MARK.h res/maps_TRIVIA.h \
- src/include/routines_ROULETTE.h res/sprites_QUESTION_MARK.h \
- res/sprites_TRIVIA.h src/include/tables_QUESTIONS.h
+ res/maps_DOCTORS.h res/maps_GLOBAL.h res/maps_QUESTION_MARK.h \
+ res/maps_TRIVIA.h src/include/routines_ROULETTE.h \
+ res/sprites_QUESTION_MARK.h res/sprites_TRIVIA.h \
+ src/include/tables_QUESTIONS.h

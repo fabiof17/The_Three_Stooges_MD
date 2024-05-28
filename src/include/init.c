@@ -120,7 +120,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_DOCTORS_MINIGAME | SCENE_ROULETTE
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_DOCTORS_MINIGAME | SCENE_ROULETTE
     }
 
 
@@ -1618,11 +1618,11 @@ void init_SCENE()
 
 
 
-        //**************************************************************************************//
-        //                                                                                      //
-        //                                         BG                                           //
-        //                                                                                      //
-        //**************************************************************************************//
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                   ROULETTE FONT                                      //
+    //                                                                                      //
+    //**************************************************************************************//
 
         VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, CPU);
 
@@ -1671,6 +1671,17 @@ void init_SCENE()
 
         VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
         VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                        GENERATE NEXT POSITION IN HIGHSTREET                          //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 
@@ -3229,6 +3240,7 @@ void init_SCENE()
         G_POS_Y_CAMERA = 0;
 
         VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+        VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
 
 
 
