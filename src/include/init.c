@@ -114,7 +114,7 @@ void init_VARIABLES()
     if(G_REEL == REEL_INTRO)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_INTRO_SCREEN_1;
+        G_SCENE_TYPE = SCENE_INTRO_SCREEN_3;
     }
 
     else if(G_REEL == REEL_GAME)
@@ -541,7 +541,7 @@ void init_INTRO()
 
         VDP_setPlaneSize(64,32,FALSE);
         
-        SPR_init();
+        SPR_initEx(200);
         
         VDP_setHilightShadow(FALSE);
 
