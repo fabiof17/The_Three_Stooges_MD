@@ -143,7 +143,9 @@ void joypad_DOCTORS_MINIGAME()
         //                                                              //
         //--------------------------------------------------------------//
 
-        SPR_setPosition(list_CARS[1].spr_CAR , list_CARS[1].TABLE_POSITION[list_CARS[1].index_READ_POSITION] , 141);
+        list_CARS[1].pos_X = list_CARS[1].TABLE_POSITION[list_CARS[1].index_READ_POSITION];
+
+        SPR_setPosition(list_CARS[1].spr_CAR , list_CARS[1].pos_X , list_CARS[1].pos_Y);
         SPR_setFrame(list_CARS[1].spr_CAR , list_CARS[1].TABLE_AXIS[list_CARS[1].index_READ_POSITION]);
 
 
@@ -177,7 +179,9 @@ void joypad_DOCTORS_MINIGAME()
         //                                                              //
         //--------------------------------------------------------------//
 
-        SPR_setPosition(list_CARS[2].spr_CAR , list_CARS[2].TABLE_POSITION[list_CARS[2].index_READ_POSITION] , 183);
+        list_CARS[2].pos_X = list_CARS[2].TABLE_POSITION[list_CARS[2].index_READ_POSITION];
+
+        SPR_setPosition(list_CARS[2].spr_CAR , list_CARS[2].pos_X , list_CARS[2].pos_Y);
         SPR_setFrame(list_CARS[2].spr_CAR , list_CARS[1].TABLE_AXIS[list_CARS[2].index_READ_POSITION]);
 
 
@@ -473,7 +477,7 @@ inline static void collisions_ITEMS()
 
 inline static void anim_ITEM()
 {
-    //collisions_ITEMS();
+    collisions_ITEMS();
     
     u8 i;
 
@@ -834,8 +838,12 @@ void sequence_DOCTORS_MINIGAME()
 
         counter_TIME_DOCTORS();
 
-        VDP_drawIntEx_BG_A_QUEUE(list_ITEM[0].pos_Y,3,0,0,PAL2);
-        VDP_drawIntEx_BG_A_QUEUE(list_ITEM[1].pos_Y,3,0,2,PAL2);
+        VDP_drawIntEx_BG_A_QUEUE(list_CARS[0].pos_X,3,0,0,PAL2);
+        VDP_drawIntEx_BG_A_QUEUE(list_CARS[1].pos_X,3,0,1,PAL2);
+        VDP_drawIntEx_BG_A_QUEUE(list_CARS[2].pos_X,3,0,2,PAL2);
+
+        //VDP_drawIntEx_BG_A_QUEUE(list_ITEM[0].pos_Y,3,0,0,PAL2);
+        //VDP_drawIntEx_BG_A_QUEUE(list_ITEM[1].pos_Y,3,0,2,PAL2);
     }
 
 
@@ -1052,7 +1060,7 @@ void sequence_DOCTORS_MINIGAME()
             VDP_setVerticalScrollVSync(BG_B , -G_POS_Y_CAMERA);
         }
 
-        VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,5,0,0,PAL2);
+        //VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,5,0,0,PAL2);
     }
 }
 
