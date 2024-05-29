@@ -53,13 +53,29 @@ void joypad_DOCTORS_MINIGAME()
         {
             if(list_CARS[0].pos_X > 40)
             {
-                list_CARS[0].axis_CAR = AXIS_LEFT;
+                if(list_CARS[0].pos_X - G_CAR_SPEED > 40)
+                {
+                    list_CARS[0].axis_CAR = AXIS_LEFT;
 
-                list_CARS[0].pos_X -= 2;
+                    list_CARS[0].pos_X -= G_CAR_SPEED;
 
-                SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
+                    SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
 
-                SPR_setFrame(list_CARS[0].spr_CAR , AXIS_LEFT);
+                    SPR_setFrame(list_CARS[0].spr_CAR , AXIS_LEFT);
+                }
+
+                else
+                {
+                    G_CAR_SPEED = 2;
+                    
+                    list_CARS[0].axis_CAR = AXIS_CENTER;
+
+                    list_CARS[0].pos_X = 40;
+
+                    SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
+
+                    SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+                }
             }
 
             else
@@ -83,13 +99,29 @@ void joypad_DOCTORS_MINIGAME()
         {
             if(list_CARS[0].pos_X < 224)
             {
-                list_CARS[0].axis_CAR = AXIS_RIGHT;
+                if(list_CARS[0].pos_X + G_CAR_SPEED < 224)
+                {
+                    list_CARS[0].axis_CAR = AXIS_RIGHT;
 
-                list_CARS[0].pos_X += 2;
+                    list_CARS[0].pos_X += G_CAR_SPEED;
 
-                SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
+                    SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
 
-                SPR_setFrame(list_CARS[0].spr_CAR , AXIS_RIGHT);
+                    SPR_setFrame(list_CARS[0].spr_CAR , AXIS_RIGHT);
+                }
+
+                else
+                {
+                    G_CAR_SPEED = 2;
+                    
+                    list_CARS[0].axis_CAR = AXIS_CENTER;
+
+                    list_CARS[0].pos_X = 224;
+
+                    SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
+
+                    SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+                }
             }
 
             else
@@ -272,6 +304,7 @@ inline static void counter_REWARD_DOCTORS()
 
 
 
+
 inline static void anim_NURSE()
 {
     if(nurse.axis_NURSE == AXIS_RIGHT)
@@ -371,6 +404,10 @@ inline static void anim_NURSE()
         }
     }
 }
+
+
+
+
 
 
 
@@ -720,40 +757,76 @@ inline static void anim_PATIENT()
             //-------------------------------------------------------//
             //         IF FRAME COUNTER REACHES TRIGGER VALUE        //
             //-------------------------------------------------------//
-            if(patient.counter_SPRITE_FRAME == patient.speed_STEPS)
+            if(patient.patient_STATE == PATIENT_NOT_HIT)
             {
-                //-------------------------------------------------------//
-                //              REINIT SPRITE FRAME COUNTER              //
-                //-------------------------------------------------------//
-                patient.counter_SPRITE_FRAME = 0;
-
-                //-------------------------------------------------------//
-                //               INCREASE FRAME INDEX BY 1               //
-                //-------------------------------------------------------//
-                patient.index_SPRITE_FRAME += 1;
-
-                //-------------------------------------------------------//
-                //              REINIT FRAME INDEX IF NEEDED             //
-                //-------------------------------------------------------//
-                if(patient.index_SPRITE_FRAME == patient.number_STEPS)
+                if(patient.counter_SPRITE_FRAME == patient.speed_STEPS)
                 {
-                    patient.index_SPRITE_FRAME = 0;
-                }
+                    //-------------------------------------------------------//
+                    //              REINIT SPRITE FRAME COUNTER              //
+                    //-------------------------------------------------------//
+                    patient.counter_SPRITE_FRAME = 0;
+
+                    //-------------------------------------------------------//
+                    //               INCREASE FRAME INDEX BY 1               //
+                    //-------------------------------------------------------//
+                    patient.index_SPRITE_FRAME += 1;
+
+                    //-------------------------------------------------------//
+                    //              REINIT FRAME INDEX IF NEEDED             //
+                    //-------------------------------------------------------//
+                    if(patient.index_SPRITE_FRAME == patient.number_STEPS)
+                    {
+                        patient.index_SPRITE_FRAME = 0;
+                    }
 
 
-                //-------------------------------------------------------//
-                //                  UPDATE SPRITE FRAME                  //
-                //-------------------------------------------------------//
-                SPR_setAnimAndFrame(patient.spr_PATIENT , patient.patient_STATE , patient.index_SPRITE_FRAME);
-                
+                    //-------------------------------------------------------//
+                    //                  UPDATE SPRITE FRAME                  //
+                    //-------------------------------------------------------//
+                    SPR_setAnimAndFrame(patient.spr_PATIENT , patient.patient_STATE , patient.index_SPRITE_FRAME);
+                    
 
-                //-------------------------------------------------------//
-                //              IF PATIENT HAS NOT BEEN HIT              //
-                //-------------------------------------------------------//
-                if(patient.patient_STATE == PATIENT_NOT_HIT)
-                {
+                    //-------------------------------------------------------//
+                    //                   PATIENT OWN SPEED                   //
+                    //-------------------------------------------------------//
                     patient.pos_Y -= patient.ptr_VELOCITY[patient.index_SPRITE_FRAME];
-                }              
+                }
+            }
+
+            else
+            {
+                if(patient.counter_SPRITE_FRAME == patient.speed_STEPS)
+                {
+                    //-------------------------------------------------------//
+                    //              REINIT SPRITE FRAME COUNTER              //
+                    //-------------------------------------------------------//
+                    patient.counter_SPRITE_FRAME = 0;
+
+                    //-------------------------------------------------------//
+                    //               INCREASE FRAME INDEX BY 1               //
+                    //-------------------------------------------------------//
+                    patient.index_SPRITE_FRAME += 1;
+
+                    //-------------------------------------------------------//
+                    //              REINIT FRAME INDEX IF NEEDED             //
+                    //-------------------------------------------------------//
+                    if(patient.index_SPRITE_FRAME == patient.number_STEPS_HIT)
+                    {
+                        patient.index_SPRITE_FRAME = 0;
+                    }
+
+
+                    //-------------------------------------------------------//
+                    //                  UPDATE SPRITE FRAME                  //
+                    //-------------------------------------------------------//
+                    SPR_setAnimAndFrame(patient.spr_PATIENT , patient.patient_STATE , patient.index_SPRITE_FRAME);
+                    
+
+                    //-------------------------------------------------------//
+                    //                   PATIENT OWN SPEED                   //
+                    //-------------------------------------------------------//
+                    patient.pos_Y -= patient.ptr_VELOCITY[patient.index_SPRITE_FRAME];
+                }
             }
 
 
