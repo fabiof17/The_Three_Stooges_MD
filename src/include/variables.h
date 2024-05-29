@@ -8,8 +8,8 @@
 
 
 
-#define FAILED                      0
-#define SUCCESS                     1
+#define FAILED                          0
+#define SUCCESS                         1
 
 
 
@@ -20,8 +20,20 @@
 //                                                                             //
 //-----------------------------------------------------------------------------// 
 
-#define REEL_INTRO                  0
-#define REEL_GAME                   1
+#define REEL_LOGO                       0
+#define REEL_INTRO                      1
+#define REEL_GAME                       2
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
+//                                 INTRO SCENES                                //
+//                                                                             //
+//-----------------------------------------------------------------------------// 
+
+#define SCENE_LOGO_SCREEN               0
 
 
 
@@ -39,6 +51,7 @@
 #define SCENE_INTRO_SCREEN_5            5
 #define SCENE_INTRO_SCREEN_6            6
 #define SCENE_INTRO_SCREEN_7            7
+#define SCENE_INTRO_EXIT                8
 
 #define SCENE_FADE_IN                   30
 #define SCENE_FADE_OUT                  31
@@ -110,8 +123,8 @@
 //                                                                             //
 //-----------------------------------------------------------------------------//
 
-#define BANKER_PHASE_WALKIN             0
-#define BANKER_PHASE_APPEAR             1
+#define BANKER_PHASE_WALKIN              0
+#define BANKER_PHASE_APPEAR              1
 
 
 
@@ -122,11 +135,11 @@
 //                                                                             //
 //-----------------------------------------------------------------------------//
 
-#define TRIVIA_PHASE_WALKIN             0
-#define TRIVIA_PHASE_TURN_BACK          1
-#define TRIVIA_PHASE_ANIM_ANSWERS       2
-#define TRIVIA_PHASE_CHOICE             3
-#define TRIVIA_PHASE_RESULT             4
+#define TRIVIA_PHASE_WALKIN              0
+#define TRIVIA_PHASE_TURN_BACK           1
+#define TRIVIA_PHASE_ANIM_ANSWERS        2
+#define TRIVIA_PHASE_CHOICE              3
+#define TRIVIA_PHASE_RESULT              4
 
 
 

@@ -16,6 +16,7 @@
 #include "include/routines_DOCTORS_MINIGAME.h"
 #include "include/routines_DOLLAR.h"
 #include "include/routines_INTRO.h"
+#include "include/routines_LOGO.h"
 #include "include/routines_QUESTION_MARK.h"
 #include "include/routines_REWARD.h"
 #include "include/routines_ROULETTE.h"
@@ -44,19 +45,54 @@ int main(bool hardReset)
     {
         //**************************************************************************************//
         //                                                                                      //
+        //                                   SGDK LOGO                                          //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        if(G_REEL == REEL_LOGO)
+        {
+            // LOADING SGDK LOGO SCREEN //
+            if(G_SCENE_LOADED == FALSE)
+            {
+                init_LOGO();
+            }
+
+            // PLAYING SGDK LOGO SCREEN //
+            else
+            {
+                if(G_SCENE == SCENE_LOGO_SCREEN)
+                {
+                    sequence_LOGO();
+
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                else if(G_SCENE == SCENE_FADE_IN)
+                {
+                    PAL_fadeInAll(palette_64, 30, FALSE);
+
+                    G_SCENE         = G_SCENE_NEXT;
+                    G_SCENE_NEXT    = NULL;
+                }
+            }
+        }
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
         //                                     INTRO                                            //
         //                                                                                      //
         //**************************************************************************************//
 
-        if(G_REEL == REEL_INTRO)
+        else if(G_REEL == REEL_INTRO)
         {
             // LOADING INTRO SCREEN //
             if(G_SCENE_LOADED == FALSE)
             {
                 init_INTRO();
-
-                // INTRO SCREEN LOADED //
-                G_SCENE_LOADED = TRUE;
             }
 
             // PLAYING INTRO SCREEN //
@@ -65,6 +101,8 @@ int main(bool hardReset)
                 // INTRO SCREEN 1 //
                 if(G_SCENE == SCENE_INTRO_SCREEN_1)
                 {
+                    JOY_setEventHandler(intro_Callback);
+                    
                     anim_INTRO_SCREEN_1();
                     
                     SPR_update();
@@ -74,6 +112,8 @@ int main(bool hardReset)
                 // INTRO SCREEN 2 //
                 else if(G_SCENE == SCENE_INTRO_SCREEN_2)
                 {
+                    JOY_setEventHandler(intro_Callback);
+                    
                     anim_INTRO_SCREEN_2();
                     
                     SPR_update();
@@ -83,6 +123,8 @@ int main(bool hardReset)
                 // INTRO SCREEN 3 //
                 else if(G_SCENE == SCENE_INTRO_SCREEN_3)
                 {
+                    JOY_setEventHandler(intro_Callback);
+                    
                     anim_INTRO_SCREEN_3();
                     
                     SPR_update();
@@ -92,6 +134,8 @@ int main(bool hardReset)
                 // INTRO SCREEN 4 //
                 else if(G_SCENE == SCENE_INTRO_SCREEN_4)
                 {
+                    JOY_setEventHandler(intro_Callback);
+                    
                     anim_INTRO_SCREEN_4_5_6();
                     
                     SPR_update();
@@ -101,6 +145,8 @@ int main(bool hardReset)
                 // INTRO SCREEN 5 //
                 else if(G_SCENE == SCENE_INTRO_SCREEN_5)
                 {
+                    JOY_setEventHandler(intro_Callback);
+                    
                     anim_INTRO_SCREEN_4_5_6();
                     
                     SPR_update();
@@ -110,6 +156,8 @@ int main(bool hardReset)
                 // INTRO SCREEN 6 //
                 else if(G_SCENE == SCENE_INTRO_SCREEN_6)
                 {
+                    JOY_setEventHandler(intro_Callback);
+                    
                     anim_INTRO_SCREEN_4_5_6();
                     
                     SPR_update();
@@ -119,6 +167,8 @@ int main(bool hardReset)
                 // INTRO SCREEN 7 //
                 else if(G_SCENE == SCENE_INTRO_SCREEN_7)
                 {
+                    JOY_setEventHandler(intro_Callback);
+                    
                     anim_INTRO_SCREEN_7();
                     
                     SPR_update();
@@ -205,6 +255,31 @@ int main(bool hardReset)
                     {
                         fadeOut_INTRO_SCREEN_7();
                     }
+                }
+
+                // EXIT //
+                else if(G_SCENE == SCENE_INTRO_EXIT)
+                {
+                    // FADE OUT : 40 FRAMES //
+                    PAL_fadeOutAll(30,FALSE);
+
+                    // CLEAR PLANES //
+                    VDP_clearPlane(BG_B,TRUE);
+                    VDP_clearPlane(BG_A,TRUE);
+
+                    // RELEASE ALL SPRITES //
+                    SPR_reset();
+
+
+                    G_REEL              = REEL_GAME;
+
+                    G_SCENE             = SCENE_FADE_IN;
+                    G_SCENE_TYPE        = SCENE_ROULETTE;
+                    G_SCENE_NEXT        = SCENE_ROULETTE;
+
+                    G_SCENE_LOADED      = FALSE;
+
+                    waitMs(4000);
                 }
             }
         }
@@ -430,6 +505,7 @@ int main(bool hardReset)
                 }
             }
         }
+    
     }
 
 	return 0;

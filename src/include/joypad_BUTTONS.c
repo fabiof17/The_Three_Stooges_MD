@@ -15,6 +15,24 @@
 
 
 
+void intro_Callback(u16 joy, u16 changed, u16 state)
+{
+    if(joy == JOY_1)
+    {
+        if(G_SCENE != SCENE_INTRO_EXIT && G_SCENE != SCENE_FADE_IN && G_SCENE != SCENE_FADE_OUT)
+        {
+            // BOUTON B //
+            if( changed & state & BUTTON_START )
+            {
+                G_SCENE = SCENE_INTRO_EXIT;
+            }
+        }
+    }
+}
+
+
+
+
 void roulette_Callback(u16 joy, u16 changed, u16 state)
 {
     if(joy == JOY_1)

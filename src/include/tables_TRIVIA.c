@@ -305,8 +305,6 @@ void init_TRIVIA_MINIGAME_TYPE1()
     G_SCENE                 = SCENE_FADE_IN;
     G_SCENE_TYPE            = SCENE_TRIVIA_MINIGAME_TYPE1;
     G_SCENE_NEXT            = SCENE_TRIVIA_MINIGAME_TYPE1;
-
-    G_SCENE_LOADED          = TRUE;
 }
 
 
@@ -517,8 +515,6 @@ void init_TRIVIA_MINIGAME_TYPE2()
     G_SCENE                 = SCENE_FADE_IN;
     G_SCENE_TYPE            = SCENE_TRIVIA_MINIGAME_TYPE2;
     G_SCENE_NEXT            = SCENE_TRIVIA_MINIGAME_TYPE2;
-
-    G_SCENE_LOADED          = TRUE;
 }
 
 

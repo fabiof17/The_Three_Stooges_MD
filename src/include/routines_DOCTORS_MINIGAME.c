@@ -64,6 +64,8 @@ void joypad_DOCTORS_MINIGAME()
 
             else
             {
+                G_CAR_SPEED = 2;
+                
                 list_CARS[0].axis_CAR = AXIS_CENTER;
 
                 SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
@@ -92,6 +94,8 @@ void joypad_DOCTORS_MINIGAME()
 
             else
             {
+                G_CAR_SPEED = 2;
+                
                 list_CARS[0].axis_CAR = AXIS_CENTER;
 
                 SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
