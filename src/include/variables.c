@@ -173,6 +173,8 @@ u8 G_COUNTER_DOCTORS;
 
 u8 G_CAR_SPEED;
 
+u8 G_CAR_COUNTER_SPEED;
+
 u8 G_PREVIOUS_PATIENT_TYPE;
 
 bool G_RANDOM_OK;
@@ -182,6 +184,10 @@ struct_NURSE_ nurse;
 struct_PATIENT_ patient;
 
 struct_ITEM_ list_ITEM[2];
+
+//u8 TABLE_SPEED[17];
+
+//u8 TABLE_AXIS[17];
 
 
 

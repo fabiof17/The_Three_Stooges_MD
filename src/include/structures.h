@@ -52,14 +52,16 @@ typedef struct
     Sprite *spr_CAR;
     u8 axis_CAR;
 
+    bool hit;
+
     s16 pos_X;
     s16 pos_Y;
     
-    u8 index_WRITE_POSITION;
-    u8 index_READ_POSITION;
+    u8 index_WRITE_AXIS;
+    u8 index_READ_AXIS;
 
-    s16 TABLE_POSITION[17];
-    u8  TABLE_AXIS[17];
+    u8 TABLE_SPEED[17];
+    u8 TABLE_AXIS[17];
 
 } struct_CAR_;
 

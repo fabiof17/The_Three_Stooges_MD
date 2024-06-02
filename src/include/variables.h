@@ -199,6 +199,8 @@
 #define PATIENT_NOT_HIT                 0
 #define PATIENT_HIT                     1
 
+#define PATIENT_BOX_MARGIN              16
+
 
 
 
@@ -447,6 +449,8 @@ extern u8 G_COUNTER_DOCTORS;
 
 extern u8 G_CAR_SPEED;
 
+u8 G_CAR_COUNTER_SPEED;
+
 extern u8 G_PREVIOUS_PATIENT_TYPE;
 
 extern bool G_RANDOM_OK;
@@ -456,6 +460,10 @@ extern struct_NURSE_ nurse;
 extern struct_PATIENT_ patient;
 
 extern struct_ITEM_ list_ITEM[2];
+
+//extern u8 TABLE_SPEED[17];
+
+//extern u8 TABLE_AXIS[17];
 
 
 

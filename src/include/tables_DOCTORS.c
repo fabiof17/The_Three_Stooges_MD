@@ -62,9 +62,9 @@ const s8                            TABLE_VELOCITY_CRUTCHES[3]      =   {
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
 const s8                            TABLE_VELOCITY_WHEELCHAIR[3]    =   {
-                                                                            8,
-                                                                            9,
-                                                                            5
+                                                                            8,//8
+                                                                            9,//9
+                                                                            5//5
                                                                         };
 
 
@@ -149,7 +149,7 @@ const struct_PATIENT_TYPE_          TABLE_PATIENT_TYPE[4]           =   {
                                                                             { &tiles_SPR_CRUTCHES    , 48 ,  40 , 3 ,  4 , 14 , &TABLE_VELOCITY_CRUTCHES[0]    },
                                                                             
                                                                             // WHEELCHAIR //
-                                                                            { &tiles_SPR_WHEELCHAIR  , 48 ,  56 , 3 ,  8 ,  8 , &TABLE_VELOCITY_WHEELCHAIR[0]  },
+                                                                            { &tiles_SPR_WHEELCHAIR  , 56 ,  56 , 3 ,  8 ,  8 , &TABLE_VELOCITY_WHEELCHAIR[0]  },
 
                                                                             // STRETCHER 1 //
                                                                             { &tiles_SPR_STRETCHER_1 , 48 , 112 , 8 ,  4 ,  6 , &TABLE_VELOCITY_STRETCHER_1[0] },

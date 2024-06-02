@@ -20,12 +20,112 @@
 
 
 
+inline static void collisions_CAR(u8 car_NUMBER)
+{
+    //-----------------------------------------------------------------------------//
+    //                     GET DISTANCE BETWEEN MOE AND PATIENT                    //
+    //                     MOE WIDTH  : 56                                         //
+    //                     MOE HEIGHT : 48                                         //
+    //-----------------------------------------------------------------------------//
+    u16 distance_X = abs((list_CARS[car_NUMBER].pos_X + 28) - ( patient.pos_X + (patient.width_PATIENT>>1) ));
+    u16 distance_Y = abs((list_CARS[car_NUMBER].pos_Y + 24) - ( patient.pos_Y + (patient.height_PATIENT>>1) ));
+
+    //-----------------------------------------------------------------------------//
+    //         IF DISTANCE X IS INFERIOR THAN MOE WIDTH/2 + PATIENT WIDTH/2        //
+    //-----------------------------------------------------------------------------//
+    if( distance_X < (28 + (patient.width_PATIENT >>1 ) - PATIENT_BOX_MARGIN) )
+    {
+        //-----------------------------------------------------------------------------//
+        //        IF DISTANCE Y IS INFERIOR THAN MOE HEIGHT/2 + PATIENT HEIGHT/2       //
+        //-----------------------------------------------------------------------------//
+        if( distance_Y < (24 + (patient.height_PATIENT >>1 )) - PATIENT_BOX_MARGIN )
+        {
+            if(patient.patient_STATE == PATIENT_NOT_HIT)
+            {
+                patient.counter_SPRITE_FRAME    = 0;
+                patient.index_SPRITE_FRAME      = 0;
+
+                VDP_loadTileSet(image_DOCTORS_RED_DOT.tileset, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + G_HIT_NUMBER, DMA_QUEUE);
+                G_HIT_NUMBER                    += 1;
+            }
+            
+            patient.patient_STATE           = PATIENT_HIT;
+            
+            list_CARS[car_NUMBER].hit       = TRUE;
+
+            G_CAR_SPEED                     = 2;
+
+            G_CAR_COUNTER_SPEED             = 0;
+
+
+            //-----------------------------------------------------------------------------//
+            //                                                                             //
+            //                     PATIENT WILL BE OFFSETED TO THE RIGHT                   //
+            //                                                                             //
+            //-----------------------------------------------------------------------------//
+            if( (list_CARS[car_NUMBER].pos_X + 28) <= (patient.pos_X + (patient.width_PATIENT>>1)))
+            {
+                //-----------------------------------------------------------------------------//
+                //              IF THERE IS ENOUGH SPACE BETWEEN PATIENT AND WALL              //
+                //-----------------------------------------------------------------------------//
+                if(list_CARS[car_NUMBER].pos_X + 56 + patient.width_PATIENT <= 272)
+                {
+                    patient.pos_X = list_CARS[car_NUMBER].pos_X + 56;
+                }
+
+                //-----------------------------------------------------------------------------//
+                //        ELSE PATIENT GOES AGAINST WALL AND MOE IS OFFSETED TO THE LEFT       //
+                //-----------------------------------------------------------------------------//
+                else
+                {
+                    patient.pos_X = 272 - patient.width_PATIENT;
+
+                    list_CARS[car_NUMBER].pos_X = patient.pos_X - 56 - 8;
+                }
+            }
+
+            //-----------------------------------------------------------------------------//
+            //                                                                             //
+            //                    PATIENT WILL BE OFFSETED TO THE LEFT                     //
+            //                                                                             //
+            //-----------------------------------------------------------------------------//
+            else
+            {
+                //-----------------------------------------------------------------------------//
+                //              IF THERE IS ENOUGH SPACE BETWEEN PATIENT AND WALL              //
+                //-----------------------------------------------------------------------------//
+                if(list_CARS[car_NUMBER].pos_X - patient.width_PATIENT >= 40)
+                {
+                    patient.pos_X = list_CARS[car_NUMBER].pos_X - patient.width_PATIENT;
+                }
+
+                //-----------------------------------------------------------------------------//
+                //         ELSE PATIENT GOES AGAINST WALL AND MOE IS OFFSETED TO THE LEFT      //
+                //-----------------------------------------------------------------------------//
+                else
+                {
+                    patient.pos_X = 40;
+
+                    list_CARS[car_NUMBER].pos_X = patient.pos_X + patient.width_PATIENT + 8;
+                }
+            }
+
+
+            SPR_setPosition(patient.spr_PATIENT , patient.pos_X , patient.pos_Y );
+        }
+    }
+}
+
+
+
+
 void joypad_DOCTORS_MINIGAME()
 {
     if(G_PHASE_SEQUENCE == DOCTORS_PHASE_RACING)
     {
         u16 value=JOY_readJoypad(JOY_1);
 
+        //G_HIT = FALSE;
 
         //--------------------------------------------------------------//
         //                                                              //
@@ -34,12 +134,21 @@ void joypad_DOCTORS_MINIGAME()
         //--------------------------------------------------------------//
 
         if((value & BUTTON_DIR) == 0)
-        {
-            //G_CAR_SPEED = 2;
+        {            
+            u8 i;
+
+            for(i=0 ; i<3 ; i++)
+            {
+                collisions_CAR(i);
+            }
+
+            G_CAR_COUNTER_SPEED = 0;
             
             list_CARS[0].axis_CAR = AXIS_CENTER;
 
             SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+
+            SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
         }
 
 
@@ -51,17 +160,40 @@ void joypad_DOCTORS_MINIGAME()
 
         else if(value & BUTTON_LEFT)
         {
-            if(list_CARS[0].pos_X > 40)
+            u8 i;
+
+            for(i=0 ; i<3 ; i++)
             {
-                if(list_CARS[0].pos_X - G_CAR_SPEED > 40)
+                collisions_CAR(i);
+            }
+
+            if(list_CARS[0].hit == FALSE)
+            {
+                if(list_CARS[0].pos_X > 40)
                 {
-                    list_CARS[0].axis_CAR = AXIS_LEFT;
+                    if(list_CARS[0].pos_X - G_CAR_SPEED > 40)
+                    {
+                        list_CARS[0].axis_CAR = AXIS_LEFT;
 
-                    list_CARS[0].pos_X -= G_CAR_SPEED;
+                        list_CARS[0].pos_X -= G_CAR_SPEED;
 
-                    SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
+                        SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
 
-                    SPR_setFrame(list_CARS[0].spr_CAR , AXIS_LEFT);
+                        SPR_setFrame(list_CARS[0].spr_CAR , AXIS_LEFT);
+                    }
+
+                    else
+                    {
+                        G_CAR_SPEED = 2;
+                        
+                        list_CARS[0].axis_CAR = AXIS_CENTER;
+
+                        list_CARS[0].pos_X = 40;
+
+                        SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
+
+                        SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+                    }
                 }
 
                 else
@@ -70,21 +202,8 @@ void joypad_DOCTORS_MINIGAME()
                     
                     list_CARS[0].axis_CAR = AXIS_CENTER;
 
-                    list_CARS[0].pos_X = 40;
-
-                    SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
-
                     SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
                 }
-            }
-
-            else
-            {
-                G_CAR_SPEED = 2;
-                
-                list_CARS[0].axis_CAR = AXIS_CENTER;
-
-                SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
             }
         }
 
@@ -97,17 +216,40 @@ void joypad_DOCTORS_MINIGAME()
 
         else if(value & BUTTON_RIGHT)
         {
-            if(list_CARS[0].pos_X < 224)
+            u8 i;
+
+            for(i=0 ; i<3 ; i++)
             {
-                if(list_CARS[0].pos_X + G_CAR_SPEED < 224)
+                collisions_CAR(i);
+            }
+
+            if(list_CARS[0].hit == FALSE)
+            {
+                if(list_CARS[0].pos_X < 224)
                 {
-                    list_CARS[0].axis_CAR = AXIS_RIGHT;
+                    if(list_CARS[0].pos_X + G_CAR_SPEED < 224)
+                    {
+                        list_CARS[0].axis_CAR = AXIS_RIGHT;
 
-                    list_CARS[0].pos_X += G_CAR_SPEED;
+                        list_CARS[0].pos_X += G_CAR_SPEED;
 
-                    SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
+                        SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
 
-                    SPR_setFrame(list_CARS[0].spr_CAR , AXIS_RIGHT);
+                        SPR_setFrame(list_CARS[0].spr_CAR , AXIS_RIGHT);
+                    }
+
+                    else
+                    {
+                        G_CAR_SPEED = 2;
+                        
+                        list_CARS[0].axis_CAR = AXIS_CENTER;
+
+                        list_CARS[0].pos_X = 224;
+
+                        SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
+
+                        SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+                    }
                 }
 
                 else
@@ -116,21 +258,8 @@ void joypad_DOCTORS_MINIGAME()
                     
                     list_CARS[0].axis_CAR = AXIS_CENTER;
 
-                    list_CARS[0].pos_X = 224;
-
-                    SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
-
                     SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
                 }
-            }
-
-            else
-            {
-                G_CAR_SPEED = 2;
-                
-                list_CARS[0].axis_CAR = AXIS_CENTER;
-
-                SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
             }
         }
 
@@ -143,11 +272,26 @@ void joypad_DOCTORS_MINIGAME()
 
         else if(value & BUTTON_DOWN)
         {
+            u8 i;
+
+            for(i=0 ; i<3 ; i++)
+            {
+                collisions_CAR(i);
+            }
+
             G_CAR_SPEED = 2;
+
+            G_CAR_COUNTER_SPEED = 0;
+
+            list_CARS[0].axis_CAR = AXIS_CENTER;
+
+            SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+            
             
             list_CARS[0].axis_CAR = AXIS_CENTER;
 
             SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+
         }
 
 
@@ -159,88 +303,170 @@ void joypad_DOCTORS_MINIGAME()
 
         else if(value & BUTTON_UP)
         {
-            G_CAR_SPEED = 4;
+            u8 i;
+
+            for(i=0 ; i<3 ; i++)
+            {
+                collisions_CAR(i);
+            }
+
+            if(list_CARS[0].hit == FALSE && list_CARS[1].hit == FALSE && list_CARS[2].hit == FALSE)
+            {
+                G_CAR_COUNTER_SPEED += 1;
+
+                if(G_CAR_COUNTER_SPEED > 59)
+                {
+                    G_CAR_COUNTER_SPEED = 59;
+
+                    G_CAR_SPEED = 4;
+                }
+                
+                list_CARS[0].axis_CAR = AXIS_CENTER;
+
+                SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+            }
+        }
+
+
+
+
+
+
+
+
+        //-----------------------------------------------------------------------------//
+        //                                                                             //
+        //                        UPDATE CURLY AND LARRY'S CAR                         //
+        //                                                                             //
+        //-----------------------------------------------------------------------------//
+
+        u8 i;
+
+        for(i=1 ; i<3 ; i++)
+        {
+            //-----------------------------------------------------------------------------//
+            //                READ MOE'S AXIS WITH A TIME OFFSET OF 8 FRAMES               //
+            //-----------------------------------------------------------------------------//
             
-            list_CARS[0].axis_CAR = AXIS_CENTER;
+            if(list_CARS[i].TABLE_AXIS[list_CARS[i].index_READ_AXIS] == AXIS_LEFT)
+            {
+                list_CARS[i].pos_X -= list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS];
 
-            SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+                if(list_CARS[i].pos_X < 40)
+                {
+                    list_CARS[i].pos_X = 40;
+                }
+            }
+
+            else if(list_CARS[i].TABLE_AXIS[list_CARS[i].index_READ_AXIS] == AXIS_RIGHT)
+            {
+                list_CARS[i].pos_X += list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS];
+
+                if(list_CARS[i].pos_X > 224)
+                {
+                    list_CARS[i].pos_X = 224;
+                }
+            }
+
+            else if(list_CARS[i].TABLE_AXIS[list_CARS[i].index_READ_AXIS] == AXIS_CENTER)
+            {
+                //-----------------------------------------------------------------------------//
+                //                          IF CAR IS LEFT SIDE OF MOE                         //
+                //-----------------------------------------------------------------------------//
+                if(list_CARS[i].pos_X < list_CARS[0].pos_X)
+                {
+                    if((list_CARS[0].pos_X - list_CARS[i].pos_X) >= (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1))
+                    {
+                        list_CARS[i].pos_X += (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1);
+                    }
+
+                    else
+                    {
+                        list_CARS[i].pos_X = list_CARS[0].pos_X;
+                    }
+
+                    if(list_CARS[i].pos_X > 224)
+                    {
+                        list_CARS[i].pos_X = 224;
+                    }
+
+                    else if(list_CARS[i].pos_X < 40)
+                    {
+                        list_CARS[i].pos_X = 40;
+                    }
+                }
+
+                //-----------------------------------------------------------------------------//
+                //                         IF CAR IS RIGHT SIDE OF MOE                         //
+                //-----------------------------------------------------------------------------//
+                else if(list_CARS[i].pos_X > list_CARS[0].pos_X)
+                {
+                    if((list_CARS[i].pos_X - list_CARS[0].pos_X) >= (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1))
+                    {
+                        list_CARS[i].pos_X -= (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1);
+                    }
+
+                    else
+                    {
+                        list_CARS[i].pos_X = list_CARS[0].pos_X;
+                    }
+
+                    if(list_CARS[i].pos_X > 224)
+                    {
+                        list_CARS[i].pos_X = 224;
+                    }
+
+                    else if(list_CARS[i].pos_X < 40)
+                    {
+                        list_CARS[i].pos_X = 40;
+                    }
+                }
+            }
+
+
+
+
+            SPR_setPosition(list_CARS[i].spr_CAR , list_CARS[i].pos_X , list_CARS[i].pos_Y);
+
+            SPR_setFrame(list_CARS[i].spr_CAR , list_CARS[i].TABLE_AXIS[list_CARS[i].index_READ_AXIS]);
+
+
+
+
+            //-----------------------------------------------------------------------------//
+            //                             INCREASE READ INDEX                             //
+            //-----------------------------------------------------------------------------//        
+            list_CARS[i].index_READ_AXIS += 1;
+
+            if(list_CARS[i].index_READ_AXIS > 16)
+            {
+                list_CARS[i].index_READ_AXIS = 0;
+            }
+
+
+            //-----------------------------------------------------------------------------//
+            //                             READ NEXT AXIS VALUE                            //
+            //-----------------------------------------------------------------------------// 
+            list_CARS[i].TABLE_AXIS[list_CARS[i].index_WRITE_AXIS]  = list_CARS[0].axis_CAR;
+            list_CARS[i].TABLE_SPEED[list_CARS[i].index_WRITE_AXIS] = G_CAR_SPEED;
+
+
+
+            //-----------------------------------------------------------------------------//
+            //                            INCREASE WRITE INDEX                             //
+            //-----------------------------------------------------------------------------//
+            list_CARS[i].index_WRITE_AXIS += 1;
+
+            if(list_CARS[i].index_WRITE_AXIS > 16)
+            {
+                list_CARS[i].index_WRITE_AXIS = 0;
+            }
         }
 
 
-
-
-
-
-
-
-        //--------------------------------------------------------------//
-        //                                                              //
-        //                      UPDATE CURLY'S CAR                      //
-        //                                                              //
-        //--------------------------------------------------------------//
-
-        list_CARS[1].pos_X = list_CARS[1].TABLE_POSITION[list_CARS[1].index_READ_POSITION];
-
-        SPR_setPosition(list_CARS[1].spr_CAR , list_CARS[1].pos_X , list_CARS[1].pos_Y);
-        SPR_setFrame(list_CARS[1].spr_CAR , list_CARS[1].TABLE_AXIS[list_CARS[1].index_READ_POSITION]);
-
-
-        list_CARS[1].index_READ_POSITION += 1;
-
-        if(list_CARS[1].index_READ_POSITION > 16)
-        {
-            list_CARS[1].index_READ_POSITION = 0;
-        }
-
-
-
-
-        list_CARS[1].TABLE_POSITION[list_CARS[1].index_WRITE_POSITION] = list_CARS[0].pos_X;
-        list_CARS[1].TABLE_AXIS[list_CARS[1].index_WRITE_POSITION] = list_CARS[0].axis_CAR;
-
-
-        list_CARS[1].index_WRITE_POSITION += 1;
-
-        if(list_CARS[1].index_WRITE_POSITION > 16)
-        {
-            list_CARS[1].index_WRITE_POSITION = 0;
-        }
-
-
-
-
-        //--------------------------------------------------------------//
-        //                                                              //
-        //                      UPDATE LARRY'S CAR                      //
-        //                                                              //
-        //--------------------------------------------------------------//
-
-        list_CARS[2].pos_X = list_CARS[2].TABLE_POSITION[list_CARS[2].index_READ_POSITION];
-
-        SPR_setPosition(list_CARS[2].spr_CAR , list_CARS[2].pos_X , list_CARS[2].pos_Y);
-        SPR_setFrame(list_CARS[2].spr_CAR , list_CARS[1].TABLE_AXIS[list_CARS[2].index_READ_POSITION]);
-
-
-        list_CARS[2].index_READ_POSITION += 1;
-
-        if(list_CARS[2].index_READ_POSITION > 16)
-        {
-            list_CARS[2].index_READ_POSITION = 0;
-        }
-
-
-
-
-        list_CARS[2].TABLE_POSITION[list_CARS[2].index_WRITE_POSITION] = list_CARS[0].pos_X;
-        list_CARS[2].TABLE_AXIS[list_CARS[2].index_WRITE_POSITION] = list_CARS[0].axis_CAR;
-
-
-        list_CARS[2].index_WRITE_POSITION += 1;
-
-        if(list_CARS[2].index_WRITE_POSITION > 16)
-        {
-            list_CARS[2].index_WRITE_POSITION = 0;
-        }
+        list_CARS[0].hit = FALSE;
+        list_CARS[1].hit = FALSE;
+        list_CARS[2].hit = FALSE;
     }
 }
 
@@ -755,10 +981,14 @@ inline static void anim_PATIENT()
 
 
             //-------------------------------------------------------//
-            //         IF FRAME COUNTER REACHES TRIGGER VALUE        //
+            //              IF PATIENT HAS NOT BEEN HIT              //
             //-------------------------------------------------------//
             if(patient.patient_STATE == PATIENT_NOT_HIT)
             {
+
+                //-------------------------------------------------------//
+                //         IF FRAME COUNTER REACHES TRIGGER VALUE        //
+                //-------------------------------------------------------//
                 if(patient.counter_SPRITE_FRAME == patient.speed_STEPS)
                 {
                     //-------------------------------------------------------//
@@ -793,8 +1023,15 @@ inline static void anim_PATIENT()
                 }
             }
 
+
+            //-------------------------------------------------------//
+            //                IF PATIENT HAS BEEN HIT                //
+            //-------------------------------------------------------//
             else
             {
+                //-------------------------------------------------------//
+                //         IF FRAME COUNTER REACHES TRIGGER VALUE        //
+                //-------------------------------------------------------//
                 if(patient.counter_SPRITE_FRAME == patient.speed_STEPS)
                 {
                     //-------------------------------------------------------//
@@ -825,7 +1062,7 @@ inline static void anim_PATIENT()
                     //-------------------------------------------------------//
                     //                   PATIENT OWN SPEED                   //
                     //-------------------------------------------------------//
-                    patient.pos_Y -= patient.ptr_VELOCITY[patient.index_SPRITE_FRAME];
+                    //patient.pos_Y -= patient.ptr_VELOCITY[patient.index_SPRITE_FRAME];
                 }
             }
 
@@ -859,6 +1096,8 @@ void sequence_DOCTORS_MINIGAME()
 
         if(G_POS_Y_CAMERA >= 16556)
         {
+            G_POS_Y_CAMERA = 16556;
+            
             G_PHASE_SEQUENCE = DOCTORS_PHASE_EXIT;
         }
 
@@ -911,12 +1150,10 @@ void sequence_DOCTORS_MINIGAME()
 
         counter_TIME_DOCTORS();
 
-        //VDP_drawIntEx_BG_A_QUEUE(list_CARS[0].pos_X,3,0,0,PAL2);
-        //VDP_drawIntEx_BG_A_QUEUE(list_CARS[1].pos_X,3,0,1,PAL2);
-        //VDP_drawIntEx_BG_A_QUEUE(list_CARS[2].pos_X,3,0,2,PAL2);
+        //VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,3,0,0,PAL2);
     }
 
-
+    
     else if(G_PHASE_SEQUENCE == DOCTORS_PHASE_EXIT)
     {
         //--------------------------------------------------------------//
@@ -1006,111 +1243,76 @@ void sequence_DOCTORS_MINIGAME()
 
 
 
-
+        
         //--------------------------------------------------------------//
         //                                                              //
-        //                       UPDATE MOE'S CAR                       //
-        //                                                              //
-        //--------------------------------------------------------------//
-
-        if(list_CARS[0].pos_X < 136)
-        {
-            list_CARS[0].axis_CAR = AXIS_RIGHT;
-
-            list_CARS[0].pos_X += 2;
-
-            SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , list_CARS[0].pos_Y);
-
-            SPR_setFrame(list_CARS[0].spr_CAR , AXIS_RIGHT);
-        }
-
-        else if(list_CARS[0].pos_X > 136)
-        {
-            list_CARS[0].axis_CAR = AXIS_LEFT;
-            
-            list_CARS[0].pos_X -= 2;
-
-            SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , list_CARS[0].pos_Y);
-
-            SPR_setFrame(list_CARS[0].spr_CAR , AXIS_LEFT);
-        }
-
-        else if(list_CARS[0].pos_X == 136)
-        {
-            list_CARS[0].axis_CAR = AXIS_CENTER;
-
-            SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , list_CARS[0].pos_Y);
-
-            SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
-        }
-
-
-        //--------------------------------------------------------------//
-        //                                                              //
-        //                      UPDATE CURLY'S CAR                      //
+        //                        RECENTER CARS                         //
         //                                                              //
         //--------------------------------------------------------------//
 
-        SPR_setPosition(list_CARS[1].spr_CAR , list_CARS[1].TABLE_POSITION[list_CARS[1].index_READ_POSITION] , list_CARS[1].pos_Y);
-        SPR_setFrame(list_CARS[1].spr_CAR , list_CARS[1].TABLE_AXIS[list_CARS[1].index_READ_POSITION]);
+        u8 i;
 
-
-        list_CARS[1].index_READ_POSITION += 1;
-
-        if(list_CARS[1].index_READ_POSITION > 16)
+        for(i=0 ; i<3 ; i++)
         {
-            list_CARS[1].index_READ_POSITION = 0;
+            if(list_CARS[i].pos_X < 136)
+            {
+                if(136 - list_CARS[i].pos_X >= G_CAR_SPEED)
+                {
+                    list_CARS[i].pos_X += G_CAR_SPEED;
+
+                    
+
+                    SPR_setFrame(list_CARS[i].spr_CAR , AXIS_RIGHT);
+                }
+
+                else
+                {
+                    list_CARS[i].pos_X = 136;
+
+                    list_CARS[i].axis_CAR = AXIS_CENTER;
+
+                    SPR_setFrame(list_CARS[i].spr_CAR , AXIS_CENTER);
+                }
+                
+                SPR_setPosition(list_CARS[i].spr_CAR , list_CARS[i].pos_X , list_CARS[i].pos_Y);
+            }
+
+            else if(list_CARS[i].pos_X > 136)
+            {
+                if(list_CARS[i].pos_X - 136 >= G_CAR_SPEED)
+                {
+                    list_CARS[i].pos_X -= G_CAR_SPEED;
+
+                    list_CARS[i].axis_CAR = AXIS_LEFT;
+
+                    SPR_setFrame(list_CARS[i].spr_CAR , AXIS_LEFT);
+                }
+                
+                else
+                {
+                    list_CARS[i].pos_X = 136;
+
+                    list_CARS[i].axis_CAR = AXIS_CENTER;
+
+                    SPR_setFrame(list_CARS[i].spr_CAR , AXIS_CENTER);
+                }            
+
+                SPR_setPosition(list_CARS[i].spr_CAR , list_CARS[0].pos_X , list_CARS[i].pos_Y);
+            }
+
+            else if(list_CARS[i].pos_X == 136)
+            {
+                list_CARS[i].axis_CAR = AXIS_CENTER;
+
+                SPR_setPosition(list_CARS[i].spr_CAR , list_CARS[i].pos_X , list_CARS[i].pos_Y);
+
+                SPR_setFrame(list_CARS[i].spr_CAR , AXIS_CENTER);
+            }
         }
 
 
 
-
-        list_CARS[1].TABLE_POSITION[list_CARS[1].index_WRITE_POSITION] = list_CARS[0].pos_X;
-        list_CARS[1].TABLE_AXIS[list_CARS[1].index_WRITE_POSITION] = list_CARS[0].axis_CAR;
-
-
-        list_CARS[1].index_WRITE_POSITION += 1;
-
-        if(list_CARS[1].index_WRITE_POSITION > 16)
-        {
-            list_CARS[1].index_WRITE_POSITION = 0;
-        }
-
-
-        //--------------------------------------------------------------//
-        //                                                              //
-        //                      UPDATE LARRY'S CAR                      //
-        //                                                              //
-        //--------------------------------------------------------------//
-
-        SPR_setPosition(list_CARS[2].spr_CAR , list_CARS[2].TABLE_POSITION[list_CARS[2].index_READ_POSITION] , list_CARS[2].pos_Y);
-        SPR_setFrame(list_CARS[2].spr_CAR , list_CARS[1].TABLE_AXIS[list_CARS[2].index_READ_POSITION]);
-
-
-        list_CARS[2].index_READ_POSITION += 1;
-
-        if(list_CARS[2].index_READ_POSITION > 16)
-        {
-            list_CARS[2].index_READ_POSITION = 0;
-        }
-
-
-
-
-        list_CARS[2].TABLE_POSITION[list_CARS[2].index_WRITE_POSITION] = list_CARS[0].pos_X;
-        list_CARS[2].TABLE_AXIS[list_CARS[2].index_WRITE_POSITION] = list_CARS[0].axis_CAR;
-
-
-        list_CARS[2].index_WRITE_POSITION += 1;
-
-        if(list_CARS[2].index_WRITE_POSITION > 16)
-        {
-            list_CARS[2].index_WRITE_POSITION = 0;
-        }
-
-
-
-
+        
         //--------------------------------------------------------------//
         //                                                              //
         //                           SCROLLING                          //
@@ -1125,7 +1327,7 @@ void sequence_DOCTORS_MINIGAME()
             VDP_setTileMapEx(BG_B, image_DOCTORS_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_DOCTORS_BG_B1.tileset->numTile), 0, 11, 0, 0, 40, 5, DMA_QUEUE);
         }
         
-        if(G_POS_Y_CAMERA < 16813)
+        if(G_POS_Y_CAMERA < 16809)
         {
             VDP_setVerticalScrollVSync(BG_B , -G_POS_Y_CAMERA);
         }
@@ -1139,10 +1341,6 @@ void sequence_DOCTORS_MINIGAME()
             
             G_PHASE_SEQUENCE = DOCTORS_PHASE_GAME_OVER;
         }
-
-
-
-        VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,5,0,0,PAL2);
     }
 
 
@@ -1182,7 +1380,7 @@ void sequence_DOCTORS_MINIGAME()
             return;
         }
     }
-
+    
 }
 
 
