@@ -184,6 +184,8 @@ void joypad_DOCTORS_MINIGAME()
 
                     else
                     {
+                        G_CAR_COUNTER_SPEED = 0;
+                        
                         G_CAR_SPEED = 2;
                         
                         list_CARS[0].axis_CAR = AXIS_CENTER;
@@ -198,11 +200,26 @@ void joypad_DOCTORS_MINIGAME()
 
                 else
                 {
+                    G_CAR_COUNTER_SPEED = 0;
+                    
                     G_CAR_SPEED = 2;
                     
                     list_CARS[0].axis_CAR = AXIS_CENTER;
 
                     SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+                }
+            }
+
+
+            if(value & BUTTON_UP)
+            {
+                G_CAR_COUNTER_SPEED += 1;
+
+                if(G_CAR_COUNTER_SPEED > 59)
+                {
+                    G_CAR_COUNTER_SPEED = 59;
+
+                    G_CAR_SPEED = 4;
                 }
             }
         }
@@ -240,6 +257,8 @@ void joypad_DOCTORS_MINIGAME()
 
                     else
                     {
+                        G_CAR_COUNTER_SPEED = 0;
+                        
                         G_CAR_SPEED = 2;
                         
                         list_CARS[0].axis_CAR = AXIS_CENTER;
@@ -254,11 +273,26 @@ void joypad_DOCTORS_MINIGAME()
 
                 else
                 {
+                    G_CAR_COUNTER_SPEED = 0;
+
                     G_CAR_SPEED = 2;
                     
                     list_CARS[0].axis_CAR = AXIS_CENTER;
 
                     SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
+                }
+            }
+
+
+            if(value & BUTTON_UP)
+            {
+                G_CAR_COUNTER_SPEED += 1;
+
+                if(G_CAR_COUNTER_SPEED > 59)
+                {
+                    G_CAR_COUNTER_SPEED = 59;
+
+                    G_CAR_SPEED = 4;
                 }
             }
         }
@@ -1150,7 +1184,7 @@ void sequence_DOCTORS_MINIGAME()
 
         counter_TIME_DOCTORS();
 
-        //VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,3,0,0,PAL2);
+        //VDP_drawIntEx_BG_A_QUEUE(G_CAR_COUNTER_SPEED,2,0,0,PAL2);
     }
 
     
