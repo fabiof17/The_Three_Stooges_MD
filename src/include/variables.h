@@ -53,8 +53,8 @@
 #define SCENE_INTRO_SCREEN_7            7
 #define SCENE_INTRO_EXIT                8
 
-#define SCENE_FADE_IN                   30
-#define SCENE_FADE_OUT                  31
+#define SCENE_FADE_IN                   40
+#define SCENE_FADE_OUT                  41
 
 
 
@@ -88,14 +88,14 @@
 #define SCENE_BOXING_SCREEN_TYPE3       20
 
 #define SCENE_DOCTORS_MINIGAME          21
+#define SCENE_WAITERS_MINIGAME          22
 
 
 #define SCENE_CONTRACT_QUESTION_MARK    27
 #define SCENE_CONTRACT_DOCTORS          28
-#define SCENE_REWARD                    29
+#define SCENE_CONTRACT_WAITERS          29
+#define SCENE_REWARD                    30
 
-
-#define SCENE_CONTRACT_WAITERS          30
 
 
 

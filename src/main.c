@@ -22,6 +22,7 @@
 #include "include/routines_ROULETTE.h"
 #include "include/routines_SLAP.h"
 #include "include/routines_TRIVIA.h"
+#include "include/routines_WAITERS.h"
 
 
 #include "include/tables_INTRO.h"
@@ -364,6 +365,15 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
+                // WAITERS //
+                else if(G_SCENE == SCENE_WAITERS)
+                {                    
+                    sequence_WAITERS();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
                 // ROULETTE //
                 else if(G_SCENE == SCENE_ROULETTE)
                 {
@@ -477,21 +487,6 @@ int main(bool hardReset)
                 // FADE IN //
                 else if(G_SCENE == SCENE_FADE_IN)
                 {
-                    /*if(G_SCENE_TYPE == SCENE_ROULETTE)
-                    {
-                        PAL_fadeInAll(palette_64, 40, FALSE);
-                    }
-
-                    else if(G_SCENE_TYPE == SCENE_SLAP)
-                    {
-                        PAL_fadeInAll(palette_64, 40, FALSE);
-                    }
-
-                    else if(G_SCENE_TYPE == SCENE_REWARD)
-                    {
-                        PAL_fadeInAll(palette_64, 40, FALSE);
-                    }*/
-
                     PAL_fadeInAll(palette_64, 40, FALSE);
 
                     G_SCENE         = G_SCENE_NEXT;

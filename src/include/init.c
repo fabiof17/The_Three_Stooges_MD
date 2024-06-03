@@ -25,6 +25,7 @@
 #include "maps_ROULETTE.h"
 #include "maps_SLAP.h"
 #include "maps_TRIVIA.h"
+#include "maps_WAITERS.h"
 
 
 
@@ -127,7 +128,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_DOCTORS_MINIGAME | SCENE_ROULETTE
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_DOCTORS_MINIGAME | SCENE_ROULETTE
     }
 
 
@@ -2482,7 +2483,155 @@ void init_SCENE()
     // WAITERS //
     else if(G_SCENE_TYPE == SCENE_WAITERS)
     {
-        //
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        u16 i = 0;
+
+        for(i=16 ; i<1440 ; i++)
+        {
+            VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+        }
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_setPlaneSize(64,32,TRUE);
+        
+        SPR_initEx(320);
+        
+        VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                   ROULETTE FONT                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, CPU);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                         BG                                           //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_STREET_WAITERS_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_STREET_WAITERS_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+        
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_STREET_WAITERS_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_STREET_WAITERS_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+        VDP_setTileMapEx(BG_A, image_STREET_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_POS_Y_CAMERA = 0;
+
+
+        VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+        VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                        GENERATE NEXT POSITION IN HIGHSTREET                          //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      SPRITES                                         //
+        //                                                                                      //
+        //**************************************************************************************// 
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                              STOOGES SPRITES OFF SCREEN                              //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  -96, -64, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       PALETTES                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        memcpy( &palette_64[0]  , image_STREET_WAITERS_BG_B.palette->data   , 16 * 2 );
+        memcpy( &palette_64[16] , image_STREET_WAITERS_BG_A.palette->data   , 16 * 2 );
+        memcpy( &palette_64[48] , palette_SPR_STOOGES.data                  , 16 * 2 );
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       VARIABLES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_1             = 0;
+        G_INDEX_1               = 0;
+        G_INDEX_2               = 0;
+        G_INDEX_3               = 0;
+
+
+        G_STREET_TYPE           = STREET_TYPE_WAITERS;
+       
+
+        G_SCENE                 = SCENE_FADE_IN;
+        G_SCENE_TYPE            = SCENE_WAITERS;
+        G_SCENE_NEXT            = SCENE_WAITERS;
+
+        G_SCENE_LOADED          = TRUE;
     }
 
     // ROULETTE //
@@ -3598,6 +3747,131 @@ void init_SCENE()
 
         VDP_loadTileSet(image_CONTRACT_DOCTORS.tileset, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile, CPU);
         VDP_setTileMapEx(BG_B, image_CONTRACT_DOCTORS.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile), 6, 6, 0, 0, 27, 11, CPU);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+        
+        G_POS_Y_CAMERA = 0;
+
+        VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+        VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       PALETTES                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        memcpy( &palette_64[0]  , image_CONTRACT_BG_B.palette->data         , 16 * 2 );
+        memcpy( &palette_64[16] , image_CONTRACT_BG_A.palette->data         , 16 * 2 );
+        memcpy( &palette_64[32] , palette_BLACK.data                        , 16 * 2 );
+        memcpy( &palette_64[48] , palette_BLACK.data                        , 16 * 2 );
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       VARIABLES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_1             = 0;
+        G_INDEX_1               = 0;
+        G_INDEX_2               = 0;
+        G_INDEX_3               = 0;
+
+
+        G_PHASE_SEQUENCE        = 0;
+       
+
+        G_SCENE                 = SCENE_FADE_IN;
+        G_SCENE_TYPE            = SCENE_CONTRACT_DOCTORS;
+        G_SCENE_NEXT            = SCENE_CONTRACT_DOCTORS;
+
+        G_SCENE_LOADED          = TRUE;
+    }
+
+    // CONTRACT DOCTORS //
+    else if(G_SCENE_TYPE == SCENE_CONTRACT_WAITERS)
+    {
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        u16 i = 0;
+
+        for(i=16 ; i<1440 ; i++)
+        {
+            VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+        }
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_setPlaneSize(64,32,TRUE);
+        
+        SPR_init();
+        
+        VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                         BG                                           //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_CONTRACT_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_CONTRACT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+        
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CONTRACT_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_CONTRACT_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+        VDP_setTileMapEx(BG_A, image_CONTRACT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         TEXT                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_CONTRACT_WAITERS_BG_B.tileset, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile, CPU);
+        VDP_setTileMapEx(BG_B, image_CONTRACT_WAITERS_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile), 6, 6, 0, 0, 27, 11, CPU);
 
 
 
