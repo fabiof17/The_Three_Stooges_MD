@@ -2539,8 +2539,9 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_loadTileSet(image_STREET_WAITERS_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
-        VDP_setTileMapEx(BG_B, image_STREET_WAITERS_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+        VDP_loadTileSet(image_STREET_WAITERS_BG_B1.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_STREET_WAITERS_BG_B1.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+        VDP_loadTileSet(image_STREET_WAITERS_BG_B2.tileset, G_ADR_VRAM_BG_B + image_STREET_WAITERS_BG_B1.tileset->numTile, CPU);
         
 
         //--------------------------------------------------------------------------------------//
@@ -2549,9 +2550,22 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_STREET_WAITERS_BG_B.tileset->numTile;
-        VDP_loadTileSet(image_STREET_WAITERS_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
-        VDP_setTileMapEx(BG_A, image_STREET_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_STREET_WAITERS_BG_B1.tileset->numTile + image_STREET_WAITERS_BG_B2.tileset->numTile;
+        VDP_loadTileSet(image_STREET_WAITERS_BG_A1.tileset, G_ADR_VRAM_BG_A, CPU);
+        VDP_setTileMapEx(BG_A, image_STREET_WAITERS_BG_A1.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+        VDP_loadTileSet(image_STREET_WAITERS_BG_A2.tileset, G_ADR_VRAM_BG_A + image_STREET_WAITERS_BG_A1.tileset->numTile, CPU);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        DIALOG                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_STREET_WAITERS_BG_A1.tileset->numTile + image_STREET_WAITERS_BG_A2.tileset->numTile;
+        VDP_loadTileSet(image_WAITERS_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
 
 
 
@@ -2597,6 +2611,15 @@ void init_SCENE()
         sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  -96, -64, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
 
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                            DIALOG ARROW SPRITE OFF SCREEN                            //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_ARROW_DIALOG = SPR_addSprite(&tiles_SPR_BANK_ARROW,   -24, -32, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+
+
 
 
         //--------------------------------------------------------------------------------------//
@@ -2605,8 +2628,9 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        memcpy( &palette_64[0]  , image_STREET_WAITERS_BG_B.palette->data   , 16 * 2 );
-        memcpy( &palette_64[16] , image_STREET_WAITERS_BG_A.palette->data   , 16 * 2 );
+        memcpy( &palette_64[0]  , image_STREET_WAITERS_BG_B1.palette->data  , 16 * 2 );
+        memcpy( &palette_64[16] , image_STREET_WAITERS_BG_A1.palette->data  , 16 * 2 );
+        memcpy( &palette_64[32] , image_WAITERS_DIALOG.palette->data        , 16 * 2 );
         memcpy( &palette_64[48] , palette_SPR_STOOGES.data                  , 16 * 2 );
 
 

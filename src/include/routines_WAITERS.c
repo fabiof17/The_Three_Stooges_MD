@@ -9,7 +9,7 @@
 
 
 
-
+#include "maps_WAITERS.h"
 
 
 
@@ -82,7 +82,22 @@ void sequence_WAITERS()
     }
 
 
-    if(G_COUNTER_1 == 360)
+
+
+    if(G_COUNTER_1 == 600)
+    {
+        VDP_setTileMapEx(BG_B, image_STREET_WAITERS_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_STREET_WAITERS_BG_B1.tileset->numTile), 16, 11, 0, 0, 5, 11, DMA_QUEUE);
+        VDP_setTileMapEx(BG_A, image_STREET_WAITERS_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_STREET_WAITERS_BG_A1.tileset->numTile), 16, 11, 0, 0, 5, 11, DMA_QUEUE);
+    }
+
+    else if(G_COUNTER_1 == 720)
+    {
+        VDP_setTileMapEx(BG_A, image_WAITERS_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 9, 4, 0, 0, 15, 8, DMA_QUEUE);
+
+        SPR_setPosition(sprite_ARROW_DIALOG , 136 , 96);
+    }
+
+    else if(G_COUNTER_1 == 960)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);
