@@ -457,6 +457,28 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
+                // CRACKERS SCREEN //
+                else if(G_SCENE == SCENE_CRACKERS_SCREEN)
+                {
+                    //joypad_DOCTORS_MINIGAME();
+
+                    //sequence_DOCTORS_MINIGAME();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                // CRACKERS MINIGAME //
+                else if(G_SCENE == SCENE_CRACKERS_MINIGAME)
+                {
+                    //joypad_DOCTORS_MINIGAME();
+
+                    //sequence_DOCTORS_MINIGAME();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
                 // REWARD //
                 else if(G_SCENE == SCENE_REWARD)
                 {                    
@@ -497,6 +519,24 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_FADE_OUT)
                 {                    
                     fadeOut_ROULETTE();
+                }
+
+                // FADE IN CRACKERS //
+                else if(G_SCENE == SCENE_FADE_IN_CRACKERS)
+                {
+                    PAL_fadeInAll(palette_64, 2, FALSE);
+
+                    G_SCENE         = G_SCENE_NEXT;
+                    G_SCENE_NEXT    = NULL;
+                }
+
+                // FADE OUT CRACKERS //
+                else if(G_SCENE == SCENE_FADE_OUT_CRACKERS)
+                {                    
+                    PAL_fadeOutAll(2,FALSE);
+
+                    //G_SCENE         = G_SCENE_NEXT;
+                    //G_SCENE_NEXT    = NULL;
                 }
             }
         }

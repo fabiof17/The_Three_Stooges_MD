@@ -12,5 +12,9 @@ extern const Image image_QUESTION_7;
 extern const Image image_QUESTION_8;
 extern const Image image_QUESTION_9;
 extern const Image image_QUESTION_10;
+extern const Image image_QUESTION_11;
+extern const Image image_QUESTION_12;
+extern const Image image_QUESTION_13;
+extern const Image image_QUESTION_14;
 
 #endif // _RES_MAPS_QUESTIONS_H_

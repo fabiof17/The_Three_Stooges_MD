@@ -15,6 +15,7 @@
 #include "maps_BANK.h"
 #include "maps_BOXING.h"
 #include "maps_CONTRACT.h"
+#include "maps_CRACKERS.h"
 #include "maps_DOCTORS.h"
 #include "maps_DOLLAR.h"
 #include "maps_GLOBAL.h"
@@ -44,6 +45,7 @@
 
 #include "sprites_BANK.h"
 #include "sprites_BOXING.h"
+#include "sprites_CRACKERS.h"
 #include "sprites_DOCTORS.h"
 #include "sprites_DOLLAR.h"
 #include "sprites_GLOBAL.h"
@@ -128,7 +130,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_DOCTORS_MINIGAME | SCENE_ROULETTE
+        G_SCENE_TYPE = SCENE_CRACKERS_MINIGAME; //SCENE_DOCTORS_MINIGAME | SCENE_ROULETTE | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
     }
 
 
@@ -187,6 +189,10 @@ void init_VARIABLES()
 
     G_QUESTION_LOCKED           = FALSE;
 
+    G_ROUND_CRACKERS            = CRACKERS_ROUND_1;
+    G_CRACKERS_INIT             = FALSE;
+    G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD_1;
+
     
 
 
@@ -207,31 +213,6 @@ void init_VARIABLES()
     TABLE_GENERATED_HAND_POSITION[1] = 4;
     TABLE_GENERATED_HAND_POSITION[0] = 1;
 
-    
-    //**************************************************************************************//
-    //                                                                                      //
-    //                                    INTRODUCTION                                      //
-    //                                                                                      //
-    //**************************************************************************************// 
-
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                GENERAL INITIALISATION                                //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
-
-
-    //--------------------------------------------------------------------------------------//
-    //                                                                                      //
-    //                                INITIALISATION SPRITES                                //
-    //                                                                                      //
-    //--------------------------------------------------------------------------------------//
-
-    /*for(i=0; i<38 ; i++)
-    {
-        sprite_NEUTRE[i] = NULL;
-    }*/
     
 }
 
@@ -1173,9 +1154,20 @@ void init_INTRO()
 
         VDP_setPlaneSize(64,32,FALSE);
         
-        SPR_initEx(228);
+        SPR_initEx(170);
         
         VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                     FONT TILESET                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        //VDP_loadTileSet(image_FONT_INTRO.tileset, TILE_FONT_INDEX, CPU);
 
 
 
@@ -1220,6 +1212,8 @@ void init_INTRO()
         VDP_loadTileSet(image_INTRO_SCREEN_7_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
 
+        VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 2, 0, 2,  4,  4, CPU);
+
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
@@ -1229,6 +1223,25 @@ void init_INTRO()
 
         VDP_loadTileSet(image_GRANDMA_INTRO_BG_A_STEP0.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile, CPU);
         VDP_setTileMapEx(BG_A, image_GRANDMA_INTRO_BG_A_STEP0.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile), 6, 14, 0, 0, 5, 6, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                     DIALOG TILES                                     //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile + image_GRANDMA_INTRO_BG_A_STEP0.tileset->numTile;
+        VDP_loadTileSet(image_INTRO_SCREEN_7_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                      TEXT TILES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_INTRO_SCREEN_7_TEXT.tileset, G_ADR_VRAM_DIALOG + image_INTRO_SCREEN_7_DIALOG.tileset->numTile, CPU);
 
 
 
@@ -1250,6 +1263,15 @@ void init_INTRO()
 
         SPR_setZ(sprite_BANKER[0] , 0);
         SPR_setZ(sprite_BANKER[1] , 1);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                            DIALOG ARROW SPRITE OFF SCREEN                            //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_ARROW_DIALOG = SPR_addSprite(&tiles_SPR_INTRO_ARROW,   -16, -32, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
 
 
         SPR_update();
@@ -3571,6 +3593,378 @@ void init_SCENE()
         G_SCENE                 = SCENE_FADE_IN;
         G_SCENE_TYPE            = SCENE_DOCTORS_MINIGAME;
         G_SCENE_NEXT            = SCENE_DOCTORS_MINIGAME;
+
+        G_SCENE_LOADED          = TRUE;
+    }
+
+    // CRACKERS SCREEN //
+    else if(G_SCENE_TYPE == SCENE_CRACKERS_SCREEN)
+    {
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_setPlaneSize(64,32,TRUE);
+        
+        SPR_initEx(10);
+        
+        VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                         BG                                           //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_ADR_VRAM_BG_B = 1;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                   CRACKERS 4 ROUNDS                                  //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        if(G_CRACKERS_SCREEN_TYPE < 4)
+        {
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_B                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset, G_ADR_VRAM_BG_B, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B1.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile + 1, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile + 1), 10, 15, 0, 0, 11, 9, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_A                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile + image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset->numTile + 1;
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset, G_ADR_VRAM_BG_A, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A1.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_A2.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile + 1, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile + 1), 10, 15, 0, 0, 11, 9, CPU);
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       PALETTES                                       //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SPREAD_BG_B1.palette->data     , 16 * 2 );
+            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SPREAD_BG_A1.palette->data     , 16 * 2 );
+            //memcpy( &palette_64[32] , palette_SPR_HAND_PART_1.data          , 16 * 2 );
+            //memcpy( &palette_64[48] , palette_SPR_HAND_PART_2.data          , 16 * 2 );
+        }
+
+
+
+        else
+        {
+            //
+        }
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       VARIABLES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_1             = 0;
+        G_INDEX_1               = 0;
+        G_INDEX_2               = 0;
+        G_INDEX_3               = 0;
+       
+
+        G_SCENE                 = SCENE_FADE_IN_CRACKERS;
+        G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
+        G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
+
+        G_SCENE_LOADED          = TRUE;
+    }
+
+    // CRACKERS MINIGAME //
+    else if(G_SCENE_TYPE == SCENE_CRACKERS_MINIGAME)
+    {
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        u16 i = 0;
+
+        /*for(i=16 ; i<1440 ; i++)
+        {
+            VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+        }*/
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_setPlaneSize(64,32,TRUE);
+        
+        SPR_initEx(548);
+        
+        VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                   NUMBERS TILESET                                    //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        //VDP_loadTileSet(image_BANK_NUMBERS.tileset, TILE_FONT_INDEX + 16, CPU);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                         BG                                           //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_CRACKERS_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_CRACKERS_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_CRACKERS_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+        VDP_setTileMapEx(BG_A, image_CRACKERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_POS_Y_CAMERA = 0;
+
+
+        VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+        VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                        GENERATE NEXT POSITION IN HIGHSTREET                          //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      SPRITES                                         //
+        //                                                                                      //
+        //**************************************************************************************// 
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                     HAND SPRITES                                     //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  128, 152, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  119, 208, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  119, 110, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+
+        SPR_update();
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                   CRACKERS SPRITES                                   //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        //--------------------------------------------------------------------------------------//
+        //                                   IF WE INIT ROUND                                   //
+        //--------------------------------------------------------------------------------------//
+        if(G_CRACKERS_INIT == FALSE)
+        {
+            //--------------------------------------------------------------------------------------//
+            //                                 ROUND 1 : 14 CRACKERS                                //
+            //--------------------------------------------------------------------------------------//
+
+            //--------------------------------------------------------------------------------------//
+            //                                WE INIT ALL 14 CRACKERS                               //
+            //--------------------------------------------------------------------------------------//
+
+            if(G_ROUND_CRACKERS == CRACKERS_ROUND_1)
+            {
+                for(i=0 ; i<14 ; i++)
+                {
+                    list_CRACKER[i].spr_CRACKER     = SPR_addSprite(&tiles_SPR_CRACKER,  0, 0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+                    list_CRACKER[i].state_CRACKER   = CRACKER_PHASE_FREE;
+                    list_CRACKER[i].counter_CRACKER = 0;
+                }
+
+
+                list_CRACKER[0].pos_X = 40;
+                list_CRACKER[0].pos_Y = 142;
+                SPR_setPosition(list_CRACKER[0].spr_CRACKER  ,  list_CRACKER[0].pos_X , list_CRACKER[0].pos_Y);
+
+                list_CRACKER[1].pos_X = 72;
+                list_CRACKER[1].pos_Y = 110;
+                SPR_setPosition(list_CRACKER[1].spr_CRACKER  ,  list_CRACKER[1].pos_X , list_CRACKER[1].pos_Y);
+
+                list_CRACKER[2].pos_X = 72;
+                list_CRACKER[2].pos_Y = 175;
+                SPR_setPosition(list_CRACKER[2].spr_CRACKER  ,  list_CRACKER[2].pos_X , list_CRACKER[2].pos_Y);
+
+                list_CRACKER[3].pos_X = 88;
+                list_CRACKER[3].pos_Y = 142;
+                SPR_setPosition(list_CRACKER[3].spr_CRACKER  ,  list_CRACKER[3].pos_X , list_CRACKER[3].pos_Y);
+
+                list_CRACKER[4].pos_X = 120;
+                list_CRACKER[4].pos_Y = 88;
+                SPR_setPosition(list_CRACKER[4].spr_CRACKER  , list_CRACKER[4].pos_X , list_CRACKER[4].pos_Y);
+
+                list_CRACKER[5].pos_X = 136;
+                list_CRACKER[5].pos_Y = 122;
+                SPR_setPosition(list_CRACKER[5].spr_CRACKER  , list_CRACKER[5].pos_X , list_CRACKER[5].pos_Y);
+
+                list_CRACKER[6].pos_X = 136;
+                list_CRACKER[6].pos_Y = 155;
+                SPR_setPosition(list_CRACKER[6].spr_CRACKER  , list_CRACKER[6].pos_X , list_CRACKER[6].pos_Y);
+
+                list_CRACKER[7].pos_X = 120;
+                list_CRACKER[7].pos_Y = 187;
+                SPR_setPosition(list_CRACKER[7].spr_CRACKER  , list_CRACKER[7].pos_X , list_CRACKER[7].pos_Y);
+
+                list_CRACKER[8].pos_X = 168;
+                list_CRACKER[8].pos_Y = 89;
+                SPR_setPosition(list_CRACKER[8].spr_CRACKER  , list_CRACKER[8].pos_X , list_CRACKER[8].pos_Y);
+
+                list_CRACKER[9].pos_X = 187;
+                list_CRACKER[9].pos_Y = 122;
+                SPR_setPosition(list_CRACKER[9].spr_CRACKER  , list_CRACKER[9].pos_X , list_CRACKER[9].pos_Y);
+
+                list_CRACKER[10].pos_X = 184;
+                list_CRACKER[10].pos_Y = 155;
+                SPR_setPosition(list_CRACKER[10].spr_CRACKER , list_CRACKER[10].pos_X , list_CRACKER[10].pos_Y);
+
+                list_CRACKER[11].pos_X = 168;
+                list_CRACKER[11].pos_Y = 187;
+                SPR_setPosition(list_CRACKER[11].spr_CRACKER , list_CRACKER[11].pos_X , list_CRACKER[11].pos_Y);
+
+                list_CRACKER[12].pos_X = 232;
+                list_CRACKER[12].pos_Y = 122;
+                SPR_setPosition(list_CRACKER[12].spr_CRACKER , list_CRACKER[12].pos_X , list_CRACKER[12].pos_Y);
+
+                list_CRACKER[13].pos_X = 232;
+                list_CRACKER[13].pos_Y = 155;
+                SPR_setPosition(list_CRACKER[13].spr_CRACKER , list_CRACKER[13].pos_X , list_CRACKER[13].pos_Y);
+
+
+                G_CRACKERS_INIT = TRUE;
+            }
+        }
+
+
+        //--------------------------------------------------------------------------------------//
+        //           ELSE WE JUST RECREATE CRACKERS SPRITES BUT KEEP THEIR PROPERTIES           //
+        //--------------------------------------------------------------------------------------//
+
+        else
+        {
+            for(i=0 ; i<14 ; i++)
+            {
+                if(list_CRACKER[i].state_CRACKER != CRACKER_PHASE_EATEN)
+                {
+                    list_CRACKER[i].spr_CRACKER = SPR_addSprite(&tiles_SPR_CRACKER,  list_CRACKER[i].pos_X , list_CRACKER[i].pos_Y, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+                    SPR_setFrame(list_CRACKER[i].spr_CRACKER , list_CRACKER[i].state_CRACKER);
+                }
+            }
+        }
+
+
+        SPR_update();
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       PALETTES                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        memcpy( &palette_64[0]  , image_CRACKERS_BG_B.palette->data     , 16 * 2 );
+        memcpy( &palette_64[16] , image_CRACKERS_BG_A.palette->data     , 16 * 2 );
+        memcpy( &palette_64[32] , palette_SPR_HAND_PART_1.data          , 16 * 2 );
+        memcpy( &palette_64[48] , palette_SPR_HAND_PART_2.data          , 16 * 2 );
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       VARIABLES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_1             = 0;
+        G_INDEX_1               = 0;
+        G_INDEX_2               = 0;
+        G_INDEX_3               = 0;
+
+
+        //G_PHASE_SEQUENCE        = BANKER_PHASE_WALKIN;
+       
+
+        G_SCENE                 = SCENE_FADE_IN;
+        G_SCENE_TYPE            = SCENE_CRACKERS_MINIGAME;
+        G_SCENE_NEXT            = SCENE_CRACKERS_MINIGAME;
 
         G_SCENE_LOADED          = TRUE;
     }

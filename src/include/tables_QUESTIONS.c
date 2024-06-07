@@ -22,6 +22,10 @@ const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
                                                                 { &image_QUESTION_6  , 2 }, // WHEN CURLY WAS 13, WHAT SORT OF ACCIDENT DID HE HAVE ?
                                                                 { &image_QUESTION_7  , 1 }, // WHAT ROCK GROUP HAD MOE HAIRCUTS ?
                                                                 { &image_QUESTION_8  , 0 }, // WHO HELPED MOE GET HIS FIRST MOVIE ROLE ?
-                                                                { &image_QUESTION_9  , 2 }, // IN THE YEAR 1934, THE STOOGES MADE A WEEKLY SALARY OF :
-                                                                { &image_QUESTION_10 , 2 } // HOW MANY TIMES WAS MOE ON THE MIKE DOUGLAS SHOW ?
+                                                                { &image_QUESTION_9  , 2 }, // HOW MANY TIMES WAS MOE ON THE MIKE DOUGLAS SHOW ?
+                                                                { &image_QUESTION_10 , 2 }, // IN THE YEAR 1934, THE STOOGES MADE A WEEKLY SALARY OF :
+                                                                { &image_QUESTION_11 , 1 }, // IN WHAT YEAR DID THE STOOGES FIRST APPEAR ON TELEVISION ?
+                                                                { &image_QUESTION_12 , 2 }, // WHAT WAS THE TITLE OF LARRY'S BOOK ?
+                                                                { &image_QUESTION_13 , 1 }, // WHY DID CURLY SHAVE HIS HEAD ?
+                                                                { &image_QUESTION_14 , 1 } // WHAT IS THE NAME OF MOE'S DAUGHTER ?
                                                             };

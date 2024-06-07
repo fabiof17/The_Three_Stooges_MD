@@ -87,7 +87,12 @@ PALETTE palette_SPR_NURSE                   "palettes/palette_SPR_NURSE.png"
 
 
 
+//----------------------------------------------------//
+//                        CARCKERS                    //
+//----------------------------------------------------//
 
+PALETTE palette_SPR_HAND_PART_1             "palettes/palette_SPR_HAND_PART_1.png"
+PALETTE palette_SPR_HAND_PART_2             "palettes/palette_SPR_HAND_PART_2.png"
 
 
 

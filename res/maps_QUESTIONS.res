@@ -15,10 +15,10 @@ IMAGE image_QUESTION_7              "map/trivia/questions/tiles_QUESTION_7.png" 
 IMAGE image_QUESTION_8              "map/trivia/questions/tiles_QUESTION_8.png"                 NONE ALL
 IMAGE image_QUESTION_9              "map/trivia/questions/tiles_QUESTION_9.png"                 NONE ALL
 IMAGE image_QUESTION_10             "map/trivia/questions/tiles_QUESTION_10.png"                NONE ALL
-
-
-
-
+IMAGE image_QUESTION_11             "map/trivia/questions/tiles_QUESTION_11.png"                NONE ALL
+IMAGE image_QUESTION_12             "map/trivia/questions/tiles_QUESTION_12.png"                NONE ALL
+IMAGE image_QUESTION_13             "map/trivia/questions/tiles_QUESTION_13.png"                NONE ALL
+IMAGE image_QUESTION_14             "map/trivia/questions/tiles_QUESTION_14.png"                NONE ALL
 
 
 

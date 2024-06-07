@@ -193,6 +193,9 @@ void anim_INTRO_SCREEN_7()
 
     // RUNNING ANIMATION //
     (*ptr_ANIM_INTRO)();
+
+
+    
 }
 
 

@@ -89,6 +89,8 @@
 
 #define SCENE_DOCTORS_MINIGAME          21
 #define SCENE_WAITERS_MINIGAME          22
+#define SCENE_CRACKERS_SCREEN           23
+#define SCENE_CRACKERS_MINIGAME         24
 
 
 #define SCENE_CONTRACT_QUESTION_MARK    27
@@ -97,7 +99,8 @@
 #define SCENE_REWARD                    30
 
 
-
+#define SCENE_FADE_IN_CRACKERS          38
+#define SCENE_FADE_OUT_CRACKERS         39
 
 
 
@@ -206,6 +209,31 @@
 
 //-----------------------------------------------------------------------------//
 //                                                                             //
+//                                  CRACKERS                                   //
+//                                                                             //
+//-----------------------------------------------------------------------------//
+
+#define CRACKERS_ROUND_1                0
+#define CRACKERS_ROUND_2                1
+#define CRACKERS_ROUND_3                2
+#define CRACKERS_ROUND_4                3
+
+#define CRACKER_PHASE_FREE              0
+#define CRACKER_PHASE_OYSTER_1          1
+#define CRACKER_PHASE_OYSTER_2          2
+#define CRACKER_PHASE_OYSTER_3          3
+#define CRACKER_PHASE_EATEN             4
+
+#define CRACKERS_SCREEN_SPREAD_1        0
+#define CRACKERS_SCREEN_SPREAD_2        1
+#define CRACKERS_SCREEN_SPREAD_3        2
+#define CRACKERS_SCREEN_SPREAD_4        3
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
 //                                  ICON TYPES                                 //
 //                                                                             //
 //-----------------------------------------------------------------------------// 
@@ -241,10 +269,10 @@
 #define STREET_TYPE_DOCTORS             7
 #define STREET_TYPE_DOLLAR              8
 //#define STREET_TYPE_SLAP              9
-#define STREET_TYPE_TRIVIA_1            10
-#define STREET_TYPE_TRIVIA_2            11
-#define STREET_TYPE_TRIVIA_3            12
-#define STREET_TYPE_WAITERS             13
+#define STREET_TYPE_TRIVIA_1           10
+#define STREET_TYPE_TRIVIA_2           11
+#define STREET_TYPE_TRIVIA_3           12
+#define STREET_TYPE_WAITERS            13
 
 
 
@@ -470,6 +498,24 @@ extern struct_ITEM_ list_ITEM[2];
 
 //**************************************************************************************//
 //                                                                                      //
+//                                   DOCTORS MINIGAME                                   //
+//                                                                                      //
+//**************************************************************************************//
+
+extern struct_CRACKER_ list_CRACKER[14];
+
+extern u8 G_ROUND_CRACKERS;
+
+extern bool G_CRACKERS_INIT;
+
+
+
+
+
+
+
+//**************************************************************************************//
+//                                                                                      //
 //                                      SPRITES                                         //
 //                                                                                      //
 //**************************************************************************************//
@@ -637,6 +683,23 @@ extern Sprite *sprite_ICE_CUBE_SHADOW;
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_SCISSOR;
+
+
+
+
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
+//                                  CRACKERS                                   //
+//                                                                             //
+//-----------------------------------------------------------------------------// 
+
+extern Sprite *sprite_HAND[3];
+
+extern u8 G_CRACKERS_SCREEN_TYPE;
 
 
 

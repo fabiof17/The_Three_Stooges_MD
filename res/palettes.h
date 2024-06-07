@@ -24,5 +24,7 @@ extern const Palette palette_BOXING_SCREEN_2_3;
 extern const Palette palette_BOXING_SCREEN_2_4;
 extern const Palette palette_SPR_CAR;
 extern const Palette palette_SPR_NURSE;
+extern const Palette palette_SPR_HAND_PART_1;
+extern const Palette palette_SPR_HAND_PART_2;
 
 #endif // _RES_PALETTES_H_

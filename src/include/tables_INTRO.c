@@ -1002,11 +1002,55 @@ void anim_INTRO_SCREEN_7_3()
     }
 
 
-    G_COUNTER_1 += 1;
+    
+
+    // WHAT'S THE MATTER LADY ? //
+    if(G_COUNTER_1 == 0)
+    {
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 10, 12, 0, 0, 14, 4, DMA_QUEUE);
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_INTRO_SCREEN_7_DIALOG.tileset->numTile), 11, 13, 0, 0, 12, 2, DMA_QUEUE);
+
+        SPR_setPosition(sprite_ARROW_DIALOG , 125 , 128);
+    }
+
+    else if(G_COUNTER_1 == 249)
+    {
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 10, 12, 10, 12, 14, 4, DMA_QUEUE);
+
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 2, 4, 0, 4, 17, 7, DMA_QUEUE);
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_INTRO_SCREEN_7_DIALOG.tileset->numTile), 3, 5, 0, 3, 15, 5, DMA_QUEUE);
+
+        SPR_setPosition(sprite_ARROW_DIALOG , 61 , 88);
+        SPR_setFrame(sprite_ARROW_DIALOG , 1);
+    }
+
+    else if(G_COUNTER_1 == 621)
+    {
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_INTRO_SCREEN_7_DIALOG.tileset->numTile), 3, 5, 0, 9, 15, 5, DMA_QUEUE);
+    }
+
+    else if(G_COUNTER_1 == 1447)
+    {
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 2, 4, 2, 4, 17, 7, DMA_QUEUE);
+
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 10, 10, 0, 11, 15, 6, DMA_QUEUE);
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_INTRO_SCREEN_7_DIALOG.tileset->numTile), 11, 11, 0, 15, 13, 4, DMA_QUEUE);
+
+        SPR_setPosition(sprite_ARROW_DIALOG , 125 , 128);
+        SPR_setFrame(sprite_ARROW_DIALOG , 0);
+    }
+
+    else if(G_COUNTER_1 == 1681)
+    {
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 10, 10, 10, 10, 15, 6, DMA_QUEUE);
+
+        SPR_releaseSprite(sprite_ARROW_DIALOG);
+        sprite_ARROW_DIALOG = NULL;
+    }
 
 
     // FADE OUT //
-    if(G_COUNTER_1 == 3149)
+    else if(G_COUNTER_1 == 3149)
     {
         // COUNTERS RESET //
         G_COUNTER_1 = 0;
@@ -1016,7 +1060,12 @@ void anim_INTRO_SCREEN_7_3()
         
         // GO TO FADE OUT SEQUENCE //
         G_SCENE     = SCENE_FADE_OUT;
+
+        return;
     }
+
+
+    G_COUNTER_1 += 1;
 
 }
 

@@ -4,6 +4,11 @@
 //                                                                                  //
 //**********************************************************************************//
 
+IMAGE image_FONT_INTRO                      "map/intro/tiles_FONT_INTRO.png"                BEST ALL
+
+
+
+
 //----------------------------------------------------------------------------------//
 //                                      SCREEN 1                                    //
 //----------------------------------------------------------------------------------//
@@ -80,6 +85,9 @@ IMAGE image_GRANDMA_INTRO_BG_B_STEP2        "map/intro/tiles_GRANDMA_INTRO_BG_B_
 IMAGE image_GRANDMA_INTRO_BG_A_STEP0        "map/intro/tiles_GRANDMA_INTRO_BG_A_STEP0.png"  NONE ALL
 IMAGE image_GRANDMA_INTRO_BG_A_STEP1        "map/intro/tiles_GRANDMA_INTRO_BG_A_STEP1.png"  NONE ALL
 IMAGE image_GRANDMA_INTRO_BG_A_STEP2        "map/intro/tiles_GRANDMA_INTRO_BG_A_STEP2.png"  NONE ALL
+
+IMAGE image_INTRO_SCREEN_7_DIALOG           "map/intro/tiles_INTRO_SCREEN_7_DIALOG.png"     BEST ALL
+IMAGE image_INTRO_SCREEN_7_TEXT             "map/intro/tiles_INTRO_SCREEN_7_TEXT.png"       BEST ALL
 
 
 
