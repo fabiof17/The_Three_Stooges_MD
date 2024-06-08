@@ -130,7 +130,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_CRACKERS_SCREEN; //SCENE_DOCTORS_MINIGAME | SCENE_ROULETTE | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
+        G_SCENE_TYPE = SCENE_CRACKERS_MINIGAME; //SCENE_DOCTORS_MINIGAME | SCENE_ROULETTE | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
     }
 
 
@@ -3703,18 +3703,7 @@ void init_SCENE()
     // CRACKERS MINIGAME //
     else if(G_SCENE_TYPE == SCENE_CRACKERS_MINIGAME)
     {
-        //**************************************************************************************//
-        //                                                                                      //
-        //                                      CLEAN VRAM                                      //
-        //                                                                                      //
-        //**************************************************************************************//
-
         u16 i = 0;
-
-        /*for(i=16 ; i<1440 ; i++)
-        {
-            VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
-        }*/
 
 
 
@@ -3730,17 +3719,6 @@ void init_SCENE()
         SPR_initEx(548);
         
         VDP_setHilightShadow(FALSE);
-
-
-
-
-        //**************************************************************************************//
-        //                                                                                      //
-        //                                   NUMBERS TILESET                                    //
-        //                                                                                      //
-        //**************************************************************************************//
-
-        //VDP_loadTileSet(image_BANK_NUMBERS.tileset, TILE_FONT_INDEX + 16, CPU);
 
 
 
@@ -3812,9 +3790,9 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  128, 152, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  119, 208, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-        sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  119, 110, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  183, 193, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  167, 248, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  174, 149, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
 
         SPR_update();
