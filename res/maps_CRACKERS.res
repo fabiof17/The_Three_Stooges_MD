@@ -24,3 +24,14 @@ IMAGE image_CRACKERS_SCREEN_SPREAD_BG_A3        "map/crackers/tiles_CRACKERS_SCR
 
 
 
+IMAGE image_CRACKERS_SCREEN_OVER_BG_B           "map/crackers/tiles_CRACKERS_SCREEN_OVER_BG_B.png"          NONE ALL
+IMAGE image_CRACKERS_SCREEN_OVER_BG_A           "map/crackers/tiles_CRACKERS_SCREEN_OVER_BG_A.png"          NONE ALL
+
+
+
+
+
+
+
+
+
