@@ -229,6 +229,9 @@
 #define CRACKERS_SCREEN_SPREAD_3        2
 #define CRACKERS_SCREEN_SPREAD_4        3
 
+#define CRACKER_SPOON_MOVE              0
+#define CRACKER_SPOON_GRAB              1
+
 
 
 

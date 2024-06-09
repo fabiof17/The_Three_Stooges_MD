@@ -472,6 +472,7 @@ int main(bool hardReset)
                 // CRACKERS MINIGAME //
                 else if(G_SCENE == SCENE_CRACKERS_MINIGAME)
                 {
+                    JOY_setEventHandler(crackers_Callback);  
                     joypad_CRACKERS_MINIGAME();
 
                     //sequence_DOCTORS_MINIGAME();

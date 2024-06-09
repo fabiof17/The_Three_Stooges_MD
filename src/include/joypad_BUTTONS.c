@@ -231,6 +231,36 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
 
 
 
+void crackers_Callback(u16 joy, u16 changed, u16 state)
+{
+    //u16 value=JOY_readJoypad(JOY_1);
+    
+    if(joy == JOY_1)
+    {
+        if(G_PHASE_SEQUENCE == CRACKER_SPOON_MOVE)
+        {
+            // BOUTON B //
+            if( changed & state & BUTTON_B )
+            {
+                s16 pos_X_HAND = SPR_getPositionX(sprite_HAND[2]);
+                s16 pos_Y_HAND = SPR_getPositionY(sprite_HAND[2]);
+
+                SPR_setPosition(sprite_HAND[0] ,pos_X_HAND + 9 , pos_Y_HAND + 16);
+                SPR_setPosition(sprite_HAND[1] ,pos_X_HAND - 7 , pos_Y_HAND + 68);
+
+                SPR_setFrame(sprite_HAND[0],1);
+                SPR_setFrame(sprite_HAND[1],1);
+                SPR_setFrame(sprite_HAND[2],1);
+                
+                G_PHASE_SEQUENCE = CRACKER_SPOON_GRAB;
+            }
+        }
+    }
+}
+
+
+
+
 
 
 

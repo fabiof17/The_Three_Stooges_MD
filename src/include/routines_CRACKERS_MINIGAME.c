@@ -22,8 +22,8 @@
 
 void joypad_CRACKERS_MINIGAME()
 {
-    //if(G_PHASE_SEQUENCE == DOCTORS_PHASE_RACING)
-    //{
+    if(G_PHASE_SEQUENCE == CRACKER_SPOON_MOVE)
+    {
         u16 value=JOY_readJoypad(JOY_1);
 
         s16 pos_X_HAND = SPR_getPositionX(sprite_HAND[2]);
@@ -212,11 +212,10 @@ void joypad_CRACKERS_MINIGAME()
             }
         }
 
-        SPR_setPosition(sprite_HAND[2] , pos_X_HAND     , pos_Y_HAND);
-        SPR_setPosition(sprite_HAND[1] , pos_X_HAND - 7 , pos_Y_HAND + 100);
-        SPR_setPosition(sprite_HAND[0] , pos_X_HAND + 9 , pos_Y_HAND + 44);
-
-    //}
+        SPR_setPosition(sprite_HAND[2] , pos_X_HAND      , pos_Y_HAND);
+        SPR_setPosition(sprite_HAND[1] , pos_X_HAND -  7 , pos_Y_HAND + 100);
+        SPR_setPosition(sprite_HAND[0] , pos_X_HAND + 10 , pos_Y_HAND +  44);
+    }
 }
 
 

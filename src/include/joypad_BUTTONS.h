@@ -12,7 +12,7 @@ extern void trivia_Callback(u16 joy, u16 changed, u16 state);
 
 extern void slap_Callback(u16 joy, u16 changed, u16 state);
 
-
+extern void crackers_Callback(u16 joy, u16 changed, u16 state);
 
 
 

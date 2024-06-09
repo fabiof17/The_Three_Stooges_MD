@@ -3716,7 +3716,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,32,TRUE);
         
-        SPR_initEx(548);
+        SPR_initEx(560);
         
         VDP_setHilightShadow(FALSE);
 
@@ -3790,7 +3790,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  183, 193, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  184, 193, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
         sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  167, 248, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  174, 149, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
@@ -3864,7 +3864,7 @@ void init_SCENE()
                 list_CRACKER[8].pos_Y = 89;
                 SPR_setPosition(list_CRACKER[8].spr_CRACKER  , list_CRACKER[8].pos_X , list_CRACKER[8].pos_Y);
 
-                list_CRACKER[9].pos_X = 187;
+                list_CRACKER[9].pos_X = 184;
                 list_CRACKER[9].pos_Y = 122;
                 SPR_setPosition(list_CRACKER[9].spr_CRACKER  , list_CRACKER[9].pos_X , list_CRACKER[9].pos_Y);
 
