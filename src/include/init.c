@@ -3795,7 +3795,8 @@ void init_SCENE()
         sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  174, 149, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
 
-        SPR_update();
+        //SPR_update();
+        //SYS_doVBlankProcess();
 
 
         //--------------------------------------------------------------------------------------//
@@ -3907,8 +3908,7 @@ void init_SCENE()
 
 
         SPR_update();
-
-
+        SYS_doVBlankProcess();
 
 
         //--------------------------------------------------------------------------------------//

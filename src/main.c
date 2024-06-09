@@ -12,6 +12,7 @@
 
 #include "include/routines_BANK.h"
 #include "include/routines_BOXING.h"
+#include "include/routines_CRACKERS_MINIGAME.h"
 #include "include/routines_DOCTORS.h"
 #include "include/routines_DOCTORS_MINIGAME.h"
 #include "include/routines_DOLLAR.h"
@@ -471,7 +472,7 @@ int main(bool hardReset)
                 // CRACKERS MINIGAME //
                 else if(G_SCENE == SCENE_CRACKERS_MINIGAME)
                 {
-                    //joypad_DOCTORS_MINIGAME();
+                    joypad_CRACKERS_MINIGAME();
 
                     //sequence_DOCTORS_MINIGAME();
                     
