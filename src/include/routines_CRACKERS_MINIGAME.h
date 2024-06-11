@@ -7,7 +7,7 @@
 
 extern void joypad_CRACKERS_MINIGAME();
 
-//extern void sequence_DOCTORS_MINIGAME();
+extern void sequence_CRACKERS_MINIGAME();
 
 
 

@@ -3773,7 +3773,7 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+        //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 
@@ -3820,7 +3820,9 @@ void init_SCENE()
 
             if(G_ROUND_CRACKERS == CRACKERS_ROUND_1)
             {
-                for(i=0 ; i<14 ; i++)
+                G_NB_CRACKERS = 14;
+                
+                for(i=0 ; i<G_NB_CRACKERS ; i++)
                 {
                     list_CRACKER[i].spr_CRACKER     = SPR_addSprite(&tiles_SPR_CRACKER,  0, 0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
                     list_CRACKER[i].state_CRACKER   = CRACKER_PHASE_FREE;
@@ -3896,7 +3898,7 @@ void init_SCENE()
 
         else
         {
-            for(i=0 ; i<14 ; i++)
+            for(i=0 ; i<G_NB_CRACKERS ; i++)
             {
                 if(list_CRACKER[i].state_CRACKER != CRACKER_PHASE_EATEN)
                 {
@@ -3937,7 +3939,7 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
-        //G_PHASE_SEQUENCE        = BANKER_PHASE_WALKIN;
+        G_SELECTED_CRACKER      = NULL;
        
 
         G_SCENE                 = SCENE_FADE_IN;

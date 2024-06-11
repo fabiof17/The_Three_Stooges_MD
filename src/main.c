@@ -475,7 +475,7 @@ int main(bool hardReset)
                     JOY_setEventHandler(crackers_Callback);  
                     joypad_CRACKERS_MINIGAME();
 
-                    //sequence_DOCTORS_MINIGAME();
+                    sequence_CRACKERS_MINIGAME();
                     
                     SPR_update();
                     SYS_doVBlankProcess();

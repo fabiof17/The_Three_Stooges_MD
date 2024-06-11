@@ -231,6 +231,7 @@
 
 #define CRACKER_SPOON_MOVE              0
 #define CRACKER_SPOON_GRAB              1
+#define CRACKER_SPOON_MISS              2
 
 
 
@@ -501,7 +502,7 @@ extern struct_ITEM_ list_ITEM[2];
 
 //**************************************************************************************//
 //                                                                                      //
-//                                   DOCTORS MINIGAME                                   //
+//                                   CRACKERS MINIGAME                                  //
 //                                                                                      //
 //**************************************************************************************//
 
@@ -510,6 +511,10 @@ extern struct_CRACKER_ list_CRACKER[14];
 extern u8 G_ROUND_CRACKERS;
 
 extern bool G_CRACKERS_INIT;
+
+extern u8 G_NB_CRACKERS;
+
+extern u8 G_SELECTED_CRACKER;
 
 
 

@@ -251,8 +251,42 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
                 SPR_setFrame(sprite_HAND[0],1);
                 SPR_setFrame(sprite_HAND[1],1);
                 SPR_setFrame(sprite_HAND[2],1);
-                
-                G_PHASE_SEQUENCE = CRACKER_SPOON_GRAB;
+
+
+
+
+                u8 i;
+
+                for(i=0 ; i<G_NB_CRACKERS ; i++)
+                {
+                    if(list_CRACKER[i].state_CRACKER < 3)
+                    {
+                        u16 distance_X = abs( (list_CRACKER[i].pos_X + 28) - (pos_X_HAND + 24) );
+                        u16 distance_Y = abs( (list_CRACKER[i].pos_Y + 20) - (pos_Y_HAND + 16) );
+                        
+                        if(distance_X < 16)
+                        {
+                            if(distance_Y < 16)
+                            {
+                                list_CRACKER[i].state_CRACKER = CRACKER_PHASE_EATEN;
+
+                                SPR_setFrame(list_CRACKER[i].spr_CRACKER,0);
+                                SPR_setPosition(list_CRACKER[i].spr_CRACKER , pos_X_HAND - 11 , pos_Y_HAND - 8);
+
+                                SPR_setDepth(list_CRACKER[i].spr_CRACKER,0);
+
+                                G_PHASE_SEQUENCE = CRACKER_SPOON_GRAB;
+
+                                G_SELECTED_CRACKER = i;
+
+                                return;
+                            }
+                        }
+                    }
+                }
+
+
+                G_PHASE_SEQUENCE = CRACKER_SPOON_MISS;  
             }
         }
     }
