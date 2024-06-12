@@ -242,11 +242,8 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
             // BOUTON B //
             if( changed & state & BUTTON_B )
             {
-                s16 pos_X_HAND = SPR_getPositionX(sprite_HAND[2]);
-                s16 pos_Y_HAND = SPR_getPositionY(sprite_HAND[2]);
-
-                SPR_setPosition(sprite_HAND[0] ,pos_X_HAND + 9 , pos_Y_HAND + 16);
-                SPR_setPosition(sprite_HAND[1] ,pos_X_HAND - 7 , pos_Y_HAND + 68);
+                SPR_setPosition(sprite_HAND[0] ,G_POS_X_PLAYER + 9 , G_POS_Y_PLAYER + 16);
+                SPR_setPosition(sprite_HAND[1] ,G_POS_X_PLAYER - 7 , G_POS_Y_PLAYER + 68);
 
                 SPR_setFrame(sprite_HAND[0],1);
                 SPR_setFrame(sprite_HAND[1],1);
@@ -257,12 +254,12 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
 
                 u8 i;
 
-                for(i=0 ; i<G_NB_CRACKERS ; i++)
+                for(i=0 ; i<14 ; i++)
                 {
                     if(list_CRACKER[i].state_CRACKER < 3)
                     {
-                        u16 distance_X = abs( (list_CRACKER[i].pos_X + 28) - (pos_X_HAND + 24) );
-                        u16 distance_Y = abs( (list_CRACKER[i].pos_Y + 20) - (pos_Y_HAND + 16) );
+                        u16 distance_X = abs( (list_CRACKER[i].pos_X + 28) - (G_POS_X_PLAYER + 24) );
+                        u16 distance_Y = abs( (list_CRACKER[i].pos_Y + 20) - (G_POS_Y_PLAYER + 16) );
                         
                         if(distance_X < 16)
                         {
@@ -271,13 +268,17 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
                                 list_CRACKER[i].state_CRACKER = CRACKER_PHASE_EATEN;
 
                                 SPR_setFrame(list_CRACKER[i].spr_CRACKER,0);
-                                SPR_setPosition(list_CRACKER[i].spr_CRACKER , pos_X_HAND - 11 , pos_Y_HAND - 8);
+                                SPR_setPosition(list_CRACKER[i].spr_CRACKER , G_POS_X_PLAYER - 11 , G_POS_Y_PLAYER - 8);
 
                                 SPR_setDepth(list_CRACKER[i].spr_CRACKER,0);
 
                                 G_PHASE_SEQUENCE = CRACKER_SPOON_GRAB;
 
+                                G_NUMBER_CRACKERS -= 1;
+
                                 G_SELECTED_CRACKER = i;
+
+                                //VDP_drawIntEx_BG_A_QUEUE(i,1,0,0,PAL0);
 
                                 return;
                             }

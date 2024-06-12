@@ -224,10 +224,10 @@
 #define CRACKER_PHASE_OYSTER_3          3
 #define CRACKER_PHASE_EATEN             4
 
-#define CRACKERS_SCREEN_SPREAD_1        0
-#define CRACKERS_SCREEN_SPREAD_2        1
-#define CRACKERS_SCREEN_SPREAD_3        2
-#define CRACKERS_SCREEN_SPREAD_4        3
+#define CRACKERS_SCREEN_SPREAD          0
+#define CRACKERS_SCREEN_SURPRISE_1      1
+#define CRACKERS_SCREEN_SURPRISE_2      2
+#define CRACKERS_SCREEN_SURPRISE_3      3
 
 #define CRACKER_SPOON_MOVE              0
 #define CRACKER_SPOON_GRAB              1
@@ -369,6 +369,9 @@ extern s16 G_POS_Y_CAMERA;
 
 
 extern bool G_AXIS;
+
+extern s16 G_POS_X_PLAYER;
+extern s16 G_POS_Y_PLAYER;
 
 
 
@@ -512,7 +515,7 @@ extern u8 G_ROUND_CRACKERS;
 
 extern bool G_CRACKERS_INIT;
 
-extern u8 G_NB_CRACKERS;
+extern u8 G_NUMBER_CRACKERS;
 
 extern u8 G_SELECTED_CRACKER;
 

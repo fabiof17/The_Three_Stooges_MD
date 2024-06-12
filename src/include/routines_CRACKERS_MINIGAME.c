@@ -15,25 +15,22 @@
 
 inline static void collision_CRACKERS()
 {
-    s16 pos_X_HAND = SPR_getPositionX(sprite_HAND[2]);
-    s16 pos_Y_HAND = SPR_getPositionY(sprite_HAND[2]);
-
     u8 i;
 
-    for(i=0 ; i<G_NB_CRACKERS ; i++)
+    for(i=0 ; i<14 ; i++)
     {
         if(list_CRACKER[i].state_CRACKER < 3)
         {
-            u16 distance_X = abs( (list_CRACKER[i].pos_X + 28) - (pos_X_HAND + 24) );
-            u16 distance_Y = abs( (list_CRACKER[i].pos_Y + 20) - (pos_Y_HAND + 16) );
+            u16 distance_X = abs( (list_CRACKER[i].pos_X + 28) - (G_POS_X_PLAYER + 24) );
+            u16 distance_Y = abs( (list_CRACKER[i].pos_Y + 20) - (G_POS_Y_PLAYER + 16) );
             
             if(distance_X < 16)
             {
                 if(distance_Y < 16)
                 {
-                    //VDP_drawIntEx_BG_A_QUEUE(i,1,0,0,PAL0);
-                    //VDP_drawIntEx_BG_A_QUEUE(distance_X,3,0,2,PAL0);
-                    //VDP_drawIntEx_BG_A_QUEUE(distance_Y,3,0,3,PAL0);
+                    VDP_drawIntEx_BG_A_QUEUE(i,1,0,0,PAL0);
+                    VDP_drawIntEx_BG_A_QUEUE(distance_X,3,0,2,PAL0);
+                    VDP_drawIntEx_BG_A_QUEUE(distance_Y,3,0,3,PAL0);
 
                     return;
                 }
@@ -49,9 +46,6 @@ void joypad_CRACKERS_MINIGAME()
     {
         u16 value=JOY_readJoypad(JOY_1);
 
-        s16 pos_X_HAND = SPR_getPositionX(sprite_HAND[2]);
-        s16 pos_Y_HAND = SPR_getPositionY(sprite_HAND[2]);
-
         //--------------------------------------------------------------//
         //                                                              //
         //                         BUTTON LEFT                          //
@@ -60,39 +54,34 @@ void joypad_CRACKERS_MINIGAME()
 
         if(value & BUTTON_LEFT)
         {
-            if(pos_X_HAND - 2 < 39)
+            if(G_POS_X_PLAYER - 2 < 39)
             {
-                pos_X_HAND = 39;
+                G_POS_X_PLAYER = 39;
             }
 
             else
             {
-                pos_X_HAND -= 2;
+                G_POS_X_PLAYER -= 2;
             }
 
             if(value & BUTTON_UP)
             {
-                if(pos_Y_HAND - 2 < 100)
+                if(G_POS_Y_PLAYER - 2 < 100)
                 {
-                    pos_Y_HAND = 100;
+                    G_POS_Y_PLAYER = 100;
                 }
 
                 else
                 {
-                    pos_Y_HAND -= 2;
+                    G_POS_Y_PLAYER -= 2;
                 }
             }
 
             else if(value & BUTTON_DOWN)
             {
-                if(pos_Y_HAND + 2 > 200)
+                if(G_POS_Y_PLAYER + 2 < 201)
                 {
-                    pos_Y_HAND = 200;
-                }
-
-                else
-                {
-                    pos_Y_HAND += 2;
+                    G_POS_Y_PLAYER += 2;
                 }
             }
         }
@@ -106,39 +95,34 @@ void joypad_CRACKERS_MINIGAME()
 
         else if(value & BUTTON_RIGHT)
         {
-            if(pos_X_HAND + 2 > 255)
+            if(G_POS_X_PLAYER + 2 > 255)
             {
-                pos_X_HAND = 255;
+                G_POS_X_PLAYER = 255;
             }
 
             else
             {
-                pos_X_HAND += 2;
+                G_POS_X_PLAYER += 2;
             }
 
             if(value & BUTTON_UP)
             {
-                if(pos_Y_HAND - 2 < 100)
+                if(G_POS_Y_PLAYER - 2 < 100)
                 {
-                    pos_Y_HAND = 100;
+                    G_POS_Y_PLAYER = 100;
                 }
 
                 else
                 {
-                    pos_Y_HAND -= 2;
+                    G_POS_Y_PLAYER -= 2;
                 }
             }
 
             else if(value & BUTTON_DOWN)
             {
-                if(pos_Y_HAND + 2 > 200)
+                if(G_POS_Y_PLAYER + 2 < 201)
                 {
-                    pos_Y_HAND = 200;
-                }
-
-                else
-                {
-                    pos_Y_HAND += 2;
+                    G_POS_Y_PLAYER += 2;
                 }
             }
         }
@@ -152,39 +136,39 @@ void joypad_CRACKERS_MINIGAME()
 
         else if(value & BUTTON_UP)
         {
-            if(pos_Y_HAND - 2 < 100)
+            if(G_POS_Y_PLAYER - 2 < 100)
             {
-                pos_Y_HAND = 100;
+                G_POS_Y_PLAYER = 100;
             }
 
             else
             {
-                pos_Y_HAND -= 2;
+                G_POS_Y_PLAYER -= 2;
             }
 
             if(value & BUTTON_LEFT)
             {
-                if(pos_X_HAND - 2 < 39)
+                if(G_POS_X_PLAYER - 2 < 39)
                 {
-                    pos_X_HAND = 39;
+                    G_POS_X_PLAYER = 39;
                 }
 
                 else
                 {
-                    pos_X_HAND -= 2;
+                    G_POS_X_PLAYER -= 2;
                 }
             }
 
             else if(value & BUTTON_RIGHT)
             {
-                if(pos_X_HAND + 2 > 255)
+                if(G_POS_X_PLAYER + 2 > 255)
                 {
-                    pos_X_HAND = 255;
+                    G_POS_X_PLAYER = 255;
                 }
 
                 else
                 {
-                    pos_X_HAND += 2;
+                    G_POS_X_PLAYER += 2;
                 }
             }
         }
@@ -198,46 +182,41 @@ void joypad_CRACKERS_MINIGAME()
 
         else if(value & BUTTON_DOWN)
         {
-            if(pos_Y_HAND + 2 > 200)
+            if(G_POS_Y_PLAYER + 2 < 201)
             {
-                pos_Y_HAND = 200;
-            }
-
-            else
-            {
-                pos_Y_HAND += 2;
+                G_POS_Y_PLAYER += 2;
             }
 
             if(value & BUTTON_LEFT)
             {
-                if(pos_X_HAND - 2 < 39)
+                if(G_POS_X_PLAYER - 2 < 39)
                 {
-                    pos_X_HAND = 39;
+                    G_POS_X_PLAYER = 39;
                 }
 
                 else
                 {
-                    pos_X_HAND -= 2;
+                    G_POS_X_PLAYER -= 2;
                 }
             }
 
             else if(value & BUTTON_RIGHT)
             {
-                if(pos_X_HAND + 2 > 255)
+                if(G_POS_X_PLAYER + 2 > 255)
                 {
-                    pos_X_HAND = 255;
+                    G_POS_X_PLAYER = 255;
                 }
 
                 else
                 {
-                    pos_X_HAND += 2;
+                    G_POS_X_PLAYER += 2;
                 }
             }
         }
 
-        SPR_setPosition(sprite_HAND[2] , pos_X_HAND      , pos_Y_HAND);
-        SPR_setPosition(sprite_HAND[1] , pos_X_HAND -  7 , pos_Y_HAND + 100);
-        SPR_setPosition(sprite_HAND[0] , pos_X_HAND + 10 , pos_Y_HAND +  44);
+        SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+        SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER + 100);
+        SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER + 10 , G_POS_Y_PLAYER +  44);
 
         //collision_CRACKERS();
     }
@@ -250,99 +229,121 @@ void sequence_CRACKERS_MINIGAME()
 {
     if(G_PHASE_SEQUENCE == CRACKER_SPOON_GRAB)
     {
-        s16 pos_X_HAND = SPR_getPositionX(sprite_HAND[2]);
-        s16 pos_Y_HAND = SPR_getPositionY(sprite_HAND[2]);
-
+        //------------------------------------------------------------------//
+        //                       UPDATE SPRITE FRAME                        //
+        //------------------------------------------------------------------//
         if(G_COUNTER_1 == 6)
         {
-            SPR_setPosition(sprite_HAND[1] , pos_X_HAND -  7 , pos_Y_HAND + 100);            
-            SPR_setPosition(sprite_HAND[0] , pos_X_HAND + 10 , pos_Y_HAND +  44);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER + 100);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER + 10 , G_POS_Y_PLAYER +  44);
 
 
             SPR_setFrame(sprite_HAND[0],0);
             SPR_setFrame(sprite_HAND[1],0);
             SPR_setFrame(sprite_HAND[2],0);
 
-            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , pos_X_HAND - 7 , pos_Y_HAND  - 8);
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , G_POS_X_PLAYER - 7 , G_POS_Y_PLAYER  - 8);
 
 
 
         }
 
-        if(G_COUNTER_1 > 10 && G_COUNTER_1 < 37)
+        //------------------------------------------------------------------//
+        //                          MOVE HAND DOWN                          //
+        //------------------------------------------------------------------//
+        else if(G_COUNTER_1 > 6 && G_COUNTER_1 < 32)
         {
-            if(pos_Y_HAND < 212)
+            //------------------------------------------------------------------//
+            //                      REMOVE CRACKER SPRITE                       //
+            //------------------------------------------------------------------//
+            if(G_COUNTER_1 == 31)
             {
-                if(pos_Y_HAND + 4 >211)
+                SPR_releaseSprite(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER);
+                list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER = NULL;
+
+
+                //------------------------------------------------------------------//
+                //                   IF CRACKERS NUMBER REACHES 0                   //
+                //                GO TO NEXT ROUND AND SPREAD SCREEN                //
+                //------------------------------------------------------------------//
+                if(G_NUMBER_CRACKERS == 0)
                 {
-                    pos_Y_HAND = 212;
-                }
+                    PAL_fadeOutAll(2,FALSE);
 
-                else
-                {
-                    pos_Y_HAND += 4;
-                }
+                    SPR_reset();
 
-                SPR_setPosition(sprite_HAND[2] , pos_X_HAND, pos_Y_HAND);
-                SPR_setPosition(sprite_HAND[1] , pos_X_HAND -  7 , pos_Y_HAND + 100);            
-                SPR_setPosition(sprite_HAND[0] , pos_X_HAND + 10 , pos_Y_HAND +  44);
+                    
+                    G_ROUND_CRACKERS    += 1;
 
-                SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , pos_X_HAND - 7 , pos_Y_HAND  - 8);
-            }
-        }
+                    if(G_ROUND_CRACKERS > CRACKERS_ROUND_4)
+                    {
+                        //
+                    }
 
 
-        if(G_COUNTER_1 == 36)
-        {
-            SPR_releaseSprite(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER);
-            list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER = NULL;
-        }
+                    else
+                    {
+                        G_CRACKERS_INIT         = FALSE;
 
+                        G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_SPREAD;
 
-        else if(G_COUNTER_1 > 44)
-        {
-            if(pos_Y_HAND > 116)
-            {
-                if(pos_Y_HAND - 4 < 117)
-                {
-                    pos_Y_HAND = 116;
+                        G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
+                        G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
+                    }
 
-                    SPR_setPosition(sprite_HAND[2] , pos_X_HAND, pos_Y_HAND);
-                    SPR_setPosition(sprite_HAND[1] , pos_X_HAND -  7 , pos_Y_HAND + 100);            
-                    SPR_setPosition(sprite_HAND[0] , pos_X_HAND + 10 , pos_Y_HAND +  44);
-
-                    G_COUNTER_1 = 0;
-
-                    G_PHASE_SEQUENCE = CRACKER_SPOON_MOVE;
+                    G_SCENE_LOADED          = FALSE;
 
                     return;
                 }
+            }
 
-                else
-                {
-                    pos_Y_HAND -= 4;
+            G_POS_Y_PLAYER += 4;
 
-                    SPR_setPosition(sprite_HAND[2] , pos_X_HAND, pos_Y_HAND);
-                    SPR_setPosition(sprite_HAND[1] , pos_X_HAND -  7 , pos_Y_HAND + 100);            
-                    SPR_setPosition(sprite_HAND[0] , pos_X_HAND + 10 , pos_Y_HAND +  44);
-                }
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER, G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER + 100);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER + 10 , G_POS_Y_PLAYER +  44);
+
+            if(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER != NULL)
+            {
+                SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , G_POS_X_PLAYER - 7 , G_POS_Y_PLAYER  - 8);
             }
         }
+
+        //------------------------------------------------------------------//
+        //                           MOVE HAND UP                           //
+        //------------------------------------------------------------------//
+        else if(G_COUNTER_1 > 35 && G_COUNTER_1 < 57)
+        {
+            G_POS_Y_PLAYER -= 4;
+
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER, G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER + 100);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER + 10 , G_POS_Y_PLAYER +  44);
+        }
+
+        //------------------------------------------------------------------//
+        //                    GO BACK TO HAND MOVE PHASE                    //
+        //------------------------------------------------------------------//
+        else if(G_COUNTER_1 == 62)
+        {
+            G_COUNTER_1 = 0;
+
+            G_PHASE_SEQUENCE = CRACKER_SPOON_MOVE;
+            
+            return;            
+        }
         
+
         G_COUNTER_1 += 1;
     }
 
 
     else if(G_PHASE_SEQUENCE == CRACKER_SPOON_MISS)
     {
-        s16 pos_X_HAND = SPR_getPositionX(sprite_HAND[2]);
-        s16 pos_Y_HAND = SPR_getPositionY(sprite_HAND[2]);
-
-
         if(G_COUNTER_1 == 6)
         {
-            SPR_setPosition(sprite_HAND[1] , pos_X_HAND -  7 , pos_Y_HAND + 100);            
-            SPR_setPosition(sprite_HAND[0] , pos_X_HAND + 10 , pos_Y_HAND +  44);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER + 100);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER + 10 , G_POS_Y_PLAYER +  44);
 
 
             SPR_setFrame(sprite_HAND[0],0);

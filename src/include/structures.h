@@ -174,8 +174,6 @@ typedef struct
     u8 counter_CRACKER;
     u8 state_CRACKER;
 
-
-
 } struct_CRACKER_;
 
 

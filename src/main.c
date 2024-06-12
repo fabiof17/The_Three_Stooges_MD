@@ -26,6 +26,7 @@
 #include "include/routines_WAITERS.h"
 
 
+#include "include/tables_CRACKERS.h"
 #include "include/tables_INTRO.h"
 
 
@@ -461,9 +462,7 @@ int main(bool hardReset)
                 // CRACKERS SCREEN //
                 else if(G_SCENE == SCENE_CRACKERS_SCREEN)
                 {
-                    //joypad_DOCTORS_MINIGAME();
-
-                    //sequence_DOCTORS_MINIGAME();
+                    sequence_CRACKERS_SCREEN();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -476,6 +475,15 @@ int main(bool hardReset)
                     joypad_CRACKERS_MINIGAME();
 
                     sequence_CRACKERS_MINIGAME();
+
+                    /*u8 j;
+
+                    for(j=0;j<14;j++)
+                    {
+                        VDP_drawIntEx_BG_A_QUEUE(list_CRACKER[j].state_CRACKER,1,j,0,PAL0);
+                    }*/
+
+                    //VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_CRACKERS,2,0,0,PAL0);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -526,7 +534,7 @@ int main(bool hardReset)
                 // FADE IN CRACKERS //
                 else if(G_SCENE == SCENE_FADE_IN_CRACKERS)
                 {
-                    PAL_fadeInAll(palette_64, 2, FALSE);
+                    PAL_fadeInAll(palette_64, 1, FALSE);
 
                     G_SCENE         = G_SCENE_NEXT;
                     G_SCENE_NEXT    = NULL;
@@ -535,10 +543,10 @@ int main(bool hardReset)
                 // FADE OUT CRACKERS //
                 else if(G_SCENE == SCENE_FADE_OUT_CRACKERS)
                 {                    
-                    PAL_fadeOutAll(2,FALSE);
+                    PAL_fadeOutAll(4,FALSE);
 
-                    //G_SCENE         = G_SCENE_NEXT;
-                    //G_SCENE_NEXT    = NULL;
+                    G_SCENE         = G_SCENE_NEXT;
+                    G_SCENE_NEXT    = NULL;
                 }
             }
         }

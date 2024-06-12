@@ -58,6 +58,7 @@
 
 
 #include "tables_BACKGROUNDS.h"
+#include "tables_CRACKERS.h"
 #include "tables_DOCTORS.h"
 #include "tables_DOLLAR.h"
 #include "tables_INTRO.h"
@@ -130,7 +131,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_CRACKERS_MINIGAME; //SCENE_DOCTORS_MINIGAME | SCENE_ROULETTE | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
+        G_SCENE_TYPE = SCENE_CRACKERS_SCREEN; //SCENE_DOCTORS_MINIGAME | SCENE_ROULETTE | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
     }
 
 
@@ -191,7 +192,7 @@ void init_VARIABLES()
 
     G_ROUND_CRACKERS            = CRACKERS_ROUND_1;
     G_CRACKERS_INIT             = FALSE;
-    G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD_1;
+    G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
 
     
 
@@ -3640,8 +3641,8 @@ void init_SCENE()
             VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset, G_ADR_VRAM_BG_B, CPU);
             VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B1.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
 
-            VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile + 1, CPU);
-            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile + 1), 10, 15, 0, 0, 11, 9, CPU);
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, CPU);
 
 
             //--------------------------------------------------------------------------------------//
@@ -3654,8 +3655,8 @@ void init_SCENE()
             VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset, G_ADR_VRAM_BG_A, CPU);
             VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A1.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
 
-            VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_A2.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile + 1, CPU);
-            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile + 1), 10, 15, 0, 0, 11, 9, CPU);
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_A2.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, CPU);
 
 
 
@@ -3668,16 +3669,13 @@ void init_SCENE()
 
             memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SPREAD_BG_B1.palette->data     , 16 * 2 );
             memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SPREAD_BG_A1.palette->data     , 16 * 2 );
-            //memcpy( &palette_64[32] , palette_SPR_HAND_PART_1.data          , 16 * 2 );
-            //memcpy( &palette_64[48] , palette_SPR_HAND_PART_2.data          , 16 * 2 );
         }
-
-
 
         else
         {
             //
         }
+
 
 
 
@@ -3693,7 +3691,17 @@ void init_SCENE()
         G_INDEX_3               = 0;
        
 
-        G_SCENE                 = SCENE_FADE_IN_CRACKERS;
+        if(G_ROUND_CRACKERS == CRACKERS_ROUND_1)
+        {
+            G_SCENE = SCENE_FADE_IN;
+        }
+
+        else
+        {
+            G_SCENE = SCENE_FADE_IN_CRACKERS;
+        }
+
+
         G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
         G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
 
@@ -3784,19 +3792,9 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************// 
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                     HAND SPRITES                                     //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  184, 193, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  167, 248, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-        sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  174, 149, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
 
-        //SPR_update();
-        //SYS_doVBlankProcess();
+
 
 
         //--------------------------------------------------------------------------------------//
@@ -3811,18 +3809,33 @@ void init_SCENE()
         if(G_CRACKERS_INIT == FALSE)
         {
             //--------------------------------------------------------------------------------------//
-            //                                 ROUND 1 : 14 CRACKERS                                //
+            //                                     HAND SPRITES                                     //
             //--------------------------------------------------------------------------------------//
 
+            G_POS_X_PLAYER = 174;
+            G_POS_Y_PLAYER = 150;
+
+            sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  G_POS_X_PLAYER + 10 , G_POS_Y_PLAYER + 44  , TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+            sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  G_POS_X_PLAYER - 7  , G_POS_Y_PLAYER + 100 , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+            sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  G_POS_X_PLAYER      , G_POS_Y_PLAYER       , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+            //--------------------------------------------------------------------------------------//
+            //                                 ROUND 1 : 14 CRACKERS                                //
+            //--------------------------------------------------------------------------------------//
             //--------------------------------------------------------------------------------------//
             //                                WE INIT ALL 14 CRACKERS                               //
             //--------------------------------------------------------------------------------------//
 
             if(G_ROUND_CRACKERS == CRACKERS_ROUND_1)
             {
-                G_NB_CRACKERS = 14;
+                G_NUMBER_CRACKERS = 14;
                 
-                for(i=0 ; i<G_NB_CRACKERS ; i++)
+
+                //--------------------------------------------------------------------------------------//
+                //                                   CRACKERS SPRITES                                   //
+                //--------------------------------------------------------------------------------------//
+
+                for(i=0 ; i<G_NUMBER_CRACKERS ; i++)
                 {
                     list_CRACKER[i].spr_CRACKER     = SPR_addSprite(&tiles_SPR_CRACKER,  0, 0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
                     list_CRACKER[i].state_CRACKER   = CRACKER_PHASE_FREE;
@@ -3887,7 +3900,158 @@ void init_SCENE()
                 SPR_setPosition(list_CRACKER[13].spr_CRACKER , list_CRACKER[13].pos_X , list_CRACKER[13].pos_Y);
 
 
-                G_CRACKERS_INIT = TRUE;
+                G_CRACKERS_INIT  = TRUE;
+
+                G_PHASE_SEQUENCE = CRACKER_SPOON_MOVE;
+            }
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                 ROUND 2 : 8 CRACKERS                                 //
+            //--------------------------------------------------------------------------------------//
+            //--------------------------------------------------------------------------------------//
+            //                                WE INIT ALL 8 CRACKERS                                //
+            //--------------------------------------------------------------------------------------//
+
+            else if(G_ROUND_CRACKERS == CRACKERS_ROUND_2)
+            {
+                G_NUMBER_CRACKERS = 8;
+                
+
+                //--------------------------------------------------------------------------------------//
+                //                                   CRACKERS SPRITES                                   //
+                //--------------------------------------------------------------------------------------//
+
+                for(i=0 ; i<G_NUMBER_CRACKERS ; i++)
+                {
+                    list_CRACKER[i].spr_CRACKER     = SPR_addSprite(&tiles_SPR_CRACKER,  0, 0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+                    list_CRACKER[i].state_CRACKER   = CRACKER_PHASE_FREE;
+                    list_CRACKER[i].counter_CRACKER = 0;
+                }
+
+
+                list_CRACKER[0].pos_X = 40;
+                list_CRACKER[0].pos_Y = 142;
+                SPR_setPosition(list_CRACKER[0].spr_CRACKER  ,  list_CRACKER[0].pos_X , list_CRACKER[0].pos_Y);
+
+                list_CRACKER[1].pos_X = 72;
+                list_CRACKER[1].pos_Y = 110;
+                SPR_setPosition(list_CRACKER[1].spr_CRACKER  ,  list_CRACKER[1].pos_X , list_CRACKER[1].pos_Y);
+
+                list_CRACKER[2].pos_X = 120;
+                list_CRACKER[2].pos_Y = 187;
+                SPR_setPosition(list_CRACKER[2].spr_CRACKER  ,  list_CRACKER[2].pos_X , list_CRACKER[2].pos_Y);
+
+                list_CRACKER[3].pos_X = 136;
+                list_CRACKER[3].pos_Y = 122;
+                SPR_setPosition(list_CRACKER[3].spr_CRACKER  ,  list_CRACKER[3].pos_X , list_CRACKER[3].pos_Y);
+
+                list_CRACKER[4].pos_X = 120;
+                list_CRACKER[4].pos_Y = 88;
+                SPR_setPosition(list_CRACKER[4].spr_CRACKER  , list_CRACKER[4].pos_X , list_CRACKER[4].pos_Y);
+
+                list_CRACKER[5].pos_X = 168;
+                list_CRACKER[5].pos_Y = 187;
+                SPR_setPosition(list_CRACKER[5].spr_CRACKER  , list_CRACKER[5].pos_X , list_CRACKER[5].pos_Y);
+
+                list_CRACKER[6].pos_X = 184;
+                list_CRACKER[6].pos_Y = 122;
+                SPR_setPosition(list_CRACKER[6].spr_CRACKER  , list_CRACKER[6].pos_X , list_CRACKER[6].pos_Y);
+
+                list_CRACKER[7].pos_X = 232;
+                list_CRACKER[7].pos_Y = 155;
+                SPR_setPosition(list_CRACKER[7].spr_CRACKER  , list_CRACKER[7].pos_X , list_CRACKER[7].pos_Y);
+
+
+                G_CRACKERS_INIT  = TRUE;
+
+                G_PHASE_SEQUENCE = CRACKER_SPOON_MOVE;
+            }
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                 ROUND 3 : 4 CRACKERS                                 //
+            //--------------------------------------------------------------------------------------//
+            //--------------------------------------------------------------------------------------//
+            //                                WE INIT ALL 4 CRACKERS                                //
+            //--------------------------------------------------------------------------------------//
+
+            else if(G_ROUND_CRACKERS == CRACKERS_ROUND_3)
+            {
+                G_NUMBER_CRACKERS = 4;
+                
+
+                //--------------------------------------------------------------------------------------//
+                //                                   CRACKERS SPRITES                                   //
+                //--------------------------------------------------------------------------------------//
+
+                for(i=0 ; i<G_NUMBER_CRACKERS ; i++)
+                {
+                    list_CRACKER[i].spr_CRACKER     = SPR_addSprite(&tiles_SPR_CRACKER,  0, 0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+                    list_CRACKER[i].state_CRACKER   = CRACKER_PHASE_FREE;
+                    list_CRACKER[i].counter_CRACKER = 0;
+                }
+
+
+                list_CRACKER[0].pos_X = 72;
+                list_CRACKER[0].pos_Y = 110;
+                SPR_setPosition(list_CRACKER[0].spr_CRACKER  ,  list_CRACKER[0].pos_X , list_CRACKER[0].pos_Y);
+
+                list_CRACKER[1].pos_X = 136;
+                list_CRACKER[1].pos_Y = 155;
+                SPR_setPosition(list_CRACKER[1].spr_CRACKER  ,  list_CRACKER[1].pos_X , list_CRACKER[1].pos_Y);
+
+                list_CRACKER[2].pos_X = 120;
+                list_CRACKER[2].pos_Y = 89;
+                SPR_setPosition(list_CRACKER[2].spr_CRACKER  ,  list_CRACKER[2].pos_X , list_CRACKER[2].pos_Y);
+
+                list_CRACKER[3].pos_X = 232;
+                list_CRACKER[3].pos_Y = 122;
+                SPR_setPosition(list_CRACKER[3].spr_CRACKER  ,  list_CRACKER[3].pos_X , list_CRACKER[3].pos_Y);
+
+
+                G_CRACKERS_INIT  = TRUE;
+
+                G_PHASE_SEQUENCE = CRACKER_SPOON_MOVE;
+            }
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                 ROUND 4 : 2 CRACKERS                                 //
+            //--------------------------------------------------------------------------------------//
+            //--------------------------------------------------------------------------------------//
+            //                                WE INIT ALL 2 CRACKERS                                //
+            //--------------------------------------------------------------------------------------//
+
+            else if(G_ROUND_CRACKERS == CRACKERS_ROUND_4)
+            {
+                G_NUMBER_CRACKERS = 2;
+                
+
+                //--------------------------------------------------------------------------------------//
+                //                                   CRACKERS SPRITES                                   //
+                //--------------------------------------------------------------------------------------//
+
+                for(i=0 ; i<G_NUMBER_CRACKERS ; i++)
+                {
+                    list_CRACKER[i].spr_CRACKER     = SPR_addSprite(&tiles_SPR_CRACKER,  0, 0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+                    list_CRACKER[i].state_CRACKER   = CRACKER_PHASE_FREE;
+                    list_CRACKER[i].counter_CRACKER = 0;
+                }
+
+
+                list_CRACKER[0].pos_X = 88;
+                list_CRACKER[0].pos_Y = 142;
+                SPR_setPosition(list_CRACKER[0].spr_CRACKER  ,  list_CRACKER[0].pos_X , list_CRACKER[0].pos_Y);
+
+                list_CRACKER[1].pos_X = 184;
+                list_CRACKER[1].pos_Y = 122;
+                SPR_setPosition(list_CRACKER[1].spr_CRACKER  ,  list_CRACKER[1].pos_X , list_CRACKER[1].pos_Y);
+
+
+                G_CRACKERS_INIT  = TRUE;
+
+                G_PHASE_SEQUENCE = CRACKER_SPOON_MOVE;
             }
         }
 
@@ -3898,7 +4062,20 @@ void init_SCENE()
 
         else
         {
-            for(i=0 ; i<G_NB_CRACKERS ; i++)
+            //--------------------------------------------------------------------------------------//
+            //                                     HAND SPRITES                                     //
+            //--------------------------------------------------------------------------------------//
+
+            sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  G_POS_X_PLAYER + 10 , G_POS_Y_PLAYER + 44  , TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+            sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  G_POS_X_PLAYER - 7  , G_POS_Y_PLAYER + 100 , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+            sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  G_POS_X_PLAYER      , G_POS_Y_PLAYER       , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                   CRACKERS SPRITES                                   //
+            //--------------------------------------------------------------------------------------//
+
+            for(i=0 ; i<G_NUMBER_CRACKERS ; i++)
             {
                 if(list_CRACKER[i].state_CRACKER != CRACKER_PHASE_EATEN)
                 {
@@ -3942,7 +4119,7 @@ void init_SCENE()
         G_SELECTED_CRACKER      = NULL;
        
 
-        G_SCENE                 = SCENE_FADE_IN;
+        G_SCENE                 = SCENE_FADE_IN_CRACKERS;
         G_SCENE_TYPE            = SCENE_CRACKERS_MINIGAME;
         G_SCENE_NEXT            = SCENE_CRACKERS_MINIGAME;
 
