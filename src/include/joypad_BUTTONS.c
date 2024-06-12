@@ -51,8 +51,6 @@ void roulette_Callback(u16 joy, u16 changed, u16 state)
                 // ICON SELECTED //
                 G_PHASE_SEQUENCE = ROULETTE_PHASE_VALIDATED;
 
-                //VDP_drawInt(TABLE_MINIGAMES[G_SELECTED_ICON_ID],1,0,0);
-
                 return ;
             }
         }
@@ -232,9 +230,7 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
 
 
 void crackers_Callback(u16 joy, u16 changed, u16 state)
-{
-    //u16 value=JOY_readJoypad(JOY_1);
-    
+{    
     if(joy == JOY_1)
     {
         if(G_PHASE_SEQUENCE == CRACKER_SPOON_MOVE)
@@ -274,11 +270,13 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
 
                                 G_PHASE_SEQUENCE = CRACKER_SPOON_GRAB;
 
+                                G_REWARD += 10;
+
                                 G_NUMBER_CRACKERS -= 1;
 
-                                G_SELECTED_CRACKER = i;
+                                G_GRABBED_CRACKERS += 1;
 
-                                //VDP_drawIntEx_BG_A_QUEUE(i,1,0,0,PAL0);
+                                G_SELECTED_CRACKER = i;
 
                                 return;
                             }

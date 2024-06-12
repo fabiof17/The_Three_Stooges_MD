@@ -12,6 +12,7 @@
 
 #include "include/routines_BANK.h"
 #include "include/routines_BOXING.h"
+#include "include/routines_CRACKERs.h"
 #include "include/routines_CRACKERS_MINIGAME.h"
 #include "include/routines_DOCTORS.h"
 #include "include/routines_DOCTORS_MINIGAME.h"
@@ -376,6 +377,15 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
+                // CRACKERS //
+                else if(G_SCENE == SCENE_CRACKERS)
+                {                    
+                    sequence_CRACKERS();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
                 // ROULETTE //
                 else if(G_SCENE == SCENE_ROULETTE)
                 {
@@ -476,14 +486,7 @@ int main(bool hardReset)
 
                     sequence_CRACKERS_MINIGAME();
 
-                    /*u8 j;
-
-                    for(j=0;j<14;j++)
-                    {
-                        VDP_drawIntEx_BG_A_QUEUE(list_CRACKER[j].state_CRACKER,1,j,0,PAL0);
-                    }*/
-
-                    //VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_CRACKERS,2,0,0,PAL0);
+                    //VDP_drawIntEx_BG_A_QUEUE(G_REWARD,3,0,0,PAL0);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -511,6 +514,15 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_CONTRACT_DOCTORS)
                 {                    
                     sequence_CONTRACT_DOCTORS();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                // CONTRACT CRACKERS //
+                else if(G_SCENE == SCENE_CONTRACT_CRACKERS)
+                {                    
+                    sequence_CONTRACT_CRACKERS();
                     
                     SPR_update();
                     SYS_doVBlankProcess();

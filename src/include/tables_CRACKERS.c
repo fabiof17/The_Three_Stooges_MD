@@ -15,9 +15,15 @@
 
 
 
-void anim_CRACKERS_ROUND_1()
+//------------------------------------------------------------------//
+//                                                                  //
+//                     SPREAD SCREEN ANIMATIONS                     //
+//                                                                  //
+//------------------------------------------------------------------//
+
+void anim_CRACKERS_SPREAD_1()
 {
-    if(G_COUNTER_1 == 73)
+    if(G_COUNTER_CRACKERS == 73)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -26,7 +32,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 79)
+    else if(G_COUNTER_CRACKERS == 79)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -35,7 +41,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 87)
+    else if(G_COUNTER_CRACKERS == 87)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -44,7 +50,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 93)
+    else if(G_COUNTER_CRACKERS == 93)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -53,7 +59,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 100)
+    else if(G_COUNTER_CRACKERS == 100)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -62,7 +68,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 106)
+    else if(G_COUNTER_CRACKERS == 106)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -71,7 +77,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 113)
+    else if(G_COUNTER_CRACKERS == 113)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -80,7 +86,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 119)
+    else if(G_COUNTER_CRACKERS == 119)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -89,7 +95,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 126)
+    else if(G_COUNTER_CRACKERS == 126)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -98,7 +104,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 132)
+    else if(G_COUNTER_CRACKERS == 132)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -107,7 +113,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 139)
+    else if(G_COUNTER_CRACKERS == 139)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -116,7 +122,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 145)
+    else if(G_COUNTER_CRACKERS == 145)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -125,7 +131,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 153)
+    else if(G_COUNTER_CRACKERS == 153)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -134,7 +140,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 159)
+    else if(G_COUNTER_CRACKERS == 159)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -143,7 +149,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 166)
+    else if(G_COUNTER_CRACKERS == 166)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -152,7 +158,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 172)
+    else if(G_COUNTER_CRACKERS == 172)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -161,7 +167,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 179)
+    else if(G_COUNTER_CRACKERS == 179)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -170,7 +176,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 185)
+    else if(G_COUNTER_CRACKERS == 185)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -179,7 +185,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 192)
+    else if(G_COUNTER_CRACKERS == 192)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -188,7 +194,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 198)
+    else if(G_COUNTER_CRACKERS == 198)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -197,7 +203,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 205)
+    else if(G_COUNTER_CRACKERS == 205)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -206,7 +212,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 211)
+    else if(G_COUNTER_CRACKERS == 211)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -215,7 +221,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 219)
+    else if(G_COUNTER_CRACKERS == 219)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -224,7 +230,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 225)
+    else if(G_COUNTER_CRACKERS == 225)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -233,7 +239,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 232)
+    else if(G_COUNTER_CRACKERS == 232)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -242,7 +248,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 238)
+    else if(G_COUNTER_CRACKERS == 238)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -251,7 +257,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 245)
+    else if(G_COUNTER_CRACKERS == 245)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -260,7 +266,7 @@ void anim_CRACKERS_ROUND_1()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 251)
+    else if(G_COUNTER_CRACKERS == 251)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -272,11 +278,11 @@ void anim_CRACKERS_ROUND_1()
 
 
 
-    else if(G_COUNTER_1 == 311)
+    else if(G_COUNTER_CRACKERS == 311)
     {   
         PAL_fadeOutAll(2,FALSE);
         
-        G_COUNTER_1 = 0;
+        G_COUNTER_CRACKERS = 0;
 
         // DEFINE NEXT MINIGAME //
         G_SCENE         = SCENE_FADE_OUT_CRACKERS;
@@ -290,13 +296,13 @@ void anim_CRACKERS_ROUND_1()
 
 
   
-    G_COUNTER_1 += 1;
+    G_COUNTER_CRACKERS += 1;
 }
 
 
-void anim_CRACKERS_ROUND_2()
+void anim_CRACKERS_SPREAD_2()
 {
-    if(G_COUNTER_1 == 73)
+    if(G_COUNTER_CRACKERS == 73)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -305,7 +311,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 79)
+    else if(G_COUNTER_CRACKERS == 79)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -314,7 +320,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 87)
+    else if(G_COUNTER_CRACKERS == 87)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -323,7 +329,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 93)
+    else if(G_COUNTER_CRACKERS == 93)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -332,7 +338,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 100)
+    else if(G_COUNTER_CRACKERS == 100)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -341,7 +347,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 106)
+    else if(G_COUNTER_CRACKERS == 106)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -350,7 +356,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 113)
+    else if(G_COUNTER_CRACKERS == 113)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -359,7 +365,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 119)
+    else if(G_COUNTER_CRACKERS == 119)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -368,7 +374,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 126)
+    else if(G_COUNTER_CRACKERS == 126)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -377,7 +383,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 132)
+    else if(G_COUNTER_CRACKERS == 132)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -386,7 +392,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 139)
+    else if(G_COUNTER_CRACKERS == 139)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -395,7 +401,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 145)
+    else if(G_COUNTER_CRACKERS == 145)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -404,7 +410,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 153)
+    else if(G_COUNTER_CRACKERS == 153)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -413,7 +419,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 159)
+    else if(G_COUNTER_CRACKERS == 159)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -422,7 +428,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 166)
+    else if(G_COUNTER_CRACKERS == 166)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -431,7 +437,7 @@ void anim_CRACKERS_ROUND_2()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 172)
+    else if(G_COUNTER_CRACKERS == 172)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -442,11 +448,11 @@ void anim_CRACKERS_ROUND_2()
 
 
 
-    else if(G_COUNTER_1 == 232)
+    else if(G_COUNTER_CRACKERS == 232)
     {
         PAL_fadeOutAll(2,FALSE);
         
-        G_COUNTER_1 = 0;
+        G_COUNTER_CRACKERS = 0;
 
         // DEFINE NEXT MINIGAME //
         G_SCENE         = SCENE_FADE_OUT_CRACKERS;
@@ -461,14 +467,14 @@ void anim_CRACKERS_ROUND_2()
 
 
 
-    G_COUNTER_1 += 1;
+    G_COUNTER_CRACKERS += 1;
 
 }
 
 
-void anim_CRACKERS_ROUND_3()
+void anim_CRACKERS_SPREAD_3()
 {
-    if(G_COUNTER_1 == 73)
+    if(G_COUNTER_CRACKERS == 73)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -477,7 +483,7 @@ void anim_CRACKERS_ROUND_3()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 79)
+    else if(G_COUNTER_CRACKERS == 79)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -486,7 +492,7 @@ void anim_CRACKERS_ROUND_3()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 87)
+    else if(G_COUNTER_CRACKERS == 87)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -495,7 +501,7 @@ void anim_CRACKERS_ROUND_3()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 93)
+    else if(G_COUNTER_CRACKERS == 93)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -504,7 +510,7 @@ void anim_CRACKERS_ROUND_3()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 100)
+    else if(G_COUNTER_CRACKERS == 100)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -513,7 +519,7 @@ void anim_CRACKERS_ROUND_3()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 106)
+    else if(G_COUNTER_CRACKERS == 106)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -522,7 +528,7 @@ void anim_CRACKERS_ROUND_3()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 113)
+    else if(G_COUNTER_CRACKERS == 113)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -531,7 +537,7 @@ void anim_CRACKERS_ROUND_3()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 119)
+    else if(G_COUNTER_CRACKERS == 119)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -543,11 +549,11 @@ void anim_CRACKERS_ROUND_3()
 
 
 
-    else if(G_COUNTER_1 == 179)
+    else if(G_COUNTER_CRACKERS == 179)
     {
         PAL_fadeOutAll(2,FALSE);
         
-        G_COUNTER_1 = 0;
+        G_COUNTER_CRACKERS = 0;
 
         // DEFINE NEXT MINIGAME //
         G_SCENE         = SCENE_FADE_OUT_CRACKERS;
@@ -562,14 +568,14 @@ void anim_CRACKERS_ROUND_3()
 
 
 
-    G_COUNTER_1 += 1;
+    G_COUNTER_CRACKERS += 1;
 
 }
 
 
-void anim_CRACKERS_ROUND_4()
+void anim_CRACKERS_SPREAD_4()
 {
-    if(G_COUNTER_1 == 73)
+    if(G_COUNTER_CRACKERS == 73)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -578,7 +584,7 @@ void anim_CRACKERS_ROUND_4()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 79)
+    else if(G_COUNTER_CRACKERS == 79)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -587,7 +593,7 @@ void anim_CRACKERS_ROUND_4()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 87)
+    else if(G_COUNTER_CRACKERS == 87)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -596,7 +602,7 @@ void anim_CRACKERS_ROUND_4()
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
     }
 
-    else if(G_COUNTER_1 == 93)
+    else if(G_COUNTER_CRACKERS == 93)
     {
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
@@ -608,11 +614,11 @@ void anim_CRACKERS_ROUND_4()
 
 
 
-    else if(G_COUNTER_1 == 153)
+    else if(G_COUNTER_CRACKERS == 153)
     {
         PAL_fadeOutAll(2,FALSE);
         
-        G_COUNTER_1 = 0;
+        G_COUNTER_CRACKERS = 0;
 
         // DEFINE NEXT MINIGAME //
         G_SCENE         = SCENE_FADE_OUT_CRACKERS;
@@ -627,22 +633,18 @@ void anim_CRACKERS_ROUND_4()
 
 
 
-    G_COUNTER_1 += 1;
+    G_COUNTER_CRACKERS += 1;
 
 }
 
 
 
 
-
-
-
-
-void (*TABLE_ANIM_CRACKERS[4])(void)        =   {
-                                                    anim_CRACKERS_ROUND_1,
-                                                    anim_CRACKERS_ROUND_2,
-                                                    anim_CRACKERS_ROUND_3,
-                                                    anim_CRACKERS_ROUND_4
+void (*TABLE_ANIM_SPREAD_SCREEN[4])(void) =   {
+                                                    anim_CRACKERS_SPREAD_1,
+                                                    anim_CRACKERS_SPREAD_2,
+                                                    anim_CRACKERS_SPREAD_3,
+                                                    anim_CRACKERS_SPREAD_4
                                                 };
 
 
@@ -652,14 +654,56 @@ void (*TABLE_ANIM_CRACKERS[4])(void)        =   {
 
 
 
+//------------------------------------------------------------------//
+//                                                                  //
+//                    SURPRISE SCREENS ANIMATIONS                   //
+//                                                                  //
+//------------------------------------------------------------------//
+
+void (*TABLE_ANIM_INTERMEDIATE_SCREEN[5])(void) =   {
+                                                        NULL,
+                                                        NULL,
+                                                        NULL,
+                                                        NULL,
+                                                        NULL
+                                                    };
+
+
+
+
+
+
+
 void sequence_CRACKERS_SCREEN()
 {
-    // POINTER DECLARATION //
-    void (*ptr_INIT_CRACKERS_SCREEN)(void);
+    //------------------------------------------------------------------//
+    //                     SPREAD SCREEN ANIMATIONS                     //
+    //------------------------------------------------------------------//
+    if(G_CRACKERS_SCREEN_TYPE  == CRACKERS_SCREEN_SPREAD)
+    {
+        // POINTER DECLARATION //
+        void (*ptr_INIT_CRACKERS_SCREEN)(void);
 
-    // SETTING POINTER ON STREET INIT FUNCTION //
-    ptr_INIT_CRACKERS_SCREEN = TABLE_ANIM_CRACKERS[G_ROUND_CRACKERS];
+        // SETTING POINTER ON STREET INIT FUNCTION //
+        ptr_INIT_CRACKERS_SCREEN = TABLE_ANIM_SPREAD_SCREEN[G_ROUND_CRACKERS];
 
-    // RUNNING STREET INIT FUNCTION //
-    (*ptr_INIT_CRACKERS_SCREEN)();
+        // RUNNING STREET INIT FUNCTION //
+        (*ptr_INIT_CRACKERS_SCREEN)();
+    }
+
+
+    //------------------------------------------------------------------//
+    //                     OTHER SCREENS ANIMATIONS                     //
+    //------------------------------------------------------------------//
+    /*else
+    {
+        // POINTER DECLARATION //
+        void (*ptr_INIT_CRACKERS_SCREEN)(void);
+
+        // SETTING POINTER ON STREET INIT FUNCTION //
+        ptr_INIT_CRACKERS_SCREEN = TABLE_ANIM_INTERMEDIATE_SCREEN[G_CRACKERS_SCREEN_TYPE];
+
+        // RUNNING STREET INIT FUNCTION //
+        (*ptr_INIT_CRACKERS_SCREEN)();
+    }*/
 }

@@ -81,7 +81,9 @@
         "tables_trivia.h": "c",
         "tables_dollar.h": "c",
         "tables_doctors.h": "c",
-        "routines_doctors.h": "c"
+        "routines_doctors.h": "c",
+        "routines_crackers_minigame.h": "c",
+        "routines_boxing.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "C_Cpp.default.compilerPath": ""

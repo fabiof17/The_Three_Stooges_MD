@@ -96,7 +96,8 @@
 #define SCENE_CONTRACT_QUESTION_MARK    27
 #define SCENE_CONTRACT_DOCTORS          28
 #define SCENE_CONTRACT_WAITERS          29
-#define SCENE_REWARD                    30
+#define SCENE_CONTRACT_CRACKERS         30
+#define SCENE_REWARD                    31
 
 
 #define SCENE_FADE_IN_CRACKERS          38
@@ -218,16 +219,17 @@
 #define CRACKERS_ROUND_3                2
 #define CRACKERS_ROUND_4                3
 
+#define CRACKERS_SCREEN_SPREAD          0
+#define CRACKERS_SCREEN_SURPRISE_1      1
+#define CRACKERS_SCREEN_SURPRISE_2      2
+#define CRACKERS_SCREEN_SURPRISE_3      3
+#define CRACKERS_SCREEN_OVER            4
+
 #define CRACKER_PHASE_FREE              0
 #define CRACKER_PHASE_OYSTER_1          1
 #define CRACKER_PHASE_OYSTER_2          2
 #define CRACKER_PHASE_OYSTER_3          3
 #define CRACKER_PHASE_EATEN             4
-
-#define CRACKERS_SCREEN_SPREAD          0
-#define CRACKERS_SCREEN_SURPRISE_1      1
-#define CRACKERS_SCREEN_SURPRISE_2      2
-#define CRACKERS_SCREEN_SURPRISE_3      3
 
 #define CRACKER_SPOON_MOVE              0
 #define CRACKER_SPOON_GRAB              1
@@ -517,7 +519,11 @@ extern bool G_CRACKERS_INIT;
 
 extern u8 G_NUMBER_CRACKERS;
 
+extern u8 G_GRABBED_CRACKERS;
+
 extern u8 G_SELECTED_CRACKER;
+
+extern u16 G_COUNTER_CRACKERS;
 
 
 

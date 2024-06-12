@@ -4,10 +4,6 @@
 
 
 
-
-
-//extern void (*TABLE_ANIM_CRACKERS[2])(void);
-
 extern void sequence_CRACKERS_SCREEN();
 
 

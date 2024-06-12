@@ -1,6 +1,9 @@
 #ifndef _RES_MAPS_CRACKERS_H_
 #define _RES_MAPS_CRACKERS_H_
 
+extern const Image image_CONTRACT_CRACKERS;
+extern const Image image_STREET_CRACKERS_BG_B;
+extern const Image image_STREET_CRACKERS_BG_A;
 extern const Image image_CRACKERS_BG_B;
 extern const Image image_CRACKERS_BG_A;
 extern const Image image_CRACKERS_SCREEN_SPREAD_BG_B1;

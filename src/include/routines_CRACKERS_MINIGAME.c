@@ -272,24 +272,33 @@ void sequence_CRACKERS_MINIGAME()
 
                     SPR_reset();
 
+                    G_REWARD += 50;
+
                     
                     G_ROUND_CRACKERS    += 1;
 
+                    //------------------------------------------------------------------//
+                    //                  IF WE HAVE PLAYED ALL 4 ROUNDS                  //
+                    //                  GO TO CRACKERS GAME OVER SCREEN                 //
+                    //------------------------------------------------------------------//
                     if(G_ROUND_CRACKERS > CRACKERS_ROUND_4)
                     {
-                        //
+                        G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_OVER;
                     }
 
-
+                    //------------------------------------------------------------------//
+                    //                     ELSE GO TO SPREAD SCREEN                     //
+                    //------------------------------------------------------------------//
                     else
                     {
-                        G_CRACKERS_INIT         = FALSE;
-
                         G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_SPREAD;
-
-                        G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
-                        G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
                     }
+
+
+                    G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
+                    G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
+
+                    G_CRACKERS_INIT         = FALSE;
 
                     G_SCENE_LOADED          = FALSE;
 

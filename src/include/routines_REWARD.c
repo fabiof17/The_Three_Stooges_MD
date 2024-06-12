@@ -74,6 +74,9 @@ void sequence_REWARD()
             // GET REWARD //
             G_MONEY += G_REWARD;
 
+            // REINIT REWARD //
+            G_REWARD = 0;
+
             G_PHASE_SEQUENCE = 0;
 
             // DEFINE NEXT MINIGAME //

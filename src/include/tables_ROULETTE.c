@@ -60,7 +60,7 @@ const u8        TABLE_MINIGAMES[10]     =       {
 
 
 const u8        TABLE_HIGHSTREET[180]   =   {
-                                                ICON_BOXING,//ICON_BOXING
+                                                ICON_CRACKERS,//ICON_BOXING | ICON_CRACKERS
                                                 ICON_SLAP,
                                                 ICON_QUESTION,
                                                 ICON_SWATTER,
