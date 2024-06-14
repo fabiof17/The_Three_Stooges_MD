@@ -473,6 +473,10 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_CRACKERS_SCREEN)
                 {
                     sequence_CRACKERS_SCREEN();
+
+                    //DP_drawIntEx_BG_A_QUEUE(G_COUNTER_CRACKERS,3,0,0,PAL0);
+                    //VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_CRACKERS,1,0,2,PAL0);
+                    //VDP_drawIntEx_BG_A_QUEUE(G_INDEX_1,1,0,3,PAL0);
                     
                     SPR_update();
                     SYS_doVBlankProcess();

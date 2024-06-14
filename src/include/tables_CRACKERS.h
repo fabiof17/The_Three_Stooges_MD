@@ -4,7 +4,9 @@
 
 
 
-extern void sequence_CRACKERS_SCREEN();
+
+extern const s16           (*TABLE_POSITION_CRACKERS[14])[14][2];
+
 
 
 

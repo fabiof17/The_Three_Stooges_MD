@@ -164,6 +164,8 @@ typedef struct
 } struct_ITEM_;
 
 
+
+
 typedef struct
 {
     Sprite *spr_CRACKER;
@@ -175,6 +177,16 @@ typedef struct
     u8 state_CRACKER;
 
 } struct_CRACKER_;
+
+
+
+
+typedef struct
+{
+    s16 pos_X;
+    s16 pos_Y;
+
+} struct_POSITION_;
 
 
 
