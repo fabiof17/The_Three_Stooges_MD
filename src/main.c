@@ -474,9 +474,8 @@ int main(bool hardReset)
                 {
                     sequence_CRACKERS_SCREEN();
 
-                    //DP_drawIntEx_BG_A_QUEUE(G_COUNTER_CRACKERS,3,0,0,PAL0);
-                    //VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_CRACKERS,1,0,2,PAL0);
-                    //VDP_drawIntEx_BG_A_QUEUE(G_INDEX_1,1,0,3,PAL0);
+                    VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_CRACKERS,2,0,0,PAL0);
+                    VDP_drawIntEx_BG_A_QUEUE(G_GRABBED_CRACKERS,2,0,1,PAL0);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -490,7 +489,11 @@ int main(bool hardReset)
 
                     sequence_CRACKERS_MINIGAME();
 
-                    //VDP_drawIntEx_BG_A_QUEUE(G_REWARD,3,0,0,PAL0);
+                    VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_CRACKERS,2,0,0,PAL0);
+                    VDP_drawIntEx_BG_A_QUEUE(G_GRABBED_CRACKERS,2,0,1,PAL0);
+
+                    VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_OYSTER,3,0,3,PAL0);
+                    VDP_drawIntEx_BG_A_QUEUE(G_REWARD,3,0,4,PAL0);
                     
                     SPR_update();
                     SYS_doVBlankProcess();

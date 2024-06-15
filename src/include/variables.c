@@ -17,11 +17,11 @@ u16 palette_64[64];
 
 
 
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 //                                                                                      //
-//                                      GENERAL                                         //
+//                                  GENERAL VARIABLES                                   //
 //                                                                                      //
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 
 u8 G_REEL;
 
@@ -35,15 +35,33 @@ u16 G_ADR_VRAM_BG_B;
 u16 G_ADR_VRAM_BG_A;
 
 
-u8 G_DAY;
-u16 G_MONEY;
+u16 G_COUNTER_1;
+u8 G_INDEX_1;
+u8 G_INDEX_2;
+u8 G_INDEX_3;
 
 
-u8 G_STREET_TYPE;
 u8 G_PHASE_SEQUENCE;
 
 
+u16 G_MONEY;
+
+
+
+
+//--------------------------------------------------------------------------------------//
+//                                                                                      //
+//                                      ROULETTE                                        //
+//                                                                                      //
+//--------------------------------------------------------------------------------------//
+
+u8 G_STREET_TYPE;
 u8 G_HIGHSTREET_POSITION;
+
+u8 G_DAY;
+
+
+
 
 
 s16 G_POS_Y_CAMERA;
@@ -63,10 +81,7 @@ s16 G_POS_Y_PLAYER;
 //                                                                                      //
 //**************************************************************************************//
 
-u16 G_COUNTER_1;
-u8 G_INDEX_1;
-u8 G_INDEX_2;
-u8 G_INDEX_3;
+
 
 u8 G_INDEX_PALETTE_CYCLE;
 
@@ -203,8 +218,6 @@ struct_ITEM_ list_ITEM[2];
 
 struct_CRACKER_ list_CRACKER[14];
 
-u8 G_ROUND_CRACKERS;
-
 bool G_CRACKERS_INIT;
 
 u8 G_CRACKERS_SCREEN_TYPE;
@@ -216,6 +229,8 @@ u8 G_GRABBED_CRACKERS;
 u8 G_SELECTED_CRACKER;
 
 u16 G_COUNTER_CRACKERS;
+
+u8 G_COUNTER_OYSTER;
 
 
 

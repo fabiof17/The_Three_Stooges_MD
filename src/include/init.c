@@ -147,7 +147,7 @@ void init_VARIABLES()
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
-    //                               INITIALISATION GENERALE                                //
+    //                                  GENERAL VARIABLES                                   //
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
@@ -157,44 +157,86 @@ void init_VARIABLES()
     G_ADR_VRAM_BG_A             = 0;
 
 
-    G_INDEX_1                   = 0;
-
-
     G_COUNTER_1                 = 0;
+    G_INDEX_1                   = 0;
+    G_INDEX_2                   = 0;
+    G_INDEX_3                   = 0;
 
-
-    G_DAY                       = 1;
+    
     G_MONEY                     = 0;
 
 
-    G_HIGHSTREET_POSITION       = 0;
+    
 
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                      ROULETTE                                        //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
 
     G_STREET_TYPE               = STREET_TYPE_0;
+    G_HIGHSTREET_POSITION       = 0;
 
-    G_TRIVIA_TYPE               = 0;
+    G_DAY                       = 1;
 
-
-    G_HAND_SPEED                = 30; //25
+    G_HAND_SPEED                = 30;
     G_FINGER_NUMBER             = 4;
 
 
-    G_REWARD                    = 0; //250
 
 
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       REWARD                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_REWARD                    = 0;
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       TRIVIA                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_TRIVIA_TYPE               = 0;
     G_SELECTED_QUESTION         = 0;
 
+    G_QUESTION_LOCKED           = FALSE;
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                   DOCTORS MINIGAME                                   //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
 
     G_POS_Y_CAMERA              = 0;
 
 
-    G_QUESTION_LOCKED           = FALSE;
 
-    G_ROUND_CRACKERS            = CRACKERS_ROUND_1;
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                  CRACKERS MINIGAME                                   //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                IMPORTANT : THESE VARIABLES MUST BE INITIALISED HERE                  //
+    //                AND BE REINITIALISED AFTER MINIGAME COMPLETION                        //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
     G_CRACKERS_INIT             = FALSE;
     G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
 
-    G_NUMBER_CRACKERS           = 14;
+    G_NUMBER_CRACKERS           = 0;
     G_GRABBED_CRACKERS          = 14;
 
     
@@ -217,7 +259,6 @@ void init_VARIABLES()
     TABLE_GENERATED_HAND_POSITION[1] = 4;
     TABLE_GENERATED_HAND_POSITION[0] = 1;
 
-    
 }
 
 
@@ -3815,6 +3856,13 @@ void init_SCENE()
 
             VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_A2.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile, CPU);
             VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, CPU);
+        
+
+            if(G_CRACKERS_SCREEN_TYPE == CRACKERS_SCREEN_SPREAD)
+            {
+                G_COUNTER_OYSTER        = 0;
+                G_SELECTED_CRACKER      = NULL;
+            }
         }
 
 
@@ -3878,7 +3926,7 @@ void init_SCENE()
         G_COUNTER_CRACKERS      = 0;
        
 
-        if(G_ROUND_CRACKERS == CRACKERS_ROUND_1)
+        if(G_NUMBER_CRACKERS == 14)
         {
             G_SCENE = SCENE_FADE_IN;
         }
@@ -3979,16 +4027,12 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************// 
 
-
-
-
-
-
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
         //                                   CRACKERS SPRITES                                   //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
+
 
         //--------------------------------------------------------------------------------------//
         //                                   IF WE INIT ROUND                                   //
@@ -4006,16 +4050,13 @@ void init_SCENE()
             sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  G_POS_X_PLAYER - 7  , G_POS_Y_PLAYER + 100 , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
             sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  G_POS_X_PLAYER      , G_POS_Y_PLAYER       , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
-            //--------------------------------------------------------------------------------------//
-            //                                 ROUND 1 : 14 CRACKERS                                //
-            //--------------------------------------------------------------------------------------//
-            //--------------------------------------------------------------------------------------//
-            //                                WE INIT ALL 14 CRACKERS                               //
-            //--------------------------------------------------------------------------------------//
+
 
                 
             G_NUMBER_CRACKERS  = G_GRABBED_CRACKERS;
             G_GRABBED_CRACKERS = 0;
+
+            G_RANDOM_OK         = FALSE;
 
             
             //--------------------------------------------------------------------------------------//
@@ -4029,6 +4070,7 @@ void init_SCENE()
             {
                 list_CRACKER[i].spr_CRACKER     = SPR_addSprite(&tiles_SPR_CRACKER,  0, 0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
                 list_CRACKER[i].state_CRACKER   = CRACKER_PHASE_FREE;
+                list_CRACKER[i].animated        = FALSE;
                 list_CRACKER[i].counter_CRACKER = 0;
                 
                 list_CRACKER[i].pos_X = (*(*ptr_position_crackers)[G_NUMBER_CRACKERS-1])[i][0];
@@ -4103,10 +4145,8 @@ void init_SCENE()
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
 
-
-        G_SELECTED_CRACKER      = NULL;
+        
        
-
         G_SCENE                 = SCENE_FADE_IN_CRACKERS;
         G_SCENE_TYPE            = SCENE_CRACKERS_MINIGAME;
         G_SCENE_NEXT            = SCENE_CRACKERS_MINIGAME;

@@ -176,6 +176,8 @@ typedef struct
     u8 counter_CRACKER;
     u8 state_CRACKER;
 
+    bool animated;
+
 } struct_CRACKER_;
 
 

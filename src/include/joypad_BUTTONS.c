@@ -252,7 +252,7 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
 
                 for(i=0 ; i<14 ; i++)
                 {
-                    if(list_CRACKER[i].state_CRACKER < 3)
+                    if(list_CRACKER[i].state_CRACKER < 6)
                     {
                         u16 distance_X = abs( (list_CRACKER[i].pos_X + 28) - (G_POS_X_PLAYER + 24) );
                         u16 distance_Y = abs( (list_CRACKER[i].pos_Y + 20) - (G_POS_Y_PLAYER + 16) );
