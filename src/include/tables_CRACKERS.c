@@ -296,3 +296,114 @@ const s16 (*TABLE_POSITION_CRACKERS[14])[14][2]                 =   {
 
 
 
+void anim_CRACKERS_SCREEN_SPREAD()
+{
+    if(G_COUNTER_CRACKERS == 73)
+    {
+        VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B3.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
+        VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B3.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
+
+        VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_A3.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile, DMA_QUEUE);
+        VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
+    }
+
+    else if(G_COUNTER_CRACKERS == 79)
+    {
+        VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_B2.tileset, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile, DMA_QUEUE);
+        VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SPREAD_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SPREAD_BG_B1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
+
+        VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_A2.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile, DMA_QUEUE);
+        VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
+    }
+
+    else if(G_COUNTER_CRACKERS == 85)
+    {
+        G_INDEX_1 += 1;
+
+        if(G_INDEX_1 < G_NUMBER_CRACKERS_MAX)
+        {
+            G_COUNTER_CRACKERS = 73;
+
+            return;
+        }
+    }
+
+    else if(G_COUNTER_CRACKERS == 145)
+    {
+        PAL_fadeOutAll(2,FALSE);
+        
+        G_COUNTER_CRACKERS  = 0;
+        G_INDEX_1           = 0;
+
+        // DEFINE NEXT MINIGAME //
+        G_SCENE             = SCENE_FADE_OUT_CRACKERS;
+        G_SCENE_TYPE        = SCENE_CRACKERS_MINIGAME;
+        G_SCENE_NEXT        = SCENE_CRACKERS_MINIGAME;
+
+        G_SCENE_LOADED      = FALSE;
+
+        return;
+    }
+
+    G_COUNTER_CRACKERS += 1;
+}
+
+
+
+
+void anim_CRACKERS_SCREEN_SURPRISE()
+{
+    if(G_COUNTER_CRACKERS == 60)
+    {
+        PAL_fadeOutAll(2,FALSE);
+        
+        G_COUNTER_CRACKERS = 0;
+
+        // DEFINE NEXT MINIGAME //
+        if(G_NUMBER_CRACKERS != 0)
+        {
+            G_SCENE_TYPE    = SCENE_CRACKERS_MINIGAME;
+            G_SCENE_NEXT    = SCENE_CRACKERS_MINIGAME;
+        }
+
+        else
+        {
+            G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_OVER;
+            G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
+            G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
+        }
+
+        G_SCENE         = SCENE_FADE_OUT_CRACKERS;
+        G_SCENE_LOADED  = FALSE;
+
+        return;
+    }
+
+    G_COUNTER_CRACKERS += 1;
+}
+
+
+
+
+void anim_CRACKERS_SCREEN_OVER()
+{
+    //
+}
+
+
+
+
+
+
+
+
+void (*TABLE_ANIM_INTERMEDIATE_SCREEN[5])(void)     =   {
+                                                            anim_CRACKERS_SCREEN_SPREAD,
+                                                            anim_CRACKERS_SCREEN_SURPRISE,
+                                                            anim_CRACKERS_SCREEN_SURPRISE,
+                                                            anim_CRACKERS_SCREEN_SURPRISE,
+                                                            anim_CRACKERS_SCREEN_OVER
+                                                        };
+
+
+

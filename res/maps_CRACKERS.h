@@ -12,6 +12,8 @@ extern const Image image_CRACKERS_SCREEN_SPREAD_BG_B3;
 extern const Image image_CRACKERS_SCREEN_SPREAD_BG_A1;
 extern const Image image_CRACKERS_SCREEN_SPREAD_BG_A2;
 extern const Image image_CRACKERS_SCREEN_SPREAD_BG_A3;
+extern const Image image_CRACKERS_SCREEN_SURPRISE_1_BG_B;
+extern const Image image_CRACKERS_SCREEN_SURPRISE_1_BG_A;
 extern const Image image_CRACKERS_SCREEN_OVER_BG_B;
 extern const Image image_CRACKERS_SCREEN_OVER_BG_A;
 

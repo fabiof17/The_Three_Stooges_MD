@@ -518,6 +518,8 @@ extern struct_CRACKER_ list_CRACKER[14];
 
 extern bool G_CRACKERS_INIT;
 
+extern u8 G_NUMBER_CRACKERS_MAX;
+
 extern u8 G_NUMBER_CRACKERS;
 
 extern u8 G_GRABBED_CRACKERS;
@@ -527,6 +529,8 @@ extern u8 G_SELECTED_CRACKER;
 extern u16 G_COUNTER_CRACKERS;
 
 extern u8 G_COUNTER_OYSTER;
+
+extern u8 G_SPOON_FRAME;
 
 
 

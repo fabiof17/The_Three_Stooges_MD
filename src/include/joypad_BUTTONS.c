@@ -241,9 +241,11 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
                 SPR_setPosition(sprite_HAND[0] ,G_POS_X_PLAYER + 9 , G_POS_Y_PLAYER + 16);
                 SPR_setPosition(sprite_HAND[1] ,G_POS_X_PLAYER - 7 , G_POS_Y_PLAYER + 68);
 
-                SPR_setFrame(sprite_HAND[0],1);
-                SPR_setFrame(sprite_HAND[1],1);
-                SPR_setFrame(sprite_HAND[2],1);
+                G_SPOON_FRAME = 1;
+
+                SPR_setFrame(sprite_HAND[0],G_SPOON_FRAME);
+                SPR_setFrame(sprite_HAND[1],G_SPOON_FRAME);
+                SPR_setFrame(sprite_HAND[2],G_SPOON_FRAME);
 
 
 
