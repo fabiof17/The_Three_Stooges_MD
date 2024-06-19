@@ -491,12 +491,12 @@ int main(bool hardReset)
 
                     sequence_CRACKERS_MINIGAME();
 
-                    u8 j;
+                    /*u8 j;
                     for(j=0 ; j<G_NUMBER_CRACKERS_MAX ; j++)
                     {
                         VDP_drawIntEx_BG_A_QUEUE(list_CRACKER[j].state_CRACKER,1,j,0,PAL0);
                         VDP_drawIntEx_BG_A_QUEUE(list_CRACKER[j].animated,1,j,1,PAL0);
-                    }
+                    }*/
 
                     //VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_CRACKERS,2,0,0,PAL0);
                     //VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_GRABBED_CRACKERS,2,0,1,PAL0);
