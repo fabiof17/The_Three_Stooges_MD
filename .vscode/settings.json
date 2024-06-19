@@ -83,7 +83,8 @@
         "tables_doctors.h": "c",
         "routines_doctors.h": "c",
         "routines_crackers_minigame.h": "c",
-        "routines_boxing.h": "c"
+        "routines_boxing.h": "c",
+        "tables_crackers.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "C_Cpp.default.compilerPath": ""

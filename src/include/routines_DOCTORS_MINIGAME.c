@@ -1402,9 +1402,15 @@ void sequence_DOCTORS_MINIGAME()
 
             G_COUNTER_1 = 0;
 
-            G_PHASE_SEQUENCE = 0;
+            G_CRACKERS_INIT             = FALSE;
+            G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
 
-            // DEFINE NEXT MINIGAME //
+            G_NUMBER_CRACKERS_MAX       = 14;
+            G_NUMBER_CRACKERS           = 14;
+            G_NUMBER_GRABBED_CRACKERS   = 14;
+
+
+
             G_SCENE         = SCENE_FADE_IN;
             G_SCENE_TYPE    = SCENE_REWARD;
             G_SCENE_NEXT    = SCENE_REWARD;

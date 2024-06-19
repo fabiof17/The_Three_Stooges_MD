@@ -360,18 +360,30 @@ void anim_CRACKERS_SCREEN_SURPRISE()
         G_COUNTER_CRACKERS = 0;
 
         // DEFINE NEXT MINIGAME //
-        if(G_NUMBER_CRACKERS != 0)
+        if(G_NUMBER_CRACKERS == 0)
+        {
+            if(G_NUMBER_GRABBED_CRACKERS == 0)
+            {
+                G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_OVER;
+            }
+
+            else
+            {
+                G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_SPREAD;
+                G_CRACKERS_INIT         = FALSE;
+            }
+
+            G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
+            G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
+        }
+
+
+        else
         {
             G_SCENE_TYPE    = SCENE_CRACKERS_MINIGAME;
             G_SCENE_NEXT    = SCENE_CRACKERS_MINIGAME;
         }
 
-        else
-        {
-            G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_OVER;
-            G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
-            G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
-        }
 
         G_SCENE         = SCENE_FADE_OUT_CRACKERS;
         G_SCENE_LOADED  = FALSE;
@@ -387,7 +399,37 @@ void anim_CRACKERS_SCREEN_SURPRISE()
 
 void anim_CRACKERS_SCREEN_OVER()
 {
-    //
+    if(G_COUNTER_CRACKERS == 240)
+    {
+        // FADE OUT : 40 FRAMES //
+        PAL_fadeOutAll(40,FALSE);
+
+        // RESET SCROLLING //
+        VDP_setVerticalScroll(BG_B , 0);
+        VDP_setVerticalScroll(BG_A , 0);
+
+        // CLEAR PLANES //
+        VDP_clearPlane(BG_B,TRUE);
+        VDP_clearPlane(BG_A,TRUE);
+
+        // RELEASE ALL SPRITES //
+        SPR_reset();
+
+        G_COUNTER_1 = 0;
+
+        G_PHASE_SEQUENCE = 0;
+
+        // DEFINE NEXT MINIGAME //
+        G_SCENE         = SCENE_FADE_IN;
+        G_SCENE_TYPE    = SCENE_REWARD;
+        G_SCENE_NEXT    = SCENE_REWARD;
+
+        G_SCENE_LOADED  = FALSE;
+
+        return;
+    }
+
+    G_COUNTER_CRACKERS += 1;
 }
 
 
@@ -397,11 +439,12 @@ void anim_CRACKERS_SCREEN_OVER()
 
 
 
-void (*TABLE_ANIM_INTERMEDIATE_SCREEN[5])(void)     =   {
+void (*TABLE_ANIM_INTERMEDIATE_SCREEN[6])(void)     =   {
                                                             anim_CRACKERS_SCREEN_SPREAD,
                                                             anim_CRACKERS_SCREEN_SURPRISE,
                                                             anim_CRACKERS_SCREEN_SURPRISE,
                                                             anim_CRACKERS_SCREEN_SURPRISE,
+                                                            NULL,
                                                             anim_CRACKERS_SCREEN_OVER
                                                         };
 

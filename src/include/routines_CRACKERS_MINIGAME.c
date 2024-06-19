@@ -57,7 +57,7 @@ inline static void spawn_OYSTER()
                 //u8 new_oyster = random_NUMBER(0,13);
 
                 // IF MORE THAN 1 CRACKER REMAINING //
-                if(G_NUMBER_CRACKERS != 1)
+                if(G_NUMBER_CRACKERS > 1)
                 {
                     u8 new_oyster = random_NUMBER(0,13);
                     
@@ -104,6 +104,12 @@ inline static void spawn_OYSTER()
                     {
                         G_RANDOM_OK = TRUE;
                     }
+                }
+
+                // USELESS //
+                else
+                {
+                    G_RANDOM_OK = TRUE;
                 }
             }
         }  
@@ -196,58 +202,19 @@ inline static void anim_OYSTER()
 
 
 
-
                     PAL_fadeOutAll(2,FALSE);
 
                     SPR_reset();
 
-                    G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_SURPRISE_1;
+                    G_CRACKERS_SCREEN_TYPE = random_NUMBER(1,3);
 
                     G_SCENE                 = SCENE_FADE_OUT_CRACKERS;
                     G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
                     G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
 
-                    G_CRACKERS_INIT         = TRUE;
-
                     G_SCENE_LOADED          = FALSE;
 
                     return;
-
-
-
-                    /*if(G_NUMBER_CRACKERS == 0)
-                    {
-                        PAL_fadeOutAll(2,FALSE);
-
-                        SPR_reset();
-
-                        //------------------------------------------------------------------//
-                        //                  IF WE HAVE PLAYED ALL 4 ROUNDS                  //
-                        //                  GO TO CRACKERS GAME OVER SCREEN                 //
-                        //------------------------------------------------------------------//
-                        if(G_GRABBED_CRACKERS == 0)
-                        {
-                            G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_OVER;
-                        }
-
-                        //------------------------------------------------------------------//
-                        //                     ELSE GO TO SPREAD SCREEN                     //
-                        //------------------------------------------------------------------//
-                        else
-                        {
-                            G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_SPREAD;
-                        }
-
-                        G_SCENE                 = SCENE_FADE_OUT_CRACKERS;
-                        G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
-                        G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
-
-                        G_CRACKERS_INIT         = FALSE;
-
-                        G_SCENE_LOADED          = FALSE;
-
-                        return;
-                    }*/
                 }
             }   
         }
@@ -509,6 +476,8 @@ void sequence_CRACKERS_MINIGAME()
             //------------------------------------------------------------------//
             if(G_COUNTER_1 == 31)
             {
+                //G_NUMBER_CRACKERS -= 1;
+                
                 SPR_releaseSprite(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER);
                 list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER = NULL;
 
@@ -527,7 +496,7 @@ void sequence_CRACKERS_MINIGAME()
                     //                  IF WE HAVE PLAYED ALL 4 ROUNDS                  //
                     //                  GO TO CRACKERS GAME OVER SCREEN                 //
                     //------------------------------------------------------------------//
-                    if(G_GRABBED_CRACKERS == 0)
+                    if(G_NUMBER_GRABBED_CRACKERS == 0)
                     {
                         G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_OVER;
                     }

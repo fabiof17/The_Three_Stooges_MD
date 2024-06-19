@@ -223,7 +223,8 @@
 #define CRACKERS_SCREEN_SURPRISE_1      1
 #define CRACKERS_SCREEN_SURPRISE_2      2
 #define CRACKERS_SCREEN_SURPRISE_3      3
-#define CRACKERS_SCREEN_OVER            4
+#define CRACKERS_SCREEN_SURPRISE_4      4
+#define CRACKERS_SCREEN_OVER            5
 
 #define CRACKER_PHASE_FREE              0
 #define CRACKER_PHASE_OYSTER_1          1
@@ -277,7 +278,7 @@
 #define STREET_TYPE_BOXING              6
 #define STREET_TYPE_DOCTORS             7
 #define STREET_TYPE_DOLLAR              8
-//#define STREET_TYPE_SLAP              9
+#define STREET_TYPE_CRACKERS            9
 #define STREET_TYPE_TRIVIA_1           10
 #define STREET_TYPE_TRIVIA_2           11
 #define STREET_TYPE_TRIVIA_3           12
@@ -522,7 +523,7 @@ extern u8 G_NUMBER_CRACKERS_MAX;
 
 extern u8 G_NUMBER_CRACKERS;
 
-extern u8 G_GRABBED_CRACKERS;
+extern u8 G_NUMBER_GRABBED_CRACKERS;
 
 extern u8 G_SELECTED_CRACKER;
 

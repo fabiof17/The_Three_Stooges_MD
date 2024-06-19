@@ -238,7 +238,7 @@ void init_VARIABLES()
 
     G_NUMBER_CRACKERS_MAX       = 14;
     G_NUMBER_CRACKERS           = 14;
-    G_GRABBED_CRACKERS          = 14;
+    G_NUMBER_GRABBED_CRACKERS   = 14;
 
     
 
@@ -2871,7 +2871,7 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
-        G_STREET_TYPE           = STREET_TYPE_WAITERS;
+        G_STREET_TYPE           = STREET_TYPE_CRACKERS;
        
 
         G_SCENE                 = SCENE_FADE_IN;
@@ -3867,9 +3867,9 @@ void init_SCENE()
             
 
 
-            G_NUMBER_CRACKERS_MAX   = G_GRABBED_CRACKERS;
-            G_NUMBER_CRACKERS       = G_GRABBED_CRACKERS;
-            G_GRABBED_CRACKERS      = 0;
+            G_NUMBER_CRACKERS_MAX   = G_NUMBER_GRABBED_CRACKERS;
+            G_NUMBER_CRACKERS       = G_NUMBER_GRABBED_CRACKERS;
+            G_NUMBER_GRABBED_CRACKERS      = 0;
 
 
             G_SELECTED_CRACKER      = 99;
@@ -3929,6 +3929,94 @@ void init_SCENE()
 
             memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_1_BG_B.palette->data     , 16 * 2 );
             memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_1_BG_A.palette->data     , 16 * 2 );
+        }
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                              CRACKERS SURPRISE 2 SCREEN                              //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        else if(G_CRACKERS_SCREEN_TYPE == CRACKERS_SCREEN_SURPRISE_2)
+        {
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_B                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_2_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_2_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_A                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_2_BG_B.tileset->numTile;
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_2_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_2_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       PALETTES                                       //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_2_BG_B.palette->data     , 16 * 2 );
+            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_2_BG_A.palette->data     , 16 * 2 );
+        }
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                              CRACKERS SURPRISE 3 SCREEN                              //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        else if(G_CRACKERS_SCREEN_TYPE == CRACKERS_SCREEN_SURPRISE_3)
+        {
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_B                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_3_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_3_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_A                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_3_BG_B.tileset->numTile;
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_3_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_3_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       PALETTES                                       //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_3_BG_B.palette->data     , 16 * 2 );
+            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_3_BG_A.palette->data     , 16 * 2 );
         }
 
 

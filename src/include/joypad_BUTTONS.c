@@ -264,6 +264,7 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
                             if(distance_Y < 16)
                             {
                                 list_CRACKER[i].state_CRACKER = CRACKER_PHASE_EATEN;
+                                list_CRACKER[i].animated = FALSE;
 
                                 SPR_setFrame(list_CRACKER[i].spr_CRACKER,0);
                                 SPR_setPosition(list_CRACKER[i].spr_CRACKER , G_POS_X_PLAYER - 11 , G_POS_Y_PLAYER - 8);
@@ -276,7 +277,7 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
 
                                 G_NUMBER_CRACKERS -= 1;
 
-                                G_GRABBED_CRACKERS += 1;
+                                G_NUMBER_GRABBED_CRACKERS += 1;
 
                                 G_SELECTED_CRACKER = i;
 
