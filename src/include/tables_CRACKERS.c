@@ -305,6 +305,8 @@ void anim_CRACKERS_SCREEN_SPREAD()
 
         VDP_loadTileSet(image_CRACKERS_SCREEN_SPREAD_BG_A3.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A3.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, DMA_QUEUE);
+    
+        XGM_startPlayPCM(SOUND_HAND,15,SOUND_PCM_CH4);
     }
 
     else if(G_COUNTER_CRACKERS == 79)
@@ -355,7 +357,24 @@ void anim_CRACKERS_SCREEN_SURPRISE()
 {
     if(G_COUNTER_CRACKERS == 60)
     {
-        PAL_fadeOutAll(2,FALSE);
+        if(G_NUMBER_CRACKERS == 0)
+        {
+            if(G_NUMBER_GRABBED_CRACKERS == 0)
+            {
+                waitMs(2000);
+                PAL_fadeOutAll(40,FALSE);
+            }
+
+            else
+            {
+                PAL_fadeOutAll(2,FALSE);
+            }
+        }
+
+        else
+        {
+            PAL_fadeOutAll(2,FALSE);
+        }
         
         G_COUNTER_CRACKERS = 0;
 
@@ -363,7 +382,7 @@ void anim_CRACKERS_SCREEN_SURPRISE()
         if(G_NUMBER_CRACKERS == 0)
         {
             if(G_NUMBER_GRABBED_CRACKERS == 0)
-            {
+            {                
                 G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_OVER;
             }
 
@@ -385,7 +404,6 @@ void anim_CRACKERS_SCREEN_SURPRISE()
         }
 
 
-        G_SCENE         = SCENE_FADE_OUT_CRACKERS;
         G_SCENE_LOADED  = FALSE;
 
         return;

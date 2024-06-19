@@ -8,5 +8,6 @@ extern const u8 PCM_ICONS[11776];
 extern const u8 PCM_SWATTER[5120];
 extern const u8 PCM_HEAD_SHOCK[5376];
 extern const u8 PCM_JOY_CRY[10240];
+extern const u8 PCM_OYSTER[5632];
 
 #endif // _RES_SOUND_H_

@@ -202,6 +202,10 @@ inline static void anim_OYSTER()
 
 
 
+                    XGM_startPlayPCM(SOUND_OYSTER,15,SOUND_PCM_CH4);
+
+
+
                     PAL_fadeOutAll(2,FALSE);
 
                     SPR_reset();

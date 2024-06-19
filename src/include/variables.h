@@ -313,6 +313,7 @@
 #define SOUND_SWATTER                   83
 #define SOUND_HEAD_SHOCK                84
 #define SOUND_JOY_CRY                   85
+#define SOUND_OYSTER                    86
 
 
 

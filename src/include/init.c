@@ -3859,22 +3859,6 @@ void init_SCENE()
             VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SPREAD_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SPREAD_BG_A1.tileset->numTile), 10, 15, 0, 0, 11, 9, CPU);
         
 
-            G_COUNTER_1             = 0;
-            G_INDEX_1               = 0;
-
-            G_COUNTER_CRACKERS      = 0;
-            G_COUNTER_OYSTER        = 0;
-            
-
-
-            G_NUMBER_CRACKERS_MAX   = G_NUMBER_GRABBED_CRACKERS;
-            G_NUMBER_CRACKERS       = G_NUMBER_GRABBED_CRACKERS;
-            G_NUMBER_GRABBED_CRACKERS      = 0;
-
-
-            G_SELECTED_CRACKER      = 99;
-
-
 
 
             //--------------------------------------------------------------------------------------//
@@ -3885,6 +3869,52 @@ void init_SCENE()
 
             memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SPREAD_BG_B1.palette->data     , 16 * 2 );
             memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SPREAD_BG_A1.palette->data     , 16 * 2 );
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       VARIABLES                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_COUNTER_1                 = 0;
+            G_INDEX_1                   = 0;
+
+            G_COUNTER_CRACKERS          = 0;
+            G_COUNTER_OYSTER            = 0;
+            
+
+
+            G_NUMBER_CRACKERS_MAX       = G_NUMBER_GRABBED_CRACKERS;
+            G_NUMBER_CRACKERS           = G_NUMBER_GRABBED_CRACKERS;
+            G_NUMBER_GRABBED_CRACKERS   = 0;
+
+
+            G_SELECTED_CRACKER          = 99;
+
+
+            if(G_NUMBER_CRACKERS == 14)
+            {
+                G_SCENE = SCENE_FADE_IN;
+            }
+
+            else
+            {
+                G_SCENE = SCENE_FADE_IN_CRACKERS;
+            }
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         AUDIO                                        //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            XGM_setPCM(SOUND_HAND, PCM_HAND, sizeof(PCM_HAND));
         }
 
 
@@ -3929,6 +3959,17 @@ void init_SCENE()
 
             memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_1_BG_B.palette->data     , 16 * 2 );
             memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_1_BG_A.palette->data     , 16 * 2 );
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       VARIABLES                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_SCENE = SCENE_FADE_IN_CRACKERS;
         }
 
 
@@ -3973,6 +4014,17 @@ void init_SCENE()
 
             memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_2_BG_B.palette->data     , 16 * 2 );
             memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_2_BG_A.palette->data     , 16 * 2 );
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       VARIABLES                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_SCENE = SCENE_FADE_IN_CRACKERS;
         }
 
 
@@ -4017,6 +4069,17 @@ void init_SCENE()
 
             memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_3_BG_B.palette->data     , 16 * 2 );
             memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_3_BG_A.palette->data     , 16 * 2 );
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       VARIABLES                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_SCENE = SCENE_FADE_IN_CRACKERS;
         }
 
 
@@ -4061,6 +4124,17 @@ void init_SCENE()
 
             memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_OVER_BG_B.palette->data     , 16 * 2 );
             memcpy( &palette_64[16] , image_CRACKERS_SCREEN_OVER_BG_A.palette->data     , 16 * 2 );
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       VARIABLES                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_SCENE = SCENE_FADE_IN;
         }
 
 
@@ -4070,7 +4144,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        if(G_NUMBER_CRACKERS == 14)
+        /*if(G_NUMBER_CRACKERS == 14)
         {
             G_SCENE = SCENE_FADE_IN;
         }
@@ -4078,7 +4152,7 @@ void init_SCENE()
         else
         {
             G_SCENE = SCENE_FADE_IN_CRACKERS;
-        }
+        }*/
 
 
         G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
@@ -4308,6 +4382,17 @@ void init_SCENE()
         G_SCENE_NEXT            = SCENE_CRACKERS_MINIGAME;
 
         G_SCENE_LOADED          = TRUE;
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         AUDIO                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        XGM_setPCM(SOUND_OYSTER, PCM_OYSTER, sizeof(PCM_OYSTER));
     }
 
     // CONTRACT QUESTION MARK //
@@ -4847,6 +4932,8 @@ void init_SCENE()
         //**************************************************************************************//
 
         VDP_loadTileSet(image_FONT.tileset, TILE_FONT_INDEX, CPU);
+
+        VDP_loadTileSet(image_TILES_BASE_SGDK.tileset, 0, CPU);
 
 
         //--------------------------------------------------------------------------------------//
