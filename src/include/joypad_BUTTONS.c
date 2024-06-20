@@ -281,6 +281,8 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
 
                                 G_SELECTED_CRACKER = i;
 
+                                XGM_startPlayPCM(SOUND_MONEY,14,SOUND_PCM_CH2);
+
                                 return;
                             }
                         }

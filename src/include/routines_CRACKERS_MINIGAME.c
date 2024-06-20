@@ -210,7 +210,7 @@ inline static void anim_OYSTER()
 
                     SPR_reset();
 
-                    G_CRACKERS_SCREEN_TYPE = random_NUMBER(1,3);
+                    G_CRACKERS_SCREEN_TYPE = random_NUMBER(1,4);
 
                     G_SCENE                 = SCENE_FADE_OUT_CRACKERS;
                     G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;

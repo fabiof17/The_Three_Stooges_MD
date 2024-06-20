@@ -314,8 +314,12 @@
 #define SOUND_HEAD_SHOCK                84
 #define SOUND_JOY_CRY                   85
 #define SOUND_OYSTER                    86
+#define SOUND_MONEY                     87
 
-
+#define SOUND_CRACKERS_CRY_1            89
+#define SOUND_CRACKERS_CRY_2            90
+#define SOUND_CRACKERS_CRY_3            91
+#define SOUND_CRACKERS_CRY_4            92
 
 
 

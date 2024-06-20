@@ -3970,6 +3970,20 @@ void init_SCENE()
             //--------------------------------------------------------------------------------------//
 
             G_SCENE = SCENE_FADE_IN_CRACKERS;
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         AUDIO                                        //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            
+            u8 random_PCM = random_NUMBER(0,2);
+
+            XGM_setPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_SAMPLE_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_LENGH_PCM_CRACKERS_MINIGAME[random_PCM] );
+            XGM_startPlayPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , 13 , SOUND_PCM_CH3 );
         }
 
 
@@ -4025,6 +4039,20 @@ void init_SCENE()
             //--------------------------------------------------------------------------------------//
 
             G_SCENE = SCENE_FADE_IN_CRACKERS;
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         AUDIO                                        //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            
+            u8 random_PCM = random_NUMBER(0,2);
+
+            XGM_setPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_SAMPLE_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_LENGH_PCM_CRACKERS_MINIGAME[random_PCM] );
+            XGM_startPlayPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , 13 , SOUND_PCM_CH3 );
         }
 
 
@@ -4080,6 +4108,87 @@ void init_SCENE()
             //--------------------------------------------------------------------------------------//
 
             G_SCENE = SCENE_FADE_IN_CRACKERS;
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         AUDIO                                        //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            
+            u8 random_PCM = random_NUMBER(0,2);
+
+            XGM_setPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_SAMPLE_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_LENGH_PCM_CRACKERS_MINIGAME[random_PCM] );
+            XGM_startPlayPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , 13 , SOUND_PCM_CH3 );
+        }
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                              CRACKERS SURPRISE 4 SCREEN                              //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        else if(G_CRACKERS_SCREEN_TYPE == CRACKERS_SCREEN_SURPRISE_4)
+        {
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_B                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_4_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_4_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_A                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_4_BG_B.tileset->numTile;
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_4_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_4_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       PALETTES                                       //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_3_BG_B.palette->data     , 16 * 2 );
+            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_3_BG_A.palette->data     , 16 * 2 );
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       VARIABLES                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_SCENE = SCENE_FADE_IN_CRACKERS;
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         AUDIO                                        //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            
+            XGM_setPCM(SOUND_CRACKERS_CRY_4, PCM_CRACKERS_CRY_4, sizeof(PCM_CRACKERS_CRY_4));
+            XGM_startPlayPCM(SOUND_CRACKERS_CRY_4,13,SOUND_PCM_CH3);
         }
 
 
@@ -4143,17 +4252,6 @@ void init_SCENE()
         //                                       VARIABLES                                      //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
-
-        /*if(G_NUMBER_CRACKERS == 14)
-        {
-            G_SCENE = SCENE_FADE_IN;
-        }
-
-        else
-        {
-            G_SCENE = SCENE_FADE_IN_CRACKERS;
-        }*/
-
 
         G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
         G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
@@ -4392,6 +4490,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
+        XGM_setPCM(SOUND_MONEY,  PCM_MONEY,  sizeof(PCM_MONEY));
         XGM_setPCM(SOUND_OYSTER, PCM_OYSTER, sizeof(PCM_OYSTER));
     }
 
@@ -5080,13 +5179,6 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
     
     }    
-
-
-
-
-
-
-
 
 
 

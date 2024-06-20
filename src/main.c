@@ -474,7 +474,7 @@ int main(bool hardReset)
                 {
                     sequence_CRACKERS_SCREEN();
 
-                    VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_CRACKERS,2,0,0,PAL0);
+                    //VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_CRACKERS,2,0,0,PAL0);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
