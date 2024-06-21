@@ -172,21 +172,31 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
                     // GET HIT RESULT //
                     bool result = TABLE_PROBABILITY_SLAP_ATTACK[hit_probability][hit_number];
 
+
                     // MISS //
                     if(result == 0)
                     {
                         G_POS_X_METER_SLAP += 4;
+
+                        u8 random_miss_pcm = random_NUMBER(70,73);
+
+                        XGM_startPlayPCM(random_miss_pcm,15,SOUND_PCM_CH4);
                     }
 
+                    // HIT //
                     else
                     {
                         G_POS_X_METER_SLAP -= 4;
+
+                        u8 attack_pcm = G_CURRENT_STATE;
+
+                        XGM_startPlayPCM(TABLE_ID_PCM_SLAP_HIT[attack_pcm],15,SOUND_PCM_CH4);
+
                     }
 
+                    // MOVE METER SPRITE //
                     SPR_setPosition(sprite_METER_SLAP , G_POS_X_METER_SLAP , 55);
 
-                    //VDP_drawIntEx_BG_B(G_CURRENT_STATE,1,0,28,PAL1);
-                    //VDP_drawIntEx_BG_B(1+result,1,0,30,PAL1);
 
                     if(G_AXIS == LEFT)
                     {
@@ -295,12 +305,6 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
         }
     }
 }
-
-
-
-
-
-
 
 
 

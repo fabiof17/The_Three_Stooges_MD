@@ -270,7 +270,7 @@ void init_HUB()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    XGM_setPCM(SOUND_HAND, PCM_HAND, sizeof(PCM_HAND));
+    //XGM_setPCM(SOUND_HAND, PCM_HAND, sizeof(PCM_HAND));
 }
 
 
@@ -569,7 +569,21 @@ void sequence_ROULETTE()
 
                 else
                 {
-                    // GAME OVER //
+                    // FADE OUT : 40 FRAMES //
+                    PAL_fadeOutAll(60,FALSE);
+
+                    // CLEAR PLANES //
+                    VDP_clearPlane(BG_B,TRUE);
+                    VDP_clearPlane(BG_A,TRUE);
+
+                    // RELEASE ALL SPRITES //
+                    SPR_reset();
+
+                    G_SCENE             = SCENE_FADE_IN;
+                    G_SCENE_TYPE        = SCENE_GAME_OVER;
+                    G_SCENE_NEXT        = SCENE_GAME_OVER;
+
+                    G_SCENE_LOADED      = FALSE;
                 }
 
                 return;

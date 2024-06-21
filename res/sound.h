@@ -15,5 +15,15 @@ extern const u8 PCM_CRACKERS_CRY_2[10496];
 extern const u8 PCM_CRACKERS_CRY_3[10752];
 extern const u8 PCM_CRACKERS_CRY_4[9216];
 extern const u8 PCM_CRACKERS_CRY_5[10752];
+extern const u8 PCM_SLAP_MISS_1[7168];
+extern const u8 PCM_SLAP_MISS_2[9728];
+extern const u8 PCM_SLAP_MISS_3[9216];
+extern const u8 PCM_SLAP_MISS_4[5632];
+extern const u8 PCM_SLAP_EYES[7168];
+extern const u8 PCM_SLAP_CHEEK[11008];
+extern const u8 PCM_SLAP_KNEE[11008];
+extern const u8 PCM_SLAP_FOREHEAD[9216];
+extern const u8 PCM_SLAP_BELLY[13312];
+extern const u8 PCM_SLAP_EAR[12032];
 
 #endif // _RES_SOUND_H_

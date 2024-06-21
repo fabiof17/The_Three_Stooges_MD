@@ -484,7 +484,7 @@ const u8    TABLE_ID_PCM_CRACKERS_MINIGAME[3]       =   {
                                                         };
 
 
-const u8    *TABLE_SAMPLE_PCM_CRACKERS_MINIGAME[3]  =   {
+/*const u8    *TABLE_SAMPLE_PCM_CRACKERS_MINIGAME[3]  =   {
                                                             PCM_CRACKERS_CRY_1,
                                                             PCM_CRACKERS_CRY_2,
                                                             PCM_CRACKERS_CRY_3
@@ -495,4 +495,4 @@ const u32    TABLE_LENGH_PCM_CRACKERS_MINIGAME[3]  =   {
                                                             sizeof(PCM_CRACKERS_CRY_1),
                                                             sizeof(PCM_CRACKERS_CRY_2),
                                                             sizeof(PCM_CRACKERS_CRY_3)
-                                                        };
+                                                        };*/

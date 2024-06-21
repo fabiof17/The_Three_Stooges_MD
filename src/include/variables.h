@@ -103,6 +103,9 @@
 #define SCENE_FADE_IN_CRACKERS          38
 #define SCENE_FADE_OUT_CRACKERS         39
 
+#define SCENE_GAME_OVER                 40
+
+
 
 
 
@@ -165,14 +168,14 @@
 #define RIGHT                           1
 
 
-#define SLAP_STATE_BACK_UP              7
-#define SLAP_STATE_UP                   6
-#define SLAP_STATE_FRONT_UP             5
-#define SLAP_STATE_FRONT                4
+#define SLAP_STATE_BACK_UP              7 // EAR //
+#define SLAP_STATE_UP                   6 // FOREHEAD //
+#define SLAP_STATE_FRONT_UP             5 // EYES //
+#define SLAP_STATE_FRONT                4 // CHEEK //
 #define SLAP_STATE_IDLE                 3
-#define SLAP_STATE_FRONT_DOWN           2
-#define SLAP_STATE_BACK                 1
-#define SLAP_STATE_DOWN                 0
+#define SLAP_STATE_FRONT_DOWN           2 // BELLY
+#define SLAP_STATE_BACK                 1 // KNEE
+#define SLAP_STATE_DOWN                 0 // KNEE
 
 
 
@@ -306,7 +309,20 @@
 //                                                                             //
 //-----------------------------------------------------------------------------//
 
-#define SOUND_INTRO_SCREEN1             74
+#define SOUND_INTRO_SCREEN1             69
+
+#define SOUND_SLAP_MISS_1               70
+#define SOUND_SLAP_MISS_2               71
+#define SOUND_SLAP_MISS_3               72
+#define SOUND_SLAP_MISS_4               73
+
+#define SOUND_SLAP_EAR                  74
+#define SOUND_SLAP_FOREHEAD             75
+#define SOUND_SLAP_EYES                 76
+#define SOUND_SLAP_CHEEK                77
+#define SOUND_SLAP_BELLY                78
+#define SOUND_SLAP_KNEE                 79
+
 #define SOUND_BANKER_LAUGH              80
 #define SOUND_HAND                      81
 #define SOUND_WALKOUT                   82
@@ -321,10 +337,6 @@
 #define SOUND_CRACKERS_CRY_3            91
 #define SOUND_CRACKERS_CRY_4            92
 #define SOUND_CRACKERS_CRY_5            93
-
-
-
-
 
 
 

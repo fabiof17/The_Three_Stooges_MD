@@ -18,6 +18,7 @@
 #include "maps_CRACKERS.h"
 #include "maps_DOCTORS.h"
 #include "maps_DOLLAR.h"
+#include "maps_GAMEOVER.h"
 #include "maps_GLOBAL.h"
 #include "maps_INTRO.h"
 #include "maps_LOGO.h"
@@ -131,7 +132,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
+        G_SCENE_TYPE = SCENE_GAME_OVER; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
     }
 
 
@@ -260,6 +261,70 @@ void init_VARIABLES()
     TABLE_GENERATED_HAND_POSITION[1] = 4;
     TABLE_GENERATED_HAND_POSITION[0] = 1;
 
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         AUDIO                                        //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    //--------------------------------------------------------------------------------------//
+    //                                        INTRO                                         //
+    //--------------------------------------------------------------------------------------//
+
+    XGM_setPCM(SOUND_INTRO_SCREEN1, PCM_INTRO_SCREEN1, sizeof(PCM_INTRO_SCREEN1));
+    XGM_setPCM(SOUND_BANKER_LAUGH, PCM_BANKER_LAUGH, sizeof(PCM_BANKER_LAUGH));
+
+    //--------------------------------------------------------------------------------------//
+    //                                       ROULETTE                                       //
+    //--------------------------------------------------------------------------------------//
+
+    XGM_setPCM(SOUND_HAND, PCM_HAND, sizeof(PCM_HAND));
+    XGM_setPCM(SOUND_WALKOUT, PCM_ICONS, sizeof(PCM_ICONS));
+    XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                        DOLLAR                                        //
+    //--------------------------------------------------------------------------------------//
+
+    XGM_setPCM(SOUND_HEAD_SHOCK, PCM_HEAD_SHOCK, sizeof(PCM_HEAD_SHOCK));
+    XGM_setPCM(SOUND_JOY_CRY, PCM_JOY_CRY, sizeof(PCM_JOY_CRY));
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                       CRACKERS                                       //
+    //--------------------------------------------------------------------------------------//
+
+    XGM_setPCM(SOUND_MONEY,  PCM_MONEY,  sizeof(PCM_MONEY));
+    XGM_setPCM(SOUND_OYSTER, PCM_OYSTER, sizeof(PCM_OYSTER));
+
+    XGM_setPCM(SOUND_CRACKERS_CRY_1, PCM_CRACKERS_CRY_1, sizeof(PCM_CRACKERS_CRY_1));
+    XGM_setPCM(SOUND_CRACKERS_CRY_2, PCM_CRACKERS_CRY_2, sizeof(PCM_CRACKERS_CRY_2));
+    XGM_setPCM(SOUND_CRACKERS_CRY_3, PCM_CRACKERS_CRY_3, sizeof(PCM_CRACKERS_CRY_3));
+    XGM_setPCM(SOUND_CRACKERS_CRY_4, PCM_CRACKERS_CRY_4, sizeof(PCM_CRACKERS_CRY_4));
+    XGM_setPCM(SOUND_CRACKERS_CRY_5, PCM_CRACKERS_CRY_5, sizeof(PCM_CRACKERS_CRY_5));
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                         SLAP                                         //
+    //--------------------------------------------------------------------------------------//
+
+    XGM_setPCM(SOUND_SLAP_MISS_1, PCM_SLAP_MISS_1, sizeof(PCM_SLAP_MISS_1));
+    XGM_setPCM(SOUND_SLAP_MISS_2, PCM_SLAP_MISS_2, sizeof(PCM_SLAP_MISS_2));
+    XGM_setPCM(SOUND_SLAP_MISS_3, PCM_SLAP_MISS_3, sizeof(PCM_SLAP_MISS_3));
+    XGM_setPCM(SOUND_SLAP_MISS_4, PCM_SLAP_MISS_4, sizeof(PCM_SLAP_MISS_4));
+
+    XGM_setPCM(SOUND_SLAP_EAR      , PCM_SLAP_EAR      , sizeof(PCM_SLAP_EAR));
+    XGM_setPCM(SOUND_SLAP_EYES     , PCM_SLAP_EYES     , sizeof(PCM_SLAP_EYES));
+    XGM_setPCM(SOUND_SLAP_KNEE     , PCM_SLAP_KNEE     , sizeof(PCM_SLAP_KNEE));
+    XGM_setPCM(SOUND_SLAP_CHEEK    , PCM_SLAP_CHEEK    , sizeof(PCM_SLAP_CHEEK));
+    XGM_setPCM(SOUND_SLAP_BELLY    , PCM_SLAP_BELLY    , sizeof(PCM_SLAP_BELLY));
+    XGM_setPCM(SOUND_SLAP_FOREHEAD , PCM_SLAP_FOREHEAD , sizeof(PCM_SLAP_FOREHEAD));
+    
+    
 }
 
 
@@ -493,7 +558,7 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        XGM_setPCM(SOUND_INTRO_SCREEN1, PCM_INTRO_SCREEN1, sizeof(PCM_INTRO_SCREEN1));
+        //XGM_setPCM(SOUND_INTRO_SCREEN1, PCM_INTRO_SCREEN1, sizeof(PCM_INTRO_SCREEN1));
 
     }
 
@@ -1357,15 +1422,6 @@ void init_INTRO()
         G_SCENE_NEXT        = SCENE_INTRO_SCREEN_7;
 
         G_SCENE_LOADED      = TRUE;
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                         AUDIO                                        //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        XGM_setPCM(SOUND_BANKER_LAUGH, PCM_BANKER_LAUGH, sizeof(PCM_BANKER_LAUGH));
     }
 }
 
@@ -2048,8 +2104,8 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
         
-        XGM_setPCM(SOUND_HEAD_SHOCK, PCM_HEAD_SHOCK, sizeof(PCM_HEAD_SHOCK));
-        XGM_setPCM(SOUND_JOY_CRY, PCM_JOY_CRY, sizeof(PCM_JOY_CRY));
+        //XGM_setPCM(SOUND_HEAD_SHOCK, PCM_HEAD_SHOCK, sizeof(PCM_HEAD_SHOCK));
+        //XGM_setPCM(SOUND_JOY_CRY, PCM_JOY_CRY, sizeof(PCM_JOY_CRY));
     }
 
     // QUESTION MARK //
@@ -2476,8 +2532,8 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        XGM_setPCM(SOUND_WALKOUT, PCM_ICONS, sizeof(PCM_ICONS));
-        XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));        
+        //XGM_setPCM(SOUND_WALKOUT, PCM_ICONS, sizeof(PCM_ICONS));
+        //XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));        
     }
 
     // TRIVIA //
@@ -2985,8 +3041,8 @@ void init_SCENE()
 
         //XGM_setPCM(MUSIC_ROULETTE, PCM_MUSIC_ROULETTE, sizeof(PCM_MUSIC_ROULETTE));
         
-        XGM_setPCM(SOUND_WALKOUT, PCM_ICONS, sizeof(PCM_ICONS));
-        XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));
+        //XGM_setPCM(SOUND_WALKOUT, PCM_ICONS, sizeof(PCM_ICONS));
+        //XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));
     }  
 
     // TRIVIA CONTRACT
@@ -3914,7 +3970,7 @@ void init_SCENE()
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
 
-            XGM_setPCM(SOUND_HAND, PCM_HAND, sizeof(PCM_HAND));
+            //XGM_setPCM(SOUND_HAND, PCM_HAND, sizeof(PCM_HAND));
         }
 
 
@@ -3982,7 +4038,7 @@ void init_SCENE()
             
             u8 random_PCM = random_NUMBER(0,2);
 
-            XGM_setPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_SAMPLE_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_LENGH_PCM_CRACKERS_MINIGAME[random_PCM] );
+            //XGM_setPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_SAMPLE_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_LENGH_PCM_CRACKERS_MINIGAME[random_PCM] );
             XGM_startPlayPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , 13 , SOUND_PCM_CH3 );
         }
 
@@ -4051,7 +4107,7 @@ void init_SCENE()
             
             u8 random_PCM = random_NUMBER(0,2);
 
-            XGM_setPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_SAMPLE_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_LENGH_PCM_CRACKERS_MINIGAME[random_PCM] );
+            //XGM_setPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_SAMPLE_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_LENGH_PCM_CRACKERS_MINIGAME[random_PCM] );
             XGM_startPlayPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , 13 , SOUND_PCM_CH3 );
         }
 
@@ -4118,7 +4174,7 @@ void init_SCENE()
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
 
-            XGM_setPCM(SOUND_CRACKERS_CRY_4, PCM_CRACKERS_CRY_4, sizeof(PCM_CRACKERS_CRY_4));
+            //XGM_setPCM(SOUND_CRACKERS_CRY_4, PCM_CRACKERS_CRY_4, sizeof(PCM_CRACKERS_CRY_4));
             XGM_startPlayPCM(SOUND_CRACKERS_CRY_4,13,SOUND_PCM_CH3);
         }
 
@@ -4185,7 +4241,7 @@ void init_SCENE()
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
             
-            XGM_setPCM(SOUND_CRACKERS_CRY_5, PCM_CRACKERS_CRY_5, sizeof(PCM_CRACKERS_CRY_5));
+            //XGM_setPCM(SOUND_CRACKERS_CRY_5, PCM_CRACKERS_CRY_5, sizeof(PCM_CRACKERS_CRY_5));
             XGM_startPlayPCM(SOUND_CRACKERS_CRY_5,13,SOUND_PCM_CH3);
         }
 
@@ -4490,8 +4546,8 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        XGM_setPCM(SOUND_MONEY,  PCM_MONEY,  sizeof(PCM_MONEY));
-        XGM_setPCM(SOUND_OYSTER, PCM_OYSTER, sizeof(PCM_OYSTER));
+        //XGM_setPCM(SOUND_MONEY,  PCM_MONEY,  sizeof(PCM_MONEY));
+        //XGM_setPCM(SOUND_OYSTER, PCM_OYSTER, sizeof(PCM_OYSTER));
     }
 
     // CONTRACT QUESTION MARK //
@@ -5180,6 +5236,191 @@ void init_SCENE()
     
     }    
 
+    // INTRO SCREEN 5 //
+    else if(G_SCENE_TYPE == SCENE_GAME_OVER)
+    {
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
 
+        VDP_setPlaneSize(64,32,FALSE);
+        
+        SPR_initEx(170);
+        
+        VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                   NUMBERS TILESET                                    //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_loadTileSet(image_BANK_NUMBERS.tileset, TILE_FONT_INDEX + 16, CPU);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                         BG                                           //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_ADR_VRAM_BG_B = 0;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_INTRO_SCREEN_7_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_7_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                   GRANDMA TILES BG_B                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_GRANDMA_INTRO_BG_B_STEP0.tileset, G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile, CPU);
+        VDP_setTileMapEx(BG_B, image_GRANDMA_INTRO_BG_B_STEP0.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile), 6, 14, 0, 0, 5, 6, CPU);
+        
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile + image_GRANDMA_INTRO_BG_B_STEP0.tileset->numTile;
+        VDP_loadTileSet(image_INTRO_SCREEN_7_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+        VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 2, 0, 2,  4,  4, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                   GRANDMA TILES BG_A                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_GRANDMA_INTRO_BG_A_STEP0.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile, CPU);
+        VDP_setTileMapEx(BG_A, image_GRANDMA_INTRO_BG_A_STEP0.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile), 6, 14, 0, 0, 5, 6, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                     DIALOG TILES                                     //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile + image_GRANDMA_INTRO_BG_A_STEP0.tileset->numTile;
+        VDP_loadTileSet(image_GAMEOVER_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                      TEXT TILES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_GAMEOVER_FAIL_TEXT.tileset, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile, CPU);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      SPRITES                                         //
+        //                                                                                      //
+        //**************************************************************************************// 
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                    STOOGES SPRITES                                   //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  101, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        SPR_setFrame(sprite_STOOGES , 16);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                     BANKER SPRITES                                   //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        if(G_MONEY < 5000)
+        {
+            sprite_BANKER[0] = SPR_addSprite(&tiles_SPR_BANKER_PART2,   118, 125, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+            sprite_BANKER[1] = SPR_addSprite(&tiles_SPR_BANKER_PART1,   118, 125, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+
+            SPR_setFrame(sprite_BANKER[0] , 3);
+            SPR_setFrame(sprite_BANKER[1] , 2);
+
+            //SPR_setZ(sprite_BANKER[0] , 0);
+            //SPR_setZ(sprite_BANKER[1] , 1);
+        }
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                            DIALOG ARROW SPRITE OFF SCREEN                            //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_ARROW_DIALOG = SPR_addSprite(&tiles_SPR_INTRO_ARROW,   -16, -32, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+
+
+        SPR_update();
+        SYS_doVBlankProcess();
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       PALETTES                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+		memcpy( &palette_64[0]  , image_INTRO_SCREEN_7_BG_B.palette->data  , 16 * 2 );
+		memcpy( &palette_64[16] , image_INTRO_SCREEN_7_BG_A.palette->data  , 16 * 2 );
+		memcpy( &palette_64[32] , palette_SPR_BANKER_PART2_INTRO.data      , 16 * 2 );
+		memcpy( &palette_64[48] , palette_SPR_STOOGES.data                 , 16 * 2 );
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       VARIABLES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_1   = 0;
+        G_INDEX_1     = 0;
+        G_INDEX_2     = 0;
+        G_INDEX_3     = 0;
+        
+
+        G_SCENE             = SCENE_FADE_IN;
+        G_SCENE_TYPE        = SCENE_INTRO_SCREEN_7;
+        G_SCENE_NEXT        = SCENE_INTRO_SCREEN_7;
+
+        G_SCENE_LOADED      = TRUE;
+
+    }
 
 }

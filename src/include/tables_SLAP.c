@@ -4,6 +4,7 @@
 
 
 #include "structures.h"
+#include "variables.h"
 
 
 
@@ -45,7 +46,7 @@ const struct_WALK_STOOGES_      TABLE_ANIM_STOOGES_WALKIN_SLAP[26]          =   
 
 
 
-/*
+
 const bool                      TABLE_PROBABILITY_SLAP_85[20]               =   {
                                                                                     TRUE,
                                                                                     TRUE,
@@ -92,7 +93,7 @@ const bool                      TABLE_PROBABILITY_SLAP_80[20]               =   
                                                                                     TRUE,
                                                                                     TRUE
                                                                                 };
-*/
+
 
 const bool                      TABLE_PROBABILITY_SLAP_75[20]               =   {
                                                                                     TRUE,
@@ -165,7 +166,7 @@ const bool                      TABLE_PROBABILITY_SLAP_65[20]               =   
                                                                                     TRUE
                                                                                 };
 
-
+/*
 const bool                      TABLE_PROBABILITY_SLAP_60[20]               =   {
                                                                                     TRUE,
                                                                                     TRUE,
@@ -283,7 +284,7 @@ const bool                      TABLE_PROBABILITY_SLAP_40[20]               =   
                                                                                     FALSE,
                                                                                     TRUE,
                                                                                     FALSE
-                                                                                };
+                                                                                };*/
 
 
 
@@ -293,13 +294,25 @@ const bool                      TABLE_PROBABILITY_SLAP_40[20]               =   
 
 
 const bool                     *TABLE_PROBABILITY_SLAP_ATTACK[7]            =   {
-                                                                                    &TABLE_PROBABILITY_SLAP_50[0],
-                                                                                    &TABLE_PROBABILITY_SLAP_55[0],
-                                                                                    &TABLE_PROBABILITY_SLAP_60[0],
-                                                                                    &TABLE_PROBABILITY_SLAP_65[0],
                                                                                     &TABLE_PROBABILITY_SLAP_65[0],
                                                                                     &TABLE_PROBABILITY_SLAP_70[0],
-                                                                                    &TABLE_PROBABILITY_SLAP_75[0]
+                                                                                    &TABLE_PROBABILITY_SLAP_75[0],
+                                                                                    &TABLE_PROBABILITY_SLAP_75[0],
+                                                                                    &TABLE_PROBABILITY_SLAP_80[0],
+                                                                                    &TABLE_PROBABILITY_SLAP_80[0],
+                                                                                    &TABLE_PROBABILITY_SLAP_85[0]
+                                                                                };
+
+
+const u8                        TABLE_ID_PCM_SLAP_HIT[8]                    =   {
+                                                                                    79,
+                                                                                    79,
+                                                                                    78,
+                                                                                    NULL,
+                                                                                    77,
+                                                                                    76,
+                                                                                    75,
+                                                                                    74
                                                                                 };
 
 
