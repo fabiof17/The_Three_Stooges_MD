@@ -13,6 +13,7 @@ extern const u8 PCM_MONEY[17664];
 extern const u8 PCM_CRACKERS_CRY_1[9216];
 extern const u8 PCM_CRACKERS_CRY_2[10496];
 extern const u8 PCM_CRACKERS_CRY_3[10752];
-extern const u8 PCM_CRACKERS_CRY_4[10752];
+extern const u8 PCM_CRACKERS_CRY_4[9216];
+extern const u8 PCM_CRACKERS_CRY_5[10752];
 
 #endif // _RES_SOUND_H_

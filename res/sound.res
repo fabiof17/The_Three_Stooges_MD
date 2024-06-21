@@ -20,6 +20,7 @@ WAV PCM_CRACKERS_CRY_1          "sound/sound_CRACKERS_CRY_1.wav"    XGM
 WAV PCM_CRACKERS_CRY_2          "sound/sound_CRACKERS_CRY_2.wav"    XGM
 WAV PCM_CRACKERS_CRY_3          "sound/sound_CRACKERS_CRY_3.wav"    XGM
 WAV PCM_CRACKERS_CRY_4          "sound/sound_CRACKERS_CRY_4.wav"    XGM
+WAV PCM_CRACKERS_CRY_5          "sound/sound_CRACKERS_CRY_5.wav"    XGM
 
 
 

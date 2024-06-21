@@ -4117,11 +4117,9 @@ void init_SCENE()
             //                                         AUDIO                                        //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
-            
-            u8 random_PCM = random_NUMBER(0,2);
 
-            XGM_setPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_SAMPLE_PCM_CRACKERS_MINIGAME[random_PCM] , TABLE_LENGH_PCM_CRACKERS_MINIGAME[random_PCM] );
-            XGM_startPlayPCM( TABLE_ID_PCM_CRACKERS_MINIGAME[random_PCM] , 13 , SOUND_PCM_CH3 );
+            XGM_setPCM(SOUND_CRACKERS_CRY_4, PCM_CRACKERS_CRY_4, sizeof(PCM_CRACKERS_CRY_4));
+            XGM_startPlayPCM(SOUND_CRACKERS_CRY_4,13,SOUND_PCM_CH3);
         }
 
 
@@ -4187,8 +4185,8 @@ void init_SCENE()
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
             
-            XGM_setPCM(SOUND_CRACKERS_CRY_4, PCM_CRACKERS_CRY_4, sizeof(PCM_CRACKERS_CRY_4));
-            XGM_startPlayPCM(SOUND_CRACKERS_CRY_4,13,SOUND_PCM_CH3);
+            XGM_setPCM(SOUND_CRACKERS_CRY_5, PCM_CRACKERS_CRY_5, sizeof(PCM_CRACKERS_CRY_5));
+            XGM_startPlayPCM(SOUND_CRACKERS_CRY_5,13,SOUND_PCM_CH3);
         }
 
 
@@ -4245,6 +4243,8 @@ void init_SCENE()
 
             G_SCENE = SCENE_FADE_IN;
         }
+
+
 
 
         //--------------------------------------------------------------------------------------//

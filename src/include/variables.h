@@ -320,7 +320,7 @@
 #define SOUND_CRACKERS_CRY_2            90
 #define SOUND_CRACKERS_CRY_3            91
 #define SOUND_CRACKERS_CRY_4            92
-
+#define SOUND_CRACKERS_CRY_5            93
 
 
 
