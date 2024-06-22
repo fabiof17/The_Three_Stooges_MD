@@ -132,7 +132,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_GAME_OVER; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
+        G_SCENE_TYPE = SCENE_GAMEOVER; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
     }
 
 
@@ -5237,7 +5237,7 @@ void init_SCENE()
     }    
 
     // INTRO SCREEN 5 //
-    else if(G_SCENE_TYPE == SCENE_GAME_OVER)
+    else if(G_SCENE_TYPE == SCENE_GAMEOVER)
     {
         //**************************************************************************************//
         //                                                                                      //
@@ -5368,9 +5368,6 @@ void init_SCENE()
 
             SPR_setFrame(sprite_BANKER[0] , 3);
             SPR_setFrame(sprite_BANKER[1] , 2);
-
-            //SPR_setZ(sprite_BANKER[0] , 0);
-            //SPR_setZ(sprite_BANKER[1] , 1);
         }
 
 
@@ -5416,8 +5413,8 @@ void init_SCENE()
         
 
         G_SCENE             = SCENE_FADE_IN;
-        G_SCENE_TYPE        = SCENE_INTRO_SCREEN_7;
-        G_SCENE_NEXT        = SCENE_INTRO_SCREEN_7;
+        G_SCENE_TYPE        = SCENE_GAMEOVER;
+        G_SCENE_NEXT        = SCENE_GAMEOVER;
 
         G_SCENE_LOADED      = TRUE;
 

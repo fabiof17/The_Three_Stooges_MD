@@ -580,8 +580,8 @@ void sequence_ROULETTE()
                     SPR_reset();
 
                     G_SCENE             = SCENE_FADE_IN;
-                    G_SCENE_TYPE        = SCENE_GAME_OVER;
-                    G_SCENE_NEXT        = SCENE_GAME_OVER;
+                    G_SCENE_TYPE        = SCENE_GAMEOVER;
+                    G_SCENE_NEXT        = SCENE_GAMEOVER;
 
                     G_SCENE_LOADED      = FALSE;
                 }

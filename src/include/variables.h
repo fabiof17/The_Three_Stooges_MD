@@ -103,7 +103,7 @@
 #define SCENE_FADE_IN_CRACKERS          38
 #define SCENE_FADE_OUT_CRACKERS         39
 
-#define SCENE_GAME_OVER                 40
+#define SCENE_GAMEOVER                  40
 
 
 

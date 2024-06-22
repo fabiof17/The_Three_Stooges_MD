@@ -17,6 +17,7 @@
 #include "include/routines_DOCTORS.h"
 #include "include/routines_DOCTORS_MINIGAME.h"
 #include "include/routines_DOLLAR.h"
+#include "include/routines_GAMEOVER.h"
 #include "include/routines_INTRO.h"
 #include "include/routines_LOGO.h"
 #include "include/routines_QUESTION_MARK.h"
@@ -567,9 +568,17 @@ int main(bool hardReset)
                     G_SCENE         = G_SCENE_NEXT;
                     G_SCENE_NEXT    = NULL;
                 }
+
+                // GAME OVER //
+                else if(G_SCENE == SCENE_GAMEOVER)
+                {                    
+                    sequence_GAMEOVER();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
             }
-        }
-    
+        }    
     }
 
 	return 0;

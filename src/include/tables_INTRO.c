@@ -695,6 +695,7 @@ void (*TABLE_ANIM_INTRO_3[2])(void)         =       {
 
 
 // SCREENS 4-5-6 ANIMATION //
+
 void anim_INTRO_SCREEN_4_5_6()
 {
     // STOOGES ANIMATION //
@@ -740,7 +741,6 @@ void anim_INTRO_SCREEN_4_5_6()
 
 
 // SCREEN 7 ANIMATION //
-
 
 void anim_INTRO_SCREEN_7_0()
 {
