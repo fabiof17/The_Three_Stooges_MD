@@ -49,6 +49,7 @@
 #include "sprites_CRACKERS.h"
 #include "sprites_DOCTORS.h"
 #include "sprites_DOLLAR.h"
+#include "sprites_GAMEOVER.h"
 #include "sprites_GLOBAL.h"
 #include "sprites_INTRO.h"
 #include "sprites_QUESTION_MARK.h"
@@ -5379,7 +5380,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_ARROW_DIALOG = SPR_addSprite(&tiles_SPR_INTRO_ARROW,   -16, -32, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        sprite_ARROW_DIALOG = SPR_addSprite(&tiles_SPR_GAMEOVER_ARROW,   -24, -24, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
 
 
         SPR_update();

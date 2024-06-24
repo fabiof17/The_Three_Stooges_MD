@@ -23,8 +23,8 @@ out/src/include/init.o: src/include/init.c C:/sgdk/inc/genesis.h \
  src/include/routines_QUESTION_MARK.h src/include/routines_ROULETTE.h \
  res/music.h res/sound.h res/sprites_BANK.h res/sprites_BOXING.h \
  res/sprites_CRACKERS.h res/sprites_DOCTORS.h res/sprites_DOLLAR.h \
- res/sprites_GLOBAL.h res/sprites_INTRO.h res/sprites_QUESTION_MARK.h \
- res/sprites_ROULETTE.h res/sprites_SLAP.h \
+ res/sprites_GAMEOVER.h res/sprites_GLOBAL.h res/sprites_INTRO.h \
+ res/sprites_QUESTION_MARK.h res/sprites_ROULETTE.h res/sprites_SLAP.h \
  src/include/tables_BACKGROUNDS.h src/include/tables_CRACKERS.h \
  src/include/tables_DOCTORS.h src/include/tables_DOLLAR.h \
  src/include/tables_INTRO.h src/include/tables_QUESTIONS.h \

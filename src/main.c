@@ -559,7 +559,7 @@ int main(bool hardReset)
                 // GAME OVER //
                 else if(G_SCENE == SCENE_GAMEOVER)
                 {                    
-                    //sequence_GAMEOVER();
+                    sequence_GAMEOVER();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
