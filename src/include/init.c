@@ -2506,6 +2506,7 @@ void init_SCENE()
         G_COUNTER_ROULETTE      = 0;
         G_CURRENT_TURN          = 9;
         G_COUNTER_SLAP          = 0;
+        G_COUNTER_WAIT          = 0;
 
 
         G_AXIS                  = LEFT;

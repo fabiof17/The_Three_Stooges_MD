@@ -134,6 +134,8 @@ void joypad_SLAP()
                 G_PREVIOUS_STATE = G_CURRENT_STATE;
                 G_CURRENT_STATE = SLAP_STATE_UP;
             }
+
+            G_COUNTER_WAIT = 0;
         }
 
 
@@ -190,6 +192,8 @@ void joypad_SLAP()
                     SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_DOWN);
                 }
             }
+
+            G_COUNTER_WAIT = 0;
         }
 
 
@@ -220,6 +224,8 @@ void joypad_SLAP()
                 G_PREVIOUS_STATE = G_CURRENT_STATE;
                 G_CURRENT_STATE = SLAP_STATE_BACK;
             }
+
+            G_COUNTER_WAIT = 0;
         }
 
 
@@ -250,6 +256,8 @@ void joypad_SLAP()
                 G_PREVIOUS_STATE = G_CURRENT_STATE;
                 G_CURRENT_STATE = SLAP_STATE_FRONT;
             }
+
+            G_COUNTER_WAIT = 0;
         }
     }
 }
@@ -283,6 +291,45 @@ inline static void counter_SLAP()
     }
 
     G_COUNTER_SLAP += 1;
+}
+
+
+inline static void counter_WAIT()
+{
+    if(G_COUNTER_WAIT == 159)
+    {
+        if(G_POS_X_METER_SLAP < 80)
+        {
+            G_POS_X_METER_SLAP += 4;
+
+            G_HAND_SPEED -= 1;
+        }
+
+        // MOVE METER SPRITE //
+        SPR_setPosition(sprite_METER_SLAP , G_POS_X_METER_SLAP , 55);
+
+
+        SPR_setAnimAndFrame(sprite_MOE, 2 , 0);
+
+
+        if(G_AXIS == LEFT)
+        {
+            SPR_setAnimAndFrame(sprite_LARRY, 3, 0);
+        }
+
+        else if(G_AXIS == RIGHT)
+        {
+            SPR_setAnimAndFrame(sprite_CURLY, 3, 0);
+        }
+
+        G_COUNTER_WAIT = 0;
+
+        G_PHASE_SEQUENCE = SLAP_PHASE_HIT;
+
+        return;
+    }
+    
+    G_COUNTER_WAIT += 1;
 }
 
 
@@ -352,7 +399,7 @@ void sequence_SLAP()
 
             SPR_setPosition(sprite_HAND_SLAP,152,71);
 
-            G_POS_X_METER_SLAP = -6;
+            G_POS_X_METER_SLAP = -4;
             SPR_setPosition(sprite_METER_SLAP,G_POS_X_METER_SLAP,55);
 
             // RELEASE STOOGES SPRITE //
@@ -396,6 +443,7 @@ void sequence_SLAP()
     else if(G_PHASE_SEQUENCE == SLAP_PHASE_ATTACK)
     {
         counter_SLAP();
+        counter_WAIT();
     }
 
 
@@ -475,6 +523,25 @@ void sequence_SLAP()
             G_SCENE = SCENE_ROULETTE;
 
             G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
+
+            return;
+        }
+        
+        G_COUNTER_1 += 1;
+    }
+
+
+    else if(G_PHASE_SEQUENCE == SLAP_PHASE_HIT)
+    {        
+        counter_SLAP();
+        
+        if(G_COUNTER_WAIT == 10)
+        {
+            //
+
+            G_COUNTER_WAIT = 0;
+
+            G_PHASE_SEQUENCE = SLAP_PHASE_ATTACK;
 
             return;
         }

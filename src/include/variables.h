@@ -162,6 +162,7 @@
 #define SLAP_PHASE_RESULT_ATTACK        2
 #define SLAP_PHASE_PAUSE                3
 #define SLAP_PHASE_OVER                 4
+#define SLAP_PHASE_HIT                  5
 
 
 #define LEFT                            0
@@ -489,6 +490,7 @@ extern s8 G_PREVIOUS_STATE;
 extern s16 G_POS_X_METER_SLAP;
 
 extern u8 G_COUNTER_SLAP;
+extern u8 G_COUNTER_WAIT;
 
 
 

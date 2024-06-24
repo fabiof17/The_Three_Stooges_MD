@@ -176,8 +176,13 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
                     // MISS //
                     if(result == 0)
                     {
-                        G_POS_X_METER_SLAP += 4;
+                        if(G_POS_X_METER_SLAP < 80)
+                        {
+                            G_POS_X_METER_SLAP += 4;
 
+                            G_HAND_SPEED -= 1;
+                        }
+                        
                         u8 random_miss_pcm = random_NUMBER(70,73);
 
                         XGM_startPlayPCM(random_miss_pcm,15,SOUND_PCM_CH4);
@@ -186,8 +191,13 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
                     // HIT //
                     else
                     {
-                        G_POS_X_METER_SLAP -= 4;
+                        if(G_POS_X_METER_SLAP > -80)
+                        {
+                            G_POS_X_METER_SLAP -= 4;
 
+                            G_HAND_SPEED += 1;
+                        }
+                        
                         u8 attack_pcm = G_CURRENT_STATE;
 
                         XGM_startPlayPCM(TABLE_ID_PCM_SLAP_HIT[attack_pcm],15,SOUND_PCM_CH4);
@@ -210,6 +220,8 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
 
                     G_PHASE_SEQUENCE = SLAP_PHASE_RESULT_ATTACK;
                 }
+
+                G_COUNTER_WAIT = 0;
             }
 
             // BOUTON C //
@@ -231,7 +243,9 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
                         SPR_setPosition(sprite_MOE,131,133);
                     }
                 }
-            }
+
+                G_COUNTER_WAIT = 0;
+            }  
         }
     }
 }
