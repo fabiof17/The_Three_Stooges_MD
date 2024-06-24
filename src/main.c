@@ -364,6 +364,8 @@ int main(bool hardReset)
                     JOY_setEventHandler(slap_Callback);
                     
                     sequence_SLAP();
+
+                    //VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_WAIT,2,0,28,PAL0);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -500,15 +502,6 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
-                // REWARD //
-                else if(G_SCENE == SCENE_REWARD)
-                {                    
-                    sequence_REWARD();
-                    
-                    SPR_update();
-                    SYS_doVBlankProcess();
-                }
-
                 // CONTRACT QUESTION MARK //
                 else if(G_SCENE == SCENE_CONTRACT_QUESTION_MARK)
                 {                    
@@ -536,21 +529,6 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
-                // FADE IN //
-                else if(G_SCENE == SCENE_FADE_IN)
-                {
-                    PAL_fadeInAll(palette_64, 40, FALSE);
-
-                    G_SCENE         = G_SCENE_NEXT;
-                    G_SCENE_NEXT    = NULL;
-                }
-
-                // FADE OUT //
-                else if(G_SCENE == SCENE_FADE_OUT)
-                {                    
-                    fadeOut_ROULETTE();
-                }
-
                 // FADE IN CRACKERS //
                 else if(G_SCENE == SCENE_FADE_IN_CRACKERS)
                 {
@@ -569,14 +547,39 @@ int main(bool hardReset)
                     G_SCENE_NEXT    = NULL;
                 }
 
-                // GAME OVER //
-                else if(G_SCENE == SCENE_GAMEOVER)
+                // REWARD //
+                else if(G_SCENE == SCENE_REWARD)
                 {                    
-                    sequence_GAMEOVER();
+                    sequence_REWARD();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
+
+                // GAME OVER //
+                else if(G_SCENE == SCENE_GAMEOVER)
+                {                    
+                    //sequence_GAMEOVER();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                // FADE IN //
+                else if(G_SCENE == SCENE_FADE_IN)
+                {
+                    PAL_fadeInAll(palette_64, 40, FALSE);
+
+                    G_SCENE         = G_SCENE_NEXT;
+                    G_SCENE_NEXT    = NULL;
+                }
+
+                // FADE OUT //
+                else if(G_SCENE == SCENE_FADE_OUT)
+                {                    
+                    fadeOut_ROULETTE();
+                }
+
             }
         }    
     }

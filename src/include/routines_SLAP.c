@@ -326,6 +326,8 @@ inline static void counter_WAIT()
 
         G_PHASE_SEQUENCE = SLAP_PHASE_HIT;
 
+        XGM_startPlayPCM(SOUND_SLAP_HIT,14,SOUND_PCM_CH3);
+
         return;
     }
     
@@ -537,7 +539,20 @@ void sequence_SLAP()
         
         if(G_COUNTER_WAIT == 10)
         {
-            //
+            /*SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_IDLE);
+
+            if(G_AXIS == LEFT)
+            {
+                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_IDLE);
+            }
+
+            else if(G_AXIS == RIGHT)
+            {
+                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_IDLE);
+            }
+
+            G_PREVIOUS_STATE = G_CURRENT_STATE;
+            G_CURRENT_STATE = SLAP_STATE_IDLE;*/
 
             G_COUNTER_WAIT = 0;
 
@@ -546,7 +561,7 @@ void sequence_SLAP()
             return;
         }
         
-        G_COUNTER_1 += 1;
+        G_COUNTER_WAIT += 1;
     }
 }
 

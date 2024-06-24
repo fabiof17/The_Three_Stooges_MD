@@ -100,10 +100,10 @@
 #define SCENE_REWARD                    31
 
 
-#define SCENE_FADE_IN_CRACKERS          38
-#define SCENE_FADE_OUT_CRACKERS         39
+#define SCENE_FADE_IN_CRACKERS          35
+#define SCENE_FADE_OUT_CRACKERS         36
 
-#define SCENE_GAMEOVER                  40
+#define SCENE_GAMEOVER                  37
 
 
 
@@ -323,15 +323,16 @@
 #define SOUND_SLAP_CHEEK                77
 #define SOUND_SLAP_BELLY                78
 #define SOUND_SLAP_KNEE                 79
+#define SOUND_SLAP_HIT                  80
 
-#define SOUND_BANKER_LAUGH              80
-#define SOUND_HAND                      81
-#define SOUND_WALKOUT                   82
-#define SOUND_SWATTER                   83
-#define SOUND_HEAD_SHOCK                84
-#define SOUND_JOY_CRY                   85
-#define SOUND_OYSTER                    86
-#define SOUND_MONEY                     87
+#define SOUND_BANKER_LAUGH              81
+#define SOUND_HAND                      82
+#define SOUND_WALKOUT                   83
+#define SOUND_SWATTER                   84
+#define SOUND_HEAD_SHOCK                85
+#define SOUND_JOY_CRY                   86
+#define SOUND_OYSTER                    87
+#define SOUND_MONEY                     88
 
 #define SOUND_CRACKERS_CRY_1            89
 #define SOUND_CRACKERS_CRY_2            90

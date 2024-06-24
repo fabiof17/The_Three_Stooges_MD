@@ -119,19 +119,19 @@ void init_VARIABLES()
 
     if(G_REEL == REEL_LOGO)
     {
-        G_SCENE = SCENE_FADE_IN;
+        //G_SCENE = SCENE_FADE_IN;
         G_SCENE_TYPE = SCENE_LOGO_SCREEN;
     }
 
     else if(G_REEL == REEL_INTRO)
     {
-        G_SCENE = SCENE_FADE_IN;
+        //G_SCENE = SCENE_FADE_IN;
         G_SCENE_TYPE = SCENE_INTRO_SCREEN_1;
     }
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE = SCENE_FADE_IN;
+        //G_SCENE = SCENE_FADE_IN;
         G_SCENE_TYPE = SCENE_GAMEOVER; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
     }
 
@@ -323,6 +323,7 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_SLAP_CHEEK    , PCM_SLAP_CHEEK    , sizeof(PCM_SLAP_CHEEK));
     XGM_setPCM(SOUND_SLAP_BELLY    , PCM_SLAP_BELLY    , sizeof(PCM_SLAP_BELLY));
     XGM_setPCM(SOUND_SLAP_FOREHEAD , PCM_SLAP_FOREHEAD , sizeof(PCM_SLAP_FOREHEAD));
+    XGM_setPCM(SOUND_SLAP_HIT      , PCM_SLAP_HIT      , sizeof(PCM_SLAP_HIT));
     
     
 }

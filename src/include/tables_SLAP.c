@@ -294,12 +294,12 @@ const bool                      TABLE_PROBABILITY_SLAP_40[20]               =   
 
 
 const bool                     *TABLE_PROBABILITY_SLAP_ATTACK[7]            =   {
-                                                                                    &TABLE_PROBABILITY_SLAP_65[0],
                                                                                     &TABLE_PROBABILITY_SLAP_70[0],
                                                                                     &TABLE_PROBABILITY_SLAP_75[0],
                                                                                     &TABLE_PROBABILITY_SLAP_75[0],
                                                                                     &TABLE_PROBABILITY_SLAP_80[0],
                                                                                     &TABLE_PROBABILITY_SLAP_80[0],
+                                                                                    &TABLE_PROBABILITY_SLAP_85[0],
                                                                                     &TABLE_PROBABILITY_SLAP_85[0]
                                                                                 };
 

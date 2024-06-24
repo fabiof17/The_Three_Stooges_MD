@@ -34,7 +34,7 @@ WAV PCM_SLAP_KNEE               "sound/sound_SLAP_KNEE.wav"         XGM
 WAV PCM_SLAP_FOREHEAD           "sound/sound_SLAP_FOREHEAD.wav"     XGM
 WAV PCM_SLAP_BELLY              "sound/sound_SLAP_BELLY.wav"        XGM
 WAV PCM_SLAP_EAR                "sound/sound_SLAP_EAR.wav"          XGM
-
+WAV PCM_SLAP_HIT                "sound/sound_SLAP_HIT.wav"          XGM
 
 
 
