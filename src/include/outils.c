@@ -71,6 +71,7 @@ void generate_RANDOM_HAND_MOVE()
 }
 
 
+
 void generate_RANDOM_HAND_MOVE_SWATTER()
 {
 	G_RANDOM_HAND_MOVE_VALIDATED = FALSE;
@@ -94,3 +95,31 @@ void generate_RANDOM_HAND_MOVE_SWATTER()
 		}
 	}
 }
+
+
+
+void increase_HAND_SPEED()
+{
+	if(G_POS_X_METER_SLAP < 80)
+	{
+		G_POS_X_METER_SLAP += 4;
+
+		G_HAND_SPEED -= 1;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

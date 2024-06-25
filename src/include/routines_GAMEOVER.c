@@ -19,6 +19,7 @@
 
 void sequence_GAMEOVER()
 {
+    // FAIL //
     if(G_MONEY < 5000)
     {
         // ...IS NOT ENOUGH ! //
@@ -76,18 +77,30 @@ void sequence_GAMEOVER()
         
             SPR_setPosition(sprite_ARROW_DIALOG , 150 , 112);
         }
-
-
-
-
-
-
-
-
-
-
-        G_COUNTER_1 += 1;
     }
+
+    // SAVE THE ORPHANAGE //
+    else if(G_MONEY < 10000)
+    {
+
+    }
+
+    // SAVE AND REPAIR THE ORPHANAGE //
+    else if(G_MONEY < 20000)
+    {
+
+    }
+
+
+    // SAVE AND REPAIR THE ORPHANAGE, AND MARRY THE DAUGHTERS //
+    else
+    {
+
+    }
+
+
+    G_COUNTER_1 += 1;
+    
 
 }
 

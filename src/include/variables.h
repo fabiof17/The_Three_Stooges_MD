@@ -340,7 +340,7 @@
 #define SOUND_CRACKERS_CRY_4            92
 #define SOUND_CRACKERS_CRY_5            93
 
-
+#define SOUND_VOICE_DOCTORS             94
 
 
 

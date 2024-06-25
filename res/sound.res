@@ -36,6 +36,29 @@ WAV PCM_SLAP_BELLY              "sound/sound_SLAP_BELLY.wav"        XGM
 WAV PCM_SLAP_EAR                "sound/sound_SLAP_EAR.wav"          XGM
 WAV PCM_SLAP_HIT                "sound/sound_SLAP_HIT.wav"          XGM
 
+WAV PCM_VOICE_DOCTORS           "sound/sound_VOICE_DOCTORS.wav"     XGM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

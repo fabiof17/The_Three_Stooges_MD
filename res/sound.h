@@ -26,5 +26,6 @@ extern const u8 PCM_SLAP_FOREHEAD[9216];
 extern const u8 PCM_SLAP_BELLY[13312];
 extern const u8 PCM_SLAP_EAR[12032];
 extern const u8 PCM_SLAP_HIT[15616];
+extern const u8 PCM_VOICE_DOCTORS[49152];
 
 #endif // _RES_SOUND_H_
