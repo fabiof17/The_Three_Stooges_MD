@@ -133,7 +133,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         //G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_CRACKERS_SCREEN
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
     }
 
 
@@ -5324,7 +5324,7 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        VDP_setPlaneSize(64,32,FALSE);
+        VDP_setPlaneSize(64,32,TRUE);
         
         SPR_initEx(170);
         
