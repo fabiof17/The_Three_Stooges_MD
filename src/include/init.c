@@ -5120,8 +5120,8 @@ void init_SCENE()
        
 
         G_SCENE                 = SCENE_FADE_IN;
-        G_SCENE_TYPE            = SCENE_CONTRACT_DOCTORS;
-        G_SCENE_NEXT            = SCENE_CONTRACT_DOCTORS;
+        G_SCENE_TYPE            = SCENE_CONTRACT_WAITERS;
+        G_SCENE_NEXT            = SCENE_CONTRACT_WAITERS;
 
         G_SCENE_LOADED          = TRUE;
     }

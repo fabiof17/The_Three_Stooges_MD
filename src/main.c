@@ -520,6 +520,15 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
+                // CONTRACT WAITERS //
+                else if(G_SCENE == SCENE_CONTRACT_WAITERS)
+                {                    
+                    sequence_CONTRACT_WAITERS();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
                 // CONTRACT CRACKERS //
                 else if(G_SCENE == SCENE_CONTRACT_CRACKERS)
                 {                    
