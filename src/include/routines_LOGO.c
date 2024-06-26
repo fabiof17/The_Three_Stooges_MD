@@ -12,14 +12,14 @@ void sequence_LOGO()
 {
     if(G_COUNTER_1 == 120)
     {
-        SPR_setPosition(sprite_STOOGES,115,146);
-        SPR_setFrame(sprite_STOOGES,25);
+        //SPR_setPosition(sprite_STOOGES,115,146);
+        SPR_setFrame(sprite_STOOGES,1);
     }
 
     else if(G_COUNTER_1 == 180)
     {
         //SPR_setPosition(sprite_STOOGES,115,146);
-        SPR_setFrame(sprite_STOOGES,26);
+        SPR_setFrame(sprite_STOOGES,2);
     }
 
 

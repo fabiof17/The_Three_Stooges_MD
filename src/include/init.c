@@ -52,6 +52,7 @@
 #include "sprites_GAMEOVER.h"
 #include "sprites_GLOBAL.h"
 #include "sprites_INTRO.h"
+#include "sprites_LOGO.h"
 #include "sprites_QUESTION_MARK.h"
 #include "sprites_ROULETTE.h"
 #include "sprites_SLAP.h"
@@ -111,7 +112,7 @@ void init_VARIABLES()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_REEL = REEL_GAME; // REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_LOGO; // REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
     //--------------------------------------------------------------------------------------//
@@ -386,8 +387,8 @@ void init_LOGO()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  116, 146, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
-    SPR_setFrame(sprite_STOOGES,14);
+    sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_LOGO,  116, 146, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+    //SPR_setFrame(sprite_STOOGES,14);
 
     SPR_update();
 
