@@ -112,7 +112,7 @@ void init_VARIABLES()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_REEL = REEL_LOGO; // REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_GAME; // REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
     //--------------------------------------------------------------------------------------//
@@ -134,7 +134,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         //G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
+        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
     }
 
 
@@ -3698,7 +3698,7 @@ void init_SCENE()
 
         G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_DOCTORS_BG_B1.tileset->numTile + image_DOCTORS_BG_B2.tileset->numTile;
         VDP_loadTileSet(image_DOCTORS_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
-        VDP_setTileMapEx(BG_A, image_DOCTORS_BG_A.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 25,  0,  0, 40, 3, CPU);
+        VDP_setTileMapEx(BG_A, image_DOCTORS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 25,  0,  0, 40, 3, CPU);
 
 
         //--------------------------------------------------------------------------------------//
@@ -3713,11 +3713,11 @@ void init_SCENE()
         VDP_loadTileSet(image_DOCTORS_BLUE_DOT.tileset, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 3, CPU);
         VDP_loadTileSet(image_DOCTORS_BLUE_DOT.tileset, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 4, CPU);
 
-        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile    ), 29, 26,  0,  0,  1,  1, CPU);
-        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 1), 31, 26,  0,  0,  1,  1, CPU);
-        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 2), 33, 26,  0,  0,  1,  1, CPU);
-        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 3), 35, 26,  0,  0,  1,  1, CPU);
-        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 3), 37, 26,  0,  0,  1,  1, CPU);
+        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile    ), 29, 26,  0,  0,  1,  1, CPU);
+        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 1), 31, 26,  0,  0,  1,  1, CPU);
+        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 2), 33, 26,  0,  0,  1,  1, CPU);
+        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 3), 35, 26,  0,  0,  1,  1, CPU);
+        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 3), 37, 26,  0,  0,  1,  1, CPU);
 
 
 
@@ -3728,7 +3728,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_drawIntEx_BG_A_CPU(99 , 2 , 8 , 26 , PAL0);
+        VDP_drawIntEx_BG_A_CPU(99 , 2 , 8 , 26 , PAL1);
 
 
 
@@ -3739,7 +3739,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_drawIntEx_BG_A_CPU(0 , 1 , 3 , 26 , PAL0);
+        VDP_drawIntEx_BG_A_CPU(0 , 1 , 3 , 26 , PAL1);
 
 
 
@@ -3884,7 +3884,7 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         memcpy( &palette_64[0]  , image_DOCTORS_BG_B1.palette->data     , 16 * 2 );
-        memcpy( &palette_64[16] , palette_BLACK.data                    , 16 * 2 );
+        memcpy( &palette_64[16] , image_DOCTORS_BG_A.palette->data      , 16 * 2 );
         memcpy( &palette_64[32] , palette_SPR_CAR.data                  , 16 * 2 );
         memcpy( &palette_64[48] , palette_SPR_NURSE.data                , 16 * 2 );
 

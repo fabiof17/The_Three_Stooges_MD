@@ -523,13 +523,13 @@ inline static void counter_TIME_DOCTORS()
 
             if(G_COUNTER_DOCTORS > 9)
             {
-                VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_DOCTORS , 2 , 8 , 26 , PAL0);
+                VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_DOCTORS , 2 , 8 , 26 , PAL1);
             }
 
             else
             {
-                VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_DOCTORS , 1 , 9 , 26 , PAL0);
-                VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, 8), 8, 26,  0,  0, 1, 1, CPU);
+                VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_DOCTORS , 1 , 9 , 26 , PAL1);
+                VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, 8), 8, 26,  0,  0, 1, 1, DMA_QUEUE);
             }
         }
 
@@ -544,17 +544,17 @@ inline static void counter_REWARD_DOCTORS()
 {
     if(G_REWARD < 100)
     {
-        VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 2 , 3 , 26 , PAL0);
+        VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 2 , 3 , 26 , PAL1);
     }
 
     else if(G_REWARD < 1000)
     {
-        VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 3 , 3 , 26 , PAL0);
+        VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 3 , 3 , 26 , PAL1);
     }    
 
     else
     {
-        VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 4 , 3 , 26 , PAL0);
+        VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 4 , 3 , 26 , PAL1);
     }  
 }
 

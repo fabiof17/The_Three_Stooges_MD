@@ -173,6 +173,7 @@ const u8        TABLE_HIGHSTREET[180]   =   {
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
                                                 ICON_DOLLAR,
+                                                // 110
                                                 ICON_CRACKERS,
                                                 // GRAB
                                                 ICON_WAITERS,
@@ -185,6 +186,7 @@ const u8        TABLE_HIGHSTREET[180]   =   {
                                                 ICON_WAITERS,
                                                 ICON_QUESTION,
                                                 ICON_BANKER,
+                                                // 120
                                                 ICON_DOLLAR,
                                                 ICON_SWATTER,
                                                 ICON_SLAP,
@@ -195,7 +197,59 @@ const u8        TABLE_HIGHSTREET[180]   =   {
                                                 ICON_BANKER,
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
-                                                ICON_SWATTER    
+                                                ICON_SWATTER,
+                                                // 130 
+                                                ICON_BOXING,// ICON_BOXING
+                                                ICON_SLAP,
+                                                ICON_QUESTION,
+                                                ICON_SWATTER,
+                                                ICON_WAITERS,
+                                                ICON_DOLLAR,
+                                                ICON_SWATTER,
+                                                ICON_TRIVIA,
+                                                ICON_SWATTER,
+                                                ICON_DOLLAR,
+                                                // 140
+                                                ICON_SLAP,
+                                                ICON_DOCTORS,
+                                                ICON_SWATTER,
+                                                ICON_BANKER,
+                                                ICON_WAITERS,
+                                                ICON_QUESTION,
+                                                ICON_DOLLAR,
+                                                ICON_SLAP,
+                                                ICON_DOLLAR,
+                                                // 150
+                                                ICON_SWATTER,
+                                                ICON_TRIVIA,
+                                                ICON_SWATTER,
+                                                ICON_SWATTER,
+                                                ICON_BOXING,
+                                                ICON_DOLLAR,
+                                                ICON_SWATTER,
+                                                ICON_BANKER,
+                                                ICON_DOCTORS,
+                                                ICON_SLAP,
+                                                // 160
+                                                ICON_QUESTION,
+                                                ICON_WAITERS,
+                                                ICON_DOLLAR,
+                                                ICON_SWATTER,
+                                                ICON_TRIVIA,
+                                                ICON_SWATTER,
+                                                ICON_DOCTORS,
+                                                ICON_DOLLAR,
+                                                ICON_SLAP,
+                                                // 170
+                                                ICON_DOLLAR,
+                                                ICON_SWATTER,
+                                                ICON_BANKER,
+                                                ICON_TRIVIA,
+                                                ICON_SWATTER,
+                                                ICON_DOLLAR,
+                                                ICON_DOLLAR,
+                                                ICON_BOXING,
+                                                ICON_SWATTER
                                             };
 
 
