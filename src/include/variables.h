@@ -341,10 +341,11 @@
 #define SOUND_CRACKERS_CRY_5            93
 
 #define SOUND_VOICE_DOCTORS             94
-
-
-
-
+#define SOUND_DOCTORS_CRY_1             95
+#define SOUND_DOCTORS_CRY_2             96
+#define SOUND_DOCTORS_CRASH_1           97
+#define SOUND_DOCTORS_CRASH_2           98
+#define SOUND_DOCTORS_CRASH_3           99
 
 
 

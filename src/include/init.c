@@ -333,7 +333,11 @@ void init_VARIABLES()
     //--------------------------------------------------------------------------------------//
 
     XGM_setPCM(SOUND_VOICE_DOCTORS , PCM_VOICE_DOCTORS , sizeof(PCM_VOICE_DOCTORS));
-
+    XGM_setPCM(SOUND_DOCTORS_CRY_1 , PCM_DOCTORS_CRY_1 , sizeof(PCM_DOCTORS_CRY_1));
+    XGM_setPCM(SOUND_DOCTORS_CRY_2 , PCM_DOCTORS_CRY_2 , sizeof(PCM_DOCTORS_CRY_2));
+    XGM_setPCM(SOUND_DOCTORS_CRASH_1 , PCM_DOCTORS_CRASH_1 , sizeof(PCM_DOCTORS_CRASH_1));
+    XGM_setPCM(SOUND_DOCTORS_CRASH_2 , PCM_DOCTORS_CRASH_2 , sizeof(PCM_DOCTORS_CRASH_2));
+    XGM_setPCM(SOUND_DOCTORS_CRASH_3 , PCM_DOCTORS_CRASH_3 , sizeof(PCM_DOCTORS_CRASH_3));
 
 }
 

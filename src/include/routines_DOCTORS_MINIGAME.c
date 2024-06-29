@@ -121,6 +121,9 @@ inline static void collisions_CAR(u8 car_NUMBER)
 
             SPR_setPosition(list_CARS[car_NUMBER].spr_CAR , list_CARS[car_NUMBER].pos_X , 99);
             SPR_setPosition(patient.spr_PATIENT , patient.pos_X , patient.pos_Y );
+
+            u8 random_pcm = random_NUMBER(0,1);
+            XGM_startPlayPCM(TABLE_ID_PCM_DOCTORS_MINIGAME_CRASH[random_pcm],14,SOUND_PCM_CH3);
         }
     }
 }
@@ -777,6 +780,9 @@ inline static void collisions_ITEMS()
                                 SPR_releaseSprite(list_ITEM[i].spr_ITEM);
                                 list_ITEM[i].spr_ITEM = NULL;
 
+                                u8 random_pcm = random_NUMBER(0,3);
+                                XGM_startPlayPCM(TABLE_ID_PCM_DOCTORS_MINIGAME_CRY[random_pcm],15,SOUND_PCM_CH4);
+
                                 return;
                             }
                         }
@@ -1378,6 +1384,11 @@ void sequence_DOCTORS_MINIGAME()
         if(G_POS_Y_CAMERA < 16809)
         {
             VDP_setVerticalScrollVSync(BG_B , -G_POS_Y_CAMERA);
+        }
+
+        if(G_POS_Y_CAMERA == 17060)
+        {
+            XGM_startPlayPCM(SOUND_DOCTORS_CRASH_3,15,SOUND_PCM_CH4);
         }
 
         if(G_POS_Y_CAMERA >= 17240)

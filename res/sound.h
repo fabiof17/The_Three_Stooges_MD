@@ -27,5 +27,10 @@ extern const u8 PCM_SLAP_BELLY[13312];
 extern const u8 PCM_SLAP_EAR[12032];
 extern const u8 PCM_SLAP_HIT[15616];
 extern const u8 PCM_VOICE_DOCTORS[49152];
+extern const u8 PCM_DOCTORS_CRY_1[9984];
+extern const u8 PCM_DOCTORS_CRY_2[6400];
+extern const u8 PCM_DOCTORS_CRASH_1[7680];
+extern const u8 PCM_DOCTORS_CRASH_2[14080];
+extern const u8 PCM_DOCTORS_CRASH_3[64768];
 
 #endif // _RES_SOUND_H_

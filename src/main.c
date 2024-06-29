@@ -467,6 +467,8 @@ int main(bool hardReset)
                     joypad_DOCTORS_MINIGAME();
 
                     sequence_DOCTORS_MINIGAME();
+
+                    //VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,5,0,0,PAL2);
                     
                     SPR_update();
                     SYS_doVBlankProcess();

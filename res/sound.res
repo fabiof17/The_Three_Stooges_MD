@@ -37,11 +37,11 @@ WAV PCM_SLAP_EAR                "sound/sound_SLAP_EAR.wav"          XGM
 WAV PCM_SLAP_HIT                "sound/sound_SLAP_HIT.wav"          XGM
 
 WAV PCM_VOICE_DOCTORS           "sound/sound_VOICE_DOCTORS.wav"     XGM
-
-
-
-
-
+WAV PCM_DOCTORS_CRY_1           "sound/sound_DOCTORS_CRY_1.wav"     XGM
+WAV PCM_DOCTORS_CRY_2           "sound/sound_DOCTORS_CRY_2.wav"     XGM
+WAV PCM_DOCTORS_CRASH_1         "sound/sound_DOCTORS_CRASH_1.wav"   XGM
+WAV PCM_DOCTORS_CRASH_2         "sound/sound_DOCTORS_CRASH_2.wav"   XGM
+WAV PCM_DOCTORS_CRASH_3         "sound/sound_DOCTORS_CRASH_3.wav"   XGM
 
 
 

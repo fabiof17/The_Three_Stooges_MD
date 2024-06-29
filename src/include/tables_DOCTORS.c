@@ -162,9 +162,17 @@ const struct_PATIENT_TYPE_          TABLE_PATIENT_TYPE[4]           =   {
 
 
 
+const u8                      TABLE_ID_PCM_DOCTORS_MINIGAME_CRY[4]    = {
+                                                                          95,
+                                                                          90,
+                                                                          70,
+                                                                          96
+                                                                        };
 
-
-
+const u8                      TABLE_ID_PCM_DOCTORS_MINIGAME_CRASH[2]  = {
+                                                                          97,
+                                                                          98
+                                                                          };
 
 
 
