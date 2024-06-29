@@ -45,12 +45,21 @@ inline static void collisions_CAR(u8 car_NUMBER)
                 patient.counter_SPRITE_FRAME    = 0;
                 patient.index_SPRITE_FRAME      = 0;
 
+                patient.patient_STATE           = PATIENT_HIT;
+                //list_CARS[car_NUMBER].hit       = TRUE;
+
                 VDP_loadTileSet(image_DOCTORS_RED_DOT.tileset, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + G_HIT_NUMBER, DMA_QUEUE);
                 G_HIT_NUMBER                    += 1;
+
+                //VDP_drawIntEx_BG_A_QUEUE(G_HIT_NUMBER,1,0,0,PAL2);
+
+
+                //-------------------------------------------------------//
+                //                  UPDATE SPRITE FRAME                  //
+                //-------------------------------------------------------//
+                SPR_setAnimAndFrame(patient.spr_PATIENT , patient.patient_STATE , patient.index_SPRITE_FRAME);
             }
-            
-            patient.patient_STATE           = PATIENT_HIT;
-            
+
             list_CARS[car_NUMBER].hit       = TRUE;
 
             G_CAR_SPEED                     = 2;
@@ -110,7 +119,7 @@ inline static void collisions_CAR(u8 car_NUMBER)
                 }
             }
 
-
+            SPR_setPosition(list_CARS[car_NUMBER].spr_CAR , list_CARS[car_NUMBER].pos_X , 99);
             SPR_setPosition(patient.spr_PATIENT , patient.pos_X , patient.pos_Y );
         }
     }
@@ -206,6 +215,8 @@ void joypad_DOCTORS_MINIGAME()
                     
                     list_CARS[0].axis_CAR = AXIS_CENTER;
 
+                    SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
+
                     SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
                 }
             }
@@ -278,6 +289,8 @@ void joypad_DOCTORS_MINIGAME()
                     G_CAR_SPEED = 2;
                     
                     list_CARS[0].axis_CAR = AXIS_CENTER;
+
+                    SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
 
                     SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
                 }
@@ -1092,11 +1105,6 @@ inline static void anim_PATIENT()
                     //-------------------------------------------------------//
                     SPR_setAnimAndFrame(patient.spr_PATIENT , patient.patient_STATE , patient.index_SPRITE_FRAME);
                     
-
-                    //-------------------------------------------------------//
-                    //                   PATIENT OWN SPEED                   //
-                    //-------------------------------------------------------//
-                    //patient.pos_Y -= patient.ptr_VELOCITY[patient.index_SPRITE_FRAME];
                 }
             }
 
@@ -1185,6 +1193,12 @@ void sequence_DOCTORS_MINIGAME()
         counter_TIME_DOCTORS();
 
         //VDP_drawIntEx_BG_A_QUEUE(G_CAR_COUNTER_SPEED,2,0,0,PAL2);
+
+
+        if(G_HIT_NUMBER == 5)
+        {
+            G_PHASE_SEQUENCE = DOCTORS_PHASE_GAME_OVER;
+        }
     }
 
     
@@ -1382,42 +1396,84 @@ void sequence_DOCTORS_MINIGAME()
     {
         G_COUNTER_1 += 1;
 
-        //VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_1,3,0,2,PAL2);
-
-        if(G_COUNTER_1 == 120)
+        // REACHED THE OPERATION THEATRE //
+        if(G_HIT_NUMBER != 5)
         {
-            // FADE OUT : 40 FRAMES //
-            PAL_fadeOutAll(40,FALSE);
+            if(G_COUNTER_1 == 120)
+            {
+                // FADE OUT : 40 FRAMES //
+                PAL_fadeOutAll(40,FALSE);
 
-            // RESET SCROLLING //
-            VDP_setVerticalScroll(BG_B , 0);
-            VDP_setVerticalScroll(BG_A , 0);
+                // RESET SCROLLING //
+                VDP_setVerticalScroll(BG_B , 0);
+                VDP_setVerticalScroll(BG_A , 0);
 
-            // CLEAR PLANES //
-            VDP_clearPlane(BG_B,TRUE);
-            VDP_clearPlane(BG_A,TRUE);
+                // CLEAR PLANES //
+                VDP_clearPlane(BG_B,TRUE);
+                VDP_clearPlane(BG_A,TRUE);
 
-            // RELEASE ALL SPRITES //
-            SPR_reset();
+                // RELEASE ALL SPRITES //
+                SPR_reset();
 
-            G_COUNTER_1 = 0;
+                G_COUNTER_1 = 0;
 
-            G_CRACKERS_INIT             = FALSE;
-            G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
+                G_CRACKERS_INIT             = FALSE;
+                G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
 
-            G_NUMBER_CRACKERS_MAX       = 14;
-            G_NUMBER_CRACKERS           = 14;
-            G_NUMBER_GRABBED_CRACKERS   = 14;
+                G_NUMBER_CRACKERS_MAX       = 14;
+                G_NUMBER_CRACKERS           = 14;
+                G_NUMBER_GRABBED_CRACKERS   = 14;
 
 
 
-            G_SCENE         = SCENE_FADE_IN;
-            G_SCENE_TYPE    = SCENE_REWARD;
-            G_SCENE_NEXT    = SCENE_REWARD;
+                G_SCENE         = SCENE_FADE_IN;
+                G_SCENE_TYPE    = SCENE_REWARD;
+                G_SCENE_NEXT    = SCENE_REWARD;
 
-            G_SCENE_LOADED  = FALSE;
+                G_SCENE_LOADED  = FALSE;
 
-            return;
+                return;
+            }
+        }
+
+        // HIT 5 PATIENTS //
+        else
+        {
+            if(G_COUNTER_1 == 240)
+            {
+                // FADE OUT : 40 FRAMES //
+                PAL_fadeOutAll(40,FALSE);
+
+                // RESET SCROLLING //
+                VDP_setVerticalScroll(BG_B , 0);
+                VDP_setVerticalScroll(BG_A , 0);
+
+                // CLEAR PLANES //
+                VDP_clearPlane(BG_B,TRUE);
+                VDP_clearPlane(BG_A,TRUE);
+
+                // RELEASE ALL SPRITES //
+                SPR_reset();
+
+                G_COUNTER_1 = 0;
+
+                G_CRACKERS_INIT             = FALSE;
+                G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
+
+                G_NUMBER_CRACKERS_MAX       = 14;
+                G_NUMBER_CRACKERS           = 14;
+                G_NUMBER_GRABBED_CRACKERS   = 14;
+
+
+
+                G_SCENE         = SCENE_FADE_IN;
+                G_SCENE_TYPE    = SCENE_REWARD;
+                G_SCENE_NEXT    = SCENE_REWARD;
+
+                G_SCENE_LOADED  = FALSE;
+
+                return;
+            }
         }
     }
     

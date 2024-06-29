@@ -3717,7 +3717,7 @@ void init_SCENE()
         VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 1), 31, 26,  0,  0,  1,  1, CPU);
         VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 2), 33, 26,  0,  0,  1,  1, CPU);
         VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 3), 35, 26,  0,  0,  1,  1, CPU);
-        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 3), 37, 26,  0,  0,  1,  1, CPU);
+        VDP_setTileMapEx(BG_A, image_DOCTORS_BLUE_DOT.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + 4), 37, 26,  0,  0,  1,  1, CPU);
 
 
 
