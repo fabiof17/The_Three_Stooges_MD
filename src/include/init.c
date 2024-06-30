@@ -134,7 +134,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         //G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
+        G_SCENE_TYPE = SCENE_GAMEOVER; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
     }
 
 
@@ -166,7 +166,7 @@ void init_VARIABLES()
     G_INDEX_3                   = 0;
 
     
-    G_MONEY                     = 0;
+    G_MONEY                     = 8000;
 
 
     
@@ -5330,8 +5330,18 @@ void init_SCENE()
         //**************************************************************************************//
 
         VDP_setPlaneSize(64,32,TRUE);
-        
-        SPR_initEx(170);
+
+        // FAIL //
+        if(G_MONEY < 5000)
+        {        
+            SPR_initEx(170);
+        }
+
+        // SUCCESS //
+        else
+        {
+            SPR_initEx(120);
+        }
         
         VDP_setHilightShadow(FALSE);
 
@@ -5357,69 +5367,116 @@ void init_SCENE()
 
         G_ADR_VRAM_BG_B = 0;
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                         BG_B                                         //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
+        // FAIL //
+        if(G_MONEY < 5000)
+        {
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_B                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
 
-        VDP_loadTileSet(image_INTRO_SCREEN_7_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
-        VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_7_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                   GRANDMA TILES BG_B                                 //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        VDP_loadTileSet(image_GRANDMA_INTRO_BG_B_STEP0.tileset, G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile, CPU);
-        VDP_setTileMapEx(BG_B, image_GRANDMA_INTRO_BG_B_STEP0.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile), 6, 14, 0, 0, 5, 6, CPU);
-        
+            VDP_loadTileSet(image_INTRO_SCREEN_7_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+            VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_7_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
 
 
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                   GRANDMA TILES BG_B                                 //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                         BG_A                                         //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile + image_GRANDMA_INTRO_BG_B_STEP0.tileset->numTile;
-        VDP_loadTileSet(image_INTRO_SCREEN_7_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
-        VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
-
-        VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 2, 0, 2,  4,  4, CPU);
+            VDP_loadTileSet(image_GRANDMA_INTRO_BG_B_STEP0.tileset, G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_B, image_GRANDMA_INTRO_BG_B_STEP0.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile), 6, 14, 0, 0, 5, 6, CPU);
+            
 
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                   GRANDMA TILES BG_A                                 //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
 
-        VDP_loadTileSet(image_GRANDMA_INTRO_BG_A_STEP0.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile, CPU);
-        VDP_setTileMapEx(BG_A, image_GRANDMA_INTRO_BG_A_STEP0.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile), 6, 14, 0, 0, 5, 6, CPU);
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_A                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
 
+            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_INTRO_SCREEN_7_BG_B.tileset->numTile + image_GRANDMA_INTRO_BG_B_STEP0.tileset->numTile;
+            VDP_loadTileSet(image_INTRO_SCREEN_7_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+            VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                     DIALOG TILES                                     //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile + image_GRANDMA_INTRO_BG_A_STEP0.tileset->numTile;
-        VDP_loadTileSet(image_GAMEOVER_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
+            VDP_setTileMapEx(BG_B, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 2, 0, 2,  4,  4, CPU);
 
 
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                      TEXT TILES                                      //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                   GRANDMA TILES BG_A                                 //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
 
-        VDP_loadTileSet(image_GAMEOVER_FAIL_TEXT.tileset, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile, CPU);
+            VDP_loadTileSet(image_GRANDMA_INTRO_BG_A_STEP0.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_A, image_GRANDMA_INTRO_BG_A_STEP0.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile), 6, 14, 0, 0, 5, 6, CPU);
 
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                     DIALOG TILES                                     //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_INTRO_SCREEN_7_BG_A.tileset->numTile + image_GRANDMA_INTRO_BG_A_STEP0.tileset->numTile;
+            VDP_loadTileSet(image_GAMEOVER_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                      TEXT TILES                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            VDP_loadTileSet(image_GAMEOVER_FAIL_TEXT.tileset, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile, CPU);
+        }
+
+        // SUCCESS //
+        else
+        {
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_B                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            VDP_loadTileSet(image_GAMEOVER_SUCCESS_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+            VDP_setTileMapEx(BG_B, image_GAMEOVER_SUCCESS_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_A                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_GAMEOVER_SUCCESS_BG_B.tileset->numTile;
+            VDP_loadTileSet(image_GAMEOVER_SUCCESS_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                     DIALOG TILES                                     //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_GAMEOVER_SUCCESS_BG_A.tileset->numTile;
+            VDP_loadTileSet(image_GAMEOVER_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                      TEXT TILES                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            VDP_loadTileSet(image_GAMEOVER_FAIL_TEXT.tileset, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile, CPU);
+
+        }
 
 
 
@@ -5435,7 +5492,16 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  101, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        if(G_MONEY < 5000)
+        { 
+            sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  101, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        }
+
+        else
+        {
+            sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  55, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        }
+
         SPR_setFrame(sprite_STOOGES , 16);
 
 

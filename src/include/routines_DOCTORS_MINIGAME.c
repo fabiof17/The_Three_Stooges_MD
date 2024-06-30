@@ -1212,7 +1212,7 @@ void sequence_DOCTORS_MINIGAME()
     {
         //--------------------------------------------------------------//
         //                                                              //
-        //                        RECENTER NURSE                        //
+        //                 MOVE NURSE AND CARS VERTICALY                //
         //                                                              //
         //--------------------------------------------------------------//
 
@@ -1378,6 +1378,12 @@ void sequence_DOCTORS_MINIGAME()
 
         if(G_POS_Y_CAMERA > 16765 && G_POS_Y_CAMERA < 16769)
         {
+            if(patient.spr_PATIENT != NULL)
+            {
+                SPR_releaseSprite(patient.spr_PATIENT);
+                patient.spr_PATIENT = NULL;
+            }
+            
             VDP_setTileMapEx(BG_B, image_DOCTORS_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_DOCTORS_BG_B1.tileset->numTile), 0, 11, 0, 0, 40, 5, DMA_QUEUE);
         }
         
