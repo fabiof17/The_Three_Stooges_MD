@@ -479,11 +479,11 @@ void sequence_CRACKERS_MINIGAME()
             //                      REMOVE CRACKER SPRITE                       //
             //------------------------------------------------------------------//
             if(G_COUNTER_1 == 31)
-            {
-                //G_NUMBER_CRACKERS -= 1;
-                
+            {                
                 SPR_releaseSprite(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER);
                 list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER = NULL;
+
+                list_CRACKER[G_SELECTED_CRACKER].state_CRACKER = CRACKER_PHASE_EATEN;
 
 
                 //------------------------------------------------------------------//
@@ -603,6 +603,443 @@ void sequence_CRACKERS_MINIGAME()
         G_COUNTER_1 += 1;
     }
 
+
+    else if(G_PHASE_SEQUENCE == CRACKER_SPOON_TRAPPED)
+    {
+        if(G_COUNTER_1 == 3)
+        {            
+            G_POS_X_PLAYER += 2;
+            G_POS_Y_PLAYER += 2;
+
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+
+        }
+
+        else if(G_COUNTER_1 == 9)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 14)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 26)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 31)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 37)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 42)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 46)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 51)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 56)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 74)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 80)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 83)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 88)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 93)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 99)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 104)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 107)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 112)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 117)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 123)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 128)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 131)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 136)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 141)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 147)
+        {            
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 152)
+        {            
+            G_POS_Y_PLAYER -= 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 157)
+        {            
+            G_POS_X_PLAYER += 2;
+            G_POS_Y_PLAYER += 2;
+            
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER +  68);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER +  16);
+
+            list_CRACKER[G_SELECTED_CRACKER].pos_X = G_POS_X_PLAYER - 11;
+            list_CRACKER[G_SELECTED_CRACKER].pos_Y = G_POS_Y_PLAYER + 4;
+            SPR_setPosition(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER , list_CRACKER[G_SELECTED_CRACKER].pos_X , list_CRACKER[G_SELECTED_CRACKER].pos_Y);
+        }
+
+        else if(G_COUNTER_1 == 161)
+        {            
+            SPR_releaseSprite(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER);
+            list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER = NULL;
+            list_CRACKER[G_SELECTED_CRACKER].state_CRACKER = CRACKER_PHASE_EATEN;
+
+            SPR_setPosition(sprite_HAND[2] , G_POS_X_PLAYER      , G_POS_Y_PLAYER);
+            SPR_setPosition(sprite_HAND[1] , G_POS_X_PLAYER -  7 , G_POS_Y_PLAYER + 100);            
+            SPR_setPosition(sprite_HAND[0] , G_POS_X_PLAYER + 10 , G_POS_Y_PLAYER +  44);
+
+
+            G_SPOON_FRAME = 0;
+
+            SPR_setFrame(sprite_HAND[0],G_SPOON_FRAME);
+            SPR_setFrame(sprite_HAND[1],G_SPOON_FRAME);
+            SPR_setFrame(sprite_HAND[2],G_SPOON_FRAME);
+
+            G_COUNTER_1 = 0;
+
+            G_PHASE_SEQUENCE = CRACKER_SPOON_MOVE;
+
+
+            //------------------------------------------------------------------//
+            //                   IF CRACKERS NUMBER REACHES 0                   //
+            //------------------------------------------------------------------//
+            if(G_NUMBER_CRACKERS == 0)
+            {
+                PAL_fadeOutAll(2,FALSE);
+
+                SPR_reset();
+
+
+                //------------------------------------------------------------------//
+                //                  IF WE HAVE PLAYED ALL 4 ROUNDS                  //
+                //                  GO TO CRACKERS GAME OVER SCREEN                 //
+                //------------------------------------------------------------------//
+                if(G_NUMBER_GRABBED_CRACKERS == 0)
+                {
+                    G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_OVER;
+                }
+
+                //------------------------------------------------------------------//
+                //                     ELSE GO TO SPREAD SCREEN                     //
+                //------------------------------------------------------------------//
+                else
+                {
+                    G_REWARD += 50;
+                    
+                    G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_SPREAD;
+                }
+
+
+                G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
+                G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
+
+                G_CRACKERS_INIT         = FALSE;
+
+                G_SCENE_LOADED          = FALSE;
+
+                return;
+            }
+            return;
+        }
+
+
+        G_COUNTER_1 += 1;
+    }
 }
 
 

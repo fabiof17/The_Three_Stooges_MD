@@ -230,6 +230,7 @@
 #define CRACKERS_SCREEN_SURPRISE_4      4
 #define CRACKERS_SCREEN_OVER            5
 
+
 #define CRACKER_PHASE_FREE              0
 #define CRACKER_PHASE_OYSTER_1          1
 #define CRACKER_PHASE_OYSTER_2          2
@@ -237,11 +238,16 @@
 #define CRACKER_PHASE_OYSTER_4          4
 #define CRACKER_PHASE_OYSTER_5          5
 #define CRACKER_PHASE_OYSTER_6          6
-#define CRACKER_PHASE_EATEN             7
+#define CRACKER_PHASE_TRAPPED           7
+#define CRACKER_PHASE_GRABBED           8
+#define CRACKER_PHASE_EATEN             9
+
+
 
 #define CRACKER_SPOON_MOVE              0
 #define CRACKER_SPOON_GRAB              1
 #define CRACKER_SPOON_MISS              2
+#define CRACKER_SPOON_TRAPPED           3
 
 
 

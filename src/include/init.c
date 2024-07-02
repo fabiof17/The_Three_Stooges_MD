@@ -112,7 +112,7 @@ void init_VARIABLES()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_REEL = REEL_GAME; // REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_LOGO; // REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
     //--------------------------------------------------------------------------------------//
@@ -134,7 +134,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         //G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_GAMEOVER; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
     }
 
 
@@ -4081,12 +4081,31 @@ void init_SCENE()
         {
             //--------------------------------------------------------------------------------------//
             //                                                                                      //
-            //                                         BG_B                                         //
+            //                                       BG_B BASE                                      //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
 
-            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_1_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
-            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       BG_A BASE                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tileset->numTile;
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_B                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_1_BG_B.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile), 15, 6, 0, 0, 10, 9, CPU);
 
 
             //--------------------------------------------------------------------------------------//
@@ -4094,10 +4113,8 @@ void init_SCENE()
             //                                         BG_A                                         //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
-
-            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_1_BG_B.tileset->numTile;
-            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_1_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
-            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_1_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_1_BG_A.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile + image_CRACKERS_SCREEN_SURPRISE_1_BG_B.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_1_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE,  G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile + image_CRACKERS_SCREEN_SURPRISE_1_BG_B.tileset->numTile), 16, 5, 0, 0, 9, 10, CPU);
 
 
 
@@ -4108,8 +4125,8 @@ void init_SCENE()
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
 
-            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_1_BG_B.palette->data     , 16 * 2 );
-            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_1_BG_A.palette->data     , 16 * 2 );
+            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.palette->data     , 16 * 2 );
+            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.palette->data     , 16 * 2 );
 
 
 
@@ -4150,12 +4167,31 @@ void init_SCENE()
         {
             //--------------------------------------------------------------------------------------//
             //                                                                                      //
-            //                                         BG_B                                         //
+            //                                       BG_B BASE                                      //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
 
-            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_2_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
-            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_2_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       BG_A BASE                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tileset->numTile;
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_B                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_2_BG_B.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_2_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile), 15, 6, 0, 0, 10, 9, CPU);
 
 
             //--------------------------------------------------------------------------------------//
@@ -4163,10 +4199,8 @@ void init_SCENE()
             //                                         BG_A                                         //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
-
-            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_2_BG_B.tileset->numTile;
-            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_2_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
-            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_2_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_2_BG_A.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile + image_CRACKERS_SCREEN_SURPRISE_2_BG_B.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_2_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE,  G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile + image_CRACKERS_SCREEN_SURPRISE_2_BG_B.tileset->numTile), 16, 5, 0, 0, 9, 10, CPU);
 
 
 
@@ -4177,8 +4211,8 @@ void init_SCENE()
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
 
-            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_2_BG_B.palette->data     , 16 * 2 );
-            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_2_BG_A.palette->data     , 16 * 2 );
+            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.palette->data     , 16 * 2 );
+            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.palette->data     , 16 * 2 );
 
 
 
@@ -4219,12 +4253,31 @@ void init_SCENE()
         {
             //--------------------------------------------------------------------------------------//
             //                                                                                      //
-            //                                         BG_B                                         //
+            //                                       BG_B BASE                                      //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
 
-            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_3_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
-            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_3_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       BG_A BASE                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tileset->numTile;
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_B                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_3_BG_B.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_3_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile), 15, 6, 0, 0, 10, 9, CPU);
 
 
             //--------------------------------------------------------------------------------------//
@@ -4232,10 +4285,8 @@ void init_SCENE()
             //                                         BG_A                                         //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
-
-            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_3_BG_B.tileset->numTile;
-            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_3_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
-            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_3_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_3_BG_A.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile + image_CRACKERS_SCREEN_SURPRISE_3_BG_B.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_3_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE,  G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile + image_CRACKERS_SCREEN_SURPRISE_3_BG_B.tileset->numTile), 16, 5, 0, 0, 9, 10, CPU);
 
 
 
@@ -4246,8 +4297,8 @@ void init_SCENE()
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
 
-            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_3_BG_B.palette->data     , 16 * 2 );
-            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_3_BG_A.palette->data     , 16 * 2 );
+            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.palette->data     , 16 * 2 );
+            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.palette->data     , 16 * 2 );
 
 
 
@@ -4286,12 +4337,31 @@ void init_SCENE()
         {
             //--------------------------------------------------------------------------------------//
             //                                                                                      //
-            //                                         BG_B                                         //
+            //                                       BG_B BASE                                      //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
 
-            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_4_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
-            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_4_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       BG_A BASE                                      //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.tileset->numTile;
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         BG_B                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_4_BG_B.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_B, image_CRACKERS_SCREEN_SURPRISE_4_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile), 15, 6, 0, 0, 10, 9, CPU);
 
 
             //--------------------------------------------------------------------------------------//
@@ -4299,10 +4369,8 @@ void init_SCENE()
             //                                         BG_A                                         //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
-
-            G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_CRACKERS_SCREEN_SURPRISE_4_BG_B.tileset->numTile;
-            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_4_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
-            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_4_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0, 0, 0, 40, 28, CPU);
+            VDP_loadTileSet(image_CRACKERS_SCREEN_SURPRISE_4_BG_A.tileset, G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile + image_CRACKERS_SCREEN_SURPRISE_4_BG_B.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_A, image_CRACKERS_SCREEN_SURPRISE_4_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE,  G_ADR_VRAM_BG_A + image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.tileset->numTile + image_CRACKERS_SCREEN_SURPRISE_4_BG_B.tileset->numTile), 16, 5, 0, 0, 9, 10, CPU);
 
 
 
@@ -4313,8 +4381,8 @@ void init_SCENE()
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
 
-            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_3_BG_B.palette->data     , 16 * 2 );
-            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_3_BG_A.palette->data     , 16 * 2 );
+            memcpy( &palette_64[0]  , image_CRACKERS_SCREEN_SURPRISE_BASE_BG_B.palette->data     , 16 * 2 );
+            memcpy( &palette_64[16] , image_CRACKERS_SCREEN_SURPRISE_BASE_BG_A.palette->data     , 16 * 2 );
 
 
 
@@ -4426,7 +4494,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,32,TRUE);
         
-        SPR_initEx(560);
+        SPR_initEx(640);
         
         VDP_setHilightShadow(FALSE);
 
@@ -4513,21 +4581,45 @@ void init_SCENE()
             //                                   CRACKERS SPRITES                                   //
             //--------------------------------------------------------------------------------------//
 
-            const s16 (*(*ptr_position_crackers)[14])[14][2] = &TABLE_POSITION_CRACKERS;
-
-
-            for(i=0 ; i<G_NUMBER_CRACKERS_MAX ; i++)
+            //--------------------------------------------------------------------------------------//
+            //                            IF MORE THAN 1 REMAINING CRACKER                          //
+            //--------------------------------------------------------------------------------------//           
+            if(G_NUMBER_CRACKERS_MAX != 1)
             {
-                list_CRACKER[i].spr_CRACKER     = SPR_addSprite(&tiles_SPR_CRACKER,  0, 0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
-                list_CRACKER[i].state_CRACKER   = CRACKER_PHASE_FREE;
-                list_CRACKER[i].animated        = FALSE;
-                list_CRACKER[i].counter_CRACKER = 0;
+                const s16 (*(*ptr_position_crackers)[14])[14][2] = &TABLE_POSITION_CRACKERS;
                 
-                list_CRACKER[i].pos_X = (*(*ptr_position_crackers)[G_NUMBER_CRACKERS-1])[i][0];
-                list_CRACKER[i].pos_Y = (*(*ptr_position_crackers)[G_NUMBER_CRACKERS-1])[i][1];
+                for(i=0 ; i<G_NUMBER_CRACKERS_MAX ; i++)
+                {
+                    list_CRACKER[i].spr_CRACKER     = SPR_addSprite(&tiles_SPR_CRACKER,  0, 0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+                    list_CRACKER[i].state_CRACKER   = CRACKER_PHASE_FREE;
+                    list_CRACKER[i].animated        = FALSE;
+                    list_CRACKER[i].counter_CRACKER = 0;
+                    
+                    list_CRACKER[i].pos_X = (*(*ptr_position_crackers)[G_NUMBER_CRACKERS-1])[i][0];
+                    list_CRACKER[i].pos_Y = (*(*ptr_position_crackers)[G_NUMBER_CRACKERS-1])[i][1];
 
-                SPR_setPosition(list_CRACKER[i].spr_CRACKER  ,  list_CRACKER[i].pos_X , list_CRACKER[i].pos_Y);
+                    SPR_setPosition(list_CRACKER[i].spr_CRACKER  ,  list_CRACKER[i].pos_X , list_CRACKER[i].pos_Y);
+                }
             }
+
+            //--------------------------------------------------------------------------------------//
+            //                              IF ONLY 1 REMAINING CRACKER                             //
+            //--------------------------------------------------------------------------------------//
+            else
+            {
+                u8 pos_cracker = random_NUMBER(0,13);
+                
+                list_CRACKER[0].spr_CRACKER     = SPR_addSprite(&tiles_SPR_CRACKER,  0, 0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+                list_CRACKER[0].state_CRACKER   = CRACKER_PHASE_FREE;
+                list_CRACKER[0].animated        = FALSE;
+                list_CRACKER[0].counter_CRACKER = 0;
+                
+                list_CRACKER[0].pos_X = TABLE_POSITION_CRACKERS_14[pos_cracker][0];
+                list_CRACKER[0].pos_Y = TABLE_POSITION_CRACKERS_14[pos_cracker][1];
+
+                SPR_setPosition(list_CRACKER[0].spr_CRACKER  ,  list_CRACKER[0].pos_X , list_CRACKER[0].pos_Y);
+            }
+
 
             G_SPOON_FRAME       = 0;
 
@@ -4553,9 +4645,19 @@ void init_SCENE()
             //                                     HAND SPRITES                                     //
             //--------------------------------------------------------------------------------------//
 
-            sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  G_POS_X_PLAYER + 10 , G_POS_Y_PLAYER + 44  , TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-            sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  G_POS_X_PLAYER - 7  , G_POS_Y_PLAYER + 100 , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-            sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  G_POS_X_PLAYER      , G_POS_Y_PLAYER       , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+            if(G_SPOON_FRAME == 0)
+            {
+                sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  G_POS_X_PLAYER + 10 , G_POS_Y_PLAYER + 44  , TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+                sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  G_POS_X_PLAYER - 7  , G_POS_Y_PLAYER + 100 , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+                sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  G_POS_X_PLAYER      , G_POS_Y_PLAYER       , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+            }
+
+            else
+            {
+                sprite_HAND[0] = SPR_addSprite(&tiles_SPR_HAND_PART_1,  G_POS_X_PLAYER +  9 , G_POS_Y_PLAYER + 16  , TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+                sprite_HAND[1] = SPR_addSprite(&tiles_SPR_HAND_PART_2,  G_POS_X_PLAYER - 7  , G_POS_Y_PLAYER + 68 , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+                sprite_HAND[2] = SPR_addSprite(&tiles_SPR_HAND_PART_3,  G_POS_X_PLAYER      , G_POS_Y_PLAYER       , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+            }
 
             SPR_setFrame(sprite_HAND[0],G_SPOON_FRAME);
             SPR_setFrame(sprite_HAND[1],G_SPOON_FRAME);
@@ -4586,6 +4688,15 @@ void init_SCENE()
                 {
                     SPR_setDepth(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER,0);
                 }
+            }
+
+            //--------------------------------------------------------------------------------------//
+            //                       IF PLAYER SPOON IS TRAPPED BY AN OYSTER                        //
+            //--------------------------------------------------------------------------------------//
+
+            else if(G_PHASE_SEQUENCE == CRACKER_SPOON_TRAPPED)
+            {
+                SPR_setDepth(list_CRACKER[G_SELECTED_CRACKER].spr_CRACKER,0);
             }
         }
 
@@ -4621,17 +4732,6 @@ void init_SCENE()
 
         G_SCENE_LOADED          = TRUE;
 
-
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                         AUDIO                                        //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        //XGM_setPCM(SOUND_MONEY,  PCM_MONEY,  sizeof(PCM_MONEY));
-        //XGM_setPCM(SOUND_OYSTER, PCM_OYSTER, sizeof(PCM_OYSTER));
     }
 
     // CONTRACT QUESTION MARK //

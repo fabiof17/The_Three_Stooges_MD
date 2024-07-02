@@ -8,6 +8,7 @@
 
 
 
+#include "tables_CRACKERS.h"
 #include "tables_QUESTIONS.h"
 #include "tables_ROULETTE.h"
 #include "tables_SLAP.h"
@@ -287,25 +288,108 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
                         {
                             if(distance_Y < 16)
                             {
-                                list_CRACKER[i].state_CRACKER = CRACKER_PHASE_EATEN;
                                 list_CRACKER[i].animated = FALSE;
 
-                                SPR_setFrame(list_CRACKER[i].spr_CRACKER,0);
-                                SPR_setPosition(list_CRACKER[i].spr_CRACKER , G_POS_X_PLAYER - 11 , G_POS_Y_PLAYER - 8);
+                                //------------------------------------------------------------------//
+                                //          PROBABILITY TO HAVE SPOON TRAPPED BY THE OYSTER         //
+                                //------------------------------------------------------------------//
+                                u8 random_trapped = random_NUMBER(0,9);
 
+
+                                //------------------------------------------------------------------//
+                                //                                                                  //
+                                //              IF SPOON IS NOT TRAPPED BY THE OYSTER               //
+                                //                                                                  //
+                                //------------------------------------------------------------------//
+                                if(TABLE_PROBABILITY_SPOON_TRAPPED[random_trapped] == FALSE)
+                                {
+                                    //------------------------------------------------------------------//
+                                    //                    CRACKER GOES GRABBED STATE                    //
+                                    //------------------------------------------------------------------//
+                                    list_CRACKER[i].state_CRACKER = CRACKER_PHASE_GRABBED;
+                                    
+                                    //------------------------------------------------------------------//
+                                    //                       SET CRACKER POSITION                       //
+                                    //------------------------------------------------------------------//
+                                    list_CRACKER[i].pos_X = G_POS_X_PLAYER - 11;
+                                    list_CRACKER[i].pos_Y = G_POS_Y_PLAYER - 8;
+                                    SPR_setPosition(list_CRACKER[i].spr_CRACKER , list_CRACKER[i].pos_X , list_CRACKER[i].pos_Y);
+
+                                    //------------------------------------------------------------------//
+                                    //                     SET CRACKER SPRITE FRAME                     //
+                                    //------------------------------------------------------------------//
+                                    SPR_setFrame(list_CRACKER[i].spr_CRACKER,0);
+
+
+                                    //------------------------------------------------------------------//
+                                    //                ONE MORE CRACKER HAS BEEN GRABBED                 //
+                                    //------------------------------------------------------------------//
+                                    G_NUMBER_GRABBED_CRACKERS += 1;
+
+                                    //------------------------------------------------------------------//
+                                    //                10 DOLLARS REWARD FOR THE CRACKER                 //
+                                    //------------------------------------------------------------------//                                    
+                                    G_REWARD += 10;
+
+                                    //------------------------------------------------------------------//
+                                    //               GO TO CRACKER SPOON GRABBED SEQUENCE               //
+                                    //------------------------------------------------------------------//   
+                                    G_PHASE_SEQUENCE = CRACKER_SPOON_GRAB;
+
+                                    //------------------------------------------------------------------//
+                                    //                     START CASH REGISTER SOUND                    //
+                                    //------------------------------------------------------------------//
+                                    XGM_startPlayPCM(SOUND_MONEY,14,SOUND_PCM_CH2);
+                                }
+
+
+                                //------------------------------------------------------------------//
+                                //                                                                  //
+                                //                IF SPOON IS TRAPPED BY THE OYSTER                 //
+                                //                                                                  //
+                                //------------------------------------------------------------------//
+                                else
+                                {
+                                    //------------------------------------------------------------------//
+                                    //                    CRACKER GOES TRAPPED STATE                    //
+                                    //------------------------------------------------------------------//
+                                    list_CRACKER[i].state_CRACKER = CRACKER_PHASE_TRAPPED;
+
+                                    //------------------------------------------------------------------//
+                                    //                       SET CRACKER POSITION                       //
+                                    //------------------------------------------------------------------//
+                                    list_CRACKER[i].pos_X = G_POS_X_PLAYER - 11;
+                                    list_CRACKER[i].pos_Y = G_POS_Y_PLAYER + 4;
+
+                                    SPR_setPosition(list_CRACKER[i].spr_CRACKER , list_CRACKER[i].pos_X , list_CRACKER[i].pos_Y);
+
+                                    //------------------------------------------------------------------//
+                                    //                     SET CRACKER SPRITE FRAME                     //
+                                    //------------------------------------------------------------------//
+                                    SPR_setFrame(list_CRACKER[i].spr_CRACKER,7);
+
+                                    //------------------------------------------------------------------//
+                                    //                GO TO CRACKER SPOON TRAPPED SEQUENCE              //
+                                    //------------------------------------------------------------------// 
+                                    G_PHASE_SEQUENCE = CRACKER_SPOON_TRAPPED;
+                                }
+
+                                
+                                
+                                //------------------------------------------------------------------//
+                                //                   CRACKER GOES ON TOP OF SPOON                   //
+                                //------------------------------------------------------------------// 
                                 SPR_setDepth(list_CRACKER[i].spr_CRACKER,0);
 
-                                G_PHASE_SEQUENCE = CRACKER_SPOON_GRAB;
-
-                                G_REWARD += 10;
-
+                                //------------------------------------------------------------------//
+                                //                  CRACKERS NUMBER DECREASED BY 1                  //
+                                //------------------------------------------------------------------// 
                                 G_NUMBER_CRACKERS -= 1;
 
-                                G_NUMBER_GRABBED_CRACKERS += 1;
-
+                                //------------------------------------------------------------------//
+                                //                      CRACKER GETS SELECTED                       //
+                                //------------------------------------------------------------------// 
                                 G_SELECTED_CRACKER = i;
-
-                                XGM_startPlayPCM(SOUND_MONEY,14,SOUND_PCM_CH2);
 
                                 return;
                             }
