@@ -112,7 +112,7 @@ void init_VARIABLES()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_REEL = REEL_GAME; // REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_LOGO; // REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
     //--------------------------------------------------------------------------------------//
@@ -134,7 +134,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         //G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
     }
 
 
@@ -166,7 +166,7 @@ void init_VARIABLES()
     G_INDEX_3                   = 0;
 
     
-    G_MONEY                     = 8000;
+    G_MONEY                     = 0;
 
 
     
@@ -184,6 +184,17 @@ void init_VARIABLES()
 
     G_HAND_SPEED                = 30;
     G_FINGER_NUMBER             = 4;
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                        SLAP                                          //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_POS_X_METER_SLAP          = -4;
 
 
 

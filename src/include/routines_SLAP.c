@@ -401,7 +401,7 @@ void sequence_SLAP()
 
             SPR_setPosition(sprite_HAND_SLAP,152,71);
 
-            G_POS_X_METER_SLAP = -4;
+            //G_POS_X_METER_SLAP = -4;
             SPR_setPosition(sprite_METER_SLAP,G_POS_X_METER_SLAP,55);
 
             // RELEASE STOOGES SPRITE //
