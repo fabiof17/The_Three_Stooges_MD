@@ -112,7 +112,7 @@ void init_VARIABLES()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_REEL = REEL_LOGO; // REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_GAME; // REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
     //--------------------------------------------------------------------------------------//
@@ -134,7 +134,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         //G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
+        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
     }
 
 
@@ -3760,10 +3760,10 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        nurse.pos_X                 = 50;
+        nurse.pos_X                 = random_NUMBER(44,227);
         nurse.pos_Y                 = 10;
 
-        nurse.spr_NURSE             = SPR_addSprite(&tiles_SPR_NURSE,  50, 10, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        nurse.spr_NURSE             = SPR_addSprite(&tiles_SPR_NURSE, nurse.pos_X, nurse.pos_Y, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         nurse.axis_NURSE            = AXIS_RIGHT;
 
         nurse.counter_SPRITE_FRAME  = 0;

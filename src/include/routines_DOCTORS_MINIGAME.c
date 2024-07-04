@@ -585,98 +585,322 @@ inline static void anim_NURSE()
 {
     if(nurse.axis_NURSE == AXIS_RIGHT)
     {
+        //-------------------------------------------------------//
+        //             INCREASE SPRITE FRAME COUNTER             //
+        //-------------------------------------------------------//
         nurse.counter_SPRITE_FRAME += 1;
         
+        //-------------------------------------------------------//
+        //               UPDATE NURSE SPRITE FRAME               //
+        //-------------------------------------------------------//
         if(nurse.counter_SPRITE_FRAME == 7)
         {
-            
+            //-------------------------------------------------------//
+            //           INCREASE NURSE SPRITE FRAME INDEX           //
+            //-------------------------------------------------------//            
             nurse.index_SPRITE_FRAME += 1;
 
-            // REINIT FRAME INDEX //
+            //-------------------------------------------------------//
+            //            IF NURSE SPRITE FRAME INDEX == 4           //
+            //            REINIT NURSE SPRITE FRAME INDEX            //
+            //-------------------------------------------------------//   
             if(nurse.index_SPRITE_FRAME == 4)
             {
                 nurse.index_SPRITE_FRAME = 0;
             }
 
 
-
-
-            // SET NURSE FRAME //
+            //-------------------------------------------------------//
+            //                SET NURSE SPRITE FRAME                 //
+            //-------------------------------------------------------//
             SPR_setFrame(nurse.spr_NURSE , nurse.index_SPRITE_FRAME);
 
-            // REINIT FRAME COUNTER //
+            //-------------------------------------------------------//
+            //              REINIT SPRITE FRAME COUNTER              //
+            //-------------------------------------------------------//
             nurse.counter_SPRITE_FRAME = 0;
 
 
 
 
-            // READ NURSE VELOCITY //
+            //-------------------------------------------------------//
+            //                 UPDATE NURSE POSITION                 //
+            //-------------------------------------------------------//
+            //-------------------------------------------------------//
+            //                  READ NURSE VELOCITY                  //
+            //-------------------------------------------------------//
             u8 nurse_VELOCITY = TABLE_NURSE_VELOCITY[nurse.index_SPRITE_FRAME];
 
-            // CHANGE NURSE POSITION //
-            if( (nurse.pos_X + nurse_VELOCITY) > 227)
-            {
-                nurse.pos_X = 227;
 
-                nurse.axis_NURSE = AXIS_LEFT;
+            //-------------------------------------------------------//
+            //                 CHANGE NURSE POSITION                 //
+            //-------------------------------------------------------//
+            //-------------------------------------------------------//
+            //           NURSE SPRITE IS 64 PIXELS IN HEIGHT         //
+            //           ITS Y POSITION = 10 : 64+10 = 74            //
+            //-------------------------------------------------------//
+            //-------------------------------------------------------//
+            //               IF PATIENT IS ABOVE NURSE               //
+            //-------------------------------------------------------//
+            if(patient.pos_Y < 74)
+            {
+                //-------------------------------------------------------//
+                //            IF NURSE IS LEFT SIDE OF PATIENT           //
+                //-------------------------------------------------------//
+                if(nurse.pos_X < (patient.pos_X + (patient.width_PATIENT >> 1)))
+                {
+                    //-----------------------------------------------------------------------------------//
+                    //  IF DISTANCE BETWEEN THE 2 SPRITES IS LESS THAN NURSE SPRITE WIDTH/2 (24 PIXELS)  //
+                    //-----------------------------------------------------------------------------------//
+                    if(patient.pos_X - nurse.pos_X < 48 + 24)
+                    {
+                        //-------------------------------------------------------//
+                        //                 NURSE GOES TO THE LEFT                //
+                        //-------------------------------------------------------//
+                        if( (nurse.pos_X - nurse_VELOCITY) < 44)
+                        {
+                            nurse.pos_X = 44;
+
+                            nurse.axis_NURSE = AXIS_RIGHT;
+                        }
+
+                        else
+                        {
+                            nurse.pos_X -= nurse_VELOCITY;
+
+                            nurse.axis_NURSE = AXIS_LEFT;
+                        }
+                    }
+
+                    //-------------------------------------------------------//
+                    //                 NURSE GOES TO THE RIGHT               //
+                    //-------------------------------------------------------//
+                    else
+                    {
+                        if( (nurse.pos_X + nurse_VELOCITY) > 227)
+                        {
+                            nurse.pos_X = 227;
+
+                            nurse.axis_NURSE = AXIS_LEFT;
+                        }
+
+                        else
+                        {
+                            nurse.pos_X += nurse_VELOCITY;
+
+                            nurse.axis_NURSE = AXIS_RIGHT;
+                        }
+                    }
+                }
+
+                //-------------------------------------------------------//
+                //            IF NURSE IS RIGHT SIDE OF PATIENT          //
+                //-------------------------------------------------------//
+                else
+                {
+                    //-------------------------------------------------------//
+                    //                 NURSE GOES TO THE RIGHT               //
+                    //-------------------------------------------------------//
+                    if( (nurse.pos_X + nurse_VELOCITY) > 227)
+                    {
+                        nurse.pos_X = 227;
+
+                        nurse.axis_NURSE = AXIS_LEFT;
+                    }
+
+                    else
+                    {
+                        nurse.pos_X += nurse_VELOCITY;
+
+                        nurse.axis_NURSE = AXIS_RIGHT;
+                    }
+                }
             }
 
+
+            //-------------------------------------------------------//
+            //               IF PATIENT IS UNDER NURSE               //
+            //-------------------------------------------------------//
             else
             {
-                nurse.pos_X += nurse_VELOCITY;
+                if( (nurse.pos_X + nurse_VELOCITY) > 227)
+                {
+                    nurse.pos_X = 227;
+
+                    nurse.axis_NURSE = AXIS_LEFT;
+                }
+
+                else
+                {
+                    nurse.pos_X += nurse_VELOCITY;
+
+                    nurse.axis_NURSE = AXIS_RIGHT;
+                }
             }
             
 
-            SPR_setPosition(nurse.spr_NURSE , nurse.pos_X , 10);
+            SPR_setPosition(nurse.spr_NURSE , nurse.pos_X , nurse.pos_Y);
         }
     }
 
 
     else if(nurse.axis_NURSE == AXIS_LEFT)
     {
+        //-------------------------------------------------------//
+        //             INCREASE SPRITE FRAME COUNTER             //
+        //-------------------------------------------------------//
         nurse.counter_SPRITE_FRAME += 1;
-        
+
+        //-------------------------------------------------------//
+        //               UPDATE NURSE SPRITE FRAME               //
+        //-------------------------------------------------------//        
         if(nurse.counter_SPRITE_FRAME == 7)
         {
-            
+            //-------------------------------------------------------//
+            //           INCREASE NURSE SPRITE FRAME INDEX           //
+            //-------------------------------------------------------//               
             nurse.index_SPRITE_FRAME += 1;
 
-            // REINIT FRAME INDEX //
+            //-------------------------------------------------------//
+            //            IF NURSE SPRITE FRAME INDEX == 4           //
+            //            REINIT NURSE SPRITE FRAME INDEX            //
+            //-------------------------------------------------------//  
             if(nurse.index_SPRITE_FRAME == 4)
             {
                 nurse.index_SPRITE_FRAME = 0;
             }
 
 
-
-
-            // SET NURSE FRAME //
+            //-------------------------------------------------------//
+            //                SET NURSE SPRITE FRAME                 //
+            //-------------------------------------------------------//
             SPR_setFrame(nurse.spr_NURSE , nurse.index_SPRITE_FRAME);
 
-            // REINIT FRAME COUNTER //
+            //-------------------------------------------------------//
+            //              REINIT SPRITE FRAME COUNTER              //
+            //-------------------------------------------------------//
             nurse.counter_SPRITE_FRAME = 0;
 
 
 
 
-            // READ NURSE VELOCITY //
+            //-------------------------------------------------------//
+            //                 UPDATE NURSE POSITION                 //
+            //-------------------------------------------------------//
+            //-------------------------------------------------------//
+            //                  READ NURSE VELOCITY                  //
+            //-------------------------------------------------------//
             u8 nurse_VELOCITY = TABLE_NURSE_VELOCITY[nurse.index_SPRITE_FRAME];
 
-            // CHANGE NURSE POSITION //
-            if( (nurse.pos_X - nurse_VELOCITY) < 44)
-            {
-                nurse.pos_X = 44;
 
-                nurse.axis_NURSE = AXIS_RIGHT;
+            //-------------------------------------------------------//
+            //                 CHANGE NURSE POSITION                 //
+            //-------------------------------------------------------//
+            //-------------------------------------------------------//
+            //           NURSE SPRITE IS 64 PIXELS IN HEIGHT         //
+            //           ITS Y POSITION = 10 : 64+10 = 74            //
+            //-------------------------------------------------------//
+            //-------------------------------------------------------//
+            //               IF PATIENT IS ABOVE NURSE               //
+            //-------------------------------------------------------//
+            if(patient.pos_Y < 74)
+            {
+                //-------------------------------------------------------//
+                //            IF NURSE IS RIGHT SIDE OF PATIENT          //
+                //-------------------------------------------------------//
+                if(nurse.pos_X > (patient.pos_X + (patient.width_PATIENT >> 1)))
+                {
+                    //-----------------------------------------------------------------------------------//
+                    //        IF DISTANCE BETWEEN THE 2 SPRITES IS LESS THAN PATIENT SPRITE WIDTH/2      //
+                    //-----------------------------------------------------------------------------------//
+                    if(nurse.pos_X - patient.pos_X < (patient.width_PATIENT))
+                    {
+                        //-------------------------------------------------------//
+                        //                 NURSE GOES TO THE RIGHT               //
+                        //-------------------------------------------------------//
+                        if( (nurse.pos_X + nurse_VELOCITY) > 227)
+                        {
+                            nurse.pos_X = 227;
+
+                            nurse.axis_NURSE = AXIS_LEFT;
+                        }
+
+                        else
+                        {
+                            nurse.pos_X += nurse_VELOCITY;
+
+                            nurse.axis_NURSE = AXIS_RIGHT;
+                        }
+                    }
+
+                    //-------------------------------------------------------//
+                    //                 NURSE GOES TO THE LEFT                //
+                    //-------------------------------------------------------//
+                    else
+                    {
+                        if( (nurse.pos_X - nurse_VELOCITY) < 44)
+                        {
+                            nurse.pos_X = 44;
+
+                            nurse.axis_NURSE = AXIS_RIGHT;
+                        }
+
+                        else
+                        {
+                            nurse.pos_X -= nurse_VELOCITY;
+
+                            nurse.axis_NURSE = AXIS_LEFT;
+                        }
+                    }
+                }
+
+                //-------------------------------------------------------//
+                //            IF NURSE IS LEFT SIDE OF PATIENT           //
+                //-------------------------------------------------------//
+                else
+                {
+                    //-------------------------------------------------------//
+                    //                 NURSE GOES TO THE LEFT                //
+                    //-------------------------------------------------------//
+                    if( (nurse.pos_X - nurse_VELOCITY) < 44)
+                    {
+                        nurse.pos_X = 44;
+
+                        nurse.axis_NURSE = AXIS_RIGHT;
+                    }
+
+                    else
+                    {
+                        nurse.pos_X -= nurse_VELOCITY;
+
+                        nurse.axis_NURSE = AXIS_LEFT;
+                    }
+                }
             }
 
+
+            //-------------------------------------------------------//
+            //               IF PATIENT IS UNDER NURSE               //
+            //-------------------------------------------------------//
             else
             {
-                nurse.pos_X -= nurse_VELOCITY;
-            }
-            
+                if( (nurse.pos_X - nurse_VELOCITY) < 44)
+                {
+                    nurse.pos_X = 44;
 
-            SPR_setPosition(nurse.spr_NURSE , nurse.pos_X , 10);
+                    nurse.axis_NURSE = AXIS_RIGHT;
+                }
+
+                else
+                {
+                    nurse.pos_X -= nurse_VELOCITY;
+
+                    nurse.axis_NURSE = AXIS_LEFT;
+                }
+            }
+
+
+            SPR_setPosition(nurse.spr_NURSE , nurse.pos_X , nurse.pos_Y);
         }
     }
 }
@@ -746,7 +970,6 @@ inline static void spawn_ITEM()
 }
 
 
-
 inline static void collisions_ITEMS()
 {
     u8 i;
@@ -792,7 +1015,6 @@ inline static void collisions_ITEMS()
         }
     } 
 }
-
 
 
 inline static void anim_ITEM()
@@ -888,6 +1110,107 @@ inline static void anim_ITEM()
 
 
 
+inline static void spawn_PATIENT_v1()
+{
+    if(patient.spr_PATIENT == NULL)
+    {
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                               GENERATE RANDOM PATIENT                                //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        u8 random_patient_type;
+        
+        G_RANDOM_OK = FALSE;
+
+        while(G_RANDOM_OK == FALSE)
+        {
+            u8 new_patient_type = random_NUMBER(0,3);
+
+            // WE MAKE SURE NEW PATIENT IS DIFFERENT FROM THE PREVIOUS ONE //
+            if(new_patient_type != G_PREVIOUS_PATIENT_TYPE)
+            {
+                random_patient_type = new_patient_type;
+
+                G_PREVIOUS_PATIENT_TYPE = random_patient_type;
+                
+                G_RANDOM_OK = TRUE;
+            }
+        }
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                              ASSIGN PATIENT PROPERTIES                               //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        patient.pos_Y                = (TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT * -1) -128;
+
+        patient.counter_SPRITE_FRAME = 0;
+        patient.index_SPRITE_FRAME   = 0;
+
+        patient.number_STEPS         = TABLE_PATIENT_TYPE[random_patient_type].number_STEPS;
+        patient.number_STEPS_HIT     = TABLE_PATIENT_TYPE[random_patient_type].number_STEPS_HIT;
+        patient.speed_STEPS          = TABLE_PATIENT_TYPE[random_patient_type].speed_STEPS;
+
+        patient.width_PATIENT        = TABLE_PATIENT_TYPE[random_patient_type].width_PATIENT;
+        patient.height_PATIENT       = TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT;
+
+        patient.patient_STATE        = PATIENT_NOT_HIT;
+
+        patient.ptr_VELOCITY         = &TABLE_PATIENT_TYPE[random_patient_type].ptr_VELOCITY[0];
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                             GENERATE RANDOM X POSITION                               //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+        
+        G_RANDOM_OK = FALSE;
+
+        while(G_RANDOM_OK == FALSE)
+        {
+            u16 random_patient_pos_x = random_NUMBER(0,10);
+            s16 new_pos_X = TABLE_PATIENT_SPAWN_POSITION[random_patient_pos_x];
+
+            // IF SELECTED X POSITION IS ON THE NURSE LEFT SIDE //
+            if(new_pos_X < nurse.pos_X)
+            {
+                // CHECK IF SPACE BETWEEN NURSE AND PATIENT NEW POSITION IS BIGGER THAN PATIENT WIDTH //
+                // SO PATIENT SPRITE HAS ENOUGH SPACE TO FIT BETWEEN LEFT WALL AND NURSE //
+                if( (nurse.pos_X - new_pos_X) > patient.width_PATIENT )
+                {
+                    patient.pos_X = new_pos_X;
+
+                    G_RANDOM_OK = TRUE;
+                }
+                
+            }
+
+            // IF SELECTED X POSITION IS ON THE NURSE RIGHT SIDE //
+            else if(new_pos_X > nurse.pos_X)
+            {
+                // CHECK IF SPACE BETWEEN NURSE AND PATIENT NEW POSITION IS BIGGER THAN NURSE WIDTH //
+                // SO PATIENT SPRITE HAS ENOUGH SPACE TO FIT BETWEEN RIGHT WALL AND NURSE //
+                // NURSE IS 48 PIXELS WIDTH //
+                if( (new_pos_X - nurse.pos_X) > 48 )
+                {
+                    patient.pos_X = new_pos_X;
+
+                    G_RANDOM_OK = TRUE;
+                }
+            }
+        }
+
+        
+        patient.spr_PATIENT          = SPR_addSprite(TABLE_PATIENT_TYPE[random_patient_type].tiles_PATIENT_TYPE , patient.pos_X , patient.pos_Y , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+    }
+}
+
+
 inline static void spawn_PATIENT()
 {
     if(patient.spr_PATIENT == NULL)
@@ -924,7 +1247,7 @@ inline static void spawn_PATIENT()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        patient.pos_Y                = (TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT * -1) -64;
+        patient.pos_Y                = (TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT * -1) -128;
 
         patient.counter_SPRITE_FRAME = 0;
         patient.index_SPRITE_FRAME   = 0;
@@ -951,8 +1274,19 @@ inline static void spawn_PATIENT()
 
         while(G_RANDOM_OK == FALSE)
         {
-            u16 random_patient_pos = random_NUMBER(0,10);
-            s16 new_pos_X = TABLE_PATIENT_SPAWN_POSITION[random_patient_pos];
+            u16 random_patient_pos_x;
+            
+            if(nurse.pos_X < 136)
+            {
+                random_patient_pos_x = random_NUMBER(6,10);
+            }
+
+            else
+            {
+                random_patient_pos_x = random_NUMBER(0,5);
+            }
+            
+            s16 new_pos_X = TABLE_PATIENT_SPAWN_POSITION[random_patient_pos_x];
 
             // IF SELECTED X POSITION IS ON THE NURSE LEFT SIDE //
             if(new_pos_X < nurse.pos_X)
