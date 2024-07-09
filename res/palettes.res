@@ -97,7 +97,12 @@ PALETTE palette_SPR_HAND_PART_2             "palettes/palette_SPR_HAND_PART_2.pn
 
 
 
+//----------------------------------------------------//
+//                        WAITERS                     //
+//----------------------------------------------------//
 
+PALETTE palette_SPR_STOOGES_WAITERS_1             "palettes/palette_SPR_STOOGES_WAITERS_1.png"
+PALETTE palette_SPR_STOOGES_WAITERS_2             "palettes/palette_SPR_STOOGES_WAITERS_2.png"
 
 
 

@@ -56,6 +56,7 @@
 #include "sprites_QUESTION_MARK.h"
 #include "sprites_ROULETTE.h"
 #include "sprites_SLAP.h"
+#include "sprites_WAITERS.h"
 
 
 
@@ -112,7 +113,7 @@ void init_VARIABLES()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_REEL = REEL_LOGO; // REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_GAME; // REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
     //--------------------------------------------------------------------------------------//
@@ -134,7 +135,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         //G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
+        G_SCENE_TYPE = SCENE_WAITERS_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
     }
 
 
@@ -3958,6 +3959,174 @@ void init_SCENE()
 
 
         waitMs(3000);
+    }
+
+    // DOCTORS MINIGAME //
+    else if(G_SCENE_TYPE == SCENE_WAITERS_MINIGAME)
+    {
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        u16 i = 0;
+
+        for(i=16 ; i<1440 ; i++)
+        {
+            VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+        }
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_setPlaneSize(64,32,TRUE);
+        
+        SPR_initEx(470);
+        
+        VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                   NUMBERS TILESET                                    //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        //VDP_loadTileSet(image_DOCTORS_NUMBERS.tileset, TILE_FONT_INDEX + 16, CPU);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                         BG                                           //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_WAITERS_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_WAITERS_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0,  0,  0, 40, 28, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_WAITERS_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_WAITERS_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+        VDP_setTileMapEx(BG_A, image_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0,  0,  0, 40, 28, CPU);
+
+        
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      SPRITES                                         //
+        //                                                                                      //
+        //**************************************************************************************// 
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        STOOGES                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        list_WAITERS[0].spr_CHAR_1    =   SPR_addSprite(&tiles_SPR_LARRY1_WAITERS, 256, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_WAITERS[0].spr_CHAR_2    =   SPR_addSprite(&tiles_SPR_LARRY2_WAITERS, 256, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+
+
+
+        //SPR_setFrame(list_WAITERS[0].spr_CHAR_1,4);
+        //SPR_setFrame(list_WAITERS[0].spr_CHAR_2,4);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        GUESTS                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        list_GUESTS[0].spr_CHAR_1    =   SPR_addSprite(&tiles_SPR_WOMAN1_WAITERS, 0, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_GUESTS[0].spr_CHAR_2    =   SPR_addSprite(&tiles_SPR_WOMAN2_WAITERS, 0, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_POS_Y_CAMERA = 0;
+
+        VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+        VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       PALETTES                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        memcpy( &palette_64[0]  , image_WAITERS_BG_B.palette->data        , 16 * 2 );
+        memcpy( &palette_64[16] , image_WAITERS_BG_A.palette->data        , 16 * 2 );
+        memcpy( &palette_64[32] , palette_SPR_STOOGES_WAITERS_1.data     , 16 * 2 );
+        memcpy( &palette_64[48] , palette_SPR_STOOGES_WAITERS_2.data     , 16 * 2 );
+
+        SPR_update();
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       VARIABLES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_1             = 0;
+        G_INDEX_1               = 0;
+        G_INDEX_2               = 0;
+        G_INDEX_3               = 0;
+
+
+        G_REWARD                = 0;
+
+        G_HIT_NUMBER            = 0;
+
+        G_RANDOM_OK             = FALSE;
+
+
+        //G_PHASE_SEQUENCE        = DOCTORS_PHASE_RACING;
+       
+
+        G_SCENE                 = SCENE_FADE_IN;
+        G_SCENE_TYPE            = SCENE_WAITERS_MINIGAME;
+        G_SCENE_NEXT            = SCENE_WAITERS_MINIGAME;
+
+        G_SCENE_LOADED          = TRUE;
+
     }
 
     // CRACKERS SCREEN //

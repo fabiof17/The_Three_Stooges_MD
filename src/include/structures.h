@@ -193,6 +193,17 @@ typedef struct
 
 
 
+typedef struct
+{
+    Sprite *spr_CHAR_1;
+    Sprite *spr_CHAR_2;
+
+    u8 state_WAITER;
+
+} struct_WAITER_;
+
+
+
 
 
 

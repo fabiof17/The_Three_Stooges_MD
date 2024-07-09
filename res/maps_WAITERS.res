@@ -14,6 +14,8 @@ IMAGE image_STREET_WAITERS_BG_B2                "map/waiters/tiles_STREET_WAITER
 IMAGE image_STREET_WAITERS_BG_A1                "map/waiters/tiles_STREET_WAITERS_BG_A1.png"            BEST ALL
 IMAGE image_STREET_WAITERS_BG_A2                "map/waiters/tiles_STREET_WAITERS_BG_A2.png"            NONE ALL
 
+IMAGE image_WAITERS_BG_B                        "map/waiters/tiles_WAITERS_BG_B.png"                    BEST ALL
+IMAGE image_WAITERS_BG_A                        "map/waiters/tiles_WAITERS_BG_A.png"                    BEST ALL
 
 
 
