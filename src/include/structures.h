@@ -198,7 +198,7 @@ typedef struct
     Sprite *spr_CHAR_1;
     Sprite *spr_CHAR_2;
 
-    u8 state_WAITER;
+    u8 state_CHARACTER;
 
 } struct_WAITER_;
 

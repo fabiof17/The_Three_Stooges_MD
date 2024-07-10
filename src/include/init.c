@@ -4050,11 +4050,13 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_GUESTS[0].spr_CHAR_1     =   SPR_addSprite(&tiles_SPR_WOMAN1_WAITERS, 0, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_GUESTS[0].spr_CHAR_2     =   SPR_addSprite(&tiles_SPR_WOMAN2_WAITERS, 0, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_GUESTS[0].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_WOMAN1_WAITERS, 0, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_GUESTS[0].spr_CHAR_2        =   SPR_addSprite(&tiles_SPR_WOMAN2_WAITERS, 0, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_GUESTS[0].state_CHARACTER   =   WAITER_PHASE_IDLE;
 
-        list_WAITERS[0].spr_CHAR_1    =   SPR_addSprite(&tiles_SPR_LARRY1_WAITERS, 256, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_WAITERS[0].spr_CHAR_2    =   SPR_addSprite(&tiles_SPR_LARRY2_WAITERS, 256, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_WAITERS[0].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_LARRY1_WAITERS, 256, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_WAITERS[0].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_LARRY2_WAITERS, 256, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_WAITERS[0].state_CHARACTER  =   WAITER_PHASE_IDLE;
 
 
         //--------------------------------------------------------------------------------------//
@@ -4063,11 +4065,28 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_GUESTS[1].spr_CHAR_1     =   SPR_addSprite(&tiles_SPR_MAN1_WAITERS, 31, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_GUESTS[1].spr_CHAR_2     =   SPR_addSprite(&tiles_SPR_MAN2_WAITERS, 31, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_GUESTS[1].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_MAN1_WAITERS, 31, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_GUESTS[1].spr_CHAR_2        =   SPR_addSprite(&tiles_SPR_MAN2_WAITERS, 31, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_GUESTS[1].state_CHARACTER   =   WAITER_PHASE_IDLE;
 
-        list_WAITERS[1].spr_CHAR_1    =   SPR_addSprite(&tiles_SPR_CURLY1_WAITERS, 240, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_WAITERS[1].spr_CHAR_2    =   SPR_addSprite(&tiles_SPR_CURLY2_WAITERS, 240, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_WAITERS[1].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_CURLY1_WAITERS, 240, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_WAITERS[1].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_CURLY2_WAITERS, 240, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_WAITERS[1].state_CHARACTER  =   WAITER_PHASE_CROUCH;
+        
+
+        SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
+        SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        3RD ROW                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        list_WAITERS[2].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_MOE1_WAITERS, 232, 126, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_WAITERS[2].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_MOE2_WAITERS, 232, 126, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_WAITERS[2].state_CHARACTER  =   WAITER_PHASE_IDLE;      
 
 
 
@@ -4121,7 +4140,7 @@ void init_SCENE()
         G_RANDOM_OK             = FALSE;
 
 
-        //G_PHASE_SEQUENCE        = DOCTORS_PHASE_RACING;
+        G_SELECTED_WAITER       = WAITER_CURLY;
        
 
         G_SCENE                 = SCENE_FADE_IN;

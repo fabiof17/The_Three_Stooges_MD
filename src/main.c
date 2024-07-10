@@ -26,6 +26,7 @@
 #include "include/routines_SLAP.h"
 #include "include/routines_TRIVIA.h"
 #include "include/routines_WAITERS.h"
+#include "include/routines_WAITERS_MINIGAME.h"
 
 
 #include "include/tables_CRACKERS.h"
@@ -475,11 +476,15 @@ int main(bool hardReset)
                 // WAITERS MINIGAME //
                 else if(G_SCENE == SCENE_WAITERS_MINIGAME)
                 {
-                    //joypad_DOCTORS_MINIGAME();
+                    joypad_WAITERS_MINIGAME();
 
                     //sequence_DOCTORS_MINIGAME();
 
-                    //VDP_drawIntEx_BG_A_QUEUE(G_POS_Y_CAMERA,5,0,0,PAL2);
+                    //VDP_drawIntEx_BG_A_QUEUE(G_SELECTED_WAITER,1,0,0,PAL3);
+
+                    //VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[0].state_CHARACTER,1,0,2,PAL3);
+                    //VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[1].state_CHARACTER,1,0,3,PAL3);
+                    //VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[2].state_CHARACTER,1,0,4,PAL3);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
