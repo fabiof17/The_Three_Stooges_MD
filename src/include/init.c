@@ -4001,7 +4001,7 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        //VDP_loadTileSet(image_DOCTORS_NUMBERS.tileset, TILE_FONT_INDEX + 16, CPU);
+        VDP_loadTileSet(image_WAITERS_NUMBERS.tileset, TILE_FONT_INDEX + 16, CPU);
 
 
 
@@ -4034,6 +4034,9 @@ void init_SCENE()
         VDP_loadTileSet(image_WAITERS_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
         VDP_setTileMapEx(BG_A, image_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 0,  0,  0, 40, 28, CPU);
 
+
+        VDP_setTileMapEx(BG_A, image_WAITERS_NUMBERS.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16), 4, 4, 10, 0, 1, 1, CPU);
+
         
         //**************************************************************************************//
         //                                                                                      //
@@ -4043,28 +4046,28 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                        STOOGES                                       //
+        //                                        1RST ROW                                      //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
+
+        list_GUESTS[0].spr_CHAR_1     =   SPR_addSprite(&tiles_SPR_WOMAN1_WAITERS, 0, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_GUESTS[0].spr_CHAR_2     =   SPR_addSprite(&tiles_SPR_WOMAN2_WAITERS, 0, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
         list_WAITERS[0].spr_CHAR_1    =   SPR_addSprite(&tiles_SPR_LARRY1_WAITERS, 256, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
         list_WAITERS[0].spr_CHAR_2    =   SPR_addSprite(&tiles_SPR_LARRY2_WAITERS, 256, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
 
-
-
-        //SPR_setFrame(list_WAITERS[0].spr_CHAR_1,4);
-        //SPR_setFrame(list_WAITERS[0].spr_CHAR_2,4);
-
-
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                        GUESTS                                       //
+        //                                        2ND ROW                                       //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_GUESTS[0].spr_CHAR_1    =   SPR_addSprite(&tiles_SPR_WOMAN1_WAITERS, 0, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_GUESTS[0].spr_CHAR_2    =   SPR_addSprite(&tiles_SPR_WOMAN2_WAITERS, 0, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_GUESTS[1].spr_CHAR_1     =   SPR_addSprite(&tiles_SPR_MAN1_WAITERS, 31, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_GUESTS[1].spr_CHAR_2     =   SPR_addSprite(&tiles_SPR_MAN2_WAITERS, 31, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+        list_WAITERS[1].spr_CHAR_1    =   SPR_addSprite(&tiles_SPR_CURLY1_WAITERS, 240, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_WAITERS[1].spr_CHAR_2    =   SPR_addSprite(&tiles_SPR_CURLY2_WAITERS, 240, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
 
 
