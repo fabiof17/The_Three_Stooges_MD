@@ -563,6 +563,8 @@ extern struct_CRACKER_ list_CRACKER[14];
 
 extern bool G_CRACKERS_INIT;
 
+extern u8 G_CRACKERS_SCREEN_TYPE;
+
 extern u8 G_NUMBER_CRACKERS_MAX;
 
 extern u8 G_NUMBER_CRACKERS;
@@ -791,7 +793,20 @@ extern Sprite *sprite_SCISSOR;
 
 extern Sprite *sprite_HAND[3];
 
-extern u8 G_CRACKERS_SCREEN_TYPE;
+
+
+
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
+//                                  WAITERS                                    //
+//                                                                             //
+//-----------------------------------------------------------------------------// 
+
+extern Sprite *sprite_HAND_WAITERS;
 
 
 

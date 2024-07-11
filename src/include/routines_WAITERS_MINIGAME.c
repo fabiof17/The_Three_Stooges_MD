@@ -32,6 +32,8 @@ void joypad_WAITERS_MINIGAME()
                 {
                     SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
                     SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
+
+                    SPR_setPosition(sprite_HAND_WAITERS,270,108);
                     
                     list_WAITERS[1].state_CHARACTER = WAITER_PHASE_CROUCH;
 
@@ -81,6 +83,8 @@ void joypad_WAITERS_MINIGAME()
                 {
                     SPR_setFrame(list_WAITERS[2].spr_CHAR_1,1);
                     SPR_setFrame(list_WAITERS[2].spr_CHAR_2,1);
+
+                    SPR_setPosition(sprite_HAND_WAITERS,254,104);
                     
                     list_WAITERS[2].state_CHARACTER = WAITER_PHASE_CROUCH;
 
@@ -130,6 +134,8 @@ void joypad_WAITERS_MINIGAME()
                 {
                     SPR_setFrame(list_WAITERS[0].spr_CHAR_1,1);
                     SPR_setFrame(list_WAITERS[0].spr_CHAR_2,1);
+
+                    SPR_setPosition(sprite_HAND_WAITERS,286,112);
                     
                     list_WAITERS[0].state_CHARACTER = WAITER_PHASE_CROUCH;
 

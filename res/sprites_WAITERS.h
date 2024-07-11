@@ -1,6 +1,7 @@
 #ifndef _RES_SPRITES_WAITERS_H_
 #define _RES_SPRITES_WAITERS_H_
 
+extern const SpriteDefinition tiles_SPR_HAND_WAITERS;
 extern const SpriteDefinition tiles_SPR_LARRY1_WAITERS;
 extern const SpriteDefinition tiles_SPR_LARRY2_WAITERS;
 extern const SpriteDefinition tiles_SPR_CURLY1_WAITERS;
