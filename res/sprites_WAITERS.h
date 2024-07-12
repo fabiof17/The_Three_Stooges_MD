@@ -10,7 +10,9 @@ extern const SpriteDefinition tiles_SPR_MOE1_WAITERS;
 extern const SpriteDefinition tiles_SPR_MOE2_WAITERS;
 extern const SpriteDefinition tiles_SPR_WOMAN1_WAITERS;
 extern const SpriteDefinition tiles_SPR_WOMAN2_WAITERS;
-extern const SpriteDefinition tiles_SPR_MAN1_WAITERS;
-extern const SpriteDefinition tiles_SPR_MAN2_WAITERS;
+extern const SpriteDefinition tiles_SPR_MAN1_1_WAITERS;
+extern const SpriteDefinition tiles_SPR_MAN1_2_WAITERS;
+extern const SpriteDefinition tiles_SPR_MAN2_1_WAITERS;
+extern const SpriteDefinition tiles_SPR_MAN2_2_WAITERS;
 
 #endif // _RES_SPRITES_WAITERS_H_

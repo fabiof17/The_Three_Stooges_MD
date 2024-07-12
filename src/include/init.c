@@ -4075,8 +4075,8 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        list_GUESTS[1].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_MAN1_WAITERS, 31, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_GUESTS[1].spr_CHAR_2        =   SPR_addSprite(&tiles_SPR_MAN2_WAITERS, 31, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_GUESTS[1].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_MAN1_1_WAITERS, 31, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_GUESTS[1].spr_CHAR_2        =   SPR_addSprite(&tiles_SPR_MAN1_2_WAITERS, 31, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         list_GUESTS[1].state_CHARACTER   =   WAITER_PHASE_IDLE;
 
         list_WAITERS[1].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_CURLY1_WAITERS, 240, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
@@ -4097,6 +4097,10 @@ void init_SCENE()
         list_WAITERS[2].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_MOE1_WAITERS, 232, 126, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
         list_WAITERS[2].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_MOE2_WAITERS, 232, 126, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         list_WAITERS[2].state_CHARACTER  =   WAITER_PHASE_IDLE;      
+
+        list_GUESTS[2].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_MAN2_1_WAITERS, 48, 136, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_GUESTS[2].spr_CHAR_2        =   SPR_addSprite(&tiles_SPR_MAN2_2_WAITERS, 48, 128, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_GUESTS[2].state_CHARACTER   =   WAITER_PHASE_IDLE;
 
 
 
