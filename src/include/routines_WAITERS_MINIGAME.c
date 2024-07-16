@@ -176,6 +176,10 @@ void joypad_WAITERS_MINIGAME()
 
 
 
+
+
+
+
 void sequence_WAITERS_MINIGAME()
 {
     if(G_PHASE_SEQUENCE == WAITER_PHASE_DIALOG)
@@ -209,8 +213,8 @@ void sequence_WAITERS_MINIGAME()
             // DISPLAY HAND //
             SPR_setPosition(sprite_HAND_WAITERS,270,108);
 
-            SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
-            SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
+            //SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
+            //SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
 
             G_PHASE_SEQUENCE = WAITER_PHASE_ACTION;
         }
@@ -218,6 +222,7 @@ void sequence_WAITERS_MINIGAME()
 
         G_COUNTER_1 += 1;
     }
+
 
     else if(G_PHASE_SEQUENCE == WAITER_PHASE_ACTION)
     {

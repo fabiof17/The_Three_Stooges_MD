@@ -4082,11 +4082,9 @@ void init_SCENE()
 
         list_WAITERS[1].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_CURLY1_WAITERS, 240, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
         list_WAITERS[1].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_CURLY2_WAITERS, 240, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-        list_WAITERS[1].state_CHARACTER  =   WAITER_PHASE_CROUCH;
-        
+        list_WAITERS[1].state_CHARACTER  =   WAITER_PHASE_IDLE;
 
-        //SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
-        //SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
+
 
 
         //--------------------------------------------------------------------------------------//
@@ -4155,7 +4153,7 @@ void init_SCENE()
         G_RANDOM_OK             = FALSE;
 
 
-        G_SELECTED_WAITER       = WAITER_CURLY;
+        G_SELECTED_WAITER       = 3; // 3 = NONE
 
         G_PHASE_SEQUENCE        = WAITER_PHASE_DIALOG;
        
