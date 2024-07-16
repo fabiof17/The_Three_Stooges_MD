@@ -79,10 +79,23 @@ void sequence_REWARD()
 
             G_PHASE_SEQUENCE = 0;
 
-            // DEFINE NEXT MINIGAME //
-            G_SCENE         = SCENE_FADE_IN;
-            G_SCENE_TYPE    = SCENE_ROULETTE;
-            G_SCENE_NEXT    = SCENE_ROULETTE;
+
+            // IF THE 30 DAYS AVAILABLE HAVE BEEN SPENT //
+            if(G_DAY == 31)
+            {
+                G_SCENE             = SCENE_FADE_IN;
+                G_SCENE_TYPE        = SCENE_GAMEOVER;
+                G_SCENE_NEXT        = SCENE_GAMEOVER;
+            }
+
+            // ELSE WE GO TO THE ROULETTE SEQUENCE //
+            else
+            {
+                G_SCENE         = SCENE_FADE_IN;
+                G_SCENE_TYPE    = SCENE_ROULETTE;
+                G_SCENE_NEXT    = SCENE_ROULETTE;
+            }
+
 
             G_SCENE_LOADED  = FALSE;
 
@@ -91,7 +104,7 @@ void sequence_REWARD()
         }
     }
     
-    PAL_setPalette( PAL0 , TABLE_REWARD_CYCLE[G_INDEX_1]->data , DMA);
+    PAL_setPalette( PAL0 , TABLE_REWARD_PALETTE_CYCLE[G_INDEX_1]->data , DMA);
 
     G_COUNTER_1 += 1;
 }

@@ -7,7 +7,7 @@
 
 extern void joypad_WAITERS_MINIGAME();
 
-//extern void sequence_DOCTORS_MINIGAME();
+extern void sequence_WAITERS_MINIGAME();
 
 
 

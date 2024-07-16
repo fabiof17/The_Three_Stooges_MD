@@ -3,6 +3,7 @@
 
 
 //#include "palettes.h"
+#include "outils.h"
 #include "structures.h"
 #include "variables.h"
 
@@ -83,16 +84,27 @@ void sequence_BANK()
             // DISPLAY DIALOG //
             VDP_setTileMapEx(BG_A, image_BANK_DIALOG.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 13, 32, 0, 0, 16, 6, DMA_QUEUE);
 
-            // DISPLAY REMAINING DAYS //
-            u8 remaining_days = 30 - G_DAY;
 
-            if(remaining_days > 9)
+            // IF THERE ARE STILL DAYS REMAINING //
+            if(G_DAY+1 < 31)
             {
-                u8 number1 = remaining_days/10;
-                VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 14 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+                // DISPLAY REMAINING DAYS //
+                u8 remaining_days = 30 - G_DAY;
 
-                u8 number2 = remaining_days - (number1*10);
-                VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 15 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+                if(remaining_days > 9)
+                {
+                    u8 number1 = remaining_days/10;
+                    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 14 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+
+                    u8 number2 = remaining_days - (number1*10);
+                    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 15 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+                }
+            }
+
+            // IF THE 30 DAYS AVAILABLE HAVE BEEN SPENT //
+            else
+            {
+                VDP_drawIntEx_BG_A_QUEUE(0,1,15,36,PAL1);
             }
 
             // DISPLAY DIALOG ARROW //
@@ -102,56 +114,95 @@ void sequence_BANK()
         // DOORS GET CLOSED //
         else if(G_COUNTER_1 == 900)
         {
-            // CLEAR DOORS //
-            VDP_setTileMapEx(BG_A, image_BANK_BG_A.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 16, 40, 0, 0, 8, 10, DMA_QUEUE);
-
-            // CLEAR DIALOG //
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, 0), 13, 32, 0, 0, 16, 6, DMA_QUEUE);
-
-            // LOAD HUB FONT //
-            VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, DMA_QUEUE);
-
             G_DAY += 1;
 
-            // PRINT DAY NUMBER //
-            print_DAY();
+            if(G_DAY < 31)
+            {
+                // CLEAR DOORS //
+                VDP_setTileMapEx(BG_A, image_BANK_BG_A.tilemap, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 16, 40, 0, 0, 8, 10, DMA_QUEUE);
 
-            SPR_setFrame(sprite_STOOGES,17);
-            SPR_setPosition(sprite_STOOGES,117,133);
+                // CLEAR DIALOG //
+                VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, 0), 13, 32, 0, 0, 16, 6, DMA_QUEUE);
 
-            // REMOVE BANKER SPRITES //
-            SPR_releaseSprite(sprite_BANKER[0]);
-            sprite_BANKER[0] = NULL;
-            SPR_releaseSprite(sprite_BANKER[1]);
-            sprite_BANKER[1] = NULL;
+                // LOAD HUB FONT //
+                VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, DMA_QUEUE);
 
-            // HIDE DIALOG ARROW //
-            SPR_setPosition(sprite_ARROW_DIALOG,-32,-48);
+                // PRINT DAY NUMBER //
+                print_DAY();
 
+                SPR_setFrame(sprite_STOOGES,17);
+                SPR_setPosition(sprite_STOOGES,117,133);
+
+                // REMOVE BANKER SPRITES //
+                SPR_releaseSprite(sprite_BANKER[0]);
+                sprite_BANKER[0] = NULL;
+                SPR_releaseSprite(sprite_BANKER[1]);
+                sprite_BANKER[1] = NULL;
+
+                // HIDE DIALOG ARROW //
+                SPR_setPosition(sprite_ARROW_DIALOG,-32,-48);
+            }
             
         }
 
         // DISPLAY HUB //
         else if(G_COUNTER_1 == 960)
-        {           
-            // DISPLAY HUB //
-            display_HUB();
+        {        
+            // IF THE 30 DAYS AVAILABLE HAVE BEEN SPENT //
+            if(G_DAY == 31)
+            {
+                // FADE OUT : 40 FRAMES //
+                PAL_fadeOutAll(40,FALSE);
+
+                // RESET SCROLLING //
+                VDP_setVerticalScroll(BG_B , 0);
+                VDP_setVerticalScroll(BG_A , 0);
+
+                // CLEAR PLANES //
+                VDP_clearPlane(BG_B,TRUE);
+                VDP_clearPlane(BG_A,TRUE);
+
+                // RELEASE ALL SPRITES //
+                SPR_reset();
 
 
-            G_COUNTER_1             = 0;
-            G_INDEX_1               = 0;
-            G_INDEX_2               = 0;
-            G_INDEX_3               = 0;
+                G_COUNTER_1             = 0;
+                G_INDEX_1               = 0;
+                G_INDEX_2               = 0;
+                G_INDEX_3               = 0;
 
 
-            G_COUNTER_ROULETTE      = 0;
-            G_CURRENT_TURN          = 9;
+                G_SCENE             = SCENE_FADE_IN;
+                G_SCENE_TYPE        = SCENE_GAMEOVER;
+                G_SCENE_NEXT        = SCENE_GAMEOVER;
 
-            G_SCENE = SCENE_ROULETTE;
+                G_SCENE_LOADED      = FALSE;
 
-            G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
+                return;
+            }
 
-            return;
+            // ELSE WE GO TO THE ROULETTE SEQUENCE //
+            else
+            {
+                // DISPLAY HUB //
+                display_HUB();
+
+
+                G_COUNTER_1             = 0;
+                G_INDEX_1               = 0;
+                G_INDEX_2               = 0;
+                G_INDEX_3               = 0;
+
+
+                G_COUNTER_ROULETTE      = 0;
+                G_CURRENT_TURN          = 9;
+
+                G_SCENE = SCENE_ROULETTE;
+
+                G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
+
+                return;
+            }
         }
 
 

@@ -6,12 +6,15 @@
 #include "structures.h"
 #include "variables.h"
 
+#include "maps_WAITERS.h"
+
 
 
 
 void joypad_WAITERS_MINIGAME()
 {
-
+    if(G_PHASE_SEQUENCE == WAITER_PHASE_ACTION)
+    {
         u16 value=JOY_readJoypad(JOY_1);
 
         //--------------------------------------------------------------//
@@ -167,13 +170,60 @@ void joypad_WAITERS_MINIGAME()
                 }
             }
         }
-  
+    }
 }
 
 
 
 
+void sequence_WAITERS_MINIGAME()
+{
+    if(G_PHASE_SEQUENCE == WAITER_PHASE_DIALOG)
+    {
+        if(G_COUNTER_1 == 60)
+        {
+            // DIALOG LEFT//
+            VDP_setTileMapEx(BG_A, image_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 9, 0, 28, 13, 7, DMA_QUEUE);
 
+            // WE WANT OUR PIE... //
+            VDP_setTileMapEx(BG_A, image_WAITERS_TEXT.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 33), 1, 10, 0, 5, 11, 4, DMA_QUEUE);
+        }
+
+        else if(G_COUNTER_1 == 240)
+        {
+            // ERASE DIALOG LEFT //
+            VDP_setTileMapEx(BG_A, image_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 9, 0, 9, 13, 7, DMA_QUEUE);
+
+            // DIALOG RIGHT //
+            VDP_setTileMapEx(BG_A, image_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 25, 9, 13, 28, 15, 7, DMA_QUEUE);
+
+            // YOU HEARD'EM //
+            VDP_setTileMapEx(BG_A, image_WAITERS_TEXT.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 33), 26, 10, 0, 10, 13, 4, DMA_QUEUE);
+        }
+
+        else if(G_COUNTER_1 == 420)
+        {
+            // ERASE DIALOG RIGHT //
+            VDP_setTileMapEx(BG_A, image_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 25, 9, 25, 9, 15, 7, DMA_QUEUE);
+
+            // DISPLAY HAND //
+            SPR_setPosition(sprite_HAND_WAITERS,270,108);
+
+            SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
+            SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
+
+            G_PHASE_SEQUENCE = WAITER_PHASE_ACTION;
+        }
+
+
+        G_COUNTER_1 += 1;
+    }
+
+    else if(G_PHASE_SEQUENCE == WAITER_PHASE_ACTION)
+    {
+        //
+    }
+}
 
 
 

@@ -3988,7 +3988,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,32,TRUE);
         
-        SPR_initEx(470);
+        SPR_initEx(450);
         
         VDP_setHilightShadow(FALSE);
 
@@ -4002,6 +4002,7 @@ void init_SCENE()
         //**************************************************************************************//
 
         VDP_loadTileSet(image_WAITERS_NUMBERS.tileset, TILE_FONT_INDEX + 16, CPU);
+        VDP_loadTileSet(image_WAITERS_TEXT.tileset, TILE_FONT_INDEX + 33, CPU);
 
 
 
@@ -4050,7 +4051,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_HAND_WAITERS             =   SPR_addSprite(&tiles_SPR_HAND_WAITERS, 270, 108, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        sprite_HAND_WAITERS             =   SPR_addSprite(&tiles_SPR_HAND_WAITERS, -24, -24, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
 
 
@@ -4084,8 +4085,8 @@ void init_SCENE()
         list_WAITERS[1].state_CHARACTER  =   WAITER_PHASE_CROUCH;
         
 
-        SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
-        SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
+        //SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
+        //SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
 
 
         //--------------------------------------------------------------------------------------//
@@ -4155,6 +4156,8 @@ void init_SCENE()
 
 
         G_SELECTED_WAITER       = WAITER_CURLY;
+
+        G_PHASE_SEQUENCE        = WAITER_PHASE_DIALOG;
        
 
         G_SCENE                 = SCENE_FADE_IN;

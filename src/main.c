@@ -478,7 +478,7 @@ int main(bool hardReset)
                 {
                     joypad_WAITERS_MINIGAME();
 
-                    //sequence_DOCTORS_MINIGAME();
+                    sequence_WAITERS_MINIGAME();
 
                     //VDP_drawIntEx_BG_A_QUEUE(G_SELECTED_WAITER,1,0,0,PAL3);
 

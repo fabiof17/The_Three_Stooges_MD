@@ -167,6 +167,8 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
                     // COMPUTE THE PROBABILITY OF SUCCESS //
                     u8 hit_probability = abs(G_CURRENT_STATE - G_PREVIOUS_STATE);
 
+                    //KLog_U1("probability :" , hit_probability);
+
                     // GENERATE RANDOM NUMBER //
                     u8 hit_number = random_NUMBER(0,19);
 

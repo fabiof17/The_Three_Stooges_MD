@@ -491,42 +491,77 @@ void sequence_SLAP()
     {        
         if(G_COUNTER_1 == 240)
         {
-            // CLEAR SLAP HUB //
-            VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 9, 34, 9, 6, 22, 8, DMA_QUEUE);
+            if(G_DAY < 31)
+            {
+                // CLEAR SLAP HUB //
+                VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 9, 34, 9, 6, 22, 8, DMA_QUEUE);
 
-            // DISPLAY HUB //
-            display_HUB();
+                // DISPLAY HUB //
+                display_HUB();
 
-            SPR_setFrame(sprite_STOOGES,17);
-            SPR_setPosition(sprite_STOOGES,117,133);
-
-
-            SPR_releaseSprite(sprite_MOE);
-            SPR_releaseSprite(sprite_LARRY);
-            SPR_releaseSprite(sprite_CURLY);
+                SPR_setFrame(sprite_STOOGES,17);
+                SPR_setPosition(sprite_STOOGES,117,133);
 
 
-            SPR_releaseSprite(sprite_COUNTER_SLAP);
-            SPR_releaseSprite(sprite_HAND_SLAP);
-            SPR_releaseSprite(sprite_METER_SLAP);
-            SPR_releaseSprite(sprite_ARROW_DIALOG);
-
-            
-            G_COUNTER_1             = 0;
-            G_INDEX_1               = 0;
-            G_INDEX_2               = 0;
-            G_INDEX_3               = 0;
+                SPR_releaseSprite(sprite_MOE);
+                SPR_releaseSprite(sprite_LARRY);
+                SPR_releaseSprite(sprite_CURLY);
 
 
-            G_COUNTER_ROULETTE      = 0;
-            G_CURRENT_TURN          = 9;
+                SPR_releaseSprite(sprite_COUNTER_SLAP);
+                SPR_releaseSprite(sprite_HAND_SLAP);
+                SPR_releaseSprite(sprite_METER_SLAP);
+                SPR_releaseSprite(sprite_ARROW_DIALOG);
+
+                
+                G_COUNTER_1             = 0;
+                G_INDEX_1               = 0;
+                G_INDEX_2               = 0;
+                G_INDEX_3               = 0;
 
 
-            G_SCENE = SCENE_ROULETTE;
+                G_COUNTER_ROULETTE      = 0;
+                G_CURRENT_TURN          = 9;
 
-            G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
 
-            return;
+                G_SCENE = SCENE_ROULETTE;
+
+                G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
+
+                return;
+            }
+
+            else
+            {
+                // FADE OUT : 40 FRAMES //
+                PAL_fadeOutAll(40,FALSE);
+
+                // RESET SCROLLING //
+                VDP_setVerticalScroll(BG_B , 0);
+                VDP_setVerticalScroll(BG_A , 0);
+
+                // CLEAR PLANES //
+                VDP_clearPlane(BG_B,TRUE);
+                VDP_clearPlane(BG_A,TRUE);
+
+                // RELEASE ALL SPRITES //
+                SPR_reset();
+
+
+                G_COUNTER_1             = 0;
+                G_INDEX_1               = 0;
+                G_INDEX_2               = 0;
+                G_INDEX_3               = 0;
+
+
+                G_SCENE             = SCENE_FADE_IN;
+                G_SCENE_TYPE        = SCENE_GAMEOVER;
+                G_SCENE_NEXT        = SCENE_GAMEOVER;
+
+                G_SCENE_LOADED      = FALSE;
+
+                return;
+            }
         }
         
         G_COUNTER_1 += 1;
@@ -539,21 +574,6 @@ void sequence_SLAP()
         
         if(G_COUNTER_WAIT == 10)
         {
-            /*SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_IDLE);
-
-            if(G_AXIS == LEFT)
-            {
-                SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_IDLE);
-            }
-
-            else if(G_AXIS == RIGHT)
-            {
-                SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_IDLE);
-            }
-
-            G_PREVIOUS_STATE = G_CURRENT_STATE;
-            G_CURRENT_STATE = SLAP_STATE_IDLE;*/
-
             G_COUNTER_WAIT = 0;
 
             G_PHASE_SEQUENCE = SLAP_PHASE_ATTACK;
