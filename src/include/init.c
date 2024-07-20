@@ -3988,7 +3988,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,32,TRUE);
         
-        SPR_initEx(450);
+        SPR_initEx(470);
         
         VDP_setHilightShadow(FALSE);
 
@@ -4002,7 +4002,14 @@ void init_SCENE()
         //**************************************************************************************//
 
         VDP_loadTileSet(image_WAITERS_NUMBERS.tileset, TILE_FONT_INDEX + 16, CPU);
-        VDP_loadTileSet(image_WAITERS_TEXT.tileset, TILE_FONT_INDEX + 33, CPU);
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                     FONT TILESET                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_loadTileSet(image_WAITERS_TEXT.tileset, TILE_FONT_INDEX + 27, CPU);
 
 
 
@@ -4038,7 +4045,27 @@ void init_SCENE()
 
         VDP_setTileMapEx(BG_A, image_WAITERS_NUMBERS.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16), 4, 4, 10, 0, 1, 1, CPU);
 
-        
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       DIALOG                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//   
+
+        VDP_loadTileSet(image_WAITERS_MINIGAME_DIALOG.tileset, TILE_FONT_INDEX + 55, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        SCORE                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//       
+
+        VDP_drawIntEx_BG_A_CPU(G_REWARD,1,6,4,PAL1);
+
+
+
+
         //**************************************************************************************//
         //                                                                                      //
         //                                      SPRITES                                         //
@@ -4061,13 +4088,39 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
+        //--------------------------------------------------------------------------------------//
+        //                                      LARRY'S PIE                                     //
+        //--------------------------------------------------------------------------------------//
+
+        list_WAITERS[0].spr_PIE          =   SPR_addSprite(&tiles_SPR_PIE_LARRY,      250, 173, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+        //--------------------------------------------------------------------------------------//
+        //                                      WOMAN'S PIE                                     //
+        //--------------------------------------------------------------------------------------//
+
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                         LARRY                                        //
+        //--------------------------------------------------------------------------------------//
+        list_WAITERS[0].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_LARRY1_WAITERS, 256, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_WAITERS[0].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_LARRY2_WAITERS, 256, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_WAITERS[0].state_CHARACTER  =   WAITER_PHASE_IDLE;
+
+        //--------------------------------------------------------------------------------------//
+        //                                         WOMAN                                        //
+        //--------------------------------------------------------------------------------------//
         list_GUESTS[0].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_WOMAN1_WAITERS, 0, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
         list_GUESTS[0].spr_CHAR_2        =   SPR_addSprite(&tiles_SPR_WOMAN2_WAITERS, 0, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         list_GUESTS[0].state_CHARACTER   =   WAITER_PHASE_IDLE;
 
-        list_WAITERS[0].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_LARRY1_WAITERS, 256, 139, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_WAITERS[0].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_LARRY2_WAITERS, 256, 139, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-        list_WAITERS[0].state_CHARACTER  =   WAITER_PHASE_IDLE;
+
+
+
+
+
 
 
         //--------------------------------------------------------------------------------------//
@@ -4149,6 +4202,9 @@ void init_SCENE()
         G_REWARD                = 0;
 
         G_HIT_NUMBER            = 0;
+
+        G_NUMBER_SERVED_PIES    = 6; // 3 GUEST PIES + 3 STOOGES PIES
+        G_NUMBER_PIES           = 0; // 0 USED PIES
 
         G_RANDOM_OK             = FALSE;
 
@@ -5391,8 +5447,8 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_loadTileSet(image_CONTRACT_WAITERS_BG_B.tileset, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile, CPU);
-        VDP_setTileMapEx(BG_B, image_CONTRACT_WAITERS_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile), 6, 6, 0, 0, 27, 11, CPU);
+        VDP_loadTileSet(image_CONTRACT_WAITERS.tileset, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile, CPU);
+        VDP_setTileMapEx(BG_B, image_CONTRACT_WAITERS.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile), 6, 6, 0, 0, 27, 11, CPU);
 
 
 

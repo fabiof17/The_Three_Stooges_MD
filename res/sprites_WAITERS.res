@@ -21,6 +21,13 @@ SPRITE tiles_SPR_MOE2_WAITERS           "sprites/waiters/tiles_SPR_MOE2_WAITERS.
 
 
 //----------------------------------------------------//
+//                        PIES                        //
+//----------------------------------------------------//
+
+SPRITE tiles_SPR_PIE_LARRY              "sprites/waiters/tiles_SPR_PIE_LARRY.png"                  4   4  NONE 0 NONE TILE MEDIUM
+
+
+//----------------------------------------------------//
 //                       GUESTS                       //
 //----------------------------------------------------//
 
