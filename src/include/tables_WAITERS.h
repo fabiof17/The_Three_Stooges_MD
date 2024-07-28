@@ -7,7 +7,7 @@ extern const u8                     TABLE_MAX_PIES[4];
 
 extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_LARRY[52];
 
-extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_WOMAN[52];
+extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_WOMAN[60];
 
 
 

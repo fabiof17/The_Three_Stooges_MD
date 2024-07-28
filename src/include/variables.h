@@ -263,15 +263,17 @@
 #define WAITER_CURLY                    1
 #define WAITER_MOE                      2
 
-#define WAITER_PHASE_IDLE               0
-#define WAITER_PHASE_CROUCH             1
-#define WAITER_PHASE_GRAB               2
-#define WAITER_PHASE_AIM                3
-#define WAITER_PHASE_THROW              4
-#define WAITER_PHASE_HIT                5
+#define CHAR_PHASE_IDLE                 0
+#define CHAR_PHASE_CROUCH               1
+#define CHAR_PHASE_GRAB                 2
+#define CHAR_PHASE_AIM                  3
+#define CHAR_PHASE_THROW                4
+#define CHAR_PHASE_HIT                  5
 
 #define PIE_PHASE_SERVED                0
-#define PIE_PHASE_THROW                 1
+#define PIE_PHASE_GRAB                  2
+#define PIE_PHASE_AIM                   1
+#define PIE_PHASE_THROW                 3
 
 #define WAITER_PHASE_DIALOG             0
 #define WAITER_PHASE_ACTION             1

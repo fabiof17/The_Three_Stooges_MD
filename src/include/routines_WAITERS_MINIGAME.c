@@ -36,14 +36,14 @@ void joypad_WAITERS_MINIGAME()
                 //if(G_SELECTED_WAITER != WAITER_CURLY)
                 //{
                     // IF CURLY IS IDLE //
-                    if(list_WAITERS[1].state_CHARACTER == WAITER_PHASE_IDLE)
+                    if(list_WAITERS[1].state_CHARACTER == CHAR_PHASE_IDLE)
                     {
                         SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
                         SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
 
                         SPR_setPosition(sprite_HAND_WAITERS,270,108);
                         
-                        list_WAITERS[1].state_CHARACTER = WAITER_PHASE_CROUCH;
+                        list_WAITERS[1].state_CHARACTER = CHAR_PHASE_CROUCH;
 
                         G_SELECTED_WAITER = WAITER_CURLY;
                     }
@@ -53,23 +53,23 @@ void joypad_WAITERS_MINIGAME()
 
                     // IF LARRY IS CROUCHING //
                     // NO NEED TO CHECK FOR MOE //
-                    if(list_WAITERS[0].state_CHARACTER < WAITER_PHASE_GRAB)
+                    if(list_WAITERS[0].state_CHARACTER < CHAR_PHASE_GRAB)
                     {
                         SPR_setFrame(list_WAITERS[0].spr_CHAR_1,0);
                         SPR_setFrame(list_WAITERS[0].spr_CHAR_2,0);
                         
-                        list_WAITERS[0].state_CHARACTER = WAITER_PHASE_IDLE;
+                        list_WAITERS[0].state_CHARACTER = CHAR_PHASE_IDLE;
 
                         //return;
                     }
 
                     // IF MOE IS CROUCHING //
-                    if(list_WAITERS[2].state_CHARACTER < WAITER_PHASE_GRAB)
+                    if(list_WAITERS[2].state_CHARACTER < CHAR_PHASE_GRAB)
                     {
                         SPR_setFrame(list_WAITERS[2].spr_CHAR_1,0);
                         SPR_setFrame(list_WAITERS[2].spr_CHAR_2,0);
                         
-                        list_WAITERS[2].state_CHARACTER = WAITER_PHASE_IDLE;
+                        list_WAITERS[2].state_CHARACTER = CHAR_PHASE_IDLE;
                     }
                 //}
             }
@@ -87,14 +87,14 @@ void joypad_WAITERS_MINIGAME()
                 //if(G_SELECTED_WAITER != WAITER_MOE)
                 //{
                     // IF MOE IS IDLE //
-                    if(list_WAITERS[2].state_CHARACTER == WAITER_PHASE_IDLE)
+                    if(list_WAITERS[2].state_CHARACTER == CHAR_PHASE_IDLE)
                     {
                         SPR_setFrame(list_WAITERS[2].spr_CHAR_1,1);
                         SPR_setFrame(list_WAITERS[2].spr_CHAR_2,1);
 
                         SPR_setPosition(sprite_HAND_WAITERS,254,104);
                         
-                        list_WAITERS[2].state_CHARACTER = WAITER_PHASE_CROUCH;
+                        list_WAITERS[2].state_CHARACTER = CHAR_PHASE_CROUCH;
 
                         G_SELECTED_WAITER = WAITER_MOE;
                     }
@@ -104,23 +104,23 @@ void joypad_WAITERS_MINIGAME()
 
                     // IF LARRY IS CROUCHING //
                     // NO NEED TO CHECK FOR CURLY //
-                    if(list_WAITERS[0].state_CHARACTER < WAITER_PHASE_GRAB)
+                    if(list_WAITERS[0].state_CHARACTER < CHAR_PHASE_GRAB)
                     {
                         SPR_setFrame(list_WAITERS[0].spr_CHAR_1,0);
                         SPR_setFrame(list_WAITERS[0].spr_CHAR_2,0);
                         
-                        list_WAITERS[0].state_CHARACTER = WAITER_PHASE_IDLE;
+                        list_WAITERS[0].state_CHARACTER = CHAR_PHASE_IDLE;
 
                         //return;
                     }
 
                     // IF CURLY IS CROUCHING //
-                    if(list_WAITERS[1].state_CHARACTER < WAITER_PHASE_GRAB)
+                    if(list_WAITERS[1].state_CHARACTER < CHAR_PHASE_GRAB)
                     {
                         SPR_setFrame(list_WAITERS[1].spr_CHAR_1,0);
                         SPR_setFrame(list_WAITERS[1].spr_CHAR_2,0);
                         
-                        list_WAITERS[1].state_CHARACTER = WAITER_PHASE_IDLE; 
+                        list_WAITERS[1].state_CHARACTER = CHAR_PHASE_IDLE; 
                     }
                 //}
             }
@@ -138,14 +138,14 @@ void joypad_WAITERS_MINIGAME()
                 //if(G_SELECTED_WAITER != WAITER_LARRY)
                 //{
                     // IF LARRY IS IDLE //
-                    if(list_WAITERS[0].state_CHARACTER == WAITER_PHASE_IDLE)
+                    if(list_WAITERS[0].state_CHARACTER == CHAR_PHASE_IDLE)
                     {
                         SPR_setFrame(list_WAITERS[0].spr_CHAR_1,1);
                         SPR_setFrame(list_WAITERS[0].spr_CHAR_2,1);
 
                         SPR_setPosition(sprite_HAND_WAITERS,286,112);
                         
-                        list_WAITERS[0].state_CHARACTER = WAITER_PHASE_CROUCH;
+                        list_WAITERS[0].state_CHARACTER = CHAR_PHASE_CROUCH;
 
                         G_SELECTED_WAITER = WAITER_LARRY;
                     }
@@ -155,23 +155,23 @@ void joypad_WAITERS_MINIGAME()
 
                     // IF MOE IS CROUCHING //
                     // NO NEED TO CHECK FOR CURLY //
-                    if(list_WAITERS[2].state_CHARACTER < WAITER_PHASE_GRAB)
+                    if(list_WAITERS[2].state_CHARACTER < CHAR_PHASE_GRAB)
                     {
                         SPR_setFrame(list_WAITERS[2].spr_CHAR_1,0);
                         SPR_setFrame(list_WAITERS[2].spr_CHAR_2,0);
                         
-                        list_WAITERS[2].state_CHARACTER = WAITER_PHASE_IDLE;
+                        list_WAITERS[2].state_CHARACTER = CHAR_PHASE_IDLE;
 
                         //return;
                     }
 
                     // IF CURLY IS CROUCHING //
-                    if(list_WAITERS[1].state_CHARACTER < WAITER_PHASE_GRAB)
+                    if(list_WAITERS[1].state_CHARACTER < CHAR_PHASE_GRAB)
                     {
                         SPR_setFrame(list_WAITERS[1].spr_CHAR_1,0);
                         SPR_setFrame(list_WAITERS[1].spr_CHAR_2,0);
                         
-                        list_WAITERS[1].state_CHARACTER = WAITER_PHASE_IDLE; 
+                        list_WAITERS[1].state_CHARACTER = CHAR_PHASE_IDLE; 
                     }
                 //}
             }
@@ -213,12 +213,16 @@ inline static void anim_PIE()
     {
         if(list_WAITERS[i].state_PIE == PIE_PHASE_THROW)
         {
+            // INCREASE PIE ANIM INDEX //
             list_WAITERS[i].index_ANIM_PIE += 1;
 
+            // IF PIE HAS REACHED THE END OF ITS TRAJECTORY //
             if(list_WAITERS[i].index_ANIM_PIE == 51)
             {
+                // IF NOT ALL PIES HAVE BEEN SERVED ON THE TABLE //
                 if(G_SERVED_PIES < G_MAX_PIES)
                 {
+                    // SET PIE COUNTER TO 0 //
                     list_WAITERS[i].index_ANIM_PIE = 0;
 
                     //------------------------------------------------------//
@@ -241,14 +245,33 @@ inline static void anim_PIE()
                         //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[i].index_ANIM_PIE];
                     }
 
+
+                    // A NEW PIE IS SERVED ON THE TABLE //
                     list_WAITERS[i].state_PIE = PIE_PHASE_SERVED;
 
                     SPR_setPosition(list_WAITERS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
 
                     SPR_setFrame(list_WAITERS[i].spr_PIE , 0);
 
+
                     G_SERVED_PIES += 1;
                 }
+
+
+                // CHECK COLLISION WITH FACING GUEST //
+                // IF GUEST IS NOT CROUCHING //
+                if(list_GUESTS[i].state_CHARACTER != CHAR_PHASE_CROUCH)
+                {
+                    list_GUESTS[i].counter_CHARACTER = 0;
+
+                    SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT);
+                    SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT);
+                    
+                    list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT;
+
+                    G_REWARD += 10;
+                }
+
 
                 G_USED_PIES += 1;
             }
@@ -292,7 +315,50 @@ inline static void anim_PIE()
 
 
 
-inline static void anim_WAITER()
+inline static void anim_GUESTS()
+{
+    u8 i;
+
+    for(i=0 ; i<3 ; i++)
+    {
+        // IF GUEST HAS BEEN HIT BY A PIE //
+        if( list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT)
+        {
+            if(list_GUESTS[i].counter_CHARACTER == 63)
+            {
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT + 1);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT + 1);
+            }
+
+            else if(list_GUESTS[i].counter_CHARACTER == 85)
+            {
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT + 2);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT + 2);
+            }
+
+            else if(list_GUESTS[i].counter_CHARACTER == 106)
+            {
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , 0);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , 0);
+
+                // RESET COUNTER //
+                list_GUESTS[i].counter_CHARACTER = 0;
+
+                // RANDOMLY CHOOSE NEXT STATE (TO BE DONE) //
+                list_GUESTS[i].state_CHARACTER = CHAR_PHASE_IDLE;
+
+                return;
+            }
+
+            list_GUESTS[i].counter_CHARACTER += 1;
+        }
+    }
+}
+
+
+
+
+inline static void anim_WAITERS()
 {
     u8 i;
 
@@ -303,14 +369,14 @@ inline static void anim_WAITER()
         //                    STOOGE GRAB PHASE                   //
         //                                                        //
         //--------------------------------------------------------//
-        if(list_WAITERS[i].state_CHARACTER == WAITER_PHASE_GRAB)
+        if(list_WAITERS[i].state_CHARACTER == CHAR_PHASE_GRAB)
         {
-            if(list_WAITERS[i].counter_CHARACTER == 7)
+            if(list_WAITERS[i].counter_CHARACTER == 6)
             {
                 //------------------------------------------------------//
                 //                 STOOGE GOES AIM PHASE                //
                 //------------------------------------------------------//
-                list_WAITERS[i].state_CHARACTER = WAITER_PHASE_AIM;
+                list_WAITERS[i].state_CHARACTER = CHAR_PHASE_AIM;
 
                 //------------------------------------------------------//
                 //              UPDATE STOOGE SPRITE FRAME              //
@@ -359,14 +425,14 @@ inline static void anim_WAITER()
         //                    STOOGE AIM PHASE                    //
         //                                                        //
         //--------------------------------------------------------//
-        else if(list_WAITERS[i].state_CHARACTER == WAITER_PHASE_AIM)
+        else if(list_WAITERS[i].state_CHARACTER == CHAR_PHASE_AIM)
         {
-            if(list_WAITERS[i].counter_CHARACTER == 6)
+            if(list_WAITERS[i].counter_CHARACTER == 7)
             {
                 //------------------------------------------------------//
                 //                STOOGE GOES THROW PHASE               //
                 //------------------------------------------------------//
-                list_WAITERS[i].state_CHARACTER = WAITER_PHASE_THROW;
+                list_WAITERS[i].state_CHARACTER = CHAR_PHASE_THROW;
 
                 //------------------------------------------------------//
                 //              UPDATE STOOGE SPRITE FRAME              //
@@ -415,7 +481,7 @@ inline static void anim_WAITER()
         //                   STOOGE THROW PHASE                   //
         //                                                        //
         //--------------------------------------------------------//
-        else if(list_WAITERS[i].state_CHARACTER == WAITER_PHASE_THROW)
+        else if(list_WAITERS[i].state_CHARACTER == CHAR_PHASE_THROW)
         {
             //------------------------------------------------------//
             //                 PIE GOES THROW PHASE                 //
@@ -426,7 +492,7 @@ inline static void anim_WAITER()
             //------------------------------------------------------//
             //              UPDATE STOOGE SPRITE FRAME              //
             //------------------------------------------------------//
-            if(list_WAITERS[i].counter_CHARACTER == 6)
+            if(list_WAITERS[i].counter_CHARACTER == 7)
             {
                 //------------------------------------------------------//
                 //                     STOOGE STANDS                    //
@@ -435,7 +501,7 @@ inline static void anim_WAITER()
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , 0);
             }
 
-            else if(list_WAITERS[i].counter_CHARACTER == 12)
+            else if(list_WAITERS[i].counter_CHARACTER == 14)
             {
                 //------------------------------------------------------//
                 //                    STOOGE CROUCHES                   //
@@ -444,20 +510,20 @@ inline static void anim_WAITER()
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , 1);
             }
 
-            else if(list_WAITERS[i].counter_CHARACTER == 24)
+            else if(list_WAITERS[i].counter_CHARACTER == 28)
             {
                 //------------------------------------------------------//
                 //                      STOOGE IDLE                     //
                 //------------------------------------------------------//
                 list_WAITERS[i].counter_CHARACTER = 0;
 
-                list_WAITERS[i].state_CHARACTER = WAITER_PHASE_IDLE;
+                list_WAITERS[i].state_CHARACTER = CHAR_PHASE_IDLE;
                 
                 //------------------------------------------------------//
                 //                    STOOGE GETS IDLE                  //
                 //------------------------------------------------------//
-                //SPR_setFrame(list_WAITERS[i].spr_CHAR_1 , WAITER_PHASE_IDLE);
-                //SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , WAITER_PHASE_IDLE);
+                //SPR_setFrame(list_WAITERS[i].spr_CHAR_1 , CHAR_PHASE_IDLE);
+                //SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , CHAR_PHASE_IDLE);
 
                 return;
             }
@@ -532,7 +598,9 @@ void sequence_WAITERS_MINIGAME()
         
         anim_PIE();
         
-        anim_WAITER();
+        anim_WAITERS();
+
+        anim_GUESTS();
     }
 }
 

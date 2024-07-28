@@ -419,27 +419,40 @@ void waiters_Callback(u16 joy, u16 changed, u16 state)
             // BOUTON B //
             if( changed & state & BUTTON_B )
             {
-                if(list_WAITERS[G_SELECTED_WAITER].state_CHARACTER == WAITER_PHASE_CROUCH)
+                // IF STOOGE IS CROUCHING //
+                if(list_WAITERS[G_SELECTED_WAITER].state_CHARACTER == CHAR_PHASE_CROUCH)
                 {
-                    list_WAITERS[G_SELECTED_WAITER].state_CHARACTER = WAITER_PHASE_GRAB;
-                    
-                    SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_1,2);
-                    SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_2,2);
-
-                    
-                    list_WAITERS[G_SELECTED_WAITER].index_ANIM_PIE += 1;
-
-
-                    const struct_PIE_ANIM_ *ptr_PIE_ANIM;
-
-                    if(G_SELECTED_WAITER == WAITER_LARRY)
+                    // IF PIE IS ON THE TABLE //
+                    if(list_WAITERS[G_SELECTED_WAITER].state_PIE == PIE_PHASE_SERVED)
                     {
-                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[0].index_ANIM_PIE];
+                        // STOOGE GOES TO GRAB PHASE //
+                        list_WAITERS[G_SELECTED_WAITER].state_CHARACTER = CHAR_PHASE_GRAB;
+                        
+                        // UPDATE STOOGES SPRITE FRAME //
+                        SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_1,2);
+                        SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_2,2);
+
+                        // INCREASE PIE ANIM INDEX //
+                        list_WAITERS[G_SELECTED_WAITER].index_ANIM_PIE += 1;
+
+                        // SETUP POINTER TO PIE ANIMATION TABLE
+                        const struct_PIE_ANIM_ *ptr_PIE_ANIM;
+
+                        // DEPENDING ON WHICH STOOGE IS SELECTED //
+                        if(G_SELECTED_WAITER == WAITER_LARRY)
+                        {
+                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[0].index_ANIM_PIE];
+                        }
+
+
+
+
+                        SPR_setPosition(list_WAITERS[G_SELECTED_WAITER].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+
+                        list_WAITERS[G_SELECTED_WAITER].state_PIE = PIE_PHASE_GRAB;
+
+                        G_ACTION_WAITER_AUTHORIZED = FALSE;
                     }
-
-                    SPR_setPosition(list_WAITERS[G_SELECTED_WAITER].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
-
-                    G_ACTION_WAITER_AUTHORIZED = FALSE;
                 }
             }
         }
