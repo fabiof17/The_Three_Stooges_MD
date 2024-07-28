@@ -2,6 +2,7 @@
 #define _RES_MAPS_WAITERS_H_
 
 extern const Image image_WAITERS_TEXT;
+extern const Image image_WAITERS_CONTRACT_NUMBERS;
 extern const Image image_CONTRACT_WAITERS;
 extern const Image image_WAITERS_NUMBERS;
 extern const Image image_WAITERS_DIALOG;

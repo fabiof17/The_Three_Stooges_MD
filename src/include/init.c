@@ -69,6 +69,7 @@
 #include "tables_QUESTIONS.h"
 #include "tables_ROULETTE.h"
 #include "tables_TRIVIA.h"
+#include "tables_WAITERS.h"
 
 
 
@@ -135,7 +136,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         //G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_WAITERS_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER
+        G_SCENE_TYPE = SCENE_CONTRACT_WAITERS; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -4046,6 +4047,8 @@ void init_SCENE()
         VDP_setTileMapEx(BG_A, image_WAITERS_NUMBERS.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16), 4, 4, 10, 0, 1, 1, CPU);
 
 
+
+
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
         //                                       DIALOG                                         //
@@ -4053,6 +4056,8 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//   
 
         VDP_loadTileSet(image_WAITERS_MINIGAME_DIALOG.tileset, TILE_FONT_INDEX + 55, CPU);
+
+
 
 
         //--------------------------------------------------------------------------------------//
@@ -4093,6 +4098,7 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         list_WAITERS[0].spr_PIE          =   SPR_addSprite(&tiles_SPR_PIE_LARRY,      250, 173, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_WAITERS[0].index_ANIM_PIE   =   0;
 
         //--------------------------------------------------------------------------------------//
         //                                      WOMAN'S PIE                                     //
@@ -4193,32 +4199,37 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        G_COUNTER_1             = 0;
-        G_INDEX_1               = 0;
-        G_INDEX_2               = 0;
-        G_INDEX_3               = 0;
+        G_COUNTER_1                 = 0;
+        G_INDEX_1                   = 0;
+        G_INDEX_2                   = 0;
+        G_INDEX_3                   = 0;
+
+        G_COUNTER_ACTION_WAITERS    = 0;
+        G_COUNTER_ACTION_GUESTS     = 0;
 
 
-        G_REWARD                = 0;
+        G_REWARD                    = 0;
 
-        G_HIT_NUMBER            = 0;
+        G_HIT_NUMBER                = 0;
 
-        G_NUMBER_SERVED_PIES    = 6; // 3 GUEST PIES + 3 STOOGES PIES
-        G_NUMBER_PIES           = 0; // 0 USED PIES
+        G_SERVED_PIES               = 6; // 3 GUEST PIES + 3 STOOGES PIES
+        G_USED_PIES                 = 0; // 0 USED PIES
 
-        G_RANDOM_OK             = FALSE;
+        G_RANDOM_OK                 = FALSE;
+
+        G_ACTION_WAITER_AUTHORIZED  = TRUE;
 
 
-        G_SELECTED_WAITER       = 3; // 3 = NONE
+        G_SELECTED_WAITER           = 3; // 3 = NONE
 
-        G_PHASE_SEQUENCE        = WAITER_PHASE_DIALOG;
+        G_PHASE_SEQUENCE            = WAITER_PHASE_DIALOG;
        
 
-        G_SCENE                 = SCENE_FADE_IN;
-        G_SCENE_TYPE            = SCENE_WAITERS_MINIGAME;
-        G_SCENE_NEXT            = SCENE_WAITERS_MINIGAME;
+        G_SCENE                     = SCENE_FADE_IN;
+        G_SCENE_TYPE                = SCENE_WAITERS_MINIGAME;
+        G_SCENE_NEXT                = SCENE_WAITERS_MINIGAME;
 
-        G_SCENE_LOADED          = TRUE;
+        G_SCENE_LOADED              = TRUE;
 
     }
 
@@ -5399,6 +5410,17 @@ void init_SCENE()
 
         //**************************************************************************************//
         //                                                                                      //
+        //                                   NUMBERS TILESET                                    //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_loadTileSet(image_WAITERS_CONTRACT_NUMBERS.tileset, TILE_FONT_INDEX + 16, CPU);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
         //                                    SETUP DISPLAY                                     //
         //                                                                                      //
         //**************************************************************************************//
@@ -5451,6 +5473,25 @@ void init_SCENE()
         VDP_setTileMapEx(BG_B, image_CONTRACT_WAITERS.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile), 6, 6, 0, 0, 27, 11, CPU);
 
 
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       MAX PIES                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_MAX_PIES  = TABLE_MAX_PIES[random_NUMBER(0,3)];
+
+        if(G_MAX_PIES < 100)
+        {
+            VDP_drawIntEx_BG_B_CPU(G_MAX_PIES , 2 , 17, 13 , PAL0);
+        }
+
+        else
+        {
+            VDP_drawIntEx_BG_B_CPU(G_MAX_PIES , 3 , 17, 13 , PAL0);
+        }
+
+
 
 
         //--------------------------------------------------------------------------------------//
@@ -5494,6 +5535,8 @@ void init_SCENE()
 
 
         G_PHASE_SEQUENCE        = 0;
+
+        
        
 
         G_SCENE                 = SCENE_FADE_IN;

@@ -265,8 +265,13 @@
 
 #define WAITER_PHASE_IDLE               0
 #define WAITER_PHASE_CROUCH             1
-#define WAITER_PHASE_THROW              2
-#define WAITER_PHASE_HIT                3
+#define WAITER_PHASE_GRAB               2
+#define WAITER_PHASE_AIM                3
+#define WAITER_PHASE_THROW              4
+#define WAITER_PHASE_HIT                5
+
+#define PIE_PHASE_SERVED                0
+#define PIE_PHASE_THROW                 1
 
 #define WAITER_PHASE_DIALOG             0
 #define WAITER_PHASE_ACTION             1
@@ -410,6 +415,8 @@ extern u16 G_ADR_VRAM_BG_A;
 
 extern u8 G_DAY;
 extern u16 G_MONEY;
+
+extern bool G_ACTION_WAITER_AUTHORIZED;
 
 
 extern u8 G_STREET_TYPE;
@@ -602,8 +609,12 @@ extern struct_WAITER_ list_GUESTS[3];
 
 extern u8 G_SELECTED_WAITER;
 
-extern u8 G_NUMBER_SERVED_PIES;
-extern u8 G_NUMBER_PIES;
+extern u8 G_MAX_PIES;
+extern u8 G_SERVED_PIES;
+extern u8 G_USED_PIES;
+
+extern u8 G_COUNTER_ACTION_WAITERS;
+extern u8 G_COUNTER_ACTION_GUESTS;
 
 
 
@@ -809,6 +820,8 @@ extern Sprite *sprite_HAND[3];
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_HAND_WAITERS;
+
+extern Sprite *sprite_BULB[5];
 
 
 

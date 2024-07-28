@@ -6,6 +6,8 @@
 
 IMAGE image_WAITERS_TEXT                        "map/waiters/tiles_WAITERS_TEXT.png"                    BEST ALL
 
+IMAGE image_WAITERS_CONTRACT_NUMBERS            "map/waiters/tiles_WAITERS_CONTRACT_NUMBERS.png"        BEST ALL
+
 IMAGE image_CONTRACT_WAITERS                    "map/waiters/tiles_CONTRACT_WAITERS.png"                BEST ALL
 
 IMAGE image_WAITERS_NUMBERS                     "map/waiters/tiles_WAITERS_NUMBERS.png"                 NONE NONE

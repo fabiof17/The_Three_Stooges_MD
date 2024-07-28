@@ -477,14 +477,16 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_WAITERS_MINIGAME)
                 {
                     joypad_WAITERS_MINIGAME();
+                    JOY_setEventHandler(waiters_Callback);
 
                     sequence_WAITERS_MINIGAME();
 
-                    //VDP_drawIntEx_BG_A_QUEUE(G_SELECTED_WAITER,1,0,0,PAL3);
+                    VDP_drawIntEx_BG_A_QUEUE(G_SELECTED_WAITER,1,0,0,PAL3);
+                    VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[G_SELECTED_WAITER].state_CHARACTER,1,0,1,PAL3);
 
-                    //VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[0].state_CHARACTER,1,0,2,PAL3);
-                    //VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[1].state_CHARACTER,1,0,3,PAL3);
-                    //VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[2].state_CHARACTER,1,0,4,PAL3);
+                    //VDP_drawIntEx_BG_A_QUEUE(G_SELECTED_WAITER   ,2,0,2,PAL3);
+                    //VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[0].index_ANIM_PIE  ,2,0,3,PAL3);
+                    
                     
                     SPR_update();
                     SYS_doVBlankProcess();

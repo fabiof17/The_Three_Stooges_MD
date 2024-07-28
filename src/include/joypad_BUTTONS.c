@@ -12,6 +12,7 @@
 #include "tables_QUESTIONS.h"
 #include "tables_ROULETTE.h"
 #include "tables_SLAP.h"
+#include "tables_WAITERS.h"
 
 
 
@@ -405,6 +406,47 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
         }
     }
 }
+
+
+
+
+void waiters_Callback(u16 joy, u16 changed, u16 state)
+{    
+    if(joy == JOY_1)
+    {
+        if(G_PHASE_SEQUENCE == WAITER_PHASE_ACTION)
+        {
+            // BOUTON B //
+            if( changed & state & BUTTON_B )
+            {
+                if(list_WAITERS[G_SELECTED_WAITER].state_CHARACTER == WAITER_PHASE_CROUCH)
+                {
+                    list_WAITERS[G_SELECTED_WAITER].state_CHARACTER = WAITER_PHASE_GRAB;
+                    
+                    SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_1,2);
+                    SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_2,2);
+
+                    
+                    list_WAITERS[G_SELECTED_WAITER].index_ANIM_PIE += 1;
+
+
+                    const struct_PIE_ANIM_ *ptr_PIE_ANIM;
+
+                    if(G_SELECTED_WAITER == WAITER_LARRY)
+                    {
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[0].index_ANIM_PIE];
+                    }
+
+                    SPR_setPosition(list_WAITERS[G_SELECTED_WAITER].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+
+                    G_ACTION_WAITER_AUTHORIZED = FALSE;
+                }
+            }
+        }
+    }
+}
+
+
 
 
 

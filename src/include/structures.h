@@ -198,16 +198,25 @@ typedef struct
     Sprite *spr_CHAR_1;
     Sprite *spr_CHAR_2;
     u8 state_CHARACTER;
+    u8 counter_CHARACTER;
 
     Sprite *spr_PIE;
     u8 state_PIE;
+    u8 index_ANIM_PIE;
 
 } struct_WAITER_;
 
 
 
 
+typedef struct
+{
+    s16 pos_X_PIE;
+    s16 pos_Y_PIE;
 
+    u8 index_ANIM_PIE;
+
+} struct_PIE_ANIM_;
 
 
 

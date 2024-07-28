@@ -46,6 +46,8 @@ u8 G_PHASE_SEQUENCE;
 
 u16 G_MONEY;
 
+bool G_ACTION_WAITER_AUTHORIZED;
+
 
 
 
@@ -253,8 +255,12 @@ struct_WAITER_ list_GUESTS[3];
 
 u8 G_SELECTED_WAITER;
 
-u8 G_NUMBER_SERVED_PIES;
-u8 G_NUMBER_PIES;
+u8 G_MAX_PIES;
+u8 G_SERVED_PIES;
+u8 G_USED_PIES;
+
+u8 G_COUNTER_ACTION_WAITERS;
+u8 G_COUNTER_ACTION_GUESTS;
 
 
 
@@ -462,6 +468,8 @@ Sprite *sprite_HAND[3];
 //-----------------------------------------------------------------------------// 
 
 Sprite *sprite_HAND_WAITERS;
+
+Sprite *sprite_BULB[5];
 
 
 
