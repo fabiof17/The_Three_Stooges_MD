@@ -202,7 +202,9 @@ typedef struct
 
     Sprite *spr_PIE;
     u8 state_PIE;
+    
     u8 index_ANIM_PIE;
+    //u8 max_PIE_STEPS;
 
 } struct_WAITER_;
 

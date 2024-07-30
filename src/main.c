@@ -519,7 +519,7 @@ int main(bool hardReset)
 
                     sequence_WAITERS_MINIGAME();
 
-                    //VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[G_SELECTED_WAITER].index_ANIM_PIE,1,0,1,PAL3);                    
+                    VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[1].index_ANIM_PIE,1,0,1,PAL3);                    
                     
                     SPR_update();
                     SYS_doVBlankProcess();

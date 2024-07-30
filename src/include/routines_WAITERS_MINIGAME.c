@@ -237,12 +237,12 @@ inline static void anim_PIE()
 
                     else if(i == WAITER_CURLY)
                     {
-                        //ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[i].index_ANIM_PIE];
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[i].index_ANIM_PIE];
                     }
 
                     else if(i == WAITER_MOE)
                     {
-                        //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[i].index_ANIM_PIE];
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[i].index_ANIM_PIE];
                     }
 
 
@@ -290,12 +290,12 @@ inline static void anim_PIE()
 
                 else if(i == WAITER_CURLY)
                 {
-                    //ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[i].index_ANIM_PIE];
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[i].index_ANIM_PIE];
                 }
 
                 else if(i == WAITER_MOE)
                 {
-                    //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[i].index_ANIM_PIE];
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[i].index_ANIM_PIE];
                 }
 
                 //------------------------------------------------------//
@@ -390,10 +390,13 @@ inline static void anim_WAITERS()
                 list_WAITERS[i].counter_CHARACTER = 0;
 
 
+
+
                 //------------------------------------------------------//
                 //                  INCREASE PIE INDEX                  //
                 //------------------------------------------------------//
                 list_WAITERS[i].index_ANIM_PIE += 1;
+
 
                 //------------------------------------------------------//
                 //            SET POINTER TO PIE ANIM TABLE             //
@@ -402,8 +405,21 @@ inline static void anim_WAITERS()
 
                 if(G_SELECTED_WAITER == WAITER_LARRY)
                 {
-                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[0].index_ANIM_PIE];
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
                 }
+
+                else if(G_SELECTED_WAITER == WAITER_CURLY)
+                {
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
+                }
+
+                else if(G_SELECTED_WAITER == WAITER_MOE)
+                {
+                    //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                }
+
+
+
 
                 //------------------------------------------------------//
                 //          SET PIE POSITION AND SPRITE FRAME           //
@@ -446,10 +462,13 @@ inline static void anim_WAITERS()
                 list_WAITERS[i].counter_CHARACTER = 0;
 
 
+
+
                 //------------------------------------------------------//
                 //                  INCREASE PIE INDEX                  //
                 //------------------------------------------------------//
                 list_WAITERS[i].index_ANIM_PIE += 1;
+
 
                 //------------------------------------------------------//
                 //            SET POINTER TO PIE ANIM TABLE             //
@@ -458,8 +477,21 @@ inline static void anim_WAITERS()
 
                 if(G_SELECTED_WAITER == WAITER_LARRY)
                 {
-                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[0].index_ANIM_PIE];
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
                 }
+
+                else if(G_SELECTED_WAITER == WAITER_CURLY)
+                {
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
+                }
+
+                else if(G_SELECTED_WAITER == WAITER_MOE)
+                {
+                    //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                }
+
+
+
 
                 //------------------------------------------------------//
                 //          SET PIE POSITION AND SPRITE FRAME           //

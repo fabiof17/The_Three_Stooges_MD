@@ -432,6 +432,8 @@ void waiters_Callback(u16 joy, u16 changed, u16 state)
                         SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_1,2);
                         SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_2,2);
 
+
+
                         // INCREASE PIE ANIM INDEX //
                         list_WAITERS[G_SELECTED_WAITER].index_ANIM_PIE += 1;
 
@@ -441,8 +443,19 @@ void waiters_Callback(u16 joy, u16 changed, u16 state)
                         // DEPENDING ON WHICH STOOGE IS SELECTED //
                         if(G_SELECTED_WAITER == WAITER_LARRY)
                         {
-                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[0].index_ANIM_PIE];
+                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
                         }
+
+                        else if(G_SELECTED_WAITER == WAITER_CURLY)
+                        {
+                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
+                        }
+
+                        else if(G_SELECTED_WAITER == WAITER_MOE)
+                        {
+                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                        }
+
 
 
 
