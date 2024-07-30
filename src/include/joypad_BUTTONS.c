@@ -422,7 +422,7 @@ void waiters_Callback(u16 joy, u16 changed, u16 state)
                 // IF STOOGE IS CROUCHING //
                 if(list_WAITERS[G_SELECTED_WAITER].state_CHARACTER == CHAR_PHASE_CROUCH)
                 {
-                    // IF PIE IS ON THE TABLE //
+                    // IF PIE IS SERVED ON THE TABLE //
                     if(list_WAITERS[G_SELECTED_WAITER].state_PIE == PIE_PHASE_SERVED)
                     {
                         // STOOGE GOES TO GRAB PHASE //

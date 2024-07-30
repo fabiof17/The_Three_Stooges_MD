@@ -16,6 +16,7 @@
 #include "maps_BOXING.h"
 #include "maps_CONTRACT.h"
 #include "maps_CRACKERS.h"
+#include "maps_DISCLAIMER.h"
 #include "maps_DOCTORS.h"
 #include "maps_DOLLAR.h"
 #include "maps_GAMEOVER.h"
@@ -114,7 +115,7 @@ void init_VARIABLES()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_REEL = REEL_GAME; // REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
     //--------------------------------------------------------------------------------------//
@@ -352,6 +353,69 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_DOCTORS_CRASH_2 , PCM_DOCTORS_CRASH_2 , sizeof(PCM_DOCTORS_CRASH_2));
     XGM_setPCM(SOUND_DOCTORS_CRASH_3 , PCM_DOCTORS_CRASH_3 , sizeof(PCM_DOCTORS_CRASH_3));
 
+}
+
+
+void init_DISCLAIMER()
+{
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    VDP_setPlaneSize(64,32,TRUE);
+    
+    SPR_init();
+    
+    VDP_setHilightShadow(FALSE);
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                         BG                                           //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    VDP_loadTileSet(image_DISCLAIMER_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+    VDP_setTileMapEx(BG_B, image_DISCLAIMER_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       PALETTES                                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    memcpy( &palette_64[0]  , image_DISCLAIMER_BG_B.palette->data             , 16 * 2 );
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       VARIABLES                                      //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_COUNTER_1             = 0;   
+
+    G_SCENE                 = SCENE_FADE_IN;
+    G_SCENE_NEXT            = SCENE_DISCLAIMER_SCREEN;
+
+    G_SCENE_LOADED          = TRUE;
 }
 
 

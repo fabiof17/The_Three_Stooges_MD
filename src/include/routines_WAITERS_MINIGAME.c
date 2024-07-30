@@ -217,7 +217,7 @@ inline static void anim_PIE()
             list_WAITERS[i].index_ANIM_PIE += 1;
 
             // IF PIE HAS REACHED THE END OF ITS TRAJECTORY //
-            if(list_WAITERS[i].index_ANIM_PIE == 51)
+            if(list_WAITERS[i].index_ANIM_PIE == 58)
             {
                 // IF NOT ALL PIES HAVE BEEN SERVED ON THE TABLE //
                 if(G_SERVED_PIES < G_MAX_PIES)

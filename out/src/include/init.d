@@ -16,10 +16,11 @@ out/src/include/init.o: src/include/init.c C:/sgdk/inc/genesis.h \
  C:/sgdk/inc/ext/flash-save/saveman.h src/include/outils.h \
  src/include/variables.h src/include/structures.h res/palettes.h \
  res/maps_BACKGROUNDS.h res/maps_BANK.h res/maps_BOXING.h \
- res/maps_CONTRACT.h res/maps_CRACKERS.h res/maps_DOCTORS.h \
- res/maps_DOLLAR.h res/maps_GAMEOVER.h res/maps_GLOBAL.h res/maps_INTRO.h \
- res/maps_LOGO.h res/maps_QUESTION_MARK.h res/maps_REWARD.h \
- res/maps_ROULETTE.h res/maps_SLAP.h res/maps_TRIVIA.h res/maps_WAITERS.h \
+ res/maps_CONTRACT.h res/maps_CRACKERS.h res/maps_DISCLAIMER.h \
+ res/maps_DOCTORS.h res/maps_DOLLAR.h res/maps_GAMEOVER.h \
+ res/maps_GLOBAL.h res/maps_INTRO.h res/maps_LOGO.h \
+ res/maps_QUESTION_MARK.h res/maps_REWARD.h res/maps_ROULETTE.h \
+ res/maps_SLAP.h res/maps_TRIVIA.h res/maps_WAITERS.h \
  src/include/routines_QUESTION_MARK.h src/include/routines_ROULETTE.h \
  res/music.h res/sound.h res/sprites_BANK.h res/sprites_BOXING.h \
  res/sprites_CRACKERS.h res/sprites_DOCTORS.h res/sprites_DOLLAR.h \

@@ -6,6 +6,8 @@ extern void init_SYSTEM();
 
 extern void init_VARIABLES();
 
+extern void init_DISCLAIMER();
+
 extern void init_LOGO();
 
 extern void init_INTRO();

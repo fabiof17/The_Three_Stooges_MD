@@ -14,6 +14,7 @@
 #include "include/routines_BOXING.h"
 #include "include/routines_CRACKERs.h"
 #include "include/routines_CRACKERS_MINIGAME.h"
+#include "include/routines_DISCLAIMER.h"
 #include "include/routines_DOCTORS.h"
 #include "include/routines_DOCTORS_MINIGAME.h"
 #include "include/routines_DOLLAR.h"
@@ -51,11 +52,48 @@ int main(bool hardReset)
     {
         //**************************************************************************************//
         //                                                                                      //
+        //                                   DISCLAIMER                                         //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        if(G_REEL == REEL_DISCLAIMER)
+        {
+            // LOADING SGDK LOGO SCREEN //
+            if(G_SCENE_LOADED == FALSE)
+            {
+                init_DISCLAIMER();
+            }
+
+            // PLAYING DISCLAIMER SCREEN //
+            else
+            {
+                if(G_SCENE == SCENE_LOGO_SCREEN)
+                {
+                    sequence_DISCLAIMER();
+
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                else if(G_SCENE == SCENE_FADE_IN)
+                {
+                    PAL_fadeInAll(palette_64, 30, FALSE);
+
+                    G_SCENE         = G_SCENE_NEXT;
+                    G_SCENE_NEXT    = NULL;
+                }
+            }
+        }
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
         //                                   SGDK LOGO                                          //
         //                                                                                      //
         //**************************************************************************************//
 
-        if(G_REEL == REEL_LOGO)
+        else if(G_REEL == REEL_LOGO)
         {
             // LOADING SGDK LOGO SCREEN //
             if(G_SCENE_LOADED == FALSE)

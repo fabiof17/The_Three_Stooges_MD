@@ -1,0 +1,2 @@
+out/res/maps_DISCLAIMER.o: res/maps_DISCLAIMER.res \
+E:/RECALBOX/07_DEV/07_THREE\ STOOGES/04_CODE/01_SGDK/THREE_STOOGES/res/map/disclaimer/tiles_DISCLAIMER_BG_B.png
