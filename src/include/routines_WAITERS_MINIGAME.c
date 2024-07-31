@@ -459,7 +459,7 @@ inline static void anim_WAITERS()
 
                 else if(G_SELECTED_WAITER == WAITER_MOE)
                 {
-                    //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
                 }
 
 
@@ -531,7 +531,7 @@ inline static void anim_WAITERS()
 
                 else if(G_SELECTED_WAITER == WAITER_MOE)
                 {
-                    //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
                 }
 
 
