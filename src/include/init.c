@@ -5611,7 +5611,9 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
         //G_MAX_PIES = 10;
-        G_MAX_PIES  = TABLE_MAX_PIES[random_NUMBER(0,3)];
+        u8 random_entry = random_NUMBER(0,3);
+
+        G_MAX_PIES  = TABLE_MAX_PIES[random_entry];
 
         if(G_MAX_PIES < 100)
         {

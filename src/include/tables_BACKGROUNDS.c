@@ -754,6 +754,11 @@ void init_STREET_CRACKERS()
 }
 
 
+void init_STREET_WAITERS()
+{
+    //
+}
+
 
 
 
@@ -774,7 +779,7 @@ void (*TABLE_INIT_STREET_ROULETTE[17])(void)   =   {
                                                         init_STREET_TRIVIA_TYPE1,
                                                         init_STREET_TRIVIA_TYPE2,
                                                         NULL,
-                                                        NULL,
+                                                        init_STREET_WAITERS,
                                                         NULL,
                                                         NULL,
                                                         NULL
