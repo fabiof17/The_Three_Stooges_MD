@@ -15,6 +15,30 @@
 
 
 
+inline static void update_SCORE()
+{
+    if(G_REWARD < 100)
+    {
+        u8 tens = G_REWARD / 10;
+        
+        VDP_drawIntEx_BG_A_QUEUE(tens,1,6,4,PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(   0,1,8,4,PAL1);
+    }
+
+    else if(G_REWARD < 1000)
+    {
+        u8 hundreds  =  G_REWARD / 100;
+        u8 tens      =  (G_REWARD - (hundreds * 100) ) / 10;
+        
+        VDP_drawIntEx_BG_A_QUEUE(hundreds,1,6 ,4,PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(tens    ,1,8 ,4,PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(0       ,1,10,4,PAL1);
+    }
+}
+
+
+
+
 void joypad_WAITERS_MINIGAME()
 {
     if(G_PHASE_SEQUENCE == WAITER_PHASE_ACTION)
@@ -281,6 +305,8 @@ inline static void anim_PIE()
                     list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT;
 
                     G_REWARD += 10;
+
+                    update_SCORE();
                 }
 
 

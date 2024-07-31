@@ -522,7 +522,7 @@ int main(bool hardReset)
                     //VDP_drawIntEx_BG_A_QUEUE(G_SERVED_PIES,1,0,1,PAL3);
                     //VDP_drawIntEx_BG_A_QUEUE(G_USED_PIES,1,0,2,PAL3);
 
-                    //VDP_drawIntEx_BG_A_QUEUE(G_MAX_PIES,1,0,4,PAL3);                 
+                    VDP_drawIntEx_BG_A_QUEUE(G_REWARD,1,0,0,PAL3);                 
                     
                     SPR_update();
                     SYS_doVBlankProcess();
