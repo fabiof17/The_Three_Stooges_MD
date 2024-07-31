@@ -53,7 +53,7 @@ SPRITE tiles_SPR_WOMAN2_WAITERS         "sprites/waiters/tiles_SPR_WOMAN2_WAITER
 SPRITE tiles_SPR_MAN1_1_WAITERS         "sprites/waiters/tiles_SPR_MAN1_1_WAITERS.png"             7   6  NONE 0 NONE TILE MEDIUM
 SPRITE tiles_SPR_MAN1_2_WAITERS         "sprites/waiters/tiles_SPR_MAN1_2_WAITERS.png"             7   6  NONE 0 NONE TILE MEDIUM
 
-SPRITE tiles_SPR_MAN2_1_WAITERS         "sprites/waiters/tiles_SPR_MAN2_1_WAITERS.png"             6   4  NONE 0 NONE TILE MEDIUM
+SPRITE tiles_SPR_MAN2_1_WAITERS         "sprites/waiters/tiles_SPR_MAN2_1_WAITERS.png"             6   5  NONE 0 NONE TILE MEDIUM
 SPRITE tiles_SPR_MAN2_2_WAITERS         "sprites/waiters/tiles_SPR_MAN2_2_WAITERS.png"             6   5  NONE 0 NONE TILE MEDIUM
 
 

@@ -4288,7 +4288,7 @@ void init_SCENE()
         //                                         MAN 2                                        //
         //--------------------------------------------------------------------------------------//
 
-        list_GUESTS[2].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_MAN2_1_WAITERS, 48, 136, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_GUESTS[2].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_MAN2_1_WAITERS, 48, 128, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
         list_GUESTS[2].spr_CHAR_2        =   SPR_addSprite(&tiles_SPR_MAN2_2_WAITERS, 48, 128, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         list_GUESTS[2].state_CHARACTER   =   CHAR_PHASE_IDLE;
 
