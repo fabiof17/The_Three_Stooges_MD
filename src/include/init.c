@@ -4352,7 +4352,7 @@ void init_SCENE()
         G_ACTION_WAITER_AUTHORIZED  = TRUE;
 
 
-        G_SELECTED_WAITER           = 3; // 3 = NONE
+        G_SELECTED_WAITER           = 99; // 99 = NONE
 
         G_PHASE_SEQUENCE            = WAITER_PHASE_DIALOG;
        
@@ -5610,10 +5610,9 @@ void init_SCENE()
         //                                       MAX PIES                                       //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
-        //G_MAX_PIES = 10;
-        u8 random_entry = random_NUMBER(0,3);
-
-        G_MAX_PIES  = TABLE_MAX_PIES[random_entry];
+        G_MAX_PIES = 10;
+        //u8 random_entry = random_NUMBER(0,3);
+        //G_MAX_PIES  = TABLE_MAX_PIES[random_entry];
 
         if(G_MAX_PIES < 100)
         {
