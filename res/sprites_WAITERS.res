@@ -20,7 +20,6 @@ SPRITE tiles_SPR_BULB                    "sprites/waiters/tiles_SPR_BULB.png"   
 //                       STOOGES                      //
 //----------------------------------------------------//
 
-
 SPRITE tiles_SPR_LARRY1_WAITERS         "sprites/waiters/tiles_SPR_LARRY1_WAITERS.png"             8   9  NONE 0 NONE TILE MEDIUM
 SPRITE tiles_SPR_LARRY2_WAITERS         "sprites/waiters/tiles_SPR_LARRY2_WAITERS.png"             8   7  NONE 0 NONE TILE MEDIUM
 
@@ -36,7 +35,10 @@ SPRITE tiles_SPR_MOE2_WAITERS           "sprites/waiters/tiles_SPR_MOE2_WAITERS.
 //----------------------------------------------------//
 
 SPRITE tiles_SPR_PIE_LARRY              "sprites/waiters/tiles_SPR_PIE_LARRY.png"                  4   4  NONE 0 NONE TILE MEDIUM
+
 SPRITE tiles_SPR_PIE_CURLY              "sprites/waiters/tiles_SPR_PIE_CURLY.png"                  4   4  NONE 0 NONE TILE MEDIUM
+
+SPRITE tiles_SPR_PIE_MOE                "sprites/waiters/tiles_SPR_PIE_MOE.png"                    4   4  NONE 0 NONE TILE MEDIUM
 
 
 
@@ -60,4 +62,7 @@ SPRITE tiles_SPR_MAN2_2_WAITERS         "sprites/waiters/tiles_SPR_MAN2_2_WAITER
 //----------------------------------------------------//
 
 SPRITE tiles_SPR_PIE_WOMAN              "sprites/waiters/tiles_SPR_PIE_WOMAN.png"                  4   4  NONE 0 NONE TILE MEDIUM
+
+
+
 

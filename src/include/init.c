@@ -137,7 +137,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         //G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_CONTRACT_WAITERS; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -4220,7 +4220,7 @@ void init_SCENE()
         list_WAITERS[1].index_ANIM_PIE   =   0;
 
         //--------------------------------------------------------------------------------------//
-        //                                      MAN_1'S PIE                                     //
+        //                                      MAN 1'S PIE                                     //
         //--------------------------------------------------------------------------------------//
 
 
@@ -4237,7 +4237,7 @@ void init_SCENE()
         list_GUESTS[1].state_CHARACTER   =   CHAR_PHASE_IDLE;
 
         //--------------------------------------------------------------------------------------//
-        //                                         MAN_1                                        //
+        //                                         MAN 1                                        //
         //--------------------------------------------------------------------------------------//
 
         list_WAITERS[1].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_CURLY1_WAITERS, 240, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
@@ -4263,9 +4263,12 @@ void init_SCENE()
         //                                       MOE'S PIE                                      //
         //--------------------------------------------------------------------------------------//
 
+        list_WAITERS[2].spr_PIE          =   SPR_addSprite(&tiles_SPR_PIE_MOE,        231, 156, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_WAITERS[2].state_PIE        =   PIE_PHASE_SERVED;
+        list_WAITERS[2].index_ANIM_PIE   =   0;
 
         //--------------------------------------------------------------------------------------//
-        //                                      MAN_2'S PIE                                     //
+        //                                      MAN 2'S PIE                                     //
         //--------------------------------------------------------------------------------------//
 
 
@@ -4282,7 +4285,7 @@ void init_SCENE()
         list_WAITERS[2].state_CHARACTER  =   CHAR_PHASE_IDLE;      
 
         //--------------------------------------------------------------------------------------//
-        //                                         MAN_2                                        //
+        //                                         MAN 2                                        //
         //--------------------------------------------------------------------------------------//
 
         list_GUESTS[2].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_MAN2_1_WAITERS, 48, 136, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
@@ -4341,7 +4344,7 @@ void init_SCENE()
 
         G_HIT_NUMBER                = 0;
 
-        G_SERVED_PIES               = 6; // 3 GUEST PIES + 3 STOOGES PIES
+        G_SERVED_PIES               = 3; // 3 STOOGES PIES
         G_USED_PIES                 = 0; // 0 USED PIES
 
         G_RANDOM_OK                 = FALSE;
@@ -5607,7 +5610,7 @@ void init_SCENE()
         //                                       MAX PIES                                       //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
-
+        //G_MAX_PIES = 10;
         G_MAX_PIES  = TABLE_MAX_PIES[random_NUMBER(0,3)];
 
         if(G_MAX_PIES < 100)

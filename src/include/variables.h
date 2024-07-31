@@ -286,10 +286,11 @@
 #define PIE_PHASE_GRAB                  2
 #define PIE_PHASE_AIM                   1
 #define PIE_PHASE_THROW                 3
+#define PIE_PHASE_OUT                   4
 
 #define WAITER_PHASE_DIALOG             0
 #define WAITER_PHASE_ACTION             1
-#define WAITER_PHASE_OVER               2
+#define WAITER_PHASE_GAME_OVER          2
 
 
 

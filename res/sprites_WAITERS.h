@@ -11,6 +11,7 @@ extern const SpriteDefinition tiles_SPR_MOE1_WAITERS;
 extern const SpriteDefinition tiles_SPR_MOE2_WAITERS;
 extern const SpriteDefinition tiles_SPR_PIE_LARRY;
 extern const SpriteDefinition tiles_SPR_PIE_CURLY;
+extern const SpriteDefinition tiles_SPR_PIE_MOE;
 extern const SpriteDefinition tiles_SPR_WOMAN1_WAITERS;
 extern const SpriteDefinition tiles_SPR_WOMAN2_WAITERS;
 extern const SpriteDefinition tiles_SPR_MAN1_1_WAITERS;

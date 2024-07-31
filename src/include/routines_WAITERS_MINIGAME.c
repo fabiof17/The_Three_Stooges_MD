@@ -216,6 +216,9 @@ inline static void anim_PIE()
             // INCREASE PIE ANIM INDEX //
             list_WAITERS[i].index_ANIM_PIE += 1;
 
+
+
+
             // IF PIE HAS REACHED THE END OF ITS TRAJECTORY //
             if(list_WAITERS[i].index_ANIM_PIE == 58)
             {
@@ -257,6 +260,14 @@ inline static void anim_PIE()
                     G_SERVED_PIES += 1;
                 }
 
+                // IF ALL PIES HAVE BEEN SERVED //
+                else
+                {
+                    SPR_setPosition(list_WAITERS[i].spr_PIE , -32 , -32);
+                    
+                    list_WAITERS[i].state_PIE = PIE_PHASE_OUT;
+                }
+
 
                 // CHECK COLLISION WITH FACING GUEST //
                 // IF GUEST IS NOT CROUCHING //
@@ -274,6 +285,13 @@ inline static void anim_PIE()
 
 
                 G_USED_PIES += 1;
+
+
+
+                if(G_USED_PIES == G_MAX_PIES)
+                {
+                    G_PHASE_SEQUENCE = WAITER_PHASE_GAME_OVER;
+                }
             }
 
             else
@@ -633,6 +651,47 @@ void sequence_WAITERS_MINIGAME()
         anim_WAITERS();
 
         anim_GUESTS();
+    }
+
+
+    else if(G_PHASE_SEQUENCE == WAITER_PHASE_GAME_OVER)
+    {
+        if(G_COUNTER_1 == 120)
+        {
+            // IF ALL PIES HAVE BEEN USED //
+            // REWARD IS DOUBLED //
+            if(G_USED_PIES == G_MAX_PIES)
+            {
+                G_REWARD =  G_REWARD << 1;
+            }
+            
+            // FADE OUT : 40 FRAMES //
+            PAL_fadeOutAll(40,FALSE);
+
+            // RESET SCROLLING //
+            VDP_setVerticalScroll(BG_B , 0);
+            VDP_setVerticalScroll(BG_A , 0);
+
+            // CLEAR PLANES //
+            VDP_clearPlane(BG_B,TRUE);
+            VDP_clearPlane(BG_A,TRUE);
+
+            // RELEASE ALL SPRITES //
+            SPR_reset();
+
+            G_COUNTER_1 = 0;
+
+            G_SCENE         = SCENE_FADE_IN;
+            G_SCENE_TYPE    = SCENE_REWARD;
+            G_SCENE_NEXT    = SCENE_REWARD;
+
+            G_SCENE_LOADED  = FALSE;
+
+            return;
+        }
+
+
+        G_COUNTER_1 += 1;
     }
 }
 
