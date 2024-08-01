@@ -63,6 +63,6 @@ SPRITE tiles_SPR_MAN2_2_WAITERS         "sprites/waiters/tiles_SPR_MAN2_2_WAITER
 
 SPRITE tiles_SPR_PIE_WOMAN              "sprites/waiters/tiles_SPR_PIE_WOMAN.png"                  4   4  NONE 0 NONE TILE MEDIUM
 
+//SPRITE tiles_SPR_PIE_MAN_1              "sprites/waiters/tiles_SPR_PIE_MAN_1.png"                  4   4  NONE 0 NONE TILE MEDIUM
 
-
-
+SPRITE tiles_SPR_PIE_MAN_2              "sprites/waiters/tiles_SPR_PIE_MAN_2.png"                  4   4  NONE 0 NONE TILE MEDIUM

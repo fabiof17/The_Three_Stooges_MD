@@ -58,7 +58,7 @@ int main(bool hardReset)
 
         if(G_REEL == REEL_DISCLAIMER)
         {
-            // LOADING SGDK LOGO SCREEN //
+            // LOADING DISCLAIMER SCREEN //
             if(G_SCENE_LOADED == FALSE)
             {
                 init_DISCLAIMER();
@@ -84,6 +84,7 @@ int main(bool hardReset)
                 }
             }
         }
+
 
 
 

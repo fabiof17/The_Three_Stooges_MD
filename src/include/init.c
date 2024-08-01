@@ -137,7 +137,7 @@ void init_VARIABLES()
     else if(G_REEL == REEL_GAME)
     {
         //G_SCENE = SCENE_FADE_IN;
-        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_CONTRACT_WAITERS; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -4053,7 +4053,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,32,TRUE);
         
-        SPR_initEx(470);
+        SPR_initEx(480);
         
         VDP_setHilightShadow(FALSE);
 
@@ -4143,14 +4143,26 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
+        //                                         BULBS                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_BULB[0]                 =   SPR_addSprite(&tiles_SPR_BULB, 224,  36, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+        sprite_BULB[1]                 =   SPR_addSprite(&tiles_SPR_BULB, 240,  36, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+        sprite_BULB[2]                 =   SPR_addSprite(&tiles_SPR_BULB, 256,  36, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+        sprite_BULB[3]                 =   SPR_addSprite(&tiles_SPR_BULB, 272,  36, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+        sprite_BULB[4]                 =   SPR_addSprite(&tiles_SPR_BULB, 288,  36, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
         //                                          HAND                                        //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
         sprite_HAND_WAITERS             =   SPR_addSprite(&tiles_SPR_HAND_WAITERS, -24, -24, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-
-
-
 
 
 
@@ -4271,7 +4283,9 @@ void init_SCENE()
         //                                      MAN 2'S PIE                                     //
         //--------------------------------------------------------------------------------------//
 
-
+        list_GUESTS[2].spr_PIE           =   SPR_addSprite(&tiles_SPR_PIE_MAN_2,       70, 156, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_GUESTS[2].state_PIE         =   PIE_PHASE_SERVED;
+        list_GUESTS[2].index_ANIM_PIE    =   0;
 
 
 

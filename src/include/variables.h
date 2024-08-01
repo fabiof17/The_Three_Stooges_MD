@@ -410,70 +410,69 @@ extern u16 palette_64[64];
 
 
 
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 //                                                                                      //
-//                                      GENERAL                                         //
+//                                  GENERAL VARIABLES                                   //
 //                                                                                      //
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 
 extern u8 G_REEL;
 
 extern u8 G_SCENE;
+
 extern u8 G_SCENE_TYPE;
+
 extern u8 G_SCENE_NEXT;
+
 extern bool G_SCENE_LOADED;
 
-
 extern u16 G_ADR_VRAM_BG_B;
+
 extern u16 G_ADR_VRAM_BG_A;
 
-
-extern u8 G_DAY;
 extern u16 G_MONEY;
+
+extern u8 G_PHASE_SEQUENCE;
 
 extern bool G_ACTION_WAITER_AUTHORIZED;
 
 
-extern u8 G_STREET_TYPE;
-extern u8 G_PHASE_SEQUENCE;
 
 
-extern u8 G_HIGHSTREET_POSITION;
-
-
-extern s16 G_POS_Y_CAMERA;
-
-
-extern bool G_AXIS;
-
-extern s16 G_POS_X_PLAYER;
-extern s16 G_POS_Y_PLAYER;
-
-
-
-
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 //                                                                                      //
-//                                       INTRO                                          //
+//                                        INTRO                                         //
 //                                                                                      //
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 
 extern u16 G_COUNTER_1;
+
 extern u8 G_INDEX_1;
+
 extern u8 G_INDEX_2;
+
 extern u8 G_INDEX_3;
 
 extern u8 G_INDEX_PALETTE_CYCLE;
 
 
 
-//**************************************************************************************//
-//                                                                                      //
-//                                       ROULETTE                                       //
-//                                                                                      //
-//**************************************************************************************//
 
-extern u16 G_ADR_VRAM_HUB;;
+//--------------------------------------------------------------------------------------//
+//                                                                                      //
+//                                      ROULETTE                                        //
+//                                                                                      //
+//--------------------------------------------------------------------------------------//
+
+extern u8 G_DAY;
+
+extern u8 G_STREET_TYPE;
+
+extern u8 G_HIGHSTREET_POSITION;
+
+extern s16 G_POS_Y_CAMERA;
+
+extern u16 G_ADR_VRAM_HUB;
 
 extern u8 G_STREET_TYPE;
 
@@ -498,27 +497,29 @@ extern bool G_RANDOM_HAND_MOVE_VALIDATED;
 
 
 
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 //                                                                                      //
 //                                        REWARD                                        //
 //                                                                                      //
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 
 extern u16 G_REWARD;
 
 
 
 
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 //                                                                                      //
 //                                        TRIVIA                                        //
 //                                                                                      //
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 
 extern u8 G_SELECTED_QUESTION;
+
 extern u8 G_SELECTED_ANSWER;
 
 extern u16 G_ADR_VRAM_DIALOG;
+
 extern u16 G_ADR_VRAM_QUESTION;
 
 extern bool G_STATUS_MISSION;
@@ -530,28 +531,32 @@ extern u8 G_TRIVIA_TYPE;
 
 
 
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 //                                                                                      //
 //                                         SLAP                                         //
 //                                                                                      //
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
+
+extern bool G_AXIS;
 
 extern s8 G_CURRENT_STATE;
+
 extern s8 G_PREVIOUS_STATE;
 
 extern s16 G_POS_X_METER_SLAP;
 
 extern u8 G_COUNTER_SLAP;
+
 extern u8 G_COUNTER_WAIT;
 
 
 
 
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 //                                                                                      //
 //                                   DOCTORS MINIGAME                                   //
 //                                                                                      //
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 
 extern struct_CAR_ list_CARS[3];
 
@@ -573,18 +578,18 @@ extern struct_PATIENT_ patient;
 
 extern struct_ITEM_ list_ITEM[2];
 
-//extern u8 TABLE_SPEED[17];
-
-//extern u8 TABLE_AXIS[17];
 
 
 
-
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 //                                                                                      //
 //                                   CRACKERS MINIGAME                                  //
 //                                                                                      //
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
+
+extern s16 G_POS_X_PLAYER;
+
+extern s16 G_POS_Y_PLAYER;
 
 extern struct_CRACKER_ list_CRACKER[14];
 
@@ -609,26 +614,26 @@ extern u8 G_SPOON_FRAME;
 
 
 
-
-
-
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 //                                                                                      //
-//                                   WAITERS MINIGAME                                  //
+//                                   WAITERS MINIGAME                                   //
 //                                                                                      //
-//**************************************************************************************//
+//--------------------------------------------------------------------------------------//
 
 extern struct_WAITER_ list_WAITERS[3];
-extern struct_WAITER_ list_GUESTS[3];
 
+extern struct_WAITER_ list_GUESTS[3];
 
 extern u8 G_SELECTED_WAITER;
 
 extern u8 G_MAX_PIES;
+
 extern u8 G_SERVED_PIES;
+
 extern u8 G_USED_PIES;
 
 extern u8 G_COUNTER_ACTION_WAITERS;
+
 extern u8 G_COUNTER_ACTION_GUESTS;
 
 
@@ -658,10 +663,6 @@ extern Sprite *sprite_SH_INTRO_SCREEN_1[14];
 
 
 
-
-
-
-
 //-----------------------------------------------------------------------------//
 //                                                                             //
 //                                   SCREEN 2                                  //
@@ -673,10 +674,6 @@ extern Sprite *sprite_RADAR;
 
 
 
-
-
-
-
 //-----------------------------------------------------------------------------//
 //                                                                             //
 //                                   SCREEN 7                                  //
@@ -684,11 +681,8 @@ extern Sprite *sprite_RADAR;
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_STOOGES;
+
 extern Sprite *sprite_BANKER[2];
-
-
-
-
 
 
 
@@ -704,10 +698,6 @@ extern Sprite *sprite_DIALOG;
 
 
 
-
-
-
-
 //-----------------------------------------------------------------------------//
 //                                                                             //
 //                                    DOLLAR                                   //
@@ -719,10 +709,6 @@ extern Sprite *sprite_DOLLAR_BAG;
 
 
 
-
-
-
-
 //-----------------------------------------------------------------------------//
 //                                                                             //
 //                                   ROULETTE                                  //
@@ -730,13 +716,10 @@ extern Sprite *sprite_DOLLAR_BAG;
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_HAND_ROULETTE;
+
 extern Sprite *sprite_ARROW_HUB;
 
 extern Sprite *sprite_ICON_BANKER;
-
-
-
-
 
 
 
@@ -748,18 +731,16 @@ extern Sprite *sprite_ICON_BANKER;
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_HAND_SLAP;
+
 extern Sprite *sprite_METER_SLAP;
 
-
 extern Sprite *sprite_MOE;
+
 extern Sprite *sprite_LARRY;
+
 extern Sprite *sprite_CURLY;
 
 extern Sprite *sprite_COUNTER_SLAP;
-
-
-
-
 
 
 
@@ -771,13 +752,12 @@ extern Sprite *sprite_COUNTER_SLAP;
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_ARROW_DIALOG;
+
 extern Sprite *sprite_ANSWER_A;
+
 extern Sprite *sprite_ANSWER_B;
+
 extern Sprite *sprite_ANSWER_C;
-
-
-
-
 
 
 
@@ -789,11 +769,6 @@ extern Sprite *sprite_ANSWER_C;
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_DAY;
-extern Sprite *sprite_ICE_CUBE;
-extern Sprite *sprite_ICE_CUBE_SHADOW;
-
-
-
 
 
 
@@ -806,9 +781,9 @@ extern Sprite *sprite_ICE_CUBE_SHADOW;
 
 extern Sprite *sprite_SCISSOR;
 
+extern Sprite *sprite_ICE_CUBE;
 
-
-
+extern Sprite *sprite_ICE_CUBE_SHADOW;
 
 
 
@@ -824,10 +799,6 @@ extern Sprite *sprite_HAND[3];
 
 
 
-
-
-
-
 //-----------------------------------------------------------------------------//
 //                                                                             //
 //                                  WAITERS                                    //
@@ -837,10 +808,6 @@ extern Sprite *sprite_HAND[3];
 extern Sprite *sprite_HAND_WAITERS;
 
 extern Sprite *sprite_BULB[5];
-
-
-
-
 
 
 
