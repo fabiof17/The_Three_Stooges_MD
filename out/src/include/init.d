@@ -13,7 +13,7 @@ out/src/include/init.o: src/include/init.c C:/sgdk/inc/genesis.h \
  C:/sgdk/inc/ym2612.h C:/sgdk/inc/psg.h C:/sgdk/inc/joy.h \
  C:/sgdk/inc/timer.h C:/sgdk/inc/task.h C:/sgdk/inc/task_cst.h \
  C:/sgdk/inc/ext/flash-save/flash.h C:/sgdk/inc/types.h \
- C:/sgdk/inc/ext/flash-save/saveman.h src/include/outils.h \
+ C:/sgdk/inc/ext/flash-save/saveman.h src/include/custom_tools.h \
  src/include/variables.h src/include/structures.h res/palettes.h \
  res/maps_BACKGROUNDS.h res/maps_BANK.h res/maps_BOXING.h \
  res/maps_CONTRACT.h res/maps_CRACKERS.h res/maps_DISCLAIMER.h \

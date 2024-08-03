@@ -23,7 +23,7 @@
         "tableaux.h": "c",
         "structures.h": "c",
         "manette.h": "c",
-        "outils.h": "c",
+        "custom_tools.h": "c",
         "tables_donjons.h": "c",
         "tables_entrees.h": "c",
         "tables_joueur.h": "c",

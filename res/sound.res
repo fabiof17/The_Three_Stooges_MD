@@ -43,8 +43,9 @@ WAV PCM_DOCTORS_CRASH_1         "sound/sound_DOCTORS_CRASH_1.wav"   XGM
 WAV PCM_DOCTORS_CRASH_2         "sound/sound_DOCTORS_CRASH_2.wav"   XGM
 WAV PCM_DOCTORS_CRASH_3         "sound/sound_DOCTORS_CRASH_3.wav"   XGM
 
-
-
+WAV PCM_PIE_THROW               "sound/sound_PIE_THROW.wav"         XGM
+WAV PCM_PIE_HIT                 "sound/sound_PIE_HIT.wav"           XGM
+WAV PCM_PIE_WALL                "sound/sound_PIE_WALL.wav"          XGM
 
 
 

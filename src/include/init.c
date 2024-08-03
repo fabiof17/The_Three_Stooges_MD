@@ -3,7 +3,7 @@
 
 
 
-#include "outils.h"
+#include "custom_tools.h"
 #include "variables.h"
 #include "palettes.h"
 #include "structures.h"
@@ -352,6 +352,15 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_DOCTORS_CRASH_1 , PCM_DOCTORS_CRASH_1 , sizeof(PCM_DOCTORS_CRASH_1));
     XGM_setPCM(SOUND_DOCTORS_CRASH_2 , PCM_DOCTORS_CRASH_2 , sizeof(PCM_DOCTORS_CRASH_2));
     XGM_setPCM(SOUND_DOCTORS_CRASH_3 , PCM_DOCTORS_CRASH_3 , sizeof(PCM_DOCTORS_CRASH_3));
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                       WAITERS                                        //
+    //--------------------------------------------------------------------------------------//
+
+    XGM_setPCM(SOUND_PIE_THROW , PCM_PIE_THROW , sizeof(PCM_PIE_THROW));
+    XGM_setPCM(SOUND_PIE_HIT , PCM_PIE_HIT , sizeof(PCM_PIE_HIT));
+    XGM_setPCM(SOUND_PIE_WALL , PCM_PIE_WALL , sizeof(PCM_PIE_WALL));
 
 }
 
@@ -4053,7 +4062,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,32,TRUE);
         
-        SPR_initEx(480);
+        SPR_initEx(470);
         
         VDP_setHilightShadow(FALSE);
 
@@ -4111,6 +4120,14 @@ void init_SCENE()
         VDP_setTileMapEx(BG_A, image_WAITERS_NUMBERS.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16), 4, 4, 10, 0, 1, 1, CPU);
 
 
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    MAN 1 TILESET                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, CPU);
+        VDP_setTileMapEx(BG_A, image_MAN1_1_WAITERS.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile), 4, 19, 0, 0, 3, 2, CPU);
 
 
         //--------------------------------------------------------------------------------------//
@@ -4235,7 +4252,9 @@ void init_SCENE()
         //                                      MAN 1'S PIE                                     //
         //--------------------------------------------------------------------------------------//
 
-
+        list_GUESTS[1].spr_PIE           =   SPR_addSprite(&tiles_SPR_PIE_MAN_1,       58, 163, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_GUESTS[1].state_PIE         =   PIE_PHASE_SERVED;
+        list_GUESTS[1].index_ANIM_PIE    =   0;
 
 
 
@@ -5624,7 +5643,9 @@ void init_SCENE()
         //                                       MAX PIES                                       //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
-        G_MAX_PIES = 10;
+        //G_MAX_PIES = 10;
+        G_MAX_PIES = random_NUMBER(51,129);
+        
         //u8 random_entry = random_NUMBER(0,3);
         //G_MAX_PIES  = TABLE_MAX_PIES[random_entry];
 

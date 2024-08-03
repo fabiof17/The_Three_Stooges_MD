@@ -2,7 +2,7 @@
 
 
 
-#include "outils.h"
+#include "custom_tools.h"
 #include "structures.h"
 #include "variables.h"
 
@@ -299,14 +299,32 @@ inline static void anim_PIE()
                 {
                     list_GUESTS[i].counter_CHARACTER = 0;
 
-                    SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT);
-                    SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT);
-                    
-                    list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT;
+                    SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_1);
+                    SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_1);
+
+                    // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                    if(i == 1)
+                    {
+                        VDP_loadTileSet(image_MAN1_6_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    }
+
+
+                    list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT_1;
 
                     G_REWARD += 10;
 
                     update_SCORE();
+
+                    // PLAY SOUND //
+                    XGM_startPlayPCM(SOUND_PIE_HIT,13,SOUND_PCM_CH3);
+                }
+
+                // IF GUEST IS CROUCHING //
+                // PIE HITS THE WALL //
+                else
+                {
+                    // PLAY SOUND //
+                    XGM_startPlayPCM(SOUND_PIE_WALL,13,SOUND_PCM_CH3);
                 }
 
 
@@ -365,31 +383,80 @@ inline static void anim_GUESTS()
 
     for(i=0 ; i<3 ; i++)
     {
-        // IF GUEST HAS BEEN HIT BY A PIE //
-        if( list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT)
+        // IF GUEST HAS BEEN HIT BY A PIE (STEP 1) //
+        if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_1)
         {
             if(list_GUESTS[i].counter_CHARACTER == 63)
             {
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT + 1);
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT + 1);
+                // RESET COUNTER //
+                list_GUESTS[i].counter_CHARACTER = 0;
+
+                list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT_2;
+                
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_2);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_2);
+
+
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == 1)
+                {
+                    VDP_loadTileSet(image_MAN1_7_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                }
+
+                return;
             }
 
-            else if(list_GUESTS[i].counter_CHARACTER == 85)
+            list_GUESTS[i].counter_CHARACTER += 1;
+        }
+
+
+        // IF GUEST HAS BEEN HIT BY A PIE (STEP 2) //
+        else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_2)
+        {
+            if(list_GUESTS[i].counter_CHARACTER == 21)
             {
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT + 2);
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT + 2);
+                // RESET COUNTER //
+                list_GUESTS[i].counter_CHARACTER = 0;
+
+                list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT_3;
+
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_3);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_3);
+
+
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == 1)
+                {
+                    VDP_loadTileSet(image_MAN1_8_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                }
+
+                return;
             }
 
-            else if(list_GUESTS[i].counter_CHARACTER == 106)
-            {
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , 0);
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , 0);
+            list_GUESTS[i].counter_CHARACTER += 1;
+        }
 
+
+        // IF GUEST HAS BEEN HIT BY A PIE (STEP 3) //
+        else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_3)
+        {
+            if(list_GUESTS[i].counter_CHARACTER == 20)
+            {
                 // RESET COUNTER //
                 list_GUESTS[i].counter_CHARACTER = 0;
 
                 // RANDOMLY CHOOSE NEXT STATE (TO BE DONE) //
                 list_GUESTS[i].state_CHARACTER = CHAR_PHASE_IDLE;
+
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_IDLE);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_IDLE);
+
+
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == 1)
+                {
+                    VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                }
 
                 return;
             }
@@ -584,9 +651,29 @@ inline static void anim_WAITERS()
                 //------------------------------------------------------//
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_1 , 1);
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , 1);
+
+                list_WAITERS[i].counter_CHARACTER = 0;
+
+                list_WAITERS[i].state_CHARACTER = CHAR_PHASE_CROUCH_2;
+
+                return;
             }
 
-            else if(list_WAITERS[i].counter_CHARACTER == 28)
+
+            list_WAITERS[i].counter_CHARACTER += 1;
+        }
+
+
+
+
+        //--------------------------------------------------------//
+        //                                                        //
+        //                  STOOGE CROUCH 2 PHASE                 //
+        //                                                        //
+        //--------------------------------------------------------//
+        else if(list_WAITERS[i].state_CHARACTER == CHAR_PHASE_CROUCH_2)
+        {
+            if(list_WAITERS[i].counter_CHARACTER == 14)
             {
                 //------------------------------------------------------//
                 //                      STOOGE IDLE                     //
@@ -594,12 +681,6 @@ inline static void anim_WAITERS()
                 list_WAITERS[i].counter_CHARACTER = 0;
 
                 list_WAITERS[i].state_CHARACTER = CHAR_PHASE_IDLE;
-                
-                //------------------------------------------------------//
-                //                    STOOGE GETS IDLE                  //
-                //------------------------------------------------------//
-                //SPR_setFrame(list_WAITERS[i].spr_CHAR_1 , CHAR_PHASE_IDLE);
-                //SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , CHAR_PHASE_IDLE);
 
                 return;
             }
@@ -682,7 +763,7 @@ void sequence_WAITERS_MINIGAME()
 
     else if(G_PHASE_SEQUENCE == WAITER_PHASE_GAME_OVER)
     {
-        if(G_COUNTER_1 == 120)
+        if(G_COUNTER_1 == 180)
         {
             // IF ALL PIES HAVE BEEN USED //
             // REWARD IS DOUBLED //

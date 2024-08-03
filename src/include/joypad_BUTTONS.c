@@ -1,7 +1,7 @@
 #include <genesis.h>
 
 
-#include "outils.h"
+#include "custom_tools.h"
 #include "structures.h"
 #include "variables.h"
 
@@ -458,13 +458,17 @@ void waiters_Callback(u16 joy, u16 changed, u16 state)
 
 
 
-
-
+                        // MOVE PIE SPRITE TO ITS NEW POSITION //
                         SPR_setPosition(list_WAITERS[G_SELECTED_WAITER].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
 
+                        // WAITER GOES TO GRAB PHASE //
                         list_WAITERS[G_SELECTED_WAITER].state_PIE = PIE_PHASE_GRAB;
 
+                        // ANOTHER PIE CAN NOT BE THROWN IMMEDIATLY //
                         G_ACTION_WAITER_AUTHORIZED = FALSE;
+
+                        // PLAY SOUND //
+                        XGM_startPlayPCM(SOUND_PIE_THROW,14,SOUND_PCM_CH4);
                     }
                 }
             }

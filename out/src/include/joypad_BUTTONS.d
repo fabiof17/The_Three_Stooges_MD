@@ -14,7 +14,7 @@ out/src/include/joypad_BUTTONS.o: src/include/joypad_BUTTONS.c \
  C:/sgdk/inc/joy.h C:/sgdk/inc/timer.h C:/sgdk/inc/task.h \
  C:/sgdk/inc/task_cst.h C:/sgdk/inc/ext/flash-save/flash.h \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
- src/include/outils.h src/include/structures.h src/include/variables.h \
- src/include/tables_CRACKERS.h src/include/tables_QUESTIONS.h \
- src/include/tables_ROULETTE.h src/include/tables_SLAP.h \
- src/include/tables_WAITERS.h
+ src/include/custom_tools.h src/include/structures.h \
+ src/include/variables.h src/include/tables_CRACKERS.h \
+ src/include/tables_QUESTIONS.h src/include/tables_ROULETTE.h \
+ src/include/tables_SLAP.h src/include/tables_WAITERS.h

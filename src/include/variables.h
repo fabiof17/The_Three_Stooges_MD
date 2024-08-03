@@ -280,7 +280,10 @@
 #define CHAR_PHASE_GRAB                 2
 #define CHAR_PHASE_AIM                  3
 #define CHAR_PHASE_THROW                4
-#define CHAR_PHASE_HIT                  5
+#define CHAR_PHASE_HIT_1                5
+#define CHAR_PHASE_HIT_2                6
+#define CHAR_PHASE_HIT_3                7
+#define CHAR_PHASE_CROUCH_2             8
 
 #define PIE_PHASE_SERVED                0
 #define PIE_PHASE_GRAB                  2
@@ -395,6 +398,9 @@
 #define SOUND_DOCTORS_CRASH_2           98
 #define SOUND_DOCTORS_CRASH_3           99
 
+#define SOUND_PIE_THROW                100
+#define SOUND_PIE_HIT                  101
+#define SOUND_PIE_WALL                 102
 
 
 

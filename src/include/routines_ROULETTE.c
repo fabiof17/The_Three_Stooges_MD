@@ -1,7 +1,7 @@
 #include <genesis.h>
 
 
-#include "outils.h"
+#include "custom_tools.h"
 #include "palettes.h"
 #include "sound.h"
 #include "structures.h"
