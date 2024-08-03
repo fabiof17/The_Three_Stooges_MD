@@ -4141,6 +4141,12 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         LEFT                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
         G_ADR_VRAM_BG_B_PIE_LEFT_0 = G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile + image_MAN1_1_WAITERS.tileset->numTile;
         VDP_loadTileSet(image_PIE_WALL0_0_LEFT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_LEFT_0, CPU);
         VDP_setTileMapEx(BG_B, image_PIE_WALL0_0_LEFT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_LEFT_0), 0, 17, 0, 0, 2, 5, CPU);
@@ -4153,6 +4159,24 @@ void init_SCENE()
         VDP_loadTileSet(image_PIE_WALL2_0_LEFT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_LEFT_2, CPU);
         VDP_setTileMapEx(BG_B, image_PIE_WALL2_0_LEFT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_LEFT_2), 5, 14, 0, 0, 2, 5, CPU);
 
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        RIGHT                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_B_PIE_RIGHT_0 = G_ADR_VRAM_BG_B_PIE_LEFT_2 + image_PIE_WALL2_0_LEFT_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL0_0_RIGHT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_RIGHT_0, CPU);
+        VDP_setTileMapEx(BG_B, image_PIE_WALL0_0_RIGHT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_RIGHT_0), 38, 17, 0, 0, 2, 5, CPU);
+
+        G_ADR_VRAM_BG_B_PIE_RIGHT_1 = G_ADR_VRAM_BG_B_PIE_RIGHT_0 + image_PIE_WALL0_0_RIGHT_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL1_0_RIGHT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_RIGHT_1, CPU);
+        VDP_setTileMapEx(BG_B, image_PIE_WALL1_0_RIGHT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_RIGHT_1), 35, 16, 0, 0, 2, 5, CPU);
+
+        G_ADR_VRAM_BG_B_PIE_RIGHT_2 = G_ADR_VRAM_BG_B_PIE_RIGHT_1 + image_PIE_WALL1_0_RIGHT_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL2_0_RIGHT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_RIGHT_2, CPU);
+        VDP_setTileMapEx(BG_B, image_PIE_WALL2_0_RIGHT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_RIGHT_2), 33, 14, 0, 0, 2, 5, CPU);
+
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
@@ -4160,7 +4184,13 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        G_ADR_VRAM_BG_A_PIE_LEFT_0 = G_ADR_VRAM_BG_B_PIE_LEFT_2 + image_PIE_WALL2_0_LEFT_BG_B.tileset->numTile;
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         LEFT                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A_PIE_LEFT_0 = G_ADR_VRAM_BG_B_PIE_RIGHT_2 + image_PIE_WALL2_0_RIGHT_BG_B.tileset->numTile;
         VDP_loadTileSet(image_PIE_WALL0_0_LEFT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_LEFT_0, CPU);
         VDP_setTileMapEx(BG_A, image_PIE_WALL0_0_LEFT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_LEFT_0), 0, 17, 0, 0, 2, 5, CPU);
 
@@ -4172,11 +4202,23 @@ void init_SCENE()
         VDP_loadTileSet(image_PIE_WALL2_0_LEFT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_LEFT_2, CPU);
         VDP_setTileMapEx(BG_A, image_PIE_WALL2_0_LEFT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_LEFT_2), 5, 14, 0, 0, 2, 5, CPU);
 
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        RIGHT                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
 
+        G_ADR_VRAM_BG_A_PIE_RIGHT_0 = G_ADR_VRAM_BG_A_PIE_LEFT_2 + image_PIE_WALL2_0_LEFT_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL0_0_RIGHT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_RIGHT_0, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_WALL0_0_RIGHT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_RIGHT_0), 38, 17, 0, 0, 2, 5, CPU);
 
+        G_ADR_VRAM_BG_A_PIE_RIGHT_1 = G_ADR_VRAM_BG_A_PIE_RIGHT_0 + image_PIE_WALL0_0_RIGHT_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL1_0_RIGHT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_RIGHT_1, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_WALL1_0_RIGHT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_RIGHT_1), 35, 16, 0, 0, 2, 5, CPU);
 
-
-
+        G_ADR_VRAM_BG_A_PIE_RIGHT_2 = G_ADR_VRAM_BG_A_PIE_RIGHT_1 + image_PIE_WALL1_0_RIGHT_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL2_0_RIGHT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_RIGHT_2, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_WALL2_0_RIGHT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_RIGHT_2), 33, 14, 0, 0, 2, 5, CPU);
 
 
 
