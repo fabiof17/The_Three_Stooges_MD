@@ -4062,7 +4062,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,32,TRUE);
         
-        SPR_initEx(370);
+        SPR_initEx(320);
         
         VDP_setHilightShadow(FALSE);
 
@@ -4126,8 +4126,13 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
+        //--------------------------------------------------------------------------------------//
+        //                  HERE WE USE A TRICK TO AVOID SPRITE LIMIT ON MAN 1                  //
+        //                  PART OF MAN 1 SPRITE IS DISPLAYED ON BG_A                           //
+        //--------------------------------------------------------------------------------------//
+
         VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, CPU);
-        VDP_setTileMapEx(BG_A, image_MAN1_1_WAITERS.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile), 4, 19, 0, 0, 3, 2, CPU);
+        VDP_setTileMapEx(BG_A, image_MAN1_1_WAITERS.tilemap, TILE_ATTR_FULL(PAL2, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile), 5, 19, 0, 0, 4, 2, CPU);
 
 
         //--------------------------------------------------------------------------------------//
