@@ -230,6 +230,23 @@ u8 G_SPOON_FRAME;
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
 
+u16 G_ADR_VRAM_BG_B_PIE_LEFT_0;
+u16 G_ADR_VRAM_BG_B_PIE_LEFT_1;
+u16 G_ADR_VRAM_BG_B_PIE_LEFT_2;
+
+u16 G_ADR_VRAM_BG_B_PIE_RIGHT_0;
+u16 G_ADR_VRAM_BG_B_PIE_RIGHT_1;
+u16 G_ADR_VRAM_BG_B_PIE_RIGHT_2;
+
+u16 G_ADR_VRAM_BG_A_PIE_LEFT_0;
+u16 G_ADR_VRAM_BG_A_PIE_LEFT_1;
+u16 G_ADR_VRAM_BG_A_PIE_LEFT_2;
+
+u16 G_ADR_VRAM_BG_A_PIE_RIGHT_0;
+u16 G_ADR_VRAM_BG_A_PIE_RIGHT_1;
+u16 G_ADR_VRAM_BG_A_PIE_RIGHT_2;
+
+
 bool G_ACTION_WAITER_AUTHORIZED;
 
 struct_WAITER_ list_WAITERS[3];

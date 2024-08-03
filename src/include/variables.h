@@ -295,6 +295,10 @@
 #define WAITER_PHASE_ACTION             1
 #define WAITER_PHASE_GAME_OVER          2
 
+#define GUEST_WOMAN                     0
+#define GUEST_MAN_1                     1
+#define GUEST_MAN_2                     2
+
 
 
 //-----------------------------------------------------------------------------//
@@ -625,6 +629,23 @@ extern u8 G_SPOON_FRAME;
 //                                   WAITERS MINIGAME                                   //
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
+
+extern u16 G_ADR_VRAM_BG_B_PIE_LEFT_0;
+extern u16 G_ADR_VRAM_BG_B_PIE_LEFT_1;
+extern u16 G_ADR_VRAM_BG_B_PIE_LEFT_2;
+
+extern u16 G_ADR_VRAM_BG_B_PIE_RIGHT_0;
+extern u16 G_ADR_VRAM_BG_B_PIE_RIGHT_1;
+extern u16 G_ADR_VRAM_BG_B_PIE_RIGHT_2;
+
+extern u16 G_ADR_VRAM_BG_A_PIE_LEFT_0;
+extern u16 G_ADR_VRAM_BG_A_PIE_LEFT_1;
+extern u16 G_ADR_VRAM_BG_A_PIE_LEFT_2;
+
+extern u16 G_ADR_VRAM_BG_A_PIE_RIGHT_0;
+extern u16 G_ADR_VRAM_BG_A_PIE_RIGHT_1;
+extern u16 G_ADR_VRAM_BG_A_PIE_RIGHT_2;
+
 
 extern struct_WAITER_ list_WAITERS[3];
 

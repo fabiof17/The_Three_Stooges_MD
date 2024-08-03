@@ -27,6 +27,26 @@ IMAGE image_WAITERS_BG_A                        "map/waiters/tiles_WAITERS_BG_A.
 
 
 
+IMAGE image_PIE_WALL0_0_LEFT_BG_B               "map/waiters/tiles_PIE_WALL0_0_LEFT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL1_0_LEFT_BG_B               "map/waiters/tiles_PIE_WALL1_0_LEFT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL2_0_LEFT_BG_B               "map/waiters/tiles_PIE_WALL2_0_LEFT_BG_B.png"           NONE NONE
+
+IMAGE image_PIE_WALL0_0_LEFT_BG_A               "map/waiters/tiles_PIE_WALL0_0_LEFT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL1_0_LEFT_BG_A               "map/waiters/tiles_PIE_WALL1_0_LEFT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL2_0_LEFT_BG_A               "map/waiters/tiles_PIE_WALL2_0_LEFT_BG_A.png"           NONE NONE
+
+
+IMAGE image_PIE_WALL0_1_LEFT_BG_B               "map/waiters/tiles_PIE_WALL0_1_LEFT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL1_1_LEFT_BG_B               "map/waiters/tiles_PIE_WALL1_1_LEFT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL2_1_LEFT_BG_B               "map/waiters/tiles_PIE_WALL2_1_LEFT_BG_B.png"           NONE NONE
+
+IMAGE image_PIE_WALL0_1_LEFT_BG_A               "map/waiters/tiles_PIE_WALL0_1_LEFT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL1_1_LEFT_BG_A               "map/waiters/tiles_PIE_WALL1_1_LEFT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL2_1_LEFT_BG_A               "map/waiters/tiles_PIE_WALL2_1_LEFT_BG_A.png"           NONE NONE
+
+
+
+
 IMAGE image_MAN1_1_WAITERS                      "map/waiters/tiles_MAN1_1_WAITERS.png"                  NONE NONE
 IMAGE image_MAN1_2_WAITERS                      "map/waiters/tiles_MAN1_2_WAITERS.png"                  NONE NONE
 IMAGE image_MAN1_3_WAITERS                      "map/waiters/tiles_MAN1_3_WAITERS.png"                  NONE NONE
@@ -35,7 +55,6 @@ IMAGE image_MAN1_5_WAITERS                      "map/waiters/tiles_MAN1_5_WAITER
 IMAGE image_MAN1_6_WAITERS                      "map/waiters/tiles_MAN1_6_WAITERS.png"                  NONE NONE
 IMAGE image_MAN1_7_WAITERS                      "map/waiters/tiles_MAN1_7_WAITERS.png"                  NONE NONE
 IMAGE image_MAN1_8_WAITERS                      "map/waiters/tiles_MAN1_8_WAITERS.png"                  NONE NONE
-//IMAGE image_MAN1_9_WAITERS                      "map/waiters/tiles_MAN1_9_WAITERS.png"                  NONE NONE
 
 
 
