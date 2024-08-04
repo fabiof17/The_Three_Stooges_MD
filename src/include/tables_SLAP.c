@@ -47,7 +47,7 @@ const struct_WALK_STOOGES_      TABLE_ANIM_STOOGES_WALKIN_SLAP[26]          =   
 
 
 
-const bool                      TABLE_PROBABILITY_SLAP_85[20]               =   {
+const bool                      TABLE_PROBABILITY_85[20]               =   {
                                                                                     TRUE,
                                                                                     TRUE,
                                                                                     TRUE,
@@ -71,7 +71,7 @@ const bool                      TABLE_PROBABILITY_SLAP_85[20]               =   
                                                                                 };
 
 
-const bool                      TABLE_PROBABILITY_SLAP_80[20]               =   {
+const bool                      TABLE_PROBABILITY_80[20]               =   {
                                                                                     TRUE,
                                                                                     TRUE,
                                                                                     TRUE,
@@ -95,7 +95,7 @@ const bool                      TABLE_PROBABILITY_SLAP_80[20]               =   
                                                                                 };
 
 
-const bool                      TABLE_PROBABILITY_SLAP_75[20]               =   {
+const bool                      TABLE_PROBABILITY_75[20]               =   {
                                                                                     TRUE,
                                                                                     TRUE,
                                                                                     TRUE,
@@ -119,7 +119,7 @@ const bool                      TABLE_PROBABILITY_SLAP_75[20]               =   
                                                                                 };
 
 
-const bool                      TABLE_PROBABILITY_SLAP_70[20]               =   {
+const bool                      TABLE_PROBABILITY_70[20]               =   {
                                                                                     TRUE,
                                                                                     TRUE,
                                                                                     TRUE,
@@ -143,7 +143,7 @@ const bool                      TABLE_PROBABILITY_SLAP_70[20]               =   
                                                                                 };
 
 
-const bool                      TABLE_PROBABILITY_SLAP_65[20]               =   {
+const bool                      TABLE_PROBABILITY_65[20]               =   {
                                                                                     TRUE,
                                                                                     TRUE,
                                                                                     FALSE,
@@ -167,7 +167,7 @@ const bool                      TABLE_PROBABILITY_SLAP_65[20]               =   
                                                                                 };
 
 /*
-const bool                      TABLE_PROBABILITY_SLAP_60[20]               =   {
+const bool                      TABLE_PROBABILITY_60[20]               =   {
                                                                                     TRUE,
                                                                                     TRUE,
                                                                                     FALSE,
@@ -191,7 +191,7 @@ const bool                      TABLE_PROBABILITY_SLAP_60[20]               =   
                                                                                 };
 
 
-const bool                      TABLE_PROBABILITY_SLAP_55[20]               =   {
+const bool                      TABLE_PROBABILITY_55[20]               =   {
                                                                                     TRUE,
                                                                                     TRUE,
                                                                                     FALSE,
@@ -215,7 +215,7 @@ const bool                      TABLE_PROBABILITY_SLAP_55[20]               =   
                                                                                 };
 
 
-const bool                      TABLE_PROBABILITY_SLAP_50[20]               =   {
+const bool                      TABLE_PROBABILITY_50[20]               =   {
                                                                                     FALSE,
                                                                                     TRUE,
                                                                                     FALSE,
@@ -239,7 +239,7 @@ const bool                      TABLE_PROBABILITY_SLAP_50[20]               =   
                                                                                 };
 
 
-const bool                      TABLE_PROBABILITY_SLAP_45[20]               =   {
+const bool                      TABLE_PROBABILITY_45[20]               =   {
                                                                                     FALSE,
                                                                                     TRUE,
                                                                                     FALSE,
@@ -263,7 +263,7 @@ const bool                      TABLE_PROBABILITY_SLAP_45[20]               =   
                                                                                 };
 
 
-const bool                      TABLE_PROBABILITY_SLAP_40[20]               =   {
+const bool                      TABLE_PROBABILITY_40[20]               =   {
                                                                                     FALSE,
                                                                                     TRUE,
                                                                                     FALSE,
@@ -294,13 +294,13 @@ const bool                      TABLE_PROBABILITY_SLAP_40[20]               =   
 
 
 const bool                     *TABLE_PROBABILITY_SLAP_ATTACK[7]            =   {
-                                                                                    &TABLE_PROBABILITY_SLAP_70[0],
-                                                                                    &TABLE_PROBABILITY_SLAP_75[0],
-                                                                                    &TABLE_PROBABILITY_SLAP_75[0],
-                                                                                    &TABLE_PROBABILITY_SLAP_80[0],
-                                                                                    &TABLE_PROBABILITY_SLAP_80[0],
-                                                                                    &TABLE_PROBABILITY_SLAP_85[0],
-                                                                                    &TABLE_PROBABILITY_SLAP_85[0]
+                                                                                    &TABLE_PROBABILITY_70[0],
+                                                                                    &TABLE_PROBABILITY_75[0],
+                                                                                    &TABLE_PROBABILITY_75[0],
+                                                                                    &TABLE_PROBABILITY_80[0],
+                                                                                    &TABLE_PROBABILITY_80[0],
+                                                                                    &TABLE_PROBABILITY_85[0],
+                                                                                    &TABLE_PROBABILITY_85[0]
                                                                                 };
 
 

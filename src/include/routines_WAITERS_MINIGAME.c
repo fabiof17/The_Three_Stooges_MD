@@ -10,6 +10,7 @@
 #include "maps_WAITERS.h"
 
 
+#include "tables_SLAP.h"
 #include "tables_WAITERS.h"
 
 
@@ -229,7 +230,30 @@ inline static void check_WAITER_ACTION_AUTHORISATION()
 
 
 
-inline static void anim_PIE()
+/*inline static void check_GUEST_ACTION_AUTHORISATION()
+{
+    if(G_ACTION_GUEST_AUTHORIZED == FALSE)
+    {
+        if(G_COUNTER_ACTION_GUESTS == 24)
+        {
+            //
+            
+            G_COUNTER_ACTION_GUESTS = 0;
+
+            G_ACTION_GUEST_AUTHORIZED = TRUE;
+
+            return;
+        }
+        
+        G_COUNTER_ACTION_GUESTS += 1;
+    }
+
+}*/
+
+
+
+
+inline static void anim_PIE_WAITERS()
 {
     u8 i;
 
@@ -465,7 +489,7 @@ inline static void anim_GUESTS()
 
 
                 // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
-                if(i == 1)
+                if(i == GUEST_MAN_1)
                 {
                     VDP_loadTileSet(image_MAN1_7_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
                 }
@@ -801,12 +825,45 @@ void sequence_WAITERS_MINIGAME()
             // DISPLAY HAND //
             SPR_setPosition(sprite_HAND_WAITERS,270,108);
 
-            //SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
-            //SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
 
-            G_PHASE_SEQUENCE = WAITER_PHASE_ACTION;
 
-            G_COUNTER_1 = 0;
+
+            //--------------------------------------------------------------------------------------//
+            //                                         MAN 1                                        //
+            //--------------------------------------------------------------------------------------//
+            list_GUESTS[1].state_CHARACTER   =   CHAR_PHASE_CROUCH;
+            SPR_setFrame(list_GUESTS[1].spr_CHAR_1,1);
+            SPR_setFrame(list_GUESTS[1].spr_CHAR_2,1);
+
+            //--------------------------------------------------------------------------------------//
+            //                                         MAN 2                                        //
+            //--------------------------------------------------------------------------------------//
+            list_GUESTS[2].state_CHARACTER   =   CHAR_PHASE_GRAB;
+            SPR_setFrame(list_GUESTS[2].spr_CHAR_1,2);
+            SPR_setFrame(list_GUESTS[2].spr_CHAR_2,2);
+
+            //--------------------------------------------------------------------------------------//
+            //                                      MAN 2'S PIE                                     //
+            //--------------------------------------------------------------------------------------//
+            list_GUESTS[2].state_PIE         =   PIE_PHASE_GRAB;
+
+            // INCREASE PIE ANIM INDEX //
+            list_GUESTS[2].index_ANIM_PIE    += 1;
+
+            // SETUP POINTER TO PIE ANIMATION TABLE //
+            const struct_PIE_ANIM_ *ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_GUESTS[2].index_ANIM_PIE];;
+            SPR_setPosition(list_GUESTS[2].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+
+
+            // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+            VDP_loadTileSet(image_MAN1_2_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+
+
+            G_PIE_SHOT_AUTHORIZED   = FALSE;
+
+            G_PHASE_SEQUENCE        = WAITER_PHASE_ACTION;
+
+            G_COUNTER_1             = 0;
 
             return;
         }
@@ -820,7 +877,7 @@ void sequence_WAITERS_MINIGAME()
     {
         check_WAITER_ACTION_AUTHORISATION();
         
-        anim_PIE();
+        anim_PIE_WAITERS();
         
         anim_WAITERS();
 

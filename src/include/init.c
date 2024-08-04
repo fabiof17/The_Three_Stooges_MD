@@ -4132,7 +4132,7 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, CPU);
-        VDP_setTileMapEx(BG_A, image_MAN1_1_WAITERS.tilemap, TILE_ATTR_FULL(PAL2, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile), 5, 19, 0, 0, 4, 2, CPU);
+        VDP_setTileMapEx(BG_A, image_MAN1_1_WAITERS.tilemap, TILE_ATTR_FULL(PAL2, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile), 5, 19, 0, 0, 3, 2, CPU);
 
 
         //--------------------------------------------------------------------------------------//
@@ -4517,6 +4517,8 @@ void init_SCENE()
         G_RANDOM_OK                 = FALSE;
 
         G_ACTION_WAITER_AUTHORIZED  = TRUE;
+        G_ACTION_GUEST_AUTHORIZED   = TRUE;
+        G_PIE_SHOT_AUTHORIZED      = TRUE;
 
 
         G_SELECTED_WAITER           = 99; // 99 = NONE

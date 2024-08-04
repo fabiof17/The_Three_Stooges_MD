@@ -444,8 +444,6 @@ extern u16 G_MONEY;
 
 extern u8 G_PHASE_SEQUENCE;
 
-extern bool G_ACTION_WAITER_AUTHORIZED;
-
 
 
 
@@ -647,9 +645,15 @@ extern u16 G_ADR_VRAM_BG_A_PIE_RIGHT_1;
 extern u16 G_ADR_VRAM_BG_A_PIE_RIGHT_2;
 
 
-extern struct_WAITER_ list_WAITERS[3];
+extern bool G_ACTION_WAITER_AUTHORIZED;
+extern bool G_ACTION_GUEST_AUTHORIZED;
 
+extern bool G_PIE_SHOT_AUTHORIZED;
+
+
+extern struct_WAITER_ list_WAITERS[3];
 extern struct_WAITER_ list_GUESTS[3];
+
 
 extern u8 G_SELECTED_WAITER;
 
