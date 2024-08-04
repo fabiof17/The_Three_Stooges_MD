@@ -663,6 +663,12 @@ extern u8 G_COUNTER_ACTION_WAITERS;
 
 extern u8 G_COUNTER_ACTION_GUESTS;
 
+extern struct_WALL_PIE_ list_WALL_PIES_LEFT_BG_B[3];
+extern struct_WALL_PIE_ list_WALL_PIES_RIGHT_BG_B[3];
+
+extern struct_WALL_PIE_ list_WALL_PIES_LEFT_BG_A[3];
+extern struct_WALL_PIE_ list_WALL_PIES_RIGHT_BG_A[3];
+
 
 
 

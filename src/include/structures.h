@@ -223,6 +223,17 @@ typedef struct
 
 
 
+typedef struct
+{
+    u16 vram_ADRESS;
+    const Image *ptr_IMAGE;
+
+} struct_WALL_PIE_;
+
+
+
+
+
 
 
 

@@ -4062,7 +4062,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,32,TRUE);
         
-        SPR_initEx(320);
+        SPR_initEx(300);
         
         VDP_setHilightShadow(FALSE);
 
@@ -4225,6 +4225,51 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
+        //                                   WALL PIES ARRAYS                                   //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        list_WALL_PIES_LEFT_BG_B[0].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_LEFT_0;
+        list_WALL_PIES_LEFT_BG_B[1].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_LEFT_1;
+        list_WALL_PIES_LEFT_BG_B[2].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_LEFT_2;
+
+        list_WALL_PIES_LEFT_BG_A[0].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_LEFT_0;
+        list_WALL_PIES_LEFT_BG_A[1].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_LEFT_1;
+        list_WALL_PIES_LEFT_BG_A[2].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_LEFT_2;
+
+
+        list_WALL_PIES_RIGHT_BG_B[0].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_RIGHT_0;
+        list_WALL_PIES_RIGHT_BG_B[1].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_RIGHT_1;
+        list_WALL_PIES_RIGHT_BG_B[2].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_RIGHT_2;
+
+        list_WALL_PIES_RIGHT_BG_A[0].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_RIGHT_0;
+        list_WALL_PIES_RIGHT_BG_A[1].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_RIGHT_1;
+        list_WALL_PIES_RIGHT_BG_A[2].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_RIGHT_2;
+
+
+
+
+        list_WALL_PIES_LEFT_BG_B[0].ptr_IMAGE    = &image_PIE_WALL0_1_LEFT_BG_B;
+        list_WALL_PIES_LEFT_BG_B[1].ptr_IMAGE    = &image_PIE_WALL1_1_LEFT_BG_B;
+        list_WALL_PIES_LEFT_BG_B[2].ptr_IMAGE    = &image_PIE_WALL2_1_LEFT_BG_B;
+
+        list_WALL_PIES_LEFT_BG_A[0].ptr_IMAGE    = &image_PIE_WALL0_1_LEFT_BG_A;
+        list_WALL_PIES_LEFT_BG_A[1].ptr_IMAGE    = &image_PIE_WALL1_1_LEFT_BG_A;
+        list_WALL_PIES_LEFT_BG_A[2].ptr_IMAGE    = &image_PIE_WALL2_1_LEFT_BG_A;
+
+        list_WALL_PIES_RIGHT_BG_B[0].ptr_IMAGE   = &image_PIE_WALL0_1_RIGHT_BG_B;
+        list_WALL_PIES_RIGHT_BG_B[1].ptr_IMAGE   = &image_PIE_WALL1_1_RIGHT_BG_B;
+        list_WALL_PIES_RIGHT_BG_B[2].ptr_IMAGE   = &image_PIE_WALL2_1_RIGHT_BG_B;
+
+        list_WALL_PIES_RIGHT_BG_A[0].ptr_IMAGE   = &image_PIE_WALL0_1_RIGHT_BG_A;
+        list_WALL_PIES_RIGHT_BG_A[1].ptr_IMAGE   = &image_PIE_WALL1_1_RIGHT_BG_A;
+        list_WALL_PIES_RIGHT_BG_A[2].ptr_IMAGE   = &image_PIE_WALL2_1_RIGHT_BG_A;
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
         //                                       DIALOG                                         //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//   
@@ -4356,21 +4401,17 @@ void init_SCENE()
         //                                         CURLY                                        //
         //--------------------------------------------------------------------------------------//
 
-        list_GUESTS[1].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_MAN1_1_WAITERS, 31, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_GUESTS[1].spr_CHAR_2        =   SPR_addSprite(&tiles_SPR_MAN1_2_WAITERS, 31, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-        list_GUESTS[1].state_CHARACTER   =   CHAR_PHASE_IDLE;
+        list_WAITERS[1].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_CURLY1_WAITERS, 240, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_WAITERS[1].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_CURLY2_WAITERS, 240, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_WAITERS[1].state_CHARACTER  =   CHAR_PHASE_IDLE;
 
         //--------------------------------------------------------------------------------------//
         //                                         MAN 1                                        //
         //--------------------------------------------------------------------------------------//
 
-        list_WAITERS[1].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_CURLY1_WAITERS, 240, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_WAITERS[1].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_CURLY2_WAITERS, 240, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-        list_WAITERS[1].state_CHARACTER  =   CHAR_PHASE_IDLE;
-
-
-
-
+        list_GUESTS[1].spr_CHAR_1        =   SPR_addSprite(&tiles_SPR_MAN1_1_WAITERS, 31, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        list_GUESTS[1].spr_CHAR_2        =   SPR_addSprite(&tiles_SPR_MAN1_2_WAITERS, 31, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_GUESTS[1].state_CHARACTER   =   CHAR_PHASE_IDLE;
 
 
 
