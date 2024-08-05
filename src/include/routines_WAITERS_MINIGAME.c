@@ -207,6 +207,10 @@ void joypad_WAITERS_MINIGAME()
 
 
 
+
+
+
+
 inline static void check_WAITER_ACTION_AUTHORISATION()
 {
     if(G_ACTION_WAITER_AUTHORIZED == FALSE)
@@ -228,8 +232,6 @@ inline static void check_WAITER_ACTION_AUTHORISATION()
 }
 
 
-
-
 /*inline static void check_GUEST_ACTION_AUTHORISATION()
 {
     if(G_ACTION_GUEST_AUTHORIZED == FALSE)
@@ -249,6 +251,10 @@ inline static void check_WAITER_ACTION_AUTHORISATION()
     }
 
 }*/
+
+
+
+
 
 
 
@@ -466,96 +472,268 @@ inline static void anim_PIE_WAITERS()
 }
 
 
-
-
-inline static void anim_GUESTS()
+inline static void anim_PIE_GUESTS()
 {
     u8 i;
 
     for(i=0 ; i<3 ; i++)
     {
-        // IF GUEST HAS BEEN HIT BY A PIE (STEP 1) //
-        if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_1)
+        if(list_GUESTS[i].state_PIE == PIE_PHASE_THROW)
         {
-            if(list_GUESTS[i].counter_CHARACTER == 63)
+            //--------------------------------------------------------------------//
+            //                      INCREASE PIE ANIM INDEX                       //
+            //--------------------------------------------------------------------//
+            list_GUESTS[i].index_ANIM_PIE += 1;
+
+
+            //********************************************************************//
+            //********************************************************************//
+            //                               CASE 1                               //
+            //********************************************************************//
+            //********************************************************************//
+
+            //********************************************************************//
+            //                                                                    //
+            //                  PIE REACHED END OF ITS TRAJECTORY                 //
+            //                                                                    //
+            //********************************************************************//
+            if(list_GUESTS[i].index_ANIM_PIE == 58)
             {
-                // RESET COUNTER //
-                list_GUESTS[i].counter_CHARACTER = 0;
+                //********************************************************************//
+                //********************************************************************//
+                //                           COLLISION CHECK                          //
+                //********************************************************************//
+                //********************************************************************//
 
-                list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT_2;
-                
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_2);
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_2);
-
-
-                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
-                if(i == GUEST_MAN_1)
+                //********************************************************************//
+                //                                                                    //
+                //                       WAITER IS NOT CROUCHING                      //
+                //                                                                    //
+                //********************************************************************//
+                if(list_WAITERS[i].state_CHARACTER != CHAR_PHASE_CROUCH && list_WAITERS[i].state_CHARACTER != CHAR_PHASE_CROUCH_2)
                 {
-                    VDP_loadTileSet(image_MAN1_7_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    list_WAITERS[i].counter_CHARACTER = 0;
+
+                    //--------------------------------------------------------------------//
+                    //                        WAITER GOES TO PHASE                        //
+                    //--------------------------------------------------------------------//
+                    list_WAITERS[i].state_CHARACTER = CHAR_PHASE_HIT_1;
+
+                    SPR_setFrame(list_WAITERS[i].spr_CHAR_1 , CHAR_PHASE_HIT_1);
+                    SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , CHAR_PHASE_HIT_1);
+
+
+
+
+                    //--------------------------------------------------------------------//
+                    //                         UPDATE BULB SPRITE                         //
+                    //--------------------------------------------------------------------//
+
+                    G_HIT_NUMBER += 1;
+
+                    SPR_setFrame(sprite_BULB[G_HIT_NUMBER -1],1);
+                    SPR_setPalette(sprite_BULB[G_HIT_NUMBER -1],PAL3);
+
+
+
+
+                    //********************************************************************//
+                    //                                                                    //
+                    //                           CHECK HIT NUMBER                         //
+                    //                                                                    //
+                    //********************************************************************//
+
+                    //--------------------------------------------------------------------//
+                    //                                                                    //
+                    //                     WAITERS HAVE BEEN HIT 5 TIMES                  //
+                    //                          SEQUENCE IS OVER                          //
+                    //                                                                    //
+                    //--------------------------------------------------------------------//
+                    if(G_HIT_NUMBER == 5)
+                    {
+                        G_PHASE_SEQUENCE = WAITER_PHASE_GAME_OVER;
+                    }
+
+
+                    //--------------------------------------------------------------------//
+                    //                                                                    //
+                    //                  WAITERS HAVE NOT BEEN HIT 5 TIMES                 //
+                    //                                                                    //
+                    //--------------------------------------------------------------------//
+                    else
+                    {
+                        //--------------------------------------------------------------------//
+                        //                      RESET GUEST PIE COUNTER                       //
+                        //--------------------------------------------------------------------//
+                        list_GUESTS[i].index_ANIM_PIE = 0;
+
+                        //--------------------------------------------------------------------//
+                        //                   SET POINTER TO PIE ANIM TABLE                    //
+                        //--------------------------------------------------------------------//
+                        const struct_PIE_ANIM_ *ptr_PIE_ANIM;
+
+                        if(i == GUEST_WOMAN)
+                        {
+                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN[list_WAITERS[GUEST_WOMAN].index_ANIM_PIE];
+                        }
+
+                        else if(i == GUEST_MAN_1)
+                        {
+                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1[list_WAITERS[GUEST_MAN_1].index_ANIM_PIE];
+                        }
+
+                        else if(i == GUEST_MAN_2)
+                        {
+                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_WAITERS[GUEST_MAN_2].index_ANIM_PIE];
+                        }
+
+
+                        //--------------------------------------------------------------------//
+                        //                 A NEW PIE IS SERVED ON GUESTS TABLE                //
+                        //--------------------------------------------------------------------//
+                        list_GUESTS[i].state_PIE = PIE_PHASE_SERVED;
+
+                        SPR_setPosition(list_GUESTS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+                        SPR_setFrame(list_GUESTS[i].spr_PIE , 0);
+
+
+
+
+                        //--------------------------------------------------------------------//
+                        //                                                                    //
+                        //                     IF WAITER PIE ISN'T THROWN                     //
+                        //                                                                    //
+                        //--------------------------------------------------------------------//
+                        if(list_WAITERS[i].state_PIE < PIE_PHASE_THROW)
+                        {
+                            //--------------------------------------------------------------------//
+                            //                                                                    //
+                            //                IF THERE ARE STILL PIES TO BE SERVED                //
+                            //                                                                    //
+                            //--------------------------------------------------------------------//
+                            if(G_SERVED_PIES < G_MAX_PIES)
+                            {
+                                //--------------------------------------------------------------------//
+                                //                         RESET PIE COUNTER                          //
+                                //--------------------------------------------------------------------//
+                                list_WAITERS[i].index_ANIM_PIE = 0;
+
+                                //--------------------------------------------------------------------//
+                                //                   SET POINTER TO PIE ANIM TABLE                    //
+                                //--------------------------------------------------------------------//
+                                const struct_PIE_ANIM_ *ptr_PIE_ANIM;
+
+                                if(i == WAITER_LARRY)
+                                {
+                                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
+                                }
+
+                                else if(i == WAITER_CURLY)
+                                {
+                                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
+                                }
+
+                                else if(i == WAITER_MOE)
+                                {
+                                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                                }
+
+
+                                //--------------------------------------------------------------------//
+                                //                A NEW PIE IS SERVED ON WAITERS TABLE                //
+                                //--------------------------------------------------------------------//
+                                list_WAITERS[i].state_PIE = PIE_PHASE_SERVED;
+
+                                SPR_setPosition(list_WAITERS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+                                SPR_setFrame(list_WAITERS[i].spr_PIE , 0);
+                            }
+
+                            //--------------------------------------------------------------------//
+                            //                           PLAY HIT PCM                             //
+                            //--------------------------------------------------------------------//
+                            XGM_startPlayPCM(SOUND_PIE_HIT,13,SOUND_PCM_CH3);
+                        }
+                    }
                 }
 
-                return;
+
+                //********************************************************************//
+                //                                                                    //
+                //                         WAITER IS CROUCHING                        //
+                //                          PIE HITS THE WALL                         //
+                //                                                                    //
+                //********************************************************************//
+                else
+                {
+                    //--------------------------------------------------------------------//
+                    //                  WE LOAD WALL PIE TILES FOR BG_B                   //
+                    //--------------------------------------------------------------------//
+                    VDP_loadTileSet(list_WALL_PIES_RIGHT_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_RIGHT_BG_B[i].vram_ADRESS, DMA_QUEUE);
+
+                    //--------------------------------------------------------------------//
+                    //                  WE LOAD WALL PIE TILES FOR BG_A                   //
+                    //--------------------------------------------------------------------//
+                    VDP_loadTileSet(list_WALL_PIES_RIGHT_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_RIGHT_BG_A[i].vram_ADRESS, DMA_QUEUE);
+
+
+                    //--------------------------------------------------------------------//
+                    //                           PLAY WALL PCM                            //
+                    //--------------------------------------------------------------------//
+                    XGM_startPlayPCM(SOUND_PIE_WALL,13,SOUND_PCM_CH3);
+                }
             }
 
-            list_GUESTS[i].counter_CHARACTER += 1;
-        }
 
+            //********************************************************************//
+            //********************************************************************//
+            //                               CASE 2                               //
+            //********************************************************************//
+            //********************************************************************//
 
-        // IF GUEST HAS BEEN HIT BY A PIE (STEP 2) //
-        else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_2)
-        {
-            if(list_GUESTS[i].counter_CHARACTER == 21)
+            //--------------------------------------------------------------------//
+            //                                                                    //
+            //                    PIE IS FOLLOWING ITS TRAJECTORY                 //
+            //                                                                    //
+            //--------------------------------------------------------------------//
+            else
             {
-                // RESET COUNTER //
-                list_GUESTS[i].counter_CHARACTER = 0;
+                //------------------------------------------------------//
+                //            SET POINTER TO PIE ANIM TABLE             //
+                //------------------------------------------------------//
+                const struct_PIE_ANIM_ *ptr_PIE_ANIM;
 
-                list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT_3;
-
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_3);
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_3);
-
-
-                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
-                if(i == 1)
+                if(i == WAITER_LARRY)
                 {
-                    VDP_loadTileSet(image_MAN1_8_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
                 }
 
-                return;
-            }
-
-            list_GUESTS[i].counter_CHARACTER += 1;
-        }
-
-
-        // IF GUEST HAS BEEN HIT BY A PIE (STEP 3) //
-        else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_3)
-        {
-            if(list_GUESTS[i].counter_CHARACTER == 20)
-            {
-                // RESET COUNTER //
-                list_GUESTS[i].counter_CHARACTER = 0;
-
-                // RANDOMLY CHOOSE NEXT STATE (TO BE DONE) //
-                list_GUESTS[i].state_CHARACTER = CHAR_PHASE_IDLE;
-
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_IDLE);
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_IDLE);
-
-
-                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
-                if(i == 1)
+                else if(i == WAITER_CURLY)
                 {
-                    VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
                 }
 
-                return;
-            }
+                else if(i == WAITER_MOE)
+                {
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                }
 
-            list_GUESTS[i].counter_CHARACTER += 1;
+                //------------------------------------------------------//
+                //          SET PIE POSITION AND SPRITE FRAME           //
+                //------------------------------------------------------//
+                SPR_setPosition(list_WAITERS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+
+                if(ptr_PIE_ANIM->index_ANIM_PIE != 99)
+                {
+                    SPR_setFrame(list_WAITERS[i].spr_PIE , ptr_PIE_ANIM->index_ANIM_PIE);
+                }
+            }
         }
     }
 }
+
+
+
+
 
 
 
@@ -783,7 +961,94 @@ inline static void anim_WAITERS()
 }
 
 
+inline static void anim_GUESTS()
+{
+    u8 i;
 
+    for(i=0 ; i<3 ; i++)
+    {
+        // IF GUEST HAS BEEN HIT BY A PIE (STEP 1) //
+        if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_1)
+        {
+            if(list_GUESTS[i].counter_CHARACTER == 63)
+            {
+                // RESET COUNTER //
+                list_GUESTS[i].counter_CHARACTER = 0;
+
+                list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT_2;
+                
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_2);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_2);
+
+
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == GUEST_MAN_1)
+                {
+                    VDP_loadTileSet(image_MAN1_7_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                }
+
+                return;
+            }
+
+            list_GUESTS[i].counter_CHARACTER += 1;
+        }
+
+
+        // IF GUEST HAS BEEN HIT BY A PIE (STEP 2) //
+        else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_2)
+        {
+            if(list_GUESTS[i].counter_CHARACTER == 21)
+            {
+                // RESET COUNTER //
+                list_GUESTS[i].counter_CHARACTER = 0;
+
+                list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT_3;
+
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_3);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_3);
+
+
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == 1)
+                {
+                    VDP_loadTileSet(image_MAN1_8_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                }
+
+                return;
+            }
+
+            list_GUESTS[i].counter_CHARACTER += 1;
+        }
+
+
+        // IF GUEST HAS BEEN HIT BY A PIE (STEP 3) //
+        else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_3)
+        {
+            if(list_GUESTS[i].counter_CHARACTER == 20)
+            {
+                // RESET COUNTER //
+                list_GUESTS[i].counter_CHARACTER = 0;
+
+                // RANDOMLY CHOOSE NEXT STATE (TO BE DONE) //
+                list_GUESTS[i].state_CHARACTER = CHAR_PHASE_IDLE;
+
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_IDLE);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_IDLE);
+
+
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == 1)
+                {
+                    VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                }
+
+                return;
+            }
+
+            list_GUESTS[i].counter_CHARACTER += 1;
+        }
+    }
+}
 
 
 
@@ -878,6 +1143,7 @@ void sequence_WAITERS_MINIGAME()
         check_WAITER_ACTION_AUTHORISATION();
         
         anim_PIE_WAITERS();
+        anim_PIE_GUESTS();
         
         anim_WAITERS();
 
