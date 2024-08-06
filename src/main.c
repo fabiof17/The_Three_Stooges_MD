@@ -520,7 +520,7 @@ int main(bool hardReset)
 
                     sequence_WAITERS_MINIGAME();
 
-                    //VDP_drawIntEx_BG_A_QUEUE(G_REWARD,1,0,0,PAL3);                 
+                    //VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[2].state_PIE,1,0,0,PAL3);                 
                     
                     SPR_update();
                     SYS_doVBlankProcess();
