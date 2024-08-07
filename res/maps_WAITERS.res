@@ -46,21 +46,59 @@ IMAGE image_PIE_WALL2_1_LEFT_BG_A               "map/waiters/tiles_PIE_WALL2_1_L
 
 
 
-IMAGE image_PIE_WALL0_0_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL0_0_RIGHT_BG_B.png"           NONE NONE
-IMAGE image_PIE_WALL1_0_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL1_0_RIGHT_BG_B.png"           NONE NONE
-IMAGE image_PIE_WALL2_0_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL2_0_RIGHT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL0_0_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL0_0_RIGHT_BG_B.png"         NONE NONE
+IMAGE image_PIE_WALL1_0_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL1_0_RIGHT_BG_B.png"         NONE NONE
+IMAGE image_PIE_WALL2_0_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL2_0_RIGHT_BG_B.png"         NONE NONE
 
-IMAGE image_PIE_WALL0_0_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL0_0_RIGHT_BG_A.png"           NONE NONE
-IMAGE image_PIE_WALL1_0_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL1_0_RIGHT_BG_A.png"           NONE NONE
-IMAGE image_PIE_WALL2_0_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL2_0_RIGHT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL0_0_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL0_0_RIGHT_BG_A.png"         NONE NONE
+IMAGE image_PIE_WALL1_0_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL1_0_RIGHT_BG_A.png"         NONE NONE
+IMAGE image_PIE_WALL2_0_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL2_0_RIGHT_BG_A.png"         NONE NONE
 
-IMAGE image_PIE_WALL0_1_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL0_1_RIGHT_BG_B.png"           NONE NONE
-IMAGE image_PIE_WALL1_1_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL1_1_RIGHT_BG_B.png"           NONE NONE
-IMAGE image_PIE_WALL2_1_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL2_1_RIGHT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL0_1_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL0_1_RIGHT_BG_B.png"         NONE NONE
+IMAGE image_PIE_WALL1_1_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL1_1_RIGHT_BG_B.png"         NONE NONE
+IMAGE image_PIE_WALL2_1_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL2_1_RIGHT_BG_B.png"         NONE NONE
 
-IMAGE image_PIE_WALL0_1_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL0_1_RIGHT_BG_A.png"           NONE NONE
-IMAGE image_PIE_WALL1_1_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL1_1_RIGHT_BG_A.png"           NONE NONE
-IMAGE image_PIE_WALL2_1_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL2_1_RIGHT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL0_1_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL0_1_RIGHT_BG_A.png"         NONE NONE
+IMAGE image_PIE_WALL1_1_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL1_1_RIGHT_BG_A.png"         NONE NONE
+IMAGE image_PIE_WALL2_1_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL2_1_RIGHT_BG_A.png"         NONE NONE
+
+
+
+
+IMAGE image_PIE_WALL0_0_UP_LEFT_BG_B               "map/waiters/tiles_PIE_WALL0_0_UP_LEFT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL1_0_UP_LEFT_BG_B               "map/waiters/tiles_PIE_WALL1_0_UP_LEFT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL2_0_UP_LEFT_BG_B               "map/waiters/tiles_PIE_WALL2_0_UP_LEFT_BG_B.png"           NONE NONE
+
+IMAGE image_PIE_WALL0_0_UP_LEFT_BG_A               "map/waiters/tiles_PIE_WALL0_0_UP_LEFT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL1_0_UP_LEFT_BG_A               "map/waiters/tiles_PIE_WALL1_0_UP_LEFT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL2_0_UP_LEFT_BG_A               "map/waiters/tiles_PIE_WALL2_0_UP_LEFT_BG_A.png"           NONE NONE
+
+IMAGE image_PIE_WALL0_1_UP_LEFT_BG_B               "map/waiters/tiles_PIE_WALL0_1_UP_LEFT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL1_1_UP_LEFT_BG_B               "map/waiters/tiles_PIE_WALL1_1_UP_LEFT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL2_1_UP_LEFT_BG_B               "map/waiters/tiles_PIE_WALL2_1_UP_LEFT_BG_B.png"           NONE NONE
+
+IMAGE image_PIE_WALL0_1_UP_LEFT_BG_A               "map/waiters/tiles_PIE_WALL0_1_UP_LEFT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL1_1_UP_LEFT_BG_A               "map/waiters/tiles_PIE_WALL1_1_UP_LEFT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL2_1_UP_LEFT_BG_A               "map/waiters/tiles_PIE_WALL2_1_UP_LEFT_BG_A.png"           NONE NONE
+
+
+
+
+IMAGE image_PIE_WALL0_0_UP_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL0_0_UP_RIGHT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL1_0_UP_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL1_0_UP_RIGHT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL2_0_UP_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL2_0_UP_RIGHT_BG_B.png"           NONE NONE
+
+IMAGE image_PIE_WALL0_0_UP_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL0_0_UP_RIGHT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL1_0_UP_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL1_0_UP_RIGHT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL2_0_UP_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL2_0_UP_RIGHT_BG_A.png"           NONE NONE
+
+IMAGE image_PIE_WALL0_1_UP_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL0_1_UP_RIGHT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL1_1_UP_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL1_1_UP_RIGHT_BG_B.png"           NONE NONE
+IMAGE image_PIE_WALL2_1_UP_RIGHT_BG_B               "map/waiters/tiles_PIE_WALL2_1_UP_RIGHT_BG_B.png"           NONE NONE
+
+IMAGE image_PIE_WALL0_1_UP_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL0_1_UP_RIGHT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL1_1_UP_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL1_1_UP_RIGHT_BG_A.png"           NONE NONE
+IMAGE image_PIE_WALL2_1_UP_RIGHT_BG_A               "map/waiters/tiles_PIE_WALL2_1_UP_RIGHT_BG_A.png"           NONE NONE
 
 
 

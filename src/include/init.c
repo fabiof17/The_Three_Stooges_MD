@@ -4106,6 +4106,8 @@ void init_SCENE()
         VDP_setTileMapEx(BG_B, image_WAITERS_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0,  0,  0, 40, 28, CPU);
 
 
+
+
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
         //                                         BG_A                                         //
@@ -4118,6 +4120,8 @@ void init_SCENE()
 
 
         VDP_setTileMapEx(BG_A, image_WAITERS_NUMBERS.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16), 4, 4, 10, 0, 1, 1, CPU);
+
+
 
 
         //--------------------------------------------------------------------------------------//
@@ -4133,6 +4137,8 @@ void init_SCENE()
 
         VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, CPU);
         VDP_setTileMapEx(BG_A, image_MAN1_1_WAITERS.tilemap, TILE_ATTR_FULL(PAL2, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile), 5, 19, 0, 0, 3, 2, CPU);
+
+
 
 
         //--------------------------------------------------------------------------------------//
@@ -4176,6 +4182,8 @@ void init_SCENE()
         G_ADR_VRAM_BG_B_PIE_RIGHT_2 = G_ADR_VRAM_BG_B_PIE_RIGHT_1 + image_PIE_WALL1_0_RIGHT_BG_B.tileset->numTile;
         VDP_loadTileSet(image_PIE_WALL2_0_RIGHT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_RIGHT_2, CPU);
         VDP_setTileMapEx(BG_B, image_PIE_WALL2_0_RIGHT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_RIGHT_2), 33, 14, 0, 0, 2, 5, CPU);
+
+
 
 
         //--------------------------------------------------------------------------------------//
@@ -4225,6 +4233,100 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
+        //                                  BG_B TOP WALL PIES                                  //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       TOP LEFT                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_B_PIE_UP_LEFT_0 = G_ADR_VRAM_BG_A_PIE_RIGHT_2 + image_PIE_WALL2_0_RIGHT_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL0_0_UP_LEFT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_UP_LEFT_0, CPU);
+        VDP_setTileMapEx(BG_B, image_PIE_WALL0_0_UP_LEFT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_UP_LEFT_0), 0,  7, 0, 0, 2, 5, CPU);
+
+        G_ADR_VRAM_BG_B_PIE_UP_LEFT_1 = G_ADR_VRAM_BG_B_PIE_UP_LEFT_0 + image_PIE_WALL0_0_UP_LEFT_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL1_0_UP_LEFT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_UP_LEFT_1, CPU);
+        VDP_setTileMapEx(BG_B, image_PIE_WALL1_0_UP_LEFT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_UP_LEFT_1), 3, 10, 0, 0, 2, 5, CPU);
+
+        G_ADR_VRAM_BG_B_PIE_UP_LEFT_2 = G_ADR_VRAM_BG_B_PIE_UP_LEFT_1 + image_PIE_WALL1_0_UP_LEFT_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL2_0_UP_LEFT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_UP_LEFT_2, CPU);
+        VDP_setTileMapEx(BG_B, image_PIE_WALL2_0_UP_LEFT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_UP_LEFT_2), 5,  9, 0, 0, 2, 5, CPU);
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                      TOP RIGHT                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_B_PIE_UP_RIGHT_0 = G_ADR_VRAM_BG_B_PIE_UP_LEFT_2 + image_PIE_WALL2_0_UP_LEFT_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL0_0_UP_RIGHT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_UP_RIGHT_0, CPU);
+        VDP_setTileMapEx(BG_B, image_PIE_WALL0_0_UP_RIGHT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_UP_RIGHT_0), 38,  8, 0, 0, 2, 5, CPU);
+
+        G_ADR_VRAM_BG_B_PIE_UP_RIGHT_1 = G_ADR_VRAM_BG_B_PIE_UP_RIGHT_0 + image_PIE_WALL0_0_UP_RIGHT_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL1_0_UP_RIGHT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_UP_RIGHT_1, CPU);
+        VDP_setTileMapEx(BG_B, image_PIE_WALL1_0_UP_RIGHT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_UP_RIGHT_1), 36, 10, 0, 0, 2, 5, CPU);
+
+        G_ADR_VRAM_BG_B_PIE_UP_RIGHT_2 = G_ADR_VRAM_BG_B_PIE_UP_RIGHT_1 + image_PIE_WALL1_0_UP_RIGHT_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL2_0_UP_RIGHT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_UP_RIGHT_2, CPU);
+        VDP_setTileMapEx(BG_B, image_PIE_WALL2_0_UP_RIGHT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_UP_RIGHT_2), 33,  9, 0, 0, 2, 5, CPU);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                  BG_A TOP WALL PIES                                  //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       TOP LEFT                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A_PIE_UP_LEFT_0 = G_ADR_VRAM_BG_B_PIE_UP_RIGHT_2 + image_PIE_WALL2_0_UP_RIGHT_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL0_0_UP_LEFT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_UP_LEFT_0, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_WALL0_0_UP_LEFT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_LEFT_0), 0,  7, 0, 0, 2, 5, CPU);
+
+        G_ADR_VRAM_BG_A_PIE_UP_LEFT_1 = G_ADR_VRAM_BG_A_PIE_UP_LEFT_0 + image_PIE_WALL0_0_UP_LEFT_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL1_0_UP_LEFT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_UP_LEFT_1, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_WALL1_0_UP_LEFT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_LEFT_1), 3, 10, 0, 0, 2, 5, CPU);
+
+        G_ADR_VRAM_BG_A_PIE_UP_LEFT_2 = G_ADR_VRAM_BG_A_PIE_UP_LEFT_1 + image_PIE_WALL1_0_UP_LEFT_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL2_0_UP_LEFT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_UP_LEFT_2, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_WALL2_0_UP_LEFT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_LEFT_2), 5,  9, 0, 0, 2, 5, CPU);
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                      TOP RIGHT                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A_PIE_UP_RIGHT_0 = G_ADR_VRAM_BG_A_PIE_UP_LEFT_2 + image_PIE_WALL2_0_UP_LEFT_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL0_0_UP_RIGHT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_UP_RIGHT_0, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_WALL0_0_UP_RIGHT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_RIGHT_0), 38,  8, 0, 0, 2, 5, CPU);
+
+        G_ADR_VRAM_BG_A_PIE_UP_RIGHT_1 = G_ADR_VRAM_BG_A_PIE_UP_RIGHT_0 + image_PIE_WALL0_0_UP_RIGHT_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL1_0_UP_RIGHT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_UP_RIGHT_1, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_WALL1_0_UP_RIGHT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_RIGHT_1), 36, 10, 0, 0, 2, 5, CPU);
+
+        G_ADR_VRAM_BG_A_PIE_UP_RIGHT_2 = G_ADR_VRAM_BG_A_PIE_UP_RIGHT_1 + image_PIE_WALL1_0_UP_RIGHT_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_WALL2_0_UP_RIGHT_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_UP_RIGHT_2, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_WALL2_0_UP_RIGHT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_RIGHT_2), 33,  9, 0, 0, 2, 5, CPU);
+
+
+
+
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
         //                                   WALL PIES ARRAYS                                   //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
@@ -4264,6 +4366,49 @@ void init_SCENE()
         list_WALL_PIES_RIGHT_BG_A[0].ptr_IMAGE   = &image_PIE_WALL0_1_RIGHT_BG_A;
         list_WALL_PIES_RIGHT_BG_A[1].ptr_IMAGE   = &image_PIE_WALL1_1_RIGHT_BG_A;
         list_WALL_PIES_RIGHT_BG_A[2].ptr_IMAGE   = &image_PIE_WALL2_1_RIGHT_BG_A;
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                 UP WALL PIES ARRAYS                                  //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        list_WALL_PIES_UP_LEFT_BG_B[0].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_UP_LEFT_0;
+        list_WALL_PIES_UP_LEFT_BG_B[1].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_UP_LEFT_1;
+        list_WALL_PIES_UP_LEFT_BG_B[2].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_UP_LEFT_2;
+
+        list_WALL_PIES_UP_LEFT_BG_A[0].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_UP_LEFT_0;
+        list_WALL_PIES_UP_LEFT_BG_A[1].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_UP_LEFT_1;
+        list_WALL_PIES_UP_LEFT_BG_A[2].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_UP_LEFT_2;
+
+
+        list_WALL_PIES_UP_RIGHT_BG_B[0].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_UP_RIGHT_0;
+        list_WALL_PIES_UP_RIGHT_BG_B[1].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_UP_RIGHT_1;
+        list_WALL_PIES_UP_RIGHT_BG_B[2].vram_ADRESS = G_ADR_VRAM_BG_B_PIE_UP_RIGHT_2;
+
+        list_WALL_PIES_UP_RIGHT_BG_A[0].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_UP_RIGHT_0;
+        list_WALL_PIES_UP_RIGHT_BG_A[1].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_UP_RIGHT_1;
+        list_WALL_PIES_UP_RIGHT_BG_A[2].vram_ADRESS = G_ADR_VRAM_BG_A_PIE_UP_RIGHT_2;
+
+
+
+
+        list_WALL_PIES_UP_LEFT_BG_B[0].ptr_IMAGE    = &image_PIE_WALL0_1_UP_LEFT_BG_B;
+        list_WALL_PIES_UP_LEFT_BG_B[1].ptr_IMAGE    = &image_PIE_WALL1_1_UP_LEFT_BG_B;
+        list_WALL_PIES_UP_LEFT_BG_B[2].ptr_IMAGE    = &image_PIE_WALL2_1_UP_LEFT_BG_B;
+
+        list_WALL_PIES_UP_LEFT_BG_A[0].ptr_IMAGE    = &image_PIE_WALL0_1_UP_LEFT_BG_A;
+        list_WALL_PIES_UP_LEFT_BG_A[1].ptr_IMAGE    = &image_PIE_WALL1_1_UP_LEFT_BG_A;
+        list_WALL_PIES_UP_LEFT_BG_A[2].ptr_IMAGE    = &image_PIE_WALL2_1_UP_LEFT_BG_A;
+
+        list_WALL_PIES_UP_RIGHT_BG_B[0].ptr_IMAGE   = &image_PIE_WALL0_1_UP_RIGHT_BG_B;
+        list_WALL_PIES_UP_RIGHT_BG_B[1].ptr_IMAGE   = &image_PIE_WALL1_1_UP_RIGHT_BG_B;
+        list_WALL_PIES_UP_RIGHT_BG_B[2].ptr_IMAGE   = &image_PIE_WALL2_1_UP_RIGHT_BG_B;
+
+        list_WALL_PIES_UP_RIGHT_BG_A[0].ptr_IMAGE   = &image_PIE_WALL0_1_UP_RIGHT_BG_A;
+        list_WALL_PIES_UP_RIGHT_BG_A[1].ptr_IMAGE   = &image_PIE_WALL1_1_UP_RIGHT_BG_A;
+        list_WALL_PIES_UP_RIGHT_BG_A[2].ptr_IMAGE   = &image_PIE_WALL2_1_UP_RIGHT_BG_A;
 
 
 
@@ -4337,6 +4482,7 @@ void init_SCENE()
         list_WAITERS[0].spr_PIE          =   SPR_addSprite(&tiles_SPR_PIE_LARRY,      250, 173, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         list_WAITERS[0].state_PIE        =   PIE_PHASE_SERVED;
         list_WAITERS[0].index_ANIM_PIE   =   0;
+        list_WAITERS[0].pie_DEVIATION    =   NO_DEVIATION;
 
         //--------------------------------------------------------------------------------------//
         //                                      WOMAN'S PIE                                     //
@@ -4345,6 +4491,7 @@ void init_SCENE()
         list_GUESTS[0].spr_PIE           =   SPR_addSprite(&tiles_SPR_PIE_WOMAN,       44, 173, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         list_GUESTS[0].state_PIE         =   PIE_PHASE_SERVED;
         list_GUESTS[0].index_ANIM_PIE    =   0;
+        list_GUESTS[0].pie_DEVIATION     =   NO_DEVIATION;
 
 
 
@@ -4385,6 +4532,7 @@ void init_SCENE()
         list_WAITERS[1].spr_PIE          =   SPR_addSprite(&tiles_SPR_PIE_CURLY,      240, 163, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         list_WAITERS[1].state_PIE        =   PIE_PHASE_SERVED;
         list_WAITERS[1].index_ANIM_PIE   =   0;
+        list_WAITERS[1].pie_DEVIATION    =   NO_DEVIATION;
 
         //--------------------------------------------------------------------------------------//
         //                                      MAN 1'S PIE                                     //
@@ -4393,6 +4541,7 @@ void init_SCENE()
         list_GUESTS[1].spr_PIE           =   SPR_addSprite(&tiles_SPR_PIE_MAN_1,       58, 163, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         list_GUESTS[1].state_PIE         =   PIE_PHASE_SERVED;
         list_GUESTS[1].index_ANIM_PIE    =   0;
+        list_GUESTS[1].pie_DEVIATION     =   NO_DEVIATION;
 
 
 
@@ -4431,6 +4580,7 @@ void init_SCENE()
         list_WAITERS[2].spr_PIE          =   SPR_addSprite(&tiles_SPR_PIE_MOE,        231, 156, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         list_WAITERS[2].state_PIE        =   PIE_PHASE_SERVED;
         list_WAITERS[2].index_ANIM_PIE   =   0;
+        list_WAITERS[2].pie_DEVIATION    =   NO_DEVIATION;
 
         //--------------------------------------------------------------------------------------//
         //                                      MAN 2'S PIE                                     //
@@ -4439,6 +4589,7 @@ void init_SCENE()
         list_GUESTS[2].spr_PIE           =   SPR_addSprite(&tiles_SPR_PIE_MAN_2,       70, 156, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         list_GUESTS[2].state_PIE         =   PIE_PHASE_SERVED;
         list_GUESTS[2].index_ANIM_PIE    =   0;
+        list_GUESTS[2].pie_DEVIATION     =   NO_DEVIATION;
 
 
 
@@ -4518,7 +4669,7 @@ void init_SCENE()
 
         G_ACTION_WAITER_AUTHORIZED  = TRUE;
         G_ACTION_GUEST_AUTHORIZED   = TRUE;
-        G_PIE_SHOT_AUTHORIZED      = TRUE;
+        G_PIE_SHOT_AUTHORIZED       = TRUE;
 
 
         G_SELECTED_WAITER           = 99; // 99 = NONE

@@ -204,7 +204,8 @@ typedef struct
     u8 state_PIE;
     
     u8 index_ANIM_PIE;
-    //u8 max_PIE_STEPS;
+
+    u8 pie_DEVIATION;
 
 } struct_WAITER_;
 

@@ -299,6 +299,10 @@
 #define GUEST_MAN_1                     1
 #define GUEST_MAN_2                     2
 
+#define NO_DEVIATION                    0
+#define UP_DEVIATION                    1
+#define DOWN_DEVIATION                  2
+
 
 
 //-----------------------------------------------------------------------------//
@@ -644,6 +648,22 @@ extern u16 G_ADR_VRAM_BG_A_PIE_RIGHT_0;
 extern u16 G_ADR_VRAM_BG_A_PIE_RIGHT_1;
 extern u16 G_ADR_VRAM_BG_A_PIE_RIGHT_2;
 
+extern u16 G_ADR_VRAM_BG_B_PIE_UP_LEFT_0;
+extern u16 G_ADR_VRAM_BG_B_PIE_UP_LEFT_1;
+extern u16 G_ADR_VRAM_BG_B_PIE_UP_LEFT_2;
+
+extern u16 G_ADR_VRAM_BG_B_PIE_UP_RIGHT_0;
+extern u16 G_ADR_VRAM_BG_B_PIE_UP_RIGHT_1;
+extern u16 G_ADR_VRAM_BG_B_PIE_UP_RIGHT_2;
+
+extern u16 G_ADR_VRAM_BG_A_PIE_UP_LEFT_0;
+extern u16 G_ADR_VRAM_BG_A_PIE_UP_LEFT_1;
+extern u16 G_ADR_VRAM_BG_A_PIE_UP_LEFT_2;
+
+extern u16 G_ADR_VRAM_BG_A_PIE_UP_RIGHT_0;
+extern u16 G_ADR_VRAM_BG_A_PIE_UP_RIGHT_1;
+extern u16 G_ADR_VRAM_BG_A_PIE_UP_RIGHT_2;
+
 
 extern bool G_ACTION_WAITER_AUTHORIZED;
 extern bool G_ACTION_GUEST_AUTHORIZED;
@@ -672,6 +692,12 @@ extern struct_WALL_PIE_ list_WALL_PIES_RIGHT_BG_B[3];
 
 extern struct_WALL_PIE_ list_WALL_PIES_LEFT_BG_A[3];
 extern struct_WALL_PIE_ list_WALL_PIES_RIGHT_BG_A[3];
+
+extern struct_WALL_PIE_ list_WALL_PIES_UP_LEFT_BG_B[3];
+extern struct_WALL_PIE_ list_WALL_PIES_UP_RIGHT_BG_B[3];
+
+extern struct_WALL_PIE_ list_WALL_PIES_UP_LEFT_BG_A[3];
+extern struct_WALL_PIE_ list_WALL_PIES_UP_RIGHT_BG_A[3];
 
 
 

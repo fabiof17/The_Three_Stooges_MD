@@ -57,46 +57,42 @@ void joypad_WAITERS_MINIGAME()
             // CURLY CROUCHES //
             if((value & BUTTON_DIR) == 0)
             {            
-                // CURLY CROUCHES //
-                //if(G_SELECTED_WAITER != WAITER_CURLY)
-                //{
-                    // IF CURLY IS IDLE //
-                    if(list_WAITERS[1].state_CHARACTER == CHAR_PHASE_IDLE)
-                    {
-                        SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
-                        SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
+                // IF CURLY IS IDLE //
+                if(list_WAITERS[1].state_CHARACTER == CHAR_PHASE_IDLE)
+                {
+                    SPR_setFrame(list_WAITERS[1].spr_CHAR_1,1);
+                    SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
 
-                        SPR_setPosition(sprite_HAND_WAITERS,270,108);
-                        
-                        list_WAITERS[1].state_CHARACTER = CHAR_PHASE_CROUCH;
+                    SPR_setPosition(sprite_HAND_WAITERS,270,108);
+                    
+                    list_WAITERS[1].state_CHARACTER = CHAR_PHASE_CROUCH;
 
-                        G_SELECTED_WAITER = WAITER_CURLY;
-                    }
+                    G_SELECTED_WAITER = WAITER_CURLY;
+                }
 
 
 
 
-                    // IF LARRY IS CROUCHING //
-                    // NO NEED TO CHECK FOR MOE //
-                    if(list_WAITERS[0].state_CHARACTER < CHAR_PHASE_GRAB)
-                    {
-                        SPR_setFrame(list_WAITERS[0].spr_CHAR_1,0);
-                        SPR_setFrame(list_WAITERS[0].spr_CHAR_2,0);
-                        
-                        list_WAITERS[0].state_CHARACTER = CHAR_PHASE_IDLE;
+                // IF LARRY IS CROUCHING //
+                // NO NEED TO CHECK FOR MOE //
+                if(list_WAITERS[0].state_CHARACTER < CHAR_PHASE_GRAB)
+                {
+                    SPR_setFrame(list_WAITERS[0].spr_CHAR_1,0);
+                    SPR_setFrame(list_WAITERS[0].spr_CHAR_2,0);
+                    
+                    list_WAITERS[0].state_CHARACTER = CHAR_PHASE_IDLE;
 
-                        //return;
-                    }
+                    //return;
+                }
 
-                    // IF MOE IS CROUCHING //
-                    if(list_WAITERS[2].state_CHARACTER < CHAR_PHASE_GRAB)
-                    {
-                        SPR_setFrame(list_WAITERS[2].spr_CHAR_1,0);
-                        SPR_setFrame(list_WAITERS[2].spr_CHAR_2,0);
-                        
-                        list_WAITERS[2].state_CHARACTER = CHAR_PHASE_IDLE;
-                    }
-                //}
+                // IF MOE IS CROUCHING //
+                if(list_WAITERS[2].state_CHARACTER < CHAR_PHASE_GRAB)
+                {
+                    SPR_setFrame(list_WAITERS[2].spr_CHAR_1,0);
+                    SPR_setFrame(list_WAITERS[2].spr_CHAR_2,0);
+                    
+                    list_WAITERS[2].state_CHARACTER = CHAR_PHASE_IDLE;
+                }
             }
 
 
@@ -145,30 +141,6 @@ void joypad_WAITERS_MINIGAME()
                     }
 
                 }
-
-
-
-
-                // IF LARRY IS CROUCHING //
-                // NO NEED TO CHECK FOR CURLY //
-                /*if(list_WAITERS[0].state_CHARACTER < CHAR_PHASE_GRAB)
-                {
-                    SPR_setFrame(list_WAITERS[0].spr_CHAR_1,0);
-                    SPR_setFrame(list_WAITERS[0].spr_CHAR_2,0);
-                    
-                    list_WAITERS[0].state_CHARACTER = CHAR_PHASE_IDLE;
-
-                    //return;
-                }
-
-                // IF CURLY IS CROUCHING //
-                if(list_WAITERS[1].state_CHARACTER < CHAR_PHASE_GRAB)
-                {
-                    SPR_setFrame(list_WAITERS[1].spr_CHAR_1,0);
-                    SPR_setFrame(list_WAITERS[1].spr_CHAR_2,0);
-                    
-                    list_WAITERS[1].state_CHARACTER = CHAR_PHASE_IDLE; 
-                }*/
             }
 
 
@@ -181,45 +153,40 @@ void joypad_WAITERS_MINIGAME()
             // LARRY CROUCHES //
             else if(value & BUTTON_DOWN)
             {
-                //if(G_SELECTED_WAITER != WAITER_LARRY)
-                //{
-                    // IF LARRY IS IDLE //
-                    if(list_WAITERS[0].state_CHARACTER == CHAR_PHASE_IDLE)
+                // IF LARRY IS IDLE //
+                if(list_WAITERS[0].state_CHARACTER == CHAR_PHASE_IDLE)
+                {
+                    SPR_setFrame(list_WAITERS[0].spr_CHAR_1,1);
+                    SPR_setFrame(list_WAITERS[0].spr_CHAR_2,1);
+
+                    SPR_setPosition(sprite_HAND_WAITERS,286,112);
+                    
+                    list_WAITERS[0].state_CHARACTER = CHAR_PHASE_CROUCH;
+
+                    G_SELECTED_WAITER = WAITER_LARRY;
+
+
+
+
+                    // IF MOE IS CROUCHING //
+                    // NO NEED TO CHECK FOR CURLY //
+                    if(list_WAITERS[2].state_CHARACTER < CHAR_PHASE_GRAB)
                     {
-                        SPR_setFrame(list_WAITERS[0].spr_CHAR_1,1);
-                        SPR_setFrame(list_WAITERS[0].spr_CHAR_2,1);
-
-                        SPR_setPosition(sprite_HAND_WAITERS,286,112);
+                        SPR_setFrame(list_WAITERS[2].spr_CHAR_1,0);
+                        SPR_setFrame(list_WAITERS[2].spr_CHAR_2,0);
                         
-                        list_WAITERS[0].state_CHARACTER = CHAR_PHASE_CROUCH;
-
-                        G_SELECTED_WAITER = WAITER_LARRY;
-
-
-
-
-                        // IF MOE IS CROUCHING //
-                        // NO NEED TO CHECK FOR CURLY //
-                        if(list_WAITERS[2].state_CHARACTER < CHAR_PHASE_GRAB)
-                        {
-                            SPR_setFrame(list_WAITERS[2].spr_CHAR_1,0);
-                            SPR_setFrame(list_WAITERS[2].spr_CHAR_2,0);
-                            
-                            list_WAITERS[2].state_CHARACTER = CHAR_PHASE_IDLE;
-
-                            //return;
-                        }
-
-                        // IF CURLY IS CROUCHING //
-                        if(list_WAITERS[1].state_CHARACTER < CHAR_PHASE_GRAB)
-                        {
-                            SPR_setFrame(list_WAITERS[1].spr_CHAR_1,0);
-                            SPR_setFrame(list_WAITERS[1].spr_CHAR_2,0);
-                            
-                            list_WAITERS[1].state_CHARACTER = CHAR_PHASE_IDLE; 
-                        }
+                        list_WAITERS[2].state_CHARACTER = CHAR_PHASE_IDLE;
                     }
-                //}
+
+                    // IF CURLY IS CROUCHING //
+                    if(list_WAITERS[1].state_CHARACTER < CHAR_PHASE_GRAB)
+                    {
+                        SPR_setFrame(list_WAITERS[1].spr_CHAR_1,0);
+                        SPR_setFrame(list_WAITERS[1].spr_CHAR_2,0);
+                        
+                        list_WAITERS[1].state_CHARACTER = CHAR_PHASE_IDLE; 
+                    }
+                }
             }
         }
     }
@@ -1496,7 +1463,11 @@ void sequence_WAITERS_MINIGAME()
     {
         if(G_COUNTER_1 == 60)
         {
-            // DISPLAY DIALOG LEFT//
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                ERASE DIALOG BOX LEFT                                 //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
             VDP_setTileMapEx(BG_A, image_WAITERS_MINIGAME_DIALOG.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 55), 0, 9, 0, 0, 13, 7, DMA_QUEUE);
 
             // WE WANT OUR PIE... //
@@ -1505,10 +1476,40 @@ void sequence_WAITERS_MINIGAME()
 
         else if(G_COUNTER_1 == 240)
         {
-            // ERASE DIALOG LEFT //
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                ERASE DIALOG BOX LEFT                                 //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
             VDP_setTileMapEx(BG_A, image_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 9, 0, 9, 13, 7, DMA_QUEUE);
 
-            // DISPLAY DIALOG RIGHT //
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                         LEFT                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            VDP_setTileMapEx(BG_A, image_PIE_WALL2_0_LEFT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_LEFT_2), 5, 14, 0, 0, 2, 2, DMA_QUEUE);
+            
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                       TOP LEFT                                       //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            VDP_setTileMapEx(BG_A, image_PIE_WALL0_0_UP_LEFT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_LEFT_0), 0,  7, 0, 0, 2, 5, DMA_QUEUE);
+
+            VDP_setTileMapEx(BG_A, image_PIE_WALL1_0_UP_LEFT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_LEFT_1), 3, 10, 0, 0, 2, 5, DMA_QUEUE);
+
+            VDP_setTileMapEx(BG_A, image_PIE_WALL2_0_UP_LEFT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_LEFT_2), 5,  9, 0, 0, 2, 5, DMA_QUEUE);
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                ERASE DIALOG BOX RIGHT                                //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
             VDP_setTileMapEx(BG_A, image_WAITERS_MINIGAME_DIALOG.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 55), 25, 9, 13, 0, 15, 7, DMA_QUEUE);
 
             // YOU HEARD'EM //
@@ -1517,18 +1518,42 @@ void sequence_WAITERS_MINIGAME()
 
         else if(G_COUNTER_1 == 420)
         {
-            // ERASE DIALOG RIGHT //
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                ERASE DIALOG BOX RIGHT                                //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
             VDP_setTileMapEx(BG_A, image_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 25, 9, 25, 9, 15, 7, DMA_QUEUE);
 
-            // DISPLAY WALL PIE LEFT //
-            VDP_setTileMapEx(BG_B, image_PIE_WALL2_0_LEFT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_LEFT_2), 5, 14, 0, 0, 2, 2, DMA_QUEUE);
-            VDP_setTileMapEx(BG_A, image_PIE_WALL2_0_LEFT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_LEFT_2), 5, 14, 0, 0, 2, 2, DMA_QUEUE);
             
-            // DISPLAY WALL PIE RIGHT //
-            VDP_setTileMapEx(BG_B, image_PIE_WALL2_0_RIGHT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_RIGHT_2), 33, 14, 0, 0, 2, 2, DMA_QUEUE);
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                        RIGHT                                         //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
             VDP_setTileMapEx(BG_A, image_PIE_WALL2_0_RIGHT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_RIGHT_2), 33, 14, 0, 0, 2, 2, DMA_QUEUE);
-            
-            // DISPLAY HAND //
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                      TOP RIGHT                                       //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            VDP_setTileMapEx(BG_A, image_PIE_WALL0_0_UP_RIGHT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_RIGHT_0), 38,  8, 0, 0, 2, 5, DMA_QUEUE);
+
+            VDP_setTileMapEx(BG_A, image_PIE_WALL1_0_UP_RIGHT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_RIGHT_1), 36, 10, 0, 0, 2, 5, DMA_QUEUE);
+
+            VDP_setTileMapEx(BG_A, image_PIE_WALL2_0_UP_RIGHT_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_UP_RIGHT_2), 33,  9, 0, 0, 2, 5, DMA_QUEUE);
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                     DISPLAY HAND                                     //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
             SPR_setPosition(sprite_HAND_WAITERS,270,108);
 
 
