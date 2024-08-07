@@ -664,6 +664,14 @@ extern u16 G_ADR_VRAM_BG_A_PIE_UP_RIGHT_0;
 extern u16 G_ADR_VRAM_BG_A_PIE_UP_RIGHT_1;
 extern u16 G_ADR_VRAM_BG_A_PIE_UP_RIGHT_2;
 
+extern u16 G_ADR_VRAM_BG_B_PIE_DOWN_0;
+extern u16 G_ADR_VRAM_BG_B_PIE_DOWN_1;
+extern u16 G_ADR_VRAM_BG_B_PIE_DOWN_2;
+
+extern u16 G_ADR_VRAM_BG_A_PIE_DOWN_0;
+extern u16 G_ADR_VRAM_BG_A_PIE_DOWN_1;
+extern u16 G_ADR_VRAM_BG_A_PIE_DOWN_2;
+
 
 extern bool G_ACTION_WAITER_AUTHORIZED;
 extern bool G_ACTION_GUEST_AUTHORIZED;
@@ -698,6 +706,9 @@ extern struct_WALL_PIE_ list_WALL_PIES_UP_RIGHT_BG_B[3];
 
 extern struct_WALL_PIE_ list_WALL_PIES_UP_LEFT_BG_A[3];
 extern struct_WALL_PIE_ list_WALL_PIES_UP_RIGHT_BG_A[3];
+
+extern struct_WALL_PIE_ list_WALL_PIES_DOWN_BG_B[3];
+extern struct_WALL_PIE_ list_WALL_PIES_DOWN_BG_A[3];
 
 
 
