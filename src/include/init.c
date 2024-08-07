@@ -4445,6 +4445,11 @@ void init_SCENE()
 
 
 
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                DOWN WALL PIES ARRAYS                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
 
         list_WALL_PIES_DOWN_BG_B[0].vram_ADRESS     = G_ADR_VRAM_BG_B_PIE_DOWN_0;
         list_WALL_PIES_DOWN_BG_B[1].vram_ADRESS     = G_ADR_VRAM_BG_B_PIE_DOWN_1;
