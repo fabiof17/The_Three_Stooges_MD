@@ -32,7 +32,7 @@ extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_LARRY[59];
 
 extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MAN_2[60];
 extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MAN_2_UP[60];
-//extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MAN_2_DOWN[60];
+extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MAN_2_DOWN[60];
 
 extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MAN_1[60];
 //extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MAN_1_UP[60];

@@ -291,7 +291,6 @@ inline static void AI_GUESTS()
         //              - CROUCH                                              //
         //              - GRAB A PIE                                          //
         //--------------------------------------------------------------------//
-        
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_CROUCH)
         {      
             //--------------------------------------------------------------------//
@@ -337,7 +336,7 @@ inline static void AI_GUESTS()
                         SPR_setFrame(list_GUESTS[i].spr_CHAR_1,guest_STATE);
                         SPR_setFrame(list_GUESTS[i].spr_CHAR_2,guest_STATE);
 
-                        VDP_drawIntEx_BG_A_QUEUE(99,2,10,0,PAL3);
+
                         //--------------------------------------------------------------------//
                         //              !!!  TRICK TO AVOID SPRITE LIMIT  !!! //              //
                         //--------------------------------------------------------------------//
