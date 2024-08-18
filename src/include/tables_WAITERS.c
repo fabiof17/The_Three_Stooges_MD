@@ -25,6 +25,16 @@
 
 
 
+const Image                     *TABLE_TILES_MAN_1[4]                       =   {
+                                                                                    &image_MAN1_1_WAITERS,
+                                                                                    &image_MAN1_2_WAITERS,
+                                                                                    &image_MAN1_3_WAITERS,
+                                                                                    &image_MAN1_4_WAITERS
+                                                                                };
+
+
+
+
 const u8                        TABLE_PROBABILITY_PIE_COLLISION[20]         =   {
                                                                                     0,
                                                                                     1,
@@ -45,6 +55,59 @@ const u8                        TABLE_PROBABILITY_PIE_COLLISION[20]         =   
                                                                                     0,
                                                                                     1,
                                                                                     0,
+                                                                                    2
+                                                                                };
+
+
+
+
+
+const bool                        TABLE_PROBABILITY_IDLE_CROUCH[20]         =   {
+                                                                                    0,
+                                                                                    1,
+                                                                                    0,
+                                                                                    1,
+                                                                                    0,
+                                                                                    1,
+                                                                                    0,
+                                                                                    1,
+                                                                                    0,
+                                                                                    1,
+                                                                                    0,
+                                                                                    1,
+                                                                                    0,
+                                                                                    1,
+                                                                                    0,
+                                                                                    1,
+                                                                                    0,
+                                                                                    1,
+                                                                                    0,
+                                                                                    1
+                                                                                };
+
+
+
+
+const bool                  TABLE_PROBABILITY_IDLE_CROUCH_GRAB[20]         =   {
+                                                                                    0,
+                                                                                    1,
+                                                                                    2,
+                                                                                    0,
+                                                                                    1,
+                                                                                    2,
+                                                                                    0,
+                                                                                    1,
+                                                                                    2,
+                                                                                    0,
+                                                                                    1,
+                                                                                    2,
+                                                                                    0,
+                                                                                    1,
+                                                                                    2,
+                                                                                    0,
+                                                                                    1,
+                                                                                    2,
+                                                                                    2,
                                                                                     2
                                                                                 };
 

@@ -207,6 +207,8 @@ typedef struct
 
     u8 pie_DEVIATION;
 
+    u8 counter_ACTION;
+
 } struct_WAITER_;
 
 

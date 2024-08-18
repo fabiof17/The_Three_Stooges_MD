@@ -204,9 +204,7 @@ inline static void check_WAITER_ACTION_AUTHORISATION()
     if(G_ACTION_WAITER_AUTHORIZED == FALSE)
     {
         if(G_COUNTER_ACTION_WAITERS == 24)
-        {
-            //
-            
+        {            
             G_COUNTER_ACTION_WAITERS = 0;
 
             G_ACTION_WAITER_AUTHORIZED = TRUE;
@@ -220,25 +218,265 @@ inline static void check_WAITER_ACTION_AUTHORISATION()
 }
 
 
-/*inline static void check_GUEST_ACTION_AUTHORISATION()
+inline static void AI_GUESTS()
 {
-    if(G_ACTION_GUEST_AUTHORIZED == FALSE)
+    u8 i;
+
+    for(i=0 ; i<3 ; i++)
     {
-        if(G_COUNTER_ACTION_GUESTS == 24)
-        {
-            //
+        //********************************************************************//
+        //                                                                    //
+        //                          IF GUEST IS IDLE                          //
+        //                                                                    //
+        //********************************************************************//
+        //--------------------------------------------------------------------//
+        //              GUEST CAN :                                           //
+        //              - IDLE                                                //
+        //              - CROUCH                                              //
+        //--------------------------------------------------------------------//
+        if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_IDLE)
+        {      
+            //--------------------------------------------------------------------//
+            //                   INCREASE GUEST COUNTER ACTION                    //
+            //--------------------------------------------------------------------//            
+            list_GUESTS[i].counter_ACTION += 1;
             
-            G_COUNTER_ACTION_GUESTS = 0;
 
-            G_ACTION_GUEST_AUTHORIZED = TRUE;
+            if(list_GUESTS[i].counter_ACTION == GUEST_ACTION_DELAY)
+            {
+                //--------------------------------------------------------------------//
+                //                       RANDOM NEW GUEST STATE                       //
+                //--------------------------------------------------------------------//                
+                u8 random_STATE = random_NUMBER(0,19);
+                u8 guest_STATE  = TABLE_PROBABILITY_IDLE_CROUCH[random_STATE];
 
-            return;
+                //--------------------------------------------------------------------//
+                //                        SET NEW GUEST STATE                         //
+                //--------------------------------------------------------------------// 
+                list_GUESTS[i].state_CHARACTER = guest_STATE;
+
+
+                //--------------------------------------------------------------------//
+                //                     UPDATE GUEST SPRITE FRAME                      //
+                //--------------------------------------------------------------------//  
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1,guest_STATE);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2,guest_STATE);
+
+
+                //--------------------------------------------------------------------//
+                //              !!!  TRICK TO AVOID SPRITE LIMIT  !!! //              //
+                //--------------------------------------------------------------------//
+                if(i == GUEST_MAN_1)
+                {
+                    VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                }
+
+
+                //--------------------------------------------------------------------//
+                //                     RESET GUEST COUNTER ACTION                     //
+                //--------------------------------------------------------------------// 
+                list_GUESTS[i].counter_ACTION = 0;
+            }
         }
-        
-        G_COUNTER_ACTION_GUESTS += 1;
-    }
 
-}*/
+
+        //--------------------------------------------------------------------//
+        //                                                                    //
+        //                        IF GUEST IS CROUCHING                       //
+        //                                                                    //
+        //--------------------------------------------------------------------//
+        //--------------------------------------------------------------------//
+        //              GUEST CAN :                                           //
+        //              - IDLE                                                //
+        //              - CROUCH                                              //
+        //              - GRAB A PIE                                          //
+        //--------------------------------------------------------------------//
+        
+        else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_CROUCH)
+        {      
+            //--------------------------------------------------------------------//
+            //                   INCREASE GUEST COUNTER ACTION                    //
+            //--------------------------------------------------------------------//             
+            list_GUESTS[i].counter_ACTION += 1;
+
+
+            if(list_GUESTS[i].counter_ACTION == GUEST_ACTION_DELAY)
+            {
+                //--------------------------------------------------------------------//
+                //                    IF SHOOTING A PIE IS ALLOWED                    //
+                //--------------------------------------------------------------------//
+                if(G_GUEST_SHOT_AUTHORIZED == TRUE)
+                {
+                    //--------------------------------------------------------------------//
+                    //                    IF PIE IS SERVED ON THE TABLE                   //
+                    //--------------------------------------------------------------------//
+                    //--------------------------------------------------------------------//
+                    //              GUEST CAN :                                           //
+                    //              - IDLE                                                //
+                    //              - CROUCH                                              //
+                    //              - GRAB A PIE                                          //
+                    //--------------------------------------------------------------------//
+                    if(list_GUESTS[i].state_PIE == PIE_PHASE_SERVED)
+                    {
+                        //--------------------------------------------------------------------//
+                        //                       RANDOM NEW GUEST STATE                       //
+                        //--------------------------------------------------------------------//                  
+                        u8 random_STATE = random_NUMBER(0,19);
+                        u8 guest_STATE  = TABLE_PROBABILITY_IDLE_CROUCH_GRAB[random_STATE];
+
+
+                        //--------------------------------------------------------------------//
+                        //                        SET NEW GUEST STATE                         //
+                        //--------------------------------------------------------------------// 
+                        list_GUESTS[i].state_CHARACTER = guest_STATE;
+
+
+                        //--------------------------------------------------------------------//
+                        //                     UPDATE GUEST SPRITE FRAME                      //
+                        //--------------------------------------------------------------------//   
+                        SPR_setFrame(list_GUESTS[i].spr_CHAR_1,guest_STATE);
+                        SPR_setFrame(list_GUESTS[i].spr_CHAR_2,guest_STATE);
+
+                        VDP_drawIntEx_BG_A_QUEUE(99,2,10,0,PAL3);
+                        //--------------------------------------------------------------------//
+                        //              !!!  TRICK TO AVOID SPRITE LIMIT  !!! //              //
+                        //--------------------------------------------------------------------//
+                        if(i == GUEST_MAN_1)
+                        {
+                            VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                        }
+
+
+                        //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                        //                                                                    //
+                        //                           MANAGE GUEST PIE                         //
+                        //                                                                    //
+                        //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                        //--------------------------------------------------------------------//
+                        //                        IF GUEST GRABS A PIE                        //
+                        //--------------------------------------------------------------------// 
+                        if(guest_STATE == CHAR_PHASE_GRAB)
+                        {
+                            list_GUESTS[i].index_ANIM_PIE = 1;
+
+                            //------------------------------------------------------//
+                            //            SET POINTER TO PIE ANIM TABLE             //
+                            //------------------------------------------------------//
+                            const struct_PIE_ANIM_ *ptr_PIE_ANIM;
+
+                            if(i == GUEST_WOMAN)
+                            {
+                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
+                            }
+
+                            else if(i == GUEST_MAN_1)
+                            {
+                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1[list_GUESTS[GUEST_MAN_1].index_ANIM_PIE];
+                            }
+
+                            else if(i == GUEST_MAN_2)
+                            {
+                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_GUESTS[GUEST_MAN_2].index_ANIM_PIE];
+                            }
+
+
+                            //--------------------------------------------------------------------//
+                            //               SET GUEST PIE POSITION AND SPRITE FRAME              //
+                            //--------------------------------------------------------------------//
+                            SPR_setPosition(list_GUESTS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+                        }
+                    }
+
+
+                    //--------------------------------------------------------------------//
+                    //                  IF PIE IS NOT SERVED ON THE TABLE                 //
+                    //--------------------------------------------------------------------//
+                    //--------------------------------------------------------------------//
+                    //              GUEST CAN :                                           //
+                    //              - IDLE                                                //
+                    //              - CROUCH                                              //
+                    //--------------------------------------------------------------------//
+                    else
+                    {
+                        //--------------------------------------------------------------------//
+                        //                       RANDOM NEW GUEST STATE                       //
+                        //--------------------------------------------------------------------//                 
+                        u8 random_STATE = random_NUMBER(0,19);
+                        u8 guest_STATE  = TABLE_PROBABILITY_IDLE_CROUCH[random_STATE];
+
+
+                        //--------------------------------------------------------------------//
+                        //                        SET NEW GUEST STATE                         //
+                        //--------------------------------------------------------------------// 
+                        list_GUESTS[i].state_CHARACTER = guest_STATE;
+
+
+                        //--------------------------------------------------------------------//
+                        //                     UPDATE GUEST SPRITE FRAME                      //
+                        //--------------------------------------------------------------------//   
+                        SPR_setFrame(list_GUESTS[i].spr_CHAR_1,guest_STATE);
+                        SPR_setFrame(list_GUESTS[i].spr_CHAR_2,guest_STATE);
+
+
+                        //--------------------------------------------------------------------//
+                        //              !!!  TRICK TO AVOID SPRITE LIMIT  !!! //              //
+                        //--------------------------------------------------------------------//
+                        if(i == GUEST_MAN_1)
+                        {
+                            VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                        }
+                    }
+                }
+
+
+                //--------------------------------------------------------------------//
+                //                  IF SHOOTING A PIE IS NOT ALLOWED                  //
+                //--------------------------------------------------------------------//
+                //--------------------------------------------------------------------//
+                //              GUEST CAN :                                           //
+                //              - IDLE                                                //
+                //              - CROUCH                                              //
+                //--------------------------------------------------------------------//
+                else
+                {
+                    //--------------------------------------------------------------------//
+                    //                       RANDOM NEW GUEST STATE                       //
+                    //--------------------------------------------------------------------//                
+                    u8 random_STATE = random_NUMBER(0,19);
+                    u8 guest_STATE  = TABLE_PROBABILITY_IDLE_CROUCH[random_STATE];
+
+
+                    //--------------------------------------------------------------------//
+                    //                        SET NEW GUEST STATE                         //
+                    //--------------------------------------------------------------------// 
+                    list_GUESTS[i].state_CHARACTER = guest_STATE;
+
+
+                    //--------------------------------------------------------------------//
+                    //                     UPDATE GUEST SPRITE FRAME                      //
+                    //--------------------------------------------------------------------//  
+                    SPR_setFrame(list_GUESTS[i].spr_CHAR_1,guest_STATE);
+                    SPR_setFrame(list_GUESTS[i].spr_CHAR_2,guest_STATE);
+
+
+                    //--------------------------------------------------------------------//
+                    //              !!!  TRICK TO AVOID SPRITE LIMIT  !!! //              //
+                    //--------------------------------------------------------------------//
+                    if(i == GUEST_MAN_1)
+                    {
+                        VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    }
+                }
+
+
+                //--------------------------------------------------------------------//
+                //                     RESET GUEST COUNTER ACTION                     //
+                //--------------------------------------------------------------------// 
+                list_GUESTS[i].counter_ACTION = 0;
+            }
+        }
+    }
+}
 
 
 
@@ -858,9 +1096,10 @@ inline static void anim_PIE_GUESTS()
                     }
                 }
 
-                //------------------------------------------------------//
-                //          SET PIE POSITION AND SPRITE FRAME           //
-                //------------------------------------------------------//
+
+                //--------------------------------------------------------------------//
+                //               SET GUEST PIE POSITION AND SPRITE FRAME              //
+                //--------------------------------------------------------------------//
                 SPR_setPosition(list_GUESTS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
 
                 if(ptr_PIE_ANIM->index_ANIM_PIE != 99)
@@ -1175,36 +1414,15 @@ inline static void anim_GUESTS()
 
     for(i=0 ; i<3 ; i++)
     {
-        //--------------------------------------------------------//
-        //                                                        //
-        //                   GUEST IDLE PHASE                     //
-        //                                                        //
-        //--------------------------------------------------------//
-        if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_IDLE)
+        if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_GRAB)
         {
-            //
-        }
-
-
-        //--------------------------------------------------------//
-        //                                                        //
-        //                  GUEST CROUCH PHASE                    //
-        //                                                        //
-        //--------------------------------------------------------//
-        else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_CROUCH)
-        {
-            //
-        }
-
-
-        //--------------------------------------------------------//
-        //                                                        //
-        //                     GUEST GRAB PHASE                   //
-        //                                                        //
-        //--------------------------------------------------------//
-        else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_GRAB)
-        {
-            if(list_GUESTS[i].counter_CHARACTER == 6)
+            //------------------------------------------------------//
+            //                 INCREASE GUEST COUNTER               //
+            //------------------------------------------------------//            
+            list_GUESTS[i].counter_CHARACTER += 1;
+            
+            
+            if(list_GUESTS[i].counter_CHARACTER == 7)
             {
                 //------------------------------------------------------//
                 //                  RESET GUEST COUNTER                 //
@@ -1230,11 +1448,12 @@ inline static void anim_GUESTS()
                 }
 
 
-                //------------------------------------------------------//
-                //                  INCREASE PIE INDEX                  //
-                //------------------------------------------------------//
-                list_GUESTS[i].index_ANIM_PIE += 1;
 
+
+                //------------------------------------------------------//
+                //                  SET GUEST PIE INDEX                 //
+                //------------------------------------------------------//
+                list_GUESTS[i].index_ANIM_PIE = 2;
 
                 //------------------------------------------------------//
                 //            SET POINTER TO PIE ANIM TABLE             //
@@ -1259,16 +1478,18 @@ inline static void anim_GUESTS()
 
 
 
-                //------------------------------------------------------//
-                //          SET PIE POSITION AND SPRITE FRAME           //
-                //------------------------------------------------------//
+                //--------------------------------------------------------------------//
+                //               SET GUEST PIE POSITION AND SPRITE FRAME              //
+                //--------------------------------------------------------------------//
                 SPR_setPosition(list_GUESTS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
-                SPR_setFrame(list_GUESTS[i].spr_PIE , ptr_PIE_ANIM->index_ANIM_PIE);
+                SPR_setFrame(list_GUESTS[i].spr_PIE , 1);
 
-                return;
+
+                //--------------------------------------------------------------------//
+                //                 SHHOTING A PIE IS AUTHORIZED AGAIN                 //
+                //--------------------------------------------------------------------//
+                G_GUEST_SHOT_AUTHORIZED = TRUE;
             }
-
-            list_GUESTS[i].counter_CHARACTER += 1;
         }
 
 
@@ -1279,7 +1500,10 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_AIM)
         {
-            if(list_GUESTS[i].counter_CHARACTER == 7)
+            list_GUESTS[i].counter_CHARACTER += 1;
+
+
+            if(list_GUESTS[i].counter_CHARACTER == 8)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
@@ -1305,11 +1529,17 @@ inline static void anim_GUESTS()
                 }
 
 
+
+
+                //------------------------------------------------------//
+                //                 PIE GOES THROW PHASE                 //
+                //------------------------------------------------------//
+                list_GUESTS[i].state_PIE = PIE_PHASE_THROW;
+
                 //------------------------------------------------------//
                 //                  INCREASE PIE INDEX                  //
                 //------------------------------------------------------//
-                list_GUESTS[i].index_ANIM_PIE += 1;
-
+                list_GUESTS[i].index_ANIM_PIE = 3;
 
                 //------------------------------------------------------//
                 //            SET POINTER TO PIE ANIM TABLE             //
@@ -1334,16 +1564,17 @@ inline static void anim_GUESTS()
 
 
 
-                //------------------------------------------------------//
-                //          SET PIE POSITION AND SPRITE FRAME           //
-                //------------------------------------------------------//
+                //--------------------------------------------------------------------//
+                //               SET GUEST PIE POSITION AND SPRITE FRAME              //
+                //--------------------------------------------------------------------//
                 SPR_setPosition(list_GUESTS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
-                SPR_setFrame(list_GUESTS[i].spr_PIE , ptr_PIE_ANIM->index_ANIM_PIE);
+                SPR_setFrame(list_GUESTS[i].spr_PIE , 2);
 
-                return;
+
+                //return;
             }
 
-            list_GUESTS[i].counter_CHARACTER += 1;
+            //list_GUESTS[i].counter_CHARACTER += 1;
         }
 
 
@@ -1354,13 +1585,10 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_THROW)
         {
-            //------------------------------------------------------//
-            //                 PIE GOES THROW PHASE                 //
-            //------------------------------------------------------//
-            list_GUESTS[i].state_PIE = PIE_PHASE_THROW;
+            list_GUESTS[i].counter_CHARACTER += 1;
 
-
-            if(list_GUESTS[i].counter_CHARACTER == 7)
+                
+            if(list_GUESTS[i].counter_CHARACTER == 8)
             {
                 //------------------------------------------------------//
                 //              UPDATE GUEST SPRITE FRAME               //
@@ -1377,7 +1605,7 @@ inline static void anim_GUESTS()
             }
 
 
-            else if(list_GUESTS[i].counter_CHARACTER == 14)
+            else if(list_GUESTS[i].counter_CHARACTER == 15)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
@@ -1401,13 +1629,7 @@ inline static void anim_GUESTS()
                 {
                     VDP_loadTileSet(image_MAN1_2_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
                 }
-
-
-                return;
             }
-
-
-            list_GUESTS[i].counter_CHARACTER += 1;
         }
 
 
@@ -1418,7 +1640,9 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_1)
         {
-            if(list_GUESTS[i].counter_CHARACTER == 63)
+            list_GUESTS[i].counter_CHARACTER += 1;
+            
+            if(list_GUESTS[i].counter_CHARACTER == 64)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
@@ -1444,10 +1668,10 @@ inline static void anim_GUESTS()
                     VDP_loadTileSet(image_MAN1_7_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
                 }
 
-                return;
+                //return;
             }
 
-            list_GUESTS[i].counter_CHARACTER += 1;
+            //list_GUESTS[i].counter_CHARACTER += 1;
         }
 
 
@@ -1458,7 +1682,9 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_2)
         {
-            if(list_GUESTS[i].counter_CHARACTER == 21)
+            list_GUESTS[i].counter_CHARACTER += 1;
+            
+            if(list_GUESTS[i].counter_CHARACTER == 22)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
@@ -1484,10 +1710,10 @@ inline static void anim_GUESTS()
                     VDP_loadTileSet(image_MAN1_8_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
                 }
 
-                return;
+                //return;
             }
 
-            list_GUESTS[i].counter_CHARACTER += 1;
+            //list_GUESTS[i].counter_CHARACTER += 1;
         }
 
 
@@ -1498,7 +1724,11 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_3)
         {
-            if(list_GUESTS[i].counter_CHARACTER == 20)
+            
+            list_GUESTS[i].counter_CHARACTER += 1;
+            
+
+            if(list_GUESTS[i].counter_CHARACTER == 21)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
@@ -1521,10 +1751,12 @@ inline static void anim_GUESTS()
                     VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
                 }
 
-                return;
-            }
 
-            list_GUESTS[i].counter_CHARACTER += 1;
+                //--------------------------------------------------------------------//
+                //                     RESET GUEST COUNTER ACTION                     //
+                //--------------------------------------------------------------------// 
+                list_GUESTS[i].counter_ACTION = 0;
+            }
         }
 
 
@@ -1535,14 +1767,17 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_CROUCH_2)
         {
-            if(list_GUESTS[i].counter_CHARACTER == 14)
+            list_GUESTS[i].counter_CHARACTER += 1;
+            
+            
+            if(list_GUESTS[i].counter_CHARACTER == 15)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
                 //------------------------------------------------------//
                 list_GUESTS[i].counter_CHARACTER = 0;
 
-                // RANDOMLY CHOOSE NEXT STATE (TO BE DONE) //
+
                 list_GUESTS[i].state_CHARACTER = CHAR_PHASE_IDLE;
 
                 //------------------------------------------------------//
@@ -1558,11 +1793,12 @@ inline static void anim_GUESTS()
                     VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
                 }
 
-                return;
+
+                //--------------------------------------------------------------------//
+                //                     RESET GUEST COUNTER ACTION                     //
+                //--------------------------------------------------------------------// 
+                list_GUESTS[i].counter_ACTION = 0;
             }
-
-
-            list_GUESTS[i].counter_CHARACTER += 1;
         }
     }
 }
@@ -1683,35 +1919,33 @@ void sequence_WAITERS_MINIGAME()
             SPR_setFrame(list_GUESTS[1].spr_CHAR_1,1);
             SPR_setFrame(list_GUESTS[1].spr_CHAR_2,1);
 
-            //--------------------------------------------------------------------------------------//
-            //                                         MAN 2                                        //
-            //--------------------------------------------------------------------------------------//
-            list_GUESTS[2].state_CHARACTER   =   CHAR_PHASE_GRAB; //CHAR_PHASE_GRAB
-            SPR_setFrame(list_GUESTS[2].spr_CHAR_1,2);
-            SPR_setFrame(list_GUESTS[2].spr_CHAR_2,2);
-
-            //--------------------------------------------------------------------------------------//
-            //                                      MAN 2'S PIE                                     //
-            //--------------------------------------------------------------------------------------//
-            list_GUESTS[2].state_PIE         =   PIE_PHASE_GRAB;
-
-            // INCREASE PIE ANIM INDEX //
-            list_GUESTS[2].index_ANIM_PIE    += 1;
-
-            // SETUP POINTER TO PIE ANIMATION TABLE //
-            const struct_PIE_ANIM_ *ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_GUESTS[2].index_ANIM_PIE];;
-            SPR_setPosition(list_GUESTS[2].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
-
-
             // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
             VDP_loadTileSet(image_MAN1_2_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
 
+            //--------------------------------------------------------------------------------------//
+            //                                         MAN 2                                        //
+            //--------------------------------------------------------------------------------------//
+            list_GUESTS[2].state_CHARACTER   =   CHAR_PHASE_GRAB;
+            SPR_setFrame(list_GUESTS[2].spr_CHAR_1,2);
+            SPR_setFrame(list_GUESTS[2].spr_CHAR_2,2);
 
-            G_PIE_SHOT_AUTHORIZED   = FALSE;
 
-            G_PHASE_SEQUENCE        = WAITER_PHASE_ACTION;
+            // INCREASE PIE ANIM INDEX //
+            list_GUESTS[2].index_ANIM_PIE    =   1;
 
-            G_COUNTER_1             = 0;
+
+            // SETUP POINTER TO PIE ANIMATION TABLE //
+            const struct_PIE_ANIM_ *ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_GUESTS[2].index_ANIM_PIE];
+            SPR_setPosition(list_GUESTS[2].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+
+
+
+
+            G_GUEST_SHOT_AUTHORIZED   = FALSE;
+
+            G_PHASE_SEQUENCE          = WAITER_PHASE_ACTION;
+
+            G_COUNTER_1               = 0;
 
             return;
         }
@@ -1723,6 +1957,8 @@ void sequence_WAITERS_MINIGAME()
 
     else if(G_PHASE_SEQUENCE == WAITER_PHASE_ACTION)
     {
+        AI_GUESTS();
+        
         check_WAITER_ACTION_AUTHORISATION();
         
         anim_PIE_WAITERS();

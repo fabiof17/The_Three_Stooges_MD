@@ -4,7 +4,13 @@
 
 
 //extern const u8                     TABLE_MAX_PIES[4];
+
+extern const Image                  *TABLE_TILES_MAN_1[4];
+
 extern const u8                     TABLE_PROBABILITY_PIE_COLLISION[20];
+
+extern const bool                   TABLE_PROBABILITY_IDLE_CROUCH[20];
+extern const bool                   TABLE_PROBABILITY_IDLE_CROUCH_GRAB[20];
 
 
 

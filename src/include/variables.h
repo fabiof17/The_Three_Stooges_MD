@@ -286,8 +286,8 @@
 #define CHAR_PHASE_CROUCH_2             8
 
 #define PIE_PHASE_SERVED                0
-#define PIE_PHASE_GRAB                  2
 #define PIE_PHASE_AIM                   1
+#define PIE_PHASE_GRAB                  2
 #define PIE_PHASE_THROW                 3
 #define PIE_PHASE_OUT                   4
 
@@ -302,6 +302,8 @@
 #define NO_DEVIATION                    0
 #define UP_DEVIATION                    1
 #define DOWN_DEVIATION                  2
+
+#define GUEST_ACTION_DELAY              46
 
 
 
@@ -676,7 +678,7 @@ extern u16 G_ADR_VRAM_BG_A_PIE_DOWN_2;
 extern bool G_ACTION_WAITER_AUTHORIZED;
 extern bool G_ACTION_GUEST_AUTHORIZED;
 
-extern bool G_PIE_SHOT_AUTHORIZED;
+extern bool G_GUEST_SHOT_AUTHORIZED;
 
 
 extern struct_WAITER_ list_WAITERS[3];
@@ -693,7 +695,7 @@ extern u8 G_USED_PIES;
 
 extern u8 G_COUNTER_ACTION_WAITERS;
 
-extern u8 G_COUNTER_ACTION_GUESTS;
+//extern u8 G_COUNTER_ACTION_GUESTS;
 
 extern struct_WALL_PIE_ list_WALL_PIES_LEFT_BG_B[3];
 extern struct_WALL_PIE_ list_WALL_PIES_RIGHT_BG_B[3];
