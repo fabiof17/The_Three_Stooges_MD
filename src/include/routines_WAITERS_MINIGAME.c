@@ -498,11 +498,17 @@ inline static void anim_PIE_WAITERS()
             list_WAITERS[i].index_ANIM_PIE += 1;
 
 
-            //--------------------------------------------------------------------//
+            //********************************************************************//
+            //********************************************************************//
+            //                               CASE 1                               //
+            //********************************************************************//
+            //********************************************************************//
+
+            //********************************************************************//
             //                                                                    //
-            //            IF PIE HAS REACHED THE END OF ITS TRAJECTORY            //
+            //               IF PIE REACHED THE END OF ITS TRAJECTORY             //
             //                                                                    //
-            //--------------------------------------------------------------------//
+            //********************************************************************//
             if(list_WAITERS[i].index_ANIM_PIE == 58)
             {
                 //--------------------------------------------------------------------//
@@ -655,11 +661,18 @@ inline static void anim_PIE_WAITERS()
 
 
 
-            //--------------------------------------------------------------------//
+
+            //********************************************************************//
+            //********************************************************************//
+            //                               CASE 2                               //
+            //********************************************************************//
+            //********************************************************************//
+
+            //********************************************************************//
             //                                                                    //
-            //                 IF PIE IS FOLLOWING ITS TRAJECTORY                 //
+            //                   IF PIE IS FOLLOWING ITS TRAJECTORY               //
             //                                                                    //
-            //--------------------------------------------------------------------//
+            //********************************************************************//
             else
             {
                 //------------------------------------------------------//
@@ -669,17 +682,56 @@ inline static void anim_PIE_WAITERS()
 
                 if(i == WAITER_LARRY)
                 {
-                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
+                    if(list_GUESTS[i].pie_DEVIATION == NO_DEVIATION)
+                    {
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
+                    }
+
+                    else if(list_GUESTS[i].pie_DEVIATION == UP_DEVIATION)
+                    {
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY_UP[list_GUESTS[WAITER_LARRY].index_ANIM_PIE];
+                    }
+
+                    else if(list_GUESTS[i].pie_DEVIATION == DOWN_DEVIATION)
+                    {
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY_DOWN[list_GUESTS[WAITER_LARRY].index_ANIM_PIE];
+                    }
                 }
 
                 else if(i == WAITER_CURLY)
                 {
-                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
+                    if(list_GUESTS[i].pie_DEVIATION == NO_DEVIATION)
+                    {
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
+                    }
+
+                    else if(list_GUESTS[i].pie_DEVIATION == UP_DEVIATION)
+                    {
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY_UP[list_GUESTS[WAITER_CURLY].index_ANIM_PIE];
+                    }
+
+                    else if(list_GUESTS[i].pie_DEVIATION == DOWN_DEVIATION)
+                    {
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY_DOWN[list_GUESTS[WAITER_CURLY].index_ANIM_PIE];
+                    }
                 }
 
                 else if(i == WAITER_MOE)
                 {
-                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                    if(list_GUESTS[i].pie_DEVIATION == NO_DEVIATION)
+                    {
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                    }
+
+                    else if(list_GUESTS[i].pie_DEVIATION == UP_DEVIATION)
+                    {
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE_UP[list_GUESTS[WAITER_MOE].index_ANIM_PIE];
+                    }
+
+                    else if(list_GUESTS[i].pie_DEVIATION == DOWN_DEVIATION)
+                    {
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE_DOWN[list_GUESTS[WAITER_MOE].index_ANIM_PIE];
+                    }
                 }
 
                 //------------------------------------------------------//
@@ -768,7 +820,7 @@ inline static void anim_PIE_GUESTS()
 
             //********************************************************************//
             //                                                                    //
-            //                PIE REACHED THE END OF ITS TRAJECTORY               //
+            //               IF PIE REACHED THE END OF ITS TRAJECTORY             //
             //                                                                    //
             //********************************************************************//
             else if(list_GUESTS[i].index_ANIM_PIE == 58)
@@ -1055,12 +1107,12 @@ inline static void anim_PIE_GUESTS()
 
                     else if(list_GUESTS[i].pie_DEVIATION == UP_DEVIATION)
                     {
-                        //ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN_UP[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN_UP[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
                     }
 
                     else if(list_GUESTS[i].pie_DEVIATION == DOWN_DEVIATION)
                     {
-                        //ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN_DOWN[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN_DOWN[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
                     }
                 }
 
@@ -1073,12 +1125,12 @@ inline static void anim_PIE_GUESTS()
 
                     else if(list_GUESTS[i].pie_DEVIATION == UP_DEVIATION)
                     {
-                        //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1_UP[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1_UP[list_GUESTS[GUEST_MAN_1].index_ANIM_PIE];
                     }
 
                     else if(list_GUESTS[i].pie_DEVIATION == DOWN_DEVIATION)
                     {
-                        //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1_DOWN[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1_DOWN[list_GUESTS[GUEST_MAN_1].index_ANIM_PIE];
                     }
                 }
 
@@ -1091,12 +1143,12 @@ inline static void anim_PIE_GUESTS()
 
                     else if(list_GUESTS[i].pie_DEVIATION == UP_DEVIATION)
                     {
-                        //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2_UP[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2_UP[list_GUESTS[GUEST_MAN_2].index_ANIM_PIE];
                     }
 
                     else if(list_GUESTS[i].pie_DEVIATION == DOWN_DEVIATION)
                     {
-                        //ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2_DOWN[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2_DOWN[list_GUESTS[GUEST_MAN_2].index_ANIM_PIE];
                     }
                 }
 
