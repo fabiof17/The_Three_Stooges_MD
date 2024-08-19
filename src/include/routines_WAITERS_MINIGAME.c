@@ -908,61 +908,40 @@ inline static void anim_PIE_GUESTS()
                         else
                         {
                             //--------------------------------------------------------------------//
-                            //                                                                    //
-                            //                     IF WAITER PIE ISN'T THROWN                     //
-                            //                                                                    //
+                            //                      RESET WAITER PIE COUNTER                      //
                             //--------------------------------------------------------------------//
-                            if(list_WAITERS[i].state_PIE < PIE_PHASE_THROW)
+                            list_WAITERS[i].index_ANIM_PIE = 0;
+
+                            //--------------------------------------------------------------------//
+                            //                   SET POINTER TO PIE ANIM TABLE                    //
+                            //--------------------------------------------------------------------//
+                            const struct_PIE_ANIM_ *ptr_PIE_ANIM;
+
+                            if(i == WAITER_LARRY)
                             {
-                                //--------------------------------------------------------------------//
-                                //                                                                    //
-                                //                IF THERE ARE STILL PIES TO BE SERVED                //
-                                //                                                                    //
-                                //--------------------------------------------------------------------//
-                                if(G_SERVED_PIES < G_MAX_PIES)
-                                {
-                                    //--------------------------------------------------------------------//
-                                    //                      RESET WAITER PIE COUNTER                      //
-                                    //--------------------------------------------------------------------//
-                                    list_WAITERS[i].index_ANIM_PIE = 0;
-
-                                    //--------------------------------------------------------------------//
-                                    //                   SET POINTER TO PIE ANIM TABLE                    //
-                                    //--------------------------------------------------------------------//
-                                    const struct_PIE_ANIM_ *ptr_PIE_ANIM;
-
-                                    if(i == WAITER_LARRY)
-                                    {
-                                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
-                                    }
-
-                                    else if(i == WAITER_CURLY)
-                                    {
-                                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
-                                    }
-
-                                    else if(i == WAITER_MOE)
-                                    {
-                                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
-                                    }
-
-
-                                    //--------------------------------------------------------------------//
-                                    //                A NEW PIE IS SERVED ON WAITERS TABLE                //
-                                    //--------------------------------------------------------------------//
-                                    list_WAITERS[i].state_PIE     = PIE_PHASE_SERVED;
-
-                                    list_WAITERS[i].pie_DEVIATION = NO_DEVIATION;
-
-                                    SPR_setPosition(list_WAITERS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
-                                    SPR_setFrame(list_WAITERS[i].spr_PIE , 0);
-                                }
-
-                                //--------------------------------------------------------------------//
-                                //                           PLAY HIT PCM                             //
-                                //--------------------------------------------------------------------//
-                                //XGM_startPlayPCM(SOUND_PIE_HIT,13,SOUND_PCM_CH3);
+                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
                             }
+
+                            else if(i == WAITER_CURLY)
+                            {
+                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
+                            }
+
+                            else if(i == WAITER_MOE)
+                            {
+                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                            }
+
+
+                            //--------------------------------------------------------------------//
+                            //                A NEW PIE IS SERVED ON WAITERS TABLE                //
+                            //--------------------------------------------------------------------//
+                            list_WAITERS[i].state_PIE     = PIE_PHASE_SERVED;
+
+                            list_WAITERS[i].pie_DEVIATION = NO_DEVIATION;
+
+                            SPR_setPosition(list_WAITERS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+                            SPR_setFrame(list_WAITERS[i].spr_PIE , 0);
                         }
 
                         //--------------------------------------------------------------------//
@@ -1065,17 +1044,17 @@ inline static void anim_PIE_GUESTS()
 
                 if(i == GUEST_WOMAN)
                 {
-                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN[list_WAITERS[GUEST_WOMAN].index_ANIM_PIE];
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
                 }
 
                 else if(i == GUEST_MAN_1)
                 {
-                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1[list_WAITERS[GUEST_MAN_1].index_ANIM_PIE];
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1[list_GUESTS[GUEST_MAN_1].index_ANIM_PIE];
                 }
 
                 else if(i == GUEST_MAN_2)
                 {
-                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_WAITERS[GUEST_MAN_2].index_ANIM_PIE];
+                    ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_GUESTS[GUEST_MAN_2].index_ANIM_PIE];
                 }
 
 
