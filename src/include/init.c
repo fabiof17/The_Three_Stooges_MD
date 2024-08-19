@@ -4135,8 +4135,25 @@ void init_SCENE()
         //                  PART OF MAN 1 SPRITE IS DISPLAYED ON BG_A                           //
         //--------------------------------------------------------------------------------------//
 
-        VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, CPU);
-        VDP_setTileMapEx(BG_A, image_MAN1_1_WAITERS.tilemap, TILE_ATTR_FULL(PAL2, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile), 5, 19, 0, 0, 3, 2, CPU);
+        G_ADR_VRAM_TILES_MAN_1 = G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, CPU);
+        VDP_setTileMapEx(BG_A, image_MAN1_1_WAITERS.tilemap, TILE_ATTR_FULL(PAL2, TRUE, FALSE, FALSE, G_ADR_VRAM_TILES_MAN_1), 5, 19, 0, 0, 3, 2, CPU);
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                    CURLY TILESET                                     //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        //--------------------------------------------------------------------------------------//
+        //                  HERE WE USE A TRICK TO AVOID SPRITE LIMIT ON MAN 1                  //
+        //                  PART OF CURLY SPRITE IS DISPLAYED ON BG_A                           //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_TILES_CURLY = G_ADR_VRAM_TILES_MAN_1 + image_MAN1_1_WAITERS.tileset->numTile;
+        VDP_loadTileSet(image_CURLY1_1_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, CPU);
+        VDP_setTileMapEx(BG_A, image_CURLY1_1_WAITERS.tilemap, TILE_ATTR_FULL(PAL2, TRUE, FALSE, FALSE, G_ADR_VRAM_TILES_CURLY), 33, 19, 0, 0, 2, 2, CPU);
 
 
 
@@ -4153,7 +4170,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        G_ADR_VRAM_BG_B_PIE_LEFT_0 = G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile + image_MAN1_1_WAITERS.tileset->numTile;
+        G_ADR_VRAM_BG_B_PIE_LEFT_0 = G_ADR_VRAM_TILES_CURLY + image_CURLY1_1_WAITERS.tileset->numTile;
         VDP_loadTileSet(image_PIE_WALL0_0_LEFT_BG_B.tileset, G_ADR_VRAM_BG_B_PIE_LEFT_0, CPU);
         VDP_setTileMapEx(BG_B, image_PIE_WALL0_0_LEFT_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B_PIE_LEFT_0), 0, 17, 0, 0, 2, 5, CPU);
 
@@ -4608,8 +4625,8 @@ void init_SCENE()
         //                                         CURLY                                        //
         //--------------------------------------------------------------------------------------//
 
-        list_WAITERS[1].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_CURLY1_WAITERS, 240, 138, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        list_WAITERS[1].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_CURLY2_WAITERS, 240, 138, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        list_WAITERS[1].spr_CHAR_1       =   SPR_addSprite(&tiles_SPR_CURLY1_WAITERS, 240, 138, TILE_ATTR(PAL2, TRUE, FALSE, FALSE));
+        list_WAITERS[1].spr_CHAR_2       =   SPR_addSprite(&tiles_SPR_CURLY2_WAITERS, 240, 138, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
         list_WAITERS[1].state_CHARACTER  =   CHAR_PHASE_IDLE;
 
         //--------------------------------------------------------------------------------------//

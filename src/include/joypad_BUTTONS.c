@@ -6,6 +6,7 @@
 #include "variables.h"
 
 
+#include "maps_WAITERS.h"
 
 
 #include "tables_CRACKERS.h"
@@ -431,6 +432,13 @@ void waiters_Callback(u16 joy, u16 changed, u16 state)
                         // UPDATE STOOGES SPRITE FRAME //
                         SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_1,2);
                         SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_2,2);
+
+
+                        // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                        if(G_SELECTED_WAITER == WAITER_CURLY)
+                        {
+                            VDP_loadTileSet(image_CURLY1_3_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+                        }
 
 
 

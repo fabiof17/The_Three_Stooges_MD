@@ -64,6 +64,10 @@ void joypad_WAITERS_MINIGAME()
                     SPR_setFrame(list_WAITERS[1].spr_CHAR_2,1);
 
                     SPR_setPosition(sprite_HAND_WAITERS,270,108);
+
+                    // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                    VDP_loadTileSet(image_CURLY1_2_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+
                     
                     list_WAITERS[1].state_CHARACTER = CHAR_PHASE_CROUCH;
 
@@ -136,6 +140,11 @@ void joypad_WAITERS_MINIGAME()
                     {
                         SPR_setFrame(list_WAITERS[1].spr_CHAR_1,0);
                         SPR_setFrame(list_WAITERS[1].spr_CHAR_2,0);
+
+
+                        // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                        VDP_loadTileSet(image_CURLY1_1_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+
                         
                         list_WAITERS[1].state_CHARACTER = CHAR_PHASE_IDLE; 
                     }
@@ -183,7 +192,12 @@ void joypad_WAITERS_MINIGAME()
                     {
                         SPR_setFrame(list_WAITERS[1].spr_CHAR_1,0);
                         SPR_setFrame(list_WAITERS[1].spr_CHAR_2,0);
-                        
+
+
+                        // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                        VDP_loadTileSet(image_CURLY1_1_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+
+
                         list_WAITERS[1].state_CHARACTER = CHAR_PHASE_IDLE; 
                     }
                 }
@@ -1205,6 +1219,12 @@ inline static void anim_WAITERS()
                 //------------------------------------------------------//
                 list_WAITERS[i].counter_CHARACTER = 0;
 
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == WAITER_CURLY)
+                {
+                    VDP_loadTileSet(image_CURLY1_4_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+                }
+
 
 
 
@@ -1276,6 +1296,13 @@ inline static void anim_WAITERS()
                 list_WAITERS[i].counter_CHARACTER = 0;
 
 
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == WAITER_CURLY)
+                {
+                    VDP_loadTileSet(image_CURLY1_5_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+                }
+
+
 
 
                 //------------------------------------------------------//
@@ -1343,6 +1370,12 @@ inline static void anim_WAITERS()
                 //------------------------------------------------------//
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_1 , 0);
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , 0);
+
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == WAITER_CURLY)
+                {
+                    VDP_loadTileSet(image_CURLY1_1_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+                }
             }
 
             else if(list_WAITERS[i].counter_CHARACTER == 14)
@@ -1352,6 +1385,12 @@ inline static void anim_WAITERS()
                 //------------------------------------------------------//
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_1 , 1);
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , 1);
+
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == WAITER_CURLY)
+                {
+                    VDP_loadTileSet(image_CURLY1_2_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+                }
 
                 list_WAITERS[i].counter_CHARACTER = 0;
 
@@ -1382,6 +1421,12 @@ inline static void anim_WAITERS()
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_1 , CHAR_PHASE_HIT_2);
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , CHAR_PHASE_HIT_2);
 
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == WAITER_CURLY)
+                {
+                    VDP_loadTileSet(image_CURLY1_7_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+                }
+
                 return;
             }
 
@@ -1405,6 +1450,12 @@ inline static void anim_WAITERS()
 
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_1 , CHAR_PHASE_HIT_3);
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , CHAR_PHASE_HIT_3);
+
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == WAITER_CURLY)
+                {
+                    VDP_loadTileSet(image_CURLY1_8_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+                }
 
                 return;
             }
@@ -1430,6 +1481,12 @@ inline static void anim_WAITERS()
 
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_1 , CHAR_PHASE_IDLE);
                 SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , CHAR_PHASE_IDLE);
+
+                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                if(i == WAITER_CURLY)
+                {
+                    VDP_loadTileSet(image_CURLY1_1_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+                }
 
                 return;
             }
