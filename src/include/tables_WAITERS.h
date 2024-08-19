@@ -16,7 +16,7 @@ extern const bool                   TABLE_PROBABILITY_IDLE_CROUCH_GRAB[20];
 
 
 extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MOE[59];
-//extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MOE_UP[59];
+extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MOE_UP[59];
 extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MOE_DOWN[59];
 
 extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_CURLY[59];
@@ -39,8 +39,8 @@ extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MAN_1_UP[60];
 extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_MAN_1_DOWN[60];
 
 extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_WOMAN[60];
-//extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_WOMAN_UP[60];
-//extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_WOMAN_DOWN[60];
+extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_WOMAN_UP[60];
+extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_WOMAN_DOWN[60];
 
 
 

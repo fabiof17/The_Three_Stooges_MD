@@ -1426,7 +1426,7 @@ inline static void anim_GUESTS()
             list_GUESTS[i].counter_CHARACTER += 1;
             
             
-            if(list_GUESTS[i].counter_CHARACTER == 7)
+            if(list_GUESTS[i].counter_CHARACTER == 9)
             {
                 //------------------------------------------------------//
                 //                  RESET GUEST COUNTER                 //
@@ -1507,7 +1507,7 @@ inline static void anim_GUESTS()
             list_GUESTS[i].counter_CHARACTER += 1;
 
 
-            if(list_GUESTS[i].counter_CHARACTER == 8)
+            if(list_GUESTS[i].counter_CHARACTER == 9)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
@@ -1592,7 +1592,7 @@ inline static void anim_GUESTS()
             list_GUESTS[i].counter_CHARACTER += 1;
 
                 
-            if(list_GUESTS[i].counter_CHARACTER == 8)
+            if(list_GUESTS[i].counter_CHARACTER == 9)
             {
                 //------------------------------------------------------//
                 //              UPDATE GUEST SPRITE FRAME               //
@@ -1609,7 +1609,7 @@ inline static void anim_GUESTS()
             }
 
 
-            else if(list_GUESTS[i].counter_CHARACTER == 15)
+            else if(list_GUESTS[i].counter_CHARACTER == 16)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
