@@ -24,8 +24,8 @@ extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_CURLY[59];
 //extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_CURLY_DOWN[59];
 
 extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_LARRY[59];
-//extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_LARRY_UP[59];
-//extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_LARRY_DOWN[59];
+extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_LARRY_UP[59];
+extern const struct_PIE_ANIM_       TABLE_PIE_ANIM_LARRY_DOWN[59];
 
 
 
