@@ -6,6 +6,7 @@
 //extern const u8                     TABLE_MAX_PIES[4];
 
 extern const Image                  *TABLE_TILES_MAN_1[4];
+extern const Image                  *TABLE_TILES_CURLY[4];
 
 extern const u8                     TABLE_PROBABILITY_PIE_COLLISION[20];
 

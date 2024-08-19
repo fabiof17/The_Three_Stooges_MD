@@ -33,6 +33,14 @@ const Image                     *TABLE_TILES_MAN_1[4]                       =   
                                                                                 };
 
 
+const Image                     *TABLE_TILES_CURLY[4]                       =   {
+                                                                                    &image_CURLY1_1_WAITERS,
+                                                                                    &image_CURLY1_2_WAITERS,
+                                                                                    &image_CURLY1_3_WAITERS,
+                                                                                    &image_CURLY1_4_WAITERS
+                                                                                };
+
+
 
 
 const u8                        TABLE_PROBABILITY_PIE_COLLISION[20]         =   {
