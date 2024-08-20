@@ -16,7 +16,7 @@
 
 
 
-inline static void update_SCORE()
+inline static void update_MONEY_SCORE()
 {
     if(G_REWARD < 100)
     {
@@ -525,6 +525,11 @@ inline static void anim_PIE_WAITERS()
             //********************************************************************//
             if(list_WAITERS[i].index_ANIM_PIE == 58)
             {
+                //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                //                                                                    //
+                //                          MANAGE WAITER PIE                         //
+                //                                                                    //
+                //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
                 //--------------------------------------------------------------------//
                 //                                                                    //
                 //                IF THERE ARE STILL PIES TO BE SERVED                //
@@ -594,10 +599,16 @@ inline static void anim_PIE_WAITERS()
                 //--------------------------------------------------------------------//
                 if(list_GUESTS[i].state_CHARACTER != CHAR_PHASE_CROUCH && list_GUESTS[i].state_CHARACTER != CHAR_PHASE_CROUCH_2)
                 {
-                    list_GUESTS[i].counter_CHARACTER = 0;
+                    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                    //                                                                    //
+                    //                            MANAGE GUEST                            //
+                    //                                                                    //
+                    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                    list_GUESTS[i].counter_ANIM = 0;
 
                     SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_1);
                     SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_1);
+
 
                     //--------------------------------------------------------------------//
                     //                !!!  TRICK TO AVOID SPRITE LIMIT  !!!               //
@@ -610,9 +621,64 @@ inline static void anim_PIE_WAITERS()
 
 
                     //--------------------------------------------------------------------//
-                    //                        GUEST GOES TO PHASE                         //
+                    //                     GUEST GOES TO PHASE HIT_1                      //
                     //--------------------------------------------------------------------//
                     list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT_1;
+
+
+
+
+                    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                    //                                                                    //
+                    //                          MANAGE GUEST PIE                          //
+                    //                                                                    //
+                    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                    //--------------------------------------------------------------------//
+                    //                                                                    //
+                    //                     IF GUESTS PIE ISN'T THROWN                     //
+                    //                                                                    //
+                    //--------------------------------------------------------------------//
+                    if(list_GUESTS[i].state_PIE < PIE_PHASE_THROW)
+                    {
+                        //--------------------------------------------------------------------//
+                        //                      RESET GUEST PIE COUNTER                       //
+                        //--------------------------------------------------------------------//
+                        list_GUESTS[i].index_ANIM_PIE = 0;
+
+                        //--------------------------------------------------------------------//
+                        //                   SET POINTER TO PIE ANIM TABLE                    //
+                        //--------------------------------------------------------------------//
+                        const struct_PIE_ANIM_ *ptr_PIE_ANIM;
+
+                        if(i == GUEST_WOMAN)
+                        {
+                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
+                        }
+
+                        else if(i == GUEST_MAN_1)
+                        {
+                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1[list_GUESTS[GUEST_MAN_1].index_ANIM_PIE];
+                        }
+
+                        else if(i == GUEST_MAN_2)
+                        {
+                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_GUESTS[GUEST_MAN_2].index_ANIM_PIE];
+                        }
+
+
+                        //--------------------------------------------------------------------//
+                        //                A NEW PIE IS SERVED ON WAITERS TABLE                //
+                        //--------------------------------------------------------------------//
+                        list_GUESTS[i].state_PIE     = PIE_PHASE_SERVED;
+
+                        list_GUESTS[i].pie_DEVIATION = NO_DEVIATION;
+
+                        SPR_setPosition(list_GUESTS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+                        SPR_setFrame(list_GUESTS[i].spr_PIE , 0);
+                    }
+
+
+
 
                     //--------------------------------------------------------------------//
                     //                         REWARD INCREASED                           //
@@ -622,7 +688,7 @@ inline static void anim_PIE_WAITERS()
                     //--------------------------------------------------------------------//
                     //                          WE UPDATE SCORE                           //
                     //--------------------------------------------------------------------//
-                    update_SCORE();
+                    update_MONEY_SCORE();
 
 
                     //--------------------------------------------------------------------//
@@ -703,12 +769,12 @@ inline static void anim_PIE_WAITERS()
 
                     else if(list_GUESTS[i].pie_DEVIATION == UP_DEVIATION)
                     {
-                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY_UP[list_GUESTS[WAITER_LARRY].index_ANIM_PIE];
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY_UP[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
                     }
 
                     else if(list_GUESTS[i].pie_DEVIATION == DOWN_DEVIATION)
                     {
-                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY_DOWN[list_GUESTS[WAITER_LARRY].index_ANIM_PIE];
+                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY_DOWN[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
                     }
                 }
 
@@ -857,7 +923,7 @@ inline static void anim_PIE_GUESTS()
                     //--------------------------------------------------------------------//
                     if(list_GUESTS[i].pie_DEVIATION == NO_DEVIATION)
                     {
-                        list_WAITERS[i].counter_CHARACTER = 0;
+                        list_WAITERS[i].counter_ANIM = 0;
 
                         //--------------------------------------------------------------------//
                         //                        WAITER GOES TO PHASE                        //
@@ -908,40 +974,56 @@ inline static void anim_PIE_GUESTS()
                         else
                         {
                             //--------------------------------------------------------------------//
-                            //                      RESET WAITER PIE COUNTER                      //
+                            //                                                                    //
+                            //                     IF WAITER PIE ISN'T THROWN                     //
+                            //                                                                    //
                             //--------------------------------------------------------------------//
-                            list_WAITERS[i].index_ANIM_PIE = 0;
-
-                            //--------------------------------------------------------------------//
-                            //                   SET POINTER TO PIE ANIM TABLE                    //
-                            //--------------------------------------------------------------------//
-                            const struct_PIE_ANIM_ *ptr_PIE_ANIM;
-
-                            if(i == WAITER_LARRY)
+                            if(list_WAITERS[i].state_PIE < PIE_PHASE_THROW)
                             {
-                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
+                                //--------------------------------------------------------------------//
+                                //                                                                    //
+                                //                IF THERE ARE STILL PIES TO BE SERVED                //
+                                //                                                                    //
+                                //--------------------------------------------------------------------//
+                                if(G_SERVED_PIES < G_MAX_PIES)
+                                {
+                                    //--------------------------------------------------------------------//
+                                    //                      RESET WAITER PIE COUNTER                      //
+                                    //--------------------------------------------------------------------//
+                                    list_WAITERS[i].index_ANIM_PIE = 0;
+
+                                    //--------------------------------------------------------------------//
+                                    //                   SET POINTER TO PIE ANIM TABLE                    //
+                                    //--------------------------------------------------------------------//
+                                    const struct_PIE_ANIM_ *ptr_PIE_ANIM;
+
+                                    if(i == WAITER_LARRY)
+                                    {
+                                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_LARRY[list_WAITERS[WAITER_LARRY].index_ANIM_PIE];
+                                    }
+
+                                    else if(i == WAITER_CURLY)
+                                    {
+                                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
+                                    }
+
+                                    else if(i == WAITER_MOE)
+                                    {
+                                        ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
+                                    }
+
+
+                                    //--------------------------------------------------------------------//
+                                    //                A NEW PIE IS SERVED ON WAITERS TABLE                //
+                                    //--------------------------------------------------------------------//
+                                    list_WAITERS[i].state_PIE     = PIE_PHASE_SERVED;
+
+                                    list_WAITERS[i].pie_DEVIATION = NO_DEVIATION;
+
+                                    SPR_setPosition(list_WAITERS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+                                    SPR_setFrame(list_WAITERS[i].spr_PIE , 0);
+                                }
                             }
-
-                            else if(i == WAITER_CURLY)
-                            {
-                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_CURLY[list_WAITERS[WAITER_CURLY].index_ANIM_PIE];
-                            }
-
-                            else if(i == WAITER_MOE)
-                            {
-                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_MOE[list_WAITERS[WAITER_MOE].index_ANIM_PIE];
-                            }
-
-
-                            //--------------------------------------------------------------------//
-                            //                A NEW PIE IS SERVED ON WAITERS TABLE                //
-                            //--------------------------------------------------------------------//
-                            list_WAITERS[i].state_PIE     = PIE_PHASE_SERVED;
-
-                            list_WAITERS[i].pie_DEVIATION = NO_DEVIATION;
-
-                            SPR_setPosition(list_WAITERS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
-                            SPR_setFrame(list_WAITERS[i].spr_PIE , 0);
                         }
 
                         //--------------------------------------------------------------------//
@@ -1180,7 +1262,7 @@ inline static void anim_WAITERS()
         //--------------------------------------------------------//
         if(list_WAITERS[i].state_CHARACTER == CHAR_PHASE_GRAB)
         {
-            if(list_WAITERS[i].counter_CHARACTER == 6)
+            if(list_WAITERS[i].counter_ANIM == 6)
             {
                 //------------------------------------------------------//
                 //                 STOOGE GOES AIM PHASE                //
@@ -1196,7 +1278,7 @@ inline static void anim_WAITERS()
                 //------------------------------------------------------//
                 //                 RESET STOOGE COUNTER                 //
                 //------------------------------------------------------//
-                list_WAITERS[i].counter_CHARACTER = 0;
+                list_WAITERS[i].counter_ANIM = 0;
 
                 // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
                 if(i == WAITER_CURLY)
@@ -1245,7 +1327,7 @@ inline static void anim_WAITERS()
                 return;
             }
 
-            list_WAITERS[i].counter_CHARACTER += 1;
+            list_WAITERS[i].counter_ANIM += 1;
         }
 
 
@@ -1256,7 +1338,7 @@ inline static void anim_WAITERS()
         //--------------------------------------------------------//
         else if(list_WAITERS[i].state_CHARACTER == CHAR_PHASE_AIM)
         {
-            if(list_WAITERS[i].counter_CHARACTER == 7)
+            if(list_WAITERS[i].counter_ANIM == 7)
             {
                 //------------------------------------------------------//
                 //                STOOGE GOES THROW PHASE               //
@@ -1272,7 +1354,7 @@ inline static void anim_WAITERS()
                 //------------------------------------------------------//
                 //                 RESET STOOGE COUNTER                 //
                 //------------------------------------------------------//
-                list_WAITERS[i].counter_CHARACTER = 0;
+                list_WAITERS[i].counter_ANIM = 0;
 
 
                 // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
@@ -1322,7 +1404,7 @@ inline static void anim_WAITERS()
                 return;
             }
 
-            list_WAITERS[i].counter_CHARACTER += 1;
+            list_WAITERS[i].counter_ANIM += 1;
         }
 
 
@@ -1342,7 +1424,7 @@ inline static void anim_WAITERS()
             //------------------------------------------------------//
             //              UPDATE STOOGE SPRITE FRAME              //
             //------------------------------------------------------//
-            if(list_WAITERS[i].counter_CHARACTER == 7)
+            if(list_WAITERS[i].counter_ANIM == 7)
             {
                 //------------------------------------------------------//
                 //                     STOOGE STANDS                    //
@@ -1357,7 +1439,7 @@ inline static void anim_WAITERS()
                 }
             }
 
-            else if(list_WAITERS[i].counter_CHARACTER == 14)
+            else if(list_WAITERS[i].counter_ANIM == 14)
             {
                 //------------------------------------------------------//
                 //                    STOOGE CROUCHES                   //
@@ -1371,7 +1453,7 @@ inline static void anim_WAITERS()
                     VDP_loadTileSet(image_CURLY1_2_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
                 }
 
-                list_WAITERS[i].counter_CHARACTER = 0;
+                list_WAITERS[i].counter_ANIM = 0;
 
                 list_WAITERS[i].state_CHARACTER = CHAR_PHASE_CROUCH_2;
 
@@ -1379,7 +1461,7 @@ inline static void anim_WAITERS()
             }
 
 
-            list_WAITERS[i].counter_CHARACTER += 1;
+            list_WAITERS[i].counter_ANIM += 1;
         }
 
 
@@ -1390,10 +1472,10 @@ inline static void anim_WAITERS()
         //--------------------------------------------------------//
         else if(list_WAITERS[i].state_CHARACTER == CHAR_PHASE_HIT_1)
         {
-            if(list_WAITERS[i].counter_CHARACTER == 63)
+            if(list_WAITERS[i].counter_ANIM == 63)
             {
                 // RESET COUNTER //
-                list_WAITERS[i].counter_CHARACTER = 0;
+                list_WAITERS[i].counter_ANIM = 0;
 
                 list_WAITERS[i].state_CHARACTER = CHAR_PHASE_HIT_2;
                 
@@ -1409,7 +1491,7 @@ inline static void anim_WAITERS()
                 return;
             }
 
-            list_WAITERS[i].counter_CHARACTER += 1;
+            list_WAITERS[i].counter_ANIM += 1;
         }
 
 
@@ -1420,10 +1502,10 @@ inline static void anim_WAITERS()
         //--------------------------------------------------------//
         else if(list_WAITERS[i].state_CHARACTER == CHAR_PHASE_HIT_2)
         {
-            if(list_WAITERS[i].counter_CHARACTER == 21)
+            if(list_WAITERS[i].counter_ANIM == 21)
             {
                 // RESET COUNTER //
-                list_WAITERS[i].counter_CHARACTER = 0;
+                list_WAITERS[i].counter_ANIM = 0;
 
                 list_WAITERS[i].state_CHARACTER = CHAR_PHASE_HIT_3;
 
@@ -1439,7 +1521,7 @@ inline static void anim_WAITERS()
                 return;
             }
 
-            list_WAITERS[i].counter_CHARACTER += 1;
+            list_WAITERS[i].counter_ANIM += 1;
         }
 
 
@@ -1450,10 +1532,10 @@ inline static void anim_WAITERS()
         //--------------------------------------------------------//
         else if(list_WAITERS[i].state_CHARACTER == CHAR_PHASE_HIT_3)
         {
-            if(list_WAITERS[i].counter_CHARACTER == 20)
+            if(list_WAITERS[i].counter_ANIM == 20)
             {
                 // RESET COUNTER //
-                list_WAITERS[i].counter_CHARACTER = 0;
+                list_WAITERS[i].counter_ANIM = 0;
 
                 // RANDOMLY CHOOSE NEXT STATE (TO BE DONE) //
                 list_WAITERS[i].state_CHARACTER = CHAR_PHASE_IDLE;
@@ -1470,7 +1552,7 @@ inline static void anim_WAITERS()
                 return;
             }
 
-            list_WAITERS[i].counter_CHARACTER += 1;
+            list_WAITERS[i].counter_ANIM += 1;
         }
 
 
@@ -1481,12 +1563,12 @@ inline static void anim_WAITERS()
         //--------------------------------------------------------//
         else if(list_WAITERS[i].state_CHARACTER == CHAR_PHASE_CROUCH_2)
         {
-            if(list_WAITERS[i].counter_CHARACTER == 14)
+            if(list_WAITERS[i].counter_ANIM == 14)
             {
                 //------------------------------------------------------//
                 //                      STOOGE IDLE                     //
                 //------------------------------------------------------//
-                list_WAITERS[i].counter_CHARACTER = 0;
+                list_WAITERS[i].counter_ANIM = 0;
 
                 list_WAITERS[i].state_CHARACTER = CHAR_PHASE_IDLE;
 
@@ -1494,7 +1576,7 @@ inline static void anim_WAITERS()
             }
 
 
-            list_WAITERS[i].counter_CHARACTER += 1;
+            list_WAITERS[i].counter_ANIM += 1;
         }
     }
 }
@@ -1511,15 +1593,15 @@ inline static void anim_GUESTS()
             //------------------------------------------------------//
             //                 INCREASE GUEST COUNTER               //
             //------------------------------------------------------//            
-            list_GUESTS[i].counter_CHARACTER += 1;
+            list_GUESTS[i].counter_ANIM += 1;
             
             
-            if(list_GUESTS[i].counter_CHARACTER == 9)
+            if(list_GUESTS[i].counter_ANIM == 9)
             {
                 //------------------------------------------------------//
                 //                  RESET GUEST COUNTER                 //
                 //------------------------------------------------------//
-                list_GUESTS[i].counter_CHARACTER = 0;
+                list_GUESTS[i].counter_ANIM = 0;
 
                 //------------------------------------------------------//
                 //                  GUEST GOES AIM PHASE                //
@@ -1592,15 +1674,15 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_AIM)
         {
-            list_GUESTS[i].counter_CHARACTER += 1;
+            list_GUESTS[i].counter_ANIM += 1;
 
 
-            if(list_GUESTS[i].counter_CHARACTER == 9)
+            if(list_GUESTS[i].counter_ANIM == 9)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
                 //------------------------------------------------------//
-                list_GUESTS[i].counter_CHARACTER = 0;
+                list_GUESTS[i].counter_ANIM = 0;
 
                 //------------------------------------------------------//
                 //                GUEST GOES THROW PHASE                //
@@ -1666,7 +1748,7 @@ inline static void anim_GUESTS()
                 //return;
             }
 
-            //list_GUESTS[i].counter_CHARACTER += 1;
+            //list_GUESTS[i].counter_ANIM += 1;
         }
 
 
@@ -1677,10 +1759,10 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_THROW)
         {
-            list_GUESTS[i].counter_CHARACTER += 1;
+            list_GUESTS[i].counter_ANIM += 1;
 
                 
-            if(list_GUESTS[i].counter_CHARACTER == 9)
+            if(list_GUESTS[i].counter_ANIM == 9)
             {
                 //------------------------------------------------------//
                 //              UPDATE GUEST SPRITE FRAME               //
@@ -1697,12 +1779,12 @@ inline static void anim_GUESTS()
             }
 
 
-            else if(list_GUESTS[i].counter_CHARACTER == 16)
+            else if(list_GUESTS[i].counter_ANIM == 16)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
                 //------------------------------------------------------//
-                list_GUESTS[i].counter_CHARACTER = 0;
+                list_GUESTS[i].counter_ANIM = 0;
 
                 //------------------------------------------------------//
                 //               GUEST GOES CROUCH 2 PHASE              //
@@ -1732,14 +1814,14 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_1)
         {
-            list_GUESTS[i].counter_CHARACTER += 1;
+            list_GUESTS[i].counter_ANIM += 1;
             
-            if(list_GUESTS[i].counter_CHARACTER == 64)
+            if(list_GUESTS[i].counter_ANIM == 64)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
                 //------------------------------------------------------//
-                list_GUESTS[i].counter_CHARACTER = 0;
+                list_GUESTS[i].counter_ANIM = 0;
 
                 //------------------------------------------------------//
                 //                GUEST GOES HIT PHASE 2                //
@@ -1763,7 +1845,7 @@ inline static void anim_GUESTS()
                 //return;
             }
 
-            //list_GUESTS[i].counter_CHARACTER += 1;
+            //list_GUESTS[i].counter_ANIM += 1;
         }
 
 
@@ -1774,14 +1856,14 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_2)
         {
-            list_GUESTS[i].counter_CHARACTER += 1;
+            list_GUESTS[i].counter_ANIM += 1;
             
-            if(list_GUESTS[i].counter_CHARACTER == 22)
+            if(list_GUESTS[i].counter_ANIM == 22)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
                 //------------------------------------------------------//
-                list_GUESTS[i].counter_CHARACTER = 0;
+                list_GUESTS[i].counter_ANIM = 0;
 
                 //------------------------------------------------------//
                 //                GUEST GOES HIT PHASE 3                //
@@ -1805,7 +1887,7 @@ inline static void anim_GUESTS()
                 //return;
             }
 
-            //list_GUESTS[i].counter_CHARACTER += 1;
+            //list_GUESTS[i].counter_ANIM += 1;
         }
 
 
@@ -1817,15 +1899,15 @@ inline static void anim_GUESTS()
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_HIT_3)
         {
             
-            list_GUESTS[i].counter_CHARACTER += 1;
+            list_GUESTS[i].counter_ANIM += 1;
             
 
-            if(list_GUESTS[i].counter_CHARACTER == 21)
+            if(list_GUESTS[i].counter_ANIM == 21)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
                 //------------------------------------------------------//
-                list_GUESTS[i].counter_CHARACTER = 0;
+                list_GUESTS[i].counter_ANIM = 0;
 
                 // RANDOMLY CHOOSE NEXT STATE (TO BE DONE) //
                 list_GUESTS[i].state_CHARACTER = CHAR_PHASE_IDLE;
@@ -1833,8 +1915,8 @@ inline static void anim_GUESTS()
                 //------------------------------------------------------//
                 //              UPDATE GUEST SPRITE FRAME               //
                 //------------------------------------------------------//
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_IDLE);
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_IDLE);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , 0);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , 0);
 
 
                 // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
@@ -1859,15 +1941,15 @@ inline static void anim_GUESTS()
         //--------------------------------------------------------//
         else if(list_GUESTS[i].state_CHARACTER == CHAR_PHASE_CROUCH_2)
         {
-            list_GUESTS[i].counter_CHARACTER += 1;
+            list_GUESTS[i].counter_ANIM += 1;
             
             
-            if(list_GUESTS[i].counter_CHARACTER == 15)
+            if(list_GUESTS[i].counter_ANIM == 15)
             {
                 //------------------------------------------------------//
                 //                 RESET GUEST COUNTER                  //
                 //------------------------------------------------------//
-                list_GUESTS[i].counter_CHARACTER = 0;
+                list_GUESTS[i].counter_ANIM = 0;
 
 
                 list_GUESTS[i].state_CHARACTER = CHAR_PHASE_IDLE;

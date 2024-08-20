@@ -198,7 +198,7 @@ typedef struct
     Sprite *spr_CHAR_1;
     Sprite *spr_CHAR_2;
     u8 state_CHARACTER;
-    u8 counter_CHARACTER;
+    u8 counter_ANIM;
 
     Sprite *spr_PIE;
     u8 state_PIE;
