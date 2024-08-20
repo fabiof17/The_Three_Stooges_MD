@@ -217,7 +217,27 @@ inline static void check_WAITER_ACTION_AUTHORISATION()
 {
     if(G_ACTION_WAITER_AUTHORIZED == FALSE)
     {
-        if(G_COUNTER_ACTION_WAITERS == 24)
+        // IF 1/3 OF PIES HAVE BEEN SERVED //
+        if(G_SERVED_PIES < (G_MAX_PIES/3))
+        {
+            G_DELAY_ACTION_WAITERS = 40;
+        }
+        
+        // IF 2/3 OF PIES HAVE BEEN SERVED //
+        else if(G_SERVED_PIES < ((G_MAX_PIES/3)<<1))
+        {
+            G_DELAY_ACTION_WAITERS = 35;
+        }
+
+        // IF MORE THAN 2/3 OF PIES HAVE BEEN SERVED //
+        else
+        {
+            G_DELAY_ACTION_WAITERS = 30;
+        }
+        
+        
+        
+        if(G_COUNTER_ACTION_WAITERS >= G_DELAY_ACTION_WAITERS)
         {            
             G_COUNTER_ACTION_WAITERS = 0;
 
@@ -282,7 +302,7 @@ inline static void AI_GUESTS()
                 //--------------------------------------------------------------------//
                 if(i == GUEST_MAN_1)
                 {
-                    VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                 }
 
 
@@ -356,7 +376,7 @@ inline static void AI_GUESTS()
                         //--------------------------------------------------------------------//
                         if(i == GUEST_MAN_1)
                         {
-                            VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                            VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                         }
 
 
@@ -436,7 +456,7 @@ inline static void AI_GUESTS()
                         //--------------------------------------------------------------------//
                         if(i == GUEST_MAN_1)
                         {
-                            VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                            VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                         }
                     }
                 }
@@ -477,7 +497,7 @@ inline static void AI_GUESTS()
                     //--------------------------------------------------------------------//
                     if(i == GUEST_MAN_1)
                     {
-                        VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                        VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                     }
                 }
 
@@ -606,6 +626,7 @@ inline static void anim_PIE_WAITERS()
                     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
                     list_GUESTS[i].counter_ANIM = 0;
 
+
                     SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_1);
                     SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_1);
 
@@ -616,7 +637,7 @@ inline static void anim_PIE_WAITERS()
                     //--------------------------------------------------------------------//
                     if(i == GUEST_MAN_1)
                     {
-                        VDP_loadTileSet(image_MAN1_6_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                        VDP_loadTileSet(image_MAN1_6_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                     }
 
 
@@ -1103,6 +1124,12 @@ inline static void anim_PIE_GUESTS()
                     //                           PLAY WALL PCM                            //
                     //--------------------------------------------------------------------//
                     XGM_startPlayPCM(SOUND_PIE_WALL,13,SOUND_PCM_CH3);
+
+                    //--------------------------------------------------------------------//
+                    //                        PLAY WAITER MISS PCM                        //
+                    //--------------------------------------------------------------------//
+                    u8 random_miss_pcm = random_NUMBER(70,73);
+                    XGM_startPlayPCM(random_miss_pcm,15,SOUND_PCM_CH4);
                 }
 
 
@@ -1618,7 +1645,7 @@ inline static void anim_GUESTS()
                 // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
                 if(i == GUEST_MAN_1)
                 {
-                    VDP_loadTileSet(image_MAN1_4_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    VDP_loadTileSet(image_MAN1_4_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                 }
 
 
@@ -1699,7 +1726,7 @@ inline static void anim_GUESTS()
                 // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
                 if(i == GUEST_MAN_1)
                 {
-                    VDP_loadTileSet(image_MAN1_5_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    VDP_loadTileSet(image_MAN1_5_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                 }
 
 
@@ -1774,7 +1801,7 @@ inline static void anim_GUESTS()
                 // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
                 if(i == GUEST_MAN_1)
                 {
-                    VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                 }
             }
 
@@ -1801,7 +1828,7 @@ inline static void anim_GUESTS()
                 // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
                 if(i == GUEST_MAN_1)
                 {
-                    VDP_loadTileSet(image_MAN1_2_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    VDP_loadTileSet(image_MAN1_2_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                 }
             }
         }
@@ -1839,7 +1866,7 @@ inline static void anim_GUESTS()
                 // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
                 if(i == GUEST_MAN_1)
                 {
-                    VDP_loadTileSet(image_MAN1_7_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    VDP_loadTileSet(image_MAN1_7_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                 }
 
                 //return;
@@ -1881,7 +1908,7 @@ inline static void anim_GUESTS()
                 // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
                 if(i == GUEST_MAN_1)
                 {
-                    VDP_loadTileSet(image_MAN1_8_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    VDP_loadTileSet(image_MAN1_8_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                 }
 
                 //return;
@@ -1909,20 +1936,40 @@ inline static void anim_GUESTS()
                 //------------------------------------------------------//
                 list_GUESTS[i].counter_ANIM = 0;
 
-                // RANDOMLY CHOOSE NEXT STATE (TO BE DONE) //
+
+                //--------------------------------------------------------------------//
+                //                       RANDOM NEW GUEST STATE                       //
+                //--------------------------------------------------------------------//                
+                //u8 random_STATE = random_NUMBER(0,19);
+                //u8 guest_STATE  = TABLE_PROBABILITY_IDLE_CROUCH[random_STATE];
+
+
+                //--------------------------------------------------------------------//
+                //                        SET NEW GUEST STATE                         //
+                //--------------------------------------------------------------------// 
+                //list_GUESTS[i].state_CHARACTER = guest_STATE;
                 list_GUESTS[i].state_CHARACTER = CHAR_PHASE_IDLE;
 
-                //------------------------------------------------------//
-                //              UPDATE GUEST SPRITE FRAME               //
-                //------------------------------------------------------//
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , 0);
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , 0);
+
+                //--------------------------------------------------------------------//
+                //                     UPDATE GUEST SPRITE FRAME                      //
+                //--------------------------------------------------------------------//  
+                //SPR_setFrame(list_GUESTS[i].spr_CHAR_1,guest_STATE);
+                //SPR_setFrame(list_GUESTS[i].spr_CHAR_2,guest_STATE);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1,0);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2,0);
 
 
-                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                //--------------------------------------------------------------------//
+                //              !!!  TRICK TO AVOID SPRITE LIMIT  !!! //              //
+                //--------------------------------------------------------------------//
+                /*if(i == GUEST_MAN_1)
+                {
+                    VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
+                }*/
                 if(i == GUEST_MAN_1)
                 {
-                    VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    VDP_loadTileSet(TABLE_TILES_MAN_1[0]->tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                 }
 
 
@@ -1952,19 +1999,39 @@ inline static void anim_GUESTS()
                 list_GUESTS[i].counter_ANIM = 0;
 
 
+                //--------------------------------------------------------------------//
+                //                       RANDOM NEW GUEST STATE                       //
+                //--------------------------------------------------------------------//                
+                //u8 random_STATE = random_NUMBER(0,19);
+                //u8 guest_STATE  = TABLE_PROBABILITY_IDLE_CROUCH[random_STATE];
+
+
+                //--------------------------------------------------------------------//
+                //                        SET NEW GUEST STATE                         //
+                //--------------------------------------------------------------------// 
+                //list_GUESTS[i].state_CHARACTER = guest_STATE;
                 list_GUESTS[i].state_CHARACTER = CHAR_PHASE_IDLE;
 
-                //------------------------------------------------------//
-                //              UPDATE GUEST SPRITE FRAME               //
-                //------------------------------------------------------//
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_IDLE);
-                SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_IDLE);
+
+                //--------------------------------------------------------------------//
+                //                     UPDATE GUEST SPRITE FRAME                      //
+                //--------------------------------------------------------------------//  
+                //SPR_setFrame(list_GUESTS[i].spr_CHAR_1,guest_STATE);
+                //SPR_setFrame(list_GUESTS[i].spr_CHAR_2,guest_STATE);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_1,0);
+                SPR_setFrame(list_GUESTS[i].spr_CHAR_2,0);
 
 
-                // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                //--------------------------------------------------------------------//
+                //              !!!  TRICK TO AVOID SPRITE LIMIT  !!! //              //
+                //--------------------------------------------------------------------//
+                /*if(i == GUEST_MAN_1)
+                {
+                    VDP_loadTileSet(TABLE_TILES_MAN_1[guest_STATE]->tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
+                }*/
                 if(i == GUEST_MAN_1)
                 {
-                    VDP_loadTileSet(image_MAN1_1_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+                    VDP_loadTileSet(TABLE_TILES_MAN_1[0]->tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
                 }
 
 
@@ -2094,7 +2161,7 @@ void sequence_WAITERS_MINIGAME()
             SPR_setFrame(list_GUESTS[1].spr_CHAR_2,1);
 
             // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
-            VDP_loadTileSet(image_MAN1_2_WAITERS.tileset, G_ADR_VRAM_BG_A + image_WAITERS_BG_A.tileset->numTile, DMA_QUEUE);
+            VDP_loadTileSet(image_MAN1_2_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
 
             //--------------------------------------------------------------------------------------//
             //                                         MAN 2                                        //

@@ -4754,6 +4754,8 @@ void init_SCENE()
 
         G_GUEST_SHOT_AUTHORIZED     = NULL;
 
+        G_DELAY_ACTION_WAITERS      = 40;
+
 
         G_SELECTED_WAITER           = 99; // 99 = NONE
 

@@ -21,7 +21,7 @@
 
 void sequence_CONTRACT_WAITERS()
 {
-    if(G_COUNTER_1 == 60) //600
+    if(G_COUNTER_1 == 600) //60
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);

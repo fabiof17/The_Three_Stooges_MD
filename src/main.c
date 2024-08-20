@@ -520,14 +520,8 @@ int main(bool hardReset)
 
                     sequence_WAITERS_MINIGAME();
 
-                    //VDP_drawIntEx_BG_A_QUEUE(G_ACTION_WAITER_AUTHORIZED,1,3,0,PAL3);
-                    //VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[0].counter_ACTION,2,0,0,PAL3);
-
-                    //VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[1].state_CHARACTER,1,3,1,PAL3);
-                    //VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[1].counter_ACTION,2,0,1,PAL3);
-
-                    //VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[2].state_CHARACTER,1,3,2,PAL3);
-                    //VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[2].counter_ACTION,2,0,2,PAL3);          
+                    //VDP_drawIntEx_BG_A_QUEUE(G_DELAY_ACTION_WAITERS,1,3,0,PAL3);
+                    //VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[0].counter_ACTION,2,0,0,PAL3);         
                     
                     SPR_update();
                     SYS_doVBlankProcess();

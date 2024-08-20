@@ -683,6 +683,8 @@ extern bool G_ACTION_GUEST_AUTHORIZED;
 
 extern bool G_GUEST_SHOT_AUTHORIZED;
 
+extern u8 G_DELAY_ACTION_WAITERS;
+
 
 extern struct_WAITER_ list_WAITERS[3];
 extern struct_WAITER_ list_GUESTS[3];
