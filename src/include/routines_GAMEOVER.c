@@ -136,6 +136,68 @@ void sequence_GAMEOVER()
 
     else if(G_MONEY < 10000)
     {
+        // THANK YOU BOYS! //
+        if(G_COUNTER_1 == 60)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 5, 11, 4, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 0, 9, 2, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , 76 , 96);
+        }
+
+        // ERASE DIALOG //
+        else if(G_COUNTER_1 == 180)
+        {
+            VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 5, 8, 5, 8, 11, 4, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , -24 , -24);
+        }
+
+        // YOUR GIFT OF... //
+        else if(G_COUNTER_1 == 200)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 9, 11, 5, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 3, 9, 3, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , 76 , 104);
+        }
+
+        // ERASE DIALOG //
+        else if(G_COUNTER_1 == 380)
+        {
+            VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 5, 8, 5, 8, 11, 5, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , -24 , -24);
+        }
+
+        // ...HAS SAVED THE CHILDREN'S HOME! //
+        else if(G_COUNTER_1 == 400)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 14, 12, 6, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 7, 10, 4, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , 76 , 112);
+        }
+
+        // ERASE DIALOG //
+        else if(G_COUNTER_1 == 520)
+        {
+            VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 5, 8, 5, 8, 12, 6, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , -24 , -24);
+        }
+
+        // IT IS A SHAME WE CAN'T FIX IT UP. //
+        else if(G_COUNTER_1 == 540)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 14, 12, 6, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 12, 10, 4, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , 76 , 112);
+        }
+
+
+
 
     }
 
@@ -146,9 +208,67 @@ void sequence_GAMEOVER()
     //                                                                    //
     //--------------------------------------------------------------------//
 
-    else if(G_MONEY < 20000)
+    else//else if(G_MONEY < 20000)
     {
+        // THANK YOU BOYS! //
+        if(G_COUNTER_1 == 60)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 5, 11, 4, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 0, 9, 2, DMA_QUEUE);
 
+            SPR_setPosition(sprite_ARROW_DIALOG , 76 , 96);
+        }
+
+        // ERASE DIALOG //
+        else if(G_COUNTER_1 == 180)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 5, 8, 5, 8, 11, 4, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , -24 , -24);
+        }
+
+        // YOUR GIFT OF... //
+        else if(G_COUNTER_1 == 200)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 9, 11, 5, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 3, 9, 3, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , 76 , 104);
+        }
+
+        // ERASE DIALOG //
+        else if(G_COUNTER_1 == 380)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 5, 8, 5, 8, 11, 5, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , -24 , -24);
+        }
+
+        // ...HAS SAVED THE CHILDREN'S HOME! //
+        else if(G_COUNTER_1 == 400)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 14, 12, 6, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 7, 10, 4, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , 76 , 112);
+        }
+
+        // ERASE DIALOG //
+        else if(G_COUNTER_1 == 520)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 5, 8, 5, 8, 12, 6, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , -24 , -24);
+        }
+
+        // ... AND IT IS AS GOOD AS NEW! //
+        else if(G_COUNTER_1 == 540)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 14, 12, 6, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 17, 10, 4, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , 76 , 112);
+        }
     }
 
 
@@ -158,10 +278,10 @@ void sequence_GAMEOVER()
     //                                                                    //
     //--------------------------------------------------------------------//
 
-    else
+    /*else
     {
 
-    }
+    }*/
 
 
     G_COUNTER_1 += 1;

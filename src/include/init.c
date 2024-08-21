@@ -115,7 +115,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_INTRO; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
 
@@ -170,7 +170,7 @@ void init_VARIABLES()
     G_INDEX_3                   = 0;
 
     
-    G_MONEY                     = 0;
+    G_MONEY                     = 19000;
 
 
     
@@ -6579,11 +6579,20 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  101, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                            DIALOG ARROW SPRITE OFF SCREEN                            //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_ARROW_DIALOG = SPR_addSprite(&tiles_SPR_GAMEOVER_ARROW,   -24, -24, TILE_ATTR(PAL2, FALSE, FALSE, FALSE)); 
+
+
         if(G_MONEY < 5000)
         { 
-            sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  101, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-
-
             //--------------------------------------------------------------------------------------//
             //                                                                                      //
             //                                     BANKER SPRITES                                   //
@@ -6598,35 +6607,13 @@ void init_SCENE()
 
         else
         {
-            sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  55, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+            SPR_setFrame(sprite_ARROW_DIALOG,1);            
+            
+            SPR_setPosition(sprite_STOOGES,55,142);
         }
 
+
         SPR_setFrame(sprite_STOOGES , 16);
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                     BANKER SPRITES                                   //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        /*if(G_MONEY < 5000)
-        {
-            sprite_BANKER[0] = SPR_addSprite(&tiles_SPR_BANKER_PART2,   118, 125, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-            sprite_BANKER[1] = SPR_addSprite(&tiles_SPR_BANKER_PART1,   118, 125, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
-
-            SPR_setFrame(sprite_BANKER[0] , 3);
-            SPR_setFrame(sprite_BANKER[1] , 2);
-        }*/
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                            DIALOG ARROW SPRITE OFF SCREEN                            //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        sprite_ARROW_DIALOG = SPR_addSprite(&tiles_SPR_GAMEOVER_ARROW,   -24, -24, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
 
 
         SPR_update();
