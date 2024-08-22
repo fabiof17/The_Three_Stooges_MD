@@ -419,7 +419,6 @@
 
 
 
-
 extern char text_output[3];
 extern u16 palette_64[64];
 

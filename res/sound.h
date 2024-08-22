@@ -9,7 +9,7 @@ extern const u8 PCM_SWATTER[5120];
 extern const u8 PCM_HEAD_SHOCK[5376];
 extern const u8 PCM_JOY_CRY[10240];
 extern const u8 PCM_OYSTER[5632];
-extern const u8 PCM_MONEY[17664];
+extern const u8 PCM_MONEY[10240];
 extern const u8 PCM_CRACKERS_CRY_1[9216];
 extern const u8 PCM_CRACKERS_CRY_2[10496];
 extern const u8 PCM_CRACKERS_CRY_3[10752];
