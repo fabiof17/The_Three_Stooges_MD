@@ -1539,6 +1539,32 @@ void sequence_DOCTORS_MINIGAME()
         {
             G_PHASE_SEQUENCE = DOCTORS_PHASE_GAME_OVER;
         }
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         AUDIO                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        //u8 toto = XGM_isPlayingPCM(SOUND_PCM_CH2_MSK);
+        //VDP_drawIntEx_BG_A_QUEUE(toto,1,0,0,PAL2);
+
+        //--------------------------------------------------------------------------------------//
+        //                                     ENGINE SOUND                                     //
+        //--------------------------------------------------------------------------------------//
+        if(XGM_isPlayingPCM(SOUND_PCM_CH2_MSK) == 0)
+        {
+            if(G_CAR_SPEED == 2)
+            {
+                XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
+            }
+
+            else
+            {
+                //XGM_startPlayPCM(SOUND_ENGINE_2 , 13 , SOUND_PCM_CH2 );
+            }
+        }
     }
 
     

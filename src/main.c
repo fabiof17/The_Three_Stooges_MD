@@ -644,6 +644,16 @@ int main(bool hardReset)
                     fadeOut_ROULETTE();
                 }
 
+                // FADE IN BOXING //
+                else if(G_SCENE == SCENE_FADE_IN_BOXING)
+                {
+                    PAL_fadeInAll(palette_64, 2, FALSE);
+
+                    G_SCENE         = G_SCENE_NEXT;
+                    G_SCENE_NEXT    = NULL;
+                }
+
+
             }
         }    
     }

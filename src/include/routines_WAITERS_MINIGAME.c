@@ -2212,15 +2212,33 @@ void sequence_WAITERS_MINIGAME()
 
     else if(G_PHASE_SEQUENCE == WAITER_PHASE_GAME_OVER)
     {
-        if(G_COUNTER_1 == 180)
+        if(G_COUNTER_1 == 60)
+        {
+            //--------------------------------------------------------------------//
+            //                          PLAY MONEY PCM                            //
+            //--------------------------------------------------------------------//
+            XGM_startPlayPCM(SOUND_MONEY,15,SOUND_PCM_CH4);
+        }
+
+        else if(G_COUNTER_1 == 120)
         {
             // IF ALL PIES HAVE BEEN USED //
             // REWARD IS DOUBLED //
             if(G_USED_PIES == G_MAX_PIES)
             {
                 G_REWARD =  G_REWARD << 1;
+
+                update_MONEY_SCORE();
+
+                //--------------------------------------------------------------------//
+                //                          PLAY MONEY PCM                            //
+                //--------------------------------------------------------------------//
+                XGM_startPlayPCM(SOUND_MONEY,15,SOUND_PCM_CH4);
             }
-            
+        }
+
+        else if(G_COUNTER_1 == 180)
+        {
             // FADE OUT : 40 FRAMES //
             PAL_fadeOutAll(40,FALSE);
 

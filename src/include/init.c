@@ -115,7 +115,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
 
@@ -138,7 +138,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_GAMEOVER; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -353,6 +353,7 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_DOCTORS_CRASH_1 , PCM_DOCTORS_CRASH_1 , sizeof(PCM_DOCTORS_CRASH_1));
     XGM_setPCM(SOUND_DOCTORS_CRASH_2 , PCM_DOCTORS_CRASH_2 , sizeof(PCM_DOCTORS_CRASH_2));
     XGM_setPCM(SOUND_DOCTORS_CRASH_3 , PCM_DOCTORS_CRASH_3 , sizeof(PCM_DOCTORS_CRASH_3));
+    XGM_setPCM(SOUND_ENGINE_1 , PCM_ENGINE_1 , sizeof(PCM_ENGINE_1));
 
 
     //--------------------------------------------------------------------------------------//
@@ -363,6 +364,12 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_PIE_HIT , PCM_PIE_HIT , sizeof(PCM_PIE_HIT));
     XGM_setPCM(SOUND_PIE_WALL , PCM_PIE_WALL , sizeof(PCM_PIE_WALL));
 
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                       BOXING                                         //
+    //--------------------------------------------------------------------------------------//
+    XGM_setPCM(SOUND_BOXING , PCM_BOXING , sizeof(PCM_BOXING));
 }
 
 
@@ -3475,6 +3482,15 @@ void init_SCENE()
         G_SCENE_NEXT            = SCENE_BOXING_SCREEN_TYPE1;
 
         G_SCENE_LOADED          = TRUE;
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         AUDIO                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        XGM_startPlayPCM(SOUND_BOXING , 15 , SOUND_PCM_CH4);
     }
 
     // BOXING SCREEN 2 //
@@ -3586,7 +3602,7 @@ void init_SCENE()
         G_PHASE_SEQUENCE        = 0;
        
 
-        G_SCENE                 = SCENE_FADE_IN;
+        G_SCENE                 = SCENE_FADE_IN_BOXING;
         G_SCENE_TYPE            = SCENE_BOXING_SCREEN_TYPE2;
         G_SCENE_NEXT            = SCENE_BOXING_SCREEN_TYPE2;
 
@@ -4034,6 +4050,9 @@ void init_SCENE()
 
 
         waitMs(3000);
+
+
+        XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
     }
 
     // DOCTORS MINIGAME //

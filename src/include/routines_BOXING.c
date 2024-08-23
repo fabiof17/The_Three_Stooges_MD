@@ -82,7 +82,7 @@ void sequence_BOXING()
 
 void sequence_BOXING_SCREEN_TYPE_1()
 {
-    if(G_COUNTER_1 == 300)
+    if(G_COUNTER_1 == 450)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);
@@ -101,7 +101,7 @@ void sequence_BOXING_SCREEN_TYPE_1()
         G_COUNTER_1 = 0;
 
         // DEFINE NEXT MINIGAME //
-        G_SCENE         = SCENE_FADE_IN;
+        G_SCENE         = SCENE_FADE_IN_BOXING;
         G_SCENE_TYPE    = SCENE_BOXING_SCREEN_TYPE2; //SCENE_BOXING_SCREEN_TYPE1
         G_SCENE_NEXT    = SCENE_BOXING_SCREEN_TYPE2;
 

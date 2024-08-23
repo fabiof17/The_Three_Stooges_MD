@@ -32,8 +32,10 @@ extern const u8 PCM_DOCTORS_CRY_2[6400];
 extern const u8 PCM_DOCTORS_CRASH_1[7680];
 extern const u8 PCM_DOCTORS_CRASH_2[14080];
 extern const u8 PCM_DOCTORS_CRASH_3[64768];
+extern const u8 PCM_ENGINE_1[30464];
 extern const u8 PCM_PIE_THROW[5120];
 extern const u8 PCM_PIE_HIT[3840];
 extern const u8 PCM_PIE_WALL[3328];
+extern const u8 PCM_BOXING[178176];
 
 #endif // _RES_SOUND_H_

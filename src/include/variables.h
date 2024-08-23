@@ -68,6 +68,7 @@
 
 #define SCENE_FADE_IN                   40
 #define SCENE_FADE_OUT                  41
+#define SCENE_FADE_IN_BOXING            42
 
 
 
@@ -407,10 +408,13 @@
 #define SOUND_DOCTORS_CRASH_1           97
 #define SOUND_DOCTORS_CRASH_2           98
 #define SOUND_DOCTORS_CRASH_3           99
+#define SOUND_ENGINE_1                 100
 
-#define SOUND_PIE_THROW                100
-#define SOUND_PIE_HIT                  101
-#define SOUND_PIE_WALL                 102
+#define SOUND_PIE_THROW                101
+#define SOUND_PIE_HIT                  102
+#define SOUND_PIE_WALL                 103
+
+#define SOUND_BOXING                   104
 
 
 
