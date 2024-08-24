@@ -115,7 +115,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
 
@@ -355,6 +355,7 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_DOCTORS_CRASH_3 , PCM_DOCTORS_CRASH_3 , sizeof(PCM_DOCTORS_CRASH_3));
     XGM_setPCM(SOUND_ENGINE_1 , PCM_ENGINE_1 , sizeof(PCM_ENGINE_1));
     XGM_setPCM(SOUND_ENGINE_2 , PCM_ENGINE_2 , sizeof(PCM_ENGINE_2));
+    XGM_setPCM(SOUND_TIRE , PCM_TIRE , sizeof(PCM_TIRE));
 
 
     //--------------------------------------------------------------------------------------//
@@ -607,7 +608,9 @@ void init_INTRO()
         SPR_update();
         SYS_doVBlankProcess();
 
-        sprite_DEFENDER = SPR_addSprite(&tiles_SPR_DEFENDER_SH_INTRO_SCREEN_1,  56,  32, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        sprite_DEFENDER_1 = SPR_addSprite(&tiles_SPR_DEFENDER_1_SH_INTRO_SCREEN_1,  57,  32, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        sprite_DEFENDER_2 = SPR_addSprite(&tiles_SPR_DEFENDER_2_SH_INTRO_SCREEN_1, 209,  40, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        sprite_DEFENDER_3 = SPR_addSprite(&tiles_SPR_DEFENDER_3_SH_INTRO_SCREEN_1, 225,  48, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
 
         SPR_update();
         SYS_doVBlankProcess();

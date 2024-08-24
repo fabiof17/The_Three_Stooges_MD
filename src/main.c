@@ -507,7 +507,7 @@ int main(bool hardReset)
                     joypad_DOCTORS_MINIGAME();
 
                     sequence_DOCTORS_MINIGAME();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -518,10 +518,7 @@ int main(bool hardReset)
                     joypad_WAITERS_MINIGAME();
                     JOY_setEventHandler(waiters_Callback);
 
-                    sequence_WAITERS_MINIGAME();
-
-                    //VDP_drawIntEx_BG_A_QUEUE(G_DELAY_ACTION_WAITERS,1,3,0,PAL3);
-                    //VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[0].counter_ACTION,2,0,0,PAL3);         
+                    sequence_WAITERS_MINIGAME();         
                     
                     SPR_update();
                     SYS_doVBlankProcess();

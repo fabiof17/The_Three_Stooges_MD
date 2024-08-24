@@ -410,12 +410,13 @@
 #define SOUND_DOCTORS_CRASH_3           99
 #define SOUND_ENGINE_1                 100
 #define SOUND_ENGINE_2                 101
+#define SOUND_TIRE                     102
 
-#define SOUND_PIE_THROW                102
-#define SOUND_PIE_HIT                  103
-#define SOUND_PIE_WALL                 104
+#define SOUND_PIE_THROW                103
+#define SOUND_PIE_HIT                  104
+#define SOUND_PIE_WALL                 105
 
-#define SOUND_BOXING                   105
+#define SOUND_BOXING                   106
 
 
 
@@ -738,7 +739,9 @@ extern struct_WALL_PIE_ list_WALL_PIES_DOWN_BG_A[3];
 //                                                                             //
 //-----------------------------------------------------------------------------// 
 
-extern Sprite *sprite_DEFENDER;
+extern Sprite *sprite_DEFENDER_1;
+extern Sprite *sprite_DEFENDER_2;
+extern Sprite *sprite_DEFENDER_3;
 extern Sprite *sprite_OF;
 extern Sprite *sprite_THE;
 extern Sprite *sprite_CROWN;
