@@ -611,6 +611,7 @@ void init_INTRO()
         sprite_DEFENDER_1 = SPR_addSprite(&tiles_SPR_DEFENDER_1_SH_INTRO_SCREEN_1,  57,  32, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
         sprite_DEFENDER_2 = SPR_addSprite(&tiles_SPR_DEFENDER_2_SH_INTRO_SCREEN_1, 209,  40, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
         sprite_DEFENDER_3 = SPR_addSprite(&tiles_SPR_DEFENDER_3_SH_INTRO_SCREEN_1, 225,  48, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        sprite_DEFENDER_4 = SPR_addSprite(&tiles_SPR_DEFENDER_4_SH_INTRO_SCREEN_1, 203,  31, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
 
         SPR_update();
         SYS_doVBlankProcess();

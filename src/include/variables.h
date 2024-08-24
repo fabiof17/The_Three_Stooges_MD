@@ -742,6 +742,7 @@ extern struct_WALL_PIE_ list_WALL_PIES_DOWN_BG_A[3];
 extern Sprite *sprite_DEFENDER_1;
 extern Sprite *sprite_DEFENDER_2;
 extern Sprite *sprite_DEFENDER_3;
+extern Sprite *sprite_DEFENDER_4;
 extern Sprite *sprite_OF;
 extern Sprite *sprite_THE;
 extern Sprite *sprite_CROWN;

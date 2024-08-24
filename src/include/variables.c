@@ -335,6 +335,7 @@ struct_WALL_PIE_ list_WALL_PIES_DOWN_BG_A[3];
 Sprite *sprite_DEFENDER_1;
 Sprite *sprite_DEFENDER_2;
 Sprite *sprite_DEFENDER_3;
+Sprite *sprite_DEFENDER_4;
 Sprite *sprite_OF;
 Sprite *sprite_THE;
 Sprite *sprite_CROWN;
