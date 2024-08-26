@@ -133,7 +133,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_INTRO)
     {
-        G_SCENE_TYPE = SCENE_INTRO_SCREEN_1;
+        G_SCENE_TYPE = SCENE_INTRO_SCREEN_4;
     }
 
     else if(G_REEL == REEL_GAME)
