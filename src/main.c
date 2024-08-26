@@ -557,7 +557,12 @@ int main(bool hardReset)
                 // CONTRACT QUESTION MARK //
                 else if(G_SCENE == SCENE_CONTRACT_QUESTION_MARK)
                 {                    
-                    sequence_CONTRACT_QUESTION_MARK();
+                    pause_GAME();
+
+                    if(G_PAUSE == FALSE)
+                    {
+                        sequence_CONTRACT_QUESTION_MARK();
+                    }
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -566,7 +571,12 @@ int main(bool hardReset)
                 // CONTRACT DOCTORS //
                 else if(G_SCENE == SCENE_CONTRACT_DOCTORS)
                 {                    
-                    sequence_CONTRACT_DOCTORS();
+                    pause_GAME();
+
+                    if(G_PAUSE == FALSE)
+                    {
+                        sequence_CONTRACT_DOCTORS();
+                    }
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -575,7 +585,12 @@ int main(bool hardReset)
                 // CONTRACT WAITERS //
                 else if(G_SCENE == SCENE_CONTRACT_WAITERS)
                 {                    
-                    sequence_CONTRACT_WAITERS();
+                    pause_GAME();
+
+                    if(G_PAUSE == FALSE)
+                    {
+                        sequence_CONTRACT_WAITERS();
+                    }
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -584,7 +599,12 @@ int main(bool hardReset)
                 // CONTRACT CRACKERS //
                 else if(G_SCENE == SCENE_CONTRACT_CRACKERS)
                 {                    
-                    sequence_CONTRACT_CRACKERS();
+                    pause_GAME();
+
+                    if(G_PAUSE == FALSE)
+                    {
+                        sequence_CONTRACT_CRACKERS();
+                    }
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -611,7 +631,12 @@ int main(bool hardReset)
                 // REWARD //
                 else if(G_SCENE == SCENE_REWARD)
                 {                    
-                    sequence_REWARD();
+                    pause_GAME();
+
+                    if(G_PAUSE == FALSE)
+                    {
+                        sequence_REWARD();
+                    }
                     
                     SPR_update();
                     SYS_doVBlankProcess();

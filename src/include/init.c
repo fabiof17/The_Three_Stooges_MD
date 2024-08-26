@@ -172,6 +172,8 @@ void init_VARIABLES()
     
     G_MONEY                     = 19000;
 
+    G_PAUSE                     = FALSE;
+
 
     
 
