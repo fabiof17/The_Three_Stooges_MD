@@ -507,7 +507,7 @@ int main(bool hardReset)
                     joypad_DOCTORS_MINIGAME();
 
                     sequence_DOCTORS_MINIGAME();
-
+                    
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -518,7 +518,10 @@ int main(bool hardReset)
                     joypad_WAITERS_MINIGAME();
                     JOY_setEventHandler(waiters_Callback);
 
-                    sequence_WAITERS_MINIGAME();         
+                    sequence_WAITERS_MINIGAME();
+
+                    //VDP_drawIntEx_BG_A_QUEUE(G_DELAY_ACTION_WAITERS,1,3,0,PAL3);
+                    //VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[0].counter_ACTION,2,0,0,PAL3);         
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -528,8 +531,6 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_CRACKERS_SCREEN)
                 {
                     sequence_CRACKERS_SCREEN();
-
-                    //VDP_drawIntEx_BG_A_QUEUE(G_NUMBER_CRACKERS,2,0,0,PAL0);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -557,12 +558,7 @@ int main(bool hardReset)
                 // CONTRACT QUESTION MARK //
                 else if(G_SCENE == SCENE_CONTRACT_QUESTION_MARK)
                 {                    
-                    pause_GAME();
-
-                    if(G_PAUSE == FALSE)
-                    {
-                        sequence_CONTRACT_QUESTION_MARK();
-                    }
+                    sequence_CONTRACT_QUESTION_MARK();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -571,12 +567,7 @@ int main(bool hardReset)
                 // CONTRACT DOCTORS //
                 else if(G_SCENE == SCENE_CONTRACT_DOCTORS)
                 {                    
-                    pause_GAME();
-
-                    if(G_PAUSE == FALSE)
-                    {
-                        sequence_CONTRACT_DOCTORS();
-                    }
+                    sequence_CONTRACT_DOCTORS();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -585,12 +576,7 @@ int main(bool hardReset)
                 // CONTRACT WAITERS //
                 else if(G_SCENE == SCENE_CONTRACT_WAITERS)
                 {                    
-                    pause_GAME();
-
-                    if(G_PAUSE == FALSE)
-                    {
-                        sequence_CONTRACT_WAITERS();
-                    }
+                    sequence_CONTRACT_WAITERS();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -599,12 +585,7 @@ int main(bool hardReset)
                 // CONTRACT CRACKERS //
                 else if(G_SCENE == SCENE_CONTRACT_CRACKERS)
                 {                    
-                    pause_GAME();
-
-                    if(G_PAUSE == FALSE)
-                    {
-                        sequence_CONTRACT_CRACKERS();
-                    }
+                    sequence_CONTRACT_CRACKERS();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -631,12 +612,7 @@ int main(bool hardReset)
                 // REWARD //
                 else if(G_SCENE == SCENE_REWARD)
                 {                    
-                    pause_GAME();
-
-                    if(G_PAUSE == FALSE)
-                    {
-                        sequence_REWARD();
-                    }
+                    sequence_REWARD();
                     
                     SPR_update();
                     SYS_doVBlankProcess();

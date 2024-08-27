@@ -203,7 +203,7 @@ void joypad_DOCTORS_MINIGAME()
 
                         if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                         {
-                            XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
+                            //XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
                         }
 
                         //G_CAR_SPEED = 2;
@@ -224,7 +224,7 @@ void joypad_DOCTORS_MINIGAME()
 
                     if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                     {
-                        XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
+                        //XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
                     }
 
                     //G_CAR_SPEED = 2;
@@ -293,7 +293,7 @@ void joypad_DOCTORS_MINIGAME()
 
                         if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                         {
-                            XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
+                            //XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
                         }
 
                         //G_CAR_SPEED = 2;
@@ -314,7 +314,7 @@ void joypad_DOCTORS_MINIGAME()
 
                     if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                     {
-                        XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
+                        //XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
                     }
 
                     //G_CAR_SPEED = 2;
@@ -562,7 +562,6 @@ void joypad_DOCTORS_MINIGAME()
         list_CARS[2].hit = FALSE;
     }
 }
-
 
 
 
@@ -1930,12 +1929,4 @@ void sequence_DOCTORS_MINIGAME()
     }
     
 }
-
-
-
-
-
-
-
-
 

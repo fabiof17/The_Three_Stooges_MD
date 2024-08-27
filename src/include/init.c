@@ -115,7 +115,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
 
@@ -133,12 +133,12 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_INTRO)
     {
-        G_SCENE_TYPE = SCENE_INTRO_SCREEN_4;
+        G_SCENE_TYPE = SCENE_INTRO_SCREEN_1;
     }
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_CONTRACT_CRACKERS; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -171,8 +171,6 @@ void init_VARIABLES()
 
     
     G_MONEY                     = 19000;
-
-    G_PAUSE                     = FALSE;
 
 
     
@@ -665,16 +663,6 @@ void init_INTRO()
         G_SCENE_NEXT            = SCENE_INTRO_SCREEN_1;
 
         G_SCENE_LOADED          = TRUE;
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                         AUDIO                                        //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        //XGM_setPCM(SOUND_INTRO_SCREEN1, PCM_INTRO_SCREEN1, sizeof(PCM_INTRO_SCREEN1));
-
     }
 
     // INTRO SCREEN 2 //
@@ -3499,7 +3487,7 @@ void init_SCENE()
 
         XGM_startPlayPCM(SOUND_BOXING , 15 , SOUND_PCM_CH4);
     }
-
+    
     // BOXING SCREEN 2 //
     else if(G_SCENE_TYPE == SCENE_BOXING_SCREEN_TYPE2)
     {
@@ -4808,7 +4796,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,32,TRUE);
         
-        SPR_initEx(10);
+        SPR_initEx(95);
         
         VDP_setHilightShadow(FALSE);
 
@@ -5225,6 +5213,19 @@ void init_SCENE()
 
             //--------------------------------------------------------------------------------------//
             //                                                                                      //
+            //                                       SPRITES                                        //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            sprite_SPLASH = SPR_addSprite(&tiles_SPR_SPLASH, 112,  59, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+            SPR_update();
+            SYS_doVBlankProcess();
+
+
+
+
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
             //                                       PALETTES                                       //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
@@ -5252,7 +5253,6 @@ void init_SCENE()
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
             
-            //XGM_setPCM(SOUND_CRACKERS_CRY_5, PCM_CRACKERS_CRY_5, sizeof(PCM_CRACKERS_CRY_5));
             XGM_startPlayPCM(SOUND_CRACKERS_CRY_5,13,SOUND_PCM_CH3);
         }
 

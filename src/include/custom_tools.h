@@ -23,9 +23,7 @@ extern void generate_RANDOM_HAND_MOVE();
 
 extern void generate_RANDOM_HAND_MOVE_SWATTER();
 
-extern void increase_HAND_SPEED();
-
-extern void pause_GAME();
+extern void increase_HAND_SPEED();;
 
 
 

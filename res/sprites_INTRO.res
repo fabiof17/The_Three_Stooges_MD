@@ -52,18 +52,3 @@ SPRITE tiles_SPR_BANKER_PART1       "sprites/intro/tiles_SPR_BANKER_PART1.png"  
 SPRITE tiles_SPR_BANKER_PART2       "sprites/intro/tiles_SPR_BANKER_PART2.png"      6   8  NONE 0 NONE TILE MEDIUM
 
 SPRITE tiles_SPR_INTRO_ARROW        "sprites/intro/tiles_SPR_INTRO_ARROW.png"       2   4  NONE 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

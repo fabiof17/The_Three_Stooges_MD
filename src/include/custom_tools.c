@@ -115,22 +115,8 @@ void increase_HAND_SPEED()
 
 
 
-void pause_GAME()
-{
-	if(G_PAUSE == FALSE)
-	{
-		XGM_pausePlay();
 
-		G_PAUSE = TRUE;
-	}
 
-	else
-	{
-		XGM_resumePlay();
-
-		G_PAUSE = FALSE;
-	}
-}
 
 
 

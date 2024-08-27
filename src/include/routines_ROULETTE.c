@@ -179,43 +179,7 @@ void init_HUB()
     VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 4), 31 , 11 , 0, 0, 1, 1, CPU);
 
     // MONEY AMOUNT //
-    if(G_MONEY < 10)
-    {
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_MONEY), 32 , 11 , 0, 0, 1, 1, CPU);
-    }
-
-    else if(G_MONEY < 100)
-    {
-        u8 number1 = G_MONEY / 10;
-        u8 number2 = G_MONEY - (number1*10);
-
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 32 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 33 , 11 , 0, 0, 1, 1, CPU);
-    }
-
-    else if(G_MONEY < 1000)
-    {
-        u8 number1 = G_MONEY / 100;
-        u8 number2 = (G_MONEY - (number1*100)) / 10;
-        u8 number3 = G_MONEY - (number1*100) - (number2*10);
-
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 32 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 33 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number3), 34 , 11 , 0, 0, 1, 1, CPU);
-    }
-
-    else
-    {
-        u8 number1 = G_MONEY / 1000;
-        u8 number2 = (G_MONEY - (number1*1000)) / 100;
-        u8 number3 = (G_MONEY - (number1*1000) - (number2*100)) / 10;
-        u8 number4 = G_MONEY - (number1*1000) - (number2*100) - (number3*10);
-
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 32 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 33 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number3), 34 , 11 , 0, 0, 1, 1, CPU);
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number4), 35 , 11 , 0, 0, 1, 1, CPU);
-    }
+    VDP_drawIntEx_BG_A_CPU(G_MONEY,1,32,11,PAL3);
 
 
     //**************************************************************************************//

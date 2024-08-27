@@ -419,6 +419,128 @@ void anim_CRACKERS_SCREEN_SURPRISE()
 
 
 
+void anim_CRACKERS_SCREEN_SURPRISE_4()
+{
+    if(G_COUNTER_CRACKERS == 5)
+    {
+        SPR_setFrame(sprite_SPLASH , 1);
+    }
+    
+    else if(G_COUNTER_CRACKERS == 10)
+    {
+        SPR_setFrame(sprite_SPLASH , 0);
+    }    
+    
+    else if(G_COUNTER_CRACKERS == 15)
+    {
+        SPR_setFrame(sprite_SPLASH , 1);
+    }
+
+    else if(G_COUNTER_CRACKERS == 20)
+    {
+        SPR_setFrame(sprite_SPLASH , 0);
+    }
+
+    else if(G_COUNTER_CRACKERS == 25)
+    {
+        SPR_setFrame(sprite_SPLASH , 1);
+    }
+
+    else if(G_COUNTER_CRACKERS == 30)
+    {
+        SPR_setFrame(sprite_SPLASH , 0);
+    }
+
+    else if(G_COUNTER_CRACKERS == 35)
+    {
+        SPR_setFrame(sprite_SPLASH , 1);
+    }
+
+    else if(G_COUNTER_CRACKERS == 40)
+    {
+        SPR_setFrame(sprite_SPLASH , 0);
+    }
+
+    else if(G_COUNTER_CRACKERS == 45)
+    {
+        SPR_setFrame(sprite_SPLASH , 1);
+    }
+
+    else if(G_COUNTER_CRACKERS == 50)
+    {
+        SPR_setFrame(sprite_SPLASH , 0);
+    }
+
+    else if(G_COUNTER_CRACKERS == 60)
+    {
+        SPR_setFrame(sprite_SPLASH , 2);
+    }
+
+
+
+
+    else if(G_COUNTER_CRACKERS == 125)
+    {
+        if(G_NUMBER_CRACKERS == 0)
+        {
+            if(G_NUMBER_GRABBED_CRACKERS == 0)
+            {
+                waitMs(2000);
+                PAL_fadeOutAll(40,FALSE);
+            }
+
+            else
+            {
+                PAL_fadeOutAll(2,FALSE);
+            }
+        }
+
+        else
+        {
+            PAL_fadeOutAll(2,FALSE);
+        }
+        
+        G_COUNTER_CRACKERS = 0;
+
+        // DEFINE NEXT MINIGAME //
+        if(G_NUMBER_CRACKERS == 0)
+        {
+            if(G_NUMBER_GRABBED_CRACKERS == 0)
+            {                
+                G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_OVER;
+            }
+
+            else
+            {
+                G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_SPREAD;
+                G_CRACKERS_INIT         = FALSE;
+            }
+
+            G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
+            G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
+        }
+
+
+        else
+        {
+            G_SCENE_TYPE    = SCENE_CRACKERS_MINIGAME;
+            G_SCENE_NEXT    = SCENE_CRACKERS_MINIGAME;
+        }
+
+
+        SPR_reset();
+
+        G_SCENE_LOADED  = FALSE;
+
+        return;
+    }
+
+    G_COUNTER_CRACKERS += 1;
+}
+
+
+
+
 void anim_CRACKERS_SCREEN_OVER()
 {
     if(G_COUNTER_CRACKERS == 240)
@@ -466,7 +588,7 @@ void (*TABLE_ANIM_INTERMEDIATE_SCREEN[6])(void)     =   {
                                                             anim_CRACKERS_SCREEN_SURPRISE,
                                                             anim_CRACKERS_SCREEN_SURPRISE,
                                                             anim_CRACKERS_SCREEN_SURPRISE,
-                                                            anim_CRACKERS_SCREEN_SURPRISE,
+                                                            anim_CRACKERS_SCREEN_SURPRISE_4,
                                                             anim_CRACKERS_SCREEN_OVER
                                                         };
 

@@ -7,15 +7,4 @@ SPRITE tiles_SPR_HAND_PART_2     "sprites/crackers/tiles_SPR_HAND_PART_2.png"   
 SPRITE tiles_SPR_HAND_PART_3     "sprites/crackers/tiles_SPR_HAND_PART_3.png"       7   7  NONE 0
 
 SPRITE tiles_SPR_CRACKER         "sprites/crackers/tiles_SPR_CRACKER.png"           6   6  NONE 0
-
-
-
-
-
-
-
-
-
-
-
-
+SPRITE tiles_SPR_SPLASH          "sprites/crackers/tiles_SPR_SPLASH.png"           12  17  NONE 0

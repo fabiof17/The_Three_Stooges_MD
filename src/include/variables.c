@@ -11,7 +11,7 @@
 
 
 
-char text_output[3];
+char text_output[5];
 u16 palette_64[64];
 
 
@@ -40,8 +40,6 @@ u16 G_ADR_VRAM_BG_A;
 u16 G_MONEY;
 
 u8 G_PHASE_SEQUENCE;
-
-bool G_PAUSE;
 
 
 
@@ -479,6 +477,8 @@ Sprite *sprite_ICE_CUBE_SHADOW;
 //-----------------------------------------------------------------------------// 
 
 Sprite *sprite_HAND[3];
+
+Sprite *sprite_SPLASH;
 
 
 

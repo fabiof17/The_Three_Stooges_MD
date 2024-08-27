@@ -410,22 +410,23 @@
 #define SOUND_DOCTORS_CRASH_3           99
 #define SOUND_ENGINE_1                 100
 #define SOUND_ENGINE_2                 101
-#define SOUND_TIRE                     102
 
-#define SOUND_PIE_THROW                103
-#define SOUND_PIE_HIT                  104
-#define SOUND_PIE_WALL                 105
+#define SOUND_PIE_THROW                102
+#define SOUND_PIE_HIT                  103
+#define SOUND_PIE_WALL                 104
 
-#define SOUND_BOXING                   106
+#define SOUND_BOXING                   105
 
-
-
+#define SOUND_TIRE                     106
 
 
 
 
 
-extern char text_output[3];
+
+
+
+extern char text_output[5];
 extern u16 palette_64[64];
 
 
@@ -454,8 +455,6 @@ extern u16 G_ADR_VRAM_BG_A;
 extern u16 G_MONEY;
 
 extern u8 G_PHASE_SEQUENCE;
-
-extern bool G_PAUSE;
 
 
 
@@ -886,6 +885,8 @@ extern Sprite *sprite_ICE_CUBE_SHADOW;
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_HAND[3];
+
+extern Sprite *sprite_SPLASH;
 
 
 
