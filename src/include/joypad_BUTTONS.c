@@ -18,21 +18,29 @@
 
 
 
-void pause_GAME()
+void pause_Callback(u16 joy, u16 changed, u16 state)
 {
-	if(G_PAUSE == FALSE)
-	{
-		XGM_pausePlay();
+    if(joy == JOY_1)
+    {
+        // BOUTON B //
+        if( changed & state & BUTTON_START )
+        {
+            if(G_PAUSE == FALSE)
+            {
+                XGM_pausePlay();
 
-		G_PAUSE = TRUE;
-	}
+                G_PAUSE = TRUE;
+            }
 
-	else
-	{
-		XGM_resumePlay();
+            else
+            {
+                XGM_resumePlay();
 
-		G_PAUSE = FALSE;
-	}
+                G_PAUSE = FALSE;
+            }
+        }
+    }
+
 }
 
 

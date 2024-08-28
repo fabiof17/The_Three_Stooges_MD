@@ -558,7 +558,7 @@ int main(bool hardReset)
                 // CONTRACT QUESTION MARK //
                 else if(G_SCENE == SCENE_CONTRACT_QUESTION_MARK)
                 {                    
-                    pause_GAME();
+                    JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
@@ -572,7 +572,7 @@ int main(bool hardReset)
                 // CONTRACT DOCTORS //
                 else if(G_SCENE == SCENE_CONTRACT_DOCTORS)
                 {                    
-                    pause_GAME();
+                    JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
@@ -586,7 +586,7 @@ int main(bool hardReset)
                 // CONTRACT WAITERS //
                 else if(G_SCENE == SCENE_CONTRACT_WAITERS)
                 {                    
-                    pause_GAME();
+                    JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
@@ -600,7 +600,7 @@ int main(bool hardReset)
                 // CONTRACT CRACKERS //
                 else if(G_SCENE == SCENE_CONTRACT_CRACKERS)
                 {                    
-                    pause_GAME();
+                    JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
