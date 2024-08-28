@@ -456,6 +456,8 @@ extern u16 G_MONEY;
 
 extern u8 G_PHASE_SEQUENCE;
 
+extern bool G_PAUSE;
+
 
 
 

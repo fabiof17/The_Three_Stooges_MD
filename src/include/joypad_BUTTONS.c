@@ -18,6 +18,26 @@
 
 
 
+void pause_GAME()
+{
+	if(G_PAUSE == FALSE)
+	{
+		XGM_pausePlay();
+
+		G_PAUSE = TRUE;
+	}
+
+	else
+	{
+		XGM_resumePlay();
+
+		G_PAUSE = FALSE;
+	}
+}
+
+
+
+
 void intro_Callback(u16 joy, u16 changed, u16 state)
 {
     if(joy == JOY_1)

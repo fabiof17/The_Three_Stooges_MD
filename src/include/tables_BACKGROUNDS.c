@@ -779,7 +779,7 @@ void init_STREET_WAITERS()
     //                                                                                      //
     //**************************************************************************************//
 
-    VDP_setPlaneSize(64,32,TRUE);
+    VDP_setPlaneSize(64,64,TRUE);
     
     SPR_initEx(320);
     
@@ -815,6 +815,7 @@ void init_STREET_WAITERS()
 
     VDP_loadTileSet(image_STREET_WAITERS_BG_B1.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_STREET_WAITERS_BG_B1.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_B, image_STREET_WAITERS_BG_B1.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 28, 0, 0, 40, 28, CPU);
     VDP_loadTileSet(image_STREET_WAITERS_BG_B2.tileset, G_ADR_VRAM_BG_B + image_STREET_WAITERS_BG_B1.tileset->numTile, CPU);
     
 
@@ -827,6 +828,7 @@ void init_STREET_WAITERS()
     G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_STREET_WAITERS_BG_B1.tileset->numTile + image_STREET_WAITERS_BG_B2.tileset->numTile;
     VDP_loadTileSet(image_STREET_WAITERS_BG_A1.tileset, G_ADR_VRAM_BG_A, CPU);
     VDP_setTileMapEx(BG_A, image_STREET_WAITERS_BG_A1.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_A, image_STREET_WAITERS_BG_A1.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 28, 0, 0, 40, 28, CPU);
 
 
 

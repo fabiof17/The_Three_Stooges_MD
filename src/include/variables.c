@@ -41,6 +41,8 @@ u16 G_MONEY;
 
 u8 G_PHASE_SEQUENCE;
 
+bool G_PAUSE;
+
 
 
 
