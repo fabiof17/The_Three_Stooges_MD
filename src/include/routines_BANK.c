@@ -67,7 +67,7 @@ void sequence_BANK()
 
     else if(G_PHASE_SEQUENCE == BANKER_PHASE_APPEAR)
     {
-        // DORRS OPEN //
+        // DOORS OPEN //
         if(G_COUNTER_1 == 230)
         {
             // DOORS OPEN //

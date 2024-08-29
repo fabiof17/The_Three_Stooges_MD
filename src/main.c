@@ -714,8 +714,7 @@ int main(bool hardReset)
                     G_SCENE         = G_SCENE_NEXT;
                     G_SCENE_NEXT    = NULL;
                 }
-
-
+            
             }
         }    
     }

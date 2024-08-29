@@ -1841,6 +1841,18 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
+        //                                        DIALOG                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_STREET_BOXING_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_BOXING_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
         //                                SETUP PLANES POSITION                                 //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
@@ -1891,6 +1903,14 @@ void init_SCENE()
         sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  -96, -64, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
 
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                            DIALOG ARROW SPRITE OFF SCREEN                            //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_ARROW_DIALOG = SPR_addSprite(&tiles_SPR_BANK_ARROW,   -24, -32, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+
 
 
 
@@ -1902,6 +1922,8 @@ void init_SCENE()
 
         memcpy( &palette_64[0]  , image_STREET_BOXING_BG_B.palette->data    , 16 * 2 );
         memcpy( &palette_64[16] , image_STREET_BOXING_BG_A.palette->data    , 16 * 2 );
+        memcpy( &palette_64[32] , image_BOXING_DIALOG.palette->data         , 16 * 2 );
+        memcpy( &palette_64[48] , palette_SPR_STOOGES.data                  , 16 * 2 );
 
 
 

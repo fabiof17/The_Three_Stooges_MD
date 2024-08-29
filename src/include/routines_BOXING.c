@@ -83,7 +83,37 @@ void sequence_BOXING()
     }
 
 
-    if(G_COUNTER_1 == 200)
+    // GET YOUR FIDDLE, PORCUPINE! //
+    if(G_COUNTER_1 == 710)
+    {
+        // DISPLAY DIALOG 1 //
+        VDP_setTileMapEx(BG_A, image_BOXING_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 13, 8, 0, 0, 14, 5, DMA_QUEUE);
+
+        // DISPLAY DIALOG ARROW //
+        SPR_setPosition(sprite_ARROW_DIALOG,160,104);
+    }
+
+    else if(G_COUNTER_1 == 831)
+    {
+        // ERASE DIALOG //
+        VDP_setTileMapEx(BG_A, image_STREET_BOXING_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 13, 6, 13, 6, 14, 7, DMA_QUEUE);
+
+        // DISPLAY DIALOG ARROW //
+        SPR_setPosition(sprite_ARROW_DIALOG,-24,-32);
+    }
+
+    // PLAY THAT WEASEL TUNE, AND CURLY CAN'T LOSE! //
+    else if(G_COUNTER_1 == 842)
+    {
+        // DISPLAY DIALOG 2 //
+        VDP_setTileMapEx(BG_A, image_BOXING_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 13, 7, 0, 5, 14, 6, DMA_QUEUE);
+
+        // DISPLAY DIALOG ARROW //
+        SPR_setPosition(sprite_ARROW_DIALOG,160,104);
+    }
+
+
+    else if(G_COUNTER_1 == 1164)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);

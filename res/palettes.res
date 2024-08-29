@@ -2,7 +2,7 @@
 //                       GENERAL                      //
 //----------------------------------------------------//
 
-PALETTE palette_BLACK                        "palettes/palette_BLACK.png"
+PALETTE palette_BLACK                       "palettes/palette_BLACK.png"
 PALETTE palette_SPR_STOOGES                 "palettes/palette_SPR_STOOGES.png"
 
 
