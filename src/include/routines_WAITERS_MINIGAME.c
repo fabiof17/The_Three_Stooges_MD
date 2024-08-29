@@ -955,6 +955,13 @@ inline static void anim_PIE_GUESTS()
                         SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , CHAR_PHASE_HIT_1);
 
 
+                        // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                        if(i == WAITER_CURLY)
+                        {
+                            VDP_loadTileSet(image_CURLY1_6_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
+                        }
+
+
 
 
                         //--------------------------------------------------------------------//
