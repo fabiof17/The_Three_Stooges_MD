@@ -40,7 +40,7 @@ void pause_Callback(u16 joy, u16 changed, u16 state)
             {
                 XGM_pausePlay();
 
-                SPR_setPosition(sprite_PAUSE,144,176);
+                SPR_setPosition(sprite_PAUSE,144,184);//176
 
                 VDP_setHilightShadow(TRUE);
 
