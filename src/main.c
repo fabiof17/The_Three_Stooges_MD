@@ -364,6 +364,8 @@ int main(bool hardReset)
                 // BOXING //
                 else if(G_SCENE == SCENE_BOXING)
                 {                    
+                    JOY_setEventHandler(disable_Callback);
+                    
                     sequence_BOXING();
                     
                     SPR_update();
@@ -373,6 +375,8 @@ int main(bool hardReset)
                 // DOCTORS //
                 else if(G_SCENE == SCENE_DOCTORS)
                 {                    
+                    JOY_setEventHandler(disable_Callback);
+                    
                     sequence_DOCTORS();
                     
                     SPR_update();
@@ -382,6 +386,8 @@ int main(bool hardReset)
                 // DOLLAR //
                 else if(G_SCENE == SCENE_DOLLAR)
                 {                    
+                    JOY_setEventHandler(disable_Callback);
+                    
                     sequence_DOLLAR();
                     
                     SPR_update();
@@ -391,6 +397,8 @@ int main(bool hardReset)
                 // QUESTION MARK //
                 else if(G_SCENE == SCENE_QUESTION_MARK)
                 {                    
+                    JOY_setEventHandler(disable_Callback);
+                    
                     sequence_QUESTION_MARK();
                     
                     SPR_update();
@@ -414,6 +422,8 @@ int main(bool hardReset)
                 // WAITERS //
                 else if(G_SCENE == SCENE_WAITERS)
                 {                    
+                    JOY_setEventHandler(disable_Callback);
+                    
                     sequence_WAITERS();
                     
                     SPR_update();
@@ -423,6 +433,8 @@ int main(bool hardReset)
                 // CRACKERS //
                 else if(G_SCENE == SCENE_CRACKERS)
                 {                    
+                    JOY_setEventHandler(disable_Callback);
+                    
                     sequence_CRACKERS();
                     
                     SPR_update();
@@ -477,6 +489,8 @@ int main(bool hardReset)
                 // BOXING SCREEN TYPE 1 //
                 else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE1)
                 {
+                    JOY_setEventHandler(disable_Callback);
+                    
                     sequence_BOXING_SCREEN_TYPE_1();
                     
                     SPR_update();
@@ -486,6 +500,8 @@ int main(bool hardReset)
                 // BOXING SCREEN TYPE 2 //
                 else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE2)
                 {
+                    JOY_setEventHandler(disable_Callback);
+                    
                     sequence_BOXING_SCREEN_TYPE_2();
                     
                     SPR_update();
@@ -495,6 +511,8 @@ int main(bool hardReset)
                 // BOXING SCREEN TYPE 3 //
                 else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE3)
                 {
+                    JOY_setEventHandler(disable_Callback);
+                    
                     //sequence_BOXING_SCREEN_TYPE_3();
                     
                     SPR_update();
@@ -611,9 +629,25 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
+                // CONTRACT BOXING //
+                else if(G_SCENE == SCENE_CONTRACT_BOXING)
+                {                    
+                    JOY_setEventHandler(pause_Callback);
+
+                    if(G_PAUSE == FALSE)
+                    {
+                        sequence_CONTRACT_BOXING();
+                    }
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
                 // FADE IN CRACKERS //
                 else if(G_SCENE == SCENE_FADE_IN_CRACKERS)
                 {
+                    JOY_setEventHandler(disable_Callback);
+                    
                     PAL_fadeInAll(palette_64, 1, FALSE);
 
                     G_SCENE         = G_SCENE_NEXT;
@@ -623,6 +657,8 @@ int main(bool hardReset)
                 // FADE OUT CRACKERS //
                 else if(G_SCENE == SCENE_FADE_OUT_CRACKERS)
                 {                    
+                    JOY_setEventHandler(disable_Callback);
+                    
                     PAL_fadeOutAll(1,FALSE);
 
                     G_SCENE         = G_SCENE_NEXT;
@@ -641,6 +677,8 @@ int main(bool hardReset)
                 // GAME OVER //
                 else if(G_SCENE == SCENE_GAMEOVER)
                 {                    
+                    JOY_setEventHandler(disable_Callback);
+                    
                     sequence_GAMEOVER();
                     
                     SPR_update();
@@ -650,6 +688,8 @@ int main(bool hardReset)
                 // FADE IN //
                 else if(G_SCENE == SCENE_FADE_IN)
                 {
+                    JOY_setEventHandler(disable_Callback);
+                    
                     PAL_fadeInAll(palette_64, 40, FALSE);
 
                     G_SCENE         = G_SCENE_NEXT;
@@ -659,12 +699,16 @@ int main(bool hardReset)
                 // FADE OUT //
                 else if(G_SCENE == SCENE_FADE_OUT)
                 {                    
+                    JOY_setEventHandler(disable_Callback);
+                    
                     fadeOut_ROULETTE();
                 }
 
                 // FADE IN BOXING //
                 else if(G_SCENE == SCENE_FADE_IN_BOXING)
                 {
+                    JOY_setEventHandler(disable_Callback);
+                    
                     PAL_fadeInAll(palette_64, 2, FALSE);
 
                     G_SCENE         = G_SCENE_NEXT;

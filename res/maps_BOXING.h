@@ -9,5 +9,6 @@ extern const Image image_BOXING_SCREEN_2_BG_B;
 extern const Image image_BOXING_SCREEN_2_BG_A;
 extern const Image image_BOXING_SCREEN_3_BG_B;
 extern const Image image_BOXING_SCREEN_3_BG_A;
+extern const Image image_CONTRACT_BOXING;
 
 #endif // _RES_MAPS_BOXING_H_

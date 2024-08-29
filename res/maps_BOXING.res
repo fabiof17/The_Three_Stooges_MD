@@ -22,6 +22,5 @@ IMAGE image_BOXING_SCREEN_3_BG_A     "map/boxing/tiles_BOXING_SCREEN_3_BG_A.png"
 
 
 
-
-
+IMAGE image_CONTRACT_BOXING          "map/boxing/tiles_CONTRACT_BOXING.png"         BEST ALL
 

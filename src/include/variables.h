@@ -111,7 +111,8 @@
 #define SCENE_CONTRACT_DOCTORS          28
 #define SCENE_CONTRACT_WAITERS          29
 #define SCENE_CONTRACT_CRACKERS         30
-#define SCENE_REWARD                    31
+#define SCENE_CONTRACT_BOXING           31
+#define SCENE_REWARD                    32
 
 
 #define SCENE_FADE_IN_CRACKERS          35
@@ -134,6 +135,18 @@
 #define ROULETTE_PHASE_CHOICE            1
 #define ROULETTE_PHASE_VALIDATED         2
 #define ROULETTE_PHASE_WALKOUT           3
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
+//                                  CONTRACT                                   //
+//                                                                             //
+//-----------------------------------------------------------------------------//
+
+#define CONTRACT_PHASE                  0
+#define CONTRACT_PHASE_FADE_OUT         1
 
 
 
@@ -775,6 +788,17 @@ extern Sprite *sprite_RADAR;
 extern Sprite *sprite_STOOGES;
 
 extern Sprite *sprite_BANKER[2];
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
+//                                    GLOBAL                                   //
+//                                                                             //
+//-----------------------------------------------------------------------------// 
+
+extern Sprite *sprite_PAUSE;
 
 
 

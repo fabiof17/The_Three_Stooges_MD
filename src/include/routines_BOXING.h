@@ -4,6 +4,8 @@
 
 
 
+extern void sequence_CONTRACT_BOXING();
+
 extern void sequence_BOXING();
 
 extern void sequence_BOXING_SCREEN_TYPE_1();

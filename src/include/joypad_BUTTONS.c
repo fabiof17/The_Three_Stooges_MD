@@ -18,6 +18,17 @@
 
 
 
+void disable_Callback(u16 joy, u16 changed, u16 state)
+{
+    if(joy == JOY_1)
+    {
+        //
+    }
+}
+
+
+
+
 void pause_Callback(u16 joy, u16 changed, u16 state)
 {
     if(joy == JOY_1)
@@ -29,12 +40,20 @@ void pause_Callback(u16 joy, u16 changed, u16 state)
             {
                 XGM_pausePlay();
 
+                SPR_setPosition(sprite_PAUSE,144,176);
+
+                VDP_setHilightShadow(TRUE);
+
                 G_PAUSE = TRUE;
             }
 
             else
             {
                 XGM_resumePlay();
+
+                SPR_setPosition(sprite_PAUSE,0,-8);
+
+                VDP_setHilightShadow(FALSE);
 
                 G_PAUSE = FALSE;
             }

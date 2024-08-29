@@ -37,6 +37,9 @@ void sequence_CONTRACT_CRACKERS()
         // RELEASE ALL SPRITES //
         SPR_reset();
 
+        // STOP MUSIC //
+        XGM_stopPlay();
+
         G_COUNTER_1 = 0;
 
         G_PHASE_SEQUENCE = 0;
@@ -52,7 +55,6 @@ void sequence_CONTRACT_CRACKERS()
     }
 
     G_COUNTER_1 += 1;
-
 }
 
 

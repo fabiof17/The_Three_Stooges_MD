@@ -4,6 +4,8 @@
 
 
 
+extern void disable_Callback(u16 joy, u16 changed, u16 state);
+
 extern void pause_Callback(u16 joy, u16 changed, u16 state);
 
 extern void intro_Callback(u16 joy, u16 changed, u16 state);
