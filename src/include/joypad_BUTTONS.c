@@ -31,35 +31,37 @@ void disable_Callback(u16 joy, u16 changed, u16 state)
 
 void pause_Callback(u16 joy, u16 changed, u16 state)
 {
-    if(joy == JOY_1)
+    if(G_PHASE_SEQUENCE == CONTRACT_PHASE) // CONTRACT_PHASE = REWARD_PHASE
     {
-        // BOUTON B //
-        if( changed & state & BUTTON_START )
+        if(joy == JOY_1)
         {
-            if(G_PAUSE == FALSE)
+            // BOUTON B //
+            if( changed & state & BUTTON_START )
             {
-                //XGM_pausePlay();
+                if(G_PAUSE == FALSE)
+                {
+                    //XGM_pausePlay();
 
-                SPR_setPosition(sprite_PAUSE,144,184);//176
+                    SPR_setPosition(sprite_PAUSE,144,184);//176
 
-                VDP_setHilightShadow(TRUE);
+                    VDP_setHilightShadow(TRUE);
 
-                G_PAUSE = TRUE;
-            }
+                    G_PAUSE = TRUE;
+                }
 
-            else
-            {
-                //XGM_resumePlay();
+                else
+                {
+                    //XGM_resumePlay();
 
-                SPR_setPosition(sprite_PAUSE,0,-8);
+                    SPR_setPosition(sprite_PAUSE,0,-8);
 
-                VDP_setHilightShadow(FALSE);
+                    VDP_setHilightShadow(FALSE);
 
-                G_PAUSE = FALSE;
+                    G_PAUSE = FALSE;
+                }
             }
         }
     }
-
 }
 
 

@@ -115,7 +115,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
 
@@ -5737,7 +5737,7 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
-        G_PHASE_SEQUENCE        = 0;
+        G_PHASE_SEQUENCE        = CONTRACT_PHASE;
        
 
         G_SCENE                 = SCENE_FADE_IN;
@@ -5873,7 +5873,7 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
-        G_PHASE_SEQUENCE        = 0;
+        G_PHASE_SEQUENCE        = CONTRACT_PHASE;
        
 
         G_SCENE                 = SCENE_FADE_IN;
@@ -6006,7 +6006,11 @@ void init_SCENE()
         G_COUNTER_1             = 0;
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
-        G_INDEX_3               = 0;       
+        G_INDEX_3               = 0;
+
+
+        G_PHASE_SEQUENCE        = CONTRACT_PHASE;
+
 
         G_SCENE                 = SCENE_FADE_IN;
         G_SCENE_TYPE            = SCENE_CONTRACT_CRACKERS;
@@ -6174,11 +6178,9 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
-        G_PHASE_SEQUENCE        = 0;
+        G_PHASE_SEQUENCE        = CONTRACT_PHASE;
 
         
-       
-
         G_SCENE                 = SCENE_FADE_IN;
         G_SCENE_TYPE            = SCENE_CONTRACT_WAITERS;
         G_SCENE_NEXT            = SCENE_CONTRACT_WAITERS;
@@ -6323,11 +6325,9 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
-        G_PHASE_SEQUENCE        = 0;
+        G_PHASE_SEQUENCE        = CONTRACT_PHASE;
 
         
-       
-
         G_SCENE                 = SCENE_FADE_IN;
         G_SCENE_TYPE            = SCENE_CONTRACT_BOXING;
         G_SCENE_NEXT            = SCENE_CONTRACT_BOXING;
@@ -6481,6 +6481,9 @@ void init_SCENE()
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
+
+
+        G_PHASE_SEQUENCE        = REWARD_PHASE;
        
 
         G_SCENE                 = SCENE_FADE_IN;

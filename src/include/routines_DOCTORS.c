@@ -21,7 +21,17 @@
 
 void sequence_CONTRACT_DOCTORS()
 {
-    if(G_COUNTER_1 == 600)
+    if(G_PHASE_SEQUENCE == CONTRACT_PHASE)
+    {
+        if(G_COUNTER_1 == 600)
+        {
+            G_PHASE_SEQUENCE = CONTRACT_PHASE_FADE_OUT;
+        }
+
+        G_COUNTER_1 += 1;
+    }
+
+    else if(G_PHASE_SEQUENCE == CONTRACT_PHASE_FADE_OUT)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);
@@ -53,9 +63,6 @@ void sequence_CONTRACT_DOCTORS()
 
         return;
     }
-
-    G_COUNTER_1 += 1;
-
 }
 
 
