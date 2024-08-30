@@ -88,7 +88,7 @@ void roulette_Callback(u16 joy, u16 changed, u16 state)
     if(joy == JOY_1)
     {
         // BOUTON B //
-        if( changed & state & BUTTON_B )
+        if( changed & state & BUTTON_A || changed & state & BUTTON_B || changed & state & BUTTON_C )
         {
             if(G_PHASE_SEQUENCE == ROULETTE_PHASE_CHOICE)
             {

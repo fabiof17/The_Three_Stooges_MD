@@ -668,7 +668,12 @@ int main(bool hardReset)
                 // REWARD //
                 else if(G_SCENE == SCENE_REWARD)
                 {                    
-                    sequence_REWARD();
+                    JOY_setEventHandler(pause_Callback);
+
+                    if(G_PAUSE == FALSE)
+                    {
+                        sequence_REWARD();
+                    }
                     
                     SPR_update();
                     SYS_doVBlankProcess();
