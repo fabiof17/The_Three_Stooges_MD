@@ -179,7 +179,7 @@ void init_HUB()
     VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 4), 31 , 11 , 0, 0, 1, 1, CPU);
 
     // MONEY AMOUNT //
-    VDP_drawIntEx_BG_A_CPU(G_MONEY,1,32,11,PAL3);
+    VDP_drawIntEx_BG_A_CPU_PRIO(G_MONEY,1,32,11,PAL3);
 
 
     //**************************************************************************************//

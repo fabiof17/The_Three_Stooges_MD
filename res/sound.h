@@ -39,5 +39,6 @@ extern const u8 PCM_PIE_THROW[5120];
 extern const u8 PCM_PIE_HIT[3840];
 extern const u8 PCM_PIE_WALL[3328];
 extern const u8 PCM_BOXING[178176];
+extern const u8 PCM_ICE_FALL[29440];
 
 #endif // _RES_SOUND_H_

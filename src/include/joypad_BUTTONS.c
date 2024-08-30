@@ -38,7 +38,7 @@ void pause_Callback(u16 joy, u16 changed, u16 state)
         {
             if(G_PAUSE == FALSE)
             {
-                XGM_pausePlay();
+                //XGM_pausePlay();
 
                 SPR_setPosition(sprite_PAUSE,144,184);//176
 
@@ -49,7 +49,7 @@ void pause_Callback(u16 joy, u16 changed, u16 state)
 
             else
             {
-                XGM_resumePlay();
+                //XGM_resumePlay();
 
                 SPR_setPosition(sprite_PAUSE,0,-8);
 

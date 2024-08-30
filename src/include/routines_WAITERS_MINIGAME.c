@@ -35,6 +35,18 @@ inline static void update_MONEY_SCORE()
         VDP_drawIntEx_BG_A_QUEUE(tens    ,1,8 ,4,PAL1);
         VDP_drawIntEx_BG_A_QUEUE(0       ,1,10,4,PAL1);
     }
+
+    else if(G_REWARD < 10000)
+    {
+        u8 thousands =  G_REWARD / 1000;
+        u8 hundreds  =  (G_REWARD - (thousands * 1000) ) / 100;
+        u8 tens      =  (G_REWARD - (hundreds * 100) ) / 10;
+
+        VDP_drawIntEx_BG_A_QUEUE(thousands,1,6 ,4,PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(hundreds ,1,8 ,4,PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(tens     ,1,10,4,PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(0        ,1,12,4,PAL1);
+    }
 }
 
 

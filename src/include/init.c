@@ -115,7 +115,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
 
@@ -369,11 +369,16 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_PIE_WALL , PCM_PIE_WALL , sizeof(PCM_PIE_WALL));
 
 
-
     //--------------------------------------------------------------------------------------//
     //                                       BOXING                                         //
     //--------------------------------------------------------------------------------------//
     XGM_setPCM(SOUND_BOXING , PCM_BOXING , sizeof(PCM_BOXING));
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                    QUESTION MARK                                     //
+    //--------------------------------------------------------------------------------------//
+    XGM_setPCM(SOUND_ICE_FALL , PCM_ICE_FALL , sizeof(PCM_ICE_FALL));
 }
 
 
@@ -3854,7 +3859,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_drawIntEx_BG_A_CPU(99 , 2 , 8 , 26 , PAL1);
+        VDP_drawIntEx_BG_A_CPU_PRIO(99 , 2 , 8 , 26 , PAL1);
 
 
 
@@ -3865,7 +3870,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_drawIntEx_BG_A_CPU(0 , 1 , 3 , 26 , PAL1);
+        VDP_drawIntEx_BG_A_CPU_PRIO(0 , 1 , 3 , 26 , PAL1);
 
 
 
@@ -4543,7 +4548,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//       
 
-        VDP_drawIntEx_BG_A_CPU(G_REWARD,1,6,4,PAL1);
+        VDP_drawIntEx_BG_A_CPU_PRIO(G_REWARD,1,6,4,PAL1);
 
 
 
@@ -6404,43 +6409,7 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         // REWARD AMOUNT //
-        if(G_REWARD < 10)
-        {
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + G_REWARD), 26 , 9 , 0, 0, 1, 1, CPU);
-        }
-
-        else if(G_REWARD < 100)
-        {
-            u8 number1 = G_REWARD / 10;
-            u8 number2 = G_REWARD - (number1*10);
-
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 26 , 9 , 0, 0, 1, 1, CPU);
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 27 , 9 , 0, 0, 1, 1, CPU);
-        }
-
-        else if(G_REWARD < 1000)
-        {
-            u8 number1 = G_REWARD / 100;
-            u8 number2 = (G_REWARD - (number1*100)) / 10;
-            u8 number3 = G_REWARD - (number1*100) - (number2*10);
-
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 26 , 9 , 0, 0, 1, 1, CPU);
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 27 , 9 , 0, 0, 1, 1, CPU);
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number3), 28 , 9 , 0, 0, 1, 1, CPU);
-        }
-
-        else
-        {
-            u8 number1 = G_REWARD / 1000;
-            u8 number2 = (G_REWARD - (number1*1000)) / 100;
-            u8 number3 = (G_REWARD - (number1*1000) - (number2*100)) / 10;
-            u8 number4 = G_REWARD - (number1*1000) - (number2*100) - (number3*10);
-
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 26 , 9 , 0, 0, 1, 1, CPU);
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 27 , 9 , 0, 0, 1, 1, CPU);
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number3), 28 , 9 , 0, 0, 1, 1, CPU);
-            VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number4), 29 , 9 , 0, 0, 1, 1, CPU);
-        }
+        VDP_drawIntEx_BG_A_CPU(G_REWARD,1,26,9,PAL1);
 
 
 
@@ -6473,6 +6442,7 @@ void init_SCENE()
 
         sprite_DAY = SPR_addSprite(&tiles_SPR_DAY,  224, 63, TILE_ATTR(PAL1, TRUE, FALSE, FALSE));
         SPR_setFrame(sprite_DAY , G_DAY - 1);
+
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //

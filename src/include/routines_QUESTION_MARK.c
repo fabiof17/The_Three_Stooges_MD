@@ -108,6 +108,8 @@ void sequence_QUESTION_MARK()
 
         SPR_setPosition(sprite_ICE_CUBE,150,23);
         SPR_setPosition(sprite_ICE_CUBE_SHADOW,144,31);
+
+        XGM_startPlayPCM(SOUND_ICE_FALL,15,SOUND_PCM_CH4);
     }
 
     else if(G_COUNTER_1 == 679)
