@@ -27,5 +27,12 @@ const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
                                                                 { &image_QUESTION_11 , 1 }, // IN WHAT YEAR DID THE STOOGES FIRST APPEAR ON TELEVISION ?
                                                                 { &image_QUESTION_12 , 2 }, // WHAT WAS THE TITLE OF LARRY'S BOOK ?
                                                                 { &image_QUESTION_13 , 1 }, // WHY DID CURLY SHAVE HIS HEAD ?
-                                                                { &image_QUESTION_14 , 1 } // WHAT IS THE NAME OF MOE'S DAUGHTER ?
+                                                                { &image_QUESTION_14 , 1 }, // WHAT IS THE NAME OF MOE'S DAUGHTER ?
+                                                                { &image_QUESTION_15 , 2 }, // WHO WERE THE HOWARD BROTHERS ?
+                                                                { &image_QUESTION_16 , 1 }, // HOW DID THE STOOGES GET STARTED IN SHOW BUSINESS ?
+                                                                { &image_QUESTION_17 , 2 }, // WHAT WAS MOE'S REAL NAME ?
+                                                                { &image_QUESTION_18 , 1 }, // IN WHAT YEAR WAS MOE BORN ?
+                                                                { &image_QUESTION_19 , 0 }, // IN WHAT YEAR DID THE STOOGES SIGN WITH COLUMBIA ?
+                                                                { &image_QUESTION_20 , 2 }, // WHO WAS MOE MARRIED TO ?
+                                                                { &image_QUESTION_21 , 1 } // MOE HAD HOW MANY CHILDREN ?
                                                             };

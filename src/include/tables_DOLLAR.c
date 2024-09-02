@@ -185,7 +185,7 @@ void init_DOLLAR_TYPE1()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+    //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 
@@ -317,7 +317,7 @@ void init_DOLLAR_TYPE2()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+    //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 
@@ -449,7 +449,7 @@ void init_DOLLAR_TYPE3()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+    //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 

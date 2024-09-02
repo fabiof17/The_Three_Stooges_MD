@@ -224,7 +224,7 @@ void init_TRIVIA_MINIGAME_TYPE1()
     //                        GENERATE NEXT POSITION IN HIGHSTREET                          //
     //                                                                                      //
     //**************************************************************************************//
-    G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+    //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 
@@ -461,7 +461,7 @@ void init_TRIVIA_MINIGAME_TYPE2()
 
 
         // GENERATE NEXT POSITION IN HIGHSTREET //
-        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+        //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
         sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  114, 133, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
         SPR_setFrame(sprite_STOOGES,35);

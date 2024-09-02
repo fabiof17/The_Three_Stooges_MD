@@ -447,6 +447,8 @@ int main(bool hardReset)
                     JOY_setEventHandler(roulette_Callback);
                     
                     sequence_ROULETTE();
+
+                    //VDP_drawIntEx_BG_A_QUEUE(G_HIGHSTREET_POSITION,1,0,0,PAL3);
                     
                     SPR_update();
                     SYS_doVBlankProcess();

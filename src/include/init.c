@@ -138,7 +138,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -380,6 +380,12 @@ void init_VARIABLES()
     //                                    QUESTION MARK                                     //
     //--------------------------------------------------------------------------------------//
     XGM_setPCM(SOUND_ICE_FALL , PCM_ICE_FALL , sizeof(PCM_ICE_FALL));
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                       TRIVIA                                         //
+    //--------------------------------------------------------------------------------------//
+    XGM_setPCM(SOUND_TRIVIA , PCM_TRIVIA , sizeof(PCM_TRIVIA));
 }
 
 
@@ -1657,7 +1663,7 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+        //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 
@@ -1878,7 +1884,7 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+        //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 
@@ -2056,7 +2062,7 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+        //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 
@@ -2371,7 +2377,7 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+        //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 
@@ -2579,7 +2585,7 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         // GENERATE NEXT POSITION IN HIGHSTREET //
-        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+        //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
         // 1 DAY SPENT //
         G_DAY += 1;
@@ -2893,7 +2899,7 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+        //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 
@@ -3068,7 +3074,7 @@ void init_SCENE()
         //                                                                                      //
         //**************************************************************************************//
 
-        G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+        //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
 
 
 

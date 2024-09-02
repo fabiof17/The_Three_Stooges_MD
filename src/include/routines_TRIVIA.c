@@ -311,6 +311,13 @@ void sequence_TRIVIA_TYPE1()
         }
 
 
+        // PCM //
+        else if(G_COUNTER_1 == 900)
+        {
+            XGM_startPlayPCM(SOUND_TRIVIA , 15 , SOUND_PCM_CH4 );
+        }
+
+
 
 
         // ANIM ANSWERS //

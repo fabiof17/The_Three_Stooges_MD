@@ -99,6 +99,9 @@ void roulette_Callback(u16 joy, u16 changed, u16 state)
 
                 // GET SELECTED ICON ID //
                 G_SELECTED_ICON_ID = TABLE_GENERATED_ICONS[TABLE_GENERATED_HAND_POSITION[G_CURRENT_TURN]];
+
+                // GENERATE NEXT POSITION IN HIGHSTREET //
+                G_HIGHSTREET_POSITION += TABLE_GENERATED_HAND_POSITION[G_CURRENT_TURN] + 1;
                 
                 // ICON SELECTED //
                 G_PHASE_SEQUENCE = ROULETTE_PHASE_VALIDATED;
