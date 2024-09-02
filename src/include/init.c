@@ -115,7 +115,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
 
@@ -138,7 +138,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -357,6 +357,7 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_DOCTORS_CRASH_3 , PCM_DOCTORS_CRASH_3 , sizeof(PCM_DOCTORS_CRASH_3));
     XGM_setPCM(SOUND_ENGINE_1 , PCM_ENGINE_1 , sizeof(PCM_ENGINE_1));
     XGM_setPCM(SOUND_ENGINE_2 , PCM_ENGINE_2 , sizeof(PCM_ENGINE_2));
+    XGM_setPCM(SOUND_ENGINE_3 , PCM_ENGINE_3 , sizeof(PCM_ENGINE_3));
     XGM_setPCM(SOUND_TIRE , PCM_TIRE , sizeof(PCM_TIRE));
 
 
@@ -4039,7 +4040,7 @@ void init_SCENE()
         G_REWARD                = 0;
 
 
-        G_CAR_SPEED             = 2;
+        G_CAR_SPEED             = 1;
 
         G_CAR_COUNTER_SPEED     = 0;
 

@@ -34,6 +34,7 @@ extern const u8 PCM_DOCTORS_CRASH_2[14080];
 extern const u8 PCM_DOCTORS_CRASH_3[64768];
 extern const u8 PCM_ENGINE_1[30464];
 extern const u8 PCM_ENGINE_2[22016];
+extern const u8 PCM_ENGINE_3[22016];
 extern const u8 PCM_TIRE[7424];
 extern const u8 PCM_PIE_THROW[5120];
 extern const u8 PCM_PIE_HIT[3840];

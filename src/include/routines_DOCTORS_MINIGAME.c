@@ -62,12 +62,12 @@ inline static void collisions_CAR(u8 car_NUMBER)
 
             list_CARS[car_NUMBER].hit       = TRUE;
 
-            if(G_CAR_SPEED == 4)
+            if(G_CAR_SPEED != 1)
             {
                 XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
             }
 
-            G_CAR_SPEED                     = 2;
+            G_CAR_SPEED                     = 1;
 
             G_CAR_COUNTER_SPEED             = 0;
 
@@ -201,12 +201,12 @@ void joypad_DOCTORS_MINIGAME()
                     {
                         G_CAR_COUNTER_SPEED = 0;
 
-                        if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
+                        /*if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                         {
                             //XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
-                        }
+                        }*/
 
-                        //G_CAR_SPEED = 2;
+                        //G_CAR_SPEED = 1;
                         
                         list_CARS[0].axis_CAR = AXIS_CENTER;
 
@@ -222,12 +222,12 @@ void joypad_DOCTORS_MINIGAME()
                 {
                     G_CAR_COUNTER_SPEED = 0;
 
-                    if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
+                    /*if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                     {
                         //XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
-                    }
+                    }*/
 
-                    //G_CAR_SPEED = 2;
+                    //G_CAR_SPEED = 1;
                     
                     list_CARS[0].axis_CAR = AXIS_CENTER;
 
@@ -244,14 +244,19 @@ void joypad_DOCTORS_MINIGAME()
 
                 if(G_CAR_COUNTER_SPEED > 59)
                 {
-                    G_CAR_COUNTER_SPEED = 59;
+                    G_CAR_COUNTER_SPEED = 0;
 
-                    if(G_CAR_SPEED == 2)
+                    if(G_CAR_SPEED == 1)
                     {
                         XGM_startPlayPCM(SOUND_ENGINE_2 , 13 , SOUND_PCM_CH2 );
+                        G_CAR_SPEED = 2;
                     }
 
-                    G_CAR_SPEED = 4;
+                    else if(G_CAR_SPEED == 2)
+                    {
+                        XGM_startPlayPCM(SOUND_ENGINE_3 , 13 , SOUND_PCM_CH2 );
+                        G_CAR_SPEED = 4;
+                    }
                 }
             }
         }
@@ -291,12 +296,12 @@ void joypad_DOCTORS_MINIGAME()
                     {
                         G_CAR_COUNTER_SPEED = 0;
 
-                        if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
+                        /*if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                         {
                             //XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
-                        }
+                        }*/
 
-                        //G_CAR_SPEED = 2;
+                        //G_CAR_SPEED = 1;
                         
                         list_CARS[0].axis_CAR = AXIS_CENTER;
 
@@ -312,12 +317,12 @@ void joypad_DOCTORS_MINIGAME()
                 {
                     G_CAR_COUNTER_SPEED = 0;
 
-                    if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
+                    /*if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                     {
                         //XGM_startPlayPCM(SOUND_TIRE , 15 , SOUND_PCM_CH4 );
-                    }
+                    }*/
 
-                    //G_CAR_SPEED = 2;
+                    //G_CAR_SPEED = 1;
                     
                     list_CARS[0].axis_CAR = AXIS_CENTER;
 
@@ -334,14 +339,19 @@ void joypad_DOCTORS_MINIGAME()
 
                 if(G_CAR_COUNTER_SPEED > 59)
                 {
-                    G_CAR_COUNTER_SPEED = 59;
+                    G_CAR_COUNTER_SPEED = 0;
 
-                    if(G_CAR_SPEED == 2)
+                    if(G_CAR_SPEED == 1)
                     {
                         XGM_startPlayPCM(SOUND_ENGINE_2 , 13 , SOUND_PCM_CH2 );
+                        G_CAR_SPEED = 2;
                     }
 
-                    G_CAR_SPEED = 4;
+                    else if(G_CAR_SPEED == 2)
+                    {
+                        XGM_startPlayPCM(SOUND_ENGINE_3 , 13 , SOUND_PCM_CH2 );
+                        G_CAR_SPEED = 4;
+                    }
                 }
             }
         }
@@ -355,7 +365,7 @@ void joypad_DOCTORS_MINIGAME()
 
         else if(value & BUTTON_DOWN)
         {
-            if(G_CAR_SPEED == 4)
+            if(G_CAR_SPEED != 1)
             {
                 XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
             }
@@ -367,7 +377,7 @@ void joypad_DOCTORS_MINIGAME()
                 collisions_CAR(i);
             }
 
-            G_CAR_SPEED = 2;
+            G_CAR_SPEED = 1;
 
             G_CAR_COUNTER_SPEED = 0;
 
@@ -404,14 +414,19 @@ void joypad_DOCTORS_MINIGAME()
 
                 if(G_CAR_COUNTER_SPEED > 59)
                 {
-                    G_CAR_COUNTER_SPEED = 59;
+                    G_CAR_COUNTER_SPEED = 0;
 
-                    if(G_CAR_SPEED == 2)
+                    if(G_CAR_SPEED == 1)
                     {
                         XGM_startPlayPCM(SOUND_ENGINE_2 , 13 , SOUND_PCM_CH2 );
+                        G_CAR_SPEED = 2;
                     }
 
-                    G_CAR_SPEED = 4;
+                    else if(G_CAR_SPEED == 2)
+                    {
+                        XGM_startPlayPCM(SOUND_ENGINE_3 , 13 , SOUND_PCM_CH2 );
+                        G_CAR_SPEED = 4;
+                    }
                 }
                 
                 list_CARS[0].axis_CAR = AXIS_CENTER;
@@ -1152,7 +1167,7 @@ inline static void anim_ITEM()
 
 
 
-inline static void spawn_PATIENT_v1()
+/*inline static void spawn_PATIENT_v1()
 {
     if(patient.spr_PATIENT == NULL)
     {
@@ -1250,7 +1265,7 @@ inline static void spawn_PATIENT_v1()
         
         patient.spr_PATIENT          = SPR_addSprite(TABLE_PATIENT_TYPE[random_patient_type].tiles_PATIENT_TYPE , patient.pos_X , patient.pos_Y , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
     }
-}
+}*/
 
 
 inline static void spawn_PATIENT()
@@ -1289,7 +1304,7 @@ inline static void spawn_PATIENT()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        patient.pos_Y                = (TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT * -1) -128;
+        patient.pos_Y                = (TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT * -1);// -128;
 
         patient.counter_SPRITE_FRAME = 0;
         patient.index_SPRITE_FRAME   = 0;
@@ -1597,14 +1612,19 @@ void sequence_DOCTORS_MINIGAME()
             //--------------------------------------------------------------------------------------//
             if(XGM_isPlayingPCM(SOUND_PCM_CH2_MSK) == 0)
             {
-                if(G_CAR_SPEED == 2)
+                if(G_CAR_SPEED == 1)
                 {
                     XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
                 }
 
-                else
+                else if(G_CAR_SPEED == 2)
                 {
                     XGM_startPlayPCM(SOUND_ENGINE_2 , 13 , SOUND_PCM_CH2 );
+                }
+
+                else if(G_CAR_SPEED == 4)
+                {
+                    XGM_startPlayPCM(SOUND_ENGINE_3 , 13 , SOUND_PCM_CH2 );
                 }
             }
         }
@@ -1808,14 +1828,19 @@ void sequence_DOCTORS_MINIGAME()
             //--------------------------------------------------------------------------------------//
             if(XGM_isPlayingPCM(SOUND_PCM_CH2_MSK) == 0)
             {
-                if(G_CAR_SPEED == 2)
+                if(G_CAR_SPEED == 1)
                 {
                     XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
                 }
 
-                else
+                else if(G_CAR_SPEED == 2)
                 {
                     XGM_startPlayPCM(SOUND_ENGINE_2 , 13 , SOUND_PCM_CH2 );
+                }
+
+                else if(G_CAR_SPEED == 4)
+                {
+                    XGM_startPlayPCM(SOUND_ENGINE_3 , 13 , SOUND_PCM_CH2 );
                 }
             }
         }

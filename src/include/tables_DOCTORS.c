@@ -146,16 +146,16 @@ const u16                           TABLE_PATIENT_SPAWN_POSITION[11] =   {
 //--------------------------------------------------------------------------------------//
 const struct_PATIENT_TYPE_          TABLE_PATIENT_TYPE[4]           =   {
                                                                             // CRUTCHES //
-                                                                            { &tiles_SPR_CRUTCHES    , 48 ,  40 , 3 ,  4 , 14 , &TABLE_VELOCITY_CRUTCHES[0]    },
+                                                                            { &tiles_SPR_CRUTCHES    , 48 ,  40 , 3 ,  4 , 14 , &TABLE_VELOCITY_CRUTCHES[0]    },//14
                                                                             
                                                                             // WHEELCHAIR //
-                                                                            { &tiles_SPR_WHEELCHAIR  , 56 ,  56 , 3 ,  8 ,  8 , &TABLE_VELOCITY_WHEELCHAIR[0]  },
+                                                                            { &tiles_SPR_WHEELCHAIR  , 56 ,  56 , 3 ,  8 ,  8 , &TABLE_VELOCITY_WHEELCHAIR[0]  },//8
 
                                                                             // STRETCHER 1 //
-                                                                            { &tiles_SPR_STRETCHER_1 , 48 , 112 , 8 ,  4 ,  6 , &TABLE_VELOCITY_STRETCHER_1[0] },
+                                                                            { &tiles_SPR_STRETCHER_1 , 48 , 112 , 8 ,  4 ,  8 , &TABLE_VELOCITY_STRETCHER_1[0] },//6
 
                                                                             // STRETCHER 2 //
-                                                                            { &tiles_SPR_STRETCHER_2 , 48 , 112 , 8 ,  4 ,  4 , &TABLE_VELOCITY_STRETCHER_2[0] }
+                                                                            { &tiles_SPR_STRETCHER_2 , 48 , 112 , 8 ,  4 ,  6 , &TABLE_VELOCITY_STRETCHER_2[0] }//4
                                                                         };
 
 

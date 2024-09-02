@@ -435,16 +435,17 @@
 #define SOUND_DOCTORS_CRASH_3           99
 #define SOUND_ENGINE_1                 100
 #define SOUND_ENGINE_2                 101
+#define SOUND_ENGINE_3                 102
 
-#define SOUND_PIE_THROW                102
-#define SOUND_PIE_HIT                  103
-#define SOUND_PIE_WALL                 104
+#define SOUND_PIE_THROW                103
+#define SOUND_PIE_HIT                  104
+#define SOUND_PIE_WALL                 105
 
-#define SOUND_BOXING                   105
+#define SOUND_BOXING                   106
 
-#define SOUND_TIRE                     106
+#define SOUND_TIRE                     107
 
-#define SOUND_ICE_FALL                 107
+#define SOUND_ICE_FALL                 108
 
 
 
