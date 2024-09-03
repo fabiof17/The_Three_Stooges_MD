@@ -229,77 +229,77 @@ const u8        TABLE_HIGHSTREET[180]   =   {
                                                 ICON_SWATTER,
                                                 ICON_CRACKERS,
 
-                                                // DAY
-                                                ICON_WAITERS,
+                                                // DAY 22
+                                                ICON_BOXING,
                                                 ICON_DOLLAR,
+                                                ICON_SLAP,
+                                                ICON_SWATTER,
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
-                                                ICON_SWATTER,
-                                                ICON_DOLLAR,
                                                 
-                                                // DAY
-                                                ICON_SLAP,
+                                                // DAY 23
+                                                ICON_DOLLAR,
+                                                ICON_SWATTER,
                                                 ICON_DOCTORS,
                                                 ICON_SWATTER,
                                                 ICON_BANKER,
                                                 ICON_WAITERS,
+
+                                                // DAY 24
+                                                ICON_SWATTER,
+                                                ICON_QUESTION,
+                                                ICON_SWATTER,
+                                                ICON_QUESTION,
+                                                ICON_SWATTER,
                                                 ICON_QUESTION,
 
-                                                // DAY
-                                                ICON_DOLLAR,
-                                                ICON_SLAP,
-                                                ICON_DOLLAR,
+                                                // DAY 25
                                                 ICON_SWATTER,
-                                                ICON_TRIVIA,
+                                                ICON_QUESTION,
                                                 ICON_SWATTER,
+                                                ICON_QUESTION,
+                                                ICON_SWATTER,
+                                                ICON_QUESTION,
 
-                                                // DAY
-                                                ICON_SWATTER,
+                                                // DAY 26
+                                                ICON_TRIVIA,
                                                 ICON_BOXING,
+                                                ICON_SWATTER,
+                                                ICON_DOLLAR,
+                                                ICON_CRACKERS,
+                                                ICON_SAFE,
+
+                                                // DAY 27
+                                                ICON_SLAP,
+                                                ICON_QUESTION,
+                                                ICON_SWATTER,
                                                 ICON_DOLLAR,
                                                 ICON_SWATTER,
-                                                ICON_BANKER,
                                                 ICON_DOCTORS,
 
-                                                // DAY
-                                                ICON_SLAP,
+                                                // DAY 28
+                                                ICON_SWATTER,
+                                                ICON_BANKER,
+                                                ICON_BOXING,
+                                                ICON_BANKER,
+                                                ICON_BOXING,
                                                 ICON_QUESTION,
+
+                                                // DAY 29
+                                                ICON_TRIVIA,
+                                                ICON_SLAP,
+                                                ICON_SWATTER,
                                                 ICON_WAITERS,
-                                                ICON_DOLLAR,
                                                 ICON_SWATTER,
-                                                ICON_TRIVIA,
+                                                ICON_DOLLAR,
 
-                                                // DAY
+                                                // DAY 30
+                                                ICON_QUESTION,
+                                                ICON_TRIVIA,
                                                 ICON_SWATTER,
                                                 ICON_DOCTORS,
-                                                ICON_DOLLAR,
-                                                ICON_SLAP,
-                                                ICON_DOLLAR,
                                                 ICON_SWATTER,
-
-                                                // DAY
-                                                ICON_BANKER,
-                                                ICON_TRIVIA,
-                                                ICON_SWATTER,
-                                                ICON_DOLLAR,
-                                                ICON_DOLLAR,
-                                                ICON_BOXING,
-
-                                                // DAY
-                                                ICON_BANKER,
-                                                ICON_TRIVIA,
-                                                ICON_SWATTER,
-                                                ICON_DOLLAR,
-                                                ICON_DOLLAR,
-                                                ICON_BOXING,
-
-                                                // DAY
-                                                ICON_BANKER,
-                                                ICON_TRIVIA,
-                                                ICON_SWATTER,
-                                                ICON_DOLLAR,
-                                                ICON_DOLLAR,
-                                                ICON_BOXING,
+                                                ICON_QUESTION,
                                             };
 
 

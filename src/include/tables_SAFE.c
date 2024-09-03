@@ -88,3 +88,30 @@ const struct_FALLING_OBJECT_              TABLE_ANIM_CHEST[31]              =   
                                                                                     { 1194 , 192 , 114 },
                                                                                     { 1195 , 192 , 119 }
                                                                                 };
+
+
+
+
+
+const bool                      TABLE_LUCK[20]                              =   {
+                                                                                    TRUE,
+                                                                                    FALSE,
+                                                                                    TRUE,
+                                                                                    TRUE,
+                                                                                    TRUE,
+                                                                                    FALSE,
+                                                                                    TRUE,
+                                                                                    TRUE,
+                                                                                    TRUE,
+                                                                                    FALSE,
+                                                                                    TRUE,
+                                                                                    TRUE,
+                                                                                    TRUE,
+                                                                                    FALSE,
+                                                                                    TRUE,
+                                                                                    TRUE,
+                                                                                    TRUE,
+                                                                                    FALSE,
+                                                                                    TRUE,
+                                                                                    TRUE
+                                                                                };

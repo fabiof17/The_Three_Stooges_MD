@@ -483,8 +483,8 @@ void init_STREET_SAFE()
     
     G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_SAFE_BG_B.tileset->numTile;
     VDP_loadTileSet(image_SAFE_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
-    VDP_setTileMapEx(BG_B, image_SAFE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  0,  0,  0,  0, 40, 28, CPU);
-    VDP_setTileMapEx(BG_B, image_SAFE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  0, 28,  0,  0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_A, image_SAFE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  0,  0,  0,  0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_A, image_SAFE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  0, 28,  0,  0, 40, 28, CPU);
 
 
 
@@ -512,8 +512,8 @@ void init_STREET_SAFE()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    sprite_CHEST        = SPR_addSprite(&tiles_SPR_CHEST,   128,   0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
-    sprite_ROPE         = SPR_addSprite(&tiles_SPR_ROPE ,   -24, -32, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+    //sprite_CHEST        = SPR_addSprite(&tiles_SPR_CHEST,   128,   0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+    //sprite_ROPE         = SPR_addSprite(&tiles_SPR_ROPE ,   -24, -32, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
 
 
 

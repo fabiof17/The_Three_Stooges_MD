@@ -71,6 +71,7 @@
 #include "tables_INTRO.h"
 #include "tables_QUESTIONS.h"
 #include "tables_ROULETTE.h"
+#include "tables_SAFE.h"
 #include "tables_TRIVIA.h"
 #include "tables_WAITERS.h"
 
@@ -140,7 +141,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_SAFE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -175,6 +176,10 @@ void init_VARIABLES()
     G_MONEY                     = 0;
 
     G_PAUSE                     = FALSE;
+
+    G_LUCK                      = TRUE;
+
+    //G_BILL                      = 300;
 
 
     
@@ -2459,7 +2464,7 @@ void init_SCENE()
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
 
-        G_REWARD                = 250;
+        G_REWARD                = 250; // TABLE OF REWARDS MAX : 1050
 
 
         G_PHASE_SEQUENCE        = 0;
@@ -3229,17 +3234,6 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        //G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_SAFE_BG_A.tileset->numTile;
-
-
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
         //                                SETUP PLANES POSITION                                 //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
@@ -3310,6 +3304,42 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
+        //                                         LUCK                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        bool random_luck = random_NUMBER(0,19);
+        
+        G_LUCK = TABLE_LUCK[random_luck];
+        //G_LUCK = FALSE;
+        // STOOGES GET A REWARD //
+        if(G_LUCK == TRUE)
+        {
+            G_REWARD = 2000;
+        }
+
+        // STOOGES HAVE TO PAY THE HOSPITAL BILL //
+        else
+        {
+            // USELESS CHECK BUT... //
+            if(G_MONEY > 299)
+            {
+                G_MONEY -= 300;
+            }
+
+            else
+            {
+                G_MONEY = 0;
+            }
+            
+        }
+        
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
         //                                       VARIABLES                                      //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
@@ -3318,8 +3348,6 @@ void init_SCENE()
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
-
-        G_REWARD                = 2000;
 
 
         G_PHASE_SEQUENCE        = 0;
@@ -6769,9 +6797,17 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_loadTileSet(image_CONTRACT_QUESTION_MARK.tileset, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile, CPU);
-        VDP_setTileMapEx(BG_B, image_CONTRACT_QUESTION_MARK.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile), 6, 6, 0, 0, 27, 11, CPU);
+        if(G_LUCK == TRUE)
+        {
+            VDP_loadTileSet(image_CONTRACT_QUESTION_MARK.tileset, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_B, image_CONTRACT_QUESTION_MARK.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile), 6, 6, 0, 0, 27, 11, CPU);
+        }
 
+        else
+        {
+            VDP_loadTileSet(image_CONTRACT_NO_LUCK.tileset, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile, CPU);
+            VDP_setTileMapEx(BG_B, image_CONTRACT_NO_LUCK.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_CONTRACT_BG_A.tileset->numTile), 6, 6, 0, 0, 27, 11, CPU);
+        }
 
 
 

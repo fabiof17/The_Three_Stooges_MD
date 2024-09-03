@@ -127,7 +127,11 @@ void increase_HAND_SPEED()
 	{
 		G_POS_X_METER_SLAP += 4;
 
-		G_HAND_SPEED -= 1;
+		if(G_HAND_SPEED > 1)
+		{
+			G_HAND_SPEED -= 1;
+		}
+		
 	}
 }
 

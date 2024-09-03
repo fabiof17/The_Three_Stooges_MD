@@ -8,6 +8,8 @@ extern const struct_WALK_STOOGES_       TABLE_ANIM_STOOGES_SAFE[28];
 
 extern const struct_FALLING_OBJECT_     TABLE_ANIM_CHEST[31];
 
+extern const bool                       TABLE_LUCK[20];
+
 
 
 

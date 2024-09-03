@@ -43,6 +43,10 @@ u8 G_PHASE_SEQUENCE;
 
 bool G_PAUSE;
 
+bool G_LUCK;
+
+//u16 G_BILL;
+
 
 
 

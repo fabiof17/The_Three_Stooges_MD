@@ -490,6 +490,10 @@ extern u8 G_PHASE_SEQUENCE;
 
 extern bool G_PAUSE;
 
+extern bool G_LUCK;
+
+//extern u16 G_BILL;
+
 
 
 
