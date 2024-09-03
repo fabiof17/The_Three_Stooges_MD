@@ -54,6 +54,7 @@ WAV PCM_PIE_WALL                "sound/sound_PIE_WALL.wav"          XGM
 WAV PCM_BOXING                  "sound/sound_BOXING.wav"            XGM
 
 WAV PCM_ICE_FALL                "sound/sound_ICE_FALL.wav"          XGM
+WAV PCM_CHEST_FALL              "sound/sound_CHEST_FALL.wav"        XGM
 
 WAV PCM_TRIVIA                  "sound/sound_TRIVIA.wav"            XGM
 

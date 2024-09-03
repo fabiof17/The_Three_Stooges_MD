@@ -27,6 +27,7 @@
 
 
 
+#include "sprites_SAFE.h"
 #include "sprites_QUESTION_MARK.h"
 #include "sprites_TRIVIA.h"
 
@@ -507,13 +508,12 @@ void init_STREET_SAFE()
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
-    //                                    SCISSOR SPRITE                                    //
+    //                                    CHEST SPRITES                                     //
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    /*sprite_SCISSOR = SPR_addSprite(&tiles_SPR_SCISSOR, 128, 0, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
-    SPR_setFrame(sprite_SCISSOR,1);
-    SPR_setDepth(sprite_SCISSOR,10);*/
+    sprite_CHEST        = SPR_addSprite(&tiles_SPR_CHEST,   128,   0, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+    sprite_ROPE         = SPR_addSprite(&tiles_SPR_ROPE ,   -24, -32, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
 
 
 

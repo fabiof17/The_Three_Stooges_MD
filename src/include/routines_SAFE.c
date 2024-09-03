@@ -10,12 +10,12 @@
 
 
 
-#include "sprites_QUESTION_MARK.h"
+#include "sprites_SAFE.h"
 
 
 
 
-#include "tables_QUESTION_MARK.h"
+#include "tables_SAFE.h"
 
 
 
@@ -70,7 +70,7 @@ void sequence_SAFE()
 {
     // STOOGES ANIMATION //
     // SETUP POINTER TO STOOGES ANIMATION TABLE //
-    const struct_WALK_STOOGES_ *ptr_ANIM_STOOGES = &TABLE_ANIM_STOOGES_QUESTION_MARK[G_INDEX_3];
+    const struct_WALK_STOOGES_ *ptr_ANIM_STOOGES = &TABLE_ANIM_STOOGES_SAFE[G_INDEX_3];
 
     if(G_COUNTER_1 == ptr_ANIM_STOOGES->num_FRAME)
     {
@@ -82,8 +82,8 @@ void sequence_SAFE()
 
 
         // UPDATE INDEX IN STOOGES ANIMATION TABLE //
-        // UP TO 25 (LAST INDEX IN ARRAY OF 26 ENTRIES) //
-        if(G_INDEX_3 < 25)
+        // UP TO 27 (LAST INDEX IN ARRAY OF 28 ENTRIES) //
+        if(G_INDEX_3 < 27)
         {
             G_INDEX_3 += 1;
         }
@@ -92,13 +92,12 @@ void sequence_SAFE()
 
     // ICE CUBE ANIMATION //
     // SETUP POINTER TO ICE CUBE ANIMATION TABLE //
-    const struct_ICE_CUBE_ *ptr_ANIM_ICE_CUBE = &TABLE_ANIM_ICE_CUBE[G_INDEX_1];
+    const struct_FALLING_OBJECT_ *ptr_ANIM_CHEST = &TABLE_ANIM_CHEST[G_INDEX_1];
 
-    if(G_COUNTER_1 == ptr_ANIM_ICE_CUBE->num_FRAME)
+    if(G_COUNTER_1 == ptr_ANIM_CHEST->num_FRAME)
     {
         // RETRIEVE X AND Y POSITION FROM TABLE //
-        SPR_setPosition( sprite_ICE_CUBE , ptr_ANIM_ICE_CUBE->pos_X , ptr_ANIM_ICE_CUBE->pos_Y );
-        SPR_setPosition( sprite_ICE_CUBE_SHADOW , ptr_ANIM_ICE_CUBE->pos_X - 6 , ptr_ANIM_ICE_CUBE->pos_Y + 8 );
+        SPR_setPosition( sprite_CHEST , ptr_ANIM_CHEST->pos_X , ptr_ANIM_CHEST->pos_Y );
 
         // UPDATE INDEX IN ICE CUBE ANIMATION TABLE //
         // UP TO 30 (LAST INDEX IN ARRAY OF 31 ENTRIES) //
@@ -109,29 +108,30 @@ void sequence_SAFE()
     }
 
 
-    if(G_COUNTER_1 == 622)
+    if(G_COUNTER_1 == 1162)
     {
-        SPR_setFrame(sprite_SCISSOR,1);
-
-        SPR_setPosition(sprite_ICE_CUBE,150,23);
-        SPR_setPosition(sprite_ICE_CUBE_SHADOW,144,31);
-
-        XGM_startPlayPCM(SOUND_ICE_FALL,15,SOUND_PCM_CH4);
+        XGM_startPlayPCM(SOUND_CHEST_FALL,15,SOUND_PCM_CH4);
     }
 
-    else if(G_COUNTER_1 == 679)
+    else if(G_COUNTER_1 == 1164)
+    {
+        SPR_setPosition(sprite_ROPE,153,0);
+
+        SPR_setPosition(sprite_CHEST,129,6);
+
+        SPR_setFrame(sprite_CHEST,1);
+    }
+
+    else if(G_COUNTER_1 == 1195)
     {
         SPR_setFrame(sprite_STOOGES,36);
         
-        SPR_setFrame(sprite_ICE_CUBE,1);
-
-        SPR_releaseSprite(sprite_ICE_CUBE_SHADOW);
-        sprite_ICE_CUBE_SHADOW = NULL;
+        SPR_setFrame(sprite_CHEST,2);
     }    
     
 
     // GO TO REWARD SCREEN //
-    else if(G_COUNTER_1 == 810)
+    else if(G_COUNTER_1 == 1577)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);
@@ -153,8 +153,8 @@ void sequence_SAFE()
 
         // DEFINE NEXT MINIGAME //
         G_SCENE         = SCENE_FADE_IN;
-        G_SCENE_TYPE    = SCENE_CONTRACT_QUESTION_MARK;
-        G_SCENE_NEXT    = SCENE_CONTRACT_QUESTION_MARK;
+        G_SCENE_TYPE    = SCENE_CONTRACT_SAFE;
+        G_SCENE_NEXT    = SCENE_CONTRACT_SAFE;
 
         G_SCENE_LOADED  = FALSE;
 

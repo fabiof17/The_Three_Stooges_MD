@@ -42,7 +42,7 @@ typedef struct
     s16 pos_X;
     s16 pos_Y;
 
-} struct_ICE_CUBE_;
+} struct_FALLING_OBJECT_;
 
 
 

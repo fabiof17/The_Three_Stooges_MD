@@ -115,10 +115,12 @@
 #define SCENE_REWARD                    32
 
 
-#define SCENE_FADE_IN_CRACKERS          35
-#define SCENE_FADE_OUT_CRACKERS         36
+#define SCENE_CONTRACT_SAFE             35
 
-#define SCENE_GAMEOVER                  37
+#define SCENE_FADE_IN_CRACKERS          36
+#define SCENE_FADE_OUT_CRACKERS         37
+
+#define SCENE_GAMEOVER                  38
 
 
 
@@ -447,6 +449,7 @@
 
 #define SOUND_ICE_FALL                 108
 #define SOUND_TRIVIA                   109
+#define SOUND_CHEST_FALL               110
 
 
 
@@ -942,6 +945,18 @@ extern Sprite *sprite_SPLASH;
 extern Sprite *sprite_HAND_WAITERS;
 
 extern Sprite *sprite_BULB[5];
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
+//                                  WAITERS                                    //
+//                                                                             //
+//-----------------------------------------------------------------------------// 
+
+extern Sprite *sprite_CHEST;
+Sprite *sprite_ROPE;
 
 
 

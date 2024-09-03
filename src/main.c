@@ -447,7 +447,7 @@ int main(bool hardReset)
                 {                    
                     JOY_setEventHandler(disable_Callback);
                     
-                    //sequence_SAFE();
+                    sequence_SAFE();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -691,6 +691,20 @@ int main(bool hardReset)
                     
                     SPR_update();
                     SYS_doVBlankProcess();
+                }
+
+                // CONTRACT QUESTION MARK //
+                else if(G_SCENE == SCENE_CONTRACT_SAFE)
+                {                    
+                    JOY_setEventHandler(pause_Callback);
+
+                    if(G_PAUSE == FALSE)
+                    {
+                        sequence_CONTRACT_SAFE();
+                    }
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess(); 
                 }
 
                 // GAME OVER //

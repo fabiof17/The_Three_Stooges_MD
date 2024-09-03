@@ -1,4 +1,4 @@
-out/src/include/tables_BACKGROUNDS.o: src/include/tables_BACKGROUNDS.c \
+out/src/include/tables_SAFE.o: src/include/tables_SAFE.c \
  C:/sgdk/inc/genesis.h C:/sgdk/inc/types.h C:/sgdk/inc/config.h \
  C:/sgdk/inc/asm.h C:/sgdk/inc/sys.h C:/sgdk/inc/sram.h \
  C:/sgdk/inc/mapper.h C:/sgdk/inc/memory.h C:/sgdk/inc/memory_base.h \
@@ -14,10 +14,4 @@ out/src/include/tables_BACKGROUNDS.o: src/include/tables_BACKGROUNDS.c \
  C:/sgdk/inc/joy.h C:/sgdk/inc/timer.h C:/sgdk/inc/task.h \
  C:/sgdk/inc/task_cst.h C:/sgdk/inc/ext/flash-save/flash.h \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
- src/include/custom_tools.h res/palettes.h src/include/structures.h \
- src/include/variables.h res/maps_BACKGROUNDS.h res/maps_BOXING.h \
- res/maps_CRACKERS.h res/maps_DOCTORS.h res/maps_GLOBAL.h \
- res/maps_QUESTION_MARK.h res/maps_SAFE.h res/maps_TRIVIA.h \
- res/maps_WAITERS.h src/include/routines_ROULETTE.h res/sprites_SAFE.h \
- res/sprites_QUESTION_MARK.h res/sprites_TRIVIA.h \
- src/include/tables_QUESTIONS.h
+ src/include/structures.h src/include/variables.h

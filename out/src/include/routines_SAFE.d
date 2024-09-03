@@ -15,5 +15,4 @@ out/src/include/routines_SAFE.o: src/include/routines_SAFE.c \
  C:/sgdk/inc/task_cst.h C:/sgdk/inc/ext/flash-save/flash.h \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
  src/include/custom_tools.h res/palettes.h src/include/structures.h \
- src/include/variables.h res/sprites_QUESTION_MARK.h \
- src/include/tables_QUESTION_MARK.h
+ src/include/variables.h res/sprites_SAFE.h src/include/tables_SAFE.h

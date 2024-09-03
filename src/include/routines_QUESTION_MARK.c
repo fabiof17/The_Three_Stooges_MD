@@ -92,7 +92,7 @@ void sequence_QUESTION_MARK()
 
     // ICE CUBE ANIMATION //
     // SETUP POINTER TO ICE CUBE ANIMATION TABLE //
-    const struct_ICE_CUBE_ *ptr_ANIM_ICE_CUBE = &TABLE_ANIM_ICE_CUBE[G_INDEX_1];
+    const struct_FALLING_OBJECT_ *ptr_ANIM_ICE_CUBE = &TABLE_ANIM_ICE_CUBE[G_INDEX_1];
 
     if(G_COUNTER_1 == ptr_ANIM_ICE_CUBE->num_FRAME)
     {
