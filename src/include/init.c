@@ -68,6 +68,7 @@
 #include "tables_CRACKERS.h"
 #include "tables_DOCTORS.h"
 #include "tables_DOLLAR.h"
+#include "tables_GLOBAL.h"
 #include "tables_INTRO.h"
 #include "tables_QUESTIONS.h"
 #include "tables_ROULETTE.h"
@@ -118,7 +119,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
 
@@ -141,7 +142,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_SAFE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_QUESTION_MARK; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -2455,6 +2456,19 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
+        //                                        REWARD                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        u8 random_reward        = random_NUMBER(0,6);
+        
+        G_REWARD                = TABLE_REWARD[random_reward];
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
         //                                       VARIABLES                                      //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
@@ -2463,8 +2477,6 @@ void init_SCENE()
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
-
-        G_REWARD                = 250; // TABLE OF REWARDS MAX : 1050
 
 
         G_PHASE_SEQUENCE        = 0;
@@ -3315,7 +3327,16 @@ void init_SCENE()
         // STOOGES GET A REWARD //
         if(G_LUCK == TRUE)
         {
-            G_REWARD = 2000;
+            //--------------------------------------------------------------------------------------//
+            //                                                                                      //
+            //                                        REWARD                                        //
+            //                                                                                      //
+            //--------------------------------------------------------------------------------------//
+
+            u8 random_reward        = random_NUMBER(7,19);
+            
+            G_REWARD                = TABLE_REWARD[random_reward];
+
         }
 
         // STOOGES HAVE TO PAY THE HOSPITAL BILL //

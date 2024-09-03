@@ -56,7 +56,28 @@ const struct_WALK_STOOGES_      TABLE_ANIM_STOOGES_WALKOUT[29]              =   
 
 
 
-
+const u16                       TABLE_REWARD[20]                            =   {
+                                                                                    250,// QUESTION MARK
+                                                                                    300,
+                                                                                    350,
+                                                                                    400,
+                                                                                    450,
+                                                                                    500,
+                                                                                    550,
+                                                                                    1200,// SAFE
+                                                                                    1250,
+                                                                                    1300,
+                                                                                    1350,
+                                                                                    1400,
+                                                                                    1450,
+                                                                                    1500,
+                                                                                    1550,
+                                                                                    1600,
+                                                                                    1700,
+                                                                                    1800,
+                                                                                    1900,
+                                                                                    2000
+                                                                                };
 
                                                                                 
 
