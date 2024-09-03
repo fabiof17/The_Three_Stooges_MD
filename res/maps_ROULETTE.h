@@ -13,6 +13,7 @@ extern const Image image_ICON_SWATTER;
 extern const Image image_ICON_TRIVIA;
 extern const Image image_ICON_WAITERS;
 extern const Image image_ICON_CRACKERS;
+extern const Image image_ICON_SAFE;
 extern const Image image_ICON_SWATTER_2;
 
 #endif // _RES_MAPS_ROULETTE_H_

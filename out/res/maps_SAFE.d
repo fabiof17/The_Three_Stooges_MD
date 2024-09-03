@@ -1,0 +1,3 @@
+out/res/maps_SAFE.o: res/maps_SAFE.res \
+E:/RECALBOX/07_DEV/07_THREE\ STOOGES/04_CODE/01_SGDK/THREE_STOOGES/res/map/safe/tiles_SAFE_BG_A.png \
+E:/RECALBOX/07_DEV/07_THREE\ STOOGES/04_CODE/01_SGDK/THREE_STOOGES/res/map/safe/tiles_SAFE_BG_B.png

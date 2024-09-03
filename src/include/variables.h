@@ -364,7 +364,7 @@
 #define STREET_DOLLAR_TYPE_1            1
 #define STREET_DOLLAR_TYPE_2            2
 #define STREET_DOLLAR_TYPE_3            3
-//#define STREET_TYPE_4                 4
+#define STREET_TYPE_SAFE                4
 #define STREET_TYPE_QUESTION_MARK       5
 #define STREET_TYPE_BOXING              6
 #define STREET_TYPE_DOCTORS             7

@@ -26,6 +26,7 @@
 #include "maps_QUESTION_MARK.h"
 #include "maps_REWARD.h"
 #include "maps_ROULETTE.h"
+#include "maps_SAFE.h"
 #include "maps_SLAP.h"
 #include "maps_TRIVIA.h"
 #include "maps_WAITERS.h"
@@ -115,7 +116,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
 
@@ -3139,6 +3140,191 @@ void init_SCENE()
         G_SCENE                 = SCENE_FADE_IN;
         G_SCENE_TYPE            = SCENE_CRACKERS;
         G_SCENE_NEXT            = SCENE_CRACKERS;
+
+        G_SCENE_LOADED          = TRUE;
+    }
+
+    // QUESTION MARK //
+    else if(G_SCENE_TYPE == SCENE_SAFE)
+    {
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      CLEAN VRAM                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        u16 i = 0;
+
+        for(i=16 ; i<1440 ; i++)
+        {
+            VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+        }
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                    SETUP DISPLAY                                     //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_setPlaneSize(64,32,TRUE);
+        
+        SPR_init();
+        
+        VDP_setHilightShadow(FALSE);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                   ROULETTE FONT                                      //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, CPU);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                         BG                                           //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_B                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        VDP_loadTileSet(image_SAFE_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_SAFE_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         BG_A                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_SAFE_BG_B.tileset->numTile;
+        VDP_loadTileSet(image_SAFE_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+        VDP_setTileMapEx(BG_B, image_SAFE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_SAFE_BG_A.tileset->numTile;
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                SETUP PLANES POSITION                                 //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_POS_Y_CAMERA = 0;
+
+
+        VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+        VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                  INCREASE HAND SPEED                                 //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        increase_HAND_SPEED();
+
+
+
+        
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                      SPRITES                                         //
+        //                                                                                      //
+        //**************************************************************************************// 
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                              STOOGES SPRITES OFF SCREEN                              //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                    CHEST SPRITES                                     //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        /*sprite_ICE_CUBE         = SPR_addSprite(&tiles_SPR_ICE_CUBE,        149,  23, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+        sprite_SCISSOR          = SPR_addSprite(&tiles_SPR_SCISSOR,         128,   0, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+        sprite_ICE_CUBE_SHADOW  = SPR_addSprite(&tiles_SPR_ICE_CUBE_SHADOW, 143,  31, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));*/
+
+
+        SPR_update();
+        SYS_doVBlankProcess();
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       PALETTES                                       //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        memcpy( &palette_64[0]  , image_SAFE_BG_B.palette->data             , 16 * 2 );
+        memcpy( &palette_64[16] , image_SAFE_BG_A.palette->data             , 16 * 2 );
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                       VARIABLES                                      //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        G_COUNTER_1             = 0;
+        G_INDEX_1               = 0;
+        G_INDEX_2               = 0;
+        G_INDEX_3               = 0;
+
+        G_REWARD                = 2000;
+
+
+        G_PHASE_SEQUENCE        = 0;
+
+
+        G_STREET_TYPE           = STREET_TYPE_SAFE;       
+
+
+        G_SCENE                 = SCENE_FADE_IN;
+        G_SCENE_TYPE            = SCENE_SAFE;
+        G_SCENE_NEXT            = SCENE_SAFE;
 
         G_SCENE_LOADED          = TRUE;
     }

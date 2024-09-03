@@ -6,7 +6,7 @@
 
 
 
-extern const Image     *TABLE_ICONS[10];
+extern const Image     *TABLE_ICONS[11];
 
 extern const u8        TABLE_ICONS_PALETTE_[10];
 

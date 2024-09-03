@@ -17,7 +17,7 @@
 
 
 
-const Image     *TABLE_ICONS[10]         =   {
+const Image     *TABLE_ICONS[11]         =   {
                                                 &image_ICON_BANKER,
                                                 &image_ICON_BOXING,
                                                 &image_ICON_DOCTORS,
@@ -27,7 +27,8 @@ const Image     *TABLE_ICONS[10]         =   {
                                                 &image_ICON_SWATTER,
                                                 &image_ICON_TRIVIA,
                                                 &image_ICON_WAITERS,
-                                                &image_ICON_CRACKERS
+                                                &image_ICON_CRACKERS,
+                                                &image_ICON_SAFE
                                             };
 
 
@@ -60,196 +61,245 @@ const u8        TABLE_MINIGAMES[10]     =       {
 
 
 const u8        TABLE_HIGHSTREET[180]   =   {
-                                                ICON_BOXING,// ICON_BOXING
+                                                // DAY 1
+                                                ICON_BOXING,
                                                 ICON_SLAP,
                                                 ICON_QUESTION,
                                                 ICON_SWATTER,
                                                 ICON_WAITERS,
                                                 ICON_DOLLAR,
+
+                                                // DAY 2
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
                                                 ICON_DOLLAR,
-                                                // 10
                                                 ICON_SLAP,
                                                 ICON_DOCTORS,
+
+                                                // DAY 3
                                                 ICON_SWATTER,
                                                 ICON_BANKER,
                                                 ICON_WAITERS,
                                                 ICON_QUESTION,
                                                 ICON_DOLLAR,
                                                 ICON_SLAP,
+
+                                                // DAY 4
                                                 ICON_DOLLAR,
-                                                // 20
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
                                                 ICON_SWATTER,
                                                 ICON_BOXING,
+
+                                                // DAY 5
                                                 ICON_DOLLAR,
                                                 ICON_SWATTER,
                                                 ICON_BANKER,
                                                 ICON_DOCTORS,
                                                 ICON_SLAP,
-                                                // 30
                                                 ICON_QUESTION,
+
+                                                // DAY 6
                                                 ICON_WAITERS,
                                                 ICON_DOLLAR,
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
                                                 ICON_DOCTORS,
+
+                                                // DAY 7
                                                 ICON_DOLLAR,
                                                 ICON_SLAP,
-                                                // 40
                                                 ICON_DOLLAR,
                                                 ICON_SWATTER,
                                                 ICON_BANKER,
                                                 ICON_TRIVIA,
+
+                                                // DAY 8
                                                 ICON_SWATTER,
                                                 ICON_DOLLAR,
                                                 ICON_DOLLAR,
                                                 ICON_BOXING,
                                                 ICON_SWATTER,
-                                                // 50
                                                 ICON_DOCTORS,
+
+                                                // DAY 9
                                                 ICON_SLAP,
                                                 ICON_WAITERS,
                                                 ICON_SWATTER,
                                                 ICON_QUESTION,
                                                 ICON_SWATTER,
                                                 ICON_DOLLAR,
+
+                                                // DAY 10
                                                 ICON_SWATTER,
                                                 ICON_CRACKERS,
-                                                // 60
                                                 ICON_BANKER,
                                                 ICON_SWATTER,
                                                 ICON_DOLLAR,
                                                 ICON_SLAP,
+
+                                                // DAY 11
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
                                                 ICON_QUESTION,
                                                 ICON_BOXING,
                                                 ICON_BANKER,
-                                                // 70
                                                 ICON_DOCTORS,
+
+                                                // DAY 12
                                                 ICON_DOLLAR,
                                                 ICON_TRIVIA,
                                                 ICON_QUESTION,
                                                 ICON_CRACKERS,
                                                 ICON_SWATTER,
                                                 ICON_QUESTION,
+
+                                                // DAY 13
                                                 ICON_SWATTER,
                                                 ICON_DOLLAR,
-                                                // 80
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
                                                 ICON_WAITERS,
+
+                                                // DAY 14
                                                 ICON_QUESTION,
                                                 ICON_DOLLAR,
                                                 ICON_BANKER,
                                                 ICON_DOCTORS,
                                                 ICON_SWATTER,
-                                                // 90
                                                 ICON_BOXING,
+
+                                                // DAY 15
                                                 ICON_DOLLAR,
                                                 ICON_DOLLAR,
                                                 ICON_SWATTER,
                                                 ICON_SLAP,
                                                 ICON_BANKER,
                                                 ICON_DOLLAR,
+
+                                                // DAY 16
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
-                                                // 100
                                                 ICON_SWATTER,
                                                 ICON_SWATTER,
                                                 ICON_SWATTER,
                                                 ICON_CRACKERS,
+
+                                                // DAY 17
                                                 ICON_BANKER,
-                                                // GRAB
-                                                ICON_SWATTER,
-                                                ICON_SWATTER,
-                                                ICON_TRIVIA,
-                                                ICON_SWATTER,
                                                 ICON_DOLLAR,
-                                                // 110
-                                                ICON_CRACKERS,
-                                                // GRAB
+                                                ICON_SWATTER,
+                                                ICON_QUESTION,
+                                                ICON_SWATTER,
+                                                ICON_DOCTORS,
+
+                                                // DAY 18
                                                 ICON_WAITERS,
                                                 ICON_TRIVIA,
                                                 ICON_SLAP,
                                                 ICON_SWATTER,
                                                 ICON_BOXING,
                                                 ICON_SAFE,
-                                                // GRAB
-                                                ICON_WAITERS,
-                                                ICON_QUESTION,
-                                                ICON_BANKER,
-                                                // 120
-                                                ICON_DOLLAR,
+
+                                                // DAY 19
                                                 ICON_SWATTER,
-                                                ICON_SLAP,
-                                                ICON_BANKER,
-                                                // GRAB
-                                                ICON_SWATTER,
-                                                ICON_SLAP,
-                                                ICON_BANKER,
-                                                ICON_SWATTER,
-                                                ICON_TRIVIA,
-                                                ICON_SWATTER,
-                                                // 130 
-                                                ICON_BOXING,// ICON_BOXING
-                                                ICON_SLAP,
-                                                ICON_QUESTION,
-                                                ICON_SWATTER,
-                                                ICON_WAITERS,
-                                                ICON_DOLLAR,
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
                                                 ICON_DOLLAR,
-                                                // 140
+                                                ICON_CRACKERS,
+
+                                                // DAY 20
+                                                ICON_WAITERS,
+                                                ICON_QUESTION,
+                                                ICON_BANKER,
+                                                ICON_DOLLAR,
+                                                ICON_SWATTER,
+                                                ICON_SLAP,
+
+                                                // DAY
+                                                ICON_TRIVIA,
+                                                ICON_SWATTER,
+                                                ICON_BOXING,
+                                                ICON_SLAP,
+                                                ICON_QUESTION,
+                                                ICON_SWATTER,
+
+                                                // DAY
+                                                ICON_WAITERS,
+                                                ICON_DOLLAR,
+                                                ICON_SWATTER,
+                                                ICON_TRIVIA,
+                                                ICON_SWATTER,
+                                                ICON_DOLLAR,
+                                                
+                                                // DAY
                                                 ICON_SLAP,
                                                 ICON_DOCTORS,
                                                 ICON_SWATTER,
                                                 ICON_BANKER,
                                                 ICON_WAITERS,
                                                 ICON_QUESTION,
+
+                                                // DAY
                                                 ICON_DOLLAR,
                                                 ICON_SLAP,
                                                 ICON_DOLLAR,
-                                                // 150
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
+
+                                                // DAY
                                                 ICON_SWATTER,
                                                 ICON_BOXING,
                                                 ICON_DOLLAR,
                                                 ICON_SWATTER,
                                                 ICON_BANKER,
                                                 ICON_DOCTORS,
+
+                                                // DAY
                                                 ICON_SLAP,
-                                                // 160
                                                 ICON_QUESTION,
                                                 ICON_WAITERS,
                                                 ICON_DOLLAR,
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
+
+                                                // DAY
                                                 ICON_SWATTER,
                                                 ICON_DOCTORS,
                                                 ICON_DOLLAR,
                                                 ICON_SLAP,
-                                                // 170
                                                 ICON_DOLLAR,
                                                 ICON_SWATTER,
+
+                                                // DAY
                                                 ICON_BANKER,
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
                                                 ICON_DOLLAR,
                                                 ICON_DOLLAR,
                                                 ICON_BOXING,
-                                                ICON_SWATTER
+
+                                                // DAY
+                                                ICON_BANKER,
+                                                ICON_TRIVIA,
+                                                ICON_SWATTER,
+                                                ICON_DOLLAR,
+                                                ICON_DOLLAR,
+                                                ICON_BOXING,
+
+                                                // DAY
+                                                ICON_BANKER,
+                                                ICON_TRIVIA,
+                                                ICON_SWATTER,
+                                                ICON_DOLLAR,
+                                                ICON_DOLLAR,
+                                                ICON_BOXING,
                                             };
 
 

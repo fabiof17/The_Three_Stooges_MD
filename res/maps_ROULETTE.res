@@ -18,6 +18,7 @@ IMAGE image_ICON_SWATTER                "map/roulette/tiles_ICON_SWATTER_1.png" 
 IMAGE image_ICON_TRIVIA                 "map/roulette/tiles_ICON_TRIVIA.png"        NONE ALL
 IMAGE image_ICON_WAITERS                "map/roulette/tiles_ICON_WAITERS.png"       NONE ALL
 IMAGE image_ICON_CRACKERS               "map/roulette/tiles_ICON_CRACKERS.png"      NONE ALL
+IMAGE image_ICON_SAFE                   "map/roulette/tiles_ICON_SAFE.png"          NONE ALL
 
 IMAGE image_ICON_SWATTER_2              "map/roulette/tiles_ICON_SWATTER_2.png"     NONE ALL
 

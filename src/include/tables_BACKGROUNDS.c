@@ -15,6 +15,7 @@
 #include "maps_DOCTORS.h"
 #include "maps_GLOBAL.h"
 #include "maps_QUESTION_MARK.h"
+#include "maps_SAFE.h"
 #include "maps_TRIVIA.h"
 #include "maps_WAITERS.h"
 
@@ -408,6 +409,124 @@ void init_STREET_TRIVIA_TYPE2()
 
 
 
+
+
+void init_STREET_SAFE()
+{
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      CLEAN VRAM                                      //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    u16 i = 0;
+
+    for(i=16 ; i<1440 ; i++)
+    {
+        VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+    }
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    VDP_setPlaneSize(64,64,TRUE);
+    
+    SPR_init();
+    
+    VDP_setHilightShadow(FALSE);
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                   ROULETTE FONT                                      //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, CPU);
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                         BG                                           //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    VDP_loadTileSet(image_SAFE_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+    VDP_setTileMapEx(BG_B, image_SAFE_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0,  0,  0,  0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_B, image_SAFE_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0, 28,  0,  0, 40, 28, CPU);
+    
+    
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_A                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+    
+    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_SAFE_BG_B.tileset->numTile;
+    VDP_loadTileSet(image_SAFE_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+    VDP_setTileMapEx(BG_B, image_SAFE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  0,  0,  0,  0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_B, image_SAFE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  0, 28,  0,  0, 40, 28, CPU);
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_SAFE_BG_A.tileset->numTile;
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      SPRITES                                         //
+    //                                                                                      //
+    //**************************************************************************************// 
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                    SCISSOR SPRITE                                    //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    /*sprite_SCISSOR = SPR_addSprite(&tiles_SPR_SCISSOR, 128, 0, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+    SPR_setFrame(sprite_SCISSOR,1);
+    SPR_setDepth(sprite_SCISSOR,10);*/
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       PALETTES                                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    memcpy( &palette_64[0]  , image_SAFE_BG_B.palette->data             , 16 * 2 );
+    memcpy( &palette_64[16] , image_SAFE_BG_A.palette->data             , 16 * 2 );
+}
 
 
 void init_STREET_QUESTION_MARK()
@@ -880,7 +999,7 @@ void (*TABLE_INIT_STREET_ROULETTE[17])(void)   =   {
                                                         NULL,
                                                         NULL,
                                                         NULL,
-                                                        NULL,
+                                                        init_STREET_SAFE,
                                                         init_STREET_QUESTION_MARK,
                                                         NULL,
                                                         init_STREET_DOCTORS,

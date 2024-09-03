@@ -24,6 +24,7 @@
 #include "include/routines_QUESTION_MARK.h"
 #include "include/routines_REWARD.h"
 #include "include/routines_ROULETTE.h"
+#include "include/routines_SAFE.h"
 #include "include/routines_SLAP.h"
 #include "include/routines_TRIVIA.h"
 #include "include/routines_WAITERS.h"
@@ -436,6 +437,17 @@ int main(bool hardReset)
                     JOY_setEventHandler(disable_Callback);
                     
                     sequence_CRACKERS();
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                // SAFE //
+                else if(G_SCENE == SCENE_SAFE)
+                {                    
+                    JOY_setEventHandler(disable_Callback);
+                    
+                    //sequence_SAFE();
                     
                     SPR_update();
                     SYS_doVBlankProcess();
