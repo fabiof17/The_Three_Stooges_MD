@@ -57,6 +57,7 @@
 #include "sprites_LOGO.h"
 #include "sprites_QUESTION_MARK.h"
 #include "sprites_ROULETTE.h"
+#include "sprites_SAFE.h"
 #include "sprites_SLAP.h"
 #include "sprites_WAITERS.h"
 

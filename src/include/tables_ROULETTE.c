@@ -221,13 +221,13 @@ const u8        TABLE_HIGHSTREET[180]   =   {
                                                 ICON_SWATTER,
                                                 ICON_SLAP,
 
-                                                // DAY
+                                                // DAY 21
+                                                ICON_BANKER,
+                                                ICON_SWATTER,
                                                 ICON_TRIVIA,
                                                 ICON_SWATTER,
-                                                ICON_BOXING,
-                                                ICON_SLAP,
-                                                ICON_QUESTION,
                                                 ICON_SWATTER,
+                                                ICON_CRACKERS,
 
                                                 // DAY
                                                 ICON_WAITERS,
