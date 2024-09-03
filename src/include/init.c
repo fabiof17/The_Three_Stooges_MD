@@ -119,7 +119,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
 
 
 
@@ -142,7 +142,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_QUESTION_MARK; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -394,6 +394,7 @@ void init_VARIABLES()
     //                                       TRIVIA                                         //
     //--------------------------------------------------------------------------------------//
     XGM_setPCM(SOUND_TRIVIA , PCM_TRIVIA , sizeof(PCM_TRIVIA));
+    XGM_setPCM(SOUND_HEAD_TRIVIA , PCM_HEAD_TRIVIA , sizeof(PCM_HEAD_TRIVIA));
 
 
     //--------------------------------------------------------------------------------------//

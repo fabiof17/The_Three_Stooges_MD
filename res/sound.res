@@ -57,7 +57,7 @@ WAV PCM_ICE_FALL                "sound/sound_ICE_FALL.wav"          XGM
 WAV PCM_CHEST_FALL              "sound/sound_CHEST_FALL.wav"        XGM
 
 WAV PCM_TRIVIA                  "sound/sound_TRIVIA.wav"            XGM
-
+WAV PCM_HEAD_TRIVIA             "sound/sound_HEAD_TRIVIA.wav"       XGM
 
 
 

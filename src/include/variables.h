@@ -450,7 +450,7 @@
 #define SOUND_ICE_FALL                 108
 #define SOUND_TRIVIA                   109
 #define SOUND_CHEST_FALL               110
-
+#define SOUND_HEAD_TRIVIA              111
 
 
 

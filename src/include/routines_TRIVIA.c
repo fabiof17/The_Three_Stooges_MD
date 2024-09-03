@@ -521,7 +521,13 @@ void sequence_TRIVIA_TYPE2()
             }
         }
 
-        if(G_COUNTER_1 == 711)
+        if(G_COUNTER_1 == 634)
+        {
+            // PLAY HEAD SHOCK SOUND //
+            XGM_startPlayPCM(SOUND_HEAD_TRIVIA,15,SOUND_PCM_CH4);
+        }
+
+        else if(G_COUNTER_1 == 711)
         {
             G_COUNTER_1 = 0;
             G_INDEX_3   = 0;

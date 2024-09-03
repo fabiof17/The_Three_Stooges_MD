@@ -51,7 +51,7 @@ void sequence_DOLLAR()
 
     if(G_COUNTER_1 == 146)
     {
-        // PLAY SWATTER SOUND //
+        // PLAY HEAD SHOCK SOUND //
         XGM_startPlayPCM(SOUND_HEAD_SHOCK,15,SOUND_PCM_CH4);
     }
 
