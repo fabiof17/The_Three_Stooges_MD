@@ -89,7 +89,7 @@ void roulette_Callback(u16 joy, u16 changed, u16 state)
 {
     if(joy == JOY_1)
     {
-        // BOUTON B //
+        // BUTTON A OR B OR C //
         if( changed & state & BUTTON_A || changed & state & BUTTON_B || changed & state & BUTTON_C )
         {
             if(G_PHASE_SEQUENCE == ROULETTE_PHASE_CHOICE)
@@ -121,8 +121,8 @@ void trivia_Callback(u16 joy, u16 changed, u16 state)
     
     if(joy == JOY_1)
     {
-        // BOUTON B //
-        if( changed & state & BUTTON_B )
+        // BUTTON A OR B OR C //
+        if( changed & state & BUTTON_A || changed & state & BUTTON_B || changed & state & BUTTON_C )
         {
             if(G_PHASE_SEQUENCE == TRIVIA_PHASE_CHOICE)
             {
@@ -210,7 +210,7 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
     {
         if(G_PHASE_SEQUENCE == SLAP_PHASE_ATTACK)
         {
-            // BOUTON B //
+            // BUTTON B //
             if( changed & state & BUTTON_B )
             {
                 // IF MOE ATTACKS (NOT IN IDLE STATE) //

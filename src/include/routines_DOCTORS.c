@@ -92,7 +92,18 @@ void sequence_DOCTORS()
     }
 
 
-    if(G_COUNTER_1 == 360)
+    if(G_COUNTER_1 == 359)
+    {
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         AUDIO                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        XGM_startPlayPCM(SOUND_VOICE_DOCTORS , 13 , SOUND_PCM_CH3 );
+    }
+
+    else if(G_COUNTER_1 == 360)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);
