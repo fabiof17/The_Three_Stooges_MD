@@ -142,7 +142,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_CONTRACT_WAITERS; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_BANK; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
 
@@ -179,8 +179,6 @@ void init_VARIABLES()
     G_PAUSE                     = FALSE;
 
     G_LUCK                      = TRUE;
-
-    //G_BILL                      = 300;
 
 
     
@@ -1636,6 +1634,8 @@ void init_SCENE()
         VDP_loadTileSet(image_BANK_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
 
 
+
+
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
         //                                        DIALOG                                        //
@@ -1655,6 +1655,25 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         G_ADR_VRAM_HUB = G_ADR_VRAM_DIALOG + image_BANK_DIALOG.tileset->numTile;
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         LUCK                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        bool random_luck = random_NUMBER(0,19);
+        
+        G_LUCK = TABLE_LUCK[random_luck];
+
+
+        if(G_LUCK == FALSE)
+        {
+            G_MONEY -= (G_MONEY/10);
+        }
 
 
 
@@ -3327,6 +3346,7 @@ void init_SCENE()
         
         G_LUCK = TABLE_LUCK[random_luck];
         //G_LUCK = FALSE;
+
         // STOOGES GET A REWARD //
         if(G_LUCK == TRUE)
         {

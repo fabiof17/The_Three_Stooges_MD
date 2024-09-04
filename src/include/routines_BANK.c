@@ -81,30 +81,39 @@ void sequence_BANK()
         // DISPLAY DIALOG //
         else if(G_COUNTER_1 == 549)
         {
-            // DISPLAY DIALOG //
-            VDP_setTileMapEx(BG_A, image_BANK_DIALOG.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 13, 32, 0, 0, 16, 6, DMA_QUEUE);
-
-
-            // IF THERE ARE STILL DAYS REMAINING //
-            if(G_DAY+1 < 31)
+            if(G_LUCK == TRUE)
             {
-                // DISPLAY REMAINING DAYS //
-                u8 remaining_days = 30 - G_DAY;
+                // DISPLAY DIALOG //
+                VDP_setTileMapEx(BG_A, image_BANK_DIALOG.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 13, 32, 0, 0, 16, 6, DMA_QUEUE);
 
-                if(remaining_days > 9)
+
+                // IF THERE ARE STILL DAYS REMAINING //
+                if(G_DAY+1 < 31)
                 {
-                    u8 number1 = remaining_days/10;
-                    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 14 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+                    // DISPLAY REMAINING DAYS //
+                    u8 remaining_days = 30 - G_DAY;
 
-                    u8 number2 = remaining_days - (number1*10);
-                    VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 15 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+                    if(remaining_days > 9)
+                    {
+                        u8 number1 = remaining_days/10;
+                        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 14 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+
+                        u8 number2 = remaining_days - (number1*10);
+                        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 15 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+                    }
+                }
+
+                // IF THE 30 DAYS AVAILABLE HAVE BEEN SPENT //
+                else
+                {
+                    VDP_drawIntEx_BG_A_QUEUE(0,1,15,36,PAL1);
                 }
             }
 
-            // IF THE 30 DAYS AVAILABLE HAVE BEEN SPENT //
             else
             {
-                VDP_drawIntEx_BG_A_QUEUE(0,1,15,36,PAL1);
+                // DISPLAY DIALOG //
+                VDP_setTileMapEx(BG_A, image_BANK_DIALOG.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 13, 32, 0, 6, 16, 6, DMA_QUEUE);
             }
 
             // DISPLAY DIALOG ARROW //
