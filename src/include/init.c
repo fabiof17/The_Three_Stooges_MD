@@ -393,8 +393,10 @@ void init_VARIABLES()
     //--------------------------------------------------------------------------------------//
     //                                       TRIVIA                                         //
     //--------------------------------------------------------------------------------------//
-    XGM_setPCM(SOUND_TRIVIA , PCM_TRIVIA , sizeof(PCM_TRIVIA));
+    XGM_setPCM(SOUND_TRIVIA_1 , PCM_TRIVIA_1 , sizeof(PCM_TRIVIA_1));
+    XGM_setPCM(SOUND_TRIVIA_2 , PCM_TRIVIA_2 , sizeof(PCM_TRIVIA_2));
     XGM_setPCM(SOUND_HEAD_TRIVIA , PCM_HEAD_TRIVIA , sizeof(PCM_HEAD_TRIVIA));
+    XGM_setPCM(SOUND_WRONG_ANSWER , PCM_WRONG_ANSWER , sizeof(PCM_WRONG_ANSWER));
 
 
     //--------------------------------------------------------------------------------------//

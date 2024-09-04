@@ -448,10 +448,11 @@
 #define SOUND_TIRE                     107
 
 #define SOUND_ICE_FALL                 108
-#define SOUND_TRIVIA                   109
-#define SOUND_CHEST_FALL               110
-#define SOUND_HEAD_TRIVIA              111
-
+#define SOUND_TRIVIA_1                 109
+#define SOUND_TRIVIA_2                 110
+#define SOUND_CHEST_FALL               111
+#define SOUND_HEAD_TRIVIA              112
+#define SOUND_WRONG_ANSWER             113
 
 
 

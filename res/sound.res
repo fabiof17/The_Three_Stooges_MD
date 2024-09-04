@@ -56,9 +56,10 @@ WAV PCM_BOXING                  "sound/sound_BOXING.wav"            XGM
 WAV PCM_ICE_FALL                "sound/sound_ICE_FALL.wav"          XGM
 WAV PCM_CHEST_FALL              "sound/sound_CHEST_FALL.wav"        XGM
 
-WAV PCM_TRIVIA                  "sound/sound_TRIVIA.wav"            XGM
+WAV PCM_TRIVIA_1                "sound/sound_TRIVIA_1.wav"          XGM
+WAV PCM_TRIVIA_2                "sound/sound_TRIVIA_2.wav"          XGM
 WAV PCM_HEAD_TRIVIA             "sound/sound_HEAD_TRIVIA.wav"       XGM
-
+WAV PCM_WRONG_ANSWER            "sound/sound_WRONG_ANSWER.wav"      XGM
 
 
 

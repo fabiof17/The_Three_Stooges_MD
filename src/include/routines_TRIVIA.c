@@ -314,7 +314,7 @@ void sequence_TRIVIA_TYPE1()
         // PCM //
         else if(G_COUNTER_1 == 900)
         {
-            XGM_startPlayPCM(SOUND_TRIVIA , 15 , SOUND_PCM_CH4 );
+            XGM_startPlayPCM(SOUND_TRIVIA_1 , 15 , SOUND_PCM_CH4 );
         }
 
 
@@ -393,7 +393,16 @@ void sequence_TRIVIA_TYPE1()
     // GETTING RESULT //
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_RESULT)
     {
-        if(G_COUNTER_1 == 120)
+        if(G_COUNTER_1 == 72)
+        {
+            // WRONG ANSWER //
+            if(G_STATUS_MISSION == FAILED)
+            {
+                XGM_startPlayPCM(SOUND_WRONG_ANSWER , 15 , SOUND_PCM_CH4 );
+            }
+        }
+        
+        else if(G_COUNTER_1 == 120)
         {
             // GOOD ANSWER //
             if(G_STATUS_MISSION == SUCCESS)
@@ -521,13 +530,19 @@ void sequence_TRIVIA_TYPE2()
             }
         }
 
+
         if(G_COUNTER_1 == 634)
         {
             // PLAY HEAD SHOCK SOUND //
             XGM_startPlayPCM(SOUND_HEAD_TRIVIA,15,SOUND_PCM_CH4);
         }
 
-        else if(G_COUNTER_1 == 711)
+        else if(G_COUNTER_1 == 950)
+        {
+            XGM_startPlayPCM(SOUND_TRIVIA_2 , 15 , SOUND_PCM_CH4 );
+        }
+
+        else if(G_COUNTER_1 == 1018)
         {
             G_COUNTER_1 = 0;
             G_INDEX_3   = 0;
@@ -622,7 +637,16 @@ void sequence_TRIVIA_TYPE2()
     // GETTING RESULT //
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_RESULT)
     {
-        if(G_COUNTER_1 == 120)
+        if(G_COUNTER_1 == 72)
+        {
+            // WRONG ANSWER //
+            if(G_STATUS_MISSION == FAILED)
+            {
+                XGM_startPlayPCM(SOUND_WRONG_ANSWER , 15 , SOUND_PCM_CH4 );
+            }
+        }
+
+        else if(G_COUNTER_1 == 120)
         {
             // GOOD ANSWER //
             if(G_STATUS_MISSION == SUCCESS)
