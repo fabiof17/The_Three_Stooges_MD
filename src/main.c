@@ -459,8 +459,6 @@ int main(bool hardReset)
                     JOY_setEventHandler(roulette_Callback);
                     
                     sequence_ROULETTE();
-
-                    //VDP_drawIntEx_BG_A_QUEUE(G_HIGHSTREET_POSITION,1,0,0,PAL3);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -539,6 +537,8 @@ int main(bool hardReset)
                     joypad_DOCTORS_MINIGAME();
 
                     sequence_DOCTORS_MINIGAME();
+
+                    //VDP_drawIntEx_BG_A_QUEUE(G_CAR_COUNTER_SPEED,2,0,0,PAL3);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -550,10 +550,7 @@ int main(bool hardReset)
                     joypad_WAITERS_MINIGAME();
                     JOY_setEventHandler(waiters_Callback);
 
-                    sequence_WAITERS_MINIGAME();
-
-                    //VDP_drawIntEx_BG_A_QUEUE(G_DELAY_ACTION_WAITERS,1,3,0,PAL3);
-                    //VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[0].counter_ACTION,2,0,0,PAL3);         
+                    sequence_WAITERS_MINIGAME();        
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -575,13 +572,6 @@ int main(bool hardReset)
                     joypad_CRACKERS_MINIGAME();
 
                     sequence_CRACKERS_MINIGAME();
-
-                    /*u8 j;
-                    for(j=0 ; j<G_NUMBER_CRACKERS_MAX ; j++)
-                    {
-                        VDP_drawIntEx_BG_A_QUEUE(list_CRACKER[j].state_CRACKER,1,j,0,PAL0);
-                        VDP_drawIntEx_BG_A_QUEUE(list_CRACKER[j].animated,1,j,1,PAL0);
-                    }*/
                     
                     SPR_update();
                     SYS_doVBlankProcess();

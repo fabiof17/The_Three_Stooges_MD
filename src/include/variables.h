@@ -220,14 +220,6 @@
 #define SLAP_STATE_DOWN                 0 // KNEE
 
 
-
-
-//-----------------------------------------------------------------------------//
-//                                                                             //
-//                                    SLAP                                     //
-//                                                                             //
-//-----------------------------------------------------------------------------//
-
 #define AXIS_CENTER                     0
 #define AXIS_RIGHT                      1
 #define AXIS_LEFT                       2
@@ -249,6 +241,13 @@
 #define PATIENT_HIT                     1
 
 #define PATIENT_BOX_MARGIN              16
+
+#define MAX_COUNTER_SPEED_2             30
+#define MAX_COUNTER_SPEED_3             60
+
+#define KART_SPEED_1                    1
+#define KART_SPEED_2                    2
+#define KART_SPEED_3                    4
 
 
 

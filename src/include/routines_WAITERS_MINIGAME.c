@@ -17,35 +17,43 @@
 
 
 inline static void update_MONEY_SCORE()
-{
+{            
     if(G_REWARD < 100)
     {
-        u8 tens = G_REWARD / 10;
-        
-        VDP_drawIntEx_BG_A_QUEUE(tens,1,6,4,PAL1);
-        VDP_drawIntEx_BG_A_QUEUE(   0,1,8,4,PAL1);
+        intToStr(G_REWARD,text_output,2);
+
+        u8 tens  = text_output[0] - '0';
+        u8 units = text_output[1] - '0';
+
+        VDP_drawIntEx_BG_A_QUEUE(tens , 1 , 6 , 4 , PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(units, 1 , 8 , 4 , PAL1);
     }
 
     else if(G_REWARD < 1000)
     {
-        u8 hundreds  =  G_REWARD / 100;
-        u8 tens      =  (G_REWARD - (hundreds * 100) ) / 10;
-        
-        VDP_drawIntEx_BG_A_QUEUE(hundreds,1,6 ,4,PAL1);
-        VDP_drawIntEx_BG_A_QUEUE(tens    ,1,8 ,4,PAL1);
-        VDP_drawIntEx_BG_A_QUEUE(0       ,1,10,4,PAL1);
+        intToStr(G_REWARD,text_output,3);
+
+        u8 hundreds  = text_output[0] - '0';
+        u8 tens      = text_output[1] - '0';
+        u8 units     = text_output[2] - '0';
+
+        VDP_drawIntEx_BG_A_QUEUE(hundreds , 1 ,  6 , 4 , PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(tens     , 1 ,  8 , 4 , PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(units    , 1 , 10 , 4 , PAL1);
     }
 
     else if(G_REWARD < 10000)
     {
-        u8 thousands =  G_REWARD / 1000;
-        u8 hundreds  =  (G_REWARD - (thousands * 1000) ) / 100;
-        u8 tens      =  (G_REWARD - (hundreds * 100) ) / 10;
+        intToStr(G_REWARD,text_output,4);
 
-        VDP_drawIntEx_BG_A_QUEUE(thousands,1,6 ,4,PAL1);
-        VDP_drawIntEx_BG_A_QUEUE(hundreds ,1,8 ,4,PAL1);
-        VDP_drawIntEx_BG_A_QUEUE(tens     ,1,10,4,PAL1);
-        VDP_drawIntEx_BG_A_QUEUE(0        ,1,12,4,PAL1);
+        u8 thousands  = text_output[0] - '0';
+        u8 hundreds   = text_output[1] - '0';
+        u8 tens       = text_output[2] - '0';
+
+        VDP_drawIntEx_BG_A_QUEUE(thousands , 1 ,  6 , 4 , PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(hundreds  , 1 ,  8 , 4 , PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(tens      , 1 , 10 , 4 , PAL1);
+        VDP_drawIntEx_BG_A_QUEUE(0         , 1 , 12 , 4 , PAL1);
     }
 }
 

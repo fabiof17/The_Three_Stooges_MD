@@ -24,7 +24,6 @@ void sequence_GAMEOVER()
     //                     FAIL TO SAVE THE ORPHANAGE                     //
     //                                                                    //
     //--------------------------------------------------------------------//
-
     if(G_MONEY < 5000)
     {
         // EVIL LAUGH //
@@ -133,7 +132,6 @@ void sequence_GAMEOVER()
     //                         SAVE THE ORPHANAGE                         //
     //                                                                    //
     //--------------------------------------------------------------------//
-
     else if(G_MONEY < 10000)
     {
         // THANK YOU BOYS! //
@@ -207,7 +205,6 @@ void sequence_GAMEOVER()
     //                    SAVE AND REPAIR THE ORPHANAGE                   //
     //                                                                    //
     //--------------------------------------------------------------------//
-
     else//else if(G_MONEY < 20000)
     {
         // THANK YOU BOYS! //

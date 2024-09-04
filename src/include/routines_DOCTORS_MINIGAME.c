@@ -136,6 +136,54 @@ inline static void collisions_CAR(u8 car_NUMBER)
 
 
 
+inline static void update_ACCELERATION()
+{
+    if(G_CAR_COUNTER_SPEED < MAX_COUNTER_SPEED_3)
+    {
+        G_CAR_COUNTER_SPEED += 1;
+
+        if(G_CAR_COUNTER_SPEED == MAX_COUNTER_SPEED_2)
+        {
+            G_CAR_SPEED = KART_SPEED_2;
+
+            XGM_startPlayPCM(SOUND_ENGINE_2 , 13 , SOUND_PCM_CH2 );
+        }
+
+        else if(G_CAR_COUNTER_SPEED == MAX_COUNTER_SPEED_3)
+        {
+            G_CAR_SPEED = KART_SPEED_3;
+
+            XGM_startPlayPCM(SOUND_ENGINE_3 , 13 , SOUND_PCM_CH2 );
+        }
+    }
+}
+
+
+inline static void update_DECELERATION()
+{
+    if(G_CAR_COUNTER_SPEED > 0)
+    {
+        G_CAR_COUNTER_SPEED -= 1;
+
+        if(G_CAR_COUNTER_SPEED == 0)
+        {
+            G_CAR_SPEED = KART_SPEED_1;
+
+            XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
+        }
+
+        else if(G_CAR_COUNTER_SPEED == MAX_COUNTER_SPEED_2)
+        {
+            G_CAR_SPEED = KART_SPEED_2;
+
+            XGM_startPlayPCM(SOUND_ENGINE_2 , 13 , SOUND_PCM_CH2 );
+        }
+    }
+}
+
+
+
+
 void joypad_DOCTORS_MINIGAME()
 {
     if(G_PHASE_SEQUENCE == DOCTORS_PHASE_RACING)
@@ -157,8 +205,22 @@ void joypad_DOCTORS_MINIGAME()
                 collisions_CAR(i);
             }
 
-            G_CAR_COUNTER_SPEED = 0;
+
+
+
+            if(G_CAR_COUNTER_SPEED < MAX_COUNTER_SPEED_2)
+            {
+                G_CAR_COUNTER_SPEED = 0;
+            }
+
+            else if(G_CAR_COUNTER_SPEED < MAX_COUNTER_SPEED_3)
+            {
+                G_CAR_COUNTER_SPEED = MAX_COUNTER_SPEED_2;
+            }
             
+
+
+
             list_CARS[0].axis_CAR = AXIS_CENTER;
 
             SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
@@ -199,7 +261,7 @@ void joypad_DOCTORS_MINIGAME()
 
                     else
                     {
-                        G_CAR_COUNTER_SPEED = 0;
+                        //G_CAR_COUNTER_SPEED = 0;
 
                         /*if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                         {
@@ -220,7 +282,7 @@ void joypad_DOCTORS_MINIGAME()
 
                 else
                 {
-                    G_CAR_COUNTER_SPEED = 0;
+                    //G_CAR_COUNTER_SPEED = 0;
 
                     /*if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                     {
@@ -240,11 +302,11 @@ void joypad_DOCTORS_MINIGAME()
 
             if(value & BUTTON_UP)
             {
-                G_CAR_COUNTER_SPEED += 1;
+                /*G_CAR_COUNTER_SPEED += 1;
 
-                if(G_CAR_COUNTER_SPEED > 59)
+                if(G_CAR_COUNTER_SPEED > MAX_COUNTER_SPEED_2)
                 {
-                    G_CAR_COUNTER_SPEED = 0;
+                    G_CAR_COUNTER_SPEED = MAX_COUNTER_SPEED_2;
 
                     if(G_CAR_SPEED == 1)
                     {
@@ -257,7 +319,8 @@ void joypad_DOCTORS_MINIGAME()
                         XGM_startPlayPCM(SOUND_ENGINE_3 , 13 , SOUND_PCM_CH2 );
                         G_CAR_SPEED = 4;
                     }
-                }
+                }*/
+               update_ACCELERATION();
             }
         }
 
@@ -294,7 +357,7 @@ void joypad_DOCTORS_MINIGAME()
 
                     else
                     {
-                        G_CAR_COUNTER_SPEED = 0;
+                        //G_CAR_COUNTER_SPEED = 0;
 
                         /*if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                         {
@@ -315,7 +378,7 @@ void joypad_DOCTORS_MINIGAME()
 
                 else
                 {
-                    G_CAR_COUNTER_SPEED = 0;
+                    //G_CAR_COUNTER_SPEED = 0;
 
                     /*if(XGM_isPlayingPCM(SOUND_PCM_CH4) == 0)
                     {
@@ -335,11 +398,11 @@ void joypad_DOCTORS_MINIGAME()
 
             if(value & BUTTON_UP)
             {
-                G_CAR_COUNTER_SPEED += 1;
+                /*G_CAR_COUNTER_SPEED += 1;
 
-                if(G_CAR_COUNTER_SPEED > 59)
+                if(G_CAR_COUNTER_SPEED > MAX_COUNTER_SPEED_2)
                 {
-                    G_CAR_COUNTER_SPEED = 0;
+                    G_CAR_COUNTER_SPEED = MAX_COUNTER_SPEED_2;
 
                     if(G_CAR_SPEED == 1)
                     {
@@ -352,7 +415,8 @@ void joypad_DOCTORS_MINIGAME()
                         XGM_startPlayPCM(SOUND_ENGINE_3 , 13 , SOUND_PCM_CH2 );
                         G_CAR_SPEED = 4;
                     }
-                }
+                }*/
+               update_ACCELERATION();
             }
         }
 
@@ -365,10 +429,10 @@ void joypad_DOCTORS_MINIGAME()
 
         else if(value & BUTTON_DOWN)
         {
-            if(G_CAR_SPEED != 1)
+            /*if(G_CAR_SPEED != 1)
             {
                 XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
-            }
+            }*/
             
             u8 i;
 
@@ -377,9 +441,13 @@ void joypad_DOCTORS_MINIGAME()
                 collisions_CAR(i);
             }
 
-            G_CAR_SPEED = 1;
 
-            G_CAR_COUNTER_SPEED = 0;
+
+
+            update_DECELERATION();
+
+
+
 
             list_CARS[0].axis_CAR = AXIS_CENTER;
 
@@ -410,11 +478,11 @@ void joypad_DOCTORS_MINIGAME()
 
             if(list_CARS[0].hit == FALSE && list_CARS[1].hit == FALSE && list_CARS[2].hit == FALSE)
             {
-                G_CAR_COUNTER_SPEED += 1;
+                /*G_CAR_COUNTER_SPEED += 1;
 
-                if(G_CAR_COUNTER_SPEED > 59)
+                if(G_CAR_COUNTER_SPEED > MAX_COUNTER_SPEED_2)
                 {
-                    G_CAR_COUNTER_SPEED = 0;
+                    G_CAR_COUNTER_SPEED = MAX_COUNTER_SPEED_2;
 
                     if(G_CAR_SPEED == 1)
                     {
@@ -427,7 +495,9 @@ void joypad_DOCTORS_MINIGAME()
                         XGM_startPlayPCM(SOUND_ENGINE_3 , 13 , SOUND_PCM_CH2 );
                         G_CAR_SPEED = 4;
                     }
-                }
+                }*/
+
+                update_ACCELERATION();
                 
                 list_CARS[0].axis_CAR = AXIS_CENTER;
 
@@ -493,6 +563,14 @@ void joypad_DOCTORS_MINIGAME()
                         list_CARS[i].pos_X = list_CARS[0].pos_X;
                     }
 
+
+                    /////////////////////////////
+                    /*if((list_CARS[0].pos_X - list_CARS[i].pos_X) == 1)
+                    {
+                        list_CARS[i].pos_X = list_CARS[0].pos_X;
+                    }*/
+
+
                     if(list_CARS[i].pos_X > 224)
                     {
                         list_CARS[i].pos_X = 224;
@@ -518,6 +596,14 @@ void joypad_DOCTORS_MINIGAME()
                     {
                         list_CARS[i].pos_X = list_CARS[0].pos_X;
                     }
+
+
+                    /////////////////////////////
+                    /*if((list_CARS[i].pos_X - list_CARS[0].pos_X) == 1)
+                    {
+                        list_CARS[i].pos_X = list_CARS[0].pos_X;
+                    }*/
+
 
                     if(list_CARS[i].pos_X > 224)
                     {
@@ -1875,7 +1961,7 @@ void sequence_DOCTORS_MINIGAME()
         // REACHED THE OPERATION THEATRE //
         if(G_HIT_NUMBER != 5)
         {
-            if(G_COUNTER_1 == 120)
+            if(G_COUNTER_1 == 240)
             {
                 // FADE OUT : 40 FRAMES //
                 PAL_fadeOutAll(40,FALSE);

@@ -60,6 +60,7 @@ const u8        TABLE_MINIGAMES[10]     =       {
                                                 };
 
 
+// LIST OF THE 180 ROULETTE ICONS (6 ICONS x 30 DAYS = 180)
 const u8        TABLE_HIGHSTREET[180]   =   {
                                                 // DAY 1
                                                 ICON_BOXING,
@@ -335,7 +336,7 @@ const u8        TABLE_HAND_MOVE[30][10]     =   {
                                                     {4,1,2,5,3,5,0,3,0,1},
                                                     {4,3,2,4,5,0,1,3,2,4},
                                                     {4,5,1,5,4,0,2,5,0,3},
-                                                    {4,2,0,3,3,1,0,2,5,0},
+                                                    {4,2,0,3,5,1,0,2,5,0},
                                                     {4,0,4,5,2,4,3,1,0,3},
 
 
@@ -347,6 +348,7 @@ const u8        TABLE_HAND_MOVE[30][10]     =   {
                                                 };
 
 
+// STOOGES SPRITE ANIMATION WHEN HAND IS MOVING DURING THE ROULETTE SEQUENCE //
 const u8                TABLE_ANIM_STOOGE_ROULETTE[10]  =   {
                                                                 17,
                                                                 17,
