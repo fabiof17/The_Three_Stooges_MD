@@ -181,7 +181,7 @@ void init_VARIABLES()
     G_INDEX_3                   = 0;
 
     
-    G_MONEY                     = 0;
+    G_MONEY                     = 9000;
 
     G_PAUSE                     = FALSE;
 

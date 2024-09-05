@@ -124,7 +124,7 @@ void sequence_GAMEOVER()
         }
 
         // FADE OUT //
-        else if(G_COUNTER_1 == 1350)
+        else if(G_COUNTER_1 == 1470)
         {
             // FADE OUT : 40 FRAMES //
             PAL_fadeOutAll(40,FALSE);
@@ -145,7 +145,7 @@ void sequence_GAMEOVER()
 
             // GO TO THE END SEQUENCE //
             G_REEL          = REEL_THE_END;
-            
+
             G_SCENE         = SCENE_FADE_IN;
             G_SCENE_TYPE    = SCENE_THE_END;
             G_SCENE_NEXT    = SCENE_THE_END;
@@ -185,6 +185,8 @@ void sequence_GAMEOVER()
             VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 9, 11, 5, DMA_QUEUE);
             VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 3, 9, 3, DMA_QUEUE);
 
+            VDP_drawIntEx_BG_A_QUEUE(G_MONEY,4,7,11,PAL2);
+
             SPR_setPosition(sprite_ARROW_DIALOG , 76 , 104);
         }
 
@@ -222,7 +224,35 @@ void sequence_GAMEOVER()
             SPR_setPosition(sprite_ARROW_DIALOG , 76 , 112);
         }
 
+        // FADE OUT //
+        else if(G_COUNTER_1 == 960)
+        {
+            // FADE OUT : 40 FRAMES //
+            PAL_fadeOutAll(40,FALSE);
 
+            // RESET SCROLLING //
+            VDP_setVerticalScroll(BG_B , 0);
+            VDP_setVerticalScroll(BG_A , 0);
+
+            // CLEAR PLANES //
+            VDP_clearPlane(BG_B,TRUE);
+            VDP_clearPlane(BG_A,TRUE);
+
+            // RELEASE ALL SPRITES //
+            SPR_reset();
+
+
+            G_COUNTER_1 = 0;
+
+            // GO TO THE END SEQUENCE //
+            G_REEL          = REEL_THE_END;
+            
+            G_SCENE         = SCENE_FADE_IN;
+            G_SCENE_TYPE    = SCENE_THE_END;
+            G_SCENE_NEXT    = SCENE_THE_END;
+
+            G_SCENE_LOADED  = FALSE;
+        }
 
 
     }
