@@ -294,11 +294,23 @@ void init_DOLLAR_TYPE2()
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
+    //                                         BG_A                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_DOLLAR_1_BG_B.tileset->numTile;
+    VDP_loadTileSet(image_DOLLAR_2_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+    VDP_setTileMapEx(BG_A, image_DOLLAR_2_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_A, image_DOLLAR_2_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 28, 0, 0, 40, 28, CPU);
+
+    
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
     //                                        DIALOG                                        //
     //                                                                                      //
     //--------------------------------------------------------------------------------------//    
-
-    G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_B + image_DOLLAR_2_BG_B.tileset->numTile;
+    
+    G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_DOLLAR_2_BG_A.tileset->numTile;
     VDP_loadTileSet(image_DOLLAR_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
 
 

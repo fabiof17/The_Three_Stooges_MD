@@ -121,7 +121,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME | REEL_THE_END
+    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME | REEL_THE_END
 
 
 
@@ -2180,7 +2180,7 @@ void init_SCENE()
         // DOLLAR TYPE 1  (0) //
         // DOLLAR TYPE 2  (1) //
         // DOLLAR TYPE 3  (2) //
-        G_DOLLAR_TYPE  = 2;//random_NUMBER(0 , 2);
+        G_DOLLAR_TYPE  = random_NUMBER(0 , 2); // DOLLAR_TYPE_2;//
 
 
 

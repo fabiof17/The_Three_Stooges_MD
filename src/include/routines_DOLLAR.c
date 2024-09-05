@@ -87,7 +87,7 @@ void sequence_DOLLAR()
 
         else if(G_DOLLAR_TYPE == DOLLAR_TYPE_2)
         {
-            //VDP_setTileMapEx(BG_A, image_DOLLAR_1_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  13, 35, 13, 7, 14, 5, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_DOLLAR_2_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  13, 35, 13, 7, 14, 5, DMA_QUEUE);
         }
 
         else if(G_DOLLAR_TYPE == DOLLAR_TYPE_3)

@@ -8,7 +8,10 @@
 
 IMAGE image_DOLLAR_1_BG_B           "map/dollar/tiles_DOLLAR_1_BG_B.png"        BEST ALL
 IMAGE image_DOLLAR_1_BG_A           "map/dollar/tiles_DOLLAR_1_BG_A.png"        BEST ALL
+
 IMAGE image_DOLLAR_2_BG_B           "map/dollar/tiles_DOLLAR_2_BG_B.png"        BEST ALL
+IMAGE image_DOLLAR_2_BG_A           "map/dollar/tiles_DOLLAR_2_BG_A.png"        BEST ALL
+
 IMAGE image_DOLLAR_3_BG_B           "map/dollar/tiles_DOLLAR_3_BG_B.png"        BEST ALL
 IMAGE image_DOLLAR_3_BG_A           "map/dollar/tiles_DOLLAR_3_BG_A.png"        BEST ALL
 
