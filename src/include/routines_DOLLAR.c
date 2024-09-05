@@ -20,6 +20,11 @@
 
 
 
+//#include "sprites_DOLLAR.h"
+
+
+
+
 #include "tables_DOLLAR.h"
 
 
@@ -59,10 +64,13 @@ void sequence_DOLLAR()
     else if(G_COUNTER_1 == 382)
     {
         // DISPLAY DIALOG //
-        VDP_setTileMapEx(BG_A, image_DOLLAR_DIALOG.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 12, 34, 0, 0, 16, 7, DMA_QUEUE);
+        VDP_setTileMapEx(BG_A, image_DOLLAR_DIALOG.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 13, 35, 0, 0, 14, 5, DMA_QUEUE);
 
         // DISPLAY REWARD IN DIALOG //
-        VDP_setTileMapEx(BG_A, image_DOLLAR_100.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_DOLLAR_DIALOG.tileset->numTile), 14, 38, 0, 0,  3, 1, DMA_QUEUE);
+        VDP_setTileMapEx(BG_A, image_DOLLAR_100.tilemap, TILE_ATTR_FULL(PAL1, TRUE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_DOLLAR_DIALOG.tileset->numTile), 14, 38, 0, 0,  3, 1, DMA_QUEUE);
+
+        // DISPLAY DIALOG SPRITE //
+        SPR_setPosition(sprite_DIALOG,96,48);
 
         // DISPLAY DIALOG ARROW //
         SPR_setPosition(sprite_ARROW_DIALOG,166,104);
@@ -72,7 +80,25 @@ void sequence_DOLLAR()
     else if(G_COUNTER_1 == 641)
     {
         // CLEAR DIALOG //
-        VDP_setTileMapEx(BG_A, image_EMPTY_TILEMAP.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, 0), 12, 34, 0, 0, 16, 7, DMA_QUEUE);
+        if(G_DOLLAR_TYPE == DOLLAR_TYPE_1)
+        {
+            VDP_setTileMapEx(BG_A, image_DOLLAR_1_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  13, 35, 13, 7, 14, 5, DMA_QUEUE);
+        }
+
+        else if(G_DOLLAR_TYPE == DOLLAR_TYPE_2)
+        {
+            //VDP_setTileMapEx(BG_A, image_DOLLAR_1_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  13, 35, 13, 7, 14, 5, DMA_QUEUE);
+        }
+
+        else if(G_DOLLAR_TYPE == DOLLAR_TYPE_3)
+        {
+            VDP_setTileMapEx(BG_A, image_DOLLAR_3_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  13, 35, 13, 7, 14, 5, DMA_QUEUE);
+        }
+
+
+        // REMOVE DIALOG SPRITE //
+        SPR_releaseSprite(sprite_DIALOG);
+        sprite_DIALOG = NULL;
 
         // REMOVE DIALOG ARROW //
         SPR_releaseSprite(sprite_ARROW_DIALOG);

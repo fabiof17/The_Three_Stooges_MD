@@ -4,5 +4,6 @@
 extern const SpriteDefinition tiles_SPR_DOLLAR_BAG;
 extern const SpriteDefinition tiles_SPR_DOLLAR_ROLL;
 extern const SpriteDefinition tiles_SPR_DOLLAR_ARROW;
+extern const SpriteDefinition tiles_SPR_DOLLAR_DIALOG;
 
 #endif // _RES_SPRITES_DOLLAR_H_

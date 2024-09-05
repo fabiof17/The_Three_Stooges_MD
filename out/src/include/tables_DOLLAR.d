@@ -16,4 +16,4 @@ out/src/include/tables_DOLLAR.o: src/include/tables_DOLLAR.c \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
  src/include/custom_tools.h res/palettes.h src/include/structures.h \
  src/include/variables.h res/maps_DOLLAR.h res/maps_GLOBAL.h \
- res/maps_ROULETTE.h
+ res/maps_ROULETTE.h res/sprites_DOLLAR.h

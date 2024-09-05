@@ -18,6 +18,11 @@
 
 
 
+#include "sprites_DOLLAR.h"
+
+
+
+
 //--------------------------------------------------------------------------------------//
 //                                                                                      //
 //                                      ANIMATIONS                                      //
@@ -140,8 +145,20 @@ void init_DOLLAR_TYPE1()
 
     VDP_loadTileSet(image_DOLLAR_1_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
-    VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
-    
+    VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 28, 0, 0, 40, 28, CPU);
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_A                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_DOLLAR_1_BG_B.tileset->numTile;
+    VDP_loadTileSet(image_DOLLAR_1_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+    VDP_setTileMapEx(BG_A, image_DOLLAR_1_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_A, image_DOLLAR_1_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 28, 0, 0, 40, 28, CPU);
+
     
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
@@ -149,7 +166,7 @@ void init_DOLLAR_TYPE1()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//    
     
-    G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_B + image_DOLLAR_1_BG_B.tileset->numTile;
+    G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_DOLLAR_1_BG_A.tileset->numTile;
     VDP_loadTileSet(image_DOLLAR_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
 
 
@@ -179,13 +196,13 @@ void init_DOLLAR_TYPE1()
 
 
 
-    //--------------------------------------------------------------------------------------//
+    //**************************************************************************************//
     //                                                                                      //
-    //                         GENERATE NEXT POSITION IN HIGHSTREET                         //
+    //                                      SPRITES                                         //
     //                                                                                      //
-    //--------------------------------------------------------------------------------------//
+    //**************************************************************************************//
 
-    //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+    sprite_DIALOG = SPR_addSprite(&tiles_SPR_DOLLAR_DIALOG,  0, -56, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
 
 
 
@@ -311,13 +328,13 @@ void init_DOLLAR_TYPE2()
 
 
 
-    //--------------------------------------------------------------------------------------//
+    //**************************************************************************************//
     //                                                                                      //
-    //                         GENERATE NEXT POSITION IN HIGHSTREET                         //
+    //                                      SPRITES                                         //
     //                                                                                      //
-    //--------------------------------------------------------------------------------------//
+    //**************************************************************************************//
 
-    //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+    sprite_DIALOG = SPR_addSprite(&tiles_SPR_DOLLAR_DIALOG,  0, -56, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
 
 
 
@@ -405,7 +422,26 @@ void init_DOLLAR_TYPE3()
     VDP_loadTileSet(image_DOLLAR_3_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_DOLLAR_3_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_DOLLAR_3_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_A                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_DOLLAR_1_BG_B.tileset->numTile;
+    VDP_loadTileSet(image_DOLLAR_3_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+    VDP_setTileMapEx(BG_A, image_DOLLAR_3_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_A, image_DOLLAR_3_BG_A.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 28, 0, 0, 40, 28, CPU);
+
     
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                        DIALOG                                        //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
@@ -413,7 +449,7 @@ void init_DOLLAR_TYPE3()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//    
 
-    G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_B + image_DOLLAR_3_BG_B.tileset->numTile;
+    G_ADR_VRAM_DIALOG = G_ADR_VRAM_BG_A + image_DOLLAR_3_BG_A.tileset->numTile;
     VDP_loadTileSet(image_DOLLAR_DIALOG.tileset, G_ADR_VRAM_DIALOG, CPU);
 
 
@@ -443,13 +479,13 @@ void init_DOLLAR_TYPE3()
 
 
 
-    //--------------------------------------------------------------------------------------//
+    //**************************************************************************************//
     //                                                                                      //
-    //                         GENERATE NEXT POSITION IN HIGHSTREET                         //
+    //                                      SPRITES                                         //
     //                                                                                      //
-    //--------------------------------------------------------------------------------------//
+    //**************************************************************************************//
 
-    //G_HIGHSTREET_POSITION += random_NUMBER(1 , 6);
+    sprite_DIALOG = SPR_addSprite(&tiles_SPR_DOLLAR_DIALOG,  0, -56, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
 
 
 
