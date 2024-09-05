@@ -1,0 +1,4 @@
+out/res/sprites_THE_END.o: res/sprites_THE_END.res \
+E:/RECALBOX/07_DEV/07_THREE\ STOOGES/04_CODE/01_SGDK/THREE_STOOGES/res/sprites/the_end/tiles_SPR_THE_END_1.png \
+E:/RECALBOX/07_DEV/07_THREE\ STOOGES/04_CODE/01_SGDK/THREE_STOOGES/res/sprites/the_end/tiles_SPR_THE_END_2.png \
+E:/RECALBOX/07_DEV/07_THREE\ STOOGES/04_CODE/01_SGDK/THREE_STOOGES/res/sprites/the_end/tiles_SPR_CINEMAWARE.png

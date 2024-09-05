@@ -24,6 +24,7 @@
 #define REEL_LOGO                       1
 #define REEL_INTRO                      2
 #define REEL_GAME                       3
+#define REEL_THE_END                    4
 
 
 
@@ -121,6 +122,17 @@
 #define SCENE_FADE_OUT_CRACKERS         37
 
 #define SCENE_GAMEOVER                  38
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
+//                                THE END SCENE                                //
+//                                                                             //
+//-----------------------------------------------------------------------------// 
+
+#define SCENE_THE_END                   0
 
 
 
@@ -762,6 +774,16 @@ extern struct_WALL_PIE_ list_WALL_PIES_DOWN_BG_B[3];
 extern struct_WALL_PIE_ list_WALL_PIES_DOWN_BG_A[3];
 
 
+//--------------------------------------------------------------------------------------//
+//                                                                                      //
+//                                       THE END                                        //
+//                                                                                      //
+//--------------------------------------------------------------------------------------//
+
+extern s16 G_POS_X_CAMERA_CURTAIN_1;
+extern s16 G_POS_X_CAMERA_CURTAIN_2;
+
+
 
 
 
@@ -972,6 +994,19 @@ Sprite *sprite_ROPE;
 //-----------------------------------------------------------------------------// 
 
 extern Sprite *sprite_STREET[3];
+
+
+
+
+//-----------------------------------------------------------------------------//
+//                                                                             //
+//                                    THE_END                                  //
+//                                                                             //
+//-----------------------------------------------------------------------------// 
+
+extern Sprite *sprite_THE_END_1;
+extern Sprite *sprite_THE_END_2;
+extern Sprite *sprite_CINEMAWARE;
 
 
 

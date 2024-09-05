@@ -26,6 +26,7 @@
 #include "include/routines_ROULETTE.h"
 #include "include/routines_SAFE.h"
 #include "include/routines_SLAP.h"
+#include "include/routines_THE_END.h"
 #include "include/routines_TRIVIA.h"
 #include "include/routines_WAITERS.h"
 #include "include/routines_WAITERS_MINIGAME.h"
@@ -308,6 +309,16 @@ int main(bool hardReset)
                 {
                     // FADE OUT : 40 FRAMES //
                     PAL_fadeOutAll(30,FALSE);
+
+                    if(XGM_isPlayingPCM(SOUND_PCM_CH4_MSK) != 0)
+                    {
+                        XGM_stopPlayPCM(SOUND_PCM_CH4);
+                    }
+
+                    if(XGM_isPlaying() == TRUE)
+                    {
+                        XGM_stopPlay();
+                    }
 
                     // CLEAR PLANES //
                     VDP_clearPlane(BG_B,TRUE);
@@ -740,6 +751,44 @@ int main(bool hardReset)
             
             }
         }    
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                     THE END                                          //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        else if(G_REEL == REEL_THE_END)
+        {
+            // LOADING THE END SCREEN //
+            if(G_SCENE_LOADED == FALSE)
+            {
+                init_THE_END();
+            }
+
+            // PLAYING DISCLAIMER SCREEN //
+            else
+            {
+                if(G_SCENE == SCENE_THE_END)
+                {
+                    sequence_THE_END();
+
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
+                else if(G_SCENE == SCENE_FADE_IN)
+                {
+                    PAL_fadeInAll(palette_64, 30, FALSE);
+
+                    G_SCENE         = G_SCENE_NEXT;
+                    G_SCENE_NEXT    = NULL;
+                }
+            }
+        }
     }
 
 	return 0;

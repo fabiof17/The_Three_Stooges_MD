@@ -14,7 +14,7 @@ extern void init_INTRO();
 
 extern void init_SCENE();
 
-
+extern void init_THE_END();
 
 
 #endif // _MAIN

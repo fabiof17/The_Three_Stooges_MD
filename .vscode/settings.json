@@ -87,7 +87,8 @@
         "tables_crackers.h": "c",
         "sound.h": "c",
         "tables_waiters.h": "c",
-        "tables_slap.h": "c"
+        "tables_slap.h": "c",
+        "routines_waiters.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "C_Cpp.default.compilerPath": ""

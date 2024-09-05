@@ -75,7 +75,7 @@ void intro_Callback(u16 joy, u16 changed, u16 state)
         {
             // BOUTON B //
             if( changed & state & BUTTON_START )
-            {
+            {                
                 G_SCENE = SCENE_INTRO_EXIT;
             }
         }

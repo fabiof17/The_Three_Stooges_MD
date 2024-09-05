@@ -20,13 +20,14 @@ out/src/include/init.o: src/include/init.c C:/sgdk/inc/genesis.h \
  res/maps_DOCTORS.h res/maps_DOLLAR.h res/maps_GAMEOVER.h \
  res/maps_GLOBAL.h res/maps_INTRO.h res/maps_LOGO.h \
  res/maps_QUESTION_MARK.h res/maps_REWARD.h res/maps_ROULETTE.h \
- res/maps_SAFE.h res/maps_SLAP.h res/maps_TRIVIA.h res/maps_WAITERS.h \
- src/include/routines_QUESTION_MARK.h src/include/routines_ROULETTE.h \
- res/music.h res/sound.h res/sprites_BANK.h res/sprites_BOXING.h \
- res/sprites_CRACKERS.h res/sprites_DOCTORS.h res/sprites_DOLLAR.h \
- res/sprites_GAMEOVER.h res/sprites_GLOBAL.h res/sprites_INTRO.h \
- res/sprites_LOGO.h res/sprites_QUESTION_MARK.h res/sprites_ROULETTE.h \
- res/sprites_SAFE.h res/sprites_SLAP.h res/sprites_WAITERS.h \
+ res/maps_SAFE.h res/maps_SLAP.h res/maps_THE_END.h res/maps_TRIVIA.h \
+ res/maps_WAITERS.h src/include/routines_QUESTION_MARK.h \
+ src/include/routines_ROULETTE.h res/music.h res/sound.h \
+ res/sprites_BANK.h res/sprites_BOXING.h res/sprites_CRACKERS.h \
+ res/sprites_DOCTORS.h res/sprites_DOLLAR.h res/sprites_GAMEOVER.h \
+ res/sprites_GLOBAL.h res/sprites_INTRO.h res/sprites_LOGO.h \
+ res/sprites_QUESTION_MARK.h res/sprites_ROULETTE.h res/sprites_SAFE.h \
+ res/sprites_SLAP.h res/sprites_THE_END.h res/sprites_WAITERS.h \
  src/include/tables_BACKGROUNDS.h src/include/tables_CRACKERS.h \
  src/include/tables_DOCTORS.h src/include/tables_DOLLAR.h \
  src/include/tables_GLOBAL.h src/include/tables_INTRO.h \

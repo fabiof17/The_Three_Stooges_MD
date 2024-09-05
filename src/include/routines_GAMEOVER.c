@@ -123,7 +123,35 @@ void sequence_GAMEOVER()
             XGM_startPlayPCM(SOUND_BANKER_LAUGH,15,SOUND_PCM_CH4);
         }
 
+        // FADE OUT //
+        else if(G_COUNTER_1 == 1350)
+        {
+            // FADE OUT : 40 FRAMES //
+            PAL_fadeOutAll(40,FALSE);
 
+            // RESET SCROLLING //
+            VDP_setVerticalScroll(BG_B , 0);
+            VDP_setVerticalScroll(BG_A , 0);
+
+            // CLEAR PLANES //
+            VDP_clearPlane(BG_B,TRUE);
+            VDP_clearPlane(BG_A,TRUE);
+
+            // RELEASE ALL SPRITES //
+            SPR_reset();
+
+
+            G_COUNTER_1 = 0;
+
+            // GO TO THE END SEQUENCE //
+            G_REEL          = REEL_THE_END;
+            
+            G_SCENE         = SCENE_FADE_IN;
+            G_SCENE_TYPE    = SCENE_THE_END;
+            G_SCENE_NEXT    = SCENE_THE_END;
+
+            G_SCENE_LOADED  = FALSE;
+        }
     }
 
 

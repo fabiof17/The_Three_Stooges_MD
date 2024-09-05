@@ -28,6 +28,7 @@
 #include "maps_ROULETTE.h"
 #include "maps_SAFE.h"
 #include "maps_SLAP.h"
+#include "maps_THE_END.h"
 #include "maps_TRIVIA.h"
 #include "maps_WAITERS.h"
 
@@ -59,6 +60,7 @@
 #include "sprites_ROULETTE.h"
 #include "sprites_SAFE.h"
 #include "sprites_SLAP.h"
+#include "sprites_THE_END.h"
 #include "sprites_WAITERS.h"
 
 
@@ -119,7 +121,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME
+    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME | REEL_THE_END
 
 
 
@@ -142,7 +144,12 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_BANK; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_GAMEOVER; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+    }
+
+    else if(G_REEL == REEL_THE_END)
+    {
+        G_SCENE_TYPE = SCENE_THE_END;
     }
 
 
@@ -2035,11 +2042,11 @@ void init_SCENE()
 
 
 
-    //**************************************************************************************//
-    //                                                                                      //
-    //                                   ROULETTE FONT                                      //
-    //                                                                                      //
-    //**************************************************************************************//
+        //**************************************************************************************//
+        //                                                                                      //
+        //                                   ROULETTE FONT                                      //
+        //                                                                                      //
+        //**************************************************************************************//
 
         VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, CPU);
 
@@ -7296,4 +7303,165 @@ void init_SCENE()
     }
 
 
+}
+
+
+void init_THE_END()
+{
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      CLEAN VRAM                                      //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    u16 i = 0;
+
+    for(i=16 ; i<1440 ; i++)
+    {
+        VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+    }    
+    
+    
+    
+    
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    VDP_setPlaneSize(64,32,TRUE);
+    
+    SPR_initEx(470);
+    
+    VDP_setHilightShadow(FALSE);
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                  BASE TILES SGDK                                     //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    VDP_loadTileSet(image_TILES_BASE_SGDK.tileset, 0, CPU);
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                         BG                                           //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    VDP_loadTileSet(image_THE_END.tileset, G_ADR_VRAM_BG_B, CPU);
+    VDP_setTileMapEx(BG_B, image_THE_END.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 20, 28, CPU);
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_A                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    VDP_setTileMapEx(BG_A, image_THE_END.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 20, 0, 20, 28, CPU);
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                SETUP PLANES POSITION                                 //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_POS_Y_CAMERA = 0;
+
+
+    VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+    VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
+
+    G_POS_X_CAMERA_CURTAIN_1 = -160;
+    G_POS_X_CAMERA_CURTAIN_2 =  320;
+
+
+    VDP_setHorizontalScroll(BG_B, G_POS_X_CAMERA_CURTAIN_1);
+    VDP_setHorizontalScroll(BG_A, G_POS_X_CAMERA_CURTAIN_2);
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      SPRITES                                         //
+    //                                                                                      //
+    //**************************************************************************************// 
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       THE END                                        //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    sprite_THE_END_1 = SPR_addSprite(&tiles_SPR_THE_END_1,   48, 48, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+
+    SPR_update();
+    SYS_doVBlankProcess();
+
+    sprite_THE_END_2 = SPR_addSprite(&tiles_SPR_THE_END_2,  160,  8, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+
+    SPR_update();
+    SYS_doVBlankProcess();
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       THE END                                        //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    sprite_CINEMAWARE = SPR_addSprite(&tiles_SPR_CINEMAWARE,   96, 152, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+
+    SPR_update();
+    SYS_doVBlankProcess();
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       PALETTES                                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    memcpy( &palette_64[0]  , image_THE_END.palette->data               , 16 * 2 );
+    memcpy( &palette_64[16] , palette_BLACK.data                        , 16 * 2 );
+    memcpy( &palette_64[32] , palette_BLACK.data                        , 16 * 2 );
+    memcpy( &palette_64[48] , palette_BLACK.data                        , 16 * 2 );
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       VARIABLES                                      //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_COUNTER_1             = 0;   
+
+    G_SCENE                 = SCENE_FADE_IN;
+    G_SCENE_NEXT            = SCENE_THE_END;
+
+    G_SCENE_LOADED          = TRUE;
 }

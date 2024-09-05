@@ -46,12 +46,11 @@ inline static void collisions_CAR(u8 car_NUMBER)
                 patient.index_SPRITE_FRAME      = 0;
 
                 patient.patient_STATE           = PATIENT_HIT;
-                //list_CARS[car_NUMBER].hit       = TRUE;
 
                 VDP_loadTileSet(image_DOCTORS_RED_DOT.tileset, G_ADR_VRAM_BG_A + image_DOCTORS_BG_A.tileset->numTile + G_HIT_NUMBER, DMA_QUEUE);
                 G_HIT_NUMBER                    += 1;
 
-                //VDP_drawIntEx_BG_A_QUEUE(G_HIT_NUMBER,1,0,0,PAL2);
+
 
 
                 //-------------------------------------------------------//
@@ -1253,107 +1252,6 @@ inline static void anim_ITEM()
 
 
 
-/*inline static void spawn_PATIENT_v1()
-{
-    if(patient.spr_PATIENT == NULL)
-    {
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                               GENERATE RANDOM PATIENT                                //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        u8 random_patient_type;
-        
-        G_RANDOM_OK = FALSE;
-
-        while(G_RANDOM_OK == FALSE)
-        {
-            u8 new_patient_type = random_NUMBER(0,3);
-
-            // WE MAKE SURE NEW PATIENT IS DIFFERENT FROM THE PREVIOUS ONE //
-            if(new_patient_type != G_PREVIOUS_PATIENT_TYPE)
-            {
-                random_patient_type = new_patient_type;
-
-                G_PREVIOUS_PATIENT_TYPE = random_patient_type;
-                
-                G_RANDOM_OK = TRUE;
-            }
-        }
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                              ASSIGN PATIENT PROPERTIES                               //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        patient.pos_Y                = (TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT * -1) -128;
-
-        patient.counter_SPRITE_FRAME = 0;
-        patient.index_SPRITE_FRAME   = 0;
-
-        patient.number_STEPS         = TABLE_PATIENT_TYPE[random_patient_type].number_STEPS;
-        patient.number_STEPS_HIT     = TABLE_PATIENT_TYPE[random_patient_type].number_STEPS_HIT;
-        patient.speed_STEPS          = TABLE_PATIENT_TYPE[random_patient_type].speed_STEPS;
-
-        patient.width_PATIENT        = TABLE_PATIENT_TYPE[random_patient_type].width_PATIENT;
-        patient.height_PATIENT       = TABLE_PATIENT_TYPE[random_patient_type].height_PATIENT;
-
-        patient.patient_STATE        = PATIENT_NOT_HIT;
-
-        patient.ptr_VELOCITY         = &TABLE_PATIENT_TYPE[random_patient_type].ptr_VELOCITY[0];
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                             GENERATE RANDOM X POSITION                               //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-        
-        G_RANDOM_OK = FALSE;
-
-        while(G_RANDOM_OK == FALSE)
-        {
-            u16 random_patient_pos_x = random_NUMBER(0,10);
-            s16 new_pos_X = TABLE_PATIENT_SPAWN_POSITION[random_patient_pos_x];
-
-            // IF SELECTED X POSITION IS ON THE NURSE LEFT SIDE //
-            if(new_pos_X < nurse.pos_X)
-            {
-                // CHECK IF SPACE BETWEEN NURSE AND PATIENT NEW POSITION IS BIGGER THAN PATIENT WIDTH //
-                // SO PATIENT SPRITE HAS ENOUGH SPACE TO FIT BETWEEN LEFT WALL AND NURSE //
-                if( (nurse.pos_X - new_pos_X) > patient.width_PATIENT )
-                {
-                    patient.pos_X = new_pos_X;
-
-                    G_RANDOM_OK = TRUE;
-                }
-                
-            }
-
-            // IF SELECTED X POSITION IS ON THE NURSE RIGHT SIDE //
-            else if(new_pos_X > nurse.pos_X)
-            {
-                // CHECK IF SPACE BETWEEN NURSE AND PATIENT NEW POSITION IS BIGGER THAN NURSE WIDTH //
-                // SO PATIENT SPRITE HAS ENOUGH SPACE TO FIT BETWEEN RIGHT WALL AND NURSE //
-                // NURSE IS 48 PIXELS WIDTH //
-                if( (new_pos_X - nurse.pos_X) > 48 )
-                {
-                    patient.pos_X = new_pos_X;
-
-                    G_RANDOM_OK = TRUE;
-                }
-            }
-        }
-
-        
-        patient.spr_PATIENT          = SPR_addSprite(TABLE_PATIENT_TYPE[random_patient_type].tiles_PATIENT_TYPE , patient.pos_X , patient.pos_Y , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-    }
-}*/
-
-
 inline static void spawn_PATIENT()
 {
     if(patient.spr_PATIENT == NULL)
@@ -1674,8 +1572,6 @@ void sequence_DOCTORS_MINIGAME()
         //--------------------------------------------------------------------------------------//
 
         counter_TIME_DOCTORS();
-
-        //VDP_drawIntEx_BG_A_QUEUE(G_CAR_COUNTER_SPEED,2,0,0,PAL2);
 
 
         if(G_HIT_NUMBER == 5)
