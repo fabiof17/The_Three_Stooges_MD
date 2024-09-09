@@ -302,7 +302,7 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
                 }
 
                 G_COUNTER_WAIT = 0;
-            }  
+            }
         }
     }
 }
@@ -316,8 +316,8 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
     {
         if(G_PHASE_SEQUENCE == CRACKER_SPOON_MOVE)
         {
-            // BOUTON B //
-            if( changed & state & BUTTON_B )
+            // BOUTON A OR B OR C //
+            if( changed & state & BUTTON_A || changed & state & BUTTON_B || changed & state & BUTTON_C )
             {
                 SPR_setPosition(sprite_HAND[0] ,G_POS_X_PLAYER + 9 , G_POS_Y_PLAYER + 16);
                 SPR_setPosition(sprite_HAND[1] ,G_POS_X_PLAYER - 7 , G_POS_Y_PLAYER + 68);
@@ -469,8 +469,8 @@ void waiters_Callback(u16 joy, u16 changed, u16 state)
     {
         if(G_PHASE_SEQUENCE == WAITER_PHASE_ACTION)
         {
-            // BOUTON B //
-            if( changed & state & BUTTON_B )
+            // BOUTON A OR B OR C //
+            if( changed & state & BUTTON_A || changed & state & BUTTON_B || changed & state & BUTTON_C )
             {
                 // IF STOOGE IS CROUCHING //
                 if(list_WAITERS[G_SELECTED_WAITER].state_CHARACTER == CHAR_PHASE_CROUCH)

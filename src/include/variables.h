@@ -69,7 +69,6 @@
 
 #define SCENE_FADE_IN                   40
 #define SCENE_FADE_OUT                  41
-#define SCENE_FADE_IN_BOXING            42
 
 
 
@@ -113,15 +112,18 @@
 #define SCENE_CONTRACT_WAITERS          29
 #define SCENE_CONTRACT_CRACKERS         30
 #define SCENE_CONTRACT_BOXING           31
-#define SCENE_REWARD                    32
+#define SCENE_CONTRACT_SAFE             32
+#define SCENE_REWARD                    35
 
 
-#define SCENE_CONTRACT_SAFE             35
+
 
 #define SCENE_FADE_IN_CRACKERS          36
 #define SCENE_FADE_OUT_CRACKERS         37
 
 #define SCENE_GAMEOVER                  38
+
+#define SCENE_FADE_IN_BOXING            42
 
 
 

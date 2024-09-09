@@ -475,6 +475,11 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
+
+                //-------------------------------------------------//
+                //                    MINIGAMES                    //
+                //-------------------------------------------------//
+
                 // TRIVIA MINIGAME TYPE 1 //
                 else if(G_SCENE == SCENE_TRIVIA_MINIGAME_TYPE1)
                 {
@@ -588,6 +593,11 @@ int main(bool hardReset)
                     SYS_doVBlankProcess();
                 }
 
+
+                //-------------------------------------------------//
+                //                    CONTRACTS                    //
+                //-------------------------------------------------//
+
                 // CONTRACT QUESTION MARK //
                 else if(G_SCENE == SCENE_CONTRACT_QUESTION_MARK)
                 {                    
@@ -680,20 +690,6 @@ int main(bool hardReset)
                     G_SCENE_NEXT    = NULL;
                 }
 
-                // REWARD //
-                else if(G_SCENE == SCENE_REWARD)
-                {                    
-                    JOY_setEventHandler(pause_Callback);
-
-                    if(G_PAUSE == FALSE)
-                    {
-                        sequence_REWARD();
-                    }
-                    
-                    SPR_update();
-                    SYS_doVBlankProcess();
-                }
-
                 // CONTRACT QUESTION MARK //
                 else if(G_SCENE == SCENE_CONTRACT_SAFE)
                 {                    
@@ -706,6 +702,23 @@ int main(bool hardReset)
                     
                     SPR_update();
                     SYS_doVBlankProcess(); 
+                }
+
+
+
+
+                // REWARD //
+                else if(G_SCENE == SCENE_REWARD)
+                {                    
+                    JOY_setEventHandler(pause_Callback);
+
+                    if(G_PAUSE == FALSE)
+                    {
+                        sequence_REWARD();
+                    }
+                    
+                    SPR_update();
+                    SYS_doVBlankProcess();
                 }
 
                 // GAME OVER //

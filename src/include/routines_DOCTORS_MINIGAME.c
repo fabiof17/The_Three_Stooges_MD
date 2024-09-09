@@ -548,26 +548,46 @@ void joypad_DOCTORS_MINIGAME()
             else if(list_CARS[i].TABLE_AXIS[list_CARS[i].index_READ_AXIS] == AXIS_CENTER)
             {
                 //-----------------------------------------------------------------------------//
+                //                                                                             //
                 //                          IF CAR IS LEFT SIDE OF MOE                         //
+                //                                                                             //
                 //-----------------------------------------------------------------------------//
                 if(list_CARS[i].pos_X < list_CARS[0].pos_X)
                 {
-                    if((list_CARS[0].pos_X - list_CARS[i].pos_X) >= (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1))
+                    //-----------------------------------------------------------------------------//
+                    //                      IF CAR IS RUNNING AT KART_SPEED_1                      //
+                    //-----------------------------------------------------------------------------//
+                    if(list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] == KART_SPEED_1)
                     {
-                        list_CARS[i].pos_X += (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1);
+                        list_CARS[i].pos_X += 1;
                     }
 
+
+                    //-----------------------------------------------------------------------------//
+                    //              IF CAR IS RUNNING AT KART_SPEED_2 OR KART_SPEED_3              //
+                    //-----------------------------------------------------------------------------//
                     else
                     {
-                        list_CARS[i].pos_X = list_CARS[0].pos_X;
+                        if((list_CARS[0].pos_X - list_CARS[i].pos_X) >= (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1))
+                        {
+                            list_CARS[i].pos_X += (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1);
+                        }
+
+                        else
+                        {
+                            list_CARS[i].pos_X = list_CARS[0].pos_X;
+                        }
+
+                        /*if(list_CARS[i].pos_X > 224)
+                        {
+                            list_CARS[i].pos_X = 224;
+                        }
+
+                        else if(list_CARS[i].pos_X < 40)
+                        {
+                            list_CARS[i].pos_X = 40;
+                        }*/
                     }
-
-
-                    /////////////////////////////
-                    /*if((list_CARS[0].pos_X - list_CARS[i].pos_X) == 1)
-                    {
-                        list_CARS[i].pos_X = list_CARS[0].pos_X;
-                    }*/
 
 
                     if(list_CARS[i].pos_X > 224)
@@ -582,26 +602,46 @@ void joypad_DOCTORS_MINIGAME()
                 }
 
                 //-----------------------------------------------------------------------------//
+                //                                                                             //
                 //                         IF CAR IS RIGHT SIDE OF MOE                         //
+                //                                                                             //
                 //-----------------------------------------------------------------------------//
                 else if(list_CARS[i].pos_X > list_CARS[0].pos_X)
                 {
-                    if((list_CARS[i].pos_X - list_CARS[0].pos_X) >= (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1))
+                    //-----------------------------------------------------------------------------//
+                    //                      IF CAR IS RUNNING AT KART_SPEED_1                      //
+                    //-----------------------------------------------------------------------------//
+                    if(list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] == KART_SPEED_1)
                     {
-                        list_CARS[i].pos_X -= (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1);
+                        list_CARS[i].pos_X -= 1;
                     }
 
+
+                    //-----------------------------------------------------------------------------//
+                    //              IF CAR IS RUNNING AT KART_SPEED_2 OR KART_SPEED_3              //
+                    //-----------------------------------------------------------------------------//
                     else
                     {
-                        list_CARS[i].pos_X = list_CARS[0].pos_X;
+                        if((list_CARS[i].pos_X - list_CARS[0].pos_X) >= (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1))
+                        {
+                            list_CARS[i].pos_X -= (list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS] >> 1);
+                        }
+
+                        else
+                        {
+                            list_CARS[i].pos_X = list_CARS[0].pos_X;
+                        }
+
+                        /*if(list_CARS[i].pos_X > 224)
+                        {
+                            list_CARS[i].pos_X = 224;
+                        }
+
+                        else if(list_CARS[i].pos_X < 40)
+                        {
+                            list_CARS[i].pos_X = 40;
+                        }*/
                     }
-
-
-                    /////////////////////////////
-                    /*if((list_CARS[i].pos_X - list_CARS[0].pos_X) == 1)
-                    {
-                        list_CARS[i].pos_X = list_CARS[0].pos_X;
-                    }*/
 
 
                     if(list_CARS[i].pos_X > 224)
