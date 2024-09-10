@@ -144,7 +144,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_DOCTORS_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_BOXING; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
     else if(G_REEL == REEL_THE_END)
@@ -2580,9 +2580,9 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_loadTileSet(image_DOLLAR_1_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
-        VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
-        VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
+        VDP_loadTileSet(image_SLAP_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+        VDP_setTileMapEx(BG_B, image_SLAP_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+        VDP_setTileMapEx(BG_B, image_SLAP_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
 
 
         //--------------------------------------------------------------------------------------//
@@ -2591,7 +2591,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_DOLLAR_1_BG_B.tileset->numTile;
+        G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_SLAP_BG_B.tileset->numTile;
         VDP_loadTileSet(image_SLAP_HUB.tileset, G_ADR_VRAM_BG_A, CPU);
 
 

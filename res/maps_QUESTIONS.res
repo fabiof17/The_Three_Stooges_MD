@@ -26,8 +26,8 @@ IMAGE image_QUESTION_18             "map/trivia/questions/tiles_QUESTION_18.png"
 IMAGE image_QUESTION_19             "map/trivia/questions/tiles_QUESTION_19.png"                NONE ALL
 IMAGE image_QUESTION_20             "map/trivia/questions/tiles_QUESTION_20.png"                NONE ALL
 IMAGE image_QUESTION_21             "map/trivia/questions/tiles_QUESTION_21.png"                NONE ALL
-//IMAGE image_QUESTION_22             "map/trivia/questions/tiles_QUESTION_22.png"                NONE ALL
-//IMAGE image_QUESTION_23             "map/trivia/questions/tiles_QUESTION_23.png"                NONE ALL
+IMAGE image_QUESTION_22             "map/trivia/questions/tiles_QUESTION_22.png"                NONE ALL
+IMAGE image_QUESTION_23             "map/trivia/questions/tiles_QUESTION_23.png"                NONE ALL
 //IMAGE image_QUESTION_24             "map/trivia/questions/tiles_QUESTION_24.png"                NONE ALL
 //IMAGE image_QUESTION_25             "map/trivia/questions/tiles_QUESTION_25.png"                NONE ALL
 //IMAGE image_QUESTION_26             "map/trivia/questions/tiles_QUESTION_26.png"                NONE ALL

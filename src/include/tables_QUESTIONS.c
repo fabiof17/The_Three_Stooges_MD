@@ -34,5 +34,48 @@ const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
                                                                 { &image_QUESTION_18 , 1 }, // IN WHAT YEAR WAS MOE BORN ?
                                                                 { &image_QUESTION_19 , 0 }, // IN WHAT YEAR DID THE STOOGES SIGN WITH COLUMBIA ?
                                                                 { &image_QUESTION_20 , 2 }, // WHO WAS MOE MARRIED TO ?
-                                                                { &image_QUESTION_21 , 1 } // MOE HAD HOW MANY CHILDREN ?
+                                                                { &image_QUESTION_21 , 1 }, // MOE HAD HOW MANY CHILDREN ?
+                                                                { &image_QUESTION_22 , 2 }, // HOW MANY YEARS DID THE STOOGES WORK FOR COLUMBIA ?
+                                                                { &image_QUESTION_23 , 0 }, // IN WHAT YEAR WAS THE OFFICIAL STOOGES FAN CLUB STARTED ?
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 },
+                                                                { &image_QUESTION_0  , 0 }
                                                             };

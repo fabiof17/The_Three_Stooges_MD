@@ -220,34 +220,16 @@ void sequence_BOXING_SCREEN_TYPE_2()
 
             // RELEASE ALL SPRITES //
             SPR_reset();
-
-            // 1 DAY SPENT //
-            G_DAY += 1;
-
-            // GET REWARD //
-            G_MONEY += 500;
+            
 
             // REINIT REWARD //
-            G_REWARD = 0;
-
-            G_PHASE_SEQUENCE = 0;
+            G_REWARD = 500;
 
 
-            // IF THE 30 DAYS AVAILABLE HAVE BEEN SPENT //
-            if(G_DAY == 31)
-            {
-                G_SCENE             = SCENE_FADE_IN;
-                G_SCENE_TYPE        = SCENE_GAMEOVER;
-                G_SCENE_NEXT        = SCENE_GAMEOVER;
-            }
+            G_SCENE         = SCENE_FADE_IN;
+            G_SCENE_TYPE    = SCENE_REWARD;
+            G_SCENE_NEXT    = SCENE_REWARD;
 
-            // ELSE WE GO TO THE ROULETTE SEQUENCE //
-            else
-            {
-                G_SCENE         = SCENE_FADE_IN;
-                G_SCENE_TYPE    = SCENE_ROULETTE;
-                G_SCENE_NEXT    = SCENE_ROULETTE;
-            }
 
 
             G_SCENE_LOADED  = FALSE;

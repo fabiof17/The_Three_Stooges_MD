@@ -529,6 +529,120 @@ void init_STREET_SAFE()
 }
 
 
+void init_STREET_BOXING()
+{
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                      CLEAN VRAM                                      //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    u16 i = 0;
+
+    for(i=16 ; i<1440 ; i++)
+    {
+        VDP_loadTileSet(image_EMPTY_TILE.tileset , i , CPU);
+    }
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                    SETUP DISPLAY                                     //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    VDP_setPlaneSize(64,64,TRUE);
+    
+    SPR_initEx(250);
+    
+    VDP_setHilightShadow(FALSE);
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                   ROULETTE FONT                                      //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    VDP_loadTileSet(image_FONT_ROULETTE.tileset, TILE_FONT_INDEX, CPU);
+
+
+
+
+    //**************************************************************************************//
+    //                                                                                      //
+    //                                         BG                                           //
+    //                                                                                      //
+    //**************************************************************************************//
+
+    G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_B                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    VDP_loadTileSet(image_STREET_BOXING_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
+    VDP_setTileMapEx(BG_B, image_STREET_BOXING_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_B, image_STREET_BOXING_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 28, 0, 0, 40, 28, CPU);
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                         BG_A                                         //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_STREET_BOXING_BG_B.tileset->numTile;
+    VDP_loadTileSet(image_STREET_BOXING_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
+    VDP_setTileMapEx(BG_A, image_STREET_BOXING_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
+    VDP_setTileMapEx(BG_A, image_STREET_BOXING_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0, 28, 0, 0, 40, 28, CPU);
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_STREET_BOXING_BG_A.tileset->numTile;
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                SETUP PLANES POSITION                                 //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_POS_Y_CAMERA = 0;
+
+
+    VDP_setVerticalScroll(BG_B,G_POS_Y_CAMERA);
+    VDP_setVerticalScroll(BG_A,G_POS_Y_CAMERA);
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
+    //                                       PALETTES                                       //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    memcpy( &palette_64[0]  , image_STREET_BOXING_BG_B.palette->data    , 16 * 2 );
+    memcpy( &palette_64[16] , image_STREET_BOXING_BG_A.palette->data    , 16 * 2 );
+}
+
+
 void init_STREET_QUESTION_MARK()
 {
     //**************************************************************************************//
@@ -1001,7 +1115,7 @@ void (*TABLE_INIT_STREET_ROULETTE[17])(void)   =   {
                                                         NULL,
                                                         init_STREET_SAFE,
                                                         init_STREET_QUESTION_MARK,
-                                                        NULL,
+                                                        init_STREET_BOXING,
                                                         init_STREET_DOCTORS,
                                                         NULL,
                                                         init_STREET_CRACKERS,
