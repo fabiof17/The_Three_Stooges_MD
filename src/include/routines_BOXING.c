@@ -204,8 +204,8 @@ void sequence_BOXING_SCREEN_TYPE_2()
             G_INDEX_1 = 0;
         }
 
-        // (30*10 =300 FRAMES = 5SEC)
-        /*if(G_INDEX_2 == 30)
+        // (30*10 =300 FRAMES = 5 SEC)
+        if(G_INDEX_2 == 30)
         {
             // FADE OUT : 40 FRAMES //
             PAL_fadeOutAll(40,FALSE);
@@ -225,20 +225,35 @@ void sequence_BOXING_SCREEN_TYPE_2()
             G_DAY += 1;
 
             // GET REWARD //
-            G_MONEY += G_REWARD;
+            G_MONEY += 500;
+
+            // REINIT REWARD //
+            G_REWARD = 0;
 
             G_PHASE_SEQUENCE = 0;
 
-            // DEFINE NEXT MINIGAME //
-            G_SCENE         = SCENE_FADE_IN;
-            G_SCENE_TYPE    = SCENE_ROULETTE;
-            G_SCENE_NEXT    = SCENE_ROULETTE;
+
+            // IF THE 30 DAYS AVAILABLE HAVE BEEN SPENT //
+            if(G_DAY == 31)
+            {
+                G_SCENE             = SCENE_FADE_IN;
+                G_SCENE_TYPE        = SCENE_GAMEOVER;
+                G_SCENE_NEXT        = SCENE_GAMEOVER;
+            }
+
+            // ELSE WE GO TO THE ROULETTE SEQUENCE //
+            else
+            {
+                G_SCENE         = SCENE_FADE_IN;
+                G_SCENE_TYPE    = SCENE_ROULETTE;
+                G_SCENE_NEXT    = SCENE_ROULETTE;
+            }
+
 
             G_SCENE_LOADED  = FALSE;
 
             return;
-        
-        }*/
+        }
     }
     
     PAL_setPalette( PAL1 , TABLE_BOXING_CYCLE[G_INDEX_1]->data , DMA);
