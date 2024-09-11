@@ -286,6 +286,8 @@ void sequence_GAMEOVER()
             VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 9, 11, 5, DMA_QUEUE);
             VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 3, 9, 3, DMA_QUEUE);
 
+            VDP_drawIntEx_BG_A_QUEUE(G_MONEY,4,7,11,PAL2);
+
             SPR_setPosition(sprite_ARROW_DIALOG , 76 , 104);
         }
 
@@ -385,6 +387,8 @@ void sequence_GAMEOVER()
             VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 9, 11, 5, DMA_QUEUE);
             VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 3, 9, 3, DMA_QUEUE);
 
+            VDP_drawIntEx_BG_A_QUEUE(G_MONEY,4,7,11,PAL2);
+
             SPR_setPosition(sprite_ARROW_DIALOG , 76 , 104);
         }
 
@@ -422,8 +426,42 @@ void sequence_GAMEOVER()
             SPR_setPosition(sprite_ARROW_DIALOG , 76 , 112);
         }
 
-        // FADE OUT // +420
-        else if(G_COUNTER_1 == 960)
+        // ERASE DIALOG //
+        else if(G_COUNTER_1 == 660)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 5, 8, 5, 8, 12, 6, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , -24 , -24);
+        }
+
+        // YOU HAVE ENOUGH MONEY LEFT TO... //
+        else if(G_COUNTER_1 == 680)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 14, 12, 6, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 22, 10, 4, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , 76 , 112);
+        }
+
+        // ERASE DIALOG //
+        else if(G_COUNTER_1 == 800)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 5, 8, 5, 8, 12, 6, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , -24 , -24);
+        }
+
+        // MARRY MY THREE BEAUTIFUL GIRLS! //
+        else if(G_COUNTER_1 == 820)
+        {
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 5, 8, 0, 14, 12, 6, DMA_QUEUE);
+            VDP_setTileMapEx(BG_A, image_GAMEOVER_SUCCESS_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 6, 9, 0, 27, 10, 4, DMA_QUEUE);
+
+            SPR_setPosition(sprite_ARROW_DIALOG , 76 , 112);
+        }
+
+        // FADE OUT //
+        else if(G_COUNTER_1 == 1240)
         {
             // FADE OUT : 40 FRAMES //
             PAL_fadeOutAll(40,FALSE);

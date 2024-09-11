@@ -28,17 +28,17 @@ IMAGE image_QUESTION_20             "map/trivia/questions/tiles_QUESTION_20.png"
 IMAGE image_QUESTION_21             "map/trivia/questions/tiles_QUESTION_21.png"                NONE ALL
 IMAGE image_QUESTION_22             "map/trivia/questions/tiles_QUESTION_22.png"                NONE ALL
 IMAGE image_QUESTION_23             "map/trivia/questions/tiles_QUESTION_23.png"                NONE ALL
-//IMAGE image_QUESTION_24             "map/trivia/questions/tiles_QUESTION_24.png"                NONE ALL
-//IMAGE image_QUESTION_25             "map/trivia/questions/tiles_QUESTION_25.png"                NONE ALL
-//IMAGE image_QUESTION_26             "map/trivia/questions/tiles_QUESTION_26.png"                NONE ALL
-//IMAGE image_QUESTION_27             "map/trivia/questions/tiles_QUESTION_27.png"                NONE ALL
-//IMAGE image_QUESTION_28             "map/trivia/questions/tiles_QUESTION_28.png"                NONE ALL
-//IMAGE image_QUESTION_29             "map/trivia/questions/tiles_QUESTION_29.png"                NONE ALL
-
-
-
-
-
+IMAGE image_QUESTION_24             "map/trivia/questions/tiles_QUESTION_24.png"                NONE ALL
+IMAGE image_QUESTION_25             "map/trivia/questions/tiles_QUESTION_25.png"                NONE ALL
+IMAGE image_QUESTION_26             "map/trivia/questions/tiles_QUESTION_26.png"                NONE ALL
+IMAGE image_QUESTION_27             "map/trivia/questions/tiles_QUESTION_27.png"                NONE ALL
+IMAGE image_QUESTION_28             "map/trivia/questions/tiles_QUESTION_28.png"                NONE ALL
+IMAGE image_QUESTION_29             "map/trivia/questions/tiles_QUESTION_29.png"                NONE ALL
+IMAGE image_QUESTION_30             "map/trivia/questions/tiles_QUESTION_30.png"                NONE ALL
+//IMAGE image_QUESTION_31             "map/trivia/questions/tiles_QUESTION_31.png"                NONE ALL
+//IMAGE image_QUESTION_32             "map/trivia/questions/tiles_QUESTION_32.png"                NONE ALL
+//IMAGE image_QUESTION_33             "map/trivia/questions/tiles_QUESTION_33.png"                NONE ALL
+//IMAGE image_QUESTION_34             "map/trivia/questions/tiles_QUESTION_34.png"                NONE ALL
 
 
 
