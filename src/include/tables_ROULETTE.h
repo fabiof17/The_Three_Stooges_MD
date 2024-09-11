@@ -10,7 +10,7 @@ extern const Image     *TABLE_ICONS[11];
 
 extern const u8        TABLE_ICONS_PALETTE_[10];
 
-extern const u8        TABLE_MINIGAMES[10];
+extern const u8        TABLE_MINIGAMES[11];
 
 extern const u8        TABLE_HIGHSTREET[180];
 

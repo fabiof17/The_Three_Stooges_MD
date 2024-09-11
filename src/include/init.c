@@ -3372,6 +3372,8 @@ void init_SCENE()
         // STOOGES HAVE TO PAY THE HOSPITAL BILL //
         else
         {
+            G_DAY += 1;
+            
             // USELESS CHECK BUT... //
             if(G_MONEY > 299)
             {

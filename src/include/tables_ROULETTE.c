@@ -46,7 +46,7 @@ const u8        TABLE_ICONS_PALETTE_[10]    =   {
                                                 };
 
 
-const u8        TABLE_MINIGAMES[10]     =       {
+const u8        TABLE_MINIGAMES[11]     =       {
                                                     SCENE_BANK,
                                                     SCENE_BOXING,
                                                     SCENE_DOCTORS,
@@ -56,7 +56,8 @@ const u8        TABLE_MINIGAMES[10]     =       {
                                                     SCENE_SWATTER,
                                                     SCENE_TRIVIA_SELECT,
                                                     SCENE_WAITERS,
-                                                    SCENE_CRACKERS
+                                                    SCENE_CRACKERS,
+                                                    SCENE_SAFE
                                                 };
 
 

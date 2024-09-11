@@ -2,7 +2,7 @@
 
 
 
-//#include "custom_tools.h"
+
 #include "palettes.h"
 #include "variables.h"
 
@@ -13,7 +13,7 @@
 
 
 
-void fadeOut_REWARD()
+/*void fadeOut_REWARD()
 {
     // FADE OUT : 40 FRAMES //
     PAL_fadeOutAll(40,FALSE);
@@ -33,7 +33,7 @@ void fadeOut_REWARD()
     G_SCENE_NEXT        = SCENE_ROULETTE;
 
     G_SCENE_LOADED      = FALSE;
-}
+}*/
 
 
 
@@ -64,6 +64,7 @@ void sequence_REWARD()
 
         G_COUNTER_1 += 1;
     }
+
 
     else if(G_PHASE_SEQUENCE == REWARD_PHASE_FADE_OUT)
     {
