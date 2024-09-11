@@ -32,5 +32,17 @@ extern const Image image_QUESTION_27;
 extern const Image image_QUESTION_28;
 extern const Image image_QUESTION_29;
 extern const Image image_QUESTION_30;
+extern const Image image_QUESTION_31;
+extern const Image image_QUESTION_32;
+extern const Image image_QUESTION_33;
+extern const Image image_QUESTION_34;
+extern const Image image_QUESTION_35;
+extern const Image image_QUESTION_36;
+extern const Image image_QUESTION_37;
+extern const Image image_QUESTION_38;
+extern const Image image_QUESTION_39;
+extern const Image image_QUESTION_40;
+extern const Image image_QUESTION_41;
+extern const Image image_QUESTION_42;
 
 #endif // _RES_MAPS_QUESTIONS_H_

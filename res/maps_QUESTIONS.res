@@ -35,11 +35,25 @@ IMAGE image_QUESTION_27             "map/trivia/questions/tiles_QUESTION_27.png"
 IMAGE image_QUESTION_28             "map/trivia/questions/tiles_QUESTION_28.png"                NONE ALL
 IMAGE image_QUESTION_29             "map/trivia/questions/tiles_QUESTION_29.png"                NONE ALL
 IMAGE image_QUESTION_30             "map/trivia/questions/tiles_QUESTION_30.png"                NONE ALL
-//IMAGE image_QUESTION_31             "map/trivia/questions/tiles_QUESTION_31.png"                NONE ALL
-//IMAGE image_QUESTION_32             "map/trivia/questions/tiles_QUESTION_32.png"                NONE ALL
-//IMAGE image_QUESTION_33             "map/trivia/questions/tiles_QUESTION_33.png"                NONE ALL
-//IMAGE image_QUESTION_34             "map/trivia/questions/tiles_QUESTION_34.png"                NONE ALL
-
+IMAGE image_QUESTION_31             "map/trivia/questions/tiles_QUESTION_31.png"                NONE ALL
+IMAGE image_QUESTION_32             "map/trivia/questions/tiles_QUESTION_32.png"                NONE ALL
+IMAGE image_QUESTION_33             "map/trivia/questions/tiles_QUESTION_33.png"                NONE ALL
+IMAGE image_QUESTION_34             "map/trivia/questions/tiles_QUESTION_34.png"                NONE ALL
+IMAGE image_QUESTION_35             "map/trivia/questions/tiles_QUESTION_35.png"                NONE ALL
+IMAGE image_QUESTION_36             "map/trivia/questions/tiles_QUESTION_36.png"                NONE ALL
+IMAGE image_QUESTION_37             "map/trivia/questions/tiles_QUESTION_37.png"                NONE ALL
+IMAGE image_QUESTION_38             "map/trivia/questions/tiles_QUESTION_38.png"                NONE ALL
+IMAGE image_QUESTION_39             "map/trivia/questions/tiles_QUESTION_39.png"                NONE ALL
+IMAGE image_QUESTION_40             "map/trivia/questions/tiles_QUESTION_40.png"                NONE ALL
+IMAGE image_QUESTION_41             "map/trivia/questions/tiles_QUESTION_41.png"                NONE ALL
+IMAGE image_QUESTION_42             "map/trivia/questions/tiles_QUESTION_42.png"                NONE ALL
+//IMAGE image_QUESTION_43             "map/trivia/questions/tiles_QUESTION_43.png"                NONE ALL
+//IMAGE image_QUESTION_44             "map/trivia/questions/tiles_QUESTION_44.png"                NONE ALL
+//IMAGE image_QUESTION_45             "map/trivia/questions/tiles_QUESTION_45.png"                NONE ALL
+//IMAGE image_QUESTION_46             "map/trivia/questions/tiles_QUESTION_46.png"                NONE ALL
+//IMAGE image_QUESTION_47             "map/trivia/questions/tiles_QUESTION_47.png"                NONE ALL
+//IMAGE image_QUESTION_48             "map/trivia/questions/tiles_QUESTION_48.png"                NONE ALL
+//IMAGE image_QUESTION_49             "map/trivia/questions/tiles_QUESTION_49.png"                NONE ALL
 
 
 

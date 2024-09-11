@@ -44,38 +44,38 @@ const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
                                                                 { &image_QUESTION_28 , 2 }, // WHICH STOOGE OWNED A FURNITURE STORE ?
                                                                 { &image_QUESTION_29 , 1 }, // WHAT WAS LARRY'S FIRST NAME ?
                                                                 { &image_QUESTION_30 , 0 }, // IN WHAT YEAR WAS LARRY BORN ?
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 },
-                                                                { &image_QUESTION_0  , 0 }
+                                                                { &image_QUESTION_31 , 0 }, // WHO WAS LARRY MARRIED TO ?
+                                                                { &image_QUESTION_32 , 1 }, // LARRY HAD HOW MANY CHILDREN ?
+                                                                { &image_QUESTION_33 , 0 }, // IN WHAT YEAR DID LARRY BEGIN PERFORMING AS A STOOGE ?
+                                                                { &image_QUESTION_34 , 2 }, // IN WHAT YEAR DID LARRY STOP PERFORMING AS A STOOGE ?
+                                                                { &image_QUESTION_35 , 0 }, // LARRY PLAYS WHAT INSTRUMENT ?
+                                                                { &image_QUESTION_36 , 2 }, // WHICH STOOGE HATED LONG CONFERENCES ?
+                                                                { &image_QUESTION_37 , 1 }, // WHAT WAS CURLY'S FIRST NAME ?
+                                                                { &image_QUESTION_38 , 0 }, // IN WHAT YEAR WAS CURLY BORN ?
+                                                                { &image_QUESTION_39 , 2 }, // CURLY HAD HOW MANY CHILDREN ?
+                                                                { &image_QUESTION_40 , 1 }, // IN WHAT YEAR DID CURLY START PERFORMING AS A STOOGE ?
+                                                                { &image_QUESTION_41 , 0 }, // IN WHAT YEAR DID CURLY STOP PERFORMING AS A STOOGE ?
+                                                                { &image_QUESTION_42 , 2 }, // WHICH STOOGE LIKED DOGS ?
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }  // 
                                                             };
