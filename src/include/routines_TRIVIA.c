@@ -484,9 +484,8 @@ void sequence_TRIVIA_TYPE1()
                 // PRINT DAY NUMBER //
                 print_DAY();
                 
-                
+                // DISPLAY HUB //
                 display_HUB();
-
 
                 // GENERATE NEW HAND MOVE SEQUENCE //
                 //generate_RANDOM_HAND_MOVE();
@@ -726,7 +725,7 @@ void sequence_TRIVIA_TYPE2()
                 G_DAY += 1;
 
                 // PRINT DAY NUMBER //
-                G_DAY += 1;
+                print_DAY();
                 
                 // DISPLAY HUB //
                 display_HUB();
