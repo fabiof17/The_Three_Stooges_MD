@@ -521,7 +521,7 @@ void sequence_ROULETTE()
 
                 else
                 {
-                    // FADE OUT : 40 FRAMES //
+                    // FADE OUT : 60 FRAMES //
                     PAL_fadeOutAll(60,FALSE);
 
                     // CLEAR PLANES //

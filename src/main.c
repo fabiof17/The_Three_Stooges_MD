@@ -307,7 +307,7 @@ int main(bool hardReset)
                 // EXIT //
                 else if(G_SCENE == SCENE_INTRO_EXIT)
                 {
-                    // FADE OUT : 40 FRAMES //
+                    // FADE OUT : 30 FRAMES //
                     PAL_fadeOutAll(30,FALSE);
 
                     if(XGM_isPlayingPCM(SOUND_PCM_CH4_MSK) != 0)

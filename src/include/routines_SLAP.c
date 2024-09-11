@@ -494,7 +494,7 @@ void sequence_SLAP()
             if(G_DAY < 31)
             {
                 // CLEAR SLAP HUB //
-                VDP_setTileMapEx(BG_B, image_DOLLAR_1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 9, 34, 9, 6, 22, 8, DMA_QUEUE);
+                VDP_setTileMapEx(BG_B, image_SLAP_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 9, 34, 9, 6, 22, 8, DMA_QUEUE);
 
                 // DISPLAY HUB //
                 display_HUB();

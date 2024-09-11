@@ -55,7 +55,7 @@ void fadeOut_INTRO_SCREEN_2()
 
 void fadeOut_INTRO_SCREEN_3()
 {
-    // FADE OUT : 1 FRAME //
+    // FADE OUT : 40 FRAMES //
     PAL_fadeOutAll(40,FALSE);
 
     // RESET BG_A POSITION //
@@ -79,7 +79,7 @@ void fadeOut_INTRO_SCREEN_3()
 
 void fadeOut_INTRO_SCREEN_4()
 {
-    // FADE OUT : 1 FRAME //
+    // FADE OUT : 30 FRAMES //
     PAL_fadeOutAll(30,FALSE);
 
     // CLEAR PLANES //
@@ -100,7 +100,7 @@ void fadeOut_INTRO_SCREEN_4()
 
 void fadeOut_INTRO_SCREEN_5()
 {
-    // FADE OUT : 1 FRAME //
+    // FADE OUT : 30 FRAMES //
     PAL_fadeOutAll(30,FALSE);
 
     // CLEAR PLANES //
@@ -121,7 +121,7 @@ void fadeOut_INTRO_SCREEN_5()
 
 void fadeOut_INTRO_SCREEN_6()
 {
-    // FADE OUT : 1 FRAME //
+    // FADE OUT : 30 FRAMES //
     PAL_fadeOutAll(30,FALSE);
 
     // CLEAR PLANES //

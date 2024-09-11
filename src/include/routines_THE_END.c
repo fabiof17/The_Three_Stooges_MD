@@ -30,10 +30,10 @@ void sequence_THE_END()
         }
     }
     
-    else if(G_COUNTER_1 == 1000)
+    if(G_COUNTER_1 == 1000)
     {
-        // FADE OUT : 2 FRAMES //
-        //PAL_fadeOutAll(2,FALSE);
+        // FADE OUT : 60 FRAMES //
+        PAL_fadeOutAll(60,FALSE);
 
     }
 

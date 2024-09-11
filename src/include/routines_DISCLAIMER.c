@@ -12,7 +12,7 @@ void sequence_DISCLAIMER()
 {
     if(G_COUNTER_1 == 300)
     {           
-        // FADE OUT : 40 FRAMES //
+        // FADE OUT : 30 FRAMES //
         PAL_fadeOutAll(30,FALSE);
 
         // CLEAR PLANES //
