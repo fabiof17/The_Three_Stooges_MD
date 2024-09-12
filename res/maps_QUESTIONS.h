@@ -48,5 +48,6 @@ extern const Image image_QUESTION_46;
 extern const Image image_QUESTION_47;
 extern const Image image_QUESTION_48;
 extern const Image image_QUESTION_50;
+extern const Image image_QUESTION_51;
 
 #endif // _RES_MAPS_QUESTIONS_H_

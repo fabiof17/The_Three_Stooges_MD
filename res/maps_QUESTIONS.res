@@ -55,7 +55,7 @@ IMAGE image_QUESTION_47             "map/trivia/questions/tiles_QUESTION_47.png"
 IMAGE image_QUESTION_48             "map/trivia/questions/tiles_QUESTION_48.png"                NONE ALL
 //IMAGE image_QUESTION_49             "map/trivia/questions/tiles_QUESTION_49.png"                NONE ALL
 IMAGE image_QUESTION_50             "map/trivia/questions/tiles_QUESTION_50.png"                NONE ALL
-//IMAGE image_QUESTION_51             "map/trivia/questions/tiles_QUESTION_51.png"                NONE ALL
+IMAGE image_QUESTION_51             "map/trivia/questions/tiles_QUESTION_51.png"                NONE ALL
 //IMAGE image_QUESTION_52             "map/trivia/questions/tiles_QUESTION_52.png"                NONE ALL
 //IMAGE image_QUESTION_53             "map/trivia/questions/tiles_QUESTION_53.png"                NONE ALL
 //IMAGE image_QUESTION_54             "map/trivia/questions/tiles_QUESTION_54.png"                NONE ALL

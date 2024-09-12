@@ -64,7 +64,7 @@ const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
                                                                 { &image_QUESTION_48 , 1 }, // WHAT TYPE OF DOGS WERE CURLY'S FAVORITE ?
                                                                 { &image_QUESTION_0  , 0 }, // 
                                                                 { &image_QUESTION_50 , 2 }, // WHICH STOOGE LOVED SPORT ?
-                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_51 , 1 }, // WHAT WAS THE MOST POPULAR THREE STOOGES MERCHANDISE ?
                                                                 { &image_QUESTION_0  , 0 }, // 
                                                                 { &image_QUESTION_0  , 0 }, // 
                                                                 { &image_QUESTION_0  , 0 }, // 

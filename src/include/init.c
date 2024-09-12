@@ -121,7 +121,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME | REEL_THE_END
+    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME | REEL_THE_END
 
 
 
@@ -4833,7 +4833,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//       
 
-        VDP_drawIntEx_BG_A_CPU_PRIO(G_REWARD,1,6,4,PAL1);
+        VDP_drawIntEx_BG_A_CPU_PRIO(0,1,6,4,PAL1);
 
 
 
@@ -5533,6 +5533,7 @@ void init_SCENE()
 
             sprite_SPLASH = SPR_addSprite(&tiles_SPR_SPLASH, 112,  59, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
             SPR_update();
+            SYS_doVBlankProcess();
             SYS_doVBlankProcess();
 
 

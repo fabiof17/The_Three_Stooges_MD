@@ -95,11 +95,18 @@ void sequence_BANK()
 
                     if(remaining_days > 9)
                     {
-                        u8 number1 = remaining_days/10;
-                        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 14 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+                        VDP_drawIntEx_BG_A_QUEUE(remaining_days,1,14,36,PAL1);
+                        
+                        //u8 number1 = remaining_days/10;
+                        //VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number1), 14 , 36 , 0, 0, 1, 1, DMA_QUEUE);
 
-                        u8 number2 = remaining_days - (number1*10);
-                        VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 15 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+                        //u8 number2 = remaining_days - (number1*10);
+                        //VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 16 + number2), 15 , 36 , 0, 0, 1, 1, DMA_QUEUE);
+                    }
+
+                    else
+                    {
+                        VDP_drawIntEx_BG_A_QUEUE(remaining_days,1,15,36,PAL1);
                     }
                 }
 

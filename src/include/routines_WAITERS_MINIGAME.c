@@ -55,6 +55,8 @@ inline static void update_MONEY_SCORE()
         VDP_drawIntEx_BG_A_QUEUE(tens      , 1 , 10 , 4 , PAL1);
         VDP_drawIntEx_BG_A_QUEUE(0         , 1 , 12 , 4 , PAL1);
     }
+
+    //VDP_setTileMapEx(BG_A, image_WAITERS_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 7, 4, 7, 4, 1, 1, DMA_QUEUE);
 }
 
 
