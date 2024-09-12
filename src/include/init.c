@@ -7371,7 +7371,7 @@ void init_THE_END()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_ADR_VRAM_BG_B = TILE_USER_INDEX;
+    G_ADR_VRAM_BG_B = 1;
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
@@ -7380,7 +7380,11 @@ void init_THE_END()
     //--------------------------------------------------------------------------------------//
 
     VDP_loadTileSet(image_THE_END.tileset, G_ADR_VRAM_BG_B, CPU);
-    VDP_setTileMapEx(BG_B, image_THE_END.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 0, 0, 0, 20, 28, CPU);
+    VDP_setTileMapEx(BG_B, image_THE_END.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0, 0, 0,  0, 20, 28, CPU);
+    
+    G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_THE_END.tileset->numTile;
+    VDP_loadTileSet(image_MOE_HEAD.tileset, G_ADR_VRAM_BG_A, CPU);
+    VDP_setTileMapEx(BG_B, image_MOE_HEAD.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A), 34, 8, 0, 0, 10, 12, CPU);
 
 
     //--------------------------------------------------------------------------------------//
@@ -7428,12 +7432,12 @@ void init_THE_END()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    sprite_THE_END_1 = SPR_addSprite(&tiles_SPR_THE_END_1,   48, 48, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+    sprite_THE_END_1 = SPR_addSprite(&tiles_SPR_THE_END_1,   48,  -96, TILE_ATTR(PAL0, FALSE, FALSE, FALSE)); // 48 , 48
 
     SPR_update();
     SYS_doVBlankProcess();
 
-    sprite_THE_END_2 = SPR_addSprite(&tiles_SPR_THE_END_2,  160,  8, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+    sprite_THE_END_2 = SPR_addSprite(&tiles_SPR_THE_END_2,  160,  -120, TILE_ATTR(PAL0, FALSE, FALSE, FALSE)); // 160 , 8
 
     SPR_update();
     SYS_doVBlankProcess();
@@ -7445,7 +7449,7 @@ void init_THE_END()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    sprite_CINEMAWARE = SPR_addSprite(&tiles_SPR_CINEMAWARE,   96, 152, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+    sprite_CINEMAWARE = SPR_addSprite(&tiles_SPR_CINEMAWARE,   0, -48, TILE_ATTR(PAL0, FALSE, FALSE, FALSE)); // 96 , 152
 
     SPR_update();
     SYS_doVBlankProcess();
@@ -7473,7 +7477,8 @@ void init_THE_END()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_COUNTER_1             = 0;   
+    G_COUNTER_1             = 0;
+    G_INDEX_1               = 0;   
 
     G_SCENE                 = SCENE_FADE_IN;
     G_SCENE_NEXT            = SCENE_THE_END;

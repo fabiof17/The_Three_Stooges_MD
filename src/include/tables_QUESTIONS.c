@@ -56,14 +56,14 @@ const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
                                                                 { &image_QUESTION_40 , 1 }, // IN WHAT YEAR DID CURLY START PERFORMING AS A STOOGE ?
                                                                 { &image_QUESTION_41 , 0 }, // IN WHAT YEAR DID CURLY STOP PERFORMING AS A STOOGE ?
                                                                 { &image_QUESTION_42 , 2 }, // WHICH STOOGE LIKED DOGS ?
+                                                                { &image_QUESTION_0  , 0 }, // CURLY HEARS "POP GOES THE WEASEL", WHAT SHOULD YOU DO ?
+                                                                { &image_QUESTION_0  , 0 }, // CURLY GOES CRAZY AFTER SEEING A MOUSE, BETTER FEED HIM...
+                                                                { &image_QUESTION_0  , 0 }, // MOE, CURLY AND SHEMP APPEARED IN ONLY ONE FILM TOGETHER :
+                                                                { &image_QUESTION_46 , 1 }, // HOW MANY 3D FILMS DID THE STOOGES MAKE ?
+                                                                { &image_QUESTION_47 , 2 }, // IN WHAT YEAR DID THE STOOGES FINISH THEIR LAST FILM ?
+                                                                { &image_QUESTION_48 , 1 }, // WHAT TYPE OF DOGS WERE CURLY'S FAVORITE ?
                                                                 { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_50 , 2 }, // WHICH STOOGE LOVED SPORT ?
                                                                 { &image_QUESTION_0  , 0 }, // 
                                                                 { &image_QUESTION_0  , 0 }, // 
                                                                 { &image_QUESTION_0  , 0 }, // 

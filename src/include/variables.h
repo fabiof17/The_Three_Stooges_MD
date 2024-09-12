@@ -1041,26 +1041,4 @@ extern Sprite *sprite_CINEMAWARE;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #endif // _VARIABLES_H

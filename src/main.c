@@ -424,8 +424,6 @@ int main(bool hardReset)
                     JOY_setEventHandler(slap_Callback);
                     
                     sequence_SLAP();
-
-                    //VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_WAIT,2,0,28,PAL0);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -553,8 +551,6 @@ int main(bool hardReset)
                     joypad_DOCTORS_MINIGAME();
 
                     sequence_DOCTORS_MINIGAME();
-
-                    //VDP_drawIntEx_BG_A_QUEUE(G_CAR_COUNTER_SPEED,2,0,0,PAL3);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -782,12 +778,14 @@ int main(bool hardReset)
                 init_THE_END();
             }
 
-            // PLAYING DISCLAIMER SCREEN //
+            // PLAYING THE END SCREEN //
             else
             {
                 if(G_SCENE == SCENE_THE_END)
                 {
                     sequence_THE_END();
+
+                    //VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_1,1,40,0,PAL0);
 
                     SPR_update();
                     SYS_doVBlankProcess();

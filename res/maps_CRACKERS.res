@@ -42,12 +42,3 @@ IMAGE image_CRACKERS_SCREEN_SURPRISE_4_BG_A     "map/crackers/tiles_CRACKERS_SCR
 
 IMAGE image_CRACKERS_SCREEN_OVER_BG_B           "map/crackers/tiles_CRACKERS_SCREEN_OVER_BG_B.png"          NONE ALL
 IMAGE image_CRACKERS_SCREEN_OVER_BG_A           "map/crackers/tiles_CRACKERS_SCREEN_OVER_BG_A.png"          NONE ALL
-
-
-
-
-
-
-
-
-
