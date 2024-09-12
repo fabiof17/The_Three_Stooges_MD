@@ -562,7 +562,15 @@ int main(bool hardReset)
                     joypad_WAITERS_MINIGAME();
                     JOY_setEventHandler(waiters_Callback);
 
-                    sequence_WAITERS_MINIGAME();        
+                    sequence_WAITERS_MINIGAME();
+
+                    /*VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[0].pie_DEVIATION,1,1,0,PAL1);
+                    VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[1].pie_DEVIATION,1,1,1,PAL1);
+                    VDP_drawIntEx_BG_A_QUEUE(list_GUESTS[2].pie_DEVIATION,1,1,2,PAL1);
+
+                    VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[0].pie_DEVIATION,1,3,0,PAL1);
+                    VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[1].pie_DEVIATION,1,3,1,PAL1);
+                    VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[2].pie_DEVIATION,1,3,2,PAL1);*/
                     
                     SPR_update();
                     SYS_doVBlankProcess();

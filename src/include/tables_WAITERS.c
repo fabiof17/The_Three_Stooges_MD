@@ -43,6 +43,7 @@ const Image                     *TABLE_TILES_CURLY[4]                       =   
 
 
 
+/*
 const u8                        TABLE_PROBABILITY_PIE_COLLISION[20]         =   {
                                                                                     0,
                                                                                     1,
@@ -63,6 +64,28 @@ const u8                        TABLE_PROBABILITY_PIE_COLLISION[20]         =   
                                                                                     0,
                                                                                     1,
                                                                                     0,
+                                                                                    2
+                                                                                };*/
+const u8                        TABLE_PROBABILITY_PIE_COLLISION[20]         =   {
+                                                                                    2,
+                                                                                    1,
+                                                                                    2,
+                                                                                    2,
+                                                                                    1,
+                                                                                    2,
+                                                                                    1,
+                                                                                    2,
+                                                                                    1,
+                                                                                    1,
+                                                                                    2,
+                                                                                    2,
+                                                                                    1,
+                                                                                    2,
+                                                                                    2,
+                                                                                    1,
+                                                                                    2,
+                                                                                    1,
+                                                                                    1,
                                                                                     2
                                                                                 };
 

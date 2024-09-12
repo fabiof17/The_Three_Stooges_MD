@@ -749,16 +749,46 @@ inline static void anim_PIE_WAITERS()
                 //--------------------------------------------------------------------//
                 else
                 {
-                    //--------------------------------------------------------------------//
-                    //                  WE LOAD WALL PIE TILES FOR BG_B                   //
-                    //--------------------------------------------------------------------//
-                    VDP_loadTileSet(list_WALL_PIES_LEFT_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_LEFT_BG_B[i].vram_ADRESS, DMA_QUEUE);
+                    if(list_WAITERS[i].pie_DEVIATION == NO_DEVIATION)
+                    {
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_B                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_LEFT_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_LEFT_BG_B[i].vram_ADRESS, DMA_QUEUE);
 
-                    //--------------------------------------------------------------------//
-                    //                  WE LOAD WALL PIE TILES FOR BG_A                   //
-                    //--------------------------------------------------------------------//
-                    VDP_loadTileSet(list_WALL_PIES_LEFT_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_LEFT_BG_A[i].vram_ADRESS, DMA_QUEUE);
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_A                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_LEFT_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_LEFT_BG_A[i].vram_ADRESS, DMA_QUEUE);
+                    }
 
+                    else if(list_WAITERS[i].pie_DEVIATION == UP_DEVIATION)
+                    {
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_B                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_UP_LEFT_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_UP_LEFT_BG_B[i].vram_ADRESS, DMA_QUEUE);
+
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_A                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_UP_LEFT_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_UP_LEFT_BG_A[i].vram_ADRESS, DMA_QUEUE);
+
+                    }
+
+                    else if(list_WAITERS[i].pie_DEVIATION == DOWN_DEVIATION)
+                    {
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_B                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_DOWN_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_B[i].vram_ADRESS, DMA_QUEUE);
+
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_A                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_DOWN_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_A[i].vram_ADRESS, DMA_QUEUE);
+
+                    }
 
                     //--------------------------------------------------------------------//
                     //                           PLAY WALL PCM                            //
@@ -1080,6 +1110,54 @@ inline static void anim_PIE_GUESTS()
                         //                           PLAY HIT PCM                             //
                         //--------------------------------------------------------------------//
                         XGM_startPlayPCM(SOUND_PIE_HIT,13,SOUND_PCM_CH3);
+                    }
+
+
+                    //--------------------------------------------------------------------//
+                    //                                                                    //
+                    //                     IF PIE IS DEVIATED UPWARD                      //
+                    //                                                                    //
+                    //--------------------------------------------------------------------//
+                    else if(list_GUESTS[i].pie_DEVIATION == UP_DEVIATION)
+                    {
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_B                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_UP_RIGHT_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_UP_RIGHT_BG_B[i].vram_ADRESS, DMA_QUEUE);
+
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_A                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_UP_RIGHT_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_UP_RIGHT_BG_A[i].vram_ADRESS, DMA_QUEUE);
+
+                        //--------------------------------------------------------------------//
+                        //                           PLAY WALL PCM                            //
+                        //--------------------------------------------------------------------//
+                        XGM_startPlayPCM(SOUND_PIE_WALL,13,SOUND_PCM_CH3);
+                    }
+
+
+                    //--------------------------------------------------------------------//
+                    //                                                                    //
+                    //                    IF PIE IS DEVIATED DOWNWARD                     //
+                    //                                                                    //
+                    //--------------------------------------------------------------------//
+                    else if(list_GUESTS[i].pie_DEVIATION == DOWN_DEVIATION)
+                    {
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_B                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_DOWN_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_B[i].vram_ADRESS, DMA_QUEUE);
+
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_A                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_DOWN_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_B[i].vram_ADRESS, DMA_QUEUE);
+
+                        //--------------------------------------------------------------------//
+                        //                           PLAY WALL PCM                            //
+                        //--------------------------------------------------------------------//
+                        XGM_startPlayPCM(SOUND_PIE_WALL,13,SOUND_PCM_CH3);
                     }
                 }
 
