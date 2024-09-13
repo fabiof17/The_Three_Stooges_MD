@@ -185,7 +185,7 @@ void init_VARIABLES()
 
     G_PAUSE                     = FALSE;
 
-    G_LUCK                      = FALSE;
+    G_LUCK                      = TRUE;
 
 
     

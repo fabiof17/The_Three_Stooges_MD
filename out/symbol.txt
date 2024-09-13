@@ -377,8 +377,8 @@
 0000adfc T slap_Callback
 0000b102 T init_INTRO
 0000c01c T init_VARIABLES
-0000c44a T increase_HAND_SPEED
-0000c474 T VDP_drawIntEx_BG_A_CPU_PRIO
+0000c44c T increase_HAND_SPEED
+0000c476 T VDP_drawIntEx_BG_A_CPU_PRIO
 0000c860 T waiters_Callback
 0000cab0 T sequence_CRACKERS_MINIGAME
 0000d7bc T sequence_CONTRACT_CRACKERS.part.0
