@@ -586,6 +586,7 @@ inline static void anim_PIE_WAITERS()
 
                     //--------------------------------------------------------------------//
                     //                   SET POINTER TO PIE ANIM TABLE                    //
+                    //                      RESET GUEST PIE POSITION                      //
                     //--------------------------------------------------------------------//
                     const struct_PIE_ANIM_ *ptr_PIE_ANIM;
 
@@ -633,122 +634,188 @@ inline static void anim_PIE_WAITERS()
 
 
 
-                //--------------------------------------------------------------------//
+                //********************************************************************//
+                //********************************************************************//
+                //                           COLLISION CHECK                          //
+                //********************************************************************//
+                //********************************************************************//
+
+                //********************************************************************//
                 //                                                                    //
                 //                     IF GUEST IS NOT CROUCHING                      //
                 //                  CHECK COLLISION WITH FACING GUEST                 //
                 //                                                                    //
-                //--------------------------------------------------------------------//
+                //********************************************************************//
                 if(list_GUESTS[i].state_CHARACTER != CHAR_PHASE_CROUCH && list_GUESTS[i].state_CHARACTER != CHAR_PHASE_CROUCH_2)
                 {
-                    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
-                    //                                                                    //
-                    //                            MANAGE GUEST                            //
-                    //                                                                    //
-                    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
-                    list_GUESTS[i].counter_ANIM = 0;
-
-
-                    SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_1);
-                    SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_1);
-
-
                     //--------------------------------------------------------------------//
-                    //                !!!  TRICK TO AVOID SPRITE LIMIT  !!!               //
-                    //                          IF GUEST IS MAN 1                         //
+                    //                                                                    //
+                    //                    IF WAITER PIE IS NOT DEVIATED                   //
+                    //                                                                    //
                     //--------------------------------------------------------------------//
-                    if(i == GUEST_MAN_1)
+                    if(list_WAITERS[i].pie_DEVIATION == NO_DEVIATION)
                     {
-                        VDP_loadTileSet(image_MAN1_6_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
+                        //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                        //                                                                    //
+                        //                            MANAGE GUEST                            //
+                        //                                                                    //
+                        //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                        list_GUESTS[i].counter_ANIM = 0;
+
+                        //--------------------------------------------------------------------//
+                        //                     GUEST GOES TO PHASE HIT 1                      //
+                        //--------------------------------------------------------------------//
+                        list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT_1;
+
+                        SPR_setFrame(list_GUESTS[i].spr_CHAR_1 , CHAR_PHASE_HIT_1);
+                        SPR_setFrame(list_GUESTS[i].spr_CHAR_2 , CHAR_PHASE_HIT_1);
+
+
+                        //--------------------------------------------------------------------//
+                        //                !!!  TRICK TO AVOID SPRITE LIMIT  !!!               //
+                        //                          IF GUEST IS MAN 1                         //
+                        //--------------------------------------------------------------------//
+                        if(i == GUEST_MAN_1)
+                        {
+                            VDP_loadTileSet(image_MAN1_6_WAITERS.tileset, G_ADR_VRAM_TILES_MAN_1, DMA_QUEUE);
+                        }
+
+
+
+
+                        //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                        //                                                                    //
+                        //                          MANAGE GUEST PIE                          //
+                        //                                                                    //
+                        //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                        //--------------------------------------------------------------------//
+                        //                                                                    //
+                        //                     IF GUESTS PIE ISN'T THROWN                     //
+                        //                                                                    //
+                        //--------------------------------------------------------------------//
+                        if(list_GUESTS[i].state_PIE < PIE_PHASE_THROW)
+                        {
+                            //--------------------------------------------------------------------//
+                            //                      RESET GUEST PIE COUNTER                       //
+                            //--------------------------------------------------------------------//
+                            list_GUESTS[i].index_ANIM_PIE = 0;
+
+                            //--------------------------------------------------------------------//
+                            //                   SET POINTER TO PIE ANIM TABLE                    //
+                            //                      RESET GUEST PIE POSITION                      //
+                            //--------------------------------------------------------------------//
+                            const struct_PIE_ANIM_ *ptr_PIE_ANIM;
+
+                            if(i == GUEST_WOMAN)
+                            {
+                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
+                            }
+
+                            else if(i == GUEST_MAN_1)
+                            {
+                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1[list_GUESTS[GUEST_MAN_1].index_ANIM_PIE];
+                            }
+
+                            else if(i == GUEST_MAN_2)
+                            {
+                                ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_GUESTS[GUEST_MAN_2].index_ANIM_PIE];
+                            }
+
+
+                            //--------------------------------------------------------------------//
+                            //                A NEW PIE IS SERVED ON WAITERS TABLE                //
+                            //--------------------------------------------------------------------//
+                            list_GUESTS[i].state_PIE     = PIE_PHASE_SERVED;
+
+                            list_GUESTS[i].pie_DEVIATION = NO_DEVIATION;
+
+                            SPR_setPosition(list_GUESTS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
+                            SPR_setFrame(list_GUESTS[i].spr_PIE , 0);
+                        }
+
+
+
+
+                        //--------------------------------------------------------------------//
+                        //                         REWARD INCREASED                           //
+                        //--------------------------------------------------------------------//
+                        G_REWARD += 10;
+
+                        //--------------------------------------------------------------------//
+                        //                          WE UPDATE SCORE                           //
+                        //--------------------------------------------------------------------//
+                        update_MONEY_SCORE();
+
+
+                        //--------------------------------------------------------------------//
+                        //                           PLAY HIT PCM                             //
+                        //--------------------------------------------------------------------//
+                        XGM_startPlayPCM(SOUND_PIE_HIT,13,SOUND_PCM_CH3);
                     }
 
 
                     //--------------------------------------------------------------------//
-                    //                     GUEST GOES TO PHASE HIT_1                      //
-                    //--------------------------------------------------------------------//
-                    list_GUESTS[i].state_CHARACTER = CHAR_PHASE_HIT_1;
-
-
-
-
-                    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
                     //                                                                    //
-                    //                          MANAGE GUEST PIE                          //
-                    //                                                                    //
-                    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
-                    //--------------------------------------------------------------------//
-                    //                                                                    //
-                    //                     IF GUESTS PIE ISN'T THROWN                     //
+                    //                  IF WAITER PIE IS DEVIATED UPWARD                  //
                     //                                                                    //
                     //--------------------------------------------------------------------//
-                    if(list_GUESTS[i].state_PIE < PIE_PHASE_THROW)
+                    else if(list_WAITERS[i].pie_DEVIATION == UP_DEVIATION)
                     {
                         //--------------------------------------------------------------------//
-                        //                      RESET GUEST PIE COUNTER                       //
+                        //                  WE LOAD WALL PIE TILES FOR BG_B                   //
                         //--------------------------------------------------------------------//
-                        list_GUESTS[i].index_ANIM_PIE = 0;
-
-                        //--------------------------------------------------------------------//
-                        //                   SET POINTER TO PIE ANIM TABLE                    //
-                        //--------------------------------------------------------------------//
-                        const struct_PIE_ANIM_ *ptr_PIE_ANIM;
-
-                        if(i == GUEST_WOMAN)
-                        {
-                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_WOMAN[list_GUESTS[GUEST_WOMAN].index_ANIM_PIE];
-                        }
-
-                        else if(i == GUEST_MAN_1)
-                        {
-                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_1[list_GUESTS[GUEST_MAN_1].index_ANIM_PIE];
-                        }
-
-                        else if(i == GUEST_MAN_2)
-                        {
-                            ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_GUESTS[GUEST_MAN_2].index_ANIM_PIE];
-                        }
-
+                        VDP_loadTileSet(list_WALL_PIES_UP_LEFT_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_UP_LEFT_BG_B[i].vram_ADRESS, DMA_QUEUE);
 
                         //--------------------------------------------------------------------//
-                        //                A NEW PIE IS SERVED ON WAITERS TABLE                //
+                        //                  WE LOAD WALL PIE TILES FOR BG_A                   //
                         //--------------------------------------------------------------------//
-                        list_GUESTS[i].state_PIE     = PIE_PHASE_SERVED;
+                        VDP_loadTileSet(list_WALL_PIES_UP_LEFT_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_UP_LEFT_BG_A[i].vram_ADRESS, DMA_QUEUE);
 
-                        list_GUESTS[i].pie_DEVIATION = NO_DEVIATION;
-
-                        SPR_setPosition(list_GUESTS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
-                        SPR_setFrame(list_GUESTS[i].spr_PIE , 0);
+                        //--------------------------------------------------------------------//
+                        //                           PLAY WALL PCM                            //
+                        //--------------------------------------------------------------------//
+                        XGM_startPlayPCM(SOUND_PIE_WALL,13,SOUND_PCM_CH3);
                     }
 
 
+                    //--------------------------------------------------------------------//
+                    //                                                                    //
+                    //                 IF WAITER PIE IS DEVIATED DOWNWARD                 //
+                    //                                                                    //
+                    //--------------------------------------------------------------------//
+                    else if(list_WAITERS[i].pie_DEVIATION == DOWN_DEVIATION)
+                    {
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_B                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_DOWN_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_B[i].vram_ADRESS, DMA_QUEUE);
 
+                        //--------------------------------------------------------------------//
+                        //                  WE LOAD WALL PIE TILES FOR BG_A                   //
+                        //--------------------------------------------------------------------//
+                        VDP_loadTileSet(list_WALL_PIES_DOWN_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_A[i].vram_ADRESS, DMA_QUEUE);
 
-                    //--------------------------------------------------------------------//
-                    //                         REWARD INCREASED                           //
-                    //--------------------------------------------------------------------//
-                    G_REWARD += 10;
-
-                    //--------------------------------------------------------------------//
-                    //                          WE UPDATE SCORE                           //
-                    //--------------------------------------------------------------------//
-                    update_MONEY_SCORE();
-
-
-                    //--------------------------------------------------------------------//
-                    //                           PLAY HIT PCM                             //
-                    //--------------------------------------------------------------------//
-                    XGM_startPlayPCM(SOUND_PIE_HIT,13,SOUND_PCM_CH3);
+                        //--------------------------------------------------------------------//
+                        //                           PLAY WALL PCM                            //
+                        //--------------------------------------------------------------------//
+                        XGM_startPlayPCM(SOUND_PIE_WALL,13,SOUND_PCM_CH3);
+                    }
                 }
 
 
-                //--------------------------------------------------------------------//
+                //********************************************************************//
                 //                                                                    //
                 //                        IF GUEST IS CROUCHING                       //
                 //                          PIE HITS THE WALL                         //
                 //                                                                    //
-                //--------------------------------------------------------------------//
+                //********************************************************************//
                 else
                 {
+                    //--------------------------------------------------------------------//
+                    //                                                                    //
+                    //                    IF WAITER PIE IS NOT DEVIATED                   //
+                    //                                                                    //
+                    //--------------------------------------------------------------------//
                     if(list_WAITERS[i].pie_DEVIATION == NO_DEVIATION)
                     {
                         //--------------------------------------------------------------------//
@@ -762,6 +829,12 @@ inline static void anim_PIE_WAITERS()
                         VDP_loadTileSet(list_WALL_PIES_LEFT_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_LEFT_BG_A[i].vram_ADRESS, DMA_QUEUE);
                     }
 
+
+                    //--------------------------------------------------------------------//
+                    //                                                                    //
+                    //                  IF WAITER PIE IS DEVIATED UPWARD                  //
+                    //                                                                    //
+                    //--------------------------------------------------------------------//
                     else if(list_WAITERS[i].pie_DEVIATION == UP_DEVIATION)
                     {
                         //--------------------------------------------------------------------//
@@ -773,9 +846,14 @@ inline static void anim_PIE_WAITERS()
                         //                  WE LOAD WALL PIE TILES FOR BG_A                   //
                         //--------------------------------------------------------------------//
                         VDP_loadTileSet(list_WALL_PIES_UP_LEFT_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_UP_LEFT_BG_A[i].vram_ADRESS, DMA_QUEUE);
-
                     }
 
+
+                    //--------------------------------------------------------------------//
+                    //                                                                    //
+                    //                 IF WAITER PIE IS DEVIATED DOWNWARD                 //
+                    //                                                                    //
+                    //--------------------------------------------------------------------//
                     else if(list_WAITERS[i].pie_DEVIATION == DOWN_DEVIATION)
                     {
                         //--------------------------------------------------------------------//
@@ -787,7 +865,6 @@ inline static void anim_PIE_WAITERS()
                         //                  WE LOAD WALL PIE TILES FOR BG_A                   //
                         //--------------------------------------------------------------------//
                         VDP_loadTileSet(list_WALL_PIES_DOWN_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_A[i].vram_ADRESS, DMA_QUEUE);
-
                     }
 
                     //--------------------------------------------------------------------//
@@ -936,6 +1013,9 @@ inline static void anim_PIE_GUESTS()
                 //********************************************************************//
                 if(list_WAITERS[i].index_ANIM_PIE == 23)
                 {
+                    //--------------------------------------------------------------------//
+                    //                   GENERATE RANDOM PIE DEVIATION                    //
+                    //--------------------------------------------------------------------//
                     u8 random_COLLISION = random_NUMBER(0,19);
 
                     // 0 = NO_DEVIATION
@@ -992,14 +1072,21 @@ inline static void anim_PIE_GUESTS()
                 if(list_WAITERS[i].state_CHARACTER != CHAR_PHASE_CROUCH && list_WAITERS[i].state_CHARACTER != CHAR_PHASE_CROUCH_2)
                 {
                     //--------------------------------------------------------------------//
+                    //                                                                    //
                     //                    IF GUEST PIE IS NOT DEVIATED                    //
+                    //                                                                    //
                     //--------------------------------------------------------------------//
                     if(list_GUESTS[i].pie_DEVIATION == NO_DEVIATION)
                     {
+                        //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                        //                                                                    //
+                        //                            MANAGE WAITER                           //
+                        //                                                                    //
+                        //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
                         list_WAITERS[i].counter_ANIM = 0;
 
                         //--------------------------------------------------------------------//
-                        //                        WAITER GOES TO PHASE                        //
+                        //                     WAITER GOES TO PHASE HIT 1                     //
                         //--------------------------------------------------------------------//
                         list_WAITERS[i].state_CHARACTER = CHAR_PHASE_HIT_1;
 
@@ -1007,7 +1094,10 @@ inline static void anim_PIE_GUESTS()
                         SPR_setFrame(list_WAITERS[i].spr_CHAR_2 , CHAR_PHASE_HIT_1);
 
 
-                        // !!!  TRICK TO AVOID SPRITE LIMIT  !!! //
+                        //--------------------------------------------------------------------//
+                        //                !!!  TRICK TO AVOID SPRITE LIMIT  !!!               //
+                        //                         IF WAITER IS CURLY                         //
+                        //--------------------------------------------------------------------//
                         if(i == WAITER_CURLY)
                         {
                             VDP_loadTileSet(image_CURLY1_6_WAITERS.tileset, G_ADR_VRAM_TILES_CURLY, DMA_QUEUE);
@@ -1046,6 +1136,8 @@ inline static void anim_PIE_GUESTS()
                         }
 
 
+
+
                         //--------------------------------------------------------------------//
                         //                                                                    //
                         //                IF WAITERS HAVE NOT BEEN HIT 5 TIMES                //
@@ -1053,6 +1145,11 @@ inline static void anim_PIE_GUESTS()
                         //--------------------------------------------------------------------//
                         else
                         {
+                            //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
+                            //                                                                    //
+                            //                          MANAGE WAITER PIE                         //
+                            //                                                                    //
+                            //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\///
                             //--------------------------------------------------------------------//
                             //                                                                    //
                             //                     IF WAITER PIE ISN'T THROWN                     //
@@ -1074,6 +1171,7 @@ inline static void anim_PIE_GUESTS()
 
                                     //--------------------------------------------------------------------//
                                     //                   SET POINTER TO PIE ANIM TABLE                    //
+                                    //                      RESET WAITER PIE POSITION                     //
                                     //--------------------------------------------------------------------//
                                     const struct_PIE_ANIM_ *ptr_PIE_ANIM;
 
@@ -1115,7 +1213,7 @@ inline static void anim_PIE_GUESTS()
 
                     //--------------------------------------------------------------------//
                     //                                                                    //
-                    //                     IF PIE IS DEVIATED UPWARD                      //
+                    //                  IF GUEST PIE IS DEVIATED UPWARD                   //
                     //                                                                    //
                     //--------------------------------------------------------------------//
                     else if(list_GUESTS[i].pie_DEVIATION == UP_DEVIATION)
@@ -1139,7 +1237,7 @@ inline static void anim_PIE_GUESTS()
 
                     //--------------------------------------------------------------------//
                     //                                                                    //
-                    //                    IF PIE IS DEVIATED DOWNWARD                     //
+                    //                 IF GUEST PIE IS DEVIATED DOWNWARD                  //
                     //                                                                    //
                     //--------------------------------------------------------------------//
                     else if(list_GUESTS[i].pie_DEVIATION == DOWN_DEVIATION)
@@ -1164,7 +1262,7 @@ inline static void anim_PIE_GUESTS()
 
                 //********************************************************************//
                 //                                                                    //
-                //                         WAITER IS CROUCHING                        //
+                //                        IF WAITER IS CROUCHING                      //
                 //                          PIE HITS THE WALL                         //
                 //                                                                    //
                 //********************************************************************//
@@ -1186,6 +1284,12 @@ inline static void anim_PIE_GUESTS()
                         //                  WE LOAD WALL PIE TILES FOR BG_A                   //
                         //--------------------------------------------------------------------//
                         VDP_loadTileSet(list_WALL_PIES_RIGHT_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_RIGHT_BG_A[i].vram_ADRESS, DMA_QUEUE);
+
+                        //--------------------------------------------------------------------//
+                        //                        PLAY WAITER MISS PCM                        //
+                        //--------------------------------------------------------------------//
+                        u8 random_miss_pcm = random_NUMBER(70,73);
+                        XGM_startPlayPCM(random_miss_pcm,15,SOUND_PCM_CH4);
                     }
 
 
@@ -1205,6 +1309,11 @@ inline static void anim_PIE_GUESTS()
                         //                  WE LOAD WALL PIE TILES FOR BG_A                   //
                         //--------------------------------------------------------------------//
                         VDP_loadTileSet(list_WALL_PIES_UP_RIGHT_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_UP_RIGHT_BG_A[i].vram_ADRESS, DMA_QUEUE);
+
+                        //--------------------------------------------------------------------//
+                        //                           PLAY WALL PCM                            //
+                        //--------------------------------------------------------------------//
+                        XGM_startPlayPCM(SOUND_PIE_WALL,13,SOUND_PCM_CH3);
                     }
 
 
@@ -1224,19 +1333,12 @@ inline static void anim_PIE_GUESTS()
                         //                  WE LOAD WALL PIE TILES FOR BG_A                   //
                         //--------------------------------------------------------------------//
                         VDP_loadTileSet(list_WALL_PIES_DOWN_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_B[i].vram_ADRESS, DMA_QUEUE);
+
+                        //--------------------------------------------------------------------//
+                        //                           PLAY WALL PCM                            //
+                        //--------------------------------------------------------------------//
+                        XGM_startPlayPCM(SOUND_PIE_WALL,13,SOUND_PCM_CH3);
                     }
-
-
-                    //--------------------------------------------------------------------//
-                    //                           PLAY WALL PCM                            //
-                    //--------------------------------------------------------------------//
-                    XGM_startPlayPCM(SOUND_PIE_WALL,13,SOUND_PCM_CH3);
-
-                    //--------------------------------------------------------------------//
-                    //                        PLAY WAITER MISS PCM                        //
-                    //--------------------------------------------------------------------//
-                    u8 random_miss_pcm = random_NUMBER(70,73);
-                    XGM_startPlayPCM(random_miss_pcm,15,SOUND_PCM_CH4);
                 }
 
 
@@ -1255,6 +1357,7 @@ inline static void anim_PIE_GUESTS()
 
                 //--------------------------------------------------------------------//
                 //                   SET POINTER TO PIE ANIM TABLE                    //
+                //                      RESET GUEST PIE POSITION                      //
                 //--------------------------------------------------------------------//
                 const struct_PIE_ANIM_ *ptr_PIE_ANIM;
 
@@ -1272,7 +1375,6 @@ inline static void anim_PIE_GUESTS()
                 {
                     ptr_PIE_ANIM = &TABLE_PIE_ANIM_MAN_2[list_GUESTS[GUEST_MAN_2].index_ANIM_PIE];
                 }
-
 
                 //--------------------------------------------------------------------//
                 //                 A NEW PIE IS SERVED ON GUESTS TABLE                //
