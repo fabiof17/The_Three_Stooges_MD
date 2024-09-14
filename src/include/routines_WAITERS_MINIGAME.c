@@ -1006,6 +1006,8 @@ inline static void anim_PIE_GUESTS()
             //********************************************************************//
             if(list_GUESTS[i].index_ANIM_PIE == 18)
             {
+                //list_GUESTS[i].pie_DEVIATION = UP_DEVIATION;
+                
                 //********************************************************************//
                 //                                                                    //
                 //                  IF WAITER PIE REACHED COLLISON STEP               //
@@ -1040,7 +1042,6 @@ inline static void anim_PIE_GUESTS()
                     }
                 }
             }
-
 
 
 
@@ -1250,7 +1251,7 @@ inline static void anim_PIE_GUESTS()
                         //--------------------------------------------------------------------//
                         //                  WE LOAD WALL PIE TILES FOR BG_A                   //
                         //--------------------------------------------------------------------//
-                        VDP_loadTileSet(list_WALL_PIES_DOWN_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_B[i].vram_ADRESS, DMA_QUEUE);
+                        VDP_loadTileSet(list_WALL_PIES_DOWN_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_A[i].vram_ADRESS, DMA_QUEUE);
 
                         //--------------------------------------------------------------------//
                         //                           PLAY WALL PCM                            //
@@ -1332,7 +1333,7 @@ inline static void anim_PIE_GUESTS()
                         //--------------------------------------------------------------------//
                         //                  WE LOAD WALL PIE TILES FOR BG_A                   //
                         //--------------------------------------------------------------------//
-                        VDP_loadTileSet(list_WALL_PIES_DOWN_BG_B[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_B[i].vram_ADRESS, DMA_QUEUE);
+                        VDP_loadTileSet(list_WALL_PIES_DOWN_BG_A[i].ptr_IMAGE->tileset, list_WALL_PIES_DOWN_BG_A[i].vram_ADRESS, DMA_QUEUE);
 
                         //--------------------------------------------------------------------//
                         //                           PLAY WALL PCM                            //

@@ -111,6 +111,10 @@ IMAGE image_PIE_DOWN0_1_BG_B                    "map/waiters/tiles_PIE_DOWN0_1_B
 IMAGE image_PIE_DOWN1_1_BG_B                    "map/waiters/tiles_PIE_DOWN1_1_BG_B.png"                NONE NONE
 IMAGE image_PIE_DOWN2_1_BG_B                    "map/waiters/tiles_PIE_DOWN2_1_BG_B.png"                NONE NONE
 
+IMAGE image_PIE_DOWN0_0_BG_A                    "map/waiters/tiles_PIE_DOWN0_0_BG_A.png"                NONE NONE
+IMAGE image_PIE_DOWN1_0_BG_A                    "map/waiters/tiles_PIE_DOWN1_0_BG_A.png"                NONE NONE
+IMAGE image_PIE_DOWN2_0_BG_A                    "map/waiters/tiles_PIE_DOWN2_0_BG_A.png"                NONE NONE
+
 IMAGE image_PIE_DOWN0_1_BG_A                    "map/waiters/tiles_PIE_DOWN0_1_BG_A.png"                NONE NONE
 IMAGE image_PIE_DOWN1_1_BG_A                    "map/waiters/tiles_PIE_DOWN1_1_BG_A.png"                NONE NONE
 IMAGE image_PIE_DOWN2_1_BG_A                    "map/waiters/tiles_PIE_DOWN2_1_BG_A.png"                NONE NONE

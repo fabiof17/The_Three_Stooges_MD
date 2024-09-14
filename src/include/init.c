@@ -121,7 +121,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME | REEL_THE_END
+    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME | REEL_THE_END
 
 
 
@@ -4693,13 +4693,16 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         G_ADR_VRAM_BG_A_PIE_DOWN_0 = G_ADR_VRAM_BG_B_PIE_DOWN_2 + image_PIE_DOWN2_0_BG_B.tileset->numTile;
-        VDP_loadTileSet(image_PIE_DOWN0_1_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_DOWN_0, CPU);
+        VDP_loadTileSet(image_PIE_DOWN0_0_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_DOWN_0, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_DOWN0_0_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_DOWN_0), 17, 24, 0, 0, 5, 2, CPU);
 
-        G_ADR_VRAM_BG_A_PIE_DOWN_1 = G_ADR_VRAM_BG_A_PIE_DOWN_0 + image_PIE_DOWN0_1_BG_A.tileset->numTile;
-        VDP_loadTileSet(image_PIE_DOWN1_1_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_DOWN_1, CPU);
+        G_ADR_VRAM_BG_A_PIE_DOWN_1 = G_ADR_VRAM_BG_A_PIE_DOWN_0 + image_PIE_DOWN0_0_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_DOWN1_0_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_DOWN_1, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_DOWN1_0_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_DOWN_1), 17, 22, 0, 0, 5, 2, CPU);
 
-        G_ADR_VRAM_BG_A_PIE_DOWN_2 = G_ADR_VRAM_BG_A_PIE_DOWN_1 + image_PIE_DOWN1_1_BG_A.tileset->numTile;
-        VDP_loadTileSet(image_PIE_DOWN2_1_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_DOWN_2, CPU);
+        G_ADR_VRAM_BG_A_PIE_DOWN_2 = G_ADR_VRAM_BG_A_PIE_DOWN_1 + image_PIE_DOWN1_0_BG_A.tileset->numTile;
+        VDP_loadTileSet(image_PIE_DOWN2_0_BG_A.tileset, G_ADR_VRAM_BG_A_PIE_DOWN_2, CPU);
+        VDP_setTileMapEx(BG_A, image_PIE_DOWN2_0_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A_PIE_DOWN_2), 17, 20, 0, 0, 5, 2, CPU);
 
 
 
@@ -4801,13 +4804,13 @@ void init_SCENE()
         list_WALL_PIES_DOWN_BG_B[1].vram_ADRESS     = G_ADR_VRAM_BG_B_PIE_DOWN_1;
         list_WALL_PIES_DOWN_BG_B[2].vram_ADRESS     = G_ADR_VRAM_BG_B_PIE_DOWN_2;
 
-        list_WALL_PIES_DOWN_BG_B[0].ptr_IMAGE       = &image_PIE_DOWN0_1_BG_B;
-        list_WALL_PIES_DOWN_BG_B[1].ptr_IMAGE       = &image_PIE_DOWN1_1_BG_B;
-        list_WALL_PIES_DOWN_BG_B[2].ptr_IMAGE       = &image_PIE_DOWN2_1_BG_B;
-
         list_WALL_PIES_DOWN_BG_A[0].vram_ADRESS     = G_ADR_VRAM_BG_A_PIE_DOWN_0;
         list_WALL_PIES_DOWN_BG_A[1].vram_ADRESS     = G_ADR_VRAM_BG_A_PIE_DOWN_1;
         list_WALL_PIES_DOWN_BG_A[2].vram_ADRESS     = G_ADR_VRAM_BG_A_PIE_DOWN_2;
+
+        list_WALL_PIES_DOWN_BG_B[0].ptr_IMAGE       = &image_PIE_DOWN0_1_BG_B;
+        list_WALL_PIES_DOWN_BG_B[1].ptr_IMAGE       = &image_PIE_DOWN1_1_BG_B;
+        list_WALL_PIES_DOWN_BG_B[2].ptr_IMAGE       = &image_PIE_DOWN2_1_BG_B;
 
         list_WALL_PIES_DOWN_BG_A[0].ptr_IMAGE       = &image_PIE_DOWN0_1_BG_A;
         list_WALL_PIES_DOWN_BG_A[1].ptr_IMAGE       = &image_PIE_DOWN1_1_BG_A;
