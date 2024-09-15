@@ -10,8 +10,8 @@ const ROMHeader rom_header = {
     "SEGA MEGA DRIVE ",
 #endif
     "(C)SGDK 2024    ",
-    "THE THREE STOOGES                                  ",
-    "THE THREE STOOGES                                  ",
+    "THREE STOOGES                                  ",
+    "THREE STOOGES                                  ",
     "GM 00000000-00",
     0x000,
     "JD              ",
