@@ -56,7 +56,7 @@ const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
                                                                 { &image_QUESTION_40 , 1 }, // IN WHAT YEAR DID CURLY START PERFORMING AS A STOOGE ?
                                                                 { &image_QUESTION_41 , 0 }, // IN WHAT YEAR DID CURLY STOP PERFORMING AS A STOOGE ?
                                                                 { &image_QUESTION_42 , 2 }, // WHICH STOOGE LIKED DOGS ?
-                                                                { &image_QUESTION_0  , 0 }, // CURLY HEARS "POP GOES THE WEASEL", WHAT SHOULD YOU DO ?
+                                                                { &image_QUESTION_43 , 1 }, // CURLY HEARS "POP GOES THE WEASEL", WHAT SHOULD YOU DO ?
                                                                 { &image_QUESTION_44 , 0 }, // CURLY GOES CRAZY AFTER SEEING A MOUSE, BETTER FEED HIM...
                                                                 { &image_QUESTION_45 , 2 }, // MOE, CURLY AND SHEMP APPEARED IN ONLY ONE FILM TOGETHER :
                                                                 { &image_QUESTION_46 , 1 }, // HOW MANY 3D FILMS DID THE STOOGES MAKE ?
@@ -67,9 +67,9 @@ const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
                                                                 { &image_QUESTION_51 , 1 }, // WHAT WAS THE MOST POPULAR THREE STOOGES MERCHANDISE ?
                                                                 { &image_QUESTION_52 , 0 }, // IN WHAT CITY DID MOE AND CURLY SPEND THEIR CHILDHOOD ?
                                                                 { &image_QUESTION_53 , 2 }, // WHAT AWARD WERE THE STOOGES NOMINATED FOR ?
-                                                                { &image_QUESTION_54 , 1 }, // IN WHAT YEAR DID THE STOOGES MAKE THEIR FIRST T.V. PILOT
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_54 , 1 }, // IN WHAT YEAR DID THE STOOGES MAKE THEIR FIRST T.V. PILOT ?
+                                                                { &image_QUESTION_55 , 0 }, // WHAT WAS THE FIRST PRODUCT THE STOOGES ENDORSED ON T.V. ?
+                                                                { &image_QUESTION_56 , 1 }, // IN WHAT YEAR DID THE STOOGES STOP WORKING WITH TED HEALY ?
                                                                 { &image_QUESTION_0  , 0 }, // 
                                                                 { &image_QUESTION_0  , 0 }, // 
                                                                 { &image_QUESTION_0  , 0 }, // 

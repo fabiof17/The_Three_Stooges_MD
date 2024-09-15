@@ -47,7 +47,7 @@ IMAGE image_QUESTION_39             "map/trivia/questions/tiles_QUESTION_39.png"
 IMAGE image_QUESTION_40             "map/trivia/questions/tiles_QUESTION_40.png"                NONE ALL
 IMAGE image_QUESTION_41             "map/trivia/questions/tiles_QUESTION_41.png"                NONE ALL
 IMAGE image_QUESTION_42             "map/trivia/questions/tiles_QUESTION_42.png"                NONE ALL
-//IMAGE image_QUESTION_43             "map/trivia/questions/tiles_QUESTION_43.png"                NONE ALL
+IMAGE image_QUESTION_43             "map/trivia/questions/tiles_QUESTION_43.png"                NONE ALL
 IMAGE image_QUESTION_44             "map/trivia/questions/tiles_QUESTION_44.png"                NONE ALL
 IMAGE image_QUESTION_45             "map/trivia/questions/tiles_QUESTION_45.png"                NONE ALL
 IMAGE image_QUESTION_46             "map/trivia/questions/tiles_QUESTION_46.png"                NONE ALL
@@ -59,8 +59,8 @@ IMAGE image_QUESTION_51             "map/trivia/questions/tiles_QUESTION_51.png"
 IMAGE image_QUESTION_52             "map/trivia/questions/tiles_QUESTION_52.png"                NONE ALL
 IMAGE image_QUESTION_53             "map/trivia/questions/tiles_QUESTION_53.png"                NONE ALL
 IMAGE image_QUESTION_54             "map/trivia/questions/tiles_QUESTION_54.png"                NONE ALL
-//IMAGE image_QUESTION_55             "map/trivia/questions/tiles_QUESTION_55.png"                NONE ALL
-//IMAGE image_QUESTION_56             "map/trivia/questions/tiles_QUESTION_56.png"                NONE ALL
+IMAGE image_QUESTION_55             "map/trivia/questions/tiles_QUESTION_55.png"                NONE ALL
+IMAGE image_QUESTION_56             "map/trivia/questions/tiles_QUESTION_56.png"                NONE ALL
 //IMAGE image_QUESTION_57             "map/trivia/questions/tiles_QUESTION_57.png"                NONE ALL
 //IMAGE image_QUESTION_58             "map/trivia/questions/tiles_QUESTION_58.png"                NONE ALL
 //IMAGE image_QUESTION_59             "map/trivia/questions/tiles_QUESTION_59.png"                NONE ALL
