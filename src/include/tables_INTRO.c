@@ -426,7 +426,6 @@ void anim_INTRO_SCREEN_1()
     }
 
 
-
     // STOOGES ANIMATION //
     // SETUP POINTER TO STOOGES ANIMATION TABLE //
     const struct_WALK_STOOGES_ *ptr_ANIM_STOOGES = &TABLE_ANIM_STOOGES_SCREEN_1[G_INDEX_3];
@@ -450,10 +449,13 @@ void anim_INTRO_SCREEN_1()
 
 
     // PLAY VOICE PCM //
-    if(G_COUNTER_1 == 870)
+    if(G_COUNTER_1 == 750) // 870 : SHORT
     {
+        //XGM_stopPlay();
+        
         XGM_startPlayPCM(SOUND_INTRO_SCREEN1,15,SOUND_PCM_CH4);
     }
+
 
     // FADE OUT //
     else if(G_COUNTER_1 == 1067)

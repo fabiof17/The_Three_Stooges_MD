@@ -1,7 +1,7 @@
 #ifndef _RES_SOUND_H_
 #define _RES_SOUND_H_
 
-extern const u8 PCM_INTRO_SCREEN1[58368];
+extern const u8 PCM_INTRO_SCREEN1[88064];
 extern const u8 PCM_BANKER_LAUGH[26624];
 extern const u8 PCM_HAND[1024];
 extern const u8 PCM_ICONS[11776];

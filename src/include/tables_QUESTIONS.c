@@ -12,7 +12,7 @@
 
 
 
-const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
+const struct_QUESTION_      TABLE_QUESTIONS[75]         =   {
                                                                 { &image_QUESTION_0  , 0 }, // THE STOOGES DRESSED UP AS BALLET DANCERS ON WHAT SHOW ?
                                                                 { &image_QUESTION_1  , 2 }, // IN THE YEAR 1935, HOW MANY SHORTS DID THE STOOGES MAKE ?
                                                                 { &image_QUESTION_2  , 2 }, // HOW MANY FILMS DID THE STOOGES DO WITH TED HEALY ?
@@ -58,7 +58,7 @@ const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
                                                                 { &image_QUESTION_42 , 2 }, // WHICH STOOGE LIKED DOGS ?
                                                                 { &image_QUESTION_43 , 1 }, // CURLY HEARS "POP GOES THE WEASEL", WHAT SHOULD YOU DO ?
                                                                 { &image_QUESTION_44 , 0 }, // CURLY GOES CRAZY AFTER SEEING A MOUSE, BETTER FEED HIM...
-                                                                { &image_QUESTION_45 , 2 }, // MOE, CURLY AND SHEMP APPEARED IN ONLY ONE FILM TOGETHER :
+                                                                { &image_QUESTION_45 , 2 }, // MOE, CURLY AND SHEMP APPEARED IN ONLY ONE FILM TOGETHER:
                                                                 { &image_QUESTION_46 , 1 }, // HOW MANY 3D FILMS DID THE STOOGES MAKE ?
                                                                 { &image_QUESTION_47 , 2 }, // IN WHAT YEAR DID THE STOOGES FINISH THEIR LAST FILM ?
                                                                 { &image_QUESTION_48 , 1 }, // WHAT TYPE OF DOGS WERE CURLY'S FAVORITE ?
@@ -70,6 +70,16 @@ const struct_QUESTION_      TABLE_QUESTIONS[65]         =   {
                                                                 { &image_QUESTION_54 , 1 }, // IN WHAT YEAR DID THE STOOGES MAKE THEIR FIRST T.V. PILOT ?
                                                                 { &image_QUESTION_55 , 0 }, // WHAT WAS THE FIRST PRODUCT THE STOOGES ENDORSED ON T.V. ?
                                                                 { &image_QUESTION_56 , 1 }, // IN WHAT YEAR DID THE STOOGES STOP WORKING WITH TED HEALY ?
+                                                                { &image_QUESTION_57 , 0 }, // IN WHAT CITY WAS LARRY DISCOVERED BY MOE ?
+                                                                { &image_QUESTION_58 , 2 }, // WHICH STOOGE WAS SELDOM ON TIME FOR APPOINTMENTS ?
+                                                                { &image_QUESTION_59 , 1 }, // WHAT IS THE STOOGES FILM "MEN IN BLACK" ABOUT ?
+                                                                { &image_QUESTION_60 , 2 }, // IN "MEN IN BLACK" CURLY FIRST SAID WHAT FAMOUS LINE ?
+                                                                { &image_QUESTION_61 , 1 }, // THE STOOGES RECEIVED A STORY CREDIT ONLY ONCE, WAS IT:
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
+                                                                { &image_QUESTION_0  , 0 }, // 
                                                                 { &image_QUESTION_0  , 0 }, // 
                                                                 { &image_QUESTION_0  , 0 }, // 
                                                                 { &image_QUESTION_0  , 0 }, // 

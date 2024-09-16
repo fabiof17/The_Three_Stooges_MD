@@ -1,1 +1,2 @@
-out/res/music.o: res/music.res
+out/res/music.o: res/music.res \
+E:/RECALBOX/07_DEV/07_THREE\ STOOGES/04_CODE/01_SGDK/THREE_STOOGES/res/music/c64/YM2612-DEFENDER-FLAT.vgm

@@ -5,7 +5,7 @@
 //**********************************************************************************//
 
 
-WAV PCM_INTRO_SCREEN1           "sound/sound_INTRO_SCREEN1.wav"     XGM
+WAV PCM_INTRO_SCREEN1           "sound/sound_INTRO_SCREEN1_LONG.wav" XGM
 
 
 WAV PCM_BANKER_LAUGH            "sound/sound_BANKER_LAUGH.wav"      XGM

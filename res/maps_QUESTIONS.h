@@ -58,5 +58,10 @@ extern const Image image_QUESTION_53;
 extern const Image image_QUESTION_54;
 extern const Image image_QUESTION_55;
 extern const Image image_QUESTION_56;
+extern const Image image_QUESTION_57;
+extern const Image image_QUESTION_58;
+extern const Image image_QUESTION_59;
+extern const Image image_QUESTION_60;
+extern const Image image_QUESTION_61;
 
 #endif // _RES_MAPS_QUESTIONS_H_
