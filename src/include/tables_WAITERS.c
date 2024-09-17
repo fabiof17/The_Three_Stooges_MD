@@ -15,12 +15,9 @@
 
 
 
-/*const u8            TABLE_MAX_PIES[4]       =   {
-                                                    51,
-                                                    75,
-                                                    87,
-                                                    129
-                                                };*/
+/*const struct_WALL_PIE_          list_WALL_PIES_LEFT_BG_B[3]                 =   {
+                                                                                    //
+                                                                                };*/
 
 
 
@@ -43,29 +40,6 @@ const Image                     *TABLE_TILES_CURLY[4]                       =   
 
 
 
-/*
-const u8                        TABLE_PROBABILITY_PIE_COLLISION[20]         =   {
-                                                                                    0,
-                                                                                    1,
-                                                                                    0,
-                                                                                    2,
-                                                                                    0,
-                                                                                    0,
-                                                                                    0,
-                                                                                    0,
-                                                                                    0,
-                                                                                    1,
-                                                                                    0,
-                                                                                    2,
-                                                                                    0,
-                                                                                    0,
-                                                                                    0,
-                                                                                    0,
-                                                                                    0,
-                                                                                    1,
-                                                                                    0,
-                                                                                    2
-                                                                                };*/
 const u8                        TABLE_PROBABILITY_PIE_COLLISION[20]         =   {
                                                                                     2,
                                                                                     1,

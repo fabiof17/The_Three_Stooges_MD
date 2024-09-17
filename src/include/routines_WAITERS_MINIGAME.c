@@ -611,6 +611,8 @@ inline static void anim_PIE_WAITERS()
                     //--------------------------------------------------------------------//
                     list_WAITERS[i].state_PIE = PIE_PHASE_SERVED;
 
+                    list_WAITERS[i].pie_DEVIATION = NO_DEVIATION;
+
                     SPR_setPosition(list_WAITERS[i].spr_PIE , ptr_PIE_ANIM->pos_X_PIE , ptr_PIE_ANIM->pos_Y_PIE);
                     SPR_setFrame(list_WAITERS[i].spr_PIE , 0);
 

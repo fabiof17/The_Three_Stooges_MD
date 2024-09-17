@@ -39,6 +39,9 @@ void fadeOut_ROULETTE()
     SPR_reset();
 
     // GENERATE NEW HAND MOVE SEQUENCE //
+    // WE DO A FEW TIMES TO ADD MORE RANDOMNESS //
+    generate_RANDOM_HAND_MOVE();
+    generate_RANDOM_HAND_MOVE();
     generate_RANDOM_HAND_MOVE();
 
     // RANDOM QUESTION //

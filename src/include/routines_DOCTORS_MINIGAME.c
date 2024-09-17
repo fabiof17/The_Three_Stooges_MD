@@ -1897,7 +1897,7 @@ void sequence_DOCTORS_MINIGAME()
         // REACHED THE OPERATION THEATRE //
         if(G_HIT_NUMBER != 5)
         {
-            if(G_COUNTER_1 == 240)
+            if(G_COUNTER_1 == 360) //240
             {
                 // FADE OUT : 40 FRAMES //
                 PAL_fadeOutAll(40,FALSE);
@@ -1937,7 +1937,7 @@ void sequence_DOCTORS_MINIGAME()
         // HIT 5 PATIENTS //
         else
         {
-            if(G_COUNTER_1 == 240)
+            if(G_COUNTER_1 == 360)//240
             {
                 // FADE OUT : 40 FRAMES //
                 PAL_fadeOutAll(40,FALSE);

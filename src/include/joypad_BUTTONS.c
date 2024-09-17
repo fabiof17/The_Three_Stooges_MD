@@ -524,6 +524,9 @@ void waiters_Callback(u16 joy, u16 changed, u16 state)
                         // WAITER GOES TO GRAB PHASE //
                         list_WAITERS[G_SELECTED_WAITER].state_PIE = PIE_PHASE_GRAB;
 
+                        // SET DEVIATION TO NO DEVIATION //
+                        list_WAITERS[G_SELECTED_WAITER].pie_DEVIATION = NO_DEVIATION;
+
                         // ANOTHER PIE CAN NOT BE THROWN IMMEDIATLY //
                         G_ACTION_WAITER_AUTHORIZED = FALSE;
 

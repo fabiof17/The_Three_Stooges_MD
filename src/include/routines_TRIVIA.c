@@ -462,9 +462,6 @@ void sequence_TRIVIA_TYPE1()
                 // RELEASE ALL SPRITES //
                 SPR_reset();
 
-                // GENERATE NEW HAND MOVE SEQUENCE //
-                //generate_RANDOM_HAND_MOVE();
-
                 G_PHASE_SEQUENCE = 0;
 
                 // DEFINE NEXT MINIGAME //
@@ -486,9 +483,6 @@ void sequence_TRIVIA_TYPE1()
                 
                 // DISPLAY HUB //
                 display_HUB();
-
-                // GENERATE NEW HAND MOVE SEQUENCE //
-                //generate_RANDOM_HAND_MOVE();
 
                 G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
                 
@@ -705,9 +699,6 @@ void sequence_TRIVIA_TYPE2()
                 // RELEASE ALL SPRITES //
                 SPR_reset();
 
-                // GENERATE NEW HAND MOVE SEQUENCE //
-                //generate_RANDOM_HAND_MOVE();
-
                 G_PHASE_SEQUENCE = 0;
 
                 // DEFINE NEXT MINIGAME //
@@ -729,9 +720,6 @@ void sequence_TRIVIA_TYPE2()
                 
                 // DISPLAY HUB //
                 display_HUB();
-
-                // GENERATE NEW HAND MOVE SEQUENCE //
-                //generate_RANDOM_HAND_MOVE();
 
                 G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
                 

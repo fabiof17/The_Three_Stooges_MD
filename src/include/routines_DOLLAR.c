@@ -127,9 +127,6 @@ void sequence_DOLLAR()
             // DISPLAY HUB //
             display_HUB();
 
-            // GENERATE NEW HAND MOVE SEQUENCE //
-            //generate_RANDOM_HAND_MOVE();
-
 
             G_COUNTER_1             = 0;
             G_INDEX_1               = 0;
