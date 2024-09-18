@@ -449,9 +449,9 @@ void anim_INTRO_SCREEN_1()
 
 
     // PLAY VOICE PCM //
-    if(G_COUNTER_1 == 750) // 870 : SHORT
+    if(G_COUNTER_1 == 720) // 870 : SHORT
     {
-        //XGM_stopPlay();
+        XGM_stopPlay();
         
         XGM_startPlayPCM(SOUND_INTRO_SCREEN1,15,SOUND_PCM_CH4);
     }

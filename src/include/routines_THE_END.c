@@ -35,19 +35,19 @@ void sequence_THE_END()
             // CLEAR THREE STOOGES LOGO //
             VDP_setTileMapEx(BG_B, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, 0), 21, 8, 0, 0, 38, 12, DMA_QUEUE);
 
-            VDP_setTileMapEx(BG_B, image_THE_END.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 37, 13, 0, 40, 6, 2, DMA_QUEUE);
+            VDP_setTileMapEx(BG_B, image_THE_END.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 37, 13, 0, 40, 6, 3, DMA_QUEUE);
         }
 
-        // MEGADRIVE SCORE : CYBERDEOUS //
+        // MEGADRIVE SCORE : RETROVATION //
         else if(G_COUNTER_1 == 347)
         {
-            VDP_setTileMapEx(BG_B, image_THE_END.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 33, 13, 6, 40, 14, 2, DMA_QUEUE);
+            VDP_setTileMapEx(BG_B, image_THE_END.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 33, 13, 6, 40, 16, 4, DMA_QUEUE);
         }
 
         // THE END LOGO //
         else if(G_COUNTER_1 == 453)
         {
-            VDP_setTileMapEx(BG_B, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, 0), 33, 13, 0, 0, 14, 2, DMA_QUEUE);
+            VDP_setTileMapEx(BG_B, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, 0), 33, 13, 0, 0, 16, 4, DMA_QUEUE);
 
             SPR_setPosition(sprite_THE_END_1,48,48);
             SPR_setPosition(sprite_THE_END_2,160,8);

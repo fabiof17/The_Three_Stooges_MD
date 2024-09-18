@@ -1,14 +1,11 @@
 //**********************************************************************************//
 //                                                                                  //
-//                                  BRUITAGES                                       //
+//                                    MUSICS                                        //
 //                                                                                  //
 //**********************************************************************************//
 
-
-//WAV PCM_MUSIC_ROULETTE       "music/music_ROULETTE.wav"      XGM
-
-XGM MUSIC_DEFENDER              "music/SHORT-DEFENDER-TREMOLO.vgm"    XGM
-
+XGM MUSIC_DEFENDER              "music/SHORT-DEFENDER-TREMOLO-100-BPM.vgm"      XGM
+XGM MUSIC_BANKER                "music/BANKER_LONG_THEME.vgm"                   XGM
 
 
 
