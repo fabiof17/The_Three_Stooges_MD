@@ -1,1 +1,1 @@
-# The_Three_Stooges_MD
+# The Three_Stooges for Sega MegaDrive
