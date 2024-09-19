@@ -307,6 +307,7 @@ void init_VARIABLES()
     //--------------------------------------------------------------------------------------//
 
     XGM_setPCM(SOUND_INTRO_SCREEN1, PCM_INTRO_SCREEN1, sizeof(PCM_INTRO_SCREEN1));
+    XGM_setPCM(SOUND_BIP, PCM_BIP, sizeof(PCM_BIP));
     XGM_setPCM(SOUND_BANKER_LAUGH, PCM_BANKER_LAUGH, sizeof(PCM_BANKER_LAUGH));
 
     //--------------------------------------------------------------------------------------//

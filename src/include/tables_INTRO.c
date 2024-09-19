@@ -495,6 +495,8 @@ void anim_INTRO_SCREEN_2()
     {
         SPR_setFrame(sprite_RADAR,0);
         SPR_setPosition(sprite_RADAR,160,16);
+
+        XGM_startPlayPCM(SOUND_BIP,15,SOUND_PCM_CH4);
     }
 
     else if(G_INDEX_1 == 4)
@@ -579,6 +581,8 @@ void anim_INTRO_SCREEN_2()
     {
         VDP_loadTileSet(image_INTRO_SCREEN_2_BG_A2.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A2.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, DMA_QUEUE);
+
+        //XGM_startPlayPCM(SOUND_BIP,15,SOUND_PCM_CH4);
     }
     
     // DISPLAY NUMBER 3 //
@@ -586,6 +590,8 @@ void anim_INTRO_SCREEN_2()
     {
         VDP_loadTileSet(image_INTRO_SCREEN_2_BG_A3.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A3.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, DMA_QUEUE);
+
+        XGM_startPlayPCM(SOUND_BIP,15,SOUND_PCM_CH4);
     }    
     
 

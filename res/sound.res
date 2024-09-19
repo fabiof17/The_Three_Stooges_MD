@@ -62,7 +62,7 @@ WAV PCM_HEAD_TRIVIA             "sound/sound_HEAD_TRIVIA.wav"       XGM
 WAV PCM_WRONG_ANSWER            "sound/sound_WRONG_ANSWER.wav"      XGM
 
 
-
+WAV PCM_BIP                     "sound/sound_BIP.wav"               XGM
 
 
 

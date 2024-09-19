@@ -480,6 +480,8 @@
 #define SOUND_HEAD_TRIVIA              112
 #define SOUND_WRONG_ANSWER             113
 
+#define SOUND_BIP                      114
+
 
 
 
