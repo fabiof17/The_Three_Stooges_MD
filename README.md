@@ -1,1 +1,1 @@
-# The Three_Stooges for Sega MegaDrive
+# The Three Stooges for Sega MegaDrive
