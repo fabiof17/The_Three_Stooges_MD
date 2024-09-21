@@ -15,4 +15,4 @@ out/src/include/tables_INTRO.o: src/include/tables_INTRO.c \
  C:/sgdk/inc/task_cst.h C:/sgdk/inc/ext/flash-save/flash.h \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h res/palettes.h \
  src/include/structures.h src/include/variables.h res/maps_INTRO.h \
- res/sprites_GLOBAL.h res/sprites_INTRO.h
+ res/music.h res/sprites_GLOBAL.h res/sprites_INTRO.h

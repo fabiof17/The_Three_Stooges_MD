@@ -139,7 +139,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_INTRO)
     {
-        G_SCENE_TYPE = SCENE_INTRO_SCREEN_1;
+        G_SCENE_TYPE = SCENE_INTRO_SCREEN_3;
     }
 
     else if(G_REEL == REEL_GAME)
@@ -987,11 +987,15 @@ void init_INTRO()
         G_SCENE_LOADED          = TRUE;
 
 
+
+
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
         //                                         AUDIO                                        //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
+
+        XGM_startPlay(MUSIC_INTRO);
     }
 
     // INTRO SCREEN 4 //
@@ -1122,6 +1126,9 @@ void init_INTRO()
         G_SCENE_NEXT            = SCENE_INTRO_SCREEN_4;
 
         G_SCENE_LOADED          = TRUE;
+
+
+        waitMs(2500);
 
 
         //--------------------------------------------------------------------------------------//
@@ -1585,7 +1592,7 @@ void init_INTRO()
 
         XGM_startPlay(MUSIC_BANKER);
 
-        waitMs(2000);
+        waitMs(2500);
     }
 }
 

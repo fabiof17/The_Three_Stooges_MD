@@ -11,6 +11,11 @@
 #include "maps_INTRO.h"
 
 
+
+#include "music.h"
+
+
+
 #include "sprites_GLOBAL.h"
 #include "sprites_INTRO.h"
 
@@ -582,7 +587,7 @@ void anim_INTRO_SCREEN_2()
         VDP_loadTileSet(image_INTRO_SCREEN_2_BG_A2.tileset, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile, DMA_QUEUE);
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A2.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, DMA_QUEUE);
 
-        //XGM_startPlayPCM(SOUND_BIP,15,SOUND_PCM_CH4);
+        XGM_startPlayPCM(SOUND_BIP,15,SOUND_PCM_CH4);
     }
     
     // DISPLAY NUMBER 3 //
@@ -673,7 +678,7 @@ void anim_INTRO_SCREEN_3_1()
     }
 
 
-    if(G_COUNTER_1 == 1147)
+    if(G_COUNTER_1 == 1147)//1147
     {
         // COUNTERS RESET //
         G_COUNTER_1             = 0;
@@ -683,6 +688,8 @@ void anim_INTRO_SCREEN_3_1()
         
         // GO TO FADE OUT SEQUENCE //
         G_SCENE     = SCENE_FADE_OUT;
+
+        //waitMs(6000);
 
         return;
     }
@@ -893,6 +900,15 @@ void anim_INTRO_SCREEN_7_1()
         G_INDEX_2       = 0;
         G_INDEX_3       = 0;
 
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         AUDIO                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        //XGM_setLoopNumber(1);
+        XGM_startPlay(MUSIC_GRANDMA);
+        
         // SKIP COUNTER INCREMENT //
         return;
     }

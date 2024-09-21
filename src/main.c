@@ -310,11 +310,13 @@ int main(bool hardReset)
                     // FADE OUT : 30 FRAMES //
                     PAL_fadeOutAll(30,FALSE);
 
+                    // STOP SOUND EFFECTS //
                     if(XGM_isPlayingPCM(SOUND_PCM_CH4_MSK) != 0)
                     {
                         XGM_stopPlayPCM(SOUND_PCM_CH4);
                     }
 
+                    // STOP MUSIC //
                     if(XGM_isPlaying() == TRUE)
                     {
                         XGM_stopPlay();
