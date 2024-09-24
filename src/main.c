@@ -217,6 +217,8 @@ int main(bool hardReset)
                     JOY_setEventHandler(intro_Callback);
                     
                     anim_INTRO_SCREEN_7();
+
+                    //VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_1,4,0,0,PAL2);
                     
                     SPR_update();
                     SYS_doVBlankProcess();
@@ -242,17 +244,17 @@ int main(bool hardReset)
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_4)
                     {
-                        PAL_fadeInAll(palette_64, 30, FALSE);
+                        PAL_fadeInAll(palette_64, 16, FALSE);
                     }
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_5)
                     {
-                        PAL_fadeInAll(palette_64, 30, FALSE);
+                        PAL_fadeInAll(palette_64, 4, FALSE);
                     }
                     
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_6)
                     {
-                        PAL_fadeInAll(palette_64, 30, FALSE);
+                        PAL_fadeInAll(palette_64, 4, FALSE);
                     }
 
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_7)

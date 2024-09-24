@@ -2,6 +2,7 @@
 #define _RES_SOUND_H_
 
 extern const u8 PCM_INTRO_SCREEN1[97280];
+extern const u8 PCM_MONEY_QUICK[26368];
 extern const u8 PCM_BANKER_LAUGH[26624];
 extern const u8 PCM_HAND[1024];
 extern const u8 PCM_ICONS[11776];

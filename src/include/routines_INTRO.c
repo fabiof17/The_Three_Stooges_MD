@@ -80,7 +80,7 @@ void fadeOut_INTRO_SCREEN_3()
 void fadeOut_INTRO_SCREEN_4()
 {
     // FADE OUT : 30 FRAMES //
-    PAL_fadeOutAll(30,FALSE);
+    PAL_fadeOutAll(4,FALSE);
 
     // CLEAR PLANES //
     VDP_clearPlane(BG_B,TRUE);
@@ -101,7 +101,7 @@ void fadeOut_INTRO_SCREEN_4()
 void fadeOut_INTRO_SCREEN_5()
 {
     // FADE OUT : 30 FRAMES //
-    PAL_fadeOutAll(30,FALSE);
+    PAL_fadeOutAll(4,FALSE);
 
     // CLEAR PLANES //
     VDP_clearPlane(BG_B,TRUE);

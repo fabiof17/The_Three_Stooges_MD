@@ -1037,6 +1037,7 @@ void anim_INTRO_SCREEN_7_3()
         SPR_setPosition(sprite_ARROW_DIALOG , 125 , 128);
     }
 
+    // OUR HOUSE NEEDS REPAIRS...//
     else if(G_COUNTER_1 == 249)
     {
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 10, 12, 10, 12, 14, 4, DMA_QUEUE);
@@ -1048,11 +1049,13 @@ void anim_INTRO_SCREEN_7_3()
         SPR_setFrame(sprite_ARROW_DIALOG , 1);
     }
 
+    // AND IF WE DON'T PAY...//
     else if(G_COUNTER_1 == 621)
     {
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_INTRO_SCREEN_7_DIALOG.tileset->numTile), 3, 5, 0, 9, 15, 5, DMA_QUEUE);
     }
 
+    // DON'T WORRY LADY... //
     else if(G_COUNTER_1 == 1447)
     {
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 2, 4, 2, 4, 17, 7, DMA_QUEUE);
@@ -1064,12 +1067,21 @@ void anim_INTRO_SCREEN_7_3()
         SPR_setFrame(sprite_ARROW_DIALOG , 0);
     }
 
+    // ERASE DIALOG //
     else if(G_COUNTER_1 == 1681)
     {
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_7_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 10, 10, 10, 10, 15, 6, DMA_QUEUE);
 
         SPR_releaseSprite(sprite_ARROW_DIALOG);
         sprite_ARROW_DIALOG = NULL;
+
+        XGM_startPlayPCM(SOUND_MONEY_QUICK,15,SOUND_PCM_CH4);
+    }
+
+    // STOOGES LEAVE GRANDMA //
+    else if(G_COUNTER_1 == 1867)
+    {
+        XGM_startPlay(MUSIC_BILLBOARDS);
     }
 
 

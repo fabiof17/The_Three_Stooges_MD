@@ -139,12 +139,12 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_INTRO)
     {
-        G_SCENE_TYPE = SCENE_INTRO_SCREEN_2;
+        G_SCENE_TYPE = SCENE_INTRO_SCREEN_7;
     }
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_BANK; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
     else if(G_REEL == REEL_THE_END)
@@ -309,6 +309,7 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_INTRO_SCREEN1, PCM_INTRO_SCREEN1, sizeof(PCM_INTRO_SCREEN1));
     XGM_setPCM(SOUND_BIP, PCM_BIP, sizeof(PCM_BIP));
     XGM_setPCM(SOUND_BANKER_LAUGH, PCM_BANKER_LAUGH, sizeof(PCM_BANKER_LAUGH));
+    XGM_setPCM(SOUND_MONEY_QUICK, PCM_MONEY_QUICK, sizeof(PCM_MONEY_QUICK));
 
     //--------------------------------------------------------------------------------------//
     //                                       ROULETTE                                       //
@@ -1136,6 +1137,8 @@ void init_INTRO()
         //                                         AUDIO                                        //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
+
+        XGM_startPlay(MUSIC_BILLBOARDS);
     }
 
     // INTRO SCREEN 5 //
@@ -1589,6 +1592,8 @@ void init_INTRO()
         //                                         AUDIO                                        //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
+
+        waitMs(2000);
 
         XGM_startPlay(MUSIC_BANKER);
 

@@ -67,6 +67,7 @@
 #define SCENE_INTRO_SCREEN_7            7
 #define SCENE_INTRO_EXIT                8
 
+
 #define SCENE_FADE_IN                   40
 #define SCENE_FADE_OUT                  41
 
@@ -481,6 +482,7 @@
 #define SOUND_WRONG_ANSWER             113
 
 #define SOUND_BIP                      114
+#define SOUND_MONEY_QUICK              115
 
 
 

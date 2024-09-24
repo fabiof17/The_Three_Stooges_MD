@@ -2,8 +2,9 @@
 
 
 
-//#include "palettes.h"
+
 #include "custom_tools.h"
+#include "music.h"
 #include "structures.h"
 #include "variables.h"
 
@@ -59,6 +60,8 @@ void sequence_BANK()
             
             G_PHASE_SEQUENCE = BANKER_PHASE_APPEAR;
 
+            XGM_startPlay(MUSIC_BANKER);
+
             return;
         }
 
@@ -76,6 +79,12 @@ void sequence_BANK()
             // BANKER SHOW UP //
             SPR_setPosition(sprite_BANKER[0] , 135 , 107);
             SPR_setPosition(sprite_BANKER[1] , 135 , 107);
+        }
+
+        // EVIL LAUGH //
+        else if(G_COUNTER_1 == 538)
+        {
+            XGM_startPlayPCM(SOUND_BANKER_LAUGH,15,SOUND_PCM_CH4);
         }
 
         // DISPLAY DIALOG //
