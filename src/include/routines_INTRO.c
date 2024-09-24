@@ -161,6 +161,8 @@ void fadeOut_INTRO_SCREEN_7()
     G_SCENE_NEXT        = SCENE_ROULETTE;
 
     G_SCENE_LOADED      = FALSE;
+
+    waitMs(4000);
 }
 
 
