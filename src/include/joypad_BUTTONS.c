@@ -35,12 +35,12 @@ void pause_Callback(u16 joy, u16 changed, u16 state)
     {
         if(joy == JOY_1)
         {
-            // BOUTON B //
+            // BOUTON START //
             if( changed & state & BUTTON_START )
             {
                 if(G_PAUSE == FALSE)
                 {
-                    //XGM_pausePlay();
+                    XGM_pausePlay();
 
                     SPR_setPosition(sprite_PAUSE,144,184);//176
 
@@ -51,7 +51,7 @@ void pause_Callback(u16 joy, u16 changed, u16 state)
 
                 else
                 {
-                    //XGM_resumePlay();
+                    XGM_resumePlay();
 
                     SPR_setPosition(sprite_PAUSE,0,-8);
 
@@ -75,7 +75,7 @@ void intro_Callback(u16 joy, u16 changed, u16 state)
         {
             // BOUTON B //
             if( changed & state & BUTTON_START )
-            {                
+            {                                
                 G_SCENE = SCENE_INTRO_EXIT;
             }
         }
@@ -194,6 +194,8 @@ void trivia_Callback(u16 joy, u16 changed, u16 state)
 
                     G_PHASE_SEQUENCE = TRIVIA_PHASE_RESULT;
                 }
+            
+                XGM_stopPlay();
             }
         }
     }

@@ -15,6 +15,11 @@
 
 
 
+#include "music.h"
+
+
+
+
 #include "tables_BOXING.h"
 
 
@@ -23,7 +28,7 @@ void sequence_CONTRACT_BOXING()
 {
     if(G_PHASE_SEQUENCE == CONTRACT_PHASE)
     {
-        if(G_COUNTER_1 == 600)
+        if(G_COUNTER_1 == 360)//600
         {
             G_PHASE_SEQUENCE = CONTRACT_PHASE_FADE_OUT;
         }
@@ -89,6 +94,12 @@ void sequence_BOXING()
         }
     }
 
+
+    // START MUSIC //
+    /*if(G_COUNTER_1 == 575)
+    {
+        XGM_startPlay(MUSIC_BOXING);
+    }*/
 
     // GET YOUR FIDDLE, PORCUPINE! //
     if(G_COUNTER_1 == 710)

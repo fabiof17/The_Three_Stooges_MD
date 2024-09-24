@@ -14,7 +14,7 @@ out/src/include/routines_ROULETTE.o: src/include/routines_ROULETTE.c \
  C:/sgdk/inc/joy.h C:/sgdk/inc/timer.h C:/sgdk/inc/task.h \
  C:/sgdk/inc/task_cst.h C:/sgdk/inc/ext/flash-save/flash.h \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
- src/include/custom_tools.h res/palettes.h res/sound.h \
+ src/include/custom_tools.h res/music.h res/palettes.h res/sound.h \
  src/include/structures.h src/include/variables.h res/maps_GLOBAL.h \
  res/maps_ROULETTE.h res/sprites_GLOBAL.h res/sprites_ROULETTE.h \
  src/include/tables_GLOBAL.h src/include/tables_ROULETTE.h

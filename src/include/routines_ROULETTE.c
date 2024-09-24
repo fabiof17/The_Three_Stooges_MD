@@ -2,6 +2,7 @@
 
 
 #include "custom_tools.h"
+#include "music.h"
 #include "palettes.h"
 #include "sound.h"
 #include "structures.h"
@@ -566,7 +567,7 @@ void sequence_ROULETTE()
             else if(G_COUNTER_ROULETTE == 300)
             {
                 /// PLAY MUSIC //
-                //XGM_startPlayPCM(MUSIC_ROULETTE,15,SOUND_PCM_CH4);
+                XGM_startPlay(MUSIC_WALK_1);
 
                 // REINIT COUNTER //
                 G_COUNTER_ROULETTE = 0;

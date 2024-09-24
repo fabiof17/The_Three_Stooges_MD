@@ -3,6 +3,7 @@
 
 
 #include "custom_tools.h"
+#include "music.h"
 #include "palettes.h"
 #include "structures.h"
 #include "variables.h"
@@ -331,13 +332,14 @@ void sequence_TRIVIA_TYPE1()
 
             SPR_setFrame(sprite_STOOGES,20);
             SPR_setPosition(sprite_STOOGES,114,133);
+
+            XGM_startPlay(MUSIC_TRIVIA);
         }
 
         // ANIM ANSWERS //
         else if(G_COUNTER_1 == 1198)
         {
             SPR_setFrame(sprite_STOOGES,21);
-            //SPR_setPosition(sprite_STOOGES,114,133);
         }
 
         // ANIM ANSWERS //
@@ -572,10 +574,10 @@ void sequence_TRIVIA_TYPE2()
     // STOOGES TURN BACK //
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_TURN_BACK)
     {
-        //
-        
         if(G_COUNTER_1 == 0)
         {
+            XGM_startPlay(MUSIC_TRIVIA);
+            
             SPR_setFrame(sprite_STOOGES,20);
         }
 

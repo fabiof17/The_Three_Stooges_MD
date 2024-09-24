@@ -15,4 +15,4 @@ out/src/include/routines_BOXING.o: src/include/routines_BOXING.c \
  C:/sgdk/inc/task_cst.h C:/sgdk/inc/ext/flash-save/flash.h \
  C:/sgdk/inc/types.h C:/sgdk/inc/ext/flash-save/saveman.h \
  src/include/structures.h src/include/variables.h res/maps_BOXING.h \
- res/maps_GLOBAL.h src/include/tables_BOXING.h
+ res/maps_GLOBAL.h res/music.h src/include/tables_BOXING.h

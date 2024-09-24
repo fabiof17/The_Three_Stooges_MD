@@ -173,7 +173,7 @@ int main(bool hardReset)
                     JOY_setEventHandler(intro_Callback);
                     
                     anim_INTRO_SCREEN_3();
-                    
+                  
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -306,7 +306,7 @@ int main(bool hardReset)
 
                 // EXIT //
                 else if(G_SCENE == SCENE_INTRO_EXIT)
-                {
+                {                    
                     // FADE OUT : 30 FRAMES //
                     PAL_fadeOutAll(30,FALSE);
 
@@ -317,7 +317,7 @@ int main(bool hardReset)
                     }
 
                     // STOP MUSIC //
-                    if(XGM_isPlaying() == TRUE)
+                    if(XGM_isPlaying() != FALSE)
                     {
                         XGM_stopPlay();
                     }

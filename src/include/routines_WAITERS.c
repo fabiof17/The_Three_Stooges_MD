@@ -14,6 +14,11 @@
 
 
 
+#include "music.h"
+
+
+
+
 #include "tables_BOXING.h"
 
 
@@ -98,6 +103,8 @@ void sequence_WAITERS()
     {
         VDP_setTileMapEx(BG_B, image_STREET_WAITERS_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_STREET_WAITERS_BG_B1.tileset->numTile), 16, 11, 0, 0, 5, 11, DMA_QUEUE);
         VDP_setTileMapEx(BG_A, image_STREET_WAITERS_BG_A2.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_STREET_WAITERS_BG_A1.tileset->numTile), 16, 11, 0, 0, 5, 11, DMA_QUEUE);
+
+        XGM_startPlay(MUSIC_WAITERS);
     }
 
 
