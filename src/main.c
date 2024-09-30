@@ -63,6 +63,8 @@ int main(bool hardReset)
             // LOADING DISCLAIMER SCREEN //
             if(G_SCENE_LOADED == FALSE)
             {
+                JOY_setEventHandler(disable_Callback);
+                
                 init_DISCLAIMER();
             }
 
@@ -101,6 +103,8 @@ int main(bool hardReset)
             // LOADING SGDK LOGO SCREEN //
             if(G_SCENE_LOADED == FALSE)
             {
+                JOY_setEventHandler(disable_Callback);
+                
                 init_LOGO();
             }
 
@@ -139,6 +143,8 @@ int main(bool hardReset)
             // LOADING INTRO SCREEN //
             if(G_SCENE_LOADED == FALSE)
             {
+                JOY_setEventHandler(disable_Callback);
+                
                 init_INTRO();
             }
 
@@ -359,6 +365,8 @@ int main(bool hardReset)
             // LOADING GAME SEQUENCE //
             if(G_SCENE_LOADED == FALSE)
             {
+                JOY_setEventHandler(disable_Callback);
+                
                 init_SCENE();
 
                 // INTRO SCREEN LOADED //
@@ -488,9 +496,8 @@ int main(bool hardReset)
                     JOY_setEventHandler(trivia_Callback);
                     joypad_TRIVIA();
                     
-                    
                     sequence_TRIVIA_TYPE1();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -502,7 +509,7 @@ int main(bool hardReset)
                     joypad_TRIVIA();
 
                     sequence_TRIVIA_TYPE2();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -787,6 +794,8 @@ int main(bool hardReset)
             // LOADING THE END SCREEN //
             if(G_SCENE_LOADED == FALSE)
             {
+                JOY_setEventHandler(disable_Callback);
+                
                 init_THE_END();
             }
 

@@ -144,7 +144,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_BANK; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
     }
 
     else if(G_REEL == REEL_THE_END)
@@ -316,7 +316,7 @@ void init_VARIABLES()
     //--------------------------------------------------------------------------------------//
 
     XGM_setPCM(SOUND_HAND, PCM_HAND, sizeof(PCM_HAND));
-    XGM_setPCM(SOUND_WALKOUT, PCM_ICONS, sizeof(PCM_ICONS));
+    XGM_setPCM(SOUND_WALKOUT, PCM_LETS_RIDE, sizeof(PCM_LETS_RIDE));
     XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));
 
 
@@ -2808,7 +2808,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        //XGM_setPCM(SOUND_WALKOUT, PCM_ICONS, sizeof(PCM_ICONS));
+        //XGM_setPCM(SOUND_WALKOUT, PCM_LETS_RIDE, sizeof(PCM_LETS_RIDE));
         //XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));        
     }
 
@@ -3557,7 +3557,7 @@ void init_SCENE()
 
         //XGM_setPCM(MUSIC_ROULETTE, PCM_MUSIC_ROULETTE, sizeof(PCM_MUSIC_ROULETTE));
         
-        //XGM_setPCM(SOUND_WALKOUT, PCM_ICONS, sizeof(PCM_ICONS));
+        //XGM_setPCM(SOUND_WALKOUT, PCM_LETS_RIDE, sizeof(PCM_LETS_RIDE));
         //XGM_setPCM(SOUND_SWATTER, PCM_SWATTER, sizeof(PCM_SWATTER));
     }  
 

@@ -5,7 +5,7 @@ extern const u8 PCM_INTRO_SCREEN1[97280];
 extern const u8 PCM_MONEY_QUICK[26368];
 extern const u8 PCM_BANKER_LAUGH[26624];
 extern const u8 PCM_HAND[1024];
-extern const u8 PCM_ICONS[11776];
+extern const u8 PCM_LETS_RIDE[11776];
 extern const u8 PCM_SWATTER[5120];
 extern const u8 PCM_HEAD_SHOCK[5376];
 extern const u8 PCM_JOY_CRY[10240];

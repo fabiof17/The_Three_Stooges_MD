@@ -53,103 +53,135 @@ void fadeOut_TRIVIA()
 
 inline static void anim_ANSWER()
 {
-    // B //
-    if(G_COUNTER_1 == 0)
+    if(G_PHASE_SEQUENCE == TRIVIA_PHASE_ANIM_ANSWERS)
     {
-        SPR_setPosition(sprite_ANSWER_B,138,90);
+        // B //
+        if(G_COUNTER_1 == 0)
+        {
+            SPR_setPosition(sprite_ANSWER_B,138,90);
+            
+            SPR_setPosition(sprite_ANSWER_A,-48,-48);
+            SPR_setPosition(sprite_ANSWER_C,-48,-48);
+        }
+
+        // C //
+        if(G_COUNTER_1 == 1)
+        {
+            SPR_setPosition(sprite_ANSWER_C,186,100);
+            
+            SPR_setPosition(sprite_ANSWER_A,-48,-48);
+            SPR_setPosition(sprite_ANSWER_B,-48,-48);
+        }
+
+        // A //
+        if(G_COUNTER_1 == 3)
+        {
+            SPR_setPosition(sprite_ANSWER_A,90,100);
+            
+            SPR_setPosition(sprite_ANSWER_B,-48,-48);
+            SPR_setPosition(sprite_ANSWER_C,-48,-48);
+        }
+
+        // B //
+        if(G_COUNTER_1 == 5)
+        {
+            SPR_setPosition(sprite_ANSWER_B,138,90);
+            
+            SPR_setPosition(sprite_ANSWER_A,-48,-48);
+            SPR_setPosition(sprite_ANSWER_C,-48,-48);
+        }
+
+        // A //
+        if(G_COUNTER_1 == 6)
+        {
+            SPR_setPosition(sprite_ANSWER_A,90,100);
+            
+            SPR_setPosition(sprite_ANSWER_B,-48,-48);
+            SPR_setPosition(sprite_ANSWER_C,-48,-48);
+        }
+
+        // B //
+        if(G_COUNTER_1 == 7)
+        {
+            SPR_setPosition(sprite_ANSWER_B,138,90);
+            
+            SPR_setPosition(sprite_ANSWER_A,-48,-48);
+            SPR_setPosition(sprite_ANSWER_C,-48,-48);
+        }
+
+        // C //
+        if(G_COUNTER_1 == 9)
+        {
+            SPR_setPosition(sprite_ANSWER_C,186,100);
+            
+            SPR_setPosition(sprite_ANSWER_A,-48,-48);
+            SPR_setPosition(sprite_ANSWER_B,-48,-48);
+        }
+
+        // A //
+        if(G_COUNTER_1 == 11)
+        {
+            SPR_setPosition(sprite_ANSWER_A,90,100);
+            
+            SPR_setPosition(sprite_ANSWER_B,-48,-48);
+            SPR_setPosition(sprite_ANSWER_C,-48,-48);
+        }
+
+        // C //
+        if(G_COUNTER_1 == 12)
+        {
+            SPR_setPosition(sprite_ANSWER_C,186,100);
+            
+            SPR_setPosition(sprite_ANSWER_A,-48,-48);
+            SPR_setPosition(sprite_ANSWER_B,-48,-48);
+        }
+
+        // A //
+        if(G_COUNTER_1 == 13)
+        {
+            SPR_setPosition(sprite_ANSWER_A,90,100);
+            
+            SPR_setPosition(sprite_ANSWER_B,-48,-48);
+            SPR_setPosition(sprite_ANSWER_C,-48,-48);
+        }
+
+
+
+        G_COUNTER_1 += 1;
+
+        if(G_COUNTER_1 == 15)
+        {
+            G_COUNTER_1 = 0;
+        }
+    }
+}
+
+
+inline static void timeout_ANSWER()
+{
+    // IF MUSIC REACHED ITS END //
+    // A RANDOM ANSWER IS CHOOSEN //
+    if(XGM_isPlaying() < 64)
+    {
+        G_SELECTED_ANSWER = random_NUMBER(0,2);
+
+        if(G_SELECTED_ANSWER == TABLE_QUESTIONS[G_SELECTED_QUESTION].answer)
+        {
+            G_STATUS_MISSION = SUCCESS;
+        }
+
+        else
+        {
+            G_STATUS_MISSION = FAILED;
+        }
+
+        SPR_setFrame(sprite_STOOGES,25);
         
         SPR_setPosition(sprite_ANSWER_A,-48,-48);
-        SPR_setPosition(sprite_ANSWER_C,-48,-48);
-    }
-
-    // C //
-    if(G_COUNTER_1 == 1)
-    {
-        SPR_setPosition(sprite_ANSWER_C,186,100);
-        
-        SPR_setPosition(sprite_ANSWER_A,-48,-48);
-        SPR_setPosition(sprite_ANSWER_B,-48,-48);
-    }
-
-    // A //
-    if(G_COUNTER_1 == 3)
-    {
-        SPR_setPosition(sprite_ANSWER_A,90,100);
-        
         SPR_setPosition(sprite_ANSWER_B,-48,-48);
         SPR_setPosition(sprite_ANSWER_C,-48,-48);
-    }
 
-    // B //
-    if(G_COUNTER_1 == 5)
-    {
-        SPR_setPosition(sprite_ANSWER_B,138,90);
-        
-        SPR_setPosition(sprite_ANSWER_A,-48,-48);
-        SPR_setPosition(sprite_ANSWER_C,-48,-48);
-    }
-
-    // A //
-    if(G_COUNTER_1 == 6)
-    {
-        SPR_setPosition(sprite_ANSWER_A,90,100);
-        
-        SPR_setPosition(sprite_ANSWER_B,-48,-48);
-        SPR_setPosition(sprite_ANSWER_C,-48,-48);
-    }
-
-    // B //
-    if(G_COUNTER_1 == 7)
-    {
-        SPR_setPosition(sprite_ANSWER_B,138,90);
-        
-        SPR_setPosition(sprite_ANSWER_A,-48,-48);
-        SPR_setPosition(sprite_ANSWER_C,-48,-48);
-    }
-
-    // C //
-    if(G_COUNTER_1 == 9)
-    {
-        SPR_setPosition(sprite_ANSWER_C,186,100);
-        
-        SPR_setPosition(sprite_ANSWER_A,-48,-48);
-        SPR_setPosition(sprite_ANSWER_B,-48,-48);
-    }
-
-    // A //
-    if(G_COUNTER_1 == 11)
-    {
-        SPR_setPosition(sprite_ANSWER_A,90,100);
-        
-        SPR_setPosition(sprite_ANSWER_B,-48,-48);
-        SPR_setPosition(sprite_ANSWER_C,-48,-48);
-    }
-
-    // C //
-    if(G_COUNTER_1 == 12)
-    {
-        SPR_setPosition(sprite_ANSWER_C,186,100);
-        
-        SPR_setPosition(sprite_ANSWER_A,-48,-48);
-        SPR_setPosition(sprite_ANSWER_B,-48,-48);
-    }
-
-    // A //
-    if(G_COUNTER_1 == 13)
-    {
-        SPR_setPosition(sprite_ANSWER_A,90,100);
-        
-        SPR_setPosition(sprite_ANSWER_B,-48,-48);
-        SPR_setPosition(sprite_ANSWER_C,-48,-48);
-    }
-
-
-
-    G_COUNTER_1 += 1;
-
-    if(G_COUNTER_1 == 15)
-    {
-        G_COUNTER_1 = 0;
+        G_PHASE_SEQUENCE = TRIVIA_PHASE_RESULT;
     }
 }
 
@@ -383,6 +415,8 @@ void sequence_TRIVIA_TYPE1()
     // ANIM ANSWERS //
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_ANIM_ANSWERS)
     {
+        timeout_ANSWER();
+        
         anim_ANSWER();
     }
 
@@ -390,6 +424,7 @@ void sequence_TRIVIA_TYPE1()
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_CHOICE)
     {
         // WAIT JOYPAD INPUT //
+        timeout_ANSWER();
     }
 
     // GETTING RESULT //
@@ -577,7 +612,7 @@ void sequence_TRIVIA_TYPE2()
         if(G_COUNTER_1 == 0)
         {
             XGM_startPlay(MUSIC_TRIVIA);
-            
+
             SPR_setFrame(sprite_STOOGES,20);
         }
 
@@ -620,6 +655,8 @@ void sequence_TRIVIA_TYPE2()
     // ANIM ANSWERS //
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_ANIM_ANSWERS)
     {
+        timeout_ANSWER();
+        
         anim_ANSWER();
     }
 
@@ -627,6 +664,7 @@ void sequence_TRIVIA_TYPE2()
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_CHOICE)
     {
         // WAIT JOYPAD INPUT //
+        timeout_ANSWER();
     }
 
     // GETTING RESULT //
