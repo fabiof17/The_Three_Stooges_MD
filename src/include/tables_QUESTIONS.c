@@ -12,7 +12,7 @@
 
 
 
-const struct_QUESTION_      TABLE_QUESTIONS[75]         =   {
+const struct_QUESTION_      TABLE_QUESTIONS[74]         =   {
                                                                 { &image_QUESTION_0  , 0 }, // THE STOOGES DRESSED UP AS BALLET DANCERS ON WHAT SHOW ?
                                                                 { &image_QUESTION_1  , 2 }, // IN THE YEAR 1935, HOW MANY SHORTS DID THE STOOGES MAKE ?
                                                                 { &image_QUESTION_2  , 2 }, // HOW MANY FILMS DID THE STOOGES DO WITH TED HEALY ?
@@ -75,17 +75,16 @@ const struct_QUESTION_      TABLE_QUESTIONS[75]         =   {
                                                                 { &image_QUESTION_59 , 1 }, // WHAT IS THE STOOGES FILM "MEN IN BLACK" ABOUT ?
                                                                 { &image_QUESTION_60 , 2 }, // IN "MEN IN BLACK" CURLY FIRST SAID WHAT FAMOUS LINE ?
                                                                 { &image_QUESTION_61 , 1 }, // THE STOOGES RECEIVED A STORY CREDIT ONLY ONCE, WAS IT:
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }, // 
-                                                                { &image_QUESTION_0  , 0 }  // 
+                                                                { &image_QUESTION_62 , 0 }, // WHEN LARRY'S VIOLIN IS BROKEN IN "PUNCH DRUNKS" HE GETS :
+                                                                { &image_QUESTION_63 , 2 }, // WHAT WAS THE STADIUM NAMED IN "THREE LITTLE PIGSKINS"?
+                                                                { &image_QUESTION_64 , 1 }, // WHICH STOOGE LIKED TO COLLECT STAMPS ?
+                                                                { &image_QUESTION_65 , 0 }, // WHICH STOOGE WAS VERY SHY?
+                                                                { &image_QUESTION_66 , 2 }, // THE FIRST YEAR WITH COLUMBIA, THE STOOGES FILMED:
+                                                                { &image_QUESTION_67 , 1 }, // WHICH STOOGE WAS VERY CONSIDERED THE LEADER OF THE GROUP ?
+                                                                { &image_QUESTION_68 , 0 }, // WHICH STOOGE WAS VERY CRYBABY THE LEADER OF THE GROUP ?
+                                                                { &image_QUESTION_69 , 0 }, // INT THE YRAR 1939, THE STOOGES MADE HOW MANY CDMEMDIES ?
+                                                                { &image_QUESTION_70 , 2 }, // WHICH STOOGE HAD NORMAN MAURER AS A SON IN LAW ?
+                                                                { &image_QUESTION_71 , 1 }, // WHICH FOOTBALL TEAM WS USED IN "THREE LITTLE PIGSKINS" ?
+                                                                { &image_QUESTION_72 , 0 }, // WHICH STOOGE WAS A LIFEGUARD AS A TEENAGER ?
+                                                                { &image_QUESTION_73 , 2 }  // WHICH STOOGE DIDN'T PLAY UKULELE ?
                                                             };

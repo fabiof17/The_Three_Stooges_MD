@@ -238,6 +238,8 @@ u8 G_COUNTER_OYSTER;
 
 u8 G_SPOON_FRAME;
 
+u8 G_MISS;
+
 
 
 

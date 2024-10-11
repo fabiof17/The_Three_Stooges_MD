@@ -46,7 +46,7 @@ void fadeOut_ROULETTE()
     generate_RANDOM_HAND_MOVE();
 
     // RANDOM QUESTION //
-    G_SELECTED_QUESTION = random_NUMBER(0,74);
+    G_SELECTED_QUESTION = random_NUMBER(0,73);
 
     G_COUNTER_ROULETTE      = 0;
     G_CURRENT_TURN          = 9;

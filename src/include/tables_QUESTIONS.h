@@ -4,7 +4,7 @@
 
 
 
-extern const struct_QUESTION_      TABLE_QUESTIONS[75];
+extern const struct_QUESTION_      TABLE_QUESTIONS[74];
 
 
 #endif // _MAIN

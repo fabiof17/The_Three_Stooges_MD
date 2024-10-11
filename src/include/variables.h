@@ -711,6 +711,8 @@ extern u8 G_COUNTER_OYSTER;
 
 extern u8 G_SPOON_FRAME;
 
+extern u8 G_MISS;
+
 
 
 

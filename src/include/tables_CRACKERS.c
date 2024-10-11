@@ -341,6 +341,8 @@ void anim_CRACKERS_SCREEN_SPREAD()
         G_COUNTER_CRACKERS  = 0;
         G_INDEX_1           = 0;
 
+        G_MISS              = 0;
+
         // DEFINE NEXT MINIGAME //
         G_SCENE             = SCENE_FADE_OUT_CRACKERS;
         G_SCENE_TYPE        = SCENE_CRACKERS_MINIGAME;

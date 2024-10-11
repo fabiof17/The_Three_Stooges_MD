@@ -200,25 +200,29 @@ inline static void anim_OYSTER()
 
                     G_NUMBER_CRACKERS -= 1;
 
+                    G_MISS += 1;
 
 
+                    
                     XGM_startPlayPCM(SOUND_OYSTER,15,SOUND_PCM_CH4);
 
 
+                    if(G_MISS == 2)
+                    {
+                        PAL_fadeOutAll(2,FALSE);
 
-                    PAL_fadeOutAll(2,FALSE);
+                        SPR_reset();
 
-                    SPR_reset();
+                        G_CRACKERS_SCREEN_TYPE = random_NUMBER(1,4);
 
-                    G_CRACKERS_SCREEN_TYPE = random_NUMBER(1,4);
+                        G_SCENE                 = SCENE_FADE_OUT_CRACKERS;
+                        G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
+                        G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
 
-                    G_SCENE                 = SCENE_FADE_OUT_CRACKERS;
-                    G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
-                    G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
+                        G_SCENE_LOADED          = FALSE;
 
-                    G_SCENE_LOADED          = FALSE;
-
-                    return;
+                        return;
+                    }                    
                 }
             }   
         }
@@ -1040,6 +1044,7 @@ void sequence_CRACKERS_MINIGAME()
 
         G_COUNTER_1 += 1;
     }
+
 }
 
 
