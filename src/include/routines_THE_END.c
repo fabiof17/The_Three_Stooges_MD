@@ -24,13 +24,13 @@ void sequence_THE_END()
     if(G_INDEX_1 == 2)
     {
         // THREE STOOGES LOGO //
-        if(G_COUNTER_1 == 97)
+        if(G_COUNTER_1 == 104)
         {
             VDP_setTileMapEx(BG_B, image_THE_END.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 21, 8, 0, 28, 38, 12, DMA_QUEUE);
         }
 
         // CODING : FABIO //
-        else if(G_COUNTER_1 == 214)
+        else if(G_COUNTER_1 == 224)
         {
             // CLEAR THREE STOOGES LOGO //
             VDP_setTileMapEx(BG_B, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, 0), 21, 8, 0, 0, 38, 12, DMA_QUEUE);
@@ -39,13 +39,13 @@ void sequence_THE_END()
         }
 
         // MEGADRIVE SCORE : RETROVATION //
-        else if(G_COUNTER_1 == 347)
+        else if(G_COUNTER_1 == 358)
         {
             VDP_setTileMapEx(BG_B, image_THE_END.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 33, 13, 6, 40, 16, 4, DMA_QUEUE);
         }
 
         // THE END LOGO //
-        else if(G_COUNTER_1 == 453)
+        else if(G_COUNTER_1 == 490)
         {
             VDP_setTileMapEx(BG_B, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, 0), 33, 13, 0, 0, 16, 4, DMA_QUEUE);
 
@@ -56,7 +56,7 @@ void sequence_THE_END()
         }
 
 
-        else if(G_COUNTER_1 > 461)
+        else if(G_COUNTER_1 > 550)
         {           
             if(G_COUNTER_1%5 == TRUE)
             {
@@ -77,9 +77,11 @@ void sequence_THE_END()
         }
 
 
-        if(G_COUNTER_1 == 1270)
+        if(G_COUNTER_1 == 1352)
         {           
-            PAL_setPalette(PAL0,palette_BLACK.data,DMA_QUEUE);
+            //PAL_setPalette(PAL0,palette_BLACK.data,DMA_QUEUE);
+
+            PAL_fadeOutAll(60,FALSE);
         }
     }
 
@@ -91,7 +93,7 @@ void sequence_THE_END()
     //                                                           //
     //-----------------------------------------------------------//
 
-    if(G_COUNTER_1 == 104)
+    if(G_COUNTER_1 == 96)
     {
         if(G_INDEX_1 < 2)
         {
@@ -133,9 +135,9 @@ void sequence_THE_END()
     G_COUNTER_1 += 1;
 
 
-    if(G_COUNTER_1 == 1272)
+    if(G_COUNTER_1 == 1353)
     {
-        G_COUNTER_1 = 1271;
+        G_COUNTER_1 = 1354;
     }
 }
 
