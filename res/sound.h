@@ -45,8 +45,8 @@ extern const u8 PCM_ICE_FALL[29440];
 extern const u8 PCM_CHEST_FALL[22528];
 extern const u8 PCM_TRIVIA_1[9216];
 extern const u8 PCM_TRIVIA_2[16384];
-extern const u8 PCM_HEAD_TRIVIA[9984];
-extern const u8 PCM_WRONG_ANSWER[22272];
+extern const u8 PCM_HEAD_TRIVIA[9728];
+extern const u8 PCM_WRONG_ANSWER[22784];
 extern const u8 PCM_BIP[3072];
 
 #endif // _RES_SOUND_H_
