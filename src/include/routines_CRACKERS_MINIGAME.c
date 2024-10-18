@@ -222,7 +222,50 @@ inline static void anim_OYSTER()
                         G_SCENE_LOADED          = FALSE;
 
                         return;
-                    }                    
+                    }
+
+                    else
+                    {
+                        //------------------------------------------------------------------//
+                        //                   IF CRACKERS NUMBER REACHES 0                   //
+                        //------------------------------------------------------------------//
+                        if(G_NUMBER_CRACKERS == 0)
+                        {
+                            PAL_fadeOutAll(2,FALSE);
+
+                            SPR_reset();
+
+
+                            //------------------------------------------------------------------//
+                            //                  IF WE HAVE PLAYED ALL 4 ROUNDS                  //
+                            //                  GO TO CRACKERS GAME OVER SCREEN                 //
+                            //------------------------------------------------------------------//
+                            if(G_NUMBER_GRABBED_CRACKERS == 0)
+                            {
+                                G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_OVER;
+                            }
+
+                            //------------------------------------------------------------------//
+                            //                     ELSE GO TO SPREAD SCREEN                     //
+                            //------------------------------------------------------------------//
+                            else
+                            {
+                                G_REWARD += 50;
+                                
+                                G_CRACKERS_SCREEN_TYPE  = CRACKERS_SCREEN_SPREAD;
+                            }
+
+
+                            G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
+                            G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
+
+                            G_CRACKERS_INIT         = FALSE;
+
+                            G_SCENE_LOADED          = FALSE;
+
+                            return;
+                        }
+                    }
                 }
             }   
         }
