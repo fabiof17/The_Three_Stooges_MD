@@ -55,6 +55,9 @@ void sequence_CONTRACT_CRACKERS()
 
         G_PHASE_SEQUENCE = 0;
 
+        G_CRACKERS_INIT             = FALSE;
+        G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
+
         // DEFINE NEXT MINIGAME //
         G_SCENE         = SCENE_FADE_IN;
         G_SCENE_TYPE    = SCENE_CRACKERS_SCREEN;

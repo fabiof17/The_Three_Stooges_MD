@@ -1915,12 +1915,12 @@ void sequence_DOCTORS_MINIGAME()
 
                 G_COUNTER_1 = 0;
 
-                G_CRACKERS_INIT             = FALSE;
-                G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
+                //G_CRACKERS_INIT             = FALSE;
+                //G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
 
-                G_NUMBER_CRACKERS_MAX       = 14;
-                G_NUMBER_CRACKERS           = 14;
-                G_NUMBER_GRABBED_CRACKERS   = 14;
+                //G_NUMBER_CRACKERS_MAX       = 14;
+                //G_NUMBER_CRACKERS           = 14;
+                //G_NUMBER_GRABBED_CRACKERS   = 0;//14
 
 
 
@@ -1955,12 +1955,12 @@ void sequence_DOCTORS_MINIGAME()
 
                 G_COUNTER_1 = 0;
 
-                G_CRACKERS_INIT             = FALSE;
-                G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
+                //G_CRACKERS_INIT             = FALSE;
+                //G_CRACKERS_SCREEN_TYPE      = CRACKERS_SCREEN_SPREAD;
 
-                G_NUMBER_CRACKERS_MAX       = 14;
-                G_NUMBER_CRACKERS           = 14;
-                G_NUMBER_GRABBED_CRACKERS   = 14;
+                //G_NUMBER_CRACKERS_MAX       = 14;
+                //G_NUMBER_CRACKERS           = 14;
+                //G_NUMBER_GRABBED_CRACKERS   = 14;
 
 
 

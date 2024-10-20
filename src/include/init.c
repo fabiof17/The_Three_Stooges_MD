@@ -261,8 +261,8 @@ void init_VARIABLES()
     //--------------------------------------------------------------------------------------//
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
-    //                IMPORTANT : THESE VARIABLES MUST BE INITIALISED HERE                  //
-    //                AND BE REINITIALISED AFTER MINIGAME COMPLETION                        //
+    //                IMPORTANT : THESE VARIABLES MUST BE INITIALIZED HERE                  //
+    //                AND BE REINITIALIZED AFTER MINIGAME COMPLETION                        //
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
@@ -271,7 +271,7 @@ void init_VARIABLES()
 
     G_NUMBER_CRACKERS_MAX       = 14;
     G_NUMBER_CRACKERS           = 14;
-    G_NUMBER_GRABBED_CRACKERS   = 14;
+    G_NUMBER_GRABBED_CRACKERS   = 14;//14
 
     
 
@@ -6338,6 +6338,11 @@ void init_SCENE()
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
+
+
+        G_NUMBER_CRACKERS_MAX       = 14;
+        G_NUMBER_CRACKERS           = 14;
+        G_NUMBER_GRABBED_CRACKERS   = 14;
 
 
         G_PHASE_SEQUENCE        = CONTRACT_PHASE;

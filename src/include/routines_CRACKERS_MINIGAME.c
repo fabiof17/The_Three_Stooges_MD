@@ -215,6 +215,8 @@ inline static void anim_OYSTER()
 
                         G_CRACKERS_SCREEN_TYPE = random_NUMBER(1,4);
 
+                        G_MISS                  = 0;
+
                         G_SCENE                 = SCENE_FADE_OUT_CRACKERS;
                         G_SCENE_TYPE            = SCENE_CRACKERS_SCREEN;
                         G_SCENE_NEXT            = SCENE_CRACKERS_SCREEN;
