@@ -6204,6 +6204,9 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
+        G_REWARD                = 0;
+
+
         G_PHASE_SEQUENCE        = CONTRACT_PHASE;
        
 
@@ -6343,6 +6346,9 @@ void init_SCENE()
         G_NUMBER_CRACKERS_MAX       = 14;
         G_NUMBER_CRACKERS           = 14;
         G_NUMBER_GRABBED_CRACKERS   = 14;
+
+
+        G_REWARD                = 0;
 
 
         G_PHASE_SEQUENCE        = CONTRACT_PHASE;
@@ -6514,6 +6520,9 @@ void init_SCENE()
         G_INDEX_3               = 0;
 
 
+        G_REWARD                = 0;
+
+
         G_PHASE_SEQUENCE        = CONTRACT_PHASE;
 
         
@@ -6659,6 +6668,9 @@ void init_SCENE()
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
+
+
+        G_REWARD                = 0;
 
 
         G_PHASE_SEQUENCE        = CONTRACT_PHASE;

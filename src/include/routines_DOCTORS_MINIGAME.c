@@ -731,6 +731,13 @@ inline static void counter_TIME_DOCTORS()
             }
         }
 
+        else
+        {
+            G_PHASE_SEQUENCE = DOCTORS_PHASE_GAME_OVER;
+
+            XGM_stopPlayPCM(SOUND_PCM_CH2);
+        }
+
         return;    
     }
     

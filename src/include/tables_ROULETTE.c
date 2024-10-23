@@ -69,7 +69,7 @@ const u8        TABLE_HIGHSTREET[180]   =   {
                                                 ICON_QUESTION,
                                                 ICON_SWATTER,
                                                 ICON_WAITERS,
-                                                ICON_DOLLAR,//ICON_DOLLAR
+                                                ICON_DOLLAR,
 
                                                 // DAY 2
                                                 ICON_SWATTER,
