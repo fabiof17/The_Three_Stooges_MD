@@ -47,6 +47,8 @@ void fadeOut_ROULETTE()
 
     // RANDOM QUESTION //
     G_SELECTED_QUESTION = random_NUMBER(0,73);
+    G_SELECTED_QUESTION = random_NUMBER(0,73);
+    G_SELECTED_QUESTION = random_NUMBER(0,73);
 
     G_COUNTER_ROULETTE      = 0;
     G_CURRENT_TURN          = 9;
@@ -146,7 +148,15 @@ void init_HUB()
         // BANKER ICON NEEDS A SPRITE TO BE FULLY DISPLAYED //
         if(TABLE_GENERATED_ICONS[i] == ICON_BANKER)
         {
-            sprite_ICON_BANKER = SPR_addSprite(&tiles_SPR_ICON_BANKER,  16 + (i*48), 32 - G_POS_Y_CAMERA, TILE_ATTR(PAL3, TRUE, FALSE, FALSE)); // -95 , 142
+            if(sprite_ICON_BANKER_1 == NULL)
+            {
+                sprite_ICON_BANKER_1 = SPR_addSprite(&tiles_SPR_ICON_BANKER,  16 + (i*48), 32 - G_POS_Y_CAMERA, TILE_ATTR(PAL3, TRUE, FALSE, FALSE)); // -95 , 142
+            }
+
+            else
+            {
+                sprite_ICON_BANKER_2 = SPR_addSprite(&tiles_SPR_ICON_BANKER,  16 + (i*48), 32 - G_POS_Y_CAMERA, TILE_ATTR(PAL3, TRUE, FALSE, FALSE)); // -95 , 142
+            }
         }
 
         if(i < 5)
@@ -239,12 +249,20 @@ void display_HUB()
 
     // BANKER ICON SPRITE //
     // IF BANKER ICON SPRITE EXISTS //
-    if(sprite_ICON_BANKER != NULL)
+    if(sprite_ICON_BANKER_1 != NULL)
     {
-        s16 pos_X_BANKER = SPR_getPositionX(sprite_ICON_BANKER);
-        s16 pos_Y_BANKER = SPR_getPositionY(sprite_ICON_BANKER);
+        s16 pos_X_BANKER = SPR_getPositionX(sprite_ICON_BANKER_1);
+        s16 pos_Y_BANKER = SPR_getPositionY(sprite_ICON_BANKER_1);
 
-        SPR_setPosition(sprite_ICON_BANKER , pos_X_BANKER , pos_Y_BANKER + 224);
+        SPR_setPosition(sprite_ICON_BANKER_1 , pos_X_BANKER , pos_Y_BANKER + 224);
+    }
+
+    if(sprite_ICON_BANKER_2 != NULL)
+    {
+        s16 pos_X_BANKER = SPR_getPositionX(sprite_ICON_BANKER_2);
+        s16 pos_Y_BANKER = SPR_getPositionY(sprite_ICON_BANKER_2);
+
+        SPR_setPosition(sprite_ICON_BANKER_2 , pos_X_BANKER , pos_Y_BANKER + 224);
     }
 
     // SHOW ARROW //
@@ -263,12 +281,17 @@ inline static void clear_HUB()
     sprite_HAND_ROULETTE    = NULL;
     sprite_ARROW_HUB        = NULL;
 
-    if(sprite_ICON_BANKER != NULL)
+    if(sprite_ICON_BANKER_1 != NULL)
     {
-        SPR_releaseSprite(sprite_ICON_BANKER);
-        sprite_ICON_BANKER = NULL;
+        SPR_releaseSprite(sprite_ICON_BANKER_1);
+        sprite_ICON_BANKER_1 = NULL;
     }
 
+    if(sprite_ICON_BANKER_2 != NULL)
+    {
+        SPR_releaseSprite(sprite_ICON_BANKER_2);
+        sprite_ICON_BANKER_2 = NULL;
+    }
 }
 
 

@@ -733,6 +733,9 @@ inline static void counter_TIME_DOCTORS()
 
         else
         {
+            // PENALITY : REWARD IS DIVIDED BY 4 //
+            G_REWARD = G_REWARD >> 2;
+            
             G_PHASE_SEQUENCE = DOCTORS_PHASE_GAME_OVER;
 
             XGM_stopPlayPCM(SOUND_PCM_CH2);

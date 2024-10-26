@@ -912,7 +912,8 @@ extern Sprite *sprite_HAND_ROULETTE;
 
 extern Sprite *sprite_ARROW_HUB;
 
-extern Sprite *sprite_ICON_BANKER;
+extern Sprite *sprite_ICON_BANKER_1;
+extern Sprite *sprite_ICON_BANKER_2;
 
 
 

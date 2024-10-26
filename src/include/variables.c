@@ -442,7 +442,8 @@ Sprite *sprite_HAND_ROULETTE;
 
 Sprite *sprite_ARROW_HUB;
 
-Sprite *sprite_ICON_BANKER;
+Sprite *sprite_ICON_BANKER_1;
+Sprite *sprite_ICON_BANKER_2;
 
 
 

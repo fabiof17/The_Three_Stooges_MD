@@ -131,12 +131,12 @@ void sequence_SAFE()
     }
 
 
-    if(G_COUNTER_1 == 1162)
+    if(G_COUNTER_1 == 622)//1162
     {
         XGM_startPlayPCM(SOUND_CHEST_FALL,15,SOUND_PCM_CH4);
     }
 
-    else if(G_COUNTER_1 == 1164)
+    else if(G_COUNTER_1 == 624)//1164
     {
         SPR_setPosition(sprite_ROPE,153,0);
 
@@ -145,7 +145,7 @@ void sequence_SAFE()
         SPR_setFrame(sprite_CHEST,1);
     }
 
-    else if(G_COUNTER_1 == 1195)
+    else if(G_COUNTER_1 == 655)//1195
     {
         SPR_setFrame(sprite_STOOGES,36);
         
@@ -162,7 +162,7 @@ void sequence_SAFE()
     
 
     // GO TO REWARD SCREEN //
-    else if(G_COUNTER_1 == 1577)
+    else if(G_COUNTER_1 == 810)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);
