@@ -53,10 +53,22 @@ const struct_WALK_STOOGES_              TABLE_ANIM_STOOGES_BOXING[26]       =   
                                                                                 };
 
 
-const Palette           *TABLE_BOXING_CYCLE[5]      =   {                                                        
+const Palette           *TABLE_BOXING_CYCLE[5]      =   {
                                                             &palette_BOXING_SCREEN_2_1,
                                                             &palette_BOXING_SCREEN_2_2,
                                                             &palette_BOXING_SCREEN_2_3,
                                                             &palette_BOXING_SCREEN_2_4,
                                                             &palette_BOXING_SCREEN_2_0
+                                                        };
+
+
+const u8                TABLE_BOXERS[8]             =   {
+                                                            0,
+                                                            1,
+                                                            1,
+                                                            2,
+                                                            3,
+                                                            4,
+                                                            4,
+                                                            5
                                                         };

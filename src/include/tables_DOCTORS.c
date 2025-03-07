@@ -34,9 +34,9 @@ const u8                            TABLE_NURSE_VELOCITY[4]         =   {
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
 const struct_ITEM_TYPE_                  TABLE_ITEM_TYPE[3]           =   {
-                                                                            { &tiles_SPR_ITEM_1 ,  5 },
-                                                                            { &tiles_SPR_ITEM_2 , 10 },
-                                                                            { &tiles_SPR_ITEM_3 , 15 }
+                                                                            { &tiles_SPR_ITEM_1 , 15 , 1},
+                                                                            { &tiles_SPR_ITEM_2 , 10 , 2 },
+                                                                            { &tiles_SPR_ITEM_3 ,  5 , 3 }
                                                                         };
 
 
@@ -76,14 +76,14 @@ const s8                            TABLE_VELOCITY_WHEELCHAIR[3]    =   {
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
 const s8                            TABLE_VELOCITY_STRETCHER_1[8]   =   {
-                                                                            6,
-                                                                            9,
-                                                                            4,
-                                                                            12,
-                                                                            7,
-                                                                            10,
-                                                                            3,
-                                                                            13
+                                                                            5,//6
+                                                                            8,//9
+                                                                            4,//5
+                                                                            11,//12
+                                                                            6,//7
+                                                                            9,//10
+                                                                            2,//3
+                                                                            12//13
                                                                         };
 
 

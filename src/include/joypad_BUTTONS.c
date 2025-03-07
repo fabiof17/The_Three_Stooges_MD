@@ -75,7 +75,7 @@ void intro_Callback(u16 joy, u16 changed, u16 state)
         {
             // BOUTON B //
             if( changed & state & BUTTON_START )
-            {                                
+            {
                 G_SCENE = SCENE_INTRO_EXIT;
             }
         }
@@ -102,7 +102,7 @@ void roulette_Callback(u16 joy, u16 changed, u16 state)
 
                 // GENERATE NEXT POSITION IN HIGHSTREET //
                 G_HIGHSTREET_POSITION += TABLE_GENERATED_HAND_POSITION[G_CURRENT_TURN] + 1;
-                
+
                 // ICON SELECTED //
                 G_PHASE_SEQUENCE = ROULETTE_PHASE_VALIDATED;
 
@@ -118,7 +118,7 @@ void roulette_Callback(u16 joy, u16 changed, u16 state)
 void trivia_Callback(u16 joy, u16 changed, u16 state)
 {
     u16 value=JOY_readJoypad(JOY_1);
-    
+
     if(joy == JOY_1)
     {
         // BUTTON A OR B OR C //
@@ -141,14 +141,14 @@ void trivia_Callback(u16 joy, u16 changed, u16 state)
                     }
 
                     SPR_setFrame(sprite_STOOGES,25);
-                    
+
                     SPR_setPosition(sprite_ANSWER_A,-48,-48);
                     SPR_setPosition(sprite_ANSWER_B,-48,-48);
                     SPR_setPosition(sprite_ANSWER_C,-48,-48);
 
                     G_PHASE_SEQUENCE = TRIVIA_PHASE_RESULT;
                 }
-            
+
                 else if(value & BUTTON_UP)
                 {
                     G_SELECTED_ANSWER = 1;
@@ -164,7 +164,7 @@ void trivia_Callback(u16 joy, u16 changed, u16 state)
                     }
 
                     SPR_setFrame(sprite_STOOGES,25);
-                    
+
                     SPR_setPosition(sprite_ANSWER_A,-48,-48);
                     SPR_setPosition(sprite_ANSWER_B,-48,-48);
                     SPR_setPosition(sprite_ANSWER_C,-48,-48);
@@ -187,14 +187,14 @@ void trivia_Callback(u16 joy, u16 changed, u16 state)
                     }
 
                     SPR_setFrame(sprite_STOOGES,25);
-                    
+
                     SPR_setPosition(sprite_ANSWER_A,-48,-48);
                     SPR_setPosition(sprite_ANSWER_B,-48,-48);
                     SPR_setPosition(sprite_ANSWER_C,-48,-48);
 
                     G_PHASE_SEQUENCE = TRIVIA_PHASE_RESULT;
                 }
-            
+
                 XGM_stopPlay();
             }
         }
@@ -207,7 +207,7 @@ void trivia_Callback(u16 joy, u16 changed, u16 state)
 void slap_Callback(u16 joy, u16 changed, u16 state)
 {
     u16 value=JOY_readJoypad(JOY_1);
-    
+
     if(joy == JOY_1)
     {
         if(G_PHASE_SEQUENCE == SLAP_PHASE_ATTACK)
@@ -219,7 +219,7 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
                 if(G_CURRENT_STATE != SLAP_STATE_IDLE)
                 {
                     SPR_setAnimAndFrame(sprite_MOE, 1, G_CURRENT_STATE);
-                    
+
                     // COMPUTE THE PROBABILITY OF SUCCESS //
                     u8 hit_probability = abs(G_CURRENT_STATE - G_PREVIOUS_STATE);
 
@@ -241,7 +241,7 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
 
                             G_HAND_SPEED -= 1;
                         }
-                        
+
                         u8 random_miss_pcm = random_NUMBER(70,73);
 
                         XGM_startPlayPCM(random_miss_pcm,15,SOUND_PCM_CH4);
@@ -256,7 +256,7 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
 
                             G_HAND_SPEED += 1;
                         }
-                        
+
                         u8 attack_pcm = G_CURRENT_STATE;
 
                         XGM_startPlayPCM(TABLE_ID_PCM_SLAP_HIT[attack_pcm],15,SOUND_PCM_CH4);
@@ -313,7 +313,7 @@ void slap_Callback(u16 joy, u16 changed, u16 state)
 
 
 void crackers_Callback(u16 joy, u16 changed, u16 state)
-{    
+{
     if(joy == JOY_1)
     {
         if(G_PHASE_SEQUENCE == CRACKER_SPOON_MOVE)
@@ -341,7 +341,7 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
                     {
                         u16 distance_X = abs( (list_CRACKER[i].pos_X + 28) - (G_POS_X_PLAYER + 24) );
                         u16 distance_Y = abs( (list_CRACKER[i].pos_Y + 20) - (G_POS_Y_PLAYER + 16) );
-                        
+
                         if(distance_X < 16)
                         {
                             if(distance_Y < 16)
@@ -365,7 +365,7 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
                                     //                    CRACKER GOES GRABBED STATE                    //
                                     //------------------------------------------------------------------//
                                     list_CRACKER[i].state_CRACKER = CRACKER_PHASE_GRABBED;
-                                    
+
                                     //------------------------------------------------------------------//
                                     //                       SET CRACKER POSITION                       //
                                     //------------------------------------------------------------------//
@@ -386,17 +386,17 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
 
                                     //------------------------------------------------------------------//
                                     //                10 DOLLARS REWARD FOR THE CRACKER                 //
-                                    //------------------------------------------------------------------//                                    
+                                    //------------------------------------------------------------------//
                                     G_REWARD += 10;
 
                                     //------------------------------------------------------------------//
                                     //                REINIT CONSECUTIVE MISSED CRACKERS                //
-                                    //------------------------------------------------------------------//                                    
+                                    //------------------------------------------------------------------//
                                     G_MISS = 0;
 
                                     //------------------------------------------------------------------//
                                     //               GO TO CRACKER SPOON GRABBED SEQUENCE               //
-                                    //------------------------------------------------------------------//   
+                                    //------------------------------------------------------------------//
                                     G_PHASE_SEQUENCE = CRACKER_SPOON_GRAB;
 
                                     //------------------------------------------------------------------//
@@ -433,25 +433,25 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
 
                                     //------------------------------------------------------------------//
                                     //                GO TO CRACKER SPOON TRAPPED SEQUENCE              //
-                                    //------------------------------------------------------------------// 
+                                    //------------------------------------------------------------------//
                                     G_PHASE_SEQUENCE = CRACKER_SPOON_TRAPPED;
                                 }
 
-                                
-                                
+
+
                                 //------------------------------------------------------------------//
                                 //                   CRACKER GOES ON TOP OF SPOON                   //
-                                //------------------------------------------------------------------// 
+                                //------------------------------------------------------------------//
                                 SPR_setDepth(list_CRACKER[i].spr_CRACKER,0);
 
                                 //------------------------------------------------------------------//
                                 //                  CRACKERS NUMBER DECREASED BY 1                  //
-                                //------------------------------------------------------------------// 
+                                //------------------------------------------------------------------//
                                 G_NUMBER_CRACKERS -= 1;
 
                                 //------------------------------------------------------------------//
                                 //                      CRACKER GETS SELECTED                       //
-                                //------------------------------------------------------------------// 
+                                //------------------------------------------------------------------//
                                 G_SELECTED_CRACKER = i;
 
                                 return;
@@ -461,7 +461,7 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
                 }
 
 
-                G_PHASE_SEQUENCE = CRACKER_SPOON_MISS;  
+                G_PHASE_SEQUENCE = CRACKER_SPOON_MISS;
             }
         }
     }
@@ -471,7 +471,7 @@ void crackers_Callback(u16 joy, u16 changed, u16 state)
 
 
 void waiters_Callback(u16 joy, u16 changed, u16 state)
-{    
+{
     if(joy == JOY_1)
     {
         if(G_PHASE_SEQUENCE == WAITER_PHASE_ACTION)
@@ -487,7 +487,7 @@ void waiters_Callback(u16 joy, u16 changed, u16 state)
                     {
                         // STOOGE GOES TO GRAB PHASE //
                         list_WAITERS[G_SELECTED_WAITER].state_CHARACTER = CHAR_PHASE_GRAB;
-                        
+
                         // UPDATE STOOGES SPRITE FRAME //
                         SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_1,2);
                         SPR_setFrame(list_WAITERS[G_SELECTED_WAITER].spr_CHAR_2,2);
@@ -546,6 +546,30 @@ void waiters_Callback(u16 joy, u16 changed, u16 state)
     }
 }
 
+
+
+
+void boxing_Callback(u16 joy, u16 changed, u16 state)
+{
+    if(joy == JOY_1)
+    {
+        if(G_PHASE_SEQUENCE == BOXING_PHASE_FW || G_PHASE_SEQUENCE == BOXING_PHASE_BW)
+        {
+            // BUTTON B //
+            if( changed & state & BUTTON_B )
+            {
+                if(larry_BOXING.state == LARRY_PHASE_RUN)
+                {
+                    SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,8);
+
+                    larry_BOXING.gravity = FIX32(-2.6L);
+
+                    larry_BOXING.state = LARRY_PHASE_JUMP;
+                }
+            }
+        }
+    }
+}
 
 
 

@@ -56,7 +56,7 @@ typedef struct
 
     s16 pos_X;
     s16 pos_Y;
-    
+
     u8 index_WRITE_AXIS;
     u8 index_READ_AXIS;
 
@@ -75,7 +75,7 @@ typedef struct
 
     s16 pos_X;
     s16 pos_Y;
-    
+
     u8 counter_SPRITE_FRAME;
     u8 index_SPRITE_FRAME;
 
@@ -118,10 +118,10 @@ typedef struct
     u8 number_STEPS;
     u8 number_STEPS_HIT;
     u8 speed_STEPS;
-    
+
     s16 pos_X;
     s16 pos_Y;
-    
+
     u8 counter_SPRITE_FRAME;
     u8 index_SPRITE_FRAME;
 
@@ -135,10 +135,12 @@ typedef struct
 
 
 typedef struct
-{    
+{
     const SpriteDefinition *tiles_ITEM;
 
     u8 reward_ITEM;
+
+    u8 item_X_SPEED;
 
 } struct_ITEM_TYPE_;
 
@@ -147,8 +149,10 @@ typedef struct
 
 typedef struct
 {
+    //u8 item_ID;
+
     Sprite *spr_ITEM;
-    
+
     const SpriteDefinition *tiles_ITEM;
 
     u8 axis_ITEM;
@@ -160,6 +164,8 @@ typedef struct
 
     s16 pos_X;
     s16 pos_Y;
+
+    u8 item_X_SPEED;
 
 } struct_ITEM_;
 
@@ -202,7 +208,7 @@ typedef struct
 
     Sprite *spr_PIE;
     u8 state_PIE;
-    
+
     u8 index_ANIM_PIE;
 
     u8 pie_DEVIATION;
@@ -236,8 +242,51 @@ typedef struct
 
 
 
+typedef struct
+{
+    Sprite *spr_LARRY_BOXING;
+    const SpriteDefinition *tiles_LARRY_BOXING;
+
+    bool state;
+    bool invincible;
+
+    s16 pos_X;
+    s16 pos_Y;
+
+    u8 velocity;
+
+    fix32 gravity;
+
+    bool row;
+
+    u8 counter_SPRITE_FRAME;
+    u8 index_SPRITE_FRAME;
+
+    u8 counter_INVINCIBLE;
+    u8 counter_JUMP;
+
+} struct_LARRY_BOXING_;
 
 
+
+
+typedef struct
+{
+    u8 id;
+
+    Sprite *spr_OBSTACLE;
+    const SpriteDefinition *tiles_OBSTACLE;
+
+    bool state;
+    bool hitable;
+
+    s16 pos_X;
+    s16 pos_Y;
+
+    u8 width;
+    u8 height;
+
+} struct_OBSTACLE_;
 
 
 

@@ -12,6 +12,7 @@
 
 #include "include/routines_BANK.h"
 #include "include/routines_BOXING.h"
+#include "include/routines_BOXING_MINIGAME.h"
 #include "include/routines_CRACKERs.h"
 #include "include/routines_CRACKERS_MINIGAME.h"
 #include "include/routines_DISCLAIMER.h"
@@ -49,7 +50,7 @@ int main(bool hardReset)
     init_VARIABLES();
 
     JOY_init();
-    
+
     while(TRUE)
     {
         //**************************************************************************************//
@@ -64,7 +65,7 @@ int main(bool hardReset)
             if(G_SCENE_LOADED == FALSE)
             {
                 JOY_setEventHandler(disable_Callback);
-                
+
                 init_DISCLAIMER();
             }
 
@@ -104,7 +105,7 @@ int main(bool hardReset)
             if(G_SCENE_LOADED == FALSE)
             {
                 JOY_setEventHandler(disable_Callback);
-                
+
                 init_LOGO();
             }
 
@@ -144,7 +145,7 @@ int main(bool hardReset)
             if(G_SCENE_LOADED == FALSE)
             {
                 JOY_setEventHandler(disable_Callback);
-                
+
                 init_INTRO();
             }
 
@@ -155,9 +156,9 @@ int main(bool hardReset)
                 if(G_SCENE == SCENE_INTRO_SCREEN_1)
                 {
                     JOY_setEventHandler(intro_Callback);
-                    
+
                     anim_INTRO_SCREEN_1();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -166,9 +167,9 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_INTRO_SCREEN_2)
                 {
                     JOY_setEventHandler(intro_Callback);
-                    
+
                     anim_INTRO_SCREEN_2();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -177,9 +178,9 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_INTRO_SCREEN_3)
                 {
                     JOY_setEventHandler(intro_Callback);
-                    
+
                     anim_INTRO_SCREEN_3();
-                  
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -188,9 +189,9 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_INTRO_SCREEN_4)
                 {
                     JOY_setEventHandler(intro_Callback);
-                    
+
                     anim_INTRO_SCREEN_4_5_6();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -199,9 +200,9 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_INTRO_SCREEN_5)
                 {
                     JOY_setEventHandler(intro_Callback);
-                    
+
                     anim_INTRO_SCREEN_4_5_6();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -210,9 +211,9 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_INTRO_SCREEN_6)
                 {
                     JOY_setEventHandler(intro_Callback);
-                    
+
                     anim_INTRO_SCREEN_4_5_6();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -221,11 +222,11 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_INTRO_SCREEN_7)
                 {
                     JOY_setEventHandler(intro_Callback);
-                    
+
                     anim_INTRO_SCREEN_7();
 
                     //VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_1,4,0,0,PAL2);
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -257,7 +258,7 @@ int main(bool hardReset)
                     {
                         PAL_fadeInAll(palette_64, 4, FALSE);
                     }
-                    
+
                     else if(G_SCENE_TYPE == SCENE_INTRO_SCREEN_6)
                     {
                         PAL_fadeInAll(palette_64, 4, FALSE);
@@ -314,7 +315,7 @@ int main(bool hardReset)
 
                 // EXIT //
                 else if(G_SCENE == SCENE_INTRO_EXIT)
-                {                    
+                {
                     // FADE OUT : 30 FRAMES //
                     PAL_fadeOutAll(30,FALSE);
 
@@ -366,7 +367,7 @@ int main(bool hardReset)
             if(G_SCENE_LOADED == FALSE)
             {
                 JOY_setEventHandler(disable_Callback);
-                
+
                 init_SCENE();
 
                 // INTRO SCREEN LOADED //
@@ -378,98 +379,98 @@ int main(bool hardReset)
             {
                 // BANK //
                 if(G_SCENE == SCENE_BANK)
-                {                    
+                {
                     sequence_BANK();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // BOXING //
                 else if(G_SCENE == SCENE_BOXING)
-                {                    
+                {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     sequence_BOXING();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // DOCTORS //
                 else if(G_SCENE == SCENE_DOCTORS)
-                {                    
+                {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     sequence_DOCTORS();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // DOLLAR //
                 else if(G_SCENE == SCENE_DOLLAR)
-                {                    
+                {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     sequence_DOLLAR();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // QUESTION MARK //
                 else if(G_SCENE == SCENE_QUESTION_MARK)
-                {                    
+                {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     sequence_QUESTION_MARK();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // SLAP //
                 else if(G_SCENE == SCENE_SLAP)
-                {                    
+                {
                     joypad_SLAP();
                     JOY_setEventHandler(slap_Callback);
-                    
+
                     sequence_SLAP();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // WAITERS //
                 else if(G_SCENE == SCENE_WAITERS)
-                {                    
+                {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     sequence_WAITERS();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // CRACKERS //
                 else if(G_SCENE == SCENE_CRACKERS)
-                {                    
+                {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     sequence_CRACKERS();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // SAFE //
                 else if(G_SCENE == SCENE_SAFE)
-                {                    
+                {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     sequence_SAFE();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -478,9 +479,9 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_ROULETTE)
                 {
                     JOY_setEventHandler(roulette_Callback);
-                    
+
                     sequence_ROULETTE();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -490,12 +491,23 @@ int main(bool hardReset)
                 //                    MINIGAMES                    //
                 //-------------------------------------------------//
 
+                // CRACKERS MINIGAME //
+                else if(G_SCENE == SCENE_BOXING_MINIGAME)
+                {
+                    JOY_setEventHandler(boxing_Callback);
+
+                    sequence_BOXING_MINIGAME();
+
+                    SPR_update();
+                    SYS_doVBlankProcess();
+                }
+
                 // TRIVIA MINIGAME TYPE 1 //
                 else if(G_SCENE == SCENE_TRIVIA_MINIGAME_TYPE1)
                 {
                     JOY_setEventHandler(trivia_Callback);
                     joypad_TRIVIA();
-                    
+
                     sequence_TRIVIA_TYPE1();
 
                     SPR_update();
@@ -518,7 +530,7 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_TRIVIA_QUESTION)
                 {
                     sequence_TRIVIA_QUESTION();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -527,9 +539,9 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE1)
                 {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     sequence_BOXING_SCREEN_TYPE_1();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -538,9 +550,9 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE2)
                 {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     sequence_BOXING_SCREEN_TYPE_2();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -549,9 +561,9 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_BOXING_SCREEN_TYPE3)
                 {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     //sequence_BOXING_SCREEN_TYPE_3();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -562,7 +574,7 @@ int main(bool hardReset)
                     joypad_DOCTORS_MINIGAME();
 
                     sequence_DOCTORS_MINIGAME();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -582,7 +594,7 @@ int main(bool hardReset)
                     VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[0].pie_DEVIATION,1,3,0,PAL1);
                     VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[1].pie_DEVIATION,1,3,1,PAL1);
                     VDP_drawIntEx_BG_A_QUEUE(list_WAITERS[2].pie_DEVIATION,1,3,2,PAL1);*/
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -591,7 +603,7 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_CRACKERS_SCREEN)
                 {
                     sequence_CRACKERS_SCREEN();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -599,11 +611,11 @@ int main(bool hardReset)
                 // CRACKERS MINIGAME //
                 else if(G_SCENE == SCENE_CRACKERS_MINIGAME)
                 {
-                    JOY_setEventHandler(crackers_Callback);  
+                    JOY_setEventHandler(crackers_Callback);
                     joypad_CRACKERS_MINIGAME();
 
                     sequence_CRACKERS_MINIGAME();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -615,70 +627,70 @@ int main(bool hardReset)
 
                 // CONTRACT QUESTION MARK //
                 else if(G_SCENE == SCENE_CONTRACT_QUESTION_MARK)
-                {                    
+                {
                     JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
                         sequence_CONTRACT_QUESTION_MARK();
                     }
-                    
+
                     SPR_update();
-                    SYS_doVBlankProcess(); 
+                    SYS_doVBlankProcess();
                 }
 
                 // CONTRACT DOCTORS //
                 else if(G_SCENE == SCENE_CONTRACT_DOCTORS)
-                {                    
+                {
                     JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
                         sequence_CONTRACT_DOCTORS();
                     }
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // CONTRACT WAITERS //
                 else if(G_SCENE == SCENE_CONTRACT_WAITERS)
-                {                    
+                {
                     JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
                         sequence_CONTRACT_WAITERS();
                     }
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // CONTRACT CRACKERS //
                 else if(G_SCENE == SCENE_CONTRACT_CRACKERS)
-                {                    
+                {
                     JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
                         sequence_CONTRACT_CRACKERS();
                     }
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // CONTRACT BOXING //
                 else if(G_SCENE == SCENE_CONTRACT_BOXING)
-                {                    
+                {
                     JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
                         sequence_CONTRACT_BOXING();
                     }
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -687,7 +699,7 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_FADE_IN_CRACKERS)
                 {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     PAL_fadeInAll(palette_64, 1, FALSE);
 
                     G_SCENE         = G_SCENE_NEXT;
@@ -696,9 +708,9 @@ int main(bool hardReset)
 
                 // FADE OUT CRACKERS //
                 else if(G_SCENE == SCENE_FADE_OUT_CRACKERS)
-                {                    
+                {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     PAL_fadeOutAll(1,FALSE);
 
                     G_SCENE         = G_SCENE_NEXT;
@@ -707,16 +719,16 @@ int main(bool hardReset)
 
                 // CONTRACT QUESTION MARK //
                 else if(G_SCENE == SCENE_CONTRACT_SAFE)
-                {                    
+                {
                     JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
                         sequence_CONTRACT_SAFE();
                     }
-                    
+
                     SPR_update();
-                    SYS_doVBlankProcess(); 
+                    SYS_doVBlankProcess();
                 }
 
 
@@ -724,25 +736,25 @@ int main(bool hardReset)
 
                 // REWARD //
                 else if(G_SCENE == SCENE_REWARD)
-                {                    
+                {
                     JOY_setEventHandler(pause_Callback);
 
                     if(G_PAUSE == FALSE)
                     {
                         sequence_REWARD();
                     }
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
 
                 // GAME OVER //
                 else if(G_SCENE == SCENE_GAMEOVER)
-                {                    
+                {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     sequence_GAMEOVER();
-                    
+
                     SPR_update();
                     SYS_doVBlankProcess();
                 }
@@ -751,7 +763,7 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_FADE_IN)
                 {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     PAL_fadeInAll(palette_64, 40, FALSE);
 
                     G_SCENE         = G_SCENE_NEXT;
@@ -760,9 +772,9 @@ int main(bool hardReset)
 
                 // FADE OUT //
                 else if(G_SCENE == SCENE_FADE_OUT)
-                {                    
+                {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     fadeOut_ROULETTE();
                 }
 
@@ -770,15 +782,15 @@ int main(bool hardReset)
                 else if(G_SCENE == SCENE_FADE_IN_BOXING)
                 {
                     JOY_setEventHandler(disable_Callback);
-                    
+
                     PAL_fadeInAll(palette_64, 2, FALSE);
 
                     G_SCENE         = G_SCENE_NEXT;
                     G_SCENE_NEXT    = NULL;
                 }
-            
+
             }
-        }    
+        }
 
 
 
@@ -795,7 +807,7 @@ int main(bool hardReset)
             if(G_SCENE_LOADED == FALSE)
             {
                 JOY_setEventHandler(disable_Callback);
-                
+
                 init_THE_END();
             }
 

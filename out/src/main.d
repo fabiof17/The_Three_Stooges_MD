@@ -16,7 +16,8 @@ out/src/main.o: src/main.c C:/sgdk/inc/genesis.h C:/sgdk/inc/types.h \
  src/include/custom_tools.h src/include/joypad_BUTTONS.h \
  src/include/init.h src/include/variables.h src/include/structures.h \
  src/include/routines_BANK.h src/include/routines_BOXING.h \
- src/include/routines_CRACKERs.h src/include/routines_CRACKERS_MINIGAME.h \
+ src/include/routines_BOXING_MINIGAME.h src/include/routines_CRACKERs.h \
+ src/include/routines_CRACKERS_MINIGAME.h \
  src/include/routines_DISCLAIMER.h src/include/routines_DOCTORS.h \
  src/include/routines_DOCTORS_MINIGAME.h src/include/routines_DOLLAR.h \
  src/include/routines_GAMEOVER.h src/include/routines_INTRO.h \

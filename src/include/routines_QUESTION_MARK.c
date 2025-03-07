@@ -109,7 +109,7 @@ void sequence_QUESTION_MARK()
     }
 
 
-    if(G_COUNTER_1 == 622)
+    if(G_COUNTER_1 == 620)
     {
         SPR_setFrame(sprite_SCISSOR,1);
 

@@ -74,6 +74,8 @@ PALETTE palette_BOXING_SCREEN_2_2           "palettes/palette_BOXING_SCREEN_2_2.
 PALETTE palette_BOXING_SCREEN_2_3           "palettes/palette_BOXING_SCREEN_2_3.png"
 PALETTE palette_BOXING_SCREEN_2_4           "palettes/palette_BOXING_SCREEN_2_4.png"
 
+PALETTE palette_BOXING                      "palettes/palette_BOXING.png"
+
 
 
 

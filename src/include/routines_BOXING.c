@@ -196,7 +196,7 @@ void sequence_BOXING_SCREEN_TYPE_1()
 
         return;
     }
-    
+
     G_COUNTER_1 += 1;
 }
 
@@ -231,15 +231,15 @@ void sequence_BOXING_SCREEN_TYPE_2()
 
             // RELEASE ALL SPRITES //
             SPR_reset();
-            
+
 
             // REINIT REWARD //
-            G_REWARD = 500;
+            //G_REWARD = 500;
 
 
             G_SCENE         = SCENE_FADE_IN;
-            G_SCENE_TYPE    = SCENE_REWARD;
-            G_SCENE_NEXT    = SCENE_REWARD;
+            G_SCENE_TYPE    = SCENE_BOXING_MINIGAME;
+            G_SCENE_NEXT    = SCENE_BOXING_MINIGAME;
 
 
 
@@ -248,7 +248,7 @@ void sequence_BOXING_SCREEN_TYPE_2()
             return;
         }
     }
-    
+
     PAL_setPalette( PAL1 , TABLE_BOXING_CYCLE[G_INDEX_1]->data , DMA);
 
     G_COUNTER_1 += 1;

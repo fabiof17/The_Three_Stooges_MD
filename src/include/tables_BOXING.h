@@ -4,9 +4,11 @@
 
 
 
-extern const struct_WALK_STOOGES_               TABLE_ANIM_STOOGES_BOXING[26];
+extern const struct_WALK_STOOGES_       TABLE_ANIM_STOOGES_BOXING[26];
 
-extern const Palette                            *TABLE_BOXING_CYCLE[5];
+extern const Palette                    *TABLE_BOXING_CYCLE[5];
+
+extern const u8                         TABLE_BOXERS[8];
 
 
 

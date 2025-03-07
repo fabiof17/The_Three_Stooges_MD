@@ -64,10 +64,12 @@ void init_STREET_BEGINNIG()
     //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
-    
+
     SPR_initEx(200);
-    
+
     VDP_setHilightShadow(FALSE);
+
+    VDP_setScrollingMode(HSCROLL_PLANE, VSCROLL_PLANE);
 
 
 
@@ -111,7 +113,7 @@ void init_STREET_BEGINNIG()
     VDP_loadTileSet(image_STREET_0_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_STREET_0_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_STREET_0_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 28, 0, 0, 40, 28, CPU);
-    
+
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
@@ -133,7 +135,7 @@ void init_STREET_BEGINNIG()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
     G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_STREET_0_BG_A.tileset->numTile;
-   
+
 
 
 
@@ -188,10 +190,12 @@ void init_STREET_TRIVIA_TYPE1()
     //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
-    
+
     SPR_initEx(220);
-    
+
     VDP_setHilightShadow(FALSE);
+
+    VDP_setScrollingMode(HSCROLL_PLANE, VSCROLL_PLANE);
 
 
 
@@ -224,8 +228,8 @@ void init_STREET_TRIVIA_TYPE1()
     VDP_loadTileSet(image_TRIVIA_TYPE1_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_TRIVIA_TYPE1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_TRIVIA_TYPE1_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
-    
-    
+
+
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
     //                                         BG_A                                         //
@@ -236,10 +240,10 @@ void init_STREET_TRIVIA_TYPE1()
     VDP_loadTileSet(image_TRIVIA_TYPE1_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
     VDP_setTileMapEx(BG_A, image_TRIVIA_TYPE1_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_A, image_TRIVIA_TYPE1_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  28, 0, 0, 40, 28, CPU);
-    
-    
-    
-    
+
+
+
+
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
     //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
@@ -247,7 +251,7 @@ void init_STREET_TRIVIA_TYPE1()
     //--------------------------------------------------------------------------------------//
 
     G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_TRIVIA_TYPE1_BG_A.tileset->numTile;
-  
+
 
 
 
@@ -298,10 +302,12 @@ void init_STREET_TRIVIA_TYPE2()
     //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
-    
+
     SPR_initEx(350);
-    
+
     VDP_setHilightShadow(FALSE);
+
+    VDP_setScrollingMode(HSCROLL_PLANE, VSCROLL_PLANE);
 
 
 
@@ -334,7 +340,7 @@ void init_STREET_TRIVIA_TYPE2()
     VDP_loadTileSet(image_TRIVIA_TYPE2_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_TRIVIA_TYPE2_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_TRIVIA_TYPE2_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  28, 0, 0, 40, 28, CPU);
-    
+
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
@@ -345,11 +351,11 @@ void init_STREET_TRIVIA_TYPE2()
     G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_TRIVIA_TYPE2_BG_B.tileset->numTile;
     VDP_loadTileSet(image_TRIVIA_TYPE2_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
     VDP_setTileMapEx(BG_A, image_TRIVIA_TYPE2_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  0, 0, 0, 40, 28, CPU);
-    VDP_setTileMapEx(BG_A, image_TRIVIA_TYPE2_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  28, 0, 0, 40, 28, CPU);   
- 
-    
-    
-    
+    VDP_setTileMapEx(BG_A, image_TRIVIA_TYPE2_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A), 0,  28, 0, 0, 40, 28, CPU);
+
+
+
+
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
     //                       SETUP HUB VRAM ADRESS FOR LATER HUB INIT                       //
@@ -357,7 +363,7 @@ void init_STREET_TRIVIA_TYPE2()
     //--------------------------------------------------------------------------------------//
 
     G_ADR_VRAM_HUB = G_ADR_VRAM_BG_A + image_TRIVIA_TYPE2_BG_A.tileset->numTile;
-    
+
 
 
 
@@ -398,7 +404,7 @@ void init_STREET_TRIVIA_TYPE2()
     G_INDEX_1               = 0;
     G_INDEX_2               = 0;
     G_INDEX_3               = 0;
-    
+
 
     G_SCENE                 = SCENE_FADE_IN;
     G_SCENE_TYPE            = SCENE_TRIVIA_MINIGAME_TYPE2;
@@ -437,10 +443,12 @@ void init_STREET_SAFE()
     //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
-    
+
     SPR_init();
-    
+
     VDP_setHilightShadow(FALSE);
+
+    VDP_setScrollingMode(HSCROLL_PLANE, VSCROLL_PLANE);
 
 
 
@@ -473,14 +481,14 @@ void init_STREET_SAFE()
     VDP_loadTileSet(image_SAFE_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_SAFE_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0,  0,  0,  0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_SAFE_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0, 28,  0,  0, 40, 28, CPU);
-    
-    
+
+
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
     //                                         BG_A                                         //
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
-    
+
     G_ADR_VRAM_BG_A = G_ADR_VRAM_BG_B + image_SAFE_BG_B.tileset->numTile;
     VDP_loadTileSet(image_SAFE_BG_A.tileset, G_ADR_VRAM_BG_A, CPU);
     VDP_setTileMapEx(BG_A, image_SAFE_BG_A.tilemap, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_A),  0,  0,  0,  0, 40, 28, CPU);
@@ -504,7 +512,7 @@ void init_STREET_SAFE()
     //                                                                                      //
     //                                      SPRITES                                         //
     //                                                                                      //
-    //**************************************************************************************// 
+    //**************************************************************************************//
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
@@ -554,10 +562,12 @@ void init_STREET_BOXING()
     //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
-    
+
     SPR_initEx(250);
-    
+
     VDP_setHilightShadow(FALSE);
+
+    VDP_setScrollingMode(HSCROLL_PLANE, VSCROLL_PLANE);
 
 
 
@@ -668,10 +678,12 @@ void init_STREET_QUESTION_MARK()
     //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
-    
+
     SPR_init();
-    
+
     VDP_setHilightShadow(FALSE);
+
+    VDP_setScrollingMode(HSCROLL_PLANE, VSCROLL_PLANE);
 
 
 
@@ -704,8 +716,8 @@ void init_STREET_QUESTION_MARK()
     VDP_loadTileSet(image_QUESTION_MARK_BG_B.tileset, G_ADR_VRAM_BG_B, CPU);
     VDP_setTileMapEx(BG_B, image_QUESTION_MARK_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0,  0,  0,  0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_QUESTION_MARK_BG_B.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0, 28,  0,  0, 40, 28, CPU);
-    
-    
+
+
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
     //                                         BG_A                                         //
@@ -734,7 +746,7 @@ void init_STREET_QUESTION_MARK()
     //                                                                                      //
     //                                      SPRITES                                         //
     //                                                                                      //
-    //**************************************************************************************// 
+    //**************************************************************************************//
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
@@ -785,10 +797,12 @@ void init_STREET_DOCTORS()
     //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
-    
+
     SPR_initEx(250);
-    
+
     VDP_setHilightShadow(FALSE);
+
+    VDP_setScrollingMode(HSCROLL_PLANE, VSCROLL_PLANE);
 
 
 
@@ -899,10 +913,12 @@ void init_STREET_CRACKERS()
     //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
-    
+
     SPR_initEx(250);
-    
+
     VDP_setHilightShadow(FALSE);
+
+    VDP_setScrollingMode(HSCROLL_PLANE, VSCROLL_PLANE);
 
 
 
@@ -1013,10 +1029,12 @@ void init_STREET_WAITERS()
     //**************************************************************************************//
 
     VDP_setPlaneSize(64,64,TRUE);
-    
+
     SPR_initEx(320);
-    
+
     VDP_setHilightShadow(FALSE);
+
+    VDP_setScrollingMode(HSCROLL_PLANE, VSCROLL_PLANE);
 
 
 
@@ -1050,7 +1068,7 @@ void init_STREET_WAITERS()
     VDP_setTileMapEx(BG_B, image_STREET_WAITERS_BG_B1.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0, 0, 0, 40, 28, CPU);
     VDP_setTileMapEx(BG_B, image_STREET_WAITERS_BG_B1.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0, 28, 0, 0, 40, 28, CPU);
     VDP_loadTileSet(image_STREET_WAITERS_BG_B2.tileset, G_ADR_VRAM_BG_B + image_STREET_WAITERS_BG_B1.tileset->numTile, CPU);
-    
+
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //

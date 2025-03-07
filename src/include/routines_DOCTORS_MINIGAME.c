@@ -196,7 +196,7 @@ void joypad_DOCTORS_MINIGAME()
         //--------------------------------------------------------------//
 
         if((value & BUTTON_DIR) == 0)
-        {            
+        {
             u8 i;
 
             for(i=0 ; i<3 ; i++)
@@ -216,7 +216,7 @@ void joypad_DOCTORS_MINIGAME()
             {
                 G_CAR_COUNTER_SPEED = MAX_COUNTER_SPEED_2;
             }
-            
+
 
 
 
@@ -268,7 +268,7 @@ void joypad_DOCTORS_MINIGAME()
                         }*/
 
                         //G_CAR_SPEED = 1;
-                        
+
                         list_CARS[0].axis_CAR = AXIS_CENTER;
 
                         list_CARS[0].pos_X = 40;
@@ -289,7 +289,7 @@ void joypad_DOCTORS_MINIGAME()
                     }*/
 
                     //G_CAR_SPEED = 1;
-                    
+
                     list_CARS[0].axis_CAR = AXIS_CENTER;
 
                     SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
@@ -364,7 +364,7 @@ void joypad_DOCTORS_MINIGAME()
                         }*/
 
                         //G_CAR_SPEED = 1;
-                        
+
                         list_CARS[0].axis_CAR = AXIS_CENTER;
 
                         list_CARS[0].pos_X = 224;
@@ -385,7 +385,7 @@ void joypad_DOCTORS_MINIGAME()
                     }*/
 
                     //G_CAR_SPEED = 1;
-                    
+
                     list_CARS[0].axis_CAR = AXIS_CENTER;
 
                     SPR_setPosition(list_CARS[0].spr_CAR , list_CARS[0].pos_X , 99);
@@ -432,7 +432,7 @@ void joypad_DOCTORS_MINIGAME()
             {
                 XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
             }*/
-            
+
             u8 i;
 
             for(i=0 ; i<3 ; i++)
@@ -451,8 +451,8 @@ void joypad_DOCTORS_MINIGAME()
             list_CARS[0].axis_CAR = AXIS_CENTER;
 
             SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
-            
-            
+
+
             list_CARS[0].axis_CAR = AXIS_CENTER;
 
             SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
@@ -497,7 +497,7 @@ void joypad_DOCTORS_MINIGAME()
                 }*/
 
                 update_ACCELERATION();
-                
+
                 list_CARS[0].axis_CAR = AXIS_CENTER;
 
                 SPR_setFrame(list_CARS[0].spr_CAR , AXIS_CENTER);
@@ -524,7 +524,7 @@ void joypad_DOCTORS_MINIGAME()
             //-----------------------------------------------------------------------------//
             //                READ MOE'S AXIS WITH A TIME OFFSET OF 8 FRAMES               //
             //-----------------------------------------------------------------------------//
-            
+
             if(list_CARS[i].TABLE_AXIS[list_CARS[i].index_READ_AXIS] == AXIS_LEFT)
             {
                 list_CARS[i].pos_X -= list_CARS[i].TABLE_SPEED[list_CARS[i].index_READ_AXIS];
@@ -668,7 +668,7 @@ void joypad_DOCTORS_MINIGAME()
 
             //-----------------------------------------------------------------------------//
             //                             INCREASE READ INDEX                             //
-            //-----------------------------------------------------------------------------//        
+            //-----------------------------------------------------------------------------//
             list_CARS[i].index_READ_AXIS += 1;
 
             if(list_CARS[i].index_READ_AXIS > 16)
@@ -679,7 +679,7 @@ void joypad_DOCTORS_MINIGAME()
 
             //-----------------------------------------------------------------------------//
             //                             READ NEXT AXIS VALUE                            //
-            //-----------------------------------------------------------------------------// 
+            //-----------------------------------------------------------------------------//
             list_CARS[i].TABLE_AXIS[list_CARS[i].index_WRITE_AXIS]  = list_CARS[0].axis_CAR;
             list_CARS[i].TABLE_SPEED[list_CARS[i].index_WRITE_AXIS] = G_CAR_SPEED;
 
@@ -734,16 +734,16 @@ inline static void counter_TIME_DOCTORS()
         else
         {
             // PENALITY : REWARD IS DIVIDED BY 4 //
-            G_REWARD = G_REWARD >> 2;
-            
+            //G_REWARD = G_REWARD >> 2;
+
             G_PHASE_SEQUENCE = DOCTORS_PHASE_GAME_OVER;
 
             XGM_stopPlayPCM(SOUND_PCM_CH2);
         }
 
-        return;    
+        return;
     }
-    
+
     G_COUNTER_1 += 1;
 }
 
@@ -758,12 +758,12 @@ inline static void counter_REWARD_DOCTORS()
     else if(G_REWARD < 1000)
     {
         VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 3 , 3 , 26 , PAL1);
-    }    
+    }
 
     else
     {
         VDP_drawIntEx_BG_A_QUEUE(G_REWARD , 4 , 3 , 26 , PAL1);
-    }  
+    }
 }
 
 
@@ -781,7 +781,7 @@ inline static void anim_NURSE()
         //             INCREASE SPRITE FRAME COUNTER             //
         //-------------------------------------------------------//
         nurse.counter_SPRITE_FRAME += 1;
-        
+
         //-------------------------------------------------------//
         //               UPDATE NURSE SPRITE FRAME               //
         //-------------------------------------------------------//
@@ -789,13 +789,13 @@ inline static void anim_NURSE()
         {
             //-------------------------------------------------------//
             //           INCREASE NURSE SPRITE FRAME INDEX           //
-            //-------------------------------------------------------//            
+            //-------------------------------------------------------//
             nurse.index_SPRITE_FRAME += 1;
 
             //-------------------------------------------------------//
             //            IF NURSE SPRITE FRAME INDEX == 4           //
             //            REINIT NURSE SPRITE FRAME INDEX            //
-            //-------------------------------------------------------//   
+            //-------------------------------------------------------//
             if(nurse.index_SPRITE_FRAME == 4)
             {
                 nurse.index_SPRITE_FRAME = 0;
@@ -929,7 +929,7 @@ inline static void anim_NURSE()
                     nurse.axis_NURSE = AXIS_RIGHT;
                 }
             }
-            
+
 
             SPR_setPosition(nurse.spr_NURSE , nurse.pos_X , nurse.pos_Y);
         }
@@ -945,18 +945,18 @@ inline static void anim_NURSE()
 
         //-------------------------------------------------------//
         //               UPDATE NURSE SPRITE FRAME               //
-        //-------------------------------------------------------//        
+        //-------------------------------------------------------//
         if(nurse.counter_SPRITE_FRAME == 7)
         {
             //-------------------------------------------------------//
             //           INCREASE NURSE SPRITE FRAME INDEX           //
-            //-------------------------------------------------------//               
+            //-------------------------------------------------------//
             nurse.index_SPRITE_FRAME += 1;
 
             //-------------------------------------------------------//
             //            IF NURSE SPRITE FRAME INDEX == 4           //
             //            REINIT NURSE SPRITE FRAME INDEX            //
-            //-------------------------------------------------------//  
+            //-------------------------------------------------------//
             if(nurse.index_SPRITE_FRAME == 4)
             {
                 nurse.index_SPRITE_FRAME = 0;
@@ -1138,6 +1138,10 @@ inline static void spawn_ITEM()
                 list_ITEM[i].counter_FRAME = 0;
                 list_ITEM[i].index_FRAME = 0;
 
+                //list_ITEM[i].item_ID = nurse.index_ITEM;
+
+                list_ITEM[i].item_X_SPEED = TABLE_ITEM_TYPE[nurse.index_ITEM].item_X_SPEED;
+
                 list_ITEM[i].spr_ITEM = SPR_addSprite(TABLE_ITEM_TYPE[nurse.index_ITEM].tiles_ITEM , list_ITEM[i].pos_X , list_ITEM[i].pos_Y , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
 
                 SPR_setAnimAndFrame(list_ITEM[i].spr_ITEM , list_ITEM[i].axis_ITEM - 1 , 0);
@@ -1191,7 +1195,7 @@ inline static void collisions_ITEMS()
                                 G_REWARD += list_ITEM[i].reward_ITEM;
 
                                 counter_REWARD_DOCTORS();
-                                
+
                                 SPR_releaseSprite(list_ITEM[i].spr_ITEM);
                                 list_ITEM[i].spr_ITEM = NULL;
 
@@ -1205,14 +1209,14 @@ inline static void collisions_ITEMS()
                 }
             }
         }
-    } 
+    }
 }
 
 
 inline static void anim_ITEM()
 {
     collisions_ITEMS();
-    
+
     u8 i;
 
 
@@ -1230,9 +1234,9 @@ inline static void anim_ITEM()
             {
                 if(list_ITEM[i].axis_ITEM == AXIS_LEFT)
                 {
-                    if(list_ITEM[i].pos_X - 3 > 44)
+                    if(list_ITEM[i].pos_X - list_ITEM[i].item_X_SPEED > 44)
                     {
-                        list_ITEM[i].pos_X -= 3;
+                        list_ITEM[i].pos_X -= list_ITEM[i].item_X_SPEED;
                     }
 
                     else
@@ -1243,12 +1247,12 @@ inline static void anim_ITEM()
                     }
                 }
 
-            
+
                 else if(list_ITEM[i].axis_ITEM == AXIS_RIGHT)
                 {
-                    if(list_ITEM[i].pos_X + 3 < 256)
+                    if(list_ITEM[i].pos_X + list_ITEM[i].item_X_SPEED < 256)
                     {
-                        list_ITEM[i].pos_X += 3;
+                        list_ITEM[i].pos_X += list_ITEM[i].item_X_SPEED;
                     }
 
                     else
@@ -1259,7 +1263,7 @@ inline static void anim_ITEM()
                     }
                 }
 
-                list_ITEM[i].pos_Y += 3;
+                list_ITEM[i].pos_Y += list_ITEM[i].item_X_SPEED + 1;
                 list_ITEM[i].pos_Y += G_CAR_SPEED;
 
                 SPR_setPosition(list_ITEM[i].spr_ITEM , list_ITEM[i].pos_X , list_ITEM[i].pos_Y );
@@ -1290,7 +1294,7 @@ inline static void anim_ITEM()
             {
                 SPR_releaseSprite(list_ITEM[i].spr_ITEM);
                 list_ITEM[i].spr_ITEM = NULL;
-            }            
+            }
         }
     }
 }
@@ -1313,7 +1317,7 @@ inline static void spawn_PATIENT()
         //--------------------------------------------------------------------------------------//
 
         u8 random_patient_type;
-        
+
         G_RANDOM_OK = FALSE;
 
         while(G_RANDOM_OK == FALSE)
@@ -1326,7 +1330,7 @@ inline static void spawn_PATIENT()
                 random_patient_type = new_patient_type;
 
                 G_PREVIOUS_PATIENT_TYPE = random_patient_type;
-                
+
                 G_RANDOM_OK = TRUE;
             }
         }
@@ -1360,13 +1364,13 @@ inline static void spawn_PATIENT()
         //                             GENERATE RANDOM X POSITION                               //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
-        
+
         G_RANDOM_OK = FALSE;
 
         while(G_RANDOM_OK == FALSE)
         {
             u16 random_patient_pos_x;
-            
+
             if(nurse.pos_X < 136)
             {
                 random_patient_pos_x = random_NUMBER(6,10);
@@ -1376,7 +1380,7 @@ inline static void spawn_PATIENT()
             {
                 random_patient_pos_x = random_NUMBER(0,5);
             }
-            
+
             s16 new_pos_X = TABLE_PATIENT_SPAWN_POSITION[random_patient_pos_x];
 
             // IF SELECTED X POSITION IS ON THE NURSE LEFT SIDE //
@@ -1390,7 +1394,7 @@ inline static void spawn_PATIENT()
 
                     G_RANDOM_OK = TRUE;
                 }
-                
+
             }
 
             // IF SELECTED X POSITION IS ON THE NURSE RIGHT SIDE //
@@ -1408,7 +1412,7 @@ inline static void spawn_PATIENT()
             }
         }
 
-        
+
         patient.spr_PATIENT          = SPR_addSprite(TABLE_PATIENT_TYPE[random_patient_type].tiles_PATIENT_TYPE , patient.pos_X , patient.pos_Y , TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
     }
 }
@@ -1429,7 +1433,7 @@ inline static void anim_PATIENT()
         //              IF PATIENT SPRITE REACHES BOTTOM OF SCREEN : REMOVE SPRITE              //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
-        
+
         if(patient.pos_Y >= 224)
         {
             SPR_releaseSprite(patient.spr_PATIENT);
@@ -1451,7 +1455,7 @@ inline static void anim_PATIENT()
             //          MOVE PATIENT ACCORDING TO SCROLLING          //
             //-------------------------------------------------------//
             patient.pos_Y += G_CAR_SPEED;
-            
+
             //-------------------------------------------------------//
             //              INCREASE FRAME COUNTER BY 1              //
             //-------------------------------------------------------//
@@ -1492,7 +1496,7 @@ inline static void anim_PATIENT()
                     //                  UPDATE SPRITE FRAME                  //
                     //-------------------------------------------------------//
                     SPR_setAnimAndFrame(patient.spr_PATIENT , patient.patient_STATE , patient.index_SPRITE_FRAME);
-                    
+
 
                     //-------------------------------------------------------//
                     //                   PATIENT OWN SPEED                   //
@@ -1535,7 +1539,7 @@ inline static void anim_PATIENT()
                     //                  UPDATE SPRITE FRAME                  //
                     //-------------------------------------------------------//
                     SPR_setAnimAndFrame(patient.spr_PATIENT , patient.patient_STATE , patient.index_SPRITE_FRAME);
-                    
+
                 }
             }
 
@@ -1564,19 +1568,19 @@ void sequence_DOCTORS_MINIGAME()
         //                                       SCROLLING                                      //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
-        
+
         G_POS_Y_CAMERA += G_CAR_SPEED;
 
         if(G_POS_Y_CAMERA >= 16556)
         {
             G_POS_Y_CAMERA = 16556;
-            
+
             G_PHASE_SEQUENCE = DOCTORS_PHASE_EXIT;
         }
 
 
 
-        
+
         VDP_setVerticalScrollVSync(BG_B , -G_POS_Y_CAMERA);
 
 
@@ -1608,7 +1612,7 @@ void sequence_DOCTORS_MINIGAME()
         {
             spawn_PATIENT();
         }
-        
+
         if(G_POS_Y_CAMERA < 16380)
         {
             spawn_ITEM();
@@ -1662,7 +1666,7 @@ void sequence_DOCTORS_MINIGAME()
         }
     }
 
-    
+
     else if(G_PHASE_SEQUENCE == DOCTORS_PHASE_EXIT)
     {
         //--------------------------------------------------------------//
@@ -1722,7 +1726,7 @@ void sequence_DOCTORS_MINIGAME()
         }
 
         SPR_setPosition(nurse.spr_NURSE , nurse.pos_X , nurse.pos_Y);
-        
+
 
         //--------------------------------------------------------------//
         //                                                              //
@@ -1731,10 +1735,10 @@ void sequence_DOCTORS_MINIGAME()
         //--------------------------------------------------------------//
 
         nurse.counter_SPRITE_FRAME += 1;
-        
+
         if(nurse.counter_SPRITE_FRAME == 7)
         {
-            
+
             nurse.index_SPRITE_FRAME += 1;
 
             // REINIT FRAME INDEX //
@@ -1747,12 +1751,12 @@ void sequence_DOCTORS_MINIGAME()
             SPR_setFrame(nurse.spr_NURSE , nurse.index_SPRITE_FRAME);
 
             // REINIT FRAME COUNTER //
-            nurse.counter_SPRITE_FRAME = 0;       
+            nurse.counter_SPRITE_FRAME = 0;
         }
 
 
 
-        
+
         //--------------------------------------------------------------//
         //                                                              //
         //                        RECENTER CARS                         //
@@ -1769,7 +1773,7 @@ void sequence_DOCTORS_MINIGAME()
                 {
                     list_CARS[i].pos_X += G_CAR_SPEED;
 
-                    
+
 
                     SPR_setFrame(list_CARS[i].spr_CAR , AXIS_RIGHT);
                 }
@@ -1782,7 +1786,7 @@ void sequence_DOCTORS_MINIGAME()
 
                     SPR_setFrame(list_CARS[i].spr_CAR , AXIS_CENTER);
                 }
-                
+
                 SPR_setPosition(list_CARS[i].spr_CAR , list_CARS[i].pos_X , list_CARS[i].pos_Y);
             }
 
@@ -1796,7 +1800,7 @@ void sequence_DOCTORS_MINIGAME()
 
                     SPR_setFrame(list_CARS[i].spr_CAR , AXIS_LEFT);
                 }
-                
+
                 else
                 {
                     list_CARS[i].pos_X = 136;
@@ -1804,7 +1808,7 @@ void sequence_DOCTORS_MINIGAME()
                     list_CARS[i].axis_CAR = AXIS_CENTER;
 
                     SPR_setFrame(list_CARS[i].spr_CAR , AXIS_CENTER);
-                }            
+                }
 
                 SPR_setPosition(list_CARS[i].spr_CAR , list_CARS[0].pos_X , list_CARS[i].pos_Y);
             }
@@ -1821,15 +1825,15 @@ void sequence_DOCTORS_MINIGAME()
 
 
 
-        
+
         //--------------------------------------------------------------//
         //                                                              //
         //                           SCROLLING                          //
         //                                                              //
         //--------------------------------------------------------------//
-        
+
         G_POS_Y_CAMERA += G_CAR_SPEED;
-        
+
 
         if(G_POS_Y_CAMERA > 16765 && G_POS_Y_CAMERA < 16769)
         {
@@ -1838,10 +1842,10 @@ void sequence_DOCTORS_MINIGAME()
                 SPR_releaseSprite(patient.spr_PATIENT);
                 patient.spr_PATIENT = NULL;
             }
-            
+
             VDP_setTileMapEx(BG_B, image_DOCTORS_BG_B2.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B + image_DOCTORS_BG_B1.tileset->numTile), 0, 11, 0, 0, 40, 5, DMA_QUEUE);
         }
-        
+
         if(G_POS_Y_CAMERA < 16809)
         {
             VDP_setVerticalScrollVSync(BG_B , -G_POS_Y_CAMERA);
@@ -1880,7 +1884,7 @@ void sequence_DOCTORS_MINIGAME()
         if(G_POS_Y_CAMERA == 17060)
         {
             XGM_stopPlayPCM(SOUND_PCM_CH2);
-            
+
             XGM_startPlayPCM(SOUND_DOCTORS_CRASH_3,15,SOUND_PCM_CH4);
         }
 
@@ -1890,7 +1894,7 @@ void sequence_DOCTORS_MINIGAME()
 
             // 15 DOLLARS REWARD PER REMAINING SECOND //
             G_REWARD += (G_COUNTER_DOCTORS * 15);
-            
+
             G_PHASE_SEQUENCE = DOCTORS_PHASE_GAME_OVER;
         }
 
@@ -1984,6 +1988,6 @@ void sequence_DOCTORS_MINIGAME()
             }
         }
     }
-    
+
 }
 
