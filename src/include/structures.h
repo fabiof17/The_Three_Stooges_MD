@@ -272,19 +272,38 @@ typedef struct
 
 typedef struct
 {
-    u8 id;
+    bool row;
 
-    Sprite *spr_OBSTACLE;
-    const SpriteDefinition *tiles_OBSTACLE;
+    u8 type;
 
-    bool state;
-    bool hitable;
+    s16 pos_X_ref;
+    s16 pos_Y_ref;
+
+    u8 width;
+    u8 height;
+
+    u8 index_trash;
+
+} struct_OBSTACLE_TYPE;
+
+
+
+
+typedef struct
+{
+    bool row;
+
+    u8 type;
+
+    bool hit;
 
     s16 pos_X;
     s16 pos_Y;
 
     u8 width;
     u8 height;
+
+    u8 index_trash;
 
 } struct_OBSTACLE_;
 

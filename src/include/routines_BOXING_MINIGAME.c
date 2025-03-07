@@ -14,6 +14,35 @@
 
 
 
+
+inline static void scroll_TRASH()
+{
+    u8 i;
+
+    for(i=0 ; i<MAX_OBSTACLES ; i++)
+    {
+        if(LIST_OBSTACLES[i].type == TYPE_TRASH)
+        {
+            if(TABLES_OBSTACLES[i].pos_X_ref <= (G_POS_X_CAMERA + 320))
+            {
+                if(TABLES_OBSTACLES[i].pos_X_ref + LIST_OBSTACLES[i].width + 8 >= G_POS_X_CAMERA)
+                {
+                    u8 current_trash = LIST_OBSTACLES[i].index_trash;
+
+
+                    LIST_OBSTACLES[i].pos_X = TABLES_OBSTACLES[i].pos_X_ref - G_POS_X_CAMERA;
+                    LIST_OBSTACLES[i].pos_Y = TABLES_OBSTACLES[i].pos_Y_ref;
+
+                    SPR_setPosition(LIST_TRASH[current_trash] , LIST_OBSTACLES[i].pos_X , LIST_OBSTACLES[i].pos_Y);
+                }
+            }
+        }
+    }
+}
+
+
+
+
 inline static void scroll_TILE()
 {
     if(G_POS_X_CAMERA + larry_BOXING.velocity < 6144)
@@ -284,6 +313,10 @@ inline static void joypad_BOXING_MINIGAME()
                         larry_BOXING.pos_Y = 126;
 
                         SPR_setPriority(larry_BOXING.spr_LARRY_BOXING,FALSE);
+
+                        SPR_setDepth(LIST_TRASH[0],SPR_MIN_DEPTH);
+                        SPR_setDepth(larry_BOXING.spr_LARRY_BOXING,SPR_MIN_DEPTH + 1);
+                        SPR_setDepth(LIST_TRASH[1],SPR_MIN_DEPTH + 2);
                     }
                 }
 
@@ -296,13 +329,14 @@ inline static void joypad_BOXING_MINIGAME()
                         larry_BOXING.pos_Y = 133;
 
                         SPR_setPriority(larry_BOXING.spr_LARRY_BOXING,TRUE);
+
+                        SPR_setDepth(larry_BOXING.spr_LARRY_BOXING,SPR_MIN_DEPTH);
+                        SPR_setDepth(LIST_TRASH[0],SPR_MIN_DEPTH + 1);
+                        SPR_setDepth(LIST_TRASH[1],SPR_MIN_DEPTH + 2);
                     }
                 }
 
                 SPR_setPosition(larry_BOXING.spr_LARRY_BOXING,larry_BOXING.pos_X,larry_BOXING.pos_Y);
-
-
-                //G_POS_X_CAMERA -= larry_BOXING.velocity;
             }
         }
 
@@ -335,6 +369,10 @@ inline static void joypad_BOXING_MINIGAME()
                         larry_BOXING.pos_Y = 126;
 
                         SPR_setPriority(larry_BOXING.spr_LARRY_BOXING,FALSE);
+
+                        SPR_setDepth(LIST_TRASH[0],SPR_MIN_DEPTH);
+                        SPR_setDepth(larry_BOXING.spr_LARRY_BOXING,SPR_MIN_DEPTH + 1);
+                        SPR_setDepth(LIST_TRASH[1],SPR_MIN_DEPTH + 2);
                     }
                 }
 
@@ -347,13 +385,14 @@ inline static void joypad_BOXING_MINIGAME()
                         larry_BOXING.pos_Y = 133;
 
                         SPR_setPriority(larry_BOXING.spr_LARRY_BOXING,TRUE);
+
+                        SPR_setDepth(larry_BOXING.spr_LARRY_BOXING,SPR_MIN_DEPTH);
+                        SPR_setDepth(LIST_TRASH[0],SPR_MIN_DEPTH + 1);
+                        SPR_setDepth(LIST_TRASH[1],SPR_MIN_DEPTH + 2);
                     }
                 }
 
                 SPR_setPosition(larry_BOXING.spr_LARRY_BOXING,larry_BOXING.pos_X,larry_BOXING.pos_Y);
-
-
-                //G_POS_X_CAMERA -= larry_BOXING.velocity;
             }
         }
 
@@ -376,6 +415,10 @@ inline static void joypad_BOXING_MINIGAME()
                     SPR_setPosition(larry_BOXING.spr_LARRY_BOXING,larry_BOXING.pos_X,larry_BOXING.pos_Y);
 
                     SPR_setPriority(larry_BOXING.spr_LARRY_BOXING,FALSE);
+
+                    SPR_setDepth(LIST_TRASH[0],SPR_MIN_DEPTH);
+                    SPR_setDepth(larry_BOXING.spr_LARRY_BOXING,SPR_MIN_DEPTH + 1);
+                    SPR_setDepth(LIST_TRASH[1],SPR_MIN_DEPTH + 2);
                 }
             }
         }
@@ -399,6 +442,10 @@ inline static void joypad_BOXING_MINIGAME()
                     SPR_setPosition(larry_BOXING.spr_LARRY_BOXING,larry_BOXING.pos_X,larry_BOXING.pos_Y);
 
                     SPR_setPriority(larry_BOXING.spr_LARRY_BOXING,TRUE);
+
+                    SPR_setDepth(larry_BOXING.spr_LARRY_BOXING,SPR_MIN_DEPTH);
+                    SPR_setDepth(LIST_TRASH[0],SPR_MIN_DEPTH + 1);
+                    SPR_setDepth(LIST_TRASH[1],SPR_MIN_DEPTH + 2);
                 }
             }
         }
@@ -419,6 +466,8 @@ void sequence_BOXING_MINIGAME()
 
         scroll_TILE();
         update_TILEMAP_RIGHT();
+
+        scroll_TRASH();
 
         anim_LARRY();
 

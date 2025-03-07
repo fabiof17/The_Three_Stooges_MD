@@ -67,6 +67,7 @@
 
 
 #include "tables_BACKGROUNDS.h"
+#include "tables_BOXING.h"
 #include "tables_CRACKERS.h"
 #include "tables_DOCTORS.h"
 #include "tables_DOLLAR.h"
@@ -6048,33 +6049,34 @@ void init_SCENE()
 
         //**************************************************************************************//
         //                                                                                      //
-        //                                      SPRITES                                         //
+        //                                     OBSTACLES                                        //
         //                                                                                      //
         //**************************************************************************************//
 
-        //--------------------------------------------------------------------------------------//
+        for(i=0 ; i<MAX_OBSTACLES ; i++)
+        {
+            LIST_OBSTACLES[i].row   = TABLES_OBSTACLES[i].row;
+
+            LIST_OBSTACLES[i].type   = TABLES_OBSTACLES[i].type;
+            LIST_OBSTACLES[i].hit    = FALSE;
+
+            LIST_OBSTACLES[i].pos_X  = 0;
+            LIST_OBSTACLES[i].pos_Y  = TABLES_OBSTACLES[i].height * -1;
+
+            LIST_OBSTACLES[i].width  = TABLES_OBSTACLES[i].width;
+            LIST_OBSTACLES[i].height = TABLES_OBSTACLES[i].height;
+
+            LIST_OBSTACLES[i].index_trash   = TABLES_OBSTACLES[i].index_trash;
+        }
+
+
+
+
+        //**************************************************************************************//
         //                                                                                      //
-        //                                         LARRY                                        //
+        //                                      SPRITES                                         //
         //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        larry_BOXING.pos_X                  = 180;
-        larry_BOXING.pos_Y                  = 123;
-
-        larry_BOXING.spr_LARRY_BOXING       = SPR_addSpriteEx(&tiles_SPR_LARRY_BOXING, larry_BOXING.pos_X, larry_BOXING.pos_Y, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 59), SPR_FLAG_AUTO_TILE_UPLOAD);
-
-        larry_BOXING.state                  = LARRY_PHASE_RUN;
-        larry_BOXING.invincible             = FALSE;
-
-        larry_BOXING.counter_SPRITE_FRAME   = 5;
-        larry_BOXING.index_SPRITE_FRAME     = 0;
-
-        larry_BOXING.velocity               = 2;
-        larry_BOXING.counter_INVINCIBLE     = 0;
-
-        larry_BOXING.counter_JUMP           = 0;
-        larry_BOXING.row                    = ROW_BG;
-
+        //**************************************************************************************//
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
@@ -6119,6 +6121,44 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         sprite_BOXERS = SPR_addSpriteEx(&tiles_SPR_BOXERS, 80, 0, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, 1664), SPR_FLAG_AUTO_TILE_UPLOAD);//TILE_FONT_INDEX + 27
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         LARRY                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        larry_BOXING.pos_X                  = 180;
+        larry_BOXING.pos_Y                  = 123;
+
+        larry_BOXING.spr_LARRY_BOXING       = SPR_addSpriteEx(&tiles_SPR_LARRY_BOXING, larry_BOXING.pos_X, larry_BOXING.pos_Y, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 59), SPR_FLAG_AUTO_TILE_UPLOAD);
+
+        larry_BOXING.state                  = LARRY_PHASE_RUN;
+        larry_BOXING.invincible             = FALSE;
+
+        larry_BOXING.counter_SPRITE_FRAME   = 5;
+        larry_BOXING.index_SPRITE_FRAME     = 0;
+
+        larry_BOXING.velocity               = 2;
+        larry_BOXING.counter_INVINCIBLE     = 0;
+
+        larry_BOXING.counter_JUMP           = 0;
+        larry_BOXING.row                    = ROW_BG;
+
+
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        TRASHS                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        LIST_TRASH[0] = SPR_addSpriteEx(&tiles_SPR_TRASH, 0, -40, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, 1746), SPR_FLAG_AUTO_TILE_UPLOAD);
+        LIST_TRASH[1] = SPR_addSpriteEx(&tiles_SPR_TRASH, 0, -40, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, 1746 + 20), SPR_FLAG_AUTO_TILE_UPLOAD);
 
 
 

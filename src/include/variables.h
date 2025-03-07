@@ -382,6 +382,20 @@
 #define ROW_FG                          1
 
 
+#define MAX_OBSTACLES                   43
+
+#define TYPE_TRASH                      0
+#define TYPE_HYDRANT                    1
+#define TYPE_POST                       2
+#define TYPE_DOG                        3
+#define TYPE_LETTERS_SMALL              4
+#define TYPE_DOOR                       5
+#define TYPE_LETTERS_BIG                6
+#define TYPE_LADDER                     7
+#define TYPE_BOX                        8
+#define TYPE_LAMP                       9
+
+
 
 
 //-----------------------------------------------------------------------------//
@@ -854,6 +868,10 @@ extern struct_LARRY_BOXING_ larry_BOXING;
 
 extern s16 scrollTable_BG[14];
 
+extern struct_OBSTACLE_ LIST_OBSTACLES[MAX_OBSTACLES];
+
+extern Sprite *LIST_TRASH[2];
+
 
 
 
@@ -865,6 +883,16 @@ extern s16 scrollTable_BG[14];
 
 extern s16 G_POS_X_CAMERA_CURTAIN_1;
 extern s16 G_POS_X_CAMERA_CURTAIN_2;
+
+
+
+
+
+
+
+
+
+
 
 
 

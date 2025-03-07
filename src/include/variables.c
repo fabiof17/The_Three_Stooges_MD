@@ -4,7 +4,7 @@
 
 
 #include "structures.h"
-
+#include "variables.h"
 
 
 
@@ -360,6 +360,10 @@ struct_LARRY_BOXING_ larry_BOXING;
 
 s16 scrollTable_BG[14];
 
+struct_OBSTACLE_ LIST_OBSTACLES[MAX_OBSTACLES];
+
+Sprite *LIST_TRASH[2];
+
 
 
 
@@ -371,6 +375,16 @@ s16 scrollTable_BG[14];
 
 s16 G_POS_X_CAMERA_CURTAIN_1;
 s16 G_POS_X_CAMERA_CURTAIN_2;
+
+
+
+
+
+
+
+
+
+
 
 
 

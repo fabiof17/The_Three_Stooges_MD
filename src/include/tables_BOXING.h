@@ -10,6 +10,8 @@ extern const Palette                    *TABLE_BOXING_CYCLE[5];
 
 extern const u8                         TABLE_BOXERS[8];
 
+extern struct_OBSTACLE_TYPE             TABLES_OBSTACLES[MAX_OBSTACLES];
+
 
 
 
