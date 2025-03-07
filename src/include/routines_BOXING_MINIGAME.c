@@ -27,13 +27,16 @@ inline static void scroll_TRASH()
             {
                 if(TABLES_OBSTACLES[i].pos_X_ref + LIST_OBSTACLES[i].width + 8 >= G_POS_X_CAMERA)
                 {
-                    u8 current_trash = LIST_OBSTACLES[i].index_trash;
-
-
                     LIST_OBSTACLES[i].pos_X = TABLES_OBSTACLES[i].pos_X_ref - G_POS_X_CAMERA;
                     LIST_OBSTACLES[i].pos_Y = TABLES_OBSTACLES[i].pos_Y_ref;
 
-                    SPR_setPosition(LIST_TRASH[current_trash] , LIST_OBSTACLES[i].pos_X , LIST_OBSTACLES[i].pos_Y);
+                    // SCROLL TRASH SPRITES //
+                    if(LIST_OBSTACLES[i].type == TYPE_TRASH)
+                    {
+                        u8 current_trash = LIST_OBSTACLES[i].index_trash;
+
+                        SPR_setPosition(LIST_TRASH[current_trash] , LIST_OBSTACLES[i].pos_X , LIST_OBSTACLES[i].pos_Y);
+                    }
                 }
             }
         }

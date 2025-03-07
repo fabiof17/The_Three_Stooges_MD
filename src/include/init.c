@@ -5965,7 +5965,7 @@ void init_SCENE()
 
         VDP_setPlaneSize(64,32,TRUE);
 
-        SPR_initEx(50);
+        SPR_initEx(5);
 
         VDP_setHilightShadow(FALSE);
 
@@ -6159,6 +6159,13 @@ void init_SCENE()
 
         LIST_TRASH[0] = SPR_addSpriteEx(&tiles_SPR_TRASH, 0, -40, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, 1746), SPR_FLAG_AUTO_TILE_UPLOAD);
         LIST_TRASH[1] = SPR_addSpriteEx(&tiles_SPR_TRASH, 0, -40, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, 1746 + 20), SPR_FLAG_AUTO_TILE_UPLOAD);
+
+
+
+
+        SPR_setDepth(LIST_TRASH[0],SPR_MIN_DEPTH);
+        SPR_setDepth(larry_BOXING.spr_LARRY_BOXING,SPR_MIN_DEPTH + 1);
+        SPR_setDepth(LIST_TRASH[1],SPR_MIN_DEPTH + 2);
 
 
 
