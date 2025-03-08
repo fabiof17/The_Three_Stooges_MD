@@ -6080,20 +6080,11 @@ void init_SCENE()
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
-        //                                        ROUND                                         //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
-
-        sprite_ROUND = SPR_addSpriteEx(&tiles_SPR_ROUND, 48, 8, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 15), SPR_FLAG_AUTO_TILE_UPLOAD);
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
         //                                        CHRONO                                        //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_CHRONO = SPR_addSpriteEx(&tiles_SPR_CHRONO, 192, 16, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 1), SPR_FLAG_AUTO_TILE_UPLOAD);
+        sprite_CHRONO = SPR_addSpriteEx(&tiles_SPR_CHRONO, 192, 16, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 1), SPR_FLAG_AUTO_TILE_UPLOAD); // 6 TILES
 
 
         //--------------------------------------------------------------------------------------//
@@ -6102,7 +6093,16 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_WATCH_HAND = SPR_addSpriteEx(&tiles_SPR_WATCH_HAND, 184, 32, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 7), SPR_FLAG_AUTO_TILE_UPLOAD);
+        sprite_WATCH_HAND = SPR_addSpriteEx(&tiles_SPR_WATCH_HAND, 184, 32, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 7), SPR_FLAG_AUTO_TILE_UPLOAD); // 8 TILES
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                        ROUND                                         //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        sprite_ROUND = SPR_addSpriteEx(&tiles_SPR_ROUND, 48, 8, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 15), SPR_FLAG_AUTO_TILE_UPLOAD); // 4 TILES
 
 
         //--------------------------------------------------------------------------------------//
@@ -6111,7 +6111,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_HAMMER = SPR_addSpriteEx(&tiles_SPR_HAMMER, 280, 24, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 27), SPR_FLAG_AUTO_TILE_UPLOAD);
+        sprite_HAMMER = SPR_addSpriteEx(&tiles_SPR_HAMMER, 280, 24, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 19), SPR_FLAG_AUTO_TILE_UPLOAD); // 31 TILES
 
 
         //--------------------------------------------------------------------------------------//
@@ -6120,7 +6120,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_BOXERS = SPR_addSpriteEx(&tiles_SPR_BOXERS, 80, 0, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, 1664), SPR_FLAG_AUTO_TILE_UPLOAD);//TILE_FONT_INDEX + 27
+        sprite_BOXERS = SPR_addSpriteEx(&tiles_SPR_BOXERS, 80, 0, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, 1664), SPR_FLAG_AUTO_TILE_UPLOAD);
 
 
 
@@ -6132,9 +6132,9 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         larry_BOXING.pos_X                  = 180;
-        larry_BOXING.pos_Y                  = 123;
+        larry_BOXING.pos_Y                  = 115;
 
-        larry_BOXING.spr_LARRY_BOXING       = SPR_addSpriteEx(&tiles_SPR_LARRY_BOXING, larry_BOXING.pos_X, larry_BOXING.pos_Y, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 59), SPR_FLAG_AUTO_TILE_UPLOAD);
+        larry_BOXING.spr_LARRY_BOXING       = SPR_addSpriteEx(&tiles_SPR_LARRY_BOXING_FW, larry_BOXING.pos_X, larry_BOXING.pos_Y, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 50), SPR_FLAG_AUTO_TILE_UPLOAD); // 37 TILES
 
         larry_BOXING.state                  = LARRY_PHASE_RUN;
         larry_BOXING.invincible             = FALSE;

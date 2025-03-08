@@ -62,15 +62,19 @@ const Palette           *TABLE_BOXING_CYCLE[5]      =   {
                                                         };
 
 
-const u8                TABLE_BOXERS[8]             =   {
+const u8                TABLE_BOXERS[12]             =   {
                                                             0,
-                                                            1,
                                                             1,
                                                             2,
                                                             3,
                                                             4,
-                                                            4,
-                                                            5
+                                                            5,
+                                                            0,
+                                                            1,
+                                                            5,
+                                                            6,
+                                                            7,
+                                                            8
                                                         };
 
 

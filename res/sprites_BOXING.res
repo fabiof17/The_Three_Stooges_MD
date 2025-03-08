@@ -1,4 +1,6 @@
-SPRITE tiles_SPR_LARRY_BOXING     "sprites/boxing/tiles_SPR_LARRY_BOXING.png"      6   7  NONE 0
+SPRITE tiles_SPR_LARRY_BOXING_FW  "sprites/boxing/tiles_SPR_LARRY_BOXING_FW.png"   7   8  NONE 0
+
+SPRITE tiles_SPR_LARRY_BOXING_BW  "sprites/boxing/tiles_SPR_LARRY_BOXING_BW.png"   7   8  NONE 0
 
 SPRITE tiles_SPR_CHRONO           "sprites/boxing/tiles_SPR_CHRONO.png"            3   2  NONE 0
 

@@ -105,7 +105,7 @@ inline static void anim_BOXERS()
 
         G_INDEX_2 += 1;
 
-        if(G_INDEX_2 == 8)
+        if(G_INDEX_2 == 12)
         {
             G_INDEX_2 = 0;
         }
@@ -227,9 +227,9 @@ inline static void anim_LARRY()
         {
             if(larry_BOXING.gravity > 0)
             {
-                if(larry_BOXING.pos_Y >= 123)
+                if(larry_BOXING.pos_Y >= 115)
                 {
-                    larry_BOXING.pos_Y = 123;
+                    larry_BOXING.pos_Y = 115;
 
                     larry_BOXING.counter_SPRITE_FRAME = 0;
 
@@ -247,9 +247,9 @@ inline static void anim_LARRY()
         {
             if(larry_BOXING.gravity > 0)
             {
-                if(larry_BOXING.pos_Y >= 133)
+                if(larry_BOXING.pos_Y >= 125)
                 {
-                    larry_BOXING.pos_Y = 133;
+                    larry_BOXING.pos_Y = 125;
 
                     larry_BOXING.counter_SPRITE_FRAME = 0;
 
@@ -329,7 +329,7 @@ inline static void joypad_BOXING_MINIGAME()
                     {
                         larry_BOXING.row = ROW_FG;
 
-                        larry_BOXING.pos_Y = 133;
+                        larry_BOXING.pos_Y = 125;
 
                         SPR_setPriority(larry_BOXING.spr_LARRY_BOXING,TRUE);
 
@@ -385,7 +385,7 @@ inline static void joypad_BOXING_MINIGAME()
                     {
                         larry_BOXING.row = ROW_FG;
 
-                        larry_BOXING.pos_Y = 133;
+                        larry_BOXING.pos_Y = 125;
 
                         SPR_setPriority(larry_BOXING.spr_LARRY_BOXING,TRUE);
 
@@ -413,7 +413,7 @@ inline static void joypad_BOXING_MINIGAME()
                 {
                     larry_BOXING.row = ROW_BG;
 
-                    larry_BOXING.pos_Y = 123;
+                    larry_BOXING.pos_Y = 115;
 
                     SPR_setPosition(larry_BOXING.spr_LARRY_BOXING,larry_BOXING.pos_X,larry_BOXING.pos_Y);
 
@@ -440,7 +440,7 @@ inline static void joypad_BOXING_MINIGAME()
                 {
                     larry_BOXING.row = ROW_FG;
 
-                    larry_BOXING.pos_Y = 133;
+                    larry_BOXING.pos_Y = 125;
 
                     SPR_setPosition(larry_BOXING.spr_LARRY_BOXING,larry_BOXING.pos_X,larry_BOXING.pos_Y);
 
