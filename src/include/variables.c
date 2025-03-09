@@ -342,6 +342,8 @@ struct_WALL_PIE_ list_WALL_PIES_DOWN_BG_A[3];
 //                                                                             //
 //-----------------------------------------------------------------------------//
 
+bool G_RUN_DIRECTION;
+
 u16 G_COUNTER_WATCH_HAND;
 
 u16 G_COUNTER_BOXERS;
@@ -361,6 +363,8 @@ struct_LARRY_BOXING_ larry_BOXING;
 s16 scrollTable_BG[14];
 
 struct_OBSTACLE_ LIST_OBSTACLES[MAX_OBSTACLES];
+
+//struct_TRASH_ LIST_TRASH[5];
 
 Sprite *LIST_TRASH[2];
 

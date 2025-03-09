@@ -279,6 +279,17 @@ void init_VARIABLES()
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
+    //                                   BOXING MINIGAME                                    //
+    //                                                                                      //
+    //--------------------------------------------------------------------------------------//
+
+    G_RUN_DIRECTION = DIRECTION_FW;
+
+
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                                                                      //
     //                               GENERATE HAND MOVE ORDER                               //
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
@@ -6074,6 +6085,23 @@ void init_SCENE()
 
         //**************************************************************************************//
         //                                                                                      //
+        //                                       TRASH                                          //
+        //                                                                                      //
+        //**************************************************************************************//
+
+        /*for(i=0 ; i<5 ; i++)
+        {
+            LIST_TRASH[i].pos_X = 0;
+            LIST_TRASH[i].pos_Y = 0;
+
+            LIST_TRASH[i].index_trash = 0;
+        }*/
+
+
+
+
+        //**************************************************************************************//
+        //                                                                                      //
         //                                      SPRITES                                         //
         //                                                                                      //
         //**************************************************************************************//
@@ -6102,7 +6130,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_ROUND = SPR_addSpriteEx(&tiles_SPR_ROUND, 48, 8, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 15), SPR_FLAG_AUTO_TILE_UPLOAD); // 4 TILES
+        //sprite_ROUND = SPR_addSpriteEx(&tiles_SPR_ROUND, 48, 8, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 15), SPR_FLAG_AUTO_TILE_UPLOAD); // 4 TILES
 
 
         //--------------------------------------------------------------------------------------//
@@ -6111,7 +6139,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_HAMMER = SPR_addSpriteEx(&tiles_SPR_HAMMER, 280, 24, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 19), SPR_FLAG_AUTO_TILE_UPLOAD); // 31 TILES
+        //sprite_HAMMER = SPR_addSpriteEx(&tiles_SPR_HAMMER, 280, 24, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 19), SPR_FLAG_AUTO_TILE_UPLOAD); // 31 TILES
 
 
         //--------------------------------------------------------------------------------------//
@@ -6132,20 +6160,19 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         larry_BOXING.pos_X                  = 180;
-        larry_BOXING.pos_Y                  = 115;
+        larry_BOXING.pos_Y                  = 118;
 
         larry_BOXING.spr_LARRY_BOXING       = SPR_addSpriteEx(&tiles_SPR_LARRY_BOXING_FW, larry_BOXING.pos_X, larry_BOXING.pos_Y, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 50), SPR_FLAG_AUTO_TILE_UPLOAD); // 37 TILES
 
         larry_BOXING.state                  = LARRY_PHASE_RUN;
-        larry_BOXING.invincible             = FALSE;
 
         larry_BOXING.counter_SPRITE_FRAME   = 5;
         larry_BOXING.index_SPRITE_FRAME     = 0;
 
         larry_BOXING.velocity               = 2;
-        larry_BOXING.counter_INVINCIBLE     = 0;
+        larry_BOXING.counter_HIT            = 0;
 
-        larry_BOXING.counter_JUMP           = 0;
+        //larry_BOXING.counter_JUMP           = 0;
         larry_BOXING.row                    = ROW_BG;
 
 
@@ -6226,7 +6253,7 @@ void init_SCENE()
         G_REWARD                = 0;
 
 
-        G_PHASE_SEQUENCE        = BOXING_PHASE_FW;
+        G_PHASE_SEQUENCE        = BOXING_PHASE_RUN;
 
 
         G_SCENE                 = SCENE_FADE_IN;

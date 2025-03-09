@@ -368,14 +368,19 @@
 //                                                                             //
 //-----------------------------------------------------------------------------//
 
-#define BOXING_PHASE_FW                 0
-#define BOXING_PHASE_BW                 1
+#define BOXING_PHASE_RUN                0
+#define BOXING_PHASE_HIT                1
+#define BOXING_PHASE_SLIDE              2
+#define BOXING_PHASE_KO                 3
+#define BOXING_PHASE_RECENTER           4
+#define BOXING_PHASE_RESTART            5
 
 
 #define LARRY_PHASE_RUN                 0
 #define LARRY_PHASE_JUMP                1
 #define LARRY_PHASE_HIT                 2
-#define LARRY_PHASE_RECOVER             3
+#define LARRY_PHASE_KO                  3
+#define LARRY_PHASE_RESTART             4
 
 
 #define ROW_BG                          0
@@ -394,6 +399,9 @@
 #define TYPE_LADDER                     7
 #define TYPE_BOX                        8
 #define TYPE_LAMP                       9
+
+#define DIRECTION_FW                    0
+#define DIRECTION_BW                    1
 
 
 
@@ -850,6 +858,8 @@ extern struct_WALL_PIE_ list_WALL_PIES_DOWN_BG_A[3];
 //                                                                             //
 //-----------------------------------------------------------------------------//
 
+extern bool G_RUN_DIRECTION;
+
 extern u16 G_COUNTER_WATCH_HAND;
 
 extern u16 G_COUNTER_BOXERS;
@@ -869,6 +879,8 @@ extern struct_LARRY_BOXING_ larry_BOXING;
 extern s16 scrollTable_BG[14];
 
 extern struct_OBSTACLE_ LIST_OBSTACLES[MAX_OBSTACLES];
+
+//extern struct_TRASH_ LIST_TRASH[5];
 
 extern Sprite *LIST_TRASH[2];
 

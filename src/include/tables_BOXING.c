@@ -62,7 +62,7 @@ const Palette           *TABLE_BOXING_CYCLE[5]      =   {
                                                         };
 
 
-const u8                TABLE_BOXERS[12]             =   {
+const u8                TABLE_BOXERS[12]            =   {
                                                             0,
                                                             1,
                                                             2,
@@ -81,47 +81,58 @@ const u8                TABLE_BOXERS[12]             =   {
 
 
 struct_OBSTACLE_TYPE    TABLES_OBSTACLES[MAX_OBSTACLES]     =   {
-                                                                    { ROW_BG , TYPE_TRASH         ,  464 , 144 ,    32 , 40 , 1 },//TRASH
-                                                                    { ROW_FG , TYPE_HYDRANT       ,  720 , 168 ,    24 , 24 , 0 },//HYDRANT
+                                                                    { ROW_BG , TYPE_TRASH         ,  464 , 180 ,    32 , 40 , 1 },//TRASH 144
+                                                                    { ROW_FG , TYPE_HYDRANT       ,  720 , 188 ,    24 , 24 , 0 },//HYDRANT
                                                                     { ROW_FG , TYPE_POST          ,  920 , 104 ,    16 , 88 , 0 },//POST
-                                                                    { ROW_BG , TYPE_DOG           , 1096 , 160 ,    48 , 24 , 0 },//DOG
-                                                                    { ROW_FG , TYPE_LETTERS_SMALL , 1232 , 168 ,    32 , 24 , 0 },//LETTERS SMALL
-                                                                    { ROW_BG , TYPE_DOOR          , 1416 , 104 ,    24 , 72 , 0 },//DOOR
+                                                                    { ROW_BG , TYPE_DOG           , 1096 , 181 ,    48 , 24 , 0 },//DOG 160
+                                                                    { ROW_FG , TYPE_LETTERS_SMALL , 1232 , 188 ,    32 , 24 , 0 },//LETTERS SMALL
+                                                                    { ROW_BG , TYPE_DOOR          , 1424 , 104 ,     8 , 72 , 0 },//DOOR
                                                                     { ROW_FG , TYPE_LETTERS_BIG   , 1616 , 136 ,    56 , 56 , 0 },//LETTERS BIG
-                                                                    { ROW_FG , TYPE_LADDER        , 1818 , 104 ,    32 , 88 , 0 },//LADDER
-                                                                    { ROW_FG , TYPE_HYDRANT       , 2064 , 168 ,    24 , 24 , 0 },//HYDRANT
-                                                                    { ROW_BG , TYPE_DOOR          , 2248 , 104 ,    24 , 72 , 0 },//DOOR
-                                                                    { ROW_FG , TYPE_LETTERS_SMALL , 2320 , 168 ,    32 , 24 , 0 },//LETTERS SMALL
+                                                                    { ROW_FG , TYPE_LADDER        , 1808 , 104 ,    32 , 88 , 0 },//LADDER
+                                                                    { ROW_FG , TYPE_HYDRANT       , 2064 , 188 ,    24 , 24 , 0 },//HYDRANT
+                                                                    { ROW_BG , TYPE_DOOR          , 2256 , 104 ,     8 , 72 , 0 },//DOOR
+                                                                    { ROW_FG , TYPE_LETTERS_SMALL , 2320 , 188 ,    32 , 24 , 0 },//LETTERS SMALL
                                                                     { ROW_BG , TYPE_LETTERS_BIG   , 2384 , 128 ,    56 , 56 , 0 },//LETTERS BIG
-                                                                    { ROW_FG , TYPE_BOX           , 2440 , 168 ,    40 , 24 , 0 },//BOX
+                                                                    { ROW_FG , TYPE_BOX           , 2440 , 188 ,    40 , 24 , 0 },//BOX
                                                                     { ROW_FG , TYPE_LAMP          , 2576 , 104 ,    32 , 88 , 0 },//LAMP
-                                                                    { ROW_BG , TYPE_DOG           , 2696 , 160 ,    48 , 24 , 0 },//DOG
+                                                                    { ROW_BG , TYPE_DOG           , 2696 , 181 ,    48 , 24 , 0 },//DOG
                                                                     { ROW_FG , TYPE_POST          , 2920 , 104 ,    16 , 88 , 0 },//POST
-                                                                    { ROW_BG , TYPE_DOOR          , 3408 , 104 ,    24 , 72 , 0 },//DOOR
-                                                                    { ROW_FG , TYPE_HYDRANT       , 3472 , 168 ,    24 , 24 , 0 },//HYDRANT
+                                                                    { ROW_BG , TYPE_DOOR          , 3416 , 104 ,     8 , 72 , 0 },//DOOR
+                                                                    { ROW_FG , TYPE_HYDRANT       , 3472 , 188 ,    24 , 24 , 0 },//HYDRANT
                                                                     { ROW_BG , TYPE_LETTERS_BIG   , 3600 , 128 ,    56 , 56 , 0 },//LETTERS BIG
-                                                                    { ROW_FG , TYPE_TRASH         , 3672 , 152 ,    32 , 40 , 0 },//TRASH
-                                                                    { ROW_BG , TYPE_TRASH         , 3792 , 144 ,    32 , 40 , 1 },//TRASH
-                                                                    { ROW_FG , TYPE_BOX           , 3856 , 168 ,    40 , 24 , 0 },//BOX
-                                                                    { ROW_BG , TYPE_LETTERS_SMALL , 3992 , 160 ,    32 , 24 , 0 },//LETTERS SMALL
-                                                                    { ROW_FG , TYPE_LETTERS_SMALL , 4056 , 168 ,    32 , 24 , 0 },//LETTERS SMALL
-                                                                    { ROW_BG , TYPE_DOG           , 4168 , 160 ,    48 , 24 , 0 },//DOG
+                                                                    { ROW_FG , TYPE_TRASH         , 3672 , 188 ,    32 , 40 , 0 },//TRASH
+                                                                    { ROW_BG , TYPE_TRASH         , 3792 , 180 ,    32 , 40 , 1 },//TRASH
+                                                                    { ROW_FG , TYPE_BOX           , 3856 , 188 ,    40 , 24 , 0 },//BOX
+                                                                    { ROW_BG , TYPE_LETTERS_SMALL , 3992 , 181 ,    32 , 24 , 0 },//LETTERS SMALL
+                                                                    { ROW_FG , TYPE_LETTERS_SMALL , 4056 , 188 ,    32 , 24 , 0 },//LETTERS SMALL
+                                                                    { ROW_BG , TYPE_DOG           , 4168 , 181 ,    48 , 24 , 0 },//DOG
                                                                     { ROW_FG , TYPE_LAMP          , 4240 , 104 ,    32 , 88 , 0 },//LAMP
                                                                     { ROW_FG , TYPE_LADDER        , 4632 , 104 ,    32 , 88 , 0 },//LADDER
-                                                                    { ROW_BG , TYPE_LETTERS_SMALL , 4696 , 160 ,    32 , 24 , 0 },//LETTERS SMALL
+                                                                    { ROW_BG , TYPE_LETTERS_SMALL , 4696 , 181 ,    32 , 24 , 0 },//LETTERS SMALL
                                                                     { ROW_FG , TYPE_POST          , 4824 , 104 ,    16 , 88 , 0 },//POST
-                                                                    { ROW_BG , TYPE_BOX           , 4864 , 160 ,    40 , 24 , 0 },//BOX
+                                                                    { ROW_BG , TYPE_BOX           , 4864 , 181 ,    40 , 24 , 0 },//BOX
                                                                     { ROW_FG , TYPE_LAMP          , 5008 , 104 ,    32 , 88 , 0 },//LAMP
-                                                                    { ROW_BG , TYPE_TRASH         , 5072 , 144 ,    32 , 40 , 1 },//TRASH
+                                                                    { ROW_BG , TYPE_TRASH         , 5072 , 180 ,    32 , 40 , 1 },//TRASH
                                                                     { ROW_BG , TYPE_LETTERS_BIG   , 5200 , 128 ,    56 , 56 , 0 },//LETTERS BIG
-                                                                    { ROW_FG , TYPE_HYDRANT       , 5272 , 168 ,    24 , 24 , 0 },//HYDRANT
-                                                                    { ROW_BG , TYPE_DOOR          , 5328 , 104 ,    24 , 72 , 0 },//DOOR
+                                                                    { ROW_FG , TYPE_HYDRANT       , 5272 , 188 ,    24 , 24 , 0 },//HYDRANT
+                                                                    { ROW_BG , TYPE_DOOR          , 5336 , 104 ,     8 , 72 , 0 },//DOOR
                                                                     { ROW_FG , TYPE_POST          , 5472 , 104 ,    16 , 88 , 0 },//POST
-                                                                    { ROW_BG , TYPE_TRASH         , 5528 , 144 ,    32 , 40 , 1 },//TRASH
+                                                                    { ROW_BG , TYPE_TRASH         , 5528 , 180 ,    32 , 40 , 1 },//TRASH
                                                                     { ROW_FG , TYPE_LADDER        , 5592 , 104 ,    32 , 88 , 0 },//LADDER
                                                                     { ROW_BG , TYPE_LETTERS_BIG   , 5712 , 128 ,    56 , 56 , 0 },//LETTERS BIG
                                                                     { ROW_BG , TYPE_LETTERS_BIG   , 5776 , 128 ,    56 , 56 , 0 },//LETTERS BIG
-                                                                    { ROW_FG , TYPE_HYDRANT       , 5848 , 168 ,    24 , 24 , 0 },//HYDRANT
-                                                                    { ROW_BG , TYPE_BOX           , 5960 , 160 ,    40 , 24 , 0 },//BOX
-                                                                    { ROW_BG , TYPE_DOOR          , 6096 , 104 ,    24 , 72 , 0 } //DOOR
+                                                                    { ROW_FG , TYPE_HYDRANT       , 5848 , 188 ,    24 , 24 , 0 },//HYDRANT
+                                                                    { ROW_BG , TYPE_BOX           , 5960 , 181 ,    40 , 24 , 0 },//BOX
+                                                                    { ROW_BG , TYPE_DOOR          , 6106 , 104 ,     8 , 72 , 0 } //DOOR
                                                                 };
+
+
+
+
+/*struct_TRASH_           TABLE_TRASH[5]      =   {
+                                                    {  464 , 144 , 1 },
+                                                    { 3672 , 152 , 0 },
+                                                    { 3792 , 144 , 1 },
+                                                    { 5072 , 144 , 1 },
+                                                    { 5528 , 144 , 1 }
+                                                };*/

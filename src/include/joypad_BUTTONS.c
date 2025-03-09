@@ -553,7 +553,7 @@ void boxing_Callback(u16 joy, u16 changed, u16 state)
 {
     if(joy == JOY_1)
     {
-        if(G_PHASE_SEQUENCE == BOXING_PHASE_FW || G_PHASE_SEQUENCE == BOXING_PHASE_BW)
+        if(G_PHASE_SEQUENCE == BOXING_PHASE_RUN)
         {
             // BUTTON B //
             if( changed & state & BUTTON_B )

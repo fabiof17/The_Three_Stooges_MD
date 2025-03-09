@@ -7,6 +7,9 @@
 #include "variables.h"
 
 
+//#include "joypad_BUTTONS.h"
+
+
 #include "maps_BOXING.h"
 
 
@@ -15,6 +18,7 @@
 
 
 
+// SCROLLS TRASH SPRITES //
 inline static void scroll_TRASH()
 {
     u8 i;
@@ -28,7 +32,7 @@ inline static void scroll_TRASH()
                 if(TABLES_OBSTACLES[i].pos_X_ref + LIST_OBSTACLES[i].width + 8 >= G_POS_X_CAMERA)
                 {
                     LIST_OBSTACLES[i].pos_X = TABLES_OBSTACLES[i].pos_X_ref - G_POS_X_CAMERA;
-                    LIST_OBSTACLES[i].pos_Y = TABLES_OBSTACLES[i].pos_Y_ref;
+                    LIST_OBSTACLES[i].pos_Y = TABLES_OBSTACLES[i].pos_Y_ref - 36;
 
                     // SCROLL TRASH SPRITES //
                     if(LIST_OBSTACLES[i].type == TYPE_TRASH)
@@ -39,6 +43,36 @@ inline static void scroll_TRASH()
                     }
                 }
             }
+        }
+    }
+}
+
+// SCROLLS OBSTACLES //
+inline static void scroll_OBSTACLES()
+{
+    u8 i;
+
+    for(i=0 ; i<MAX_OBSTACLES ; i++)
+    {
+        if(TABLES_OBSTACLES[i].pos_X_ref <= (G_POS_X_CAMERA + 320))
+        {
+            if(TABLES_OBSTACLES[i].pos_X_ref + LIST_OBSTACLES[i].width + 8 >= G_POS_X_CAMERA)
+            {
+                LIST_OBSTACLES[i].pos_X = TABLES_OBSTACLES[i].pos_X_ref - G_POS_X_CAMERA;
+                LIST_OBSTACLES[i].pos_Y = TABLES_OBSTACLES[i].pos_Y_ref;
+            }
+
+            else
+            {
+                LIST_OBSTACLES[i].pos_X = 0;
+                LIST_OBSTACLES[i].pos_Y = 0;
+            }
+        }
+
+        else
+        {
+            LIST_OBSTACLES[i].pos_X = 0;
+            LIST_OBSTACLES[i].pos_Y = 0;
         }
     }
 }
@@ -71,8 +105,6 @@ inline static void scroll_TILE()
 }
 
 
-
-
 inline static void update_TILEMAP_RIGHT()
 {
     if(G_POS_X_CAMERA > 15)
@@ -81,8 +113,6 @@ inline static void update_TILEMAP_RIGHT()
         VDP_setTileMapColumnEx(BG_A, image_BOXING_BG_B_DEF.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B) , (G_POS_X_CAMERA >> 3) - 2, (G_POS_X_CAMERA >> 3) + 62, 13, 14, DMA_QUEUE);
     }
 }
-
-
 
 
 /*inline static void update_TILEMAP_LEFT()
@@ -117,8 +147,6 @@ inline static void anim_BOXERS()
 }
 
 
-
-
 inline static void anim_WATCH_HAND()
 {
     // WATCH HAND COUNTER //
@@ -135,8 +163,8 @@ inline static void anim_WATCH_HAND()
             SPR_setFrame(sprite_CHRONO,0);
 
             // UPDATE HAMMER SPRITE //
-            SPR_setFrame(sprite_HAMMER,0);
-            SPR_setPosition(sprite_HAMMER,280,24);
+            //SPR_setFrame(sprite_HAMMER,0);
+            //SPR_setPosition(sprite_HAMMER,280,24);
 
 
             // UPDATE THUMB //
@@ -158,8 +186,8 @@ inline static void anim_WATCH_HAND()
             SPR_setFrame(sprite_CHRONO,1);
 
             // UPDATE HAMMER SPRITE //
-            SPR_setFrame(sprite_HAMMER,1);
-            SPR_setPosition(sprite_HAMMER,277,40);
+            //SPR_setFrame(sprite_HAMMER,1);
+            //SPR_setPosition(sprite_HAMMER,277,40);
 
 
             // UPDATE THUMB //
@@ -177,7 +205,7 @@ inline static void anim_WATCH_HAND()
             {
                 G_INDEX_3 += 1;
 
-                SPR_setFrame(sprite_ROUND,G_INDEX_3);
+                //SPR_setFrame(sprite_ROUND,G_INDEX_3);
             }
         }
 
@@ -189,8 +217,6 @@ inline static void anim_WATCH_HAND()
 
     G_COUNTER_WATCH_HAND += 1;
 }
-
-
 
 
 inline static void anim_LARRY()
@@ -227,9 +253,9 @@ inline static void anim_LARRY()
         {
             if(larry_BOXING.gravity > 0)
             {
-                if(larry_BOXING.pos_Y >= 115)
+                if(larry_BOXING.pos_Y >= 118)
                 {
-                    larry_BOXING.pos_Y = 115;
+                    larry_BOXING.pos_Y = 118;
 
                     larry_BOXING.counter_SPRITE_FRAME = 0;
 
@@ -285,7 +311,7 @@ inline static void joypad_BOXING_MINIGAME()
 {
     u16 value=JOY_readJoypad(JOY_1);
 
-    if(G_PHASE_SEQUENCE == BOXING_PHASE_FW)
+    if(G_PHASE_SEQUENCE == BOXING_PHASE_RUN)
     {
         //--------------------------------------------------------------//
         //                                                              //
@@ -313,7 +339,7 @@ inline static void joypad_BOXING_MINIGAME()
                     {
                         larry_BOXING.row = ROW_BG;
 
-                        larry_BOXING.pos_Y = 126;
+                        larry_BOXING.pos_Y = 118;
 
                         SPR_setPriority(larry_BOXING.spr_LARRY_BOXING,FALSE);
 
@@ -369,7 +395,7 @@ inline static void joypad_BOXING_MINIGAME()
                     {
                         larry_BOXING.row = ROW_BG;
 
-                        larry_BOXING.pos_Y = 126;
+                        larry_BOXING.pos_Y = 118;
 
                         SPR_setPriority(larry_BOXING.spr_LARRY_BOXING,FALSE);
 
@@ -413,7 +439,7 @@ inline static void joypad_BOXING_MINIGAME()
                 {
                     larry_BOXING.row = ROW_BG;
 
-                    larry_BOXING.pos_Y = 115;
+                    larry_BOXING.pos_Y = 118;
 
                     SPR_setPosition(larry_BOXING.spr_LARRY_BOXING,larry_BOXING.pos_X,larry_BOXING.pos_Y);
 
@@ -458,25 +484,263 @@ inline static void joypad_BOXING_MINIGAME()
 
 
 
+inline static void collision_OBSTACLES_RIGHT()
+{
+    u8 i;
+
+    for(i=0 ; i<MAX_OBSTACLES ; i++)
+    {
+        if(LIST_OBSTACLES[i].hit == FALSE)
+        {
+            // IF LARRY AND THE OBSTACLE ARE ON THE SAME ROW //
+            if(LIST_OBSTACLES[i].row == larry_BOXING.row)
+            {
+                if( (larry_BOXING.pos_X + 28) >= (LIST_OBSTACLES[i].pos_X) ) // REDUCE -8 TO REDUCE COLLISON BOX (-7,-6,-5,...)
+                {
+                    if( (larry_BOXING.pos_X + 28) <= (LIST_OBSTACLES[i].pos_X + LIST_OBSTACLES[i].width) ) // REDUCE +8 TO REDUCE COLLISON BOX (7,6,5,...)
+                    {
+                        if(larry_BOXING.pos_Y + 63 >= LIST_OBSTACLES[i].pos_Y)
+                        {
+                            LIST_OBSTACLES[i].hit = TRUE;
+
+                            larry_BOXING.velocity = 2;
+
+                            larry_BOXING.counter_HIT = 0;
+
+                            //larry_BOXING.state = LARRY_PHASE_HIT;
+
+
+                            // IF LARRY HITS A LAMP //
+                            if(LIST_OBSTACLES[i].type == TYPE_LAMP)
+                            {
+                                SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,9);
+
+                                larry_BOXING.pos_X = LIST_OBSTACLES[i].pos_X - 8;
+                            }
+
+                            // IF LARRY HITS A POST //
+                            else if(LIST_OBSTACLES[i].type == TYPE_POST)
+                            {
+                                SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,9);
+
+                                larry_BOXING.pos_X = LIST_OBSTACLES[i].pos_X - 22;
+                            }
+
+                            // IF LARRY HITS A LADDER //
+                            else if(LIST_OBSTACLES[i].type == TYPE_LADDER)
+                            {
+                                SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,9);
+
+                                larry_BOXING.pos_X = LIST_OBSTACLES[i].pos_X - 14;
+                            }
+
+                            // IF LARRY HITS A DOOR //
+                            else if(LIST_OBSTACLES[i].type == TYPE_DOOR)
+                            {
+                                SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,9);
+
+                                larry_BOXING.pos_X = LIST_OBSTACLES[i].pos_X - 20;
+
+                                larry_BOXING.pos_Y -= 7;
+                            }
+
+                            else
+                            {
+                                SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,10);
+
+                                larry_BOXING.pos_X += 24; // larry_BOXING.pos_X = LIST_OBSTACLES[i].pos_X - 4;
+                            }
+
+
+
+
+                            SPR_setPosition(larry_BOXING.spr_LARRY_BOXING,larry_BOXING.pos_X,larry_BOXING.pos_Y);
+
+                            G_PHASE_SEQUENCE = BOXING_PHASE_HIT;
+
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
 
 
 
 void sequence_BOXING_MINIGAME()
 {
-    if(G_PHASE_SEQUENCE == BOXING_PHASE_FW)
+    if(G_PHASE_SEQUENCE == BOXING_PHASE_RUN)
     {
-        joypad_BOXING_MINIGAME();
+        if(G_RUN_DIRECTION == DIRECTION_FW)
+        {
+            joypad_BOXING_MINIGAME();
 
-        scroll_TILE();
-        update_TILEMAP_RIGHT();
+            scroll_TILE();
+            update_TILEMAP_RIGHT();
 
-        scroll_TRASH();
+            scroll_TRASH();
+            scroll_OBSTACLES();
 
-        anim_LARRY();
+            anim_LARRY();
+
+            collision_OBSTACLES_RIGHT();
+        }
 
         anim_WATCH_HAND();
         anim_BOXERS();
+
+
     }
+
+
+    else if(G_PHASE_SEQUENCE == BOXING_PHASE_HIT)
+    {
+        if(larry_BOXING.counter_HIT == 40)
+        {
+            larry_BOXING.counter_HIT = 0;
+
+            // IF LARRY WAS RUNNING WHEN HE HIT THE OBSTACLE //
+            if(larry_BOXING.state == LARRY_PHASE_RUN)
+            {
+                G_PHASE_SEQUENCE = BOXING_PHASE_KO;
+            }
+
+            // IF LARRY WAS JUMPING WHEN HE HIT THE OBSTACLE
+            else if(larry_BOXING.state == LARRY_PHASE_JUMP)
+            {
+                G_PHASE_SEQUENCE = BOXING_PHASE_SLIDE;
+            }
+
+            return;
+        }
+
+        larry_BOXING.counter_HIT += 1;
+    }
+
+
+    else if(G_PHASE_SEQUENCE == BOXING_PHASE_KO)
+    {
+        if(larry_BOXING.counter_HIT == 0)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,11);
+        }
+
+        else if(larry_BOXING.counter_HIT == 5)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,12);
+        }
+
+        else if(larry_BOXING.counter_HIT == 9)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,11);
+        }
+
+        else if(larry_BOXING.counter_HIT == 13)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,12);
+        }
+
+        else if(larry_BOXING.counter_HIT == 17)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,11);
+        }
+
+        else if(larry_BOXING.counter_HIT == 21)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,12);
+        }
+
+        else if(larry_BOXING.counter_HIT == 25)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,11);
+        }
+
+        else if(larry_BOXING.counter_HIT == 30)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,12);
+        }
+
+        else if(larry_BOXING.counter_HIT == 35)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,11);
+        }
+
+        else if(larry_BOXING.counter_HIT == 40)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,12);
+        }
+
+        else if(larry_BOXING.counter_HIT == 44)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,11);
+        }
+
+        else if(larry_BOXING.counter_HIT == 49)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,12);
+        }
+
+        else if(larry_BOXING.counter_HIT == 53)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,11);
+        }
+
+        else if(larry_BOXING.counter_HIT == 58)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,12);
+        }
+
+        else if(larry_BOXING.counter_HIT == 62)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,11);
+        }
+
+        else if(larry_BOXING.counter_HIT == 67)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,12);
+        }
+
+        else if(larry_BOXING.counter_HIT == 72)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,11);
+        }
+
+        else if(larry_BOXING.counter_HIT == 76)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,12);
+        }
+
+        else if(larry_BOXING.counter_HIT == 81)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,11);
+        }
+
+        else if(larry_BOXING.counter_HIT == 86)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,12);
+        }
+
+        else if(larry_BOXING.counter_HIT == 91)
+        {
+            SPR_setFrame(larry_BOXING.spr_LARRY_BOXING,0);
+
+            larry_BOXING.counter_HIT = 0;
+
+            return;
+        }
+
+
+
+        larry_BOXING.counter_HIT += 1;
+    }
+
+    VDP_drawIntEx_BG_A_QUEUE(G_PHASE_SEQUENCE,1,0,0,PAL0);
 }
 
 

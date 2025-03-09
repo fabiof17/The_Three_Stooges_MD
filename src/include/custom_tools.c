@@ -72,7 +72,7 @@ void VDP_drawIntEx_BG_B_CPU(u16 valeur , u8 zeros , s16 x, s16 y , u8 pal)
 
 
 u8 random_NUMBER(u8 minimum , u8 maximum)
-{	
+{
 	u8 resultat = random() % (maximum - minimum + 1) + minimum;
 
 	return resultat;
@@ -98,7 +98,7 @@ void generate_RANDOM_HAND_MOVE()
 void generate_RANDOM_HAND_MOVE_SWATTER()
 {
 	G_RANDOM_HAND_MOVE_VALIDATED = FALSE;
-	
+
 	while(G_RANDOM_HAND_MOVE_VALIDATED == FALSE)
 	{
 		// SELECT A RANDOM HAND MOVE SEQUENCE //
@@ -131,7 +131,7 @@ void increase_HAND_SPEED()
 		{
 			G_HAND_SPEED -= 1;
 		}
-		
+
 	}
 }
 

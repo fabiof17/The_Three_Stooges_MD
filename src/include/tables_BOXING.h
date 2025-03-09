@@ -12,6 +12,8 @@ extern const u8                         TABLE_BOXERS[12];
 
 extern struct_OBSTACLE_TYPE             TABLES_OBSTACLES[MAX_OBSTACLES];
 
+//extern struct_TRASH_                    TABLE_TRASH[5];
+
 
 
 
