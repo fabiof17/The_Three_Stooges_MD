@@ -99,7 +99,7 @@ void sequence_CRACKERS()
     if(G_COUNTER_1 == 360)
     {
         XGM_startPlay(MUSIC_CRACKERS);
-        
+
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);
 

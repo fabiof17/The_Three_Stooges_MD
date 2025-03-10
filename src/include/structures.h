@@ -248,7 +248,6 @@ typedef struct
     const SpriteDefinition *tiles_LARRY_BOXING;
 
     bool state;
-    //bool invincible;
 
     s16 pos_X;
     s16 pos_Y;
@@ -263,7 +262,6 @@ typedef struct
     u8 index_SPRITE_FRAME;
 
     u8 counter_HIT;
-    //u8 counter_JUMP;
 
 } struct_LARRY_BOXING_;
 

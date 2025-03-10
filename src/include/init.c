@@ -283,7 +283,13 @@ void init_VARIABLES()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_RUN_DIRECTION = DIRECTION_FW;
+    G_RUN_DIRECTION = DIRECTION_BW;
+
+    G_INDEX_WATCH = 0;
+
+    G_INDEX_BOXERS = 0;
+
+    G_INDEX_ROUND = 0;
 
 
 
@@ -422,6 +428,16 @@ void init_VARIABLES()
     //                                        SAFE                                          //
     //--------------------------------------------------------------------------------------//
     XGM_setPCM(SOUND_CHEST_FALL , PCM_CHEST_FALL , sizeof(PCM_CHEST_FALL));
+
+
+    //--------------------------------------------------------------------------------------//
+    //                                       BOXING                                         //
+    //--------------------------------------------------------------------------------------//
+    XGM_setPCM(SOUND_BARGING , PCM_BARGING , sizeof(PCM_BARGING));
+    XGM_setPCM(SOUND_KO , PCM_KO , sizeof(PCM_KO));
+    XGM_setPCM(SOUND_HIT_OBSTACLE , PCM_HIT_OBSTACLE , sizeof(PCM_HIT_OBSTACLE));
+    XGM_setPCM(SOUND_HIT_LAMP , PCM_HIT_LAMP , sizeof(PCM_HIT_LAMP));
+    XGM_setPCM(SOUND_HIT_GONG , PCM_GONG , sizeof(PCM_GONG));
 }
 
 
@@ -6000,7 +6016,20 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         VDP_loadTileSet(image_BOXING_BG_B_DEF.tileset, G_ADR_VRAM_BG_B, CPU);
-        VDP_setTileMapEx(BG_B, image_BOXING_BG_B_DEF.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0,  0,  32, 64, 32, CPU);
+
+        if(G_RUN_DIRECTION == DIRECTION_FW)
+        {
+            VDP_setTileMapEx(BG_B, image_BOXING_BG_B_DEF.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  0,  0,  32, 64, 32, CPU);
+        }
+
+        else
+        {
+            VDP_setTileMapEx(BG_B, image_BOXING_BG_B_DEF.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0,  0,    0, 32,  40, 13, CPU);
+
+            VDP_setTileMapEx(BG_B, image_BOXING_BG_B_DEF.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B),  0, 13,  768, 45,  32, 19, CPU);
+
+            VDP_setTileMapEx(BG_B, image_BOXING_BG_B_DEF.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 32, 13,  736, 45,  32, 19, CPU);
+        }
 
 
         //--------------------------------------------------------------------------------------//
@@ -6020,7 +6049,18 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        VDP_setTileMapEx(BG_A, image_BOXING_BG_B_DEF.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  13,  0,  13, 64, 19, CPU);
+
+        if(G_RUN_DIRECTION == DIRECTION_FW)
+        {
+            VDP_setTileMapEx(BG_A, image_BOXING_BG_B_DEF.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  13,  0,  13, 64, 19, CPU);
+        }
+
+        else
+        {
+            VDP_setTileMapEx(BG_A, image_BOXING_BG_B_DEF.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 0,  13,  768, 13, 32, 19, CPU);
+
+            VDP_setTileMapEx(BG_A, image_BOXING_BG_B_DEF.tilemap, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, G_ADR_VRAM_BG_B), 32, 13,  736, 13, 32, 19, CPU);
+        }
 
 
         //--------------------------------------------------------------------------------------//
@@ -6066,36 +6106,19 @@ void init_SCENE()
 
         for(i=0 ; i<MAX_OBSTACLES ; i++)
         {
-            LIST_OBSTACLES[i].row   = TABLES_OBSTACLES[i].row;
+            LIST_OBSTACLES[i].row         = TABLES_OBSTACLES[i].row;
 
-            LIST_OBSTACLES[i].type   = TABLES_OBSTACLES[i].type;
-            LIST_OBSTACLES[i].hit    = FALSE;
+            LIST_OBSTACLES[i].type        = TABLES_OBSTACLES[i].type;
+            LIST_OBSTACLES[i].hit         = FALSE;
 
-            LIST_OBSTACLES[i].pos_X  = 0;
-            LIST_OBSTACLES[i].pos_Y  = TABLES_OBSTACLES[i].height * -1;
+            LIST_OBSTACLES[i].pos_X       = 0;
+            LIST_OBSTACLES[i].pos_Y       = TABLES_OBSTACLES[i].height * -1;
 
-            LIST_OBSTACLES[i].width  = TABLES_OBSTACLES[i].width;
-            LIST_OBSTACLES[i].height = TABLES_OBSTACLES[i].height;
+            LIST_OBSTACLES[i].width       = TABLES_OBSTACLES[i].width;
+            LIST_OBSTACLES[i].height      = TABLES_OBSTACLES[i].height;
 
-            LIST_OBSTACLES[i].index_trash   = TABLES_OBSTACLES[i].index_trash;
+            LIST_OBSTACLES[i].index_trash = TABLES_OBSTACLES[i].index_trash;
         }
-
-
-
-
-        //**************************************************************************************//
-        //                                                                                      //
-        //                                       TRASH                                          //
-        //                                                                                      //
-        //**************************************************************************************//
-
-        /*for(i=0 ; i<5 ; i++)
-        {
-            LIST_TRASH[i].pos_X = 0;
-            LIST_TRASH[i].pos_Y = 0;
-
-            LIST_TRASH[i].index_trash = 0;
-        }*/
 
 
 
@@ -6123,6 +6146,18 @@ void init_SCENE()
 
         sprite_WATCH_HAND = SPR_addSpriteEx(&tiles_SPR_WATCH_HAND, 184, 32, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 7), SPR_FLAG_AUTO_TILE_UPLOAD); // 8 TILES
 
+        if(G_RUN_DIRECTION == DIRECTION_FW)
+        {
+            G_COUNTER_WATCH_HAND = 0;
+
+            G_INDEX_WATCH = 0;
+        }
+
+        else
+        {
+            SPR_setFrame(sprite_WATCH_HAND,G_INDEX_WATCH);
+        }
+
 
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
@@ -6130,7 +6165,17 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        //sprite_ROUND = SPR_addSpriteEx(&tiles_SPR_ROUND, 48, 8, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 15), SPR_FLAG_AUTO_TILE_UPLOAD); // 4 TILES
+        sprite_ROUND = SPR_addSpriteEx(&tiles_SPR_ROUND, 48, 8, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 15), SPR_FLAG_AUTO_TILE_UPLOAD); // 4 TILES
+
+        if(G_RUN_DIRECTION == DIRECTION_FW)
+        {
+            G_INDEX_ROUND = 0;
+        }
+
+        else
+        {
+            SPR_setFrame(sprite_ROUND,G_INDEX_ROUND);
+        }
 
 
         //--------------------------------------------------------------------------------------//
@@ -6139,7 +6184,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        //sprite_HAMMER = SPR_addSpriteEx(&tiles_SPR_HAMMER, 280, 24, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 19), SPR_FLAG_AUTO_TILE_UPLOAD); // 31 TILES
+        sprite_HAMMER = SPR_addSpriteEx(&tiles_SPR_HAMMER, 280, 24, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 19), SPR_FLAG_AUTO_TILE_UPLOAD); // 31 TILES
 
 
         //--------------------------------------------------------------------------------------//
@@ -6151,18 +6196,29 @@ void init_SCENE()
         sprite_BOXERS = SPR_addSpriteEx(&tiles_SPR_BOXERS, 80, 0, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, 1664), SPR_FLAG_AUTO_TILE_UPLOAD);
 
 
-
-
         //--------------------------------------------------------------------------------------//
         //                                                                                      //
         //                                         LARRY                                        //
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        larry_BOXING.pos_X                  = 180;
-        larry_BOXING.pos_Y                  = 118;
+        if(G_RUN_DIRECTION == DIRECTION_FW)
+        {
+            larry_BOXING.pos_X                  = 180;
+            larry_BOXING.pos_Y                  = TOP_BOUND;
 
-        larry_BOXING.spr_LARRY_BOXING       = SPR_addSpriteEx(&tiles_SPR_LARRY_BOXING_FW, larry_BOXING.pos_X, larry_BOXING.pos_Y, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 50), SPR_FLAG_AUTO_TILE_UPLOAD); // 37 TILES
+            larry_BOXING.spr_LARRY_BOXING       = SPR_addSpriteEx(&tiles_SPR_LARRY_BOXING_FW, larry_BOXING.pos_X, larry_BOXING.pos_Y, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 50), SPR_FLAG_AUTO_TILE_UPLOAD); // 37 TILES
+        }
+
+        else
+        {
+            larry_BOXING.pos_X                  = 144;
+            larry_BOXING.pos_Y                  = TOP_BOUND;
+
+            larry_BOXING.spr_LARRY_BOXING       = SPR_addSpriteEx(&tiles_SPR_LARRY_BOXING_BW, larry_BOXING.pos_X, larry_BOXING.pos_Y, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 50), SPR_FLAG_AUTO_TILE_UPLOAD); // 37 TILES
+        }
+
+
 
         larry_BOXING.state                  = LARRY_PHASE_RUN;
 
@@ -6172,7 +6228,6 @@ void init_SCENE()
         larry_BOXING.velocity               = 2;
         larry_BOXING.counter_HIT            = 0;
 
-        //larry_BOXING.counter_JUMP           = 0;
         larry_BOXING.row                    = ROW_BG;
 
 
@@ -6203,17 +6258,30 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        G_POS_X_CAMERA = 0;
-
-        VDP_setHorizontalScroll(BG_B,G_POS_X_CAMERA);
-        VDP_setHorizontalScroll(BG_A,G_POS_X_CAMERA);
-
-
-        for (i=0; i<14; i++)
+        if(G_RUN_DIRECTION == DIRECTION_FW)
         {
-            scrollTable_BG[i] = 0;
-            scrollTable_BG[i] = 0;
+            for (i=0; i<14; i++)
+            {
+                scrollTable_BG[i] = 0;
+            }
+
+
+            G_POS_X_CAMERA = 0;
         }
+
+        else
+        {
+            for (i=0; i<14; i++)
+            {
+                scrollTable_BG[i] = -6080;// -6144
+            }
+
+
+            G_POS_X_CAMERA = 6080;// -6144
+        }
+
+        VDP_setHorizontalScrollTile(BG_B, 13, scrollTable_BG, 14, CPU);
+        VDP_setHorizontalScrollTile(BG_A, 13, scrollTable_BG, 14, CPU);
 
 
 
@@ -6240,20 +6308,14 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        G_COUNTER_WATCH_HAND    = 0;
-
         G_COUNTER_BOXERS        = 0;
 
-        G_COUNTER_1             = 0;
-        G_INDEX_1               = 0; // WATCH HAND INDEX
-        G_INDEX_2               = 0; // BOXERS INDEX
-        G_INDEX_3               = 0; //ROUND INDEX
-
+        G_OBSTACLE_TYPE         = 0;
 
         G_REWARD                = 0;
 
 
-        G_PHASE_SEQUENCE        = BOXING_PHASE_RUN;
+        G_PHASE_SEQUENCE        = BOXING_PHASE_EXIT_STORE;// BOXING_PHASE_RUN | BOXING_PHASE_EXIT_STORE
 
 
         G_SCENE                 = SCENE_FADE_IN;
@@ -6272,10 +6334,6 @@ void init_SCENE()
         //--------------------------------------------------------------------------------------//
 
         //XGM_startPlayPCM(SOUND_VOICE_DOCTORS , 13 , SOUND_PCM_CH3 );
-
-
-        //waitMs(3000);
-
 
         //XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
 

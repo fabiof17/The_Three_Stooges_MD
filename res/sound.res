@@ -65,11 +65,11 @@ WAV PCM_WRONG_ANSWER            "sound/sound_WRONG_ANSWER.wav"      XGM
 
 WAV PCM_BIP                     "sound/sound_BIP.wav"               XGM
 
-
-
-
-
-
+WAV PCM_BARGING                 "sound/sound_BARGING.wav"           XGM
+WAV PCM_KO                      "sound/sound_KO.wav"                XGM
+WAV PCM_HIT_OBSTACLE            "sound/sound_HIT_OBSTACLE.wav"      XGM
+WAV PCM_HIT_LAMP                "sound/sound_HIT_LAMP.wav"          XGM
+WAV PCM_GONG                    "sound/sound_GONG.wav"              XGM
 
 
 

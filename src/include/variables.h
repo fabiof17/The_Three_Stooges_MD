@@ -373,14 +373,14 @@
 #define BOXING_PHASE_SLIDE              2
 #define BOXING_PHASE_KO                 3
 #define BOXING_PHASE_RECENTER           4
-#define BOXING_PHASE_RESTART            5
+#define BOXING_PHASE_FADEOUT            5
+#define BOXING_PHASE_EXIT_STORE         6
+#define BOXING_PHASE_FAIL               7
+#define BOXING_PHASE_SUCCESS            8
 
 
 #define LARRY_PHASE_RUN                 0
 #define LARRY_PHASE_JUMP                1
-#define LARRY_PHASE_HIT                 2
-#define LARRY_PHASE_KO                  3
-#define LARRY_PHASE_RESTART             4
 
 
 #define ROW_BG                          0
@@ -402,6 +402,15 @@
 
 #define DIRECTION_FW                    0
 #define DIRECTION_BW                    1
+
+#define TOP_BOUND                       118
+#define BOTTOM_BOUND                    125
+
+#define LEFT_BOUND_FW                   128
+#define RIGHT_BOUND_FW                  192
+
+#define LEFT_BOUND_BW                   64
+#define RIGHT_BOUND_BW                  122
 
 
 
@@ -528,6 +537,11 @@
 #define SOUND_BIP                      114
 #define SOUND_MONEY_QUICK              115
 
+#define SOUND_BARGING                  116
+#define SOUND_KO                       117
+#define SOUND_HIT_OBSTACLE             118
+#define SOUND_HIT_LAMP                 119
+#define SOUND_HIT_GONG                 120
 
 
 
@@ -873,6 +887,14 @@ extern u16 G_ADR_VRAM_GONG;
 extern u16 G_ADR_VRAM_DESK;
 
 extern u16 G_ADR_VRAM_BG_A2;
+
+extern u8 G_OBSTACLE_TYPE;
+
+extern u8 G_INDEX_WATCH;
+
+extern u8 G_INDEX_BOXERS;
+
+extern u8 G_INDEX_ROUND;
 
 extern struct_LARRY_BOXING_ larry_BOXING;
 

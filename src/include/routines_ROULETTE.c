@@ -162,7 +162,7 @@ void init_HUB()
         if(i < 5)
         {
             G_ADR_VRAM_ICONS[i+1] = G_ADR_VRAM_ICONS[i] + TABLE_ICONS[TABLE_GENERATED_ICONS[i]]->tileset->numTile;
-        } 
+        }
     }
 
 
@@ -179,7 +179,7 @@ void init_HUB()
 
     // PRINT DAY NUMBER //
     print_DAY();
-    
+
 
     // READY? //
     VDP_setTileMapEx(BG_A, image_EMPTY_TILE.tilemap, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 50), 18 , 11 , 0, 0, 1, 1, CPU);
@@ -201,7 +201,7 @@ void init_HUB()
     //                                                                                      //
     //                                      SPRITES                                         //
     //                                                                                      //
-    //**************************************************************************************// 
+    //**************************************************************************************//
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
@@ -243,7 +243,7 @@ void init_HUB()
 void display_HUB()
 {
     G_POS_Y_CAMERA = 0;
-    
+
     VDP_setVerticalScrollVSync(BG_B,G_POS_Y_CAMERA);
     VDP_setVerticalScrollVSync(BG_A,G_POS_Y_CAMERA);
 
@@ -312,7 +312,7 @@ inline static void wait_PLAYER_CHOICE()
         // PLAY HAND SOUND //
         XGM_startPlayPCM(SOUND_HAND,15,SOUND_PCM_CH4);
     }
-    
+
     else if(G_COUNTER_ROULETTE == G_HAND_SPEED)
     {
         // NEXT TURN //
@@ -338,7 +338,7 @@ inline static void wait_PLAYER_CHOICE()
 
             return;
         }
-        
+
         // NO MORE TURN //
         else
         {
@@ -349,12 +349,12 @@ inline static void wait_PLAYER_CHOICE()
             G_SELECTED_ICON_ID = TABLE_GENERATED_ICONS[TABLE_GENERATED_HAND_POSITION[G_CURRENT_TURN]];
 
             //VDP_drawInt(G_SELECTED_ICON_ID,1,0,0);
-            
+
             // ICON SELECTED //
             G_PHASE_SEQUENCE = ROULETTE_PHASE_VALIDATED;
 
             return ;
-        }        
+        }
     }
 
     G_COUNTER_ROULETTE += 1;
@@ -393,7 +393,7 @@ inline static void anim_WALKOUT()
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
 
-        
+
         // GO TO FADE OUT SEQUENCE //
         G_SCENE     = SCENE_FADE_OUT;
 
@@ -438,7 +438,7 @@ void sequence_ROULETTE()
 
             // REINIT COUNTER //
             G_COUNTER_ROULETTE = 0;
-            
+
             // GO TO CHOICE PHASE //
             G_PHASE_SEQUENCE = ROULETTE_PHASE_CHOICE;
 
@@ -469,7 +469,7 @@ void sequence_ROULETTE()
             {
                 // LOAD TRIGERRED SWATTER TILES FOR CURRENT ICON //
                 VDP_loadTileSet(image_ICON_SWATTER_2.tileset, G_ADR_VRAM_ICONS[TABLE_GENERATED_HAND_POSITION[G_CURRENT_TURN]], DMA);
-                
+
                 // CHANGE HAND FRAME (CAUGHT) //
                 SPR_setFrame( sprite_HAND_ROULETTE , 1);
 
@@ -494,7 +494,7 @@ void sequence_ROULETTE()
                 {
                     // LOAD REARMED SWATTER TILES FOR CURRENT ICON //
                     VDP_loadTileSet(image_ICON_SWATTER.tileset, G_ADR_VRAM_ICONS[TABLE_GENERATED_HAND_POSITION[G_CURRENT_TURN]], DMA);
-                    
+
 
                     // GENERATE NEW HAND MOVE SEQUENCE //
                     generate_RANDOM_HAND_MOVE_SWATTER();
@@ -519,7 +519,7 @@ void sequence_ROULETTE()
                     s16 pos_X_HAND = TABLE_GENERATED_HAND_POSITION[G_CURRENT_TURN];
                     SPR_setPosition( sprite_HAND_ROULETTE , 16 + (pos_X_HAND * 48) , 48 );
 
-                    
+
 
                     //--------------------------------------------------------------------------------------//
                     //                                      UPDATE HUB                                      //
@@ -585,7 +585,7 @@ void sequence_ROULETTE()
                 // PLAY VOICE //
                 XGM_startPlayPCM(SOUND_WALKOUT,15,SOUND_PCM_CH4);
             }
-            
+
             // WAIT 3 SECONDS //
             else if(G_COUNTER_ROULETTE == 300)
             {
@@ -596,11 +596,11 @@ void sequence_ROULETTE()
                 G_COUNTER_ROULETTE = 0;
 
                 G_PHASE_SEQUENCE   = ROULETTE_PHASE_WALKOUT;
-                
+
                 return ;
             }
         }
-        
+
         G_COUNTER_ROULETTE += 1;
     }
 

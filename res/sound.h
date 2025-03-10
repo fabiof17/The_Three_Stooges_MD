@@ -48,5 +48,10 @@ extern const u8 PCM_TRIVIA_2[16384];
 extern const u8 PCM_HEAD_TRIVIA[9728];
 extern const u8 PCM_WRONG_ANSWER[22784];
 extern const u8 PCM_BIP[3072];
+extern const u8 PCM_BARGING[9216];
+extern const u8 PCM_KO[34304];
+extern const u8 PCM_HIT_OBSTACLE[5888];
+extern const u8 PCM_HIT_LAMP[20736];
+extern const u8 PCM_GONG[9984];
 
 #endif // _RES_SOUND_H_

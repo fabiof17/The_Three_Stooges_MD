@@ -5,7 +5,7 @@
 
 
 
-//extern void joypad_BOXING_MINIGAME();
+//extern void joypad_BOXING_MINIGAME_FW();
 
 extern void sequence_BOXING_MINIGAME();
 
