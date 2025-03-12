@@ -35,7 +35,7 @@ void joypad_SLAP()
 {
     u16 value=JOY_readJoypad(JOY_1);
 
-    
+
     if(G_PHASE_SEQUENCE == SLAP_PHASE_ATTACK)
     {
         //--------------------------------------------------------------//
@@ -60,9 +60,9 @@ void joypad_SLAP()
 
             G_PREVIOUS_STATE = G_CURRENT_STATE;
             G_CURRENT_STATE = SLAP_STATE_IDLE;
-        }  
+        }
 
- 
+
 
 
         //--------------------------------------------------------------//
@@ -283,7 +283,7 @@ inline static void counter_SLAP()
             SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_IDLE);
             SPR_setAnimAndFrame(sprite_LARRY,0,SLAP_STATE_IDLE);
             SPR_setAnimAndFrame(sprite_CURLY,0,SLAP_STATE_IDLE);
-            
+
             G_PHASE_SEQUENCE = SLAP_PHASE_OVER;
 
             return;
@@ -330,7 +330,7 @@ inline static void counter_WAIT()
 
         return;
     }
-    
+
     G_COUNTER_WAIT += 1;
 }
 
@@ -452,7 +452,7 @@ void sequence_SLAP()
     else if(G_PHASE_SEQUENCE == SLAP_PHASE_RESULT_ATTACK)
     {
         counter_SLAP();
-        
+
         if(G_COUNTER_1 == 30)
         {
             SPR_setAnimAndFrame(sprite_MOE,0,SLAP_STATE_IDLE);
@@ -465,15 +465,15 @@ void sequence_SLAP()
 
             return;
         }
-        
+
         G_COUNTER_1 += 1;
     }
 
 
     else if(G_PHASE_SEQUENCE == SLAP_PHASE_PAUSE)
-    {        
+    {
         counter_SLAP();
-        
+
         if(G_COUNTER_1 == 10)
         {
             G_COUNTER_1 = 0;
@@ -482,13 +482,13 @@ void sequence_SLAP()
 
             return;
         }
-        
+
         G_COUNTER_1 += 1;
     }
 
 
     else if(G_PHASE_SEQUENCE == SLAP_PHASE_OVER)
-    {        
+    {
         if(G_COUNTER_1 == 240)
         {
             if(G_DAY < 31)
@@ -513,7 +513,7 @@ void sequence_SLAP()
                 SPR_releaseSprite(sprite_METER_SLAP);
                 SPR_releaseSprite(sprite_ARROW_DIALOG);
 
-                
+
                 G_COUNTER_1             = 0;
                 G_INDEX_1               = 0;
                 G_INDEX_2               = 0;
@@ -563,15 +563,15 @@ void sequence_SLAP()
                 return;
             }
         }
-        
+
         G_COUNTER_1 += 1;
     }
 
 
     else if(G_PHASE_SEQUENCE == SLAP_PHASE_HIT)
-    {        
+    {
         counter_SLAP();
-        
+
         if(G_COUNTER_WAIT == 10)
         {
             G_COUNTER_WAIT = 0;
@@ -580,7 +580,7 @@ void sequence_SLAP()
 
             return;
         }
-        
+
         G_COUNTER_WAIT += 1;
     }
 }

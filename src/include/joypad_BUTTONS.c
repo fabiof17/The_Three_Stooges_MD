@@ -567,6 +567,28 @@ void boxing_Callback(u16 joy, u16 changed, u16 state)
                     larry_BOXING.state = LARRY_PHASE_JUMP;
                 }
             }
+
+            else if( changed & state & BUTTON_LEFT )
+            {
+                if(G_RUN_DIRECTION == DIRECTION_FW)
+                {
+                    if(larry_BOXING.state == LARRY_PHASE_JUMP)
+                    {
+                        larry_BOXING.velocity = 2;
+                    }
+                }
+            }
+
+            else if( changed & state & BUTTON_RIGHT )
+            {
+                if(G_RUN_DIRECTION == DIRECTION_BW)
+                {
+                    if(larry_BOXING.state == LARRY_PHASE_JUMP)
+                    {
+                        larry_BOXING.velocity = 2;
+                    }
+                }
+            }
         }
     }
 }

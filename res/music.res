@@ -17,7 +17,7 @@ XGM MUSIC_BANKER                "music/retrovation/BANKER_LONG_THEME.vgm"       
 XGM MUSIC_INTRO                 "music/retrovation/BPM-095 09-20-2024_01_16_PM.vgm"         XGM
 XGM MUSIC_WAITERS               "music/retrovation/PIE FIGHT MUSIC based on bitmidi.vgm"    XGM
 XGM MUSIC_DEFENDER              "music/retrovation/SHORT-DEFENDER-TREMOLO-100-BPM.vgm"      XGM
-XGM MUSIC_BOXING                "music/retrovation/WEASEL-GRANDPIANO1.vgm"                  XGM
+XGM MUSIC_BOXING                "music/retrovation/weasel23-original but longer1.vgm"       XGM
 
 
 

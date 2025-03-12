@@ -59,7 +59,7 @@ inline static void anim_ANSWER()
         if(G_COUNTER_1 == 0)
         {
             SPR_setPosition(sprite_ANSWER_B,138,90);
-            
+
             SPR_setPosition(sprite_ANSWER_A,-48,-48);
             SPR_setPosition(sprite_ANSWER_C,-48,-48);
         }
@@ -68,7 +68,7 @@ inline static void anim_ANSWER()
         if(G_COUNTER_1 == 1)
         {
             SPR_setPosition(sprite_ANSWER_C,186,100);
-            
+
             SPR_setPosition(sprite_ANSWER_A,-48,-48);
             SPR_setPosition(sprite_ANSWER_B,-48,-48);
         }
@@ -77,7 +77,7 @@ inline static void anim_ANSWER()
         if(G_COUNTER_1 == 3)
         {
             SPR_setPosition(sprite_ANSWER_A,90,100);
-            
+
             SPR_setPosition(sprite_ANSWER_B,-48,-48);
             SPR_setPosition(sprite_ANSWER_C,-48,-48);
         }
@@ -86,7 +86,7 @@ inline static void anim_ANSWER()
         if(G_COUNTER_1 == 5)
         {
             SPR_setPosition(sprite_ANSWER_B,138,90);
-            
+
             SPR_setPosition(sprite_ANSWER_A,-48,-48);
             SPR_setPosition(sprite_ANSWER_C,-48,-48);
         }
@@ -95,7 +95,7 @@ inline static void anim_ANSWER()
         if(G_COUNTER_1 == 6)
         {
             SPR_setPosition(sprite_ANSWER_A,90,100);
-            
+
             SPR_setPosition(sprite_ANSWER_B,-48,-48);
             SPR_setPosition(sprite_ANSWER_C,-48,-48);
         }
@@ -104,7 +104,7 @@ inline static void anim_ANSWER()
         if(G_COUNTER_1 == 7)
         {
             SPR_setPosition(sprite_ANSWER_B,138,90);
-            
+
             SPR_setPosition(sprite_ANSWER_A,-48,-48);
             SPR_setPosition(sprite_ANSWER_C,-48,-48);
         }
@@ -113,7 +113,7 @@ inline static void anim_ANSWER()
         if(G_COUNTER_1 == 9)
         {
             SPR_setPosition(sprite_ANSWER_C,186,100);
-            
+
             SPR_setPosition(sprite_ANSWER_A,-48,-48);
             SPR_setPosition(sprite_ANSWER_B,-48,-48);
         }
@@ -122,7 +122,7 @@ inline static void anim_ANSWER()
         if(G_COUNTER_1 == 11)
         {
             SPR_setPosition(sprite_ANSWER_A,90,100);
-            
+
             SPR_setPosition(sprite_ANSWER_B,-48,-48);
             SPR_setPosition(sprite_ANSWER_C,-48,-48);
         }
@@ -131,7 +131,7 @@ inline static void anim_ANSWER()
         if(G_COUNTER_1 == 12)
         {
             SPR_setPosition(sprite_ANSWER_C,186,100);
-            
+
             SPR_setPosition(sprite_ANSWER_A,-48,-48);
             SPR_setPosition(sprite_ANSWER_B,-48,-48);
         }
@@ -140,7 +140,7 @@ inline static void anim_ANSWER()
         if(G_COUNTER_1 == 13)
         {
             SPR_setPosition(sprite_ANSWER_A,90,100);
-            
+
             SPR_setPosition(sprite_ANSWER_B,-48,-48);
             SPR_setPosition(sprite_ANSWER_C,-48,-48);
         }
@@ -176,7 +176,7 @@ inline static void timeout_ANSWER()
         }
 
         SPR_setFrame(sprite_STOOGES,25);
-        
+
         SPR_setPosition(sprite_ANSWER_A,-48,-48);
         SPR_setPosition(sprite_ANSWER_B,-48,-48);
         SPR_setPosition(sprite_ANSWER_C,-48,-48);
@@ -197,7 +197,7 @@ void joypad_TRIVIA()
         //                                          //
         //                NO BUTTONS                //
         //                                          //
-        //******************************************//        
+        //******************************************//
         if((value & BUTTON_DIR) == 0)
         {
             G_PHASE_SEQUENCE = TRIVIA_PHASE_ANIM_ANSWERS;
@@ -214,7 +214,7 @@ void joypad_TRIVIA()
             if(G_COUNTER_1 == 13)
             {
                 SPR_setPosition(sprite_ANSWER_A,90,100);
-                
+
                 SPR_setPosition(sprite_ANSWER_B,-48,-48);
                 SPR_setPosition(sprite_ANSWER_C,-48,-48);
 
@@ -237,7 +237,7 @@ void joypad_TRIVIA()
             if(G_COUNTER_1 == 13)
             {
                 SPR_setPosition(sprite_ANSWER_C,186,100);
-                
+
                 SPR_setPosition(sprite_ANSWER_A,-48,-48);
                 SPR_setPosition(sprite_ANSWER_B,-48,-48);
 
@@ -260,7 +260,7 @@ void joypad_TRIVIA()
             if(G_COUNTER_1 == 13)
             {
                 SPR_setPosition(sprite_ANSWER_B,138,90);
-                
+
                 SPR_setPosition(sprite_ANSWER_A,-48,-48);
                 SPR_setPosition(sprite_ANSWER_C,-48,-48);
 
@@ -378,7 +378,7 @@ void sequence_TRIVIA_TYPE1()
         else if(G_COUNTER_1 == 1212)
         {
             SPR_setFrame(sprite_STOOGES,22);
-            
+
             SPR_setPosition(sprite_ANSWER_A,90,100);
         }
 
@@ -416,7 +416,7 @@ void sequence_TRIVIA_TYPE1()
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_ANIM_ANSWERS)
     {
         timeout_ANSWER();
-        
+
         anim_ANSWER();
     }
 
@@ -438,7 +438,7 @@ void sequence_TRIVIA_TYPE1()
                 XGM_startPlayPCM(SOUND_WRONG_ANSWER , 15 , SOUND_PCM_CH4 );
             }
         }
-        
+
         else if(G_COUNTER_1 == 120)
         {
             // GOOD ANSWER //
@@ -472,7 +472,7 @@ void sequence_TRIVIA_TYPE1()
 
         else if(G_COUNTER_1 == 140)
         {
-            
+
             if(G_STATUS_MISSION == FAILED)
             {
                 SPR_setFrame(sprite_STOOGES,25);
@@ -517,18 +517,18 @@ void sequence_TRIVIA_TYPE1()
 
                 // PRINT DAY NUMBER //
                 print_DAY();
-                
+
                 // DISPLAY HUB //
                 display_HUB();
 
                 G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
-                
+
                 G_SCENE = SCENE_ROULETTE;
             }
         }
-        
-        
-        
+
+
+
         G_COUNTER_1 += 1;
     }
 }
@@ -641,7 +641,7 @@ void sequence_TRIVIA_TYPE2()
         else if(G_COUNTER_1 == 107)
         {
             G_COUNTER_1 = 0;
-            
+
             G_QUESTION_LOCKED = FALSE;
 
             G_PHASE_SEQUENCE = TRIVIA_PHASE_ANIM_ANSWERS;
@@ -656,7 +656,7 @@ void sequence_TRIVIA_TYPE2()
     else if(G_PHASE_SEQUENCE == TRIVIA_PHASE_ANIM_ANSWERS)
     {
         timeout_ANSWER();
-        
+
         anim_ANSWER();
     }
 
@@ -712,7 +712,7 @@ void sequence_TRIVIA_TYPE2()
 
         else if(G_COUNTER_1 == 140)
         {
-            
+
             if(G_STATUS_MISSION == FAILED)
             {
                 SPR_setFrame(sprite_STOOGES,25);
@@ -757,18 +757,18 @@ void sequence_TRIVIA_TYPE2()
 
                 // PRINT DAY NUMBER //
                 print_DAY();
-                
+
                 // DISPLAY HUB //
                 display_HUB();
 
                 G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
-                
+
                 G_SCENE = SCENE_ROULETTE;
             }
         }
-        
-        
-        
+
+
+
         G_COUNTER_1 += 1;
     }
 }
@@ -810,7 +810,7 @@ void sequence_TRIVIA_QUESTION()
 
         return;
     }
-    
+
     G_COUNTER_1 += 1;
 }
 

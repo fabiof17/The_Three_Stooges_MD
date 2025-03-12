@@ -562,7 +562,7 @@ int main(bool hardReset)
                 {
                     JOY_setEventHandler(disable_Callback);
 
-                    //sequence_BOXING_SCREEN_TYPE_3();
+                    sequence_BOXING_SCREEN_TYPE_3();
 
                     SPR_update();
                     SYS_doVBlankProcess();

@@ -12,6 +12,8 @@ extern void sequence_BOXING_SCREEN_TYPE_1();
 
 extern void sequence_BOXING_SCREEN_TYPE_2();
 
+extern void sequence_BOXING_SCREEN_TYPE_3();
+
 
 
 

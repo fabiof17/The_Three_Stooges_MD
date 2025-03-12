@@ -59,7 +59,7 @@ void sequence_REWARD()
                 G_PHASE_SEQUENCE = REWARD_PHASE_FADE_OUT;
             }
         }
-        
+
         PAL_setPalette( PAL0 , TABLE_REWARD_PALETTE_CYCLE[G_INDEX_1]->data , DMA);
 
         G_COUNTER_1 += 1;

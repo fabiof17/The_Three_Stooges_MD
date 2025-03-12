@@ -5,7 +5,8 @@
 //**********************************************************************************//
 
 
-WAV PCM_INTRO_SCREEN1           "sound/sound_INTRO_SCREEN1_LONG.wav" XGM
+//WAV PCM_INTRO_SCREEN1           "sound/sound_INTRO_SCREEN1_LONG.wav" XGM
+WAV PCM_INTRO_SCREEN1           "sound/sound_INTRO_SCREEN1_LONG_v2.wav" XGM
 WAV PCM_MONEY_QUICK             "sound/sound_MONEY_QUICK.wav"        XGM
 
 
@@ -52,7 +53,8 @@ WAV PCM_PIE_THROW               "sound/sound_PIE_THROW.wav"         XGM
 WAV PCM_PIE_HIT                 "sound/sound_PIE_HIT.wav"           XGM
 WAV PCM_PIE_WALL                "sound/sound_PIE_WALL.wav"          XGM
 
-WAV PCM_BOXING                  "sound/sound_BOXING.wav"            XGM
+WAV PCM_BOXING_1_2              "sound/sound_BOXING_1_2.wav"        XGM
+WAV PCM_BOXING_3                "sound/sound_BOXING_3.wav"          XGM
 
 WAV PCM_ICE_FALL                "sound/sound_ICE_FALL.wav"          XGM
 WAV PCM_CHEST_FALL              "sound/sound_CHEST_FALL.wav"        XGM
@@ -70,7 +72,7 @@ WAV PCM_KO                      "sound/sound_KO.wav"                XGM
 WAV PCM_HIT_OBSTACLE            "sound/sound_HIT_OBSTACLE.wav"      XGM
 WAV PCM_HIT_LAMP                "sound/sound_HIT_LAMP.wav"          XGM
 WAV PCM_GONG                    "sound/sound_GONG.wav"              XGM
-
-
+WAV PCM_SLIDE                   "sound/sound_SLIDE.wav"             XGM
+WAV PCM_CROWD                   "sound/sound_CROWD.wav"             XGM
 
 

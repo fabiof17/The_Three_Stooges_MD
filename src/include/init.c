@@ -122,7 +122,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_GAME; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME | REEL_THE_END
+    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME | REEL_THE_END
 
 
 
@@ -283,7 +283,7 @@ void init_VARIABLES()
     //                                                                                      //
     //--------------------------------------------------------------------------------------//
 
-    G_RUN_DIRECTION = DIRECTION_BW;
+    G_RUN_DIRECTION = DIRECTION_FW;
 
     G_INDEX_WATCH = 0;
 
@@ -406,7 +406,8 @@ void init_VARIABLES()
     //--------------------------------------------------------------------------------------//
     //                                       BOXING                                         //
     //--------------------------------------------------------------------------------------//
-    XGM_setPCM(SOUND_BOXING , PCM_BOXING , sizeof(PCM_BOXING));
+    XGM_setPCM(SOUND_BOXING_1_2 , PCM_BOXING_1_2 , sizeof(PCM_BOXING_1_2));
+    XGM_setPCM(SOUND_BOXING_3 , PCM_BOXING_3 , sizeof(PCM_BOXING_3));
 
 
     //--------------------------------------------------------------------------------------//
@@ -437,7 +438,9 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_KO , PCM_KO , sizeof(PCM_KO));
     XGM_setPCM(SOUND_HIT_OBSTACLE , PCM_HIT_OBSTACLE , sizeof(PCM_HIT_OBSTACLE));
     XGM_setPCM(SOUND_HIT_LAMP , PCM_HIT_LAMP , sizeof(PCM_HIT_LAMP));
-    XGM_setPCM(SOUND_HIT_GONG , PCM_GONG , sizeof(PCM_GONG));
+    XGM_setPCM(SOUND_GONG , PCM_GONG , sizeof(PCM_GONG));
+    XGM_setPCM(SOUND_SLIDE , PCM_SLIDE , sizeof(PCM_SLIDE));
+    XGM_setPCM(SOUND_CROWD , PCM_CROWD , sizeof(PCM_CROWD));
 }
 
 
@@ -3733,13 +3736,6 @@ void init_SCENE()
         G_SCENE_NEXT            = SCENE_TRIVIA_QUESTION;
 
         G_SCENE_LOADED          = TRUE;
-
-
-        //--------------------------------------------------------------------------------------//
-        //                                                                                      //
-        //                                         AUDIO                                        //
-        //                                                                                      //
-        //--------------------------------------------------------------------------------------//
     }
 
     // BOXING SCREEN 1 //
@@ -3864,7 +3860,7 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        XGM_startPlayPCM(SOUND_BOXING , 15 , SOUND_PCM_CH4);
+        XGM_startPlayPCM(SOUND_BOXING_1_2 , 15 , SOUND_PCM_CH4);
     }
 
     // BOXING SCREEN 2 //
@@ -4097,6 +4093,15 @@ void init_SCENE()
         G_SCENE_NEXT            = SCENE_BOXING_SCREEN_TYPE3;
 
         G_SCENE_LOADED          = TRUE;
+
+
+        //--------------------------------------------------------------------------------------//
+        //                                                                                      //
+        //                                         AUDIO                                        //
+        //                                                                                      //
+        //--------------------------------------------------------------------------------------//
+
+        XGM_startPlayPCM(SOUND_BOXING_3 , 15 , SOUND_PCM_CH4);
     }
 
     // DOCTORS MINIGAME //
@@ -6220,7 +6225,7 @@ void init_SCENE()
 
 
 
-        larry_BOXING.state                  = LARRY_PHASE_RUN;
+        larry_BOXING.state                  = LARRY_PHASE_RUN;//LARRY_PHASE_RUN
 
         larry_BOXING.counter_SPRITE_FRAME   = 5;
         larry_BOXING.index_SPRITE_FRAME     = 0;
@@ -6315,7 +6320,7 @@ void init_SCENE()
         G_REWARD                = 0;
 
 
-        G_PHASE_SEQUENCE        = BOXING_PHASE_EXIT_STORE;// BOXING_PHASE_RUN | BOXING_PHASE_EXIT_STORE
+        G_PHASE_SEQUENCE        = BOXING_PHASE_RUN;// BOXING_PHASE_RUN | BOXING_PHASE_EXIT_STORE
 
 
         G_SCENE                 = SCENE_FADE_IN;
@@ -6333,10 +6338,15 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        //XGM_startPlayPCM(SOUND_VOICE_DOCTORS , 13 , SOUND_PCM_CH3 );
+        if(G_RUN_DIRECTION == DIRECTION_BW)
+        {
+            XGM_startPlay(MUSIC_BOXING);
+        }
 
-        //XGM_startPlayPCM(SOUND_ENGINE_1 , 13 , SOUND_PCM_CH2 );
-
+        else
+        {
+            XGM_startPlayPCM(SOUND_CROWD , 15 , SOUND_PCM_CH2);
+        }
     }
 
 

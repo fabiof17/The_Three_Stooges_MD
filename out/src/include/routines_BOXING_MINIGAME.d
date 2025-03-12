@@ -16,4 +16,4 @@ out/src/include/routines_BOXING_MINIGAME.o: \
  C:/sgdk/inc/ext/flash-save/flash.h C:/sgdk/inc/types.h \
  C:/sgdk/inc/ext/flash-save/saveman.h src/include/custom_tools.h \
  src/include/structures.h src/include/variables.h res/maps_BOXING.h \
- src/include/tables_BOXING.h
+ src/include/tables_BOXING.h res/music.h

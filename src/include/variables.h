@@ -523,7 +523,7 @@
 #define SOUND_PIE_HIT                  104
 #define SOUND_PIE_WALL                 105
 
-#define SOUND_BOXING                   106
+#define SOUND_BOXING_1_2               106
 
 #define SOUND_TIRE                     107
 
@@ -541,7 +541,10 @@
 #define SOUND_KO                       117
 #define SOUND_HIT_OBSTACLE             118
 #define SOUND_HIT_LAMP                 119
-#define SOUND_HIT_GONG                 120
+#define SOUND_GONG                     120
+#define SOUND_SLIDE                    121
+#define SOUND_BOXING_3                 122
+#define SOUND_CROWD                    123
 
 
 
