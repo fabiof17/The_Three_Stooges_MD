@@ -1192,7 +1192,12 @@ inline static void collisions_ITEMS()
                         {
                             if(list_ITEM[i].pos_Y <= (list_CARS[j].pos_Y + 40))
                             {
-                                G_REWARD += list_ITEM[i].reward_ITEM;
+                                //G_REWARD += list_ITEM[i].reward_ITEM;
+
+                                // MOE : 5$
+                                // CURLY : 10$
+                                // LARRY : 15$
+                                G_REWARD += (5 * (j + 1));
 
                                 counter_REWARD_DOCTORS();
 

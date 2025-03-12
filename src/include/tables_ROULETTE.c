@@ -238,7 +238,7 @@ const u8        TABLE_HIGHSTREET[180]   =   {
                                                 ICON_SWATTER,
                                                 ICON_SWATTER,
                                                 ICON_TRIVIA,
-                                                
+
                                                 // DAY 23
                                                 ICON_DOLLAR,
                                                 ICON_SWATTER,

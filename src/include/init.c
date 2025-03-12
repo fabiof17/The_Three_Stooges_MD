@@ -145,7 +145,7 @@ void init_VARIABLES()
 
     else if(G_REEL == REEL_GAME)
     {
-        G_SCENE_TYPE = SCENE_BOXING_MINIGAME; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_CONTRACT_WAITERS
+        G_SCENE_TYPE = SCENE_ROULETTE; //SCENE_ROULETTE | SCENE_DOCTORS_MINIGAME | SCENE_CRACKERS_MINIGAME | SCENE_GAMEOVER | SCENE_BOXING_MINIGAME
     }
 
     else if(G_REEL == REEL_THE_END)
@@ -2855,7 +2855,7 @@ void init_SCENE()
             u8 trivia_TYPE  = random_NUMBER(14 , 15);
 
             // LOAD TRIVIA TYPE SCENE //
-            G_TRIVIA_TYPE    = trivia_TYPE;
+            G_TRIVIA_TYPE    = trivia_TYPE; // trivia_TYPE
         }
 
         //--------------------------------------------------------------------------------------//
@@ -6213,6 +6213,8 @@ void init_SCENE()
             larry_BOXING.pos_Y                  = TOP_BOUND;
 
             larry_BOXING.spr_LARRY_BOXING       = SPR_addSpriteEx(&tiles_SPR_LARRY_BOXING_FW, larry_BOXING.pos_X, larry_BOXING.pos_Y, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 50), SPR_FLAG_AUTO_TILE_UPLOAD); // 37 TILES
+
+            G_PHASE_SEQUENCE                    = BOXING_PHASE_RUN;
         }
 
         else
@@ -6221,11 +6223,13 @@ void init_SCENE()
             larry_BOXING.pos_Y                  = TOP_BOUND;
 
             larry_BOXING.spr_LARRY_BOXING       = SPR_addSpriteEx(&tiles_SPR_LARRY_BOXING_BW, larry_BOXING.pos_X, larry_BOXING.pos_Y, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 50), SPR_FLAG_AUTO_TILE_UPLOAD); // 37 TILES
+
+            G_PHASE_SEQUENCE                    = BOXING_PHASE_EXIT_STORE;
         }
 
 
 
-        larry_BOXING.state                  = LARRY_PHASE_RUN;//LARRY_PHASE_RUN
+        larry_BOXING.state                  = LARRY_PHASE_RUN;
 
         larry_BOXING.counter_SPRITE_FRAME   = 5;
         larry_BOXING.index_SPRITE_FRAME     = 0;
@@ -6320,7 +6324,7 @@ void init_SCENE()
         G_REWARD                = 0;
 
 
-        G_PHASE_SEQUENCE        = BOXING_PHASE_RUN;// BOXING_PHASE_RUN | BOXING_PHASE_EXIT_STORE
+        // BOXING_PHASE_RUN | BOXING_PHASE_EXIT_STORE
 
 
         G_SCENE                 = SCENE_FADE_IN;

@@ -5,8 +5,8 @@
 //**********************************************************************************//
 
 
-//WAV PCM_INTRO_SCREEN1           "sound/sound_INTRO_SCREEN1_LONG.wav" XGM
-WAV PCM_INTRO_SCREEN1           "sound/sound_INTRO_SCREEN1_LONG_v2.wav" XGM
+WAV PCM_INTRO_SCREEN1           "sound/sound_INTRO_SCREEN1_LONG.wav" XGM
+//WAV PCM_INTRO_SCREEN1           "sound/sound_INTRO_SCREEN1_LONG_v2.wav" XGM
 WAV PCM_MONEY_QUICK             "sound/sound_MONEY_QUICK.wav"        XGM
 
 

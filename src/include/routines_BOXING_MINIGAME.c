@@ -708,6 +708,10 @@ inline static void joypad_BOXING_MINIGAME_BW()
 
 
 
+
+
+
+
 inline static void collision_OBSTACLES_FW()
 {
     u8 i;
@@ -958,8 +962,6 @@ inline static void collision_OBSTACLES_FW()
         }
     }
 }
-
-
 
 
 inline static void collision_OBSTACLES_BW()

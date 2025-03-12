@@ -591,6 +591,17 @@ void sequence_TRIVIA_TYPE2()
             VDP_clearPlane(BG_A,TRUE);
 
             // RELEASE ALL SPRITES //
+            if(sprite_ICON_BANKER_1 != NULL)
+            {
+                SPR_releaseSprite(sprite_ICON_BANKER_1);
+                sprite_ICON_BANKER_1 = NULL;
+            }
+            if(sprite_ICON_BANKER_2 != NULL)
+            {
+                SPR_releaseSprite(sprite_ICON_BANKER_2);
+                sprite_ICON_BANKER_2 = NULL;
+            }
+
             SPR_reset();
 
             // DEFINE NEXT MINIGAME //
@@ -737,6 +748,17 @@ void sequence_TRIVIA_TYPE2()
                 VDP_clearPlane(BG_A,TRUE);
 
                 // RELEASE ALL SPRITES //
+                if(sprite_ICON_BANKER_1 != NULL)
+                {
+                    SPR_releaseSprite(sprite_ICON_BANKER_1);
+                    sprite_ICON_BANKER_1 = NULL;
+                }
+                if(sprite_ICON_BANKER_2 != NULL)
+                {
+                    SPR_releaseSprite(sprite_ICON_BANKER_2);
+                    sprite_ICON_BANKER_2 = NULL;
+                }
+
                 SPR_reset();
 
                 G_PHASE_SEQUENCE = 0;

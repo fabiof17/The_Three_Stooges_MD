@@ -165,6 +165,15 @@ void init_HUB()
         }
     }
 
+    /*if(sprite_ICON_BANKER_1 != NULL)
+    {
+        VDP_drawIntEx_BG_A_CPU(1,1,0,0,PAL2);
+    }
+    if(sprite_ICON_BANKER_2 != NULL)
+    {
+        VDP_drawIntEx_BG_A_CPU(2,1,0,1,PAL2);
+    }*/
+
 
     //--------------------------------------------------------------------------------------//
     //                                                                                      //
