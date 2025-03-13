@@ -64,8 +64,8 @@ const u8        TABLE_MINIGAMES[11]     =       {
 // LIST OF THE 180 ROULETTE ICONS (6 ICONS x 30 DAYS = 180)
 const u8        TABLE_HIGHSTREET[180]   =   {
                                                 // DAY 1
-                                                ICON_BOXING, //ICON_BOXING
-                                                ICON_SLAP, // ICON_SLAP
+                                                ICON_BOXING,
+                                                ICON_SLAP,
                                                 ICON_QUESTION,
                                                 ICON_SWATTER,
                                                 ICON_WAITERS,

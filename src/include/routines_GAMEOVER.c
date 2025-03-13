@@ -95,7 +95,7 @@ void sequence_GAMEOVER()
         {
             VDP_setTileMapEx(BG_A, image_GAMEOVER_DIALOG.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG), 15, 9, 0, 0, 12, 5, DMA_QUEUE);
             VDP_setTileMapEx(BG_A, image_GAMEOVER_FAIL_TEXT.tilemap, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, G_ADR_VRAM_DIALOG + image_GAMEOVER_DIALOG.tileset->numTile), 16, 10, 0, 3, 10, 3, DMA_QUEUE);
-        
+
             SPR_setPosition(sprite_ARROW_DIALOG , 150 , 112);
         }
 
@@ -246,7 +246,7 @@ void sequence_GAMEOVER()
 
             // GO TO THE END SEQUENCE //
             G_REEL          = REEL_THE_END;
-            
+
             G_SCENE         = SCENE_FADE_IN;
             G_SCENE_TYPE    = SCENE_THE_END;
             G_SCENE_NEXT    = SCENE_THE_END;
@@ -347,7 +347,7 @@ void sequence_GAMEOVER()
 
             // GO TO THE END SEQUENCE //
             G_REEL          = REEL_THE_END;
-            
+
             G_SCENE         = SCENE_FADE_IN;
             G_SCENE_TYPE    = SCENE_THE_END;
             G_SCENE_NEXT    = SCENE_THE_END;
@@ -473,6 +473,7 @@ void sequence_GAMEOVER()
             // CLEAR PLANES //
             VDP_clearPlane(BG_B,TRUE);
             VDP_clearPlane(BG_A,TRUE);
+            VDP_clearPlane(WINDOW,TRUE);
 
             // RELEASE ALL SPRITES //
             SPR_reset();
@@ -482,7 +483,7 @@ void sequence_GAMEOVER()
 
             // GO TO THE END SEQUENCE //
             G_REEL          = REEL_THE_END;
-            
+
             G_SCENE         = SCENE_FADE_IN;
             G_SCENE_TYPE    = SCENE_THE_END;
             G_SCENE_NEXT    = SCENE_THE_END;
@@ -493,7 +494,7 @@ void sequence_GAMEOVER()
 
 
     G_COUNTER_1 += 1;
-    
+
 
 }
 

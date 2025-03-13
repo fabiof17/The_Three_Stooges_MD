@@ -33,7 +33,7 @@ SPRITE tiles_SPR_CROWN_SH_INTRO_SCREEN_1        "sprites/intro/tiles_SPR_CROWN_S
 //                                      SCREEN 2                                    //
 //----------------------------------------------------------------------------------//
 
-SPRITE tiles_SPR_RADAR              "sprites/intro/tiles_SPR_RADAR.png"             20   12  NONE
+SPRITE tiles_SPR_RADAR              "sprites/intro/tiles_SPR_RADAR.png"             20   14  NONE
 
 
 

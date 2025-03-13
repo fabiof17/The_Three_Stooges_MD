@@ -122,13 +122,13 @@ void sequence_QUESTION_MARK()
     else if(G_COUNTER_1 == 679)
     {
         SPR_setFrame(sprite_STOOGES,36);
-        
+
         SPR_setFrame(sprite_ICE_CUBE,1);
 
         SPR_releaseSprite(sprite_ICE_CUBE_SHADOW);
         sprite_ICE_CUBE_SHADOW = NULL;
-    }    
-    
+    }
+
 
     // GO TO REWARD SCREEN //
     else if(G_COUNTER_1 == 810)
@@ -160,8 +160,8 @@ void sequence_QUESTION_MARK()
 
         return;
     }
-    
-    G_COUNTER_1 += 1; 
+
+    G_COUNTER_1 += 1;
 }
 
 

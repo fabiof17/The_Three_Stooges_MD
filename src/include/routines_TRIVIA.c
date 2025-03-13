@@ -515,15 +515,50 @@ void sequence_TRIVIA_TYPE1()
                 // 1 DAY SPENT //
                 G_DAY += 1;
 
-                // PRINT DAY NUMBER //
-                print_DAY();
+                if(G_DAY == 31)
+                {
+                    // FADE OUT : 40 FRAMES //
+                    PAL_fadeOutAll(40,FALSE);
 
-                // DISPLAY HUB //
-                display_HUB();
+                    // RESET SCROLLING //
+                    VDP_setVerticalScroll(BG_B , 0);
+                    VDP_setVerticalScroll(BG_A , 0);
 
-                G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
+                    // CLEAR PLANES //
+                    VDP_clearPlane(BG_B,TRUE);
+                    VDP_clearPlane(BG_A,TRUE);
 
-                G_SCENE = SCENE_ROULETTE;
+                    // RELEASE ALL SPRITES //
+                    SPR_reset();
+
+
+                    G_COUNTER_1             = 0;
+                    G_INDEX_1               = 0;
+                    G_INDEX_2               = 0;
+                    G_INDEX_3               = 0;
+
+
+                    G_SCENE             = SCENE_FADE_IN;
+                    G_SCENE_TYPE        = SCENE_GAMEOVER;
+                    G_SCENE_NEXT        = SCENE_GAMEOVER;
+
+                    G_SCENE_LOADED      = FALSE;
+
+                    return;
+                }
+
+                else
+                {
+                    // PRINT DAY NUMBER //
+                    print_DAY();
+
+                    // DISPLAY HUB //
+                    display_HUB();
+
+                    G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
+
+                    G_SCENE = SCENE_ROULETTE;
+                }
             }
         }
 
@@ -777,15 +812,50 @@ void sequence_TRIVIA_TYPE2()
                 // 1 DAY SPENT //
                 G_DAY += 1;
 
-                // PRINT DAY NUMBER //
-                print_DAY();
+                if(G_DAY == 31)
+                {
+                    // FADE OUT : 40 FRAMES //
+                    PAL_fadeOutAll(40,FALSE);
 
-                // DISPLAY HUB //
-                display_HUB();
+                    // RESET SCROLLING //
+                    VDP_setVerticalScroll(BG_B , 0);
+                    VDP_setVerticalScroll(BG_A , 0);
 
-                G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
+                    // CLEAR PLANES //
+                    VDP_clearPlane(BG_B,TRUE);
+                    VDP_clearPlane(BG_A,TRUE);
 
-                G_SCENE = SCENE_ROULETTE;
+                    // RELEASE ALL SPRITES //
+                    SPR_reset();
+
+
+                    G_COUNTER_1             = 0;
+                    G_INDEX_1               = 0;
+                    G_INDEX_2               = 0;
+                    G_INDEX_3               = 0;
+
+
+                    G_SCENE             = SCENE_FADE_IN;
+                    G_SCENE_TYPE        = SCENE_GAMEOVER;
+                    G_SCENE_NEXT        = SCENE_GAMEOVER;
+
+                    G_SCENE_LOADED      = FALSE;
+
+                    return;
+                }
+
+                else
+                {
+                    // PRINT DAY NUMBER //
+                    print_DAY();
+
+                    // DISPLAY HUB //
+                    display_HUB();
+
+                    G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
+
+                    G_SCENE = SCENE_ROULETTE;
+                }
             }
         }
 

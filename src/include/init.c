@@ -122,7 +122,7 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_LOGO | REEL_INTRO | REEL_GAME | REEL_THE_END
+    G_REEL = REEL_DISCLAIMER; // REEL_DISCLAIMER | REEL_INTRO | REEL_GAME | REEL_THE_END
 
 
 
@@ -133,14 +133,9 @@ void init_VARIABLES()
     //                                                                                      //
     //**************************************************************************************//
 
-    if(G_REEL == REEL_LOGO)
+    if(G_REEL == REEL_INTRO)
     {
-        G_SCENE_TYPE = SCENE_LOGO_SCREEN;
-    }
-
-    else if(G_REEL == REEL_INTRO)
-    {
-        G_SCENE_TYPE = SCENE_INTRO_SCREEN_7;
+        G_SCENE_TYPE = SCENE_INTRO_SCREEN_1;
     }
 
     else if(G_REEL == REEL_GAME)
@@ -200,7 +195,7 @@ void init_VARIABLES()
     G_STREET_TYPE               = STREET_TYPE_0;
     G_HIGHSTREET_POSITION       = 0;
 
-    G_DAY                       = 1;
+    G_DAY                       = 1;//1
 
     G_HAND_SPEED                = 30;
     G_FINGER_NUMBER             = 4;
@@ -608,7 +603,7 @@ void init_INTRO()
 
         VDP_setPlaneSize(64,32,FALSE);
 
-        SPR_initEx(460);
+        SPR_initEx(324);
 
         VDP_setHilightShadow(TRUE);
 
@@ -648,7 +643,9 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  -95, 154, TILE_ATTR(PAL2, TRUE, FALSE, FALSE)); // -95 , 142
+        //sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  -95, 154, TILE_ATTR(PAL2, TRUE, FALSE, FALSE)); // -95 , 142
+        sprite_STOOGES = SPR_addSpriteEx(&tiles_SPR_STOOGES_WALK, -95, 154, TILE_ATTR_FULL(PAL2, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 1), SPR_FLAG_AUTO_TILE_UPLOAD);
+
         SPR_setFrame(sprite_STOOGES,14);
 
 
@@ -836,7 +833,7 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_RADAR = SPR_addSprite(&tiles_SPR_RADAR,  160, 16, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+        sprite_RADAR = SPR_addSprite(&tiles_SPR_RADAR,  160, 0, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
 
 
 
@@ -912,7 +909,7 @@ void init_INTRO()
 
         VDP_setPlaneSize(64,32,FALSE);
 
-        SPR_initEx(200);
+        SPR_initEx(150);
 
         VDP_setHilightShadow(FALSE);
 
@@ -1057,7 +1054,7 @@ void init_INTRO()
 
         VDP_setPlaneSize(64,32,FALSE);
 
-        SPR_initEx(88);
+        SPR_initEx(1);
 
         VDP_setHilightShadow(FALSE);
 
@@ -1119,7 +1116,8 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        //sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        sprite_STOOGES = SPR_addSpriteEx(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 10), SPR_FLAG_AUTO_TILE_UPLOAD);
 
         SPR_update();
         SYS_doVBlankProcess();
@@ -1199,7 +1197,7 @@ void init_INTRO()
 
         VDP_setPlaneSize(64,32,FALSE);
 
-        SPR_initEx(100);
+        SPR_initEx(10);
 
         VDP_setHilightShadow(FALSE);
 
@@ -1261,7 +1259,8 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        //sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        sprite_STOOGES = SPR_addSpriteEx(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 1), SPR_FLAG_AUTO_TILE_UPLOAD);
 
         SPR_update();
         SYS_doVBlankProcess();
@@ -1336,7 +1335,7 @@ void init_INTRO()
 
         VDP_setPlaneSize(64,32,FALSE);
 
-        SPR_initEx(100);
+        SPR_initEx(1);
 
         VDP_setHilightShadow(FALSE);
 
@@ -1398,7 +1397,8 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        //sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        sprite_STOOGES = SPR_addSpriteEx(&tiles_SPR_STOOGES_WALK, -96, -64, TILE_ATTR_FULL(PAL3, TRUE, FALSE, FALSE, TILE_FONT_INDEX + 1), SPR_FLAG_AUTO_TILE_UPLOAD);
 
         SPR_update();
         SYS_doVBlankProcess();
@@ -1457,7 +1457,7 @@ void init_INTRO()
 
         VDP_setPlaneSize(64,32,FALSE);
 
-        SPR_initEx(170);
+        SPR_initEx(15);
 
         VDP_setHilightShadow(FALSE);
 
@@ -1561,8 +1561,11 @@ void init_INTRO()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_BANKER[0] = SPR_addSprite(&tiles_SPR_BANKER_PART2,   105, 132, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-        sprite_BANKER[1] = SPR_addSprite(&tiles_SPR_BANKER_PART1,   105, 132, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+        //sprite_BANKER[0] = SPR_addSprite(&tiles_SPR_BANKER_PART2,   105, 132, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+        //sprite_BANKER[1] = SPR_addSprite(&tiles_SPR_BANKER_PART1,   105, 132, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+
+        sprite_BANKER[0] = SPR_addSpriteEx(&tiles_SPR_BANKER_PART2, 105, 132, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 1), SPR_FLAG_AUTO_TILE_UPLOAD);
+        sprite_BANKER[1] = SPR_addSpriteEx(&tiles_SPR_BANKER_PART1, 105, 132, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 46), SPR_FLAG_AUTO_TILE_UPLOAD);
 
         SPR_setZ(sprite_BANKER[0] , 0);
         SPR_setZ(sprite_BANKER[1] , 1);
@@ -7429,16 +7432,18 @@ void init_SCENE()
         VDP_setPlaneSize(64,32,TRUE);
 
         // FAIL //
-        if(G_MONEY < 5000)
+        /*if(G_MONEY < 5000)
         {
-            SPR_initEx(170);
+            SPR_initEx(15);//170
         }
 
         // SUCCESS //
         else
         {
-            SPR_initEx(120);
-        }
+            SPR_initEx(15);//120
+        }*/
+
+        SPR_initEx(15);
 
         VDP_setHilightShadow(FALSE);
 
@@ -7719,7 +7724,8 @@ void init_SCENE()
         //                                                                                      //
         //--------------------------------------------------------------------------------------//
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  101, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        //sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  101, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        sprite_STOOGES = SPR_addSpriteEx(&tiles_SPR_STOOGES_WALK, 101, 147, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, 1664 + 40 + 9), SPR_FLAG_AUTO_TILE_UPLOAD);
 
 
         //--------------------------------------------------------------------------------------//
@@ -7738,8 +7744,11 @@ void init_SCENE()
             //                                     BANKER SPRITES                                   //
             //                                                                                      //
             //--------------------------------------------------------------------------------------//
-            sprite_BANKER[0] = SPR_addSprite(&tiles_SPR_BANKER_PART2,   118, 125, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
-            sprite_BANKER[1] = SPR_addSprite(&tiles_SPR_BANKER_PART1,   118, 125, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+            //sprite_BANKER[0] = SPR_addSprite(&tiles_SPR_BANKER_PART2,   118, 125, TILE_ATTR(PAL2, FALSE, FALSE, FALSE));
+            //sprite_BANKER[1] = SPR_addSprite(&tiles_SPR_BANKER_PART1,   118, 125, TILE_ATTR(PAL0, FALSE, FALSE, FALSE));
+
+            sprite_BANKER[0] = SPR_addSpriteEx(&tiles_SPR_BANKER_PART2, 118, 130, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, 1664), SPR_FLAG_AUTO_TILE_UPLOAD);
+            sprite_BANKER[1] = SPR_addSpriteEx(&tiles_SPR_BANKER_PART1, 118, 130, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, 1664 + 40), SPR_FLAG_AUTO_TILE_UPLOAD);
 
             SPR_setFrame(sprite_BANKER[0] , 3);
             SPR_setFrame(sprite_BANKER[1] , 2);
@@ -7749,7 +7758,7 @@ void init_SCENE()
         {
             SPR_setFrame(sprite_ARROW_DIALOG,1);
 
-            SPR_setPosition(sprite_STOOGES,55,142);
+            SPR_setPosition(sprite_STOOGES,55,147);
         }
 
 

@@ -225,8 +225,6 @@ int main(bool hardReset)
 
                     anim_INTRO_SCREEN_7();
 
-                    //VDP_drawIntEx_BG_A_QUEUE(G_COUNTER_1,4,0,0,PAL2);
-
                     SPR_update();
                     SYS_doVBlankProcess();
                 }

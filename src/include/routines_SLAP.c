@@ -491,7 +491,39 @@ void sequence_SLAP()
     {
         if(G_COUNTER_1 == 240)
         {
-            if(G_DAY < 31)
+            if(G_DAY == 31)
+            {
+                // FADE OUT : 40 FRAMES //
+                PAL_fadeOutAll(40,FALSE);
+
+                // RESET SCROLLING //
+                VDP_setVerticalScroll(BG_B , 0);
+                VDP_setVerticalScroll(BG_A , 0);
+
+                // CLEAR PLANES //
+                VDP_clearPlane(BG_B,TRUE);
+                VDP_clearPlane(BG_A,TRUE);
+
+                // RELEASE ALL SPRITES //
+                SPR_reset();
+
+
+                G_COUNTER_1             = 0;
+                G_INDEX_1               = 0;
+                G_INDEX_2               = 0;
+                G_INDEX_3               = 0;
+
+
+                G_SCENE             = SCENE_FADE_IN;
+                G_SCENE_TYPE        = SCENE_GAMEOVER;
+                G_SCENE_NEXT        = SCENE_GAMEOVER;
+
+                G_SCENE_LOADED      = FALSE;
+
+                return;
+            }
+
+            else
             {
                 // CLEAR SLAP HUB //
                 VDP_setTileMapEx(BG_B, image_SLAP_BG_B.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_B), 9, 34, 9, 6, 22, 8, DMA_QUEUE);
@@ -527,38 +559,6 @@ void sequence_SLAP()
                 G_SCENE = SCENE_ROULETTE;
 
                 G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
-
-                return;
-            }
-
-            else
-            {
-                // FADE OUT : 40 FRAMES //
-                PAL_fadeOutAll(40,FALSE);
-
-                // RESET SCROLLING //
-                VDP_setVerticalScroll(BG_B , 0);
-                VDP_setVerticalScroll(BG_A , 0);
-
-                // CLEAR PLANES //
-                VDP_clearPlane(BG_B,TRUE);
-                VDP_clearPlane(BG_A,TRUE);
-
-                // RELEASE ALL SPRITES //
-                SPR_reset();
-
-
-                G_COUNTER_1             = 0;
-                G_INDEX_1               = 0;
-                G_INDEX_2               = 0;
-                G_INDEX_3               = 0;
-
-
-                G_SCENE             = SCENE_FADE_IN;
-                G_SCENE_TYPE        = SCENE_GAMEOVER;
-                G_SCENE_NEXT        = SCENE_GAMEOVER;
-
-                G_SCENE_LOADED      = FALSE;
 
                 return;
             }

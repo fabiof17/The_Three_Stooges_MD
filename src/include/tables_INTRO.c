@@ -26,7 +26,7 @@
 //                                                                                      //
 //                                       SCREEN 1                                       //
 //                                                                                      //
-//**************************************************************************************// 
+//**************************************************************************************//
 
 const Palette           *TABLE_SCREEN_1_CYCLE[8]        =   {
                                                                 &palette_INTRO_SCREEN_1_0,
@@ -56,7 +56,7 @@ const Palette           *TABLE_SCREEN_1_CYCLE[8]        =   {
 //                                                                                      //
 //                                       SCREEN 5                                       //
 //                                                                                      //
-//**************************************************************************************// 
+//**************************************************************************************//
 
 //--------------------------------------------------------------------------------------//
 //                                                                                      //
@@ -220,7 +220,7 @@ const struct_WALK_STOOGES_              TABLE_ANIM_STOOGES_SCREEN_4[52]     =   
                                                                                     {  181 ,  5 ,  80 },
                                                                                     {  189 ,  6 ,  86 },
                                                                                     {  198 ,  7 ,  95 },
-                                                                                    
+
                                                                                     {  207 ,  0 , 103 },
                                                                                     {  216 ,  1 , 109 },
                                                                                     {  224 ,  2 , 117 },
@@ -364,7 +364,7 @@ const struct_ANIM_GRANDMA_      TABLE_ANIM_GRANDMA_SCREEN_7_3[33]       =   {
                                                                                 { 2152 , &image_GRANDMA_INTRO_BG_B_STEP1 , &image_GRANDMA_INTRO_BG_A_STEP1 },
                                                                                 { 2159 , &image_GRANDMA_INTRO_BG_B_STEP2 , &image_GRANDMA_INTRO_BG_A_STEP2 },
                                                                                 { 2173 , &image_GRANDMA_INTRO_BG_B_STEP1 , &image_GRANDMA_INTRO_BG_A_STEP1 },
-                                                                                { 2181 , &image_GRANDMA_INTRO_BG_B_STEP2 , &image_GRANDMA_INTRO_BG_A_STEP2 }   
+                                                                                { 2181 , &image_GRANDMA_INTRO_BG_B_STEP2 , &image_GRANDMA_INTRO_BG_A_STEP2 }
                                                                             };
 
 
@@ -457,7 +457,7 @@ void anim_INTRO_SCREEN_1()
     if(G_COUNTER_1 == 720) // 870 : SHORT
     {
         XGM_stopPlay();
-        
+
         XGM_startPlayPCM(SOUND_INTRO_SCREEN1,15,SOUND_PCM_CH4);
     }
 
@@ -472,7 +472,7 @@ void anim_INTRO_SCREEN_1()
         G_INDEX_3               = 0;
 
         G_INDEX_PALETTE_CYCLE   = 0;
-        
+
         // GO TO FADE OUT SEQUENCE //
         G_SCENE     = SCENE_FADE_OUT;
 
@@ -499,7 +499,7 @@ void anim_INTRO_SCREEN_2()
     if(G_INDEX_1 == 0)
     {
         SPR_setFrame(sprite_RADAR,0);
-        SPR_setPosition(sprite_RADAR,160,16);
+        SPR_setPosition(sprite_RADAR,160,0);
 
         XGM_startPlayPCM(SOUND_BIP,15,SOUND_PCM_CH4);
     }
@@ -549,7 +549,7 @@ void anim_INTRO_SCREEN_2()
     else if(G_INDEX_1 == 44)
     {
         SPR_setFrame(sprite_RADAR,2);
-        SPR_setPosition(sprite_RADAR,0,16);
+        SPR_setPosition(sprite_RADAR,0,0);
     }
 
     else if(G_INDEX_1 == 48)
@@ -565,7 +565,7 @@ void anim_INTRO_SCREEN_2()
     else if(G_INDEX_1 == 59)
     {
         SPR_setFrame(sprite_RADAR,6);
-        SPR_setPosition(sprite_RADAR,158,16);
+        SPR_setPosition(sprite_RADAR,158,0);
         SPR_setHFlip(sprite_RADAR,FALSE);
     }
 
@@ -589,7 +589,7 @@ void anim_INTRO_SCREEN_2()
 
         XGM_startPlayPCM(SOUND_BIP,15,SOUND_PCM_CH4);
     }
-    
+
     // DISPLAY NUMBER 3 //
     else if(G_COUNTER_1 == 130)
     {
@@ -597,8 +597,8 @@ void anim_INTRO_SCREEN_2()
         VDP_setTileMapEx(BG_A, image_INTRO_SCREEN_2_BG_A3.tilemap, TILE_ATTR_FULL(PAL0, TRUE, FALSE, FALSE, G_ADR_VRAM_BG_A + image_INTRO_SCREEN_2_BG_A.tileset->numTile), 12, 5, 0, 0, 17, 18, DMA_QUEUE);
 
         XGM_startPlayPCM(SOUND_BIP,15,SOUND_PCM_CH4);
-    }    
-    
+    }
+
 
 
 
@@ -609,7 +609,7 @@ void anim_INTRO_SCREEN_2()
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
-        
+
         // GO TO FADE OUT SEQUENCE //
         G_SCENE     = SCENE_FADE_OUT;
 
@@ -637,7 +637,7 @@ void anim_INTRO_SCREEN_3_0()
     else if(G_COUNTER_1 == 201)
     {
         VDP_setHorizontalScrollVSync(BG_A , 0);
-        
+
         SPR_setFrame(sprite_STOOGES,0);
 
         // REINIT COUNTER //
@@ -685,7 +685,7 @@ void anim_INTRO_SCREEN_3_1()
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
-        
+
         // GO TO FADE OUT SEQUENCE //
         G_SCENE     = SCENE_FADE_OUT;
 
@@ -742,7 +742,7 @@ void anim_INTRO_SCREEN_4_5_6()
         G_INDEX_1               = 0;
         G_INDEX_2               = 0;
         G_INDEX_3               = 0;
-        
+
         // GO TO FADE OUT SEQUENCE //
         G_SCENE     = SCENE_FADE_OUT;
 
@@ -764,7 +764,7 @@ void anim_INTRO_SCREEN_7_0()
         SPR_setFrame( sprite_BANKER[0] , 1 );
         SPR_setFrame( sprite_BANKER[1] , 1 );
     }
-    
+
     else if(G_COUNTER_1 == 61)
     {
         SPR_setFrame( sprite_BANKER[0] , 0 );
@@ -781,31 +781,31 @@ void anim_INTRO_SCREEN_7_0()
     {
         SPR_setFrame( sprite_BANKER[0] , 0 );
         SPR_setFrame( sprite_BANKER[1] , 0 );
-    }    
-    
+    }
+
     else if(G_COUNTER_1 == 94)
     {
         SPR_setFrame( sprite_BANKER[0] , 1 );
         SPR_setFrame( sprite_BANKER[1] , 1 );
-    }    
+    }
 
     else if(G_COUNTER_1 == 112)
     {
         SPR_setFrame( sprite_BANKER[0] , 0 );
         SPR_setFrame( sprite_BANKER[1] , 0 );
-    }  
+    }
 
     else if(G_COUNTER_1 == 129)
     {
         SPR_setFrame( sprite_BANKER[0] , 1 );
         SPR_setFrame( sprite_BANKER[1] , 1 );
-    }   
+    }
 
     else if(G_COUNTER_1 == 171)
     {
         SPR_setFrame( sprite_BANKER[0] , 0 );
         SPR_setFrame( sprite_BANKER[1] , 0 );
-    } 
+    }
 
     else if(G_COUNTER_1 == 197)
     {
@@ -814,7 +814,7 @@ void anim_INTRO_SCREEN_7_0()
     }
 
 
-    // TRIGGER EVIL LAUGH // 
+    // TRIGGER EVIL LAUGH //
     else if(G_COUNTER_1 == 345)
     {
         XGM_startPlayPCM(SOUND_BANKER_LAUGH,15,SOUND_PCM_CH4);
@@ -832,7 +832,7 @@ void anim_INTRO_SCREEN_7_0()
 
         // SKIP COUNTER INCREMENT //
         return;
-    } 
+    }
 
 
     G_COUNTER_1 += 1;
@@ -843,7 +843,7 @@ void anim_INTRO_SCREEN_7_1()
 {
     // BANKER ANIMATION //
     if(G_COUNTER_1%5 == TRUE)
-    {    
+    {
         s16 pos_X_SPRITE = SPR_getPositionX(sprite_BANKER[0]);
 
         SPR_setPosition( sprite_BANKER[0] , pos_X_SPRITE + TABLE_BANKER_WALK[G_INDEX_2] , 132 );
@@ -890,8 +890,9 @@ void anim_INTRO_SCREEN_7_1()
         sprite_BANKER[0]    = NULL;
         sprite_BANKER[1]    = NULL;
 
-        sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  -95, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
-        
+        //sprite_STOOGES = SPR_addSprite(&tiles_SPR_STOOGES_WALK,  -95, 142, TILE_ATTR(PAL3, FALSE, FALSE, FALSE));
+        sprite_STOOGES = SPR_addSpriteEx(&tiles_SPR_STOOGES_WALK, -95, 142, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, TILE_FONT_INDEX + 1), SPR_FLAG_AUTO_TILE_UPLOAD);
+
         // REINIT COUNTER //
         G_COUNTER_1   = 0;
 
@@ -908,7 +909,7 @@ void anim_INTRO_SCREEN_7_1()
 
         //XGM_setLoopNumber(1);
         XGM_startPlay(MUSIC_GRANDMA);
-        
+
         // SKIP COUNTER INCREMENT //
         return;
     }
@@ -964,7 +965,7 @@ void anim_INTRO_SCREEN_7_2()
 
     // GO TO NEXT ANIMATION //
     else if(G_COUNTER_1 == 401)
-    {        
+    {
         // REINIT COUNTER //
         G_COUNTER_1   = 0;
 
@@ -1026,7 +1027,7 @@ void anim_INTRO_SCREEN_7_3()
     }
 
 
-    
+
 
     // WHAT'S THE MATTER LADY ? //
     if(G_COUNTER_1 == 0)
@@ -1093,7 +1094,7 @@ void anim_INTRO_SCREEN_7_3()
         G_INDEX_1   = 0;
         G_INDEX_2   = 0;
         G_INDEX_3   = 0;
-        
+
         // GO TO FADE OUT SEQUENCE //
         G_SCENE     = SCENE_FADE_OUT;
 

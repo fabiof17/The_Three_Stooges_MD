@@ -197,7 +197,7 @@ void anim_INTRO_SCREEN_7()
     (*ptr_ANIM_INTRO)();
 
 
-    
+
 }
 
 

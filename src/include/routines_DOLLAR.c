@@ -50,7 +50,7 @@ void sequence_DOLLAR()
         if(G_INDEX_3 < 30)
         {
             G_INDEX_3 += 1;
-        }        
+        }
     }
 
 
@@ -122,8 +122,45 @@ void sequence_DOLLAR()
 
     else if(G_COUNTER_1 == 760)
     {
+        // IF THE 30 DAYS AVAILABLE HAVE BEEN SPENT //
+        if(G_DAY == 31)
+        {
+            // FADE OUT : 40 FRAMES //
+            PAL_fadeOutAll(40,FALSE);
+
+            // RESET SCROLLING //
+            VDP_setVerticalScroll(BG_B , 0);
+            VDP_setVerticalScroll(BG_A , 0);
+
+            // CLEAR PLANES //
+            VDP_clearPlane(BG_B,TRUE);
+            VDP_clearPlane(BG_A,TRUE);
+
+            // RELEASE ALL SPRITES //
+            SPR_reset();
+
+
             G_POS_Y_CAMERA = 0;
-            
+
+            G_COUNTER_1             = 0;
+            G_INDEX_1               = 0;
+            G_INDEX_2               = 0;
+            G_INDEX_3               = 0;
+
+
+            G_SCENE             = SCENE_FADE_IN;
+            G_SCENE_TYPE        = SCENE_GAMEOVER;
+            G_SCENE_NEXT        = SCENE_GAMEOVER;
+
+            G_SCENE_LOADED      = FALSE;
+
+            return;
+        }
+
+        else
+        {
+            G_POS_Y_CAMERA = 0;
+
             // DISPLAY HUB //
             display_HUB();
 
@@ -142,6 +179,7 @@ void sequence_DOLLAR()
             G_PHASE_SEQUENCE = ROULETTE_PHASE_READY;
 
             return;
+        }
     }
 
 
