@@ -56,5 +56,6 @@ extern const u8 PCM_HIT_LAMP[9728];
 extern const u8 PCM_GONG[9984];
 extern const u8 PCM_SLIDE[11264];
 extern const u8 PCM_CROWD[28672];
+extern const u8 PCM_FOOT_STEP[2816];
 
 #endif // _RES_SOUND_H_

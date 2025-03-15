@@ -436,6 +436,7 @@ void init_VARIABLES()
     XGM_setPCM(SOUND_GONG , PCM_GONG , sizeof(PCM_GONG));
     XGM_setPCM(SOUND_SLIDE , PCM_SLIDE , sizeof(PCM_SLIDE));
     XGM_setPCM(SOUND_CROWD , PCM_CROWD , sizeof(PCM_CROWD));
+    XGM_setPCM(SOUND_FOOT_STEP , PCM_FOOT_STEP , sizeof(PCM_FOOT_STEP));
 }
 
 
@@ -3423,7 +3424,7 @@ void init_SCENE()
         bool random_luck = random_NUMBER(0,19);
 
         G_LUCK = TABLE_LUCK[random_luck];
-        //G_LUCK = FALSE;
+        //G_LUCK = TRUE;
 
         // STOOGES GET A REWARD //
         if(G_LUCK == TRUE)

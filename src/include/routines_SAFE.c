@@ -31,6 +31,7 @@ void sequence_CONTRACT_SAFE()
         G_COUNTER_1 += 1;
     }
 
+
     else if(G_PHASE_SEQUENCE == CONTRACT_PHASE_FADE_OUT)
     {
         // FADE OUT : 40 FRAMES //
@@ -148,7 +149,7 @@ void sequence_SAFE()
     else if(G_COUNTER_1 == 655)//1195
     {
         SPR_setFrame(sprite_STOOGES,36);
-        
+
         if(G_LUCK == TRUE)
         {
             SPR_setFrame(sprite_CHEST,2);
@@ -158,8 +159,8 @@ void sequence_SAFE()
         {
             SPR_setFrame(sprite_CHEST,3);
         }
-    }    
-    
+    }
+
 
     // GO TO REWARD SCREEN //
     else if(G_COUNTER_1 == 810)
@@ -191,8 +192,8 @@ void sequence_SAFE()
 
         return;
     }
-    
-    G_COUNTER_1 += 1; 
+
+    G_COUNTER_1 += 1;
 }
 
 

@@ -75,4 +75,6 @@ WAV PCM_GONG                    "sound/sound_GONG.wav"              XGM
 WAV PCM_SLIDE                   "sound/sound_SLIDE.wav"             XGM
 WAV PCM_CROWD                   "sound/sound_CROWD.wav"             XGM
 
+WAV PCM_FOOT_STEP               "sound/sound_FOOT_STEP.wav"         XGM
+
 

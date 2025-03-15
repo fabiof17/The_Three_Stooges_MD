@@ -545,6 +545,7 @@
 #define SOUND_SLIDE                    121
 #define SOUND_BOXING_3                 122
 #define SOUND_CROWD                    123
+#define SOUND_FOOT_STEP                124
 
 
 

@@ -282,6 +282,15 @@ inline static void anim_LARRY()
 
             larry_BOXING.counter_SPRITE_FRAME = 0;
 
+            if(G_RUN_DIRECTION == DIRECTION_FW)
+            {
+                if(larry_BOXING.index_SPRITE_FRAME == 2 || larry_BOXING.index_SPRITE_FRAME == 6)
+                {
+                    // PLAY FOOT STEP SOUND //
+                    XGM_startPlayPCM(SOUND_FOOT_STEP,15,SOUND_PCM_CH4);
+                }
+            }
+
             return;
         }
 
