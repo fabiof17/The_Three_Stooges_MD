@@ -257,7 +257,7 @@ void sequence_BOXING_SCREEN_TYPE_2()
 
 void sequence_BOXING_SCREEN_TYPE_3()
 {
-    if(G_COUNTER_1 == 420)
+    if(G_COUNTER_1 == 300)
     {
         // FADE OUT : 40 FRAMES //
         PAL_fadeOutAll(40,FALSE);
